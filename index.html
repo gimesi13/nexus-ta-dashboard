@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexus TA Dashboard</title>
+  <meta name="description" content="Test Automation dashboard for the Nexus API regression suite." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="hero">
+    <div class="badge">Test Automation</div>
+    <h1>Nexus TA Dashboard</h1>
+    <p class="tagline">Visibility into the Nexus API regression test automation — coverage, runs, and health, all in one place.</p>
+    <p class="status"><span class="dot"></span> Hello world — this site is live. Content coming soon.</p>
+    <footer>
+      <span id="built"></span>
+    </footer>
+  </main>
+  <script>
+    document.getElementById('built').textContent =
+      'Deployed ' + new Date().toISOString().slice(0, 10);
+  </script>
+</body>
+</html>
