@@ -3,73 +3,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexus TA Dashboard</title>
+  <title>Overview · Nexus TA Dashboard</title>
   <meta name="description" content="Test Automation dashboard for the Nexus API regression suite." />
-  <link rel="stylesheet" href="styles.css?v=20260715" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 <body>
-  <header class="gh-header">
-    <div class="gh-header-inner">
-      <svg class="gh-mark" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true">
-        <path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/>
-      </svg>
-      <span class="gh-breadcrumb">
-        <a href="https://github.com/gimesi13/nexus-ta-dashboard">gimesi13</a>
-        <span class="sep">/</span>
-        <a href="https://github.com/gimesi13/nexus-ta-dashboard"><strong>nexus-ta-dashboard</strong></a>
-      </span>
-      <span class="gh-badge-public">Public</span>
-    </div>
-  </header>
-
-  <nav class="gh-tabs">
-    <div class="gh-tabs-inner">
-      <a class="tab selected" href="#"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z"/></svg> Overview</a>
-      <a class="tab" href="inventory.html"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"/></svg> Test Inventory</a>
-      <a class="tab" href="#"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0Zm14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/></svg> Coverage</a>
-      <a class="tab" href="#"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7.25-3.25v3.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75V4.75a.75.75 0 0 1 1.5 0Z"/></svg> Nightly Run</a>
-      <a class="tab" href="#"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M7.998 14.5c2.832 0 5-1.98 5-4.5 0-1.463-.68-2.19-1.879-3.383l-.036-.037c-1.013-1.008-2.303-2.293-2.71-4.856-.582.362-1.66 1.017-2.5 2.117-.62.812-1.13 1.876-1.32 3.2-.297-.117-.585-.28-.86-.494a3.6 3.6 0 0 1-.354-.317c-.28.7-.443 1.463-.443 2.25 0 2.52 2.168 4.5 5 4.5ZM8 0c.532.114.856.36 1.318.798.756.716 1.685 1.925 1.685 3.202 0 .21.144.397.35.446.144.035.29.05.427.05.531 0 1.048-.15 1.5-.435.13.4.245.85.245 1.439 0 3.322-2.686 6-6 6-3.313 0-6-2.678-6-6C1.5 3.5 5 0 8 0Z"/></svg> Flaky</a>
-      <a class="tab" href="#"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM4.75 6.5a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5Zm0 3a.75.75 0 0 0 0 1.5h3.5a.75.75 0 0 0 0-1.5Z"/></svg> AI Platform Work</a>
-    </div>
-  </nav>
-
-  <main class="gh-container">
-    <div class="gh-box">
-      <div class="gh-box-header">
-        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Z"/></svg>
-        <strong>README.md</strong>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">N</div>
+        <div>
+          <div class="brand-name">Nexus TA</div>
+          <div class="brand-sub">Dashboard</div>
+        </div>
       </div>
-      <div class="gh-box-body markdown">
-        <h1>Nexus TA Dashboard</h1>
-        <p><span class="label label-green">● Live</span> A single place to see everything about the Nexus API
-        regression test-automation work &mdash; and the AI platform engineering tasks alongside it.</p>
-
-        <blockquote>
-          <strong>Status: bootstrap.</strong> The site is live and styled. Content sections below are
-          planned and being built out next.
-        </blockquote>
-
-        <h2>Planned sections</h2>
-        <ul class="checklist">
-          <li><input type="checkbox" checked disabled /> <strong><a href="inventory.html">Test-case inventory</a></strong> &mdash; every spock feature, searchable by suite/tag/owner <span class="label label-green">shipped</span></li>
-          <li><input type="checkbox" disabled /> <strong>Coverage</strong> &mdash; endpoint &amp; feature coverage, with trustworthy source-of-truth data</li>
-          <li><input type="checkbox" disabled /> <strong>Nightly run report</strong> &mdash; latest results fetched from TeamCity</li>
-          <li><input type="checkbox" disabled /> <strong>Flaky tests</strong> &mdash; tracked and ranked</li>
-          <li><input type="checkbox" disabled /> <strong>AI platform work</strong> &mdash; log of AI platform engineering tasks delivered</li>
-        </ul>
-
-        <p class="muted" id="built"></p>
+      <nav class="nav">
+        <div class="nav-group">
+          <div class="nav-group-label">Dashboard</div>
+          <a class="nav-item active" href="index.html">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z"/></svg>
+            Overview
+          </a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-group-label">Tests</div>
+          <a class="nav-item" href="inventory.html">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"/></svg>
+            Test Inventory
+          </a>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0Zm14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/></svg>
+            Coverage <span class="soon">soon</span>
+          </a>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7.25-3.25v3.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75V4.75a.75.75 0 0 1 1.5 0Z"/></svg>
+            Nightly Run <span class="soon">soon</span>
+          </a>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.998 14.5c2.832 0 5-1.98 5-4.5 0-1.463-.68-2.19-1.879-3.383l-.036-.037c-1.013-1.008-2.303-2.293-2.71-4.856-.582.362-1.66 1.017-2.5 2.117-.62.812-1.13 1.876-1.32 3.2-.297-.117-.585-.28-.86-.494a3.6 3.6 0 0 1-.354-.317c-.28.7-.443 1.463-.443 2.25 0 2.52 2.168 4.5 5 4.5Z"/></svg>
+            Flaky <span class="soon">soon</span>
+          </a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-group-label">Engineering</div>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM4.75 6.5a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5Zm0 3a.75.75 0 0 0 0 1.5h3.5a.75.75 0 0 0 0-1.5Z"/></svg>
+            AI Platform Work <span class="soon">soon</span>
+          </a>
+        </div>
+      </nav>
+      <div class="sidebar-bottom">
+        <a class="invite" href="https://github.com/gimesi13/nexus-ta-dashboard" target="_blank" rel="noopener">View repo</a>
+        <div class="profile">
+          <div class="avatar">G</div>
+          <div>
+            <div class="profile-name">Gergely Gimesi</div>
+            <div class="profile-sub">Dynata</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </main>
+    </aside>
 
-  <footer class="gh-footer">
-    <span>Nexus TA Dashboard &middot; hosted on GitHub Pages</span>
-  </footer>
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1 class="page-title">Overview</h1>
+          <p class="page-sub">Visibility into the Nexus API regression test automation.</p>
+        </div>
+        <span class="pill pill-live"><span class="dot"></span> Live</span>
+      </header>
+
+      <div class="content">
+        <div class="kpi-strip" id="kpis">
+          <div class="kpi"><div class="kpi-num" id="kpi-cases">&mdash;</div><div class="kpi-label">Test cases</div></div>
+          <div class="kpi"><div class="kpi-num" id="kpi-params">&mdash;</div><div class="kpi-label">With parameters</div></div>
+          <div class="kpi"><div class="kpi-num" id="kpi-specs">&mdash;</div><div class="kpi-label">Specs</div></div>
+          <div class="kpi"><div class="kpi-num" id="kpi-areas">&mdash;</div><div class="kpi-label">Areas</div></div>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card">
+            <h2 class="card-title">Test-Case Inventory</h2>
+            <p class="card-sub">Every Spock feature, searchable by suite, tag and owner &mdash; generated directly from source.</p>
+            <a class="link-row" href="inventory.html">Open inventory &rarr;</a>
+          </div>
+          <div class="card">
+            <h2 class="card-title">Data source</h2>
+            <p class="card-sub">Parsed from <span class="cell-mono">*TestSteps.groovy</span> in the regression module. Refreshed via the in-module generator; no manual entry.</p>
+            <span class="pill" id="gen-stamp">Loading&hellip;</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">Roadmap</h2>
+          <p class="card-sub">Sections are built incrementally. See ROADMAP.md for the full plan.</p>
+          <ul class="checklist">
+            <li>
+              <span class="check done">&#10003;</span>
+              <div>
+                <div class="item-title"><a href="inventory.html">Test-case inventory</a><span class="chip">shipped</span></div>
+                <div class="item-desc">Searchable inventory of every regression test case.</div>
+              </div>
+            </li>
+            <li>
+              <span class="check"></span>
+              <div>
+                <div class="item-title">Coverage<span class="chip chip-soon">planned</span></div>
+                <div class="item-desc">Endpoint &amp; feature coverage with trustworthy, transparent data.</div>
+              </div>
+            </li>
+            <li>
+              <span class="check"></span>
+              <div>
+                <div class="item-title">Nightly run report<span class="chip chip-soon">planned</span></div>
+                <div class="item-desc">Latest results fetched from TeamCity, with a pass-rate trend.</div>
+              </div>
+            </li>
+            <li>
+              <span class="check"></span>
+              <div>
+                <div class="item-title">Flaky tests<span class="chip chip-soon">planned</span></div>
+                <div class="item-desc">Tracked and ranked by flake rate.</div>
+              </div>
+            </li>
+            <li>
+              <span class="check"></span>
+              <div>
+                <div class="item-title">AI platform work<span class="chip chip-soon">planned</span></div>
+                <div class="item-desc">Log of AI platform engineering tasks delivered.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </div>
 
   <script>
-    document.getElementById('built').textContent =
-      'Deployed ' + new Date().toISOString().slice(0, 10);
+    fetch("data/inventory.json", { cache: "no-cache" })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (d) {
+        document.getElementById("kpi-cases").textContent = d.features;
+        document.getElementById("kpi-params").textContent = d.cases;
+        document.getElementById("kpi-specs").textContent = d.specs;
+        document.getElementById("kpi-areas").textContent = d.areas;
+        document.getElementById("gen-stamp").textContent = "Generated " + d.generatedAt + " · from " + d.source;
+      })
+      .catch(function () {
+        document.getElementById("gen-stamp").textContent = "Data unavailable";
+      });
   </script>
 </body>
 </html>
