@@ -1,23 +1,48 @@
 # Nexus TA Dashboard
 
-A live dashboard for the **Nexus API regression test automation** work — built to give the team
-(and anyone interested) visibility into test coverage, runs, and suite health.
-
-> Status: **first feature shipped** — a searchable Test-Case Inventory. See [ROADMAP.md](ROADMAP.md)
-> for the full plan.
+Live dashboard for the **Nexus API regression test automation** work (and the AI platform
+engineering tasks alongside it). The **source of truth lives here, inside the module**, so data can
+be regenerated straight from the specs as part of the normal workflow; a publish step pushes the
+generated static site to a free public GitHub Pages repo.
 
 ## Live site
 
-Hosted on GitHub Pages: https://gimesi13.github.io/nexus-ta-dashboard/
+https://gimesi13.github.io/nexus-ta-dashboard/
 
-## Local preview
+## How it works
 
-It's a static site — just open `index.html` in a browser, or serve the folder:
+```
+src/test/groovy/**/*TestSteps.groovy   (specs, read in place)
+        |
+        v
+dashboard/tools/generate_inventory.py  ->  dashboard/data/inventory.json
+        |
+        v
+dashboard/*.html + *.js  --(tools/publish.sh)-->  public Pages repo  ->  GitHub Pages (live)
+```
+
+- **In-module source** — everything under `dashboard/` is versioned in the monorepo with the tests.
+- **Static + generated** — Python generators emit JSON; a plain static site renders it (no backend,
+  no build step).
+- **Public hosting stays free** — the monorepo is private, so the built site is published to the
+  public `gimesi13/nexus-ta-dashboard` repo, which serves GitHub Pages.
+
+## Refresh the data
+
+Run from the `dashboard/` folder (self-locating: it finds the module automatically):
 
 ```bash
-python3 -m http.server 8000
-# then visit http://localhost:8000
+python3 tools/generate_inventory.py
 ```
+
+## Publish (refresh data + deploy live)
+
+```bash
+tools/publish.sh
+```
+
+Overridable via env vars: `PAGES_REPO_DIR` (local checkout of the Pages repo, default
+`~/IdeaProjects/nexus-ta-dashboard`) and `PAGES_REPO_URL`.
 
 ## Structure
 
@@ -25,16 +50,6 @@ python3 -m http.server 8000
 - `inventory.html` + `inventory.js` — Test-Case Inventory (searchable/filterable table)
 - `styles.css` — GitHub dark-mode styling
 - `data/inventory.json` — generated inventory data (served by the site)
-- `tools/generate_inventory.py` — parses the module's `*TestSteps.groovy` into `data/inventory.json`
-
-## Regenerating the inventory
-
-```bash
-python3 tools/generate_inventory.py            # uses the default local module checkout
-python3 tools/generate_inventory.py --module-root /path/to/NexusApiRegressionTests
-```
-
-## Roadmap
-
-See [ROADMAP.md](ROADMAP.md) for the full plan (coverage, nightly run, flaky tracker,
-AI platform work log, and more).
+- `tools/generate_inventory.py` — parses `*TestSteps.groovy` into `data/inventory.json`
+- `tools/publish.sh` — regenerates data and pushes the static site to the Pages repo
+- `ROADMAP.md` — full plan (coverage, nightly run, flaky tracker, AI platform work log, and more)
