@@ -3,8 +3,8 @@
 A live dashboard for the **Nexus API regression test automation** work — built to give the team
 (and anyone interested) visibility into test coverage, runs, and suite health.
 
-> Status: **hello-world / bootstrap**. This is the seed of the dashboard; content and data wiring
-> are being planned next.
+> Status: **first feature shipped** — a searchable Test-Case Inventory. See [ROADMAP.md](ROADMAP.md)
+> for the full plan.
 
 ## Live site
 
@@ -21,10 +21,20 @@ python3 -m http.server 8000
 
 ## Structure
 
-- `index.html` — landing page
-- `styles.css` — styling
+- `index.html` — overview / landing page
+- `inventory.html` + `inventory.js` — Test-Case Inventory (searchable/filterable table)
+- `styles.css` — GitHub dark-mode styling
+- `data/inventory.json` — generated inventory data (served by the site)
+- `tools/generate_inventory.py` — parses the module's `*TestSteps.groovy` into `data/inventory.json`
+
+## Regenerating the inventory
+
+```bash
+python3 tools/generate_inventory.py            # uses the default local module checkout
+python3 tools/generate_inventory.py --module-root /path/to/NexusApiRegressionTests
+```
 
 ## Roadmap
 
-Planning in progress. Candidate sections: test coverage overview, latest CI/regression run
-results, flaky-test tracker, coverage gaps, and links to Jira/TeamCity.
+See [ROADMAP.md](ROADMAP.md) for the full plan (coverage, nightly run, flaky tracker,
+AI platform work log, and more).
