@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coverage · Nexus TA Dashboard</title>
+  <meta name="description" content="Nexus API endpoint coverage — prioritized gaps from OpenAPI vs regression tests." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=54" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">N</div>
+        <div>
+          <div class="brand-name">Nexus TA</div>
+          <div class="brand-sub">Dashboard</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <div class="nav-group">
+          <div class="nav-group-label">Dashboard</div>
+          <a class="nav-item" href="index.html">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z"/></svg>
+            Overview
+          </a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-group-label">Tests</div>
+          <a class="nav-item" href="inventory.html">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"/></svg>
+            Test Inventory
+          </a>
+          <a class="nav-item active" href="coverage.html">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0Zm14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/></svg>
+            Coverage
+          </a>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7.25-3.25v3.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75V4.75a.75.75 0 0 1 1.5 0Z"/></svg>
+            Nightly Run <span class="soon">soon</span>
+          </a>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.998 14.5c2.832 0 5-1.98 5-4.5 0-1.463-.68-2.19-1.879-3.383l-.036-.037c-1.013-1.008-2.303-2.293-2.71-4.856-.582.362-1.66 1.017-2.5 2.117-.62.812-1.13 1.876-1.32 3.2-.297-.117-.585-.28-.86-.494a3.6 3.6 0 0 1-.354-.317c-.28.7-.443 1.463-.443 2.25 0 2.52 2.168 4.5 5 4.5Z"/></svg>
+            Flaky <span class="soon">soon</span>
+          </a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-group-label">Engineering</div>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM4.75 6.5a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5Zm0 3a.75.75 0 0 0 0 1.5h3.5a.75.75 0 0 0 0-1.5Z"/></svg>
+            AI Platform Work <span class="soon">soon</span>
+          </a>
+        </div>
+      </nav>
+      <div class="sidebar-bottom">
+        <a class="invite" href="https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt?mode=builds" target="_blank" rel="noopener">
+          Open in TeamCity
+        </a>
+      </div>
+    </aside>
+
+    <div class="nav-backdrop" id="nav-backdrop"></div>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="hamburger" id="nav-toggle" aria-label="Open menu">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M1 3.75A.75.75 0 0 1 1.75 3h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 3.75Zm0 4A.75.75 0 0 1 1.75 7h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75Zm0 4A.75.75 0 0 1 1.75 11h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1-.75-.75Z"/></svg>
+          </button>
+          <div>
+            <h1 class="page-title">Endpoint Coverage</h1>
+            <p class="page-sub">Prioritized gaps — what to author next, not a trophy percentage.</p>
+          </div>
+        </div>
+      </header>
+
+      <div class="content content-wide">
+        <section class="cov-summary" id="summary" aria-label="Coverage summary">
+          <div class="cov-pies" id="pies" aria-label="Coverage charts"></div>
+          <div class="cov-summary-main">
+            <p class="cov-summary-lead" id="summary-lead">Loading…</p>
+            <div class="cov-summary-meta" id="summary-meta"></div>
+          </div>
+        </section>
+
+        <div class="cov-tabs" role="tablist" aria-label="Coverage views">
+          <button type="button" class="cov-tab active" role="tab" aria-selected="true" data-tab="queue" id="tab-queue">Work queue</button>
+          <button type="button" class="cov-tab" role="tab" aria-selected="false" data-tab="domain" id="tab-domain">By domain</button>
+          <button type="button" class="cov-tab" role="tab" aria-selected="false" data-tab="quality" id="tab-quality">Data quality</button>
+        </div>
+
+        <div class="cov-panel" id="panel-queue" role="tabpanel" aria-labelledby="tab-queue">
+          <div class="inventory-toolbar cov-toolbar">
+            <div class="controls">
+              <input type="search" id="queue-search" placeholder="Filter gaps by method or path…" autocomplete="off" />
+              <div class="control-filters">
+                <select id="queue-gap">
+                  <option value="">All gaps</option>
+                  <option value="new">Brand-new only</option>
+                  <option value="known">Known untested</option>
+                </select>
+                <select id="queue-risk">
+                  <option value="">All risk</option>
+                  <option value="high">High risk</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                </select>
+              </div>
+              <div class="control-actions">
+                <button type="button" class="toolbtn" id="copy-queue">Copy backlog</button>
+                <span class="result-count" id="queue-count"></span>
+              </div>
+            </div>
+          </div>
+          <div class="cov-queue-wrap">
+            <table class="cov-queue" id="queue-table">
+              <thead>
+                <tr>
+                  <th class="cov-col-risk">Risk</th>
+                  <th class="cov-col-method">Method</th>
+                  <th class="cov-col-path">Path</th>
+                  <th class="cov-col-why">Why</th>
+                  <th class="cov-col-cat">Category</th>
+                </tr>
+              </thead>
+              <tbody id="queue-body">
+                <tr><td colspan="5" class="state-msg">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="cov-hint" id="risk-hint"></p>
+        </div>
+
+        <div class="cov-panel" id="panel-domain" role="tabpanel" aria-labelledby="tab-domain" hidden>
+          <div class="inventory-toolbar cov-toolbar">
+            <div class="controls">
+              <input type="search" id="domain-search" placeholder="Search method or path…" autocomplete="off" />
+              <div class="control-filters">
+                <select id="domain-status">
+                  <option value="">All statuses</option>
+                  <option value="gaps">Gaps only</option>
+                  <option value="untested">Untested only</option>
+                  <option value="tested">Tested</option>
+                  <option value="deprecated">Deprecated</option>
+                </select>
+                <select id="domain-category"><option value="">All categories</option></select>
+              </div>
+              <div class="control-actions">
+                <button type="button" class="toolbtn" id="expand-all">Expand all</button>
+                <button type="button" class="toolbtn" id="collapse-all">Collapse</button>
+                <span class="result-count" id="domain-count"></span>
+              </div>
+            </div>
+          </div>
+          <div class="groups cov-domain-groups" id="groups">
+            <div class="state-msg">Loading…</div>
+          </div>
+        </div>
+
+        <div class="cov-panel" id="panel-quality" role="tabpanel" aria-labelledby="tab-quality" hidden>
+          <div class="cov-quality" id="quality"></div>
+        </div>
+
+        <section class="cov-how">
+          <h2 class="cov-how-title">How we count</h2>
+          <p id="methodology-body"></p>
+        </section>
+
+        <p class="provenance" id="provenance"></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="sidebar.js?v=54"></script>
+  <script src="coverage.js?v=54"></script>
+</body>
+</html>

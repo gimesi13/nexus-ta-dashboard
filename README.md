@@ -13,9 +13,11 @@ https://gimesi13.github.io/nexus-ta-dashboard/
 
 ```
 src/test/groovy/**/*TestSteps.groovy   (specs, read in place)
+docs/openapi-*.json + test-coverage-report/endpoints-data.js
         |
         v
 dashboard/tools/generate_inventory.py  ->  dashboard/data/inventory.json
+dashboard/tools/generate_coverage.py   ->  dashboard/data/coverage.json
         |
         v
 dashboard/*.html + *.js  --(tools/publish.sh)-->  public Pages repo  ->  GitHub Pages (live)
@@ -33,6 +35,8 @@ Run from the `dashboard/` folder (self-locating: it finds the module automatical
 
 ```bash
 python3 tools/generate_inventory.py
+python3 tools/generate_coverage.py                 # uses committed OpenAPI snapshot
+python3 tools/generate_coverage.py --fetch-openapi # refresh OpenAPI from live QA first
 ```
 
 ## Publish (refresh data + deploy live)
@@ -47,9 +51,10 @@ Overridable via env vars: `PAGES_REPO_DIR` (local checkout of the Pages repo, de
 ## Structure
 
 - `index.html` — overview / landing page
-- `inventory.html` + `inventory.js` — Test-Case Inventory (searchable/filterable table)
-- `styles.css` — GitHub dark-mode styling
-- `data/inventory.json` — generated inventory data (served by the site)
-- `tools/generate_inventory.py` — parses `*TestSteps.groovy` into `data/inventory.json`
+- `inventory.html` + `inventory.js` — Test-Case Inventory (searchable/filterable)
+- `coverage.html` + `coverage.js` — Endpoint Coverage (OpenAPI × tested overlay)
+- `styles.css` — shared dark styling
+- `data/inventory.json` / `data/coverage.json` — generated data (served by the site)
+- `tools/generate_inventory.py` / `tools/generate_coverage.py` — regenerators
 - `tools/publish.sh` — regenerates data and pushes the static site to the Pages repo
-- `ROADMAP.md` — full plan (coverage, nightly run, flaky tracker, AI platform work log, and more)
+- `ROADMAP.md` — full plan (nightly run, flaky tracker, AI platform work log, and more)

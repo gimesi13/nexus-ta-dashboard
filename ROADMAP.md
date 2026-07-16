@@ -21,11 +21,12 @@ Searchable/filterable table of every Spock feature: area, spec, test-case name, 
 and parameterized-case count. Generated directly from `*TestSteps.groovy` source — the trustworthy
 source of truth for "what tests exist".
 
-### Coverage (trustworthy pipeline)
+### Coverage (trustworthy pipeline) — endpoint lens shipped
 Two lenses: **endpoint coverage** (OpenAPI spec vs. tests) and **feature/requirement coverage**.
-Fix the existing "data I don't trust" problem by making coverage a transparent, reproducible
-pipeline with inline methodology and links to raw generated JSON. Rank uncovered endpoints by real
-QA traffic using the Honeycomb dataset `project-management.nexus-api-rest`.
+Endpoint coverage is live and **queue-first**: quiet summary (not a trophy %), risk-ranked work
+queue, domain browse, and a data-quality tab (overlay smells + inventory hygiene). Risk is a
+method×domain heuristic until Honeycomb traffic export lands. Still open: traffic-weighted
+ranking, helper→Feign→spec linkage, feature/requirement lens.
 
 ### Nightly run report (TeamCity)
 Latest nightly: pass/fail/skipped, duration, failed-test list with direct TeamCity links, plus a

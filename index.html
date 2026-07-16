@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=62" />
 </head>
 <body>
   <div class="app">
@@ -34,9 +34,9 @@
             <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"/></svg>
             Test Inventory
           </a>
-          <a class="nav-item" href="#">
+          <a class="nav-item" href="coverage.html">
             <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0Zm14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/></svg>
-            Coverage <span class="soon">soon</span>
+            Coverage
           </a>
           <a class="nav-item" href="#">
             <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7.25-3.25v3.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75V4.75a.75.75 0 0 1 1.5 0Z"/></svg>
@@ -56,105 +56,156 @@
         </div>
       </nav>
       <div class="sidebar-bottom">
-        <a class="invite" href="https://github.com/gimesi13/nexus-ta-dashboard" target="_blank" rel="noopener">View repo</a>
-        <div class="profile">
-          <div class="avatar">G</div>
-          <div>
-            <div class="profile-name">Gergely Gimesi</div>
-            <div class="profile-sub">Dynata</div>
-          </div>
-        </div>
+        <a class="invite" href="https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt?mode=builds" target="_blank" rel="noopener">
+          Open in TeamCity
+        </a>
       </div>
     </aside>
 
-    <main class="main">
-      <header class="topbar">
-        <div>
-          <h1 class="page-title">Overview</h1>
-          <p class="page-sub">Visibility into the Nexus API regression test automation.</p>
-        </div>
-        <span class="pill pill-live"><span class="dot"></span> Live</span>
-      </header>
+    <div class="nav-backdrop" id="nav-backdrop"></div>
 
-      <div class="content">
-        <div class="kpi-strip" id="kpis">
-          <div class="kpi"><div class="kpi-num" id="kpi-cases">&mdash;</div><div class="kpi-label">Test cases</div></div>
-          <div class="kpi"><div class="kpi-num" id="kpi-params">&mdash;</div><div class="kpi-label">With parameters</div></div>
-          <div class="kpi"><div class="kpi-num" id="kpi-specs">&mdash;</div><div class="kpi-label">Specs</div></div>
-          <div class="kpi"><div class="kpi-num" id="kpi-areas">&mdash;</div><div class="kpi-label">Areas</div></div>
-        </div>
+    <main class="main page-overview">
+      <div class="ov-shell">
+        <button class="hamburger ov-hamburger" id="nav-toggle" aria-label="Open menu">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M1 3.75A.75.75 0 0 1 1.75 3h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 3.75Zm0 4A.75.75 0 0 1 1.75 7h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75Zm0 4A.75.75 0 0 1 1.75 11h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1-.75-.75Z"/></svg>
+        </button>
 
-        <div class="grid grid-2">
-          <div class="card">
-            <h2 class="card-title">Test-Case Inventory</h2>
-            <p class="card-sub">Every Spock feature, searchable by suite, tag and owner &mdash; generated directly from source.</p>
-            <a class="link-row" href="inventory.html">Open inventory &rarr;</a>
+        <section class="ov-hero">
+          <div class="ov-hero-copy">
+            <p class="ov-kicker">Nexus API · Test Automation</p>
+            <h1 class="ov-title">The regression suite,<br /><span class="ov-title-accent">mapped from source</span></h1>
+            <p class="ov-lead">
+              Live inventory of every Spock feature across the Nexus API gateway —
+              searchable by area, type, and tag. Parsed from the repo, not maintained by hand.
+            </p>
+            <div class="ov-actions">
+              <a class="ov-btn ov-btn-primary" href="inventory.html">
+                Open test inventory
+                <span aria-hidden="true">→</span>
+              </a>
+              <a class="ov-btn ov-btn-ghost" href="https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt?mode=builds" target="_blank" rel="noopener">
+                TeamCity builds
+              </a>
+            </div>
+            <p class="ov-stamp" id="gen-stamp">Loading inventory…</p>
           </div>
-          <div class="card">
-            <h2 class="card-title">Data source</h2>
-            <p class="card-sub">Parsed from <span class="cell-mono">*TestSteps.groovy</span> in the regression module. Refreshed via the in-module generator; no manual entry.</p>
-            <span class="pill" id="gen-stamp">Loading&hellip;</span>
+          <div class="ov-hero-stats" id="hero-stats" aria-label="Suite totals">
+            <div class="ov-stat">
+              <div class="ov-stat-num" data-count="0" id="kpi-cases">—</div>
+              <div class="ov-stat-label">Tests</div>
+              <div class="ov-stat-sub" id="kpi-methods"></div>
+            </div>
+            <div class="ov-stat">
+              <div class="ov-stat-num" data-count="0" id="kpi-specs">—</div>
+              <div class="ov-stat-label">Specs</div>
+              <div class="ov-stat-sub">Spock classes</div>
+            </div>
+            <div class="ov-stat">
+              <div class="ov-stat-num" data-count="0" id="kpi-areas">—</div>
+              <div class="ov-stat-label">Areas</div>
+              <div class="ov-stat-sub">Domain packages</div>
+            </div>
+            <div class="ov-stat ov-stat-accent">
+              <div class="ov-stat-num" data-count="0" id="kpi-features">—</div>
+              <div class="ov-stat-label">Features</div>
+              <div class="ov-stat-sub">Feature methods</div>
+            </div>
           </div>
-        </div>
+        </section>
 
-        <div class="card">
-          <h2 class="card-title">Roadmap</h2>
-          <p class="card-sub">Sections are built incrementally. See ROADMAP.md for the full plan.</p>
-          <ul class="checklist">
-            <li>
-              <span class="check done">&#10003;</span>
+        <section class="ov-split">
+          <article class="ov-panel">
+            <header class="ov-panel-head">
+              <h2>Tests by area</h2>
+              <span class="ov-panel-meta" id="area-meta"></span>
+            </header>
+            <div class="ov-bars" id="area-bars">
+              <div class="ov-empty">Loading…</div>
+            </div>
+          </article>
+
+          <article class="ov-panel">
+            <header class="ov-panel-head">
+              <h2>Mix by type</h2>
+              <span class="ov-panel-meta">Share of suite</span>
+            </header>
+            <div class="ov-types" id="type-mix">
+              <div class="ov-empty">Loading…</div>
+            </div>
+            <div class="ov-tags-block">
+              <h3>Top tags</h3>
+              <div class="ov-tag-cloud" id="tag-cloud"></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="ov-cta-row">
+          <a class="ov-cta-card" href="inventory.html">
+            <div>
+              <p class="ov-cta-kicker">Ready to explore</p>
+              <h2>Browse every feature method</h2>
+              <p>Filter by area, type, and multiple tags. Expand any case for Spock steps.</p>
+            </div>
+            <span class="ov-cta-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="ov-cta-card" href="coverage.html">
+            <div>
+              <p class="ov-cta-kicker">Gaps first</p>
+              <h2>See endpoint coverage</h2>
+              <p>Refreshed from live QA OpenAPI. Transparent % — no stale baseline.</p>
+            </div>
+            <span class="ov-cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </section>
+
+        <section class="ov-panel ov-roadmap">
+          <header class="ov-panel-head">
+            <h2>Roadmap</h2>
+            <span class="ov-panel-meta">Built in slices</span>
+          </header>
+          <ol class="ov-road">
+            <li class="ov-road-item done">
+              <span class="ov-road-mark" aria-hidden="true"></span>
               <div>
-                <div class="item-title"><a href="inventory.html">Test-case inventory</a><span class="chip">shipped</span></div>
-                <div class="item-desc">Searchable inventory of every regression test case.</div>
+                <div class="ov-road-title"><a href="inventory.html">Test-case inventory</a> <span class="chip">shipped</span></div>
+                <p>Searchable inventory of every regression test case, generated from source.</p>
               </div>
             </li>
-            <li>
-              <span class="check"></span>
+            <li class="ov-road-item done">
+              <span class="ov-road-mark" aria-hidden="true"></span>
               <div>
-                <div class="item-title">Coverage<span class="chip chip-soon">planned</span></div>
-                <div class="item-desc">Endpoint &amp; feature coverage with trustworthy, transparent data.</div>
+                <div class="ov-road-title"><a href="coverage.html">Coverage</a> <span class="chip">shipped</span></div>
+                <p>Endpoint coverage from live OpenAPI + curated tested overlay, with provenance.</p>
               </div>
             </li>
-            <li>
-              <span class="check"></span>
+            <li class="ov-road-item">
+              <span class="ov-road-mark" aria-hidden="true"></span>
               <div>
-                <div class="item-title">Nightly run report<span class="chip chip-soon">planned</span></div>
-                <div class="item-desc">Latest results fetched from TeamCity, with a pass-rate trend.</div>
+                <div class="ov-road-title">Nightly run report <span class="chip chip-soon">planned</span></div>
+                <p>Latest TeamCity results with pass-rate trend.</p>
               </div>
             </li>
-            <li>
-              <span class="check"></span>
+            <li class="ov-road-item">
+              <span class="ov-road-mark" aria-hidden="true"></span>
               <div>
-                <div class="item-title">Flaky tests<span class="chip chip-soon">planned</span></div>
-                <div class="item-desc">Tracked and ranked by flake rate.</div>
+                <div class="ov-road-title">Flaky tests <span class="chip chip-soon">planned</span></div>
+                <p>Tracked and ranked by flake rate.</p>
               </div>
             </li>
-            <li>
-              <span class="check"></span>
+            <li class="ov-road-item">
+              <span class="ov-road-mark" aria-hidden="true"></span>
               <div>
-                <div class="item-title">AI platform work<span class="chip chip-soon">planned</span></div>
-                <div class="item-desc">Log of AI platform engineering tasks delivered.</div>
+                <div class="ov-road-title">AI platform work <span class="chip chip-soon">planned</span></div>
+                <p>Log of AI platform engineering tasks delivered.</p>
               </div>
             </li>
-          </ul>
-        </div>
+          </ol>
+        </section>
       </div>
     </main>
   </div>
 
-  <script>
-    fetch("data/inventory.json", { cache: "no-cache" })
-      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
-      .then(function (d) {
-        document.getElementById("kpi-cases").textContent = d.features;
-        document.getElementById("kpi-params").textContent = d.cases;
-        document.getElementById("kpi-specs").textContent = d.specs;
-        document.getElementById("kpi-areas").textContent = d.areas;
-        document.getElementById("gen-stamp").textContent = "Generated " + d.generatedAt + " · from " + d.source;
-      })
-      .catch(function () {
-        document.getElementById("gen-stamp").textContent = "Data unavailable";
-      });
-  </script>
+  <script src="sidebar.js?v=62"></script>
+  <script src="overview.js?v=62"></script>
 </body>
 </html>
