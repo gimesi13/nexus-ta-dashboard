@@ -28,9 +28,8 @@ queue, domain browse, and a data-quality tab (overlay smells + inventory hygiene
 method×domain heuristic until Honeycomb traffic export lands. Still open: traffic-weighted
 ranking, helper→Feign→spec linkage, feature/requirement lens.
 
-### Nightly run report (TeamCity)
-Latest nightly: pass/fail/skipped, duration, failed-test list with direct TeamCity links, plus a
-short pass-rate trend. Sourced from `automation/tc-api.sh` + `tc-fetch-results.sh`.
+### Nightly run report (TeamCity) — overview slice shipped
+**Nightly Run** page (`nightly.html`): latest finished build on the GeriTests J16 TeamCity config — pass/fail/muted/ignored, duration, non-muted failures, TC deep-link, short trend. Data flow: `automation/tc_fetch_nightly.py` → `dashboard/tools/generate_nightly.py` → `data/nightly.json`. Morning job: `automation/agent-jobs/dashboard-publish.sh` (cron ~06:30).
 
 ### AI platform engineering work log
 A separate portfolio/changelog of AI platform tasks delivered: title, date, description, impact,
@@ -64,8 +63,11 @@ links (PR/ticket/doc). Kept distinct from TA so the dashboard represents both wo
 ## Data flow
 
 ```
-Spock specs (module, read-only)
+Spock specs + OpenAPI overlay + TeamCity JUnit (via automation/)
         |
         v
-tools/generate_*.py  ->  data/*.json (committed)  ->  static HTML + JS  ->  GitHub Pages (live)
+tools/generate_*.py  ->  data/*.json  ->  static HTML + JS  ->  GitHub Pages (live)
+        ^
+        |
+automation/agent-jobs/dashboard-publish.sh  (morning TC pull + publish.sh)
 ```

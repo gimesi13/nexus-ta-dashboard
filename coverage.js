@@ -221,7 +221,8 @@
       if (gap && row.gap !== gap) return false;
       if (risk && row.riskBand !== risk) return false;
       if (!q) return true;
-      return (row.m + " " + row.p + " " + (row.category || "")).toLowerCase().indexOf(q) !== -1;
+      return (row.m + " " + row.p + " " + (row.category || "") + " " +
+        (row.operationId || "")).toLowerCase().indexOf(q) !== -1;
     });
   }
 
@@ -439,8 +440,11 @@
     });
   }
 
-  function setCopyLabel(label) {
+  function setCopyState(label, kind) {
     els.copyQueue.textContent = label;
+    els.copyQueue.classList.remove("is-copied", "is-copy-failed");
+    if (kind === "ok") els.copyQueue.classList.add("is-copied");
+    if (kind === "fail") els.copyQueue.classList.add("is-copy-failed");
   }
 
   function copyBacklog() {
@@ -458,22 +462,22 @@
 
     function ok() {
       if (gen !== state.copyGen) return;
-      setCopyLabel("Copied");
+      setCopyState("Copied ✓", "ok");
       state.copyTimer = setTimeout(function () {
         if (gen !== state.copyGen) return;
-        setCopyLabel("Copy backlog");
+        setCopyState("Copy backlog", null);
         state.copyTimer = null;
-      }, 1400);
+      }, 1800);
     }
 
     function fail() {
       if (gen !== state.copyGen) return;
-      setCopyLabel("Copy failed");
+      setCopyState("Copy failed", "fail");
       state.copyTimer = setTimeout(function () {
         if (gen !== state.copyGen) return;
-        setCopyLabel("Copy backlog");
+        setCopyState("Copy backlog", null);
         state.copyTimer = null;
-      }, 1600);
+      }, 1800);
     }
 
     if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -504,6 +508,41 @@
       state.expanded.add(row.cat.name);
     });
     renderDomain();
+  }
+
+  function applyDeepLink() {
+    var params = new URLSearchParams(window.location.search);
+    var tab = params.get("tab");
+    var risk = params.get("risk");
+    var gap = params.get("gap");
+    var status = params.get("status");
+    var q = params.get("q");
+
+    if (risk && els.queueRisk) {
+      var riskOk = Array.from(els.queueRisk.options).some(function (o) {
+        return o.value === risk;
+      });
+      if (riskOk) els.queueRisk.value = risk;
+    }
+    if (gap && els.queueGap) {
+      var gapOk = Array.from(els.queueGap.options).some(function (o) {
+        return o.value === gap;
+      });
+      if (gapOk) els.queueGap.value = gap;
+    }
+    if (q && els.queueSearch) els.queueSearch.value = q;
+    if (status && els.domainStatus) {
+      var statusOk = Array.from(els.domainStatus.options).some(function (o) {
+        return o.value === status;
+      });
+      if (statusOk) els.domainStatus.value = status;
+    }
+
+    var allowedTabs = { queue: 1, domain: 1, quality: 1 };
+    if (status && !tab) tab = "domain";
+    if ((risk || gap || q) && !tab) tab = "queue";
+    if (tab && allowedTabs[tab]) state._deepLinkTab = tab;
+    else state._deepLinkTab = "queue";
   }
 
   function wire() {
@@ -556,10 +595,12 @@
         " · OpenAPI " + (data.source && data.source.openapiFileMtimeUtc) +
         " · overlay " + (data.source && data.source.overlay);
       wire();
+      applyDeepLink();
       renderQueue();
       renderDomain();
       renderQuality();
-      setTab("queue");
+      setTab(state._deepLinkTab || "queue");
+      state._deepLinkTab = null;
     })
     .catch(function (err) {
       els.summaryLead.textContent = "Failed to load coverage: " + err.message;
