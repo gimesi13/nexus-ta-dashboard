@@ -7,6 +7,14 @@
   "areas": 16,
   "featuresWithSteps": 673,
   "steps": 3453,
+  "byType": {
+    "CRUD": 251,
+    "Validation": 199,
+    "Workflow": 129,
+    "Query": 104,
+    "E2E": 12,
+    "Other": 1
+  },
   "rows": [
     {
       "area": "AudienceGroup",
@@ -78,7 +86,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceGroupCRUDLifecycleTestSteps",
       "name": "Get latest feasibility calculation time with valid ID",
-      "type": "CRUD",
+      "type": "Query",
       "tags": [
         "FEASIBILITY"
       ],
@@ -494,7 +502,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceGroupE2EPhaseManagementWorkflowTestSteps",
       "name": "Complete audience group management end-to-end workflow",
-      "type": "Workflow",
+      "type": "E2E",
       "tags": [
         "AUDIENCE_GROUP",
         "CREATE_AUDIENCE_GROUP",
@@ -615,7 +623,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceGroupManagementQueryTestSteps",
       "name": "Get all audience groups for project with isDeleted false",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "AUDIENCE_GROUP"
       ],
@@ -644,7 +652,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceGroupManagementQueryTestSteps",
       "name": "Get all audience groups for project with isDeleted true",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "AUDIENCE_GROUP"
       ],
@@ -677,7 +685,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceGroupManagementQueryTestSteps",
       "name": "Get audience group IDs for project with isDeleted false",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "AUDIENCE_GROUP"
       ],
@@ -710,7 +718,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceGroupManagementQueryTestSteps",
       "name": "Get audience group IDs for project with isDeleted true",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "AUDIENCE_GROUP"
       ],
@@ -743,7 +751,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceGroupManagementQueryTestSteps",
       "name": "Rename audience group with special characters",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "AUDIENCE_GROUP",
         "RENAME_AUDIENCE_GROUP"
@@ -777,7 +785,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceGroupManagementQueryTestSteps",
       "name": "Rename audience group with valid name",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "AUDIENCE_GROUP",
         "RENAME_AUDIENCE_GROUP"
@@ -811,7 +819,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceGroupManagementQueryTestSteps",
       "name": "Reorder audience groups with valid order",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "AUDIENCE_GROUP",
         "REORDER_AUDIENCE_GROUPS"
@@ -1449,7 +1457,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceTemplateTestSteps",
       "name": "Add audience template",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "AUDIENCE_TEMPLATE",
         "CREATE_AUDIENCE_TEMPLATE"
@@ -1479,7 +1487,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceTemplateTestSteps",
       "name": "Compare template availability across different countries",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
         "SEARCH_AUDIENCE_TEMPLATE",
@@ -1530,7 +1538,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceTemplateTestSteps",
       "name": "Filter templates by group, validate, and verify structure",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
         "SEARCH_AUDIENCE_TEMPLATE"
@@ -1576,7 +1584,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceTemplateTestSteps",
       "name": "Get audience template by valid ID",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE"
       ],
@@ -1605,7 +1613,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceTemplateTestSteps",
       "name": "Search audience templates by country",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
         "SEARCH_AUDIENCE_TEMPLATE"
@@ -1643,7 +1651,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceTemplateTestSteps",
       "name": "Search audience templates by multiple labels",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
         "SEARCH_AUDIENCE_TEMPLATE"
@@ -1681,7 +1689,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceTemplateTestSteps",
       "name": "Search audience templates with empty country set",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
         "SEARCH_AUDIENCE_TEMPLATE"
@@ -1715,7 +1723,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceTemplateTestSteps",
       "name": "Search audience templates with no matching country",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "AUDIENCE_TEMPLATE",
         "SEARCH_AUDIENCE_TEMPLATE"
@@ -1749,7 +1757,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceTemplateTestSteps",
       "name": "Search by multiple countries and validate each template",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
         "SEARCH_AUDIENCE_TEMPLATE"
@@ -1791,7 +1799,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceTemplateTestSteps",
       "name": "Search templates, get details, and validate for target countries",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
         "SEARCH_AUDIENCE_TEMPLATE"
@@ -1837,7 +1845,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceTemplateTestSteps",
       "name": "Search with different filters and verify result consistency",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
         "SEARCH_AUDIENCE_TEMPLATE",
@@ -1892,7 +1900,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceTemplateTestSteps",
       "name": "Validate audience template for multiple countries",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
         "VALIDATE_AUDIENCE_TEMPLATE"
@@ -1926,7 +1934,7 @@
       "area": "AudienceGroup",
       "spec": "AudienceTemplateTestSteps",
       "name": "Validate audience template for single country",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
         "VALIDATE_AUDIENCE_TEMPLATE"
@@ -2222,7 +2230,7 @@
       "area": "BOS",
       "spec": "SalesOrderTestSteps",
       "name": "GET sales order by guid",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "BOS_SALES_ORDER"
       ],
@@ -2250,7 +2258,7 @@
       "area": "BOS",
       "spec": "SalesOrderTestSteps",
       "name": "GET sales order extended",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "BOS_SALES_ORDER"
       ],
@@ -2278,7 +2286,7 @@
       "area": "BOS",
       "spec": "SalesOrderTestSteps",
       "name": "PUT estimated billing date",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "BOS_SALES_ORDER"
       ],
@@ -2306,7 +2314,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Add and remove users from exclusion list in sequence",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -2355,7 +2363,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Add duplicate users to exclusion list",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -2387,7 +2395,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Add single and multiple users to soft launch notification exclusion list",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -2424,7 +2432,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Change delivery mode and verify daily quota behavior",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "DELIVERY"
       ],
@@ -2461,7 +2469,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Configure all delivery mode variations",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "DELIVERY"
       ],
@@ -2490,7 +2498,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Configure fieldwork pacing",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "DELIVERY"
       ],
@@ -2523,7 +2531,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Configure soft launch target",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -2552,7 +2560,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Configure soft launch with different notification settings",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -2581,7 +2589,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Configure soft launch with start and end dates",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -2614,7 +2622,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Configure soft launch with user exclusions from notifications",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -2651,7 +2659,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Connect quota group to survey URL pool",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "UPLOAD_URLS"
       ],
@@ -2679,7 +2687,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Disable soft launch after enabling",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -2711,7 +2719,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Enable and disable soft launch boosted mode",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -2748,7 +2756,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Fieldwork details reflect updated notification setting consistently with direct endpoint",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -2780,7 +2788,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Fieldwork details reflect updated soft launch quota consistently with direct endpoint",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -2812,7 +2820,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Remove users from soft launch notification exclusion list",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -2853,7 +2861,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Soft launch reached flag matches on soft-launch GET and fieldwork details",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -2885,7 +2893,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Soft launch state remains consistent across subsequent reads",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -2933,7 +2941,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Toggle boosted mode multiple times",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -2974,7 +2982,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Update soft launch dates without affecting other settings",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -3011,7 +3019,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Update soft launch notifications independently without affecting quota",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -3048,7 +3056,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkConfigurationTestSteps",
       "name": "Update soft launch quota independently without affecting notifications",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOFT_LAUNCH"
       ],
@@ -3085,7 +3093,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkEndToEndAdvancedTestSteps",
       "name": "Complete advanced fieldwork: tally mode switching, delivery modes, and soft launch user management",
-      "type": "Other",
+      "type": "E2E",
       "tags": [
         "TALLY",
         "QUOTA",
@@ -3244,7 +3252,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkEndToEndPartnerTestSteps",
       "name": "Complete fieldwork workflow: URL pool, partners, delivery, soft launch, and tally mode",
-      "type": "Other",
+      "type": "E2E",
       "tags": [
         "UPLOAD_URLS",
         "PARTNER_EVENT",
@@ -3457,7 +3465,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkPartnerConfigurationTestSteps",
       "name": "Add partners with configuration",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PARTNER_EVENT"
       ],
@@ -3490,7 +3498,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkTallyModeTestSteps",
       "name": "Change tally mode rapidly in succession",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "TALLY"
       ],
@@ -3522,7 +3530,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkTallyModeTestSteps",
       "name": "Segment quota updates correctly when tally mode changes",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "TALLY"
       ],
@@ -3599,7 +3607,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkTallyModeTestSteps",
       "name": "Switching Tally Mode to By Starts recalculates segment quotas based on custom distribution percentage",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "TALLY"
       ],
@@ -3652,7 +3660,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkTallyModeTestSteps",
       "name": "Switching tally mode from 'By Starts' to 'By Completes' keeps correct values",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "TALLY"
       ],
@@ -3680,7 +3688,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkTallyModeTestSteps",
       "name": "Tally mode 'By Completes' updates segment details and quota sum",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "TALLY",
         "QUOTA"
@@ -3718,7 +3726,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkTallyModeTestSteps",
       "name": "Tally mode 'By Starts' updates segment details and quota sum",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "TALLY",
         "QUOTA"
@@ -3756,7 +3764,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkTallyModeTestSteps",
       "name": "Updating startQuota in 'By Starts' updates quota",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "TALLY"
       ],
@@ -3789,7 +3797,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkTallyModeTestSteps",
       "name": "Updating startQuota in 'By Starts' updates segment details",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "TALLY"
       ],
@@ -3822,7 +3830,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkTallyModeTestSteps",
       "name": "Updating totalQuota in 'By Completes' updates quota",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "TALLY"
       ],
@@ -3855,7 +3863,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkTallyModeTestSteps",
       "name": "Updating totalQuota in 'By Starts' does NOT change segment details",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "TALLY"
       ],
@@ -3896,7 +3904,7 @@
       "area": "Fieldwork",
       "spec": "FieldworkTallyModeTestSteps",
       "name": "soldQuota remains unchanged when modifying quotas and tallyMode",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "TALLY"
       ],
@@ -5684,7 +5692,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Assemble options for quota group sources",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP",
         "CHANNEL"
@@ -5713,7 +5721,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Assemble options with different source configurations",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP",
         "CHANNEL"
@@ -5751,7 +5759,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Get condition validations for quota group",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "LOOKUP"
       ],
@@ -5783,7 +5791,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Get fieldwork information for quota groups",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP",
         "DELIVERY"
@@ -5816,7 +5824,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Get fieldwork information with delivery mode filter",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP",
         "DELIVERY"
@@ -5854,7 +5862,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Get quota group validations",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP"
       ],
@@ -5882,7 +5890,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Get quota groups survey data",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP",
         "SURVEY"
@@ -5915,7 +5923,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Get simple source overview",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP",
         "CHANNEL"
@@ -5948,7 +5956,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Get source overview for multiple quota groups",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP",
         "CHANNEL"
@@ -5981,7 +5989,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Search detailed quota group information",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP"
       ],
@@ -6013,7 +6021,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Search quota group IDs by audience group ID",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP"
       ],
@@ -6045,7 +6053,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Search quota group IDs by project ID",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP"
       ],
@@ -6077,7 +6085,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Search quota group IDs with single filter",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP"
       ],
@@ -6110,7 +6118,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Search quota group cores by project ID",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP"
       ],
@@ -6142,7 +6150,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Search quota group cores with audience group filter",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP"
       ],
@@ -6174,7 +6182,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Search quota group labels by project ID",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP"
       ],
@@ -6206,7 +6214,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Search quota group labels with audience group filter",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP"
       ],
@@ -6238,7 +6246,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupTestSteps",
       "name": "Search quota group source settings",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "LOOKUP",
         "CHANNEL"
@@ -6330,7 +6338,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupValidationTestSteps",
       "name": "Assemble options with null request body",
-      "type": "Validation",
+      "type": "Query",
       "tags": [
         "LOOKUP",
         "CHANNEL"
@@ -6477,7 +6485,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupValidationTestSteps",
       "name": "Search detailed quota groups with conflicting filters",
-      "type": "Validation",
+      "type": "Query",
       "tags": [
         "LOOKUP"
       ],
@@ -6505,7 +6513,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupValidationTestSteps",
       "name": "Search quota group IDs with empty filters",
-      "type": "Validation",
+      "type": "Query",
       "tags": [
         "LOOKUP"
       ],
@@ -6562,7 +6570,7 @@
       "area": "Lookup",
       "spec": "QuotaGroupLookupValidationTestSteps",
       "name": "Search quota group IDs with null request body",
-      "type": "Validation",
+      "type": "Query",
       "tags": [
         "LOOKUP"
       ],
@@ -6893,7 +6901,7 @@
       "area": "Parameter",
       "spec": "ParameterSearchCatalogTestSteps",
       "name": "Get parameter answers paged",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PARAMETER"
       ],
@@ -6926,7 +6934,7 @@
       "area": "Parameter",
       "spec": "ParameterSearchCatalogTestSteps",
       "name": "Get parameter metadata",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PARAMETER"
       ],
@@ -6959,7 +6967,7 @@
       "area": "Parameter",
       "spec": "ParameterSearchCatalogTestSteps",
       "name": "Get parameter metadata for various countries",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PARAMETER"
       ],
@@ -6988,7 +6996,7 @@
       "area": "Parameter",
       "spec": "ParameterSearchCatalogTestSteps",
       "name": "Get parameter translations",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PARAMETER"
       ],
@@ -7029,7 +7037,7 @@
       "area": "Parameter",
       "spec": "ParameterSearchCatalogTestSteps",
       "name": "Parameter category search",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PARAMETER"
       ],
@@ -7062,7 +7070,7 @@
       "area": "Parameter",
       "spec": "ParameterSearchCatalogTestSteps",
       "name": "Search parameter categories with various filter combinations",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PARAMETER"
       ],
@@ -7091,7 +7099,7 @@
       "area": "Parameter",
       "spec": "ParameterSearchCatalogTestSteps",
       "name": "Search parameters by category",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PARAMETER"
       ],
@@ -7124,7 +7132,7 @@
       "area": "Parameter",
       "spec": "ParameterSearchFiltersAndConditionsTestSteps",
       "name": "Add qualification filter",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PARAMETER"
       ],
@@ -7153,7 +7161,7 @@
       "area": "Parameter",
       "spec": "ParameterSearchFiltersAndConditionsTestSteps",
       "name": "Search and add parameter by category",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PARAMETER"
       ],
@@ -7186,7 +7194,7 @@
       "area": "Parameter",
       "spec": "ParameterSearchFiltersAndConditionsTestSteps",
       "name": "Search parameters across multiple categories",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PARAMETER"
       ],
@@ -7215,7 +7223,7 @@
       "area": "Parameter",
       "spec": "ParameterSearchFiltersAndConditionsTestSteps",
       "name": "Search parameters by category with qualification filters",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PARAMETER"
       ],
@@ -7244,7 +7252,7 @@
       "area": "Parameter",
       "spec": "ParameterSearchFiltersAndConditionsTestSteps",
       "name": "Search parameters with filter combinations",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PARAMETER"
       ],
@@ -7273,7 +7281,7 @@
       "area": "Parameter",
       "spec": "ParameterSearchFiltersAndConditionsTestSteps",
       "name": "Search parameters with large result sets",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PARAMETER"
       ],
@@ -7302,7 +7310,7 @@
       "area": "Parameter",
       "spec": "ParameterSearchFiltersAndConditionsTestSteps",
       "name": "Search parameters with text query variations",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PARAMETER"
       ],
@@ -7651,7 +7659,7 @@
       "area": "Parameter",
       "spec": "UniverseDefinitionTestSteps",
       "name": "Delete qualification condition while path contains multiple conditions",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "UNIVERSE_DEFINITION",
         "PARAMETER"
@@ -7685,7 +7693,7 @@
       "area": "Parameter",
       "spec": "UniverseDefinitionTestSteps",
       "name": "Delete specific qualification condition from path",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "UNIVERSE_DEFINITION",
         "PARAMETER"
@@ -7719,7 +7727,7 @@
       "area": "Parameter",
       "spec": "UniverseDefinitionTestSteps",
       "name": "Test qualification path operations - copy condition",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "UNIVERSE_DEFINITION",
         "PARAMETER"
@@ -7752,7 +7760,7 @@
       "area": "Parameter",
       "spec": "UniverseDefinitionTestSteps",
       "name": "Test qualification path operations - create and rename path",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "UNIVERSE_DEFINITION",
         "PARAMETER"
@@ -7785,7 +7793,7 @@
       "area": "Parameter",
       "spec": "UniverseDefinitionTestSteps",
       "name": "Test qualification path operations - delete path",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "UNIVERSE_DEFINITION",
         "PARAMETER"
@@ -7818,7 +7826,7 @@
       "area": "Parameter",
       "spec": "UniverseDefinitionTestSteps",
       "name": "Test qualification path operations - move condition",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "UNIVERSE_DEFINITION",
         "PARAMETER"
@@ -7931,7 +7939,7 @@
       "area": "PartnerEvent",
       "spec": "PartnerEventCRUDTestSteps",
       "name": "Get partner event defaults for quota group",
-      "type": "CRUD",
+      "type": "Query",
       "tags": [
         "PARTNER_EVENT"
       ],
@@ -8651,7 +8659,7 @@
       "area": "PartnerEvent",
       "spec": "PartnerEventPriceControlWorkflowTestSteps",
       "name": "PM cannot take over-threshold draft live without bypass (HTTP error or stays non-REX)",
-      "type": "Workflow",
+      "type": "Validation",
       "tags": [
         "PARTNER_EVENT"
       ],
@@ -8707,7 +8715,7 @@
       "area": "PartnerEvent",
       "spec": "PartnerEventPriceControlWorkflowTestSteps",
       "name": "PUT with wrong exceedsApproveThreshold vs server truth returns client error",
-      "type": "Workflow",
+      "type": "Validation",
       "tags": [
         "PARTNER_EVENT"
       ],
@@ -8735,7 +8743,7 @@
       "area": "PartnerEvent",
       "spec": "PartnerEventPriceControlWorkflowTestSteps",
       "name": "PUT with wrong hasRightToApprove vs server truth returns client error",
-      "type": "Workflow",
+      "type": "Validation",
       "tags": [
         "PARTNER_EVENT"
       ],
@@ -8763,7 +8771,7 @@
       "area": "PartnerEvent",
       "spec": "PartnerEventPriceControlWorkflowTestSteps",
       "name": "Partner CPI exactly at approve threshold is rejected by inclusive price-limit comparison",
-      "type": "Workflow",
+      "type": "Validation",
       "tags": [
         "PARTNER_EVENT"
       ],
@@ -8975,7 +8983,7 @@
       "area": "PartnerEvent",
       "spec": "PartnerEventTallyModeQuotaTestSteps",
       "name": "Calculate start quotas with extreme ratio values",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PARTNER_EVENT"
       ],
@@ -9012,7 +9020,7 @@
       "area": "PartnerEvent",
       "spec": "PartnerEventTallyModeQuotaTestSteps",
       "name": "Calculate start quotas with fractional results",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PARTNER_EVENT"
       ],
@@ -9049,7 +9057,7 @@
       "area": "PartnerEvent",
       "spec": "PartnerEventTallyModeQuotaTestSteps",
       "name": "Handle edge cases in quota calculations",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "TALLY",
         "PARTNER_EVENT"
@@ -9087,7 +9095,7 @@
       "area": "PartnerEvent",
       "spec": "PartnerEventTallyModeQuotaTestSteps",
       "name": "Handle large quota values and precision",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "TALLY",
         "PARTNER_EVENT"
@@ -9125,7 +9133,7 @@
       "area": "PartnerEvent",
       "spec": "PartnerEventTallyModeQuotaTestSteps",
       "name": "Multiple partner events update correctly with quotas",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "TALLY",
         "PARTNER_EVENT"
@@ -9162,7 +9170,7 @@
       "area": "PartnerEvent",
       "spec": "PartnerEventTallyModeQuotaTestSteps",
       "name": "Repeated tally mode changes maintain quota integrity",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "TALLY",
         "PARTNER_EVENT"
@@ -9203,7 +9211,7 @@
       "area": "PartnerEvent",
       "spec": "PartnerEventTallyModeQuotaTestSteps",
       "name": "Tally mode change to BY_STARTS calculates partner event starts quota",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "TALLY",
         "PARTNER_EVENT"
@@ -10100,7 +10108,7 @@
       "area": "Project",
       "spec": "DPlusProjectAcceptTestSteps",
       "name": "D+ project accept: draft via fullProjectSetup, accept via createD365Project, one non-draft survey per draft, QG\u2013survey mapping",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_ACCEPT"
       ],
@@ -10156,7 +10164,7 @@
       "area": "Project",
       "spec": "DedupeTestSteps",
       "name": "Get project exclusion configuration for valid project",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "DEDUPE"
       ],
@@ -10200,7 +10208,7 @@
       "area": "Project",
       "spec": "ExclusionRulesTestSteps",
       "name": "Create and delete exclusion rule lifecycle; rename endpoint is unimplemented",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -10256,7 +10264,7 @@
       "area": "Project",
       "spec": "ExclusionRulesTestSteps",
       "name": "Delete already deleted exclusion rule",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -10293,7 +10301,7 @@
       "area": "Project",
       "spec": "ExclusionRulesTestSteps",
       "name": "Delete exclusion rule",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -10337,7 +10345,7 @@
       "area": "Project",
       "spec": "ExclusionRulesTestSteps",
       "name": "Delete exclusion rule with invalid rule ID",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -10366,7 +10374,7 @@
       "area": "Project",
       "spec": "ExclusionRulesTestSteps",
       "name": "Enable exclusion rule endpoint returns 500 UnsupportedOperationException for invalid rule ID too",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -10395,7 +10403,7 @@
       "area": "Project",
       "spec": "ExclusionRulesTestSteps",
       "name": "Enable/disable exclusion rule endpoint is unimplemented and returns 500 UnsupportedOperationException",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -10428,7 +10436,7 @@
       "area": "Project",
       "spec": "ExclusionRulesTestSteps",
       "name": "Get exclusion rule by ID",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -10460,7 +10468,7 @@
       "area": "Project",
       "spec": "ExclusionRulesTestSteps",
       "name": "Get exclusion rule with invalid rule ID",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -10489,7 +10497,7 @@
       "area": "Project",
       "spec": "ExclusionRulesTestSteps",
       "name": "Manage exclusion rules on invalid project ID",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -10518,7 +10526,7 @@
       "area": "Project",
       "spec": "ExclusionRulesTestSteps",
       "name": "Manage multiple exclusion rules on same project; rename endpoint is unimplemented",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -10567,7 +10575,7 @@
       "area": "Project",
       "spec": "ExclusionRulesTestSteps",
       "name": "Rename exclusion rule endpoint is unimplemented and returns 500 UnsupportedOperationException",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -10604,7 +10612,7 @@
       "area": "Project",
       "spec": "ExclusionRulesTestSteps",
       "name": "Rename exclusion rule endpoint returns 500 UnsupportedOperationException even for invalid name",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -10637,7 +10645,7 @@
       "area": "Project",
       "spec": "ExclusionRulesTestSteps",
       "name": "Rename exclusion rule endpoint returns 500 UnsupportedOperationException for invalid rule ID too",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -10666,7 +10674,7 @@
       "area": "Project",
       "spec": "ExclusionRulesTestSteps",
       "name": "removeEntry rejects projectId below the minimum with a validation error",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -10695,7 +10703,7 @@
       "area": "Project",
       "spec": "ExclusionRulesTestSteps",
       "name": "removeEntry returns 404 NotFoundInDb for a valid but non-existent project",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -10724,7 +10732,7 @@
       "area": "Project",
       "spec": "ExclusionRulesTestSteps",
       "name": "removeEntry test endpoint clears all exclusion rules for the project",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -10768,7 +10776,7 @@
       "area": "Project",
       "spec": "FullProjectSetupSourceTestSteps",
       "name": "fullProjectSetup derives useEropMedical from the project instead of the client-sent value",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "SOURCES"
       ],
@@ -10800,7 +10808,7 @@
       "area": "Project",
       "spec": "FullProjectSetupSourceTestSteps",
       "name": "fullProjectSetup fills default source settings when source is omitted",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "SOURCES"
       ],
@@ -10832,7 +10840,7 @@
       "area": "Project",
       "spec": "FullProjectSetupSourceTestSteps",
       "name": "fullProjectSetup persists quota group brand exclusion",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "SOURCES"
       ],
@@ -10864,7 +10872,7 @@
       "area": "Project",
       "spec": "FullProjectSetupSourceTestSteps",
       "name": "fullProjectSetup persists quota group source toggles",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "SOURCES"
       ],
@@ -10896,7 +10904,7 @@
       "area": "Project",
       "spec": "ManagersTestSteps",
       "name": "Get project managers returns valid response",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "MANAGERS"
       ],
@@ -10920,7 +10928,7 @@
       "area": "Project",
       "spec": "ManagersTestSteps",
       "name": "Update account manager",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "MANAGERS"
       ],
@@ -10948,7 +10956,7 @@
       "area": "Project",
       "spec": "ManagersTestSteps",
       "name": "Update all managers in bulk",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "MANAGERS"
       ],
@@ -10980,7 +10988,7 @@
       "area": "Project",
       "spec": "ManagersTestSteps",
       "name": "Update backup account managers",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "MANAGERS"
       ],
@@ -11008,7 +11016,7 @@
       "area": "Project",
       "spec": "ManagersTestSteps",
       "name": "Update backup client delivery consultants",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "MANAGERS"
       ],
@@ -11036,7 +11044,7 @@
       "area": "Project",
       "spec": "ManagersTestSteps",
       "name": "Update backup project managers",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "MANAGERS"
       ],
@@ -11064,7 +11072,7 @@
       "area": "Project",
       "spec": "ManagersTestSteps",
       "name": "Update client delivery consultant",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "MANAGERS"
       ],
@@ -11092,7 +11100,7 @@
       "area": "Project",
       "spec": "ManagersTestSteps",
       "name": "Update project manager",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "MANAGERS"
       ],
@@ -11215,7 +11223,7 @@
       "area": "Project",
       "spec": "ProjectCRUDTestSteps",
       "name": "Get latest feasibility calculation time",
-      "type": "CRUD",
+      "type": "Query",
       "tags": [],
       "owner": "Gergely Gimesi",
       "feature": "Projects - CRUD Operations",
@@ -11229,7 +11237,7 @@
       "area": "Project",
       "spec": "ProjectCRUDTestSteps",
       "name": "Get project IDs by criteria [scenario: #scenario]",
-      "type": "CRUD",
+      "type": "Query",
       "tags": [],
       "owner": "Gergely Gimesi",
       "feature": "Projects - CRUD Operations",
@@ -11257,7 +11265,7 @@
       "area": "Project",
       "spec": "ProjectCRUDTestSteps",
       "name": "Get signed URL key ID",
-      "type": "CRUD",
+      "type": "Query",
       "tags": [],
       "owner": "Gergely Gimesi",
       "feature": "Projects - CRUD Operations",
@@ -11325,7 +11333,7 @@
       "area": "Project",
       "spec": "ProjectCoreTestSteps",
       "name": "Get available status transitions returns valid response",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -11353,7 +11361,7 @@
       "area": "Project",
       "spec": "ProjectCoreTestSteps",
       "name": "Get project core includes eligibleForRaceBoost field",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -11381,7 +11389,7 @@
       "area": "Project",
       "spec": "ProjectCoreTestSteps",
       "name": "Get project core returns eligibleForRaceBoost true after race boost is enabled",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -11409,7 +11417,7 @@
       "area": "Project",
       "spec": "ProjectCoreTestSteps",
       "name": "Get project core returns valid response",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -11437,7 +11445,7 @@
       "area": "Project",
       "spec": "ProjectCoreTestSteps",
       "name": "Get project core with invalid project ID returns error",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -11466,7 +11474,7 @@
       "area": "Project",
       "spec": "ProjectCoreTestSteps",
       "name": "Get tracker details returns valid response",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -11494,7 +11502,7 @@
       "area": "Project",
       "spec": "ProjectCoreTestSteps",
       "name": "Update categories",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -11522,7 +11530,7 @@
       "area": "Project",
       "spec": "ProjectCoreTestSteps",
       "name": "Update client ID",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -11550,7 +11558,7 @@
       "area": "Project",
       "spec": "ProjectCoreTestSteps",
       "name": "Update project core",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -11578,7 +11586,7 @@
       "area": "Project",
       "spec": "ProjectCoreTestSteps",
       "name": "Update project name",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -11606,7 +11614,7 @@
       "area": "Project",
       "spec": "ProjectCoreTestSteps",
       "name": "Update project name with invalid project ID returns error",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -11635,7 +11643,7 @@
       "area": "Project",
       "spec": "ProjectCoreTestSteps",
       "name": "Update quota auto close",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -11663,7 +11671,7 @@
       "area": "Project",
       "spec": "ProjectCoreTestSteps",
       "name": "Update quote number",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -11691,7 +11699,7 @@
       "area": "Project",
       "spec": "ProjectCoreTestSteps",
       "name": "Update total quota",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -11719,7 +11727,7 @@
       "area": "Project",
       "spec": "ProjectCoreTestSteps",
       "name": "Update tracker details",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -11751,7 +11759,7 @@
       "area": "Project",
       "spec": "ProjectDatesTestSteps",
       "name": "Get project dates",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_DATES"
       ],
@@ -11779,7 +11787,7 @@
       "area": "Project",
       "spec": "ProjectDatesTestSteps",
       "name": "Toggle scheduled auto close flag",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_DATES"
       ],
@@ -11823,7 +11831,7 @@
       "area": "Project",
       "spec": "ProjectDatesTestSteps",
       "name": "Update all project dates at once",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_DATES"
       ],
@@ -11859,7 +11867,7 @@
       "area": "Project",
       "spec": "ProjectDatesTestSteps",
       "name": "Update multiple date fields independently and verify no side effects",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_DATES"
       ],
@@ -11907,7 +11915,7 @@
       "area": "Project",
       "spec": "ProjectDatesTestSteps",
       "name": "Update proposed end date",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_DATES"
       ],
@@ -11948,7 +11956,7 @@
       "area": "Project",
       "spec": "ProjectDatesTestSteps",
       "name": "Update proposed start date",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_DATES"
       ],
@@ -12390,7 +12398,7 @@
       "area": "Project",
       "spec": "ProjectExclusionDedupeTestSteps",
       "name": "Add deprecated project dedupe exclusion is persisted on project",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "DEDUPE"
       ],
@@ -12422,7 +12430,7 @@
       "area": "Project",
       "spec": "ProjectExclusionDedupeTestSteps",
       "name": "Delete deprecated project dedupe exclusion removes the entry",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "DEDUPE"
       ],
@@ -12454,7 +12462,7 @@
       "area": "Project",
       "spec": "ProjectExclusionDedupeTestSteps",
       "name": "Delete deprecated project respondent exclusion completes without error",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "DEDUPE"
       ],
@@ -12486,7 +12494,7 @@
       "area": "Project",
       "spec": "ProjectExclusionDedupeTestSteps",
       "name": "Download deprecated project respondent exclusion returns a payload",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "DEDUPE"
       ],
@@ -12514,7 +12522,7 @@
       "area": "Project",
       "spec": "ProjectExclusionDedupeTestSteps",
       "name": "Get deprecated project respondent exclusion paged returns a paged result",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "DEDUPE"
       ],
@@ -12543,7 +12551,7 @@
       "area": "Project",
       "spec": "ProjectExclusionDedupeTestSteps",
       "name": "Update deprecated project dedupe exclusion replaces deduped project reference",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "DEDUPE"
       ],
@@ -12575,7 +12583,7 @@
       "area": "Project",
       "spec": "ProjectExclusionDedupeTestSteps",
       "name": "Upload deprecated project respondent exclusion rejects missing S3 file with documented error",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "DEDUPE"
       ],
@@ -12603,7 +12611,7 @@
       "area": "Project",
       "spec": "ProjectNotesTestSteps",
       "name": "Add note to project",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_NOTES"
       ],
@@ -12631,7 +12639,7 @@
       "area": "Project",
       "spec": "ProjectNotesTestSteps",
       "name": "Delete project note",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_NOTES"
       ],
@@ -12663,7 +12671,7 @@
       "area": "Project",
       "spec": "ProjectNotesTestSteps",
       "name": "Get project note after deletion",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "PROJECT_NOTES"
       ],
@@ -12695,7 +12703,7 @@
       "area": "Project",
       "spec": "ProjectNotesTestSteps",
       "name": "Get project note by ID",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_NOTES"
       ],
@@ -12727,7 +12735,7 @@
       "area": "Project",
       "spec": "ProjectNotesTestSteps",
       "name": "Get project note with invalid note ID",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "PROJECT_NOTES"
       ],
@@ -12756,7 +12764,7 @@
       "area": "Project",
       "spec": "ProjectNotesTestSteps",
       "name": "Search notes filtered by project ID",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_NOTES"
       ],
@@ -12792,7 +12800,7 @@
       "area": "Project",
       "spec": "ProjectNotesTestSteps",
       "name": "Search notes with basic pagination",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_NOTES"
       ],
@@ -12829,7 +12837,7 @@
       "area": "Project",
       "spec": "ProjectNotesTestSteps",
       "name": "Search notes with date range filter",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_NOTES"
       ],
@@ -12865,7 +12873,7 @@
       "area": "Project",
       "spec": "ProjectNotesTestSteps",
       "name": "Search notes with empty result set",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_NOTES"
       ],
@@ -12897,7 +12905,7 @@
       "area": "Project",
       "spec": "ProjectNotesTestSteps",
       "name": "Search notes with invalid pagination parameters",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "PROJECT_NOTES"
       ],
@@ -12930,7 +12938,7 @@
       "area": "Project",
       "spec": "ProjectNotesTestSteps",
       "name": "Search notes with text query filter",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_NOTES"
       ],
@@ -12967,7 +12975,7 @@
       "area": "Project",
       "spec": "ProjectNotesTestSteps",
       "name": "Update project note",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "PROJECT_NOTES"
       ],
@@ -12999,7 +13007,7 @@
       "area": "Project",
       "spec": "ProjectOverviewTestSteps",
       "name": "Get project overview does not include numberOfOverQuotasForRace when race boost is disabled",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_CORE",
         "PR_SMOKE"
@@ -13028,7 +13036,7 @@
       "area": "Project",
       "spec": "ProjectOverviewTestSteps",
       "name": "Get project overview returns eligibleForRaceBoost false for standard project",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_CORE",
         "PR_SMOKE"
@@ -13057,7 +13065,7 @@
       "area": "Project",
       "spec": "ProjectOverviewTestSteps",
       "name": "Get project overview returns eligibleForRaceBoost true after race boost is enabled",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -13085,7 +13093,7 @@
       "area": "Project",
       "spec": "ProjectOverviewTestSteps",
       "name": "Get project overview returns numberOfOverQuotasForRace when race boost is enabled",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -13113,7 +13121,7 @@
       "area": "Project",
       "spec": "ProjectPanelProjectPropertiesTestSteps",
       "name": "FINISHED (CIA-closed) project reopens to RUNNING when allowReopenProject is true (via FIELDWORK_COMPLETE)",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -13141,7 +13149,7 @@
       "area": "Project",
       "spec": "ProjectPanelProjectPropertiesTestSteps",
       "name": "FINISHED project does not offer reopen transition when allowReopenProject is false",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -13169,7 +13177,7 @@
       "area": "Project",
       "spec": "ProjectPanelProjectPropertiesTestSteps",
       "name": "FINISHED project gains FIELDWORK_COMPLETE transition when allowReopenProject is turned on after close",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -13201,7 +13209,7 @@
       "area": "Project",
       "spec": "ProjectPanelProjectPropertiesTestSteps",
       "name": "SUSPENDED project still exposes FIELDWORK_COMPLETE while allowReopenProject is false (non-FINISHED path)",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "PROJECT_CORE"
       ],
@@ -14204,7 +14212,7 @@
       "area": "Quota",
       "spec": "SoldQuotaValidationTestSteps",
       "name": "Locking and unlocking sold quota while feasibility distribution is set validates lock functionality",
-      "type": "Validation",
+      "type": "Workflow",
       "tags": [
         "QUOTA",
         "SOLD_QUOTAS"
@@ -14319,7 +14327,7 @@
       "area": "Quota",
       "spec": "SoldQuotaValidationTestSteps",
       "name": "Locking soldQuota in PROJECT phase should be disabled",
-      "type": "Validation",
+      "type": "Workflow",
       "tags": [
         "QUOTA",
         "SOLD_QUOTAS"
@@ -14487,7 +14495,7 @@
       "area": "Quota",
       "spec": "SoldQuotaValidationTestSteps",
       "name": "Unlocking soldQuota in PROJECT phase should be disabled",
-      "type": "Validation",
+      "type": "Workflow",
       "tags": [
         "QUOTA",
         "SOLD_QUOTAS"
@@ -15201,7 +15209,7 @@
       "area": "QuotaGroup",
       "spec": "ChangeOrderFlowTestSteps",
       "name": "change order flow: request, evaluation, block traffic, approve",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "BOS_SYNC"
       ],
@@ -15245,7 +15253,7 @@
       "area": "QuotaGroup",
       "spec": "ChangeOrderFlowTestSteps",
       "name": "change order flow: request, evaluation, block traffic, revert",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "BOS_SYNC"
       ],
@@ -15289,7 +15297,7 @@
       "area": "QuotaGroup",
       "spec": "ChangeOrderFlowTestSteps",
       "name": "change order flow: two audiences request, evaluation, approve",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "BOS_SYNC"
       ],
@@ -16087,7 +16095,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupCRUDTestSteps",
       "name": "Initialize audience price change with past timestamp",
-      "type": "CRUD",
+      "type": "Validation",
       "tags": [],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -16500,7 +16508,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupCRUDTestSteps",
       "name": "Update proposed end date before start date fails validation",
-      "type": "CRUD",
+      "type": "Validation",
       "tags": [
         "QUOTA_DATES"
       ],
@@ -16570,7 +16578,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupCRUDTestSteps",
       "name": "Update proposed end date with date in the past fails validation",
-      "type": "CRUD",
+      "type": "Validation",
       "tags": [
         "QUOTA_DATES"
       ],
@@ -16673,7 +16681,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupCRUDTestSteps",
       "name": "Update proposed start date with date in the past fails validation",
-      "type": "CRUD",
+      "type": "Validation",
       "tags": [
         "QUOTA_DATES"
       ],
@@ -16990,7 +16998,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Add project exclusion to quota group",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17018,7 +17026,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Delete exclusion rule that does not exist",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17047,7 +17055,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Delete exclusion rule with invalid rule ID",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17076,7 +17084,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Delete project exclusion from quota group",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17116,7 +17124,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Delete respondent exclusions from quota group",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17144,7 +17152,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Delete respondent exclusions when none exist",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17172,7 +17180,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Delete respondent exclusions with invalid quota group ID",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17201,7 +17209,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Download respondent exclusions from quota group",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17229,7 +17237,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Download respondent exclusions when none exist",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17257,7 +17265,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Download respondent exclusions with invalid quota group ID",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17286,7 +17294,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Enable exclusion rule with invalid rule ID",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17315,7 +17323,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Get exclusion rule with invalid rule ID",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17344,7 +17352,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Get project exclusions with invalid project ID",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17373,7 +17381,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Get quota group project exclusions",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17401,7 +17409,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Get quota group respondent exclusions with pagination",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17430,7 +17438,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Get respondent exclusions with boundary pagination values",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17459,7 +17467,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Get respondent exclusions with invalid pagination parameters",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17488,7 +17496,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Get respondent exclusions with out of bounds page number",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17517,7 +17525,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Multiple project exclusions workflow - add, update, delete",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17561,7 +17569,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Rename exclusion rule with invalid name",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17594,7 +17602,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Update exclusion rule with invalid rule ID",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17630,7 +17638,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Update project exclusion in quota group",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17662,7 +17670,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Update same project exclusion multiple times",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17710,7 +17718,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
       "name": "Upload respondent exclusions with invalid quota group ID",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -17739,7 +17747,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDeliveryTestSteps",
       "name": "Get available prioritization levels",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "DELIVERY"
       ],
@@ -17767,7 +17775,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDeliveryTestSteps",
       "name": "Get quota group delivery settings",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "DELIVERY"
       ],
@@ -17803,7 +17811,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDeliveryTestSteps",
       "name": "Toggle delivery visibility on UI",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "DELIVERY"
       ],
@@ -17832,7 +17840,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDeliveryTestSteps",
       "name": "Update quota group click rate",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "DELIVERY"
       ],
@@ -17865,7 +17873,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDeliveryTestSteps",
       "name": "Update quota group click rate is rejected outside MANUAL delivery mode",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "DELIVERY"
       ],
@@ -17897,7 +17905,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDeliveryTestSteps",
       "name": "Update quota group click rate using dedicated endpoint",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "DELIVERY"
       ],
@@ -17930,7 +17938,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDeliveryTestSteps",
       "name": "Update quota group delivery settings",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "DELIVERY"
       ],
@@ -17963,7 +17971,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDeliveryTestSteps",
       "name": "Update quota group prioritization level",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "DELIVERY"
       ],
@@ -17995,7 +18003,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDeliveryTestSteps",
       "name": "Update quota group prioritization level rejects levels the user is not entitled to",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "DELIVERY"
       ],
@@ -18028,7 +18036,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDeliveryTestSteps",
       "name": "Update quota group prioritization level using dedicated endpoint",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "DELIVERY"
       ],
@@ -18056,7 +18064,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupDeliveryTestSteps",
       "name": "Update quota group prioritization level using dedicated endpoint rejects levels the user is not entitled to",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "DELIVERY"
       ],
@@ -18085,7 +18093,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupE2ETestSteps",
       "name": "Clone audience group and verify cloned audience group name has Cloned- prefix and quota group names have Cloned suffix",
-      "type": "E2E",
+      "type": "CRUD",
       "tags": [
         "AUDIENCE_GROUP"
       ],
@@ -18292,7 +18300,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupInclusionTestSteps",
       "name": "Get quota group inclusion conditions",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "QUOTA"
       ],
@@ -18328,7 +18336,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupInclusionTestSteps",
       "name": "Get quota group inclusion settings",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "QUOTA"
       ],
@@ -18360,7 +18368,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupInclusionTestSteps",
       "name": "POST quotaGroups/{id}/hijack reevaluates and persists HijackProperties derived from the current inclusion",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "QUOTA"
       ],
@@ -18408,7 +18416,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupInclusionTestSteps",
       "name": "Update quota group inclusion conditions",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "QUOTA"
       ],
@@ -18444,7 +18452,7 @@
       "area": "QuotaGroup",
       "spec": "QuotaGroupInclusionTestSteps",
       "name": "Update quota group inclusion settings",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "QUOTA"
       ],
@@ -19528,7 +19536,7 @@
       "area": "SampleRules",
       "spec": "SampleRulesTestSteps",
       "name": "Configure brand exclusion with copying",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "CHANNEL_CRITERIA",
         "CC_MIRRORED",
@@ -19571,7 +19579,7 @@
       "area": "SampleRules",
       "spec": "SampleRulesTestSteps",
       "name": "Configure brand exclusion without copying",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "CHANNEL_CRITERIA",
         "BRAND_EXCLUSION"
@@ -19605,7 +19613,7 @@
       "area": "SampleRules",
       "spec": "SampleRulesTestSteps",
       "name": "Configure channel distribution manually",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "CHANNEL_CRITERIA",
         "CC_CUSTOM"
@@ -19639,7 +19647,7 @@
       "area": "SampleRules",
       "spec": "SampleRulesTestSteps",
       "name": "Configure channel distribution with natural fallout",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "CHANNEL_CRITERIA",
         "CC_NATURAL"
@@ -19673,7 +19681,7 @@
       "area": "SampleRules",
       "spec": "SampleRulesTestSteps",
       "name": "Configure manual distribution with extreme values",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "CHANNEL_CRITERIA"
       ],
@@ -19706,7 +19714,7 @@
       "area": "SampleRules",
       "spec": "SampleRulesTestSteps",
       "name": "Configure sample criteria with copying",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "CHANNEL_CRITERIA",
         "CC_MIRRORED"
@@ -19748,7 +19756,7 @@
       "area": "SampleRules",
       "spec": "SampleRulesTestSteps",
       "name": "Configure sample criteria without copying",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "CHANNEL_CRITERIA"
       ],
@@ -19781,7 +19789,7 @@
       "area": "SampleRules",
       "spec": "SampleRulesTestSteps",
       "name": "Copy channel distribution from another audience",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "CHANNEL_CRITERIA",
         "CC_MIRRORED"
@@ -19823,7 +19831,7 @@
       "area": "SampleRules",
       "spec": "SampleRulesTestSteps",
       "name": "View project exclusion rules",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "EXCLUSION_RULES"
       ],
@@ -19944,7 +19952,7 @@
       "area": "SampleRules",
       "spec": "SampleRulesValidationTestSteps",
       "name": "Configure sample criteria with all possible combinations",
-      "type": "Validation",
+      "type": "CRUD",
       "tags": [
         "CHANNEL_CRITERIA"
       ],
@@ -20035,7 +20043,7 @@
       "area": "SampleRules",
       "spec": "SampleRulesValidationTestSteps",
       "name": "Copy channel distribution with incompatible source",
-      "type": "Validation",
+      "type": "CRUD",
       "tags": [
         "CHANNEL_CRITERIA",
         "CC_MIRRORED"
@@ -20199,7 +20207,7 @@
       "area": "SampleRules",
       "spec": "SourcesApplyTestSteps",
       "name": "Apply default sources with empty target list",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "SOURCES"
       ],
@@ -20231,7 +20239,7 @@
       "area": "SampleRules",
       "spec": "SourcesApplyTestSteps",
       "name": "Apply sources to copy configuration from source",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOURCES"
       ],
@@ -20267,7 +20275,7 @@
       "area": "SampleRules",
       "spec": "SourcesApplyTestSteps",
       "name": "Apply sources to multiple target quota groups simultaneously",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOURCES"
       ],
@@ -20300,7 +20308,7 @@
       "area": "SampleRules",
       "spec": "SourcesApplyTestSteps",
       "name": "Apply sources with both sample requirements and brand restrictions",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOURCES"
       ],
@@ -20332,7 +20340,7 @@
       "area": "SampleRules",
       "spec": "SourcesApplyTestSteps",
       "name": "Get apply sources toggles for multiple audience groups",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "SOURCES"
       ],
@@ -20364,7 +20372,7 @@
       "area": "SampleRules",
       "spec": "SourcesApplyTestSteps",
       "name": "Get apply sources toggles for quota groups",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "SOURCES"
       ],
@@ -20396,7 +20404,7 @@
       "area": "SampleRules",
       "spec": "SourcesApplyTestSteps",
       "name": "Preview mirroring of source setup options",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOURCES"
       ],
@@ -20428,7 +20436,7 @@
       "area": "SampleRules",
       "spec": "SourcesBrandExclusionTestSteps",
       "name": "Get apply sources brand exclusions for multiple audience groups",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "SOURCES"
       ],
@@ -20460,7 +20468,7 @@
       "area": "SampleRules",
       "spec": "SourcesBrandExclusionTestSteps",
       "name": "Get apply sources brand exclusions for quota groups",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "SOURCES"
       ],
@@ -20492,7 +20500,7 @@
       "area": "SampleRules",
       "spec": "SourcesBrandExclusionTestSteps",
       "name": "Save brand exclusions for all quota groups in project",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SOURCES"
       ],
@@ -20525,7 +20533,7 @@
       "area": "SampleRules",
       "spec": "SourcesBrandExclusionTestSteps",
       "name": "Save brand exclusions for project with empty brand list",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "SOURCES"
       ],
@@ -20557,7 +20565,7 @@
       "area": "Segment",
       "spec": "SegmentHiddenFlagRegressionTestSteps",
       "name": "A cloned audience group keeps the hidden segment flags",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SEGMENTS",
         "QUOTA",
@@ -20596,7 +20604,7 @@
       "area": "Segment",
       "spec": "SegmentHiddenFlagRegressionTestSteps",
       "name": "A quota map update clears hidden when hidden is not sent",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SEGMENTS",
         "QUOTA"
@@ -20633,7 +20641,7 @@
       "area": "Segment",
       "spec": "SegmentHiddenFlagRegressionTestSteps",
       "name": "A user can hide and restore segments with desiredQuotaTotal",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SEGMENTS",
         "QUOTA"
@@ -20678,7 +20686,7 @@
       "area": "Segment",
       "spec": "SegmentHiddenFlagRegressionTestSteps",
       "name": "A user cannot save hidden true with positive requested quota",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "SEGMENTS",
         "QUOTA"
@@ -20715,7 +20723,7 @@
       "area": "Segment",
       "spec": "SegmentHiddenFlagRegressionTestSteps",
       "name": "A user hides one nested segment and can restore it",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SEGMENTS",
         "QUOTA"
@@ -20768,7 +20776,7 @@
       "area": "Segment",
       "spec": "SegmentHiddenFlagRegressionTestSteps",
       "name": "A user must send every visible segment in the group",
-      "type": "Other",
+      "type": "Validation",
       "tags": [
         "SEGMENTS",
         "QUOTA"
@@ -20805,7 +20813,7 @@
       "area": "Segment",
       "spec": "SegmentHiddenFlagRegressionTestSteps",
       "name": "Saving nested segmented conditions with a new representation clears hidden when that segment receives quota above zero",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SEGMENTS",
         "QUOTA"
@@ -20854,7 +20862,7 @@
       "area": "Segment",
       "spec": "SegmentHiddenFlagRegressionTestSteps",
       "name": "Saving nested segmented conditions with rebalanced answer splits clears hidden when that segment receives quota above zero",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SEGMENTS",
         "QUOTA"
@@ -20903,7 +20911,7 @@
       "area": "Segment",
       "spec": "SegmentStatusClonePreservationTestSteps",
       "name": "Cloning the audience group keeps the halted segment SUSPENDED and SQL in sync with NexusApi",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SEGMENTS",
         "CLONE_AUDIENCE_GROUP"
@@ -20940,7 +20948,7 @@
       "area": "Segment",
       "spec": "SegmentStatusClonePreservationTestSteps",
       "name": "Cloning the quota group keeps the halted segment SUSPENDED and SQL in sync with NexusApi",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SEGMENTS",
         "CLONE_QUOTA_GROUP"
@@ -20973,7 +20981,7 @@
       "area": "Segment",
       "spec": "SegmentStatusClonePreservationTestSteps",
       "name": "Halting a segment keeps NexusApi segmentAttributes and DetailsEditor SQL detailsTable in sync",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [
         "SEGMENTS",
         "QUOTA"
@@ -21094,7 +21102,7 @@
       "area": "Segment",
       "spec": "SegmentsCRUDTestSteps",
       "name": "Get available quota distribution modes",
-      "type": "CRUD",
+      "type": "Query",
       "tags": [
         "SEGMENTS"
       ],
@@ -21286,7 +21294,7 @@
       "area": "Segment",
       "spec": "SegmentsCRUDTestSteps",
       "name": "Set autoClose to false for a specific segment does not affect other segments",
-      "type": "CRUD",
+      "type": "Query",
       "tags": [
         "SEGMENTS"
       ],
@@ -22134,7 +22142,7 @@
       "area": "Segment",
       "spec": "SegmentsValidationTestSteps",
       "name": "Update segment quotas with a hidden segment and precision-safe visible percentages",
-      "type": "Validation",
+      "type": "CRUD",
       "tags": [
         "SEGMENTS",
         "QUOTA"
@@ -22176,7 +22184,7 @@
       "area": "Segment",
       "spec": "SegmentsValidationTestSteps",
       "name": "Update segment quotas with high-precision decimal percentages that sum to 100%",
-      "type": "Validation",
+      "type": "CRUD",
       "tags": [
         "SEGMENTS",
         "QUOTA"
@@ -22388,7 +22396,7 @@
       "area": "Segment",
       "spec": "SegmentsValidationTestSteps",
       "name": "Update segment quotas with repeating decimal percentages that sum to 100%",
-      "type": "Validation",
+      "type": "CRUD",
       "tags": [
         "SEGMENTS",
         "QUOTA"
@@ -22426,7 +22434,7 @@
       "area": "Segment",
       "spec": "SegmentsValidationTestSteps",
       "name": "Update segment quotas with the precision payload that previously caused a validation failure",
-      "type": "Validation",
+      "type": "CRUD",
       "tags": [
         "SEGMENTS",
         "QUOTA"
@@ -23478,7 +23486,7 @@
       "area": "Settings",
       "spec": "SettingsTestSteps",
       "name": "View system settings",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_SETTINGS"
       ],
@@ -23506,7 +23514,7 @@
       "area": "Settings",
       "spec": "SettingsTestSteps",
       "name": "View user settings",
-      "type": "Other",
+      "type": "Query",
       "tags": [
         "PROJECT_SETTINGS"
       ],
@@ -23538,7 +23546,7 @@
       "area": "Settings",
       "spec": "UserSettingsTestSteps",
       "name": "Delete user settings",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [],
       "owner": "Gergely Gimesi",
       "feature": "User Settings",
@@ -23564,7 +23572,7 @@
       "area": "Settings",
       "spec": "UserSettingsTestSteps",
       "name": "Get user settings",
-      "type": "Other",
+      "type": "Query",
       "tags": [],
       "owner": "Gergely Gimesi",
       "feature": "User Settings",
@@ -23590,7 +23598,7 @@
       "area": "Settings",
       "spec": "UserSettingsTestSteps",
       "name": "Set default audience template",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [],
       "owner": "Gergely Gimesi",
       "feature": "User Settings",
@@ -23616,7 +23624,7 @@
       "area": "Settings",
       "spec": "UserSettingsTestSteps",
       "name": "Set default audience template for specific user",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [],
       "owner": "Gergely Gimesi",
       "feature": "User Settings",
@@ -23642,7 +23650,7 @@
       "area": "Settings",
       "spec": "UserSettingsTestSteps",
       "name": "Set default countries",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [],
       "owner": "Gergely Gimesi",
       "feature": "User Settings",
@@ -24382,7 +24390,7 @@
       "area": "Survey",
       "spec": "SurveyCRUDTestSteps",
       "name": "Get URL pool environments",
-      "type": "CRUD",
+      "type": "Query",
       "tags": [],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
@@ -24412,7 +24420,7 @@
       "area": "Survey",
       "spec": "SurveyCRUDTestSteps",
       "name": "Get list of test links",
-      "type": "CRUD",
+      "type": "Query",
       "tags": [],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
@@ -25157,7 +25165,7 @@
       "area": "pes",
       "spec": "PesNotificationTestSteps",
       "name": "partner allocation update publishes externalQuota notification",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "PES2",
         "PARTNER_EVENT"
@@ -25186,7 +25194,7 @@
       "area": "pes",
       "spec": "PesNotificationTestSteps",
       "name": "partner event creation publishes externalEventUpdated notification",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "PES2",
         "PARTNER_EVENT"
@@ -25211,7 +25219,7 @@
       "area": "pes",
       "spec": "PesNotificationTestSteps",
       "name": "soft launch quota update publishes quotaGroupPropertyUpdated notification",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "PES2",
         "SOFT_LAUNCH"
@@ -25236,7 +25244,7 @@
       "area": "pes",
       "spec": "PesNotificationTestSteps",
       "name": "tally mode update publishes quotaGroupDetailsUpdated notification",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "PES2",
         "TALLY"
@@ -25261,7 +25269,7 @@
       "area": "pes",
       "spec": "PesNotificationTestSteps",
       "name": "total quota update publishes quotaGroupDetailsUpdated notification",
-      "type": "Other",
+      "type": "Workflow",
       "tags": [
         "PES2",
         "QUOTA"
@@ -25286,7 +25294,7 @@
       "area": "workflow",
       "spec": "TallyModeChangeDefaultBehaviorTestSteps",
       "name": "Changing tally mode to BY_STARTS when no totalStartQuota is set should NOT set tally mode to BY_STARTS",
-      "type": "Other",
+      "type": "CRUD",
       "tags": [],
       "owner": "",
       "feature": "",
