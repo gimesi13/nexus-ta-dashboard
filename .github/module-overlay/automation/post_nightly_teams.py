@@ -1,21 +1,27 @@
 #!/usr/bin/env python3
 """Post a short Nexus API nightly status card to Microsoft Teams.
 
-Reads ``dashboard/data/nightly.json`` (from ``generate_nightly.py`` / ``tc_fetch_nightly.py``)
-and POSTs an Adaptive Card via a Power Automate Workflows webhook.
+Reads ``dashboard/data/nightly.json`` and POSTs an Adaptive Card via a Power Automate
+Workflows webhook. Primary CTA: Nightly dashboard. Secondary: TeamCity.
 
-Primary CTA: public Nightly dashboard. Secondary: TeamCity build URL when present.
-
-Webhook (group chat / shared channel — do **not** reuse the private morning-report URL):
+Webhook:
   NEXUS_TEAMS_NIGHTLY_WEBHOOK_URL   required for posting
-  NEXUS_TEAMS_NIGHTLY_ALLOW_FALLBACK=1  — only then fall back to NEXUS_TEAMS_WEBHOOK_URL
+  NEXUS_TEAMS_NIGHTLY_ALLOW_FALLBACK=1  — then allow NEXUS_TEAMS_WEBHOOK_URL
 
-If no webhook is set, prints the card Markdown and exits 0 (safe for local runs).
+Styles (``--style``):
+  A  airy metrics (current favorite candidate)
+  B  compact digest
+  C  hero pass-rate
+  D  status ribbon
+  E  two-by-two KPIs
+
+  --style-gallery   post A–E labeled so you can pick one
 
 Usage:
   python3 automation/post_nightly_teams.py
+  python3 automation/post_nightly_teams.py --style C
+  python3 automation/post_nightly_teams.py --style-gallery
   python3 automation/post_nightly_teams.py --dry-run
-  python3 automation/post_nightly_teams.py --json path/to/nightly.json
 """
 from __future__ import annotations
 
@@ -23,6 +29,7 @@ import argparse
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -33,7 +40,18 @@ DASHBOARD_NIGHTLY_URL = "https://gimesi13.github.io/nexus-ta-dashboard/nightly.h
 ENV_NIGHTLY = "NEXUS_TEAMS_NIGHTLY_WEBHOOK_URL"
 ENV_FALLBACK = "NEXUS_TEAMS_WEBHOOK_URL"
 ENV_ALLOW_FALLBACK = "NEXUS_TEAMS_NIGHTLY_ALLOW_FALLBACK"
-FAIL_CAP = 5
+# Hard cap — Teams cards must stay short even on a red night.
+FAIL_CAP = 3
+NAME_LIMIT = 72
+STYLES = ("A", "B", "C", "D", "E")
+STYLE_LABELS = {
+    "A": "Airy metrics",
+    "B": "Compact digest",
+    "C": "Hero pass-rate",
+    "D": "Status ribbon",
+    "E": "Two-by-two KPIs",
+}
+DEFAULT_STYLE = "A"
 
 
 def _webhook_url(explicit: str = "") -> str:
@@ -64,7 +82,6 @@ def _fmt_duration(sec: float | int | None) -> str:
 
 
 def _status_tone(status: str) -> tuple[str, str, str]:
-    """Return (label, container_style, accent_color)."""
     s = (status or "").upper()
     if s == "SUCCESS":
         return "Passed", "good", "good"
@@ -73,115 +90,18 @@ def _status_tone(status: str) -> tuple[str, str, str]:
     return s or "Unknown", "emphasis", "default"
 
 
-def _kpi_column(label: str, value: str, color: str = "default") -> dict:
-    return {
-        "type": "Column",
-        "width": "stretch",
-        "items": [
-            {
-                "type": "TextBlock",
-                "text": label.upper(),
-                "size": "Small",
-                "isSubtle": True,
-                "spacing": "None",
-            },
-            {
-                "type": "TextBlock",
-                "text": value,
-                "size": "Large",
-                "weight": "Bolder",
-                "color": color,
-                "spacing": "None",
-                "wrap": True,
-            },
-        ],
-    }
+def _shorten(text: str, limit: int = 90) -> str:
+    text = " ".join((text or "").split())
+    if len(text) <= limit:
+        return text
+    return text[: limit - 1].rstrip() + "…"
 
 
-def _failure_items(data: dict) -> list[dict]:
-    failed = list(data.get("failed") or [])
-    items: list[dict] = []
-    for item in failed[:FAIL_CAP]:
-        area = item.get("area") or "?"
-        name = item.get("name") or item.get("id") or "?"
-        new = bool(item.get("newFailure"))
-        title = f"**{area}** · {name}"
-        if new:
-            title += "  ·  new"
-        items.append(
-            {
-                "type": "Container",
-                "spacing": "Small",
-                "style": "emphasis",
-                "items": [
-                    {
-                        "type": "TextBlock",
-                        "text": title,
-                        "wrap": True,
-                        "size": "Small",
-                    }
-                ],
-            }
-        )
-    extra = len(failed) - FAIL_CAP
-    trunc = int(data.get("failedTruncated") or 0)
-    more = extra + trunc
-    if more > 0:
-        items.append(
-            {
-                "type": "TextBlock",
-                "text": f"+ {more} more on the dashboard",
-                "isSubtle": True,
-                "size": "Small",
-                "spacing": "Small",
-            }
-        )
-    return items
-
-
-def build_markdown(data: dict) -> str:
-    """Plain Markdown for stdout / webhook-unset fallback."""
-    if not data.get("available"):
-        reason = data.get("reason") or "no nightly summary"
-        return (
-            f"**Nexus API nightly** — no data ({reason})\n\n"
-            f"[Open dashboard]({DASHBOARD_NIGHTLY_URL})"
-        )
-
-    build = data.get("build") or {}
-    summary = data.get("summary") or {}
-    status = (build.get("status") or "UNKNOWN").upper()
-    label, _, _ = _status_tone(status)
-    number = build.get("number") or "?"
-    pass_rate = summary.get("passRate")
-    rate = f"{pass_rate}%" if pass_rate is not None else "—"
-    failures = summary.get("failures", 0) or 0
-
-    lines = [
-        f"**Nexus API nightly** · {label} · #{number}",
-        f"{rate} pass · {failures} failed · "
-        f"{summary.get('muted', '—')} muted · {_fmt_duration(summary.get('timeSec'))}",
-    ]
-    failed = list(data.get("failed") or [])
-    for item in failed[:FAIL_CAP]:
-        area = item.get("area") or "?"
-        name = item.get("name") or "?"
-        tag = " (new)" if item.get("newFailure") else ""
-        lines.append(f"• {area} — {name}{tag}")
-    lines.append(f"[Open dashboard]({DASHBOARD_NIGHTLY_URL})")
-    tc = build.get("webUrl")
-    if tc:
-        lines.append(f"[TeamCity]({tc})")
-    return "\n".join(lines)
-
-
-def build_adaptive_card(data: dict) -> dict:
-    build = data.get("build") or {}
-    summary = data.get("summary") or {}
+def _actions(build: dict) -> list[dict]:
     actions = [
         {
             "type": "Action.OpenUrl",
-            "title": "Open nightly dashboard",
+            "title": "Open TA Dashboard",
             "url": DASHBOARD_NIGHTLY_URL,
             "style": "positive",
         }
@@ -189,141 +109,66 @@ def build_adaptive_card(data: dict) -> dict:
     tc = build.get("webUrl")
     if tc:
         actions.append(
-            {"type": "Action.OpenUrl", "title": "TeamCity", "url": tc}
+            {"type": "Action.OpenUrl", "title": "Open TeamCity Build", "url": tc}
         )
+    return actions
 
-    if not data.get("available"):
-        reason = data.get("reason") or "no nightly summary"
-        body: list[dict] = [
+
+def _failure_chips(c: dict) -> list[dict]:
+    """Equal-ish height chips: one title line + one truncated detail line + bg."""
+    items: list[dict] = []
+    for item in c["failed"][:FAIL_CAP]:
+        area = item.get("area") or "?"
+        name = _shorten(item.get("name") or item.get("id") or "?", NAME_LIMIT)
+        new = bool(item.get("newFailure"))
+        title = f"**{area}**"
+        if new:
+            title += "  ·  NEW"
+        items.append(
             {
                 "type": "Container",
                 "style": "emphasis",
+                "spacing": "Small",
                 "items": [
                     {
                         "type": "TextBlock",
-                        "text": "NEXUS API REGRESSION",
+                        "text": title,
+                        "size": "Small",
+                        "spacing": "None",
+                        "wrap": False,
+                    },
+                    {
+                        "type": "TextBlock",
+                        "text": name,
                         "size": "Small",
                         "isSubtle": True,
                         "spacing": "None",
-                    },
-                    {
-                        "type": "TextBlock",
-                        "text": "No nightly data",
-                        "size": "Large",
-                        "weight": "Bolder",
-                        "spacing": "Small",
-                        "wrap": True,
-                    },
-                    {
-                        "type": "TextBlock",
-                        "text": reason,
-                        "isSubtle": True,
-                        "wrap": True,
-                        "spacing": "Small",
+                        "wrap": False,
+                        "maxLines": 1,
                     },
                 ],
             }
-        ]
-    else:
-        status = (build.get("status") or "UNKNOWN").upper()
-        label, style, accent = _status_tone(status)
-        number = build.get("number") or "?"
-        branch = build.get("branchName") or "master"
-        pr = summary.get("passRate")
-        rate = f"{pr}%" if pr is not None else "—"
-        failed_n = summary.get("failures", 0) or 0
-        fail_color = "attention" if failed_n else "good"
-
-        body = [
-            {
-                "type": "Container",
-                "style": style,
-                "items": [
-                    {
-                        "type": "TextBlock",
-                        "text": "NEXUS API REGRESSION",
-                        "size": "Small",
-                        "weight": "Bolder",
-                        "spacing": "None",
-                    },
-                    {
-                        "type": "ColumnSet",
-                        "spacing": "Small",
-                        "columns": [
-                            {
-                                "type": "Column",
-                                "width": "stretch",
-                                "items": [
-                                    {
-                                        "type": "TextBlock",
-                                        "text": label,
-                                        "size": "ExtraLarge",
-                                        "weight": "Bolder",
-                                        "color": accent,
-                                        "spacing": "None",
-                                    },
-                                    {
-                                        "type": "TextBlock",
-                                        "text": f"Build #{number}  ·  {branch}",
-                                        "isSubtle": True,
-                                        "spacing": "None",
-                                        "wrap": True,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
-            },
-            {
-                "type": "ColumnSet",
-                "spacing": "Medium",
-                "separator": True,
-                "columns": [
-                    _kpi_column("Pass rate", rate, "good" if failed_n == 0 else "default"),
-                    _kpi_column("Failed", str(failed_n), fail_color),
-                    _kpi_column("Muted", str(summary.get("muted", "—"))),
-                    _kpi_column("Duration", _fmt_duration(summary.get("timeSec"))),
-                ],
-            },
+        )
+    shown = min(len(c["failed"]), FAIL_CAP)
+    remaining = max(0, c["failed_n"] - shown)
+    # Prefer summary.failures when the feed truncates the failed[] list.
+    if c["more"]:
+        remaining = max(remaining, c["more"])
+    if remaining > 0:
+        items.append(
             {
                 "type": "TextBlock",
-                "text": (
-                    f"{summary.get('passed', '—')} passed  ·  "
-                    f"{summary.get('skipped', '—')} ignored  ·  "
-                    f"{summary.get('tests', '—')} total"
-                ),
+                "text": f"+ {remaining} more on the dashboard",
                 "isSubtle": True,
                 "size": "Small",
                 "spacing": "Small",
                 "wrap": True,
-            },
-        ]
+            }
+        )
+    return items
 
-        fail_items = _failure_items(data)
-        if fail_items:
-            body.append(
-                {
-                    "type": "TextBlock",
-                    "text": "Failures",
-                    "weight": "Bolder",
-                    "spacing": "Medium",
-                    "separator": True,
-                }
-            )
-            body.extend(fail_items)
-        elif status == "SUCCESS":
-            body.append(
-                {
-                    "type": "TextBlock",
-                    "text": "No open failures — suite is clean.",
-                    "color": "good",
-                    "spacing": "Medium",
-                    "separator": True,
-                    "wrap": True,
-                }
-            )
 
+def _wrap_card(body: list[dict], actions: list[dict]) -> dict:
     return {
         "type": "message",
         "attachments": [
@@ -342,10 +187,488 @@ def build_adaptive_card(data: dict) -> dict:
     }
 
 
+def _style_banner(style: str) -> dict:
+    return {
+        "type": "TextBlock",
+        "text": f"STYLE {style} — {STYLE_LABELS.get(style, style)}",
+        "size": "Small",
+        "weight": "Bolder",
+        "color": "accent",
+        "spacing": "None",
+    }
+
+
+def _ctx(data: dict) -> dict:
+    build = data.get("build") or {}
+    summary = data.get("summary") or {}
+    status = (build.get("status") or "UNKNOWN").upper()
+    label, style, accent = _status_tone(status)
+    pr = summary.get("passRate")
+    failed_n = summary.get("failures", 0) or 0
+    return {
+        "build": build,
+        "summary": summary,
+        "status": status,
+        "label": label,
+        "container_style": style,
+        "accent": accent,
+        "number": build.get("number") or "?",
+        "branch": build.get("branchName") or "master",
+        "rate": f"{pr}%" if pr is not None else "—",
+        "failed_n": failed_n,
+        "fail_color": "attention" if failed_n else "good",
+        "duration": _fmt_duration(summary.get("timeSec")),
+        "passed": summary.get("passed", "—"),
+        "muted": summary.get("muted", "—"),
+        "skipped": summary.get("skipped", "—"),
+        "tests": summary.get("tests", "—"),
+        "failed": list(data.get("failed") or []),
+        "more": max(
+            0,
+            len(list(data.get("failed") or []))
+            - FAIL_CAP
+            + int(data.get("failedTruncated") or 0),
+        ),
+    }
+
+
+def _kpi(label: str, value: str, color: str = "default", size: str = "ExtraLarge") -> dict:
+    return {
+        "type": "Column",
+        "width": "stretch",
+        "items": [
+            {
+                "type": "TextBlock",
+                "text": value,
+                "size": size,
+                "weight": "Bolder",
+                "color": color,
+                "spacing": "None",
+                "horizontalAlignment": "Center",
+                "wrap": True,
+            },
+            {
+                "type": "TextBlock",
+                "text": label,
+                "size": "Small",
+                "isSubtle": True,
+                "spacing": "None",
+                "horizontalAlignment": "Center",
+            },
+        ],
+    }
+
+
+def _fail_md(c: dict, numbered: bool = True) -> str:
+    lines = []
+    for i, item in enumerate(c["failed"][:FAIL_CAP], start=1):
+        area = item.get("area") or "?"
+        name = _shorten(item.get("name") or item.get("id") or "?")
+        tag = " · **new**" if item.get("newFailure") else ""
+        prefix = f"{i}. " if numbered else "• "
+        lines.append(f"{prefix}**{area}** — {name}{tag}")
+    if c["more"]:
+        lines.append(f"_+ {c['more']} more on the dashboard_")
+    return "\n".join(lines)
+
+
+def _header_row(c: dict, status_text: str) -> dict:
+    return {
+        "type": "ColumnSet",
+        "columns": [
+            {
+                "type": "Column",
+                "width": "stretch",
+                "items": [
+                    {
+                        "type": "TextBlock",
+                        "text": "Nexus API · Nightly",
+                        "size": "Small",
+                        "isSubtle": True,
+                        "spacing": "None",
+                    },
+                    {
+                        "type": "TextBlock",
+                        "text": status_text,
+                        "size": "Large",
+                        "weight": "Bolder",
+                        "color": c["accent"],
+                        "spacing": "Small",
+                    },
+                ],
+            },
+            {
+                "type": "Column",
+                "width": "auto",
+                "verticalContentAlignment": "Bottom",
+                "items": [
+                    {
+                        "type": "TextBlock",
+                        "text": f"#{c['number']}",
+                        "weight": "Bolder",
+                        "horizontalAlignment": "Right",
+                        "spacing": "None",
+                    },
+                    {
+                        "type": "TextBlock",
+                        "text": c["branch"],
+                        "size": "Small",
+                        "isSubtle": True,
+                        "horizontalAlignment": "Right",
+                        "spacing": "None",
+                    },
+                ],
+            },
+        ],
+    }
+
+
+def style_a(c: dict) -> list[dict]:
+    """Airy metrics — chosen default (equal-height failure chips)."""
+    body = [
+        _header_row(c, f"●  {c['label']}"),
+        {
+            "type": "ColumnSet",
+            "spacing": "Large",
+            "separator": True,
+            "columns": [
+                _kpi("pass rate", c["rate"], "good"),
+                _kpi("failed", str(c["failed_n"]), c["fail_color"]),
+                _kpi("muted", str(c["muted"])),
+                _kpi("duration", c["duration"]),
+            ],
+        },
+        {
+            "type": "TextBlock",
+            "text": f"{c['passed']} passed   ·   {c['skipped']} ignored   ·   {c['tests']} total",
+            "isSubtle": True,
+            "size": "Small",
+            "horizontalAlignment": "Center",
+            "spacing": "Small",
+            "wrap": True,
+        },
+    ]
+    if c["failed_n"] or c["failed"]:
+        body.append(
+            {
+                "type": "TextBlock",
+                "text": "Needs attention",
+                "weight": "Bolder",
+                "size": "Small",
+                "spacing": "Large",
+                "separator": True,
+            }
+        )
+        if c["failed"]:
+            body.extend(_failure_chips(c))
+        else:
+            body.append(
+                {
+                    "type": "TextBlock",
+                    "text": f"{c['failed_n']} failures — open the dashboard for details",
+                    "isSubtle": True,
+                    "size": "Small",
+                    "spacing": "Small",
+                    "wrap": True,
+                }
+            )
+    elif c["status"] == "SUCCESS":
+        body.append(
+            {
+                "type": "TextBlock",
+                "text": "Clean run — no open failures.",
+                "color": "good",
+                "spacing": "Large",
+                "separator": True,
+                "wrap": True,
+            }
+        )
+    return body
+
+
+def style_b(c: dict) -> list[dict]:
+    """Compact digest — one tight card, minimal chrome."""
+    line = (
+        f"**{c['rate']}** pass · **{c['failed_n']}** failed · "
+        f"{c['muted']} muted · {c['duration']}"
+    )
+    body = [
+        {
+            "type": "TextBlock",
+            "text": f"Nexus nightly  ·  #{c['number']}  ·  {c['branch']}",
+            "size": "Small",
+            "isSubtle": True,
+            "spacing": "None",
+        },
+        {
+            "type": "TextBlock",
+            "text": c["label"],
+            "size": "ExtraLarge",
+            "weight": "Bolder",
+            "color": c["accent"],
+            "spacing": "Small",
+        },
+        {"type": "TextBlock", "text": line, "wrap": True, "spacing": "Small"},
+    ]
+    if c["failed"]:
+        body.append(
+            {
+                "type": "TextBlock",
+                "text": _fail_md(c, numbered=False),
+                "wrap": True,
+                "spacing": "Medium",
+                "separator": True,
+            }
+        )
+    return body
+
+
+def style_c(c: dict) -> list[dict]:
+    """Hero pass-rate — big number first."""
+    body = [
+        {
+            "type": "TextBlock",
+            "text": "Nexus API · Nightly",
+            "size": "Small",
+            "isSubtle": True,
+            "horizontalAlignment": "Center",
+            "spacing": "None",
+        },
+        {
+            "type": "TextBlock",
+            "text": c["rate"],
+            "size": "ExtraLarge",
+            "weight": "Bolder",
+            "color": "good",
+            "horizontalAlignment": "Center",
+            "spacing": "Medium",
+        },
+        {
+            "type": "TextBlock",
+            "text": f"pass rate  ·  {c['label'].lower()}  ·  #{c['number']}",
+            "size": "Small",
+            "isSubtle": True,
+            "horizontalAlignment": "Center",
+            "spacing": "None",
+        },
+        {
+            "type": "ColumnSet",
+            "spacing": "Large",
+            "separator": True,
+            "columns": [
+                _kpi("failed", str(c["failed_n"]), c["fail_color"], "Large"),
+                _kpi("muted", str(c["muted"]), "default", "Large"),
+                _kpi("duration", c["duration"], "default", "Large"),
+            ],
+        },
+    ]
+    if c["failed"]:
+        body.append(
+            {
+                "type": "TextBlock",
+                "text": "**Failures**\n" + _fail_md(c, numbered=False),
+                "wrap": True,
+                "spacing": "Medium",
+                "separator": True,
+            }
+        )
+    return body
+
+
+def style_d(c: dict) -> list[dict]:
+    """Status ribbon — thin colored bar, then calm facts."""
+    body = [
+        {
+            "type": "Container",
+            "style": c["container_style"],
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": f"Nexus API nightly  ·  {c['label']}",
+                                    "weight": "Bolder",
+                                    "wrap": True,
+                                    "spacing": "None",
+                                }
+                            ],
+                        },
+                        {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": f"#{c['number']}",
+                                    "weight": "Bolder",
+                                    "spacing": "None",
+                                }
+                            ],
+                        },
+                    ],
+                }
+            ],
+        },
+        {
+            "type": "FactSet",
+            "spacing": "Medium",
+            "facts": [
+                {"title": "Pass rate", "value": c["rate"]},
+                {"title": "Failed", "value": str(c["failed_n"])},
+                {"title": "Muted", "value": str(c["muted"])},
+                {"title": "Passed / total", "value": f"{c['passed']} / {c['tests']}"},
+                {"title": "Duration", "value": c["duration"]},
+                {"title": "Branch", "value": c["branch"]},
+            ],
+        },
+    ]
+    if c["failed"]:
+        body.append(
+            {
+                "type": "TextBlock",
+                "text": "**Needs attention**\n" + _fail_md(c),
+                "wrap": True,
+                "spacing": "Medium",
+                "separator": True,
+            }
+        )
+    return body
+
+
+def style_e(c: dict) -> list[dict]:
+    """Two-by-two KPI grid."""
+    body = [
+        _header_row(c, c["label"]),
+        {
+            "type": "ColumnSet",
+            "spacing": "Medium",
+            "separator": True,
+            "columns": [
+                _kpi("pass rate", c["rate"], "good", "Large"),
+                _kpi("failed", str(c["failed_n"]), c["fail_color"], "Large"),
+            ],
+        },
+        {
+            "type": "ColumnSet",
+            "spacing": "Small",
+            "columns": [
+                _kpi("muted", str(c["muted"]), "default", "Large"),
+                _kpi("duration", c["duration"], "default", "Large"),
+            ],
+        },
+        {
+            "type": "TextBlock",
+            "text": f"{c['passed']} passed · {c['skipped']} ignored · {c['tests']} total",
+            "isSubtle": True,
+            "size": "Small",
+            "spacing": "Medium",
+            "wrap": True,
+        },
+    ]
+    if c["failed"]:
+        # Soft chips instead of a wall of text
+        for item in c["failed"][:FAIL_CAP]:
+            area = item.get("area") or "?"
+            name = _shorten(item.get("name") or "?", 70)
+            new = "  ·  NEW" if item.get("newFailure") else ""
+            body.append(
+                {
+                    "type": "Container",
+                    "style": "emphasis",
+                    "spacing": "Small",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": f"**{area}**{new}",
+                            "size": "Small",
+                            "spacing": "None",
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": name,
+                            "size": "Small",
+                            "isSubtle": True,
+                            "wrap": True,
+                            "spacing": "None",
+                        },
+                    ],
+                }
+            )
+    return body
+
+
+BUILDERS = {
+    "A": style_a,
+    "B": style_b,
+    "C": style_c,
+    "D": style_d,
+    "E": style_e,
+}
+
+
+def build_adaptive_card(
+    data: dict, style: str = DEFAULT_STYLE, *, label_style: bool = False
+) -> dict:
+    style = (style or DEFAULT_STYLE).upper()
+    if style not in BUILDERS:
+        style = DEFAULT_STYLE
+    actions = _actions(data.get("build") or {})
+    if not data.get("available"):
+        reason = data.get("reason") or "no nightly summary"
+        body: list[dict] = [
+            {
+                "type": "TextBlock",
+                "text": "Nexus API · Nightly",
+                "size": "Small",
+                "isSubtle": True,
+            },
+            {
+                "type": "TextBlock",
+                "text": "No data yet",
+                "size": "Large",
+                "weight": "Bolder",
+            },
+            {"type": "TextBlock", "text": reason, "isSubtle": True, "wrap": True},
+        ]
+    else:
+        body = BUILDERS[style](_ctx(data))
+    if label_style:
+        body = [_style_banner(style), *body]
+    return _wrap_card(body, actions)
+
+
+def build_markdown(data: dict) -> str:
+    if not data.get("available"):
+        reason = data.get("reason") or "no nightly summary"
+        return (
+            f"**Nexus API nightly** — no data ({reason})\n\n"
+            f"[Open dashboard]({DASHBOARD_NIGHTLY_URL})"
+        )
+    c = _ctx(data)
+    lines = [
+        f"**Nexus API nightly** · {c['label']} · #{c['number']}",
+        f"{c['rate']} pass · {c['failed_n']} failed · {c['muted']} muted · {c['duration']}",
+    ]
+    for item in c["failed"][:FAIL_CAP]:
+        area = item.get("area") or "?"
+        name = item.get("name") or "?"
+        tag = " (new)" if item.get("newFailure") else ""
+        lines.append(f"• {area} — {name}{tag}")
+    lines.append(f"[Open dashboard]({DASHBOARD_NIGHTLY_URL})")
+    if c["build"].get("webUrl"):
+        lines.append(f"[TeamCity]({c['build']['webUrl']})")
+    return "\n".join(lines)
+
+
 def post_card(url: str, payload: dict) -> None:
-    data = json.dumps(payload).encode("utf-8")
+    raw = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(
-        url, data=data, headers={"Content-Type": "application/json"}
+        url, data=raw, headers={"Content-Type": "application/json"}
     )
     with urllib.request.urlopen(req, timeout=30) as resp:
         sys.stderr.write(f"[post_nightly_teams] posted to Teams (HTTP {resp.status}).\n")
@@ -353,22 +676,19 @@ def post_card(url: str, payload: dict) -> None:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--json", type=Path, default=DEFAULT_JSON)
+    ap.add_argument("--url", default="")
     ap.add_argument(
-        "--json",
-        type=Path,
-        default=DEFAULT_JSON,
-        help=f"Path to nightly.json (default: {DEFAULT_JSON})",
+        "--style",
+        default=DEFAULT_STYLE,
+        choices=[*STYLES, *[s.lower() for s in STYLES]],
     )
     ap.add_argument(
-        "--url",
-        default="",
-        help=f"Webhook URL (default: ${ENV_NIGHTLY})",
-    )
-    ap.add_argument(
-        "--dry-run",
+        "--style-gallery",
         action="store_true",
-        help="Print Markdown (and card JSON) without posting",
+        help="Post styles A–E labeled for comparison",
     )
+    ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
     path: Path = args.json
@@ -377,31 +697,33 @@ def main() -> int:
         return 1
 
     data = json.loads(path.read_text(encoding="utf-8"))
-    markdown = build_markdown(data)
-    card = build_adaptive_card(data)
+    styles = list(STYLES) if args.style_gallery else [args.style.upper()]
 
     if args.dry_run:
-        print(markdown)
-        print("\n--- adaptive card ---", file=sys.stderr)
-        json.dump(card, sys.stderr, indent=2)
-        sys.stderr.write("\n")
+        for s in styles:
+            card = build_adaptive_card(data, s, label_style=args.style_gallery)
+            print(f"===== STYLE {s} ({STYLE_LABELS[s]}) =====")
+            print(build_markdown(data))
+            json.dump(card, sys.stderr, indent=2)
+            sys.stderr.write("\n")
         return 0
 
     url = _webhook_url(args.url)
     if not url:
         sys.stderr.write(
-            f"[post_nightly_teams] {ENV_NIGHTLY} unset — printing card instead of posting.\n"
-            f"  Tip: create a Workflow aimed at the group chat and export that URL as "
-            f"{ENV_NIGHTLY} (do not reuse the private {ENV_FALLBACK}).\n"
+            f"[post_nightly_teams] {ENV_NIGHTLY} unset — printing instead of posting.\n"
         )
-        print(markdown)
+        print(build_markdown(data))
         return 0
 
-    try:
-        post_card(url, card)
-    except (urllib.error.URLError, urllib.error.HTTPError) as exc:
-        sys.stderr.write(f"[post_nightly_teams] FAILED to post: {exc}\n")
-        return 1
+    for i, s in enumerate(styles):
+        try:
+            post_card(url, build_adaptive_card(data, s, label_style=len(styles) > 1))
+        except (urllib.error.URLError, urllib.error.HTTPError) as exc:
+            sys.stderr.write(f"[post_nightly_teams] FAILED style {s}: {exc}\n")
+            return 1
+        if i + 1 < len(styles):
+            time.sleep(1.2)
     return 0
 
 
