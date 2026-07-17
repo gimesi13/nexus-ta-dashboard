@@ -1,0 +1,34 @@
+{
+  "_comment": "Per-feature type overrides for generate_inventory.py. Key: SpecName::exact feature title. Values: Validation | E2E | Workflow | Query | CRUD | Other",
+
+  "AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E — quota, template, rename, clone, deleted list, undelete, reorder": "E2E",
+  "FieldworkEndToEndAdvancedTestSteps::Complete advanced fieldwork: tally mode switching, delivery modes, and soft launch user management": "E2E",
+
+  "AuthorOnReviewProbeTestSteps::Shift-left probe marker references linked feature and TA keys": "Other",
+  "PesNotificationTestSteps::partner event creation publishes externalEventUpdated notification": "Workflow",
+
+  "ExclusionRulesTestSteps::Create and delete exclusion rule lifecycle; rename endpoint is unimplemented": "CRUD",
+  "ExclusionRulesTestSteps::Manage multiple exclusion rules on same project; rename endpoint is unimplemented": "CRUD",
+  "ExclusionRulesTestSteps::Delete already deleted exclusion rule": "CRUD",
+
+  "PartnerEventPriceControlWorkflowTestSteps::PUT with null priceApprovalDetails skips flag validation (backward compatible update)": "Workflow",
+  "PartnerEventPriceControlWorkflowTestSteps::Approval reason text is stored on draft partner event requiring approval": "Workflow",
+  "PartnerEventPriceControlWorkflowTestSteps::Draft partner event over CPI limit can be deleted": "Workflow",
+  "PartnerEventPriceControlWorkflowTestSteps::GET active partner event returns Cost with supplier CPI, approved CPI, and currency fields": "Workflow",
+  "PartnerEventPriceControlWorkflowTestSteps::Over-threshold 3PP draft stays inactive after quota-only update": "Workflow",
+  "PartnerEventPriceControlWorkflowTestSteps::Over-threshold 3PP draft stays inactive without approved CPI on create": "Workflow",
+
+  "ProjectWorkflowTestSteps::Clone project with options [scenario: #scenario]": "Workflow",
+  "ProjectWorkflowTestSteps::Update BOS linkage": "Workflow",
+  "ProjectWorkflowTestSteps::Update D365 linkage": "Workflow",
+
+  "FieldworkValidationTestSteps::Accept zero as valid soft launch quota for disabling": "Validation",
+  "ExternalQuotaValidationTestSteps::External quota with zero partner events": "Validation",
+  "ParameterValidationTestSteps::Search parameters with pagination boundary values": "Validation",
+  "ParameterValidationTestSteps::Validate qualification filter answers - valid answers": "Validation",
+  "ProjectValidationTestSteps::Add note with special characters [specialCharType: #specialCharType]": "Validation",
+  "ProjectValidationTestSteps::Search notes with various query patterns [queryPattern: #queryPattern]": "Validation",
+
+  "AudienceTemplateTestSteps::Search audience templates with empty country set": "Query",
+  "AudienceTemplateValidationsTestSteps::Search audience templates with empty country set": "Validation"
+}
