@@ -1,0 +1,97 @@
+name: Refresh dashboard
+
+# Hands-off: GitHub-hosted runner (no Mac). After TeamCity nightly (~05:30–06:30 UTC),
+# refresh inventory + coverage + nightly JSON and push this Pages repo.
+on:
+  schedule:
+    # 07:00 UTC weekdays ≈ after typical nightly finish
+    - cron: "0 7 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-dashboard
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Pages site
+        uses: actions/checkout@v4
+
+      - name: Checkout dk-microservices (module sources)
+        uses: actions/checkout@v4
+        with:
+          repository: dynata/dk-microservices
+          token: ${{ secrets.DK_MICROSERVICES_TOKEN }}
+          path: _monorepo
+          sparse-checkout: |
+            gateway/unifiedApi/NexusApiRegressionTests
+          sparse-checkout-cone-mode: true
+
+      - name: Overlay latest generators + fetch TC helpers
+        run: |
+          MODULE="_monorepo/gateway/unifiedApi/NexusApiRegressionTests"
+          test -d "$MODULE"
+          cp -R .github/module-overlay/. "$MODULE/"
+          mkdir -p "$MODULE/test-coverage-report" "$MODULE/dashboard/data"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch TeamCity nightly + regenerate JSON
+        env:
+          TEAMCITY_URL: ${{ secrets.TEAMCITY_URL }}
+          TEAMCITY_TOKEN: ${{ secrets.TEAMCITY_TOKEN }}
+          TEAMCITY_NIGHTLY_BUILD_TYPE_ID: ${{ secrets.TEAMCITY_NIGHTLY_BUILD_TYPE_ID }}
+        run: |
+          set -euo pipefail
+          MODULE="_monorepo/gateway/unifiedApi/NexusApiRegressionTests"
+          cd "$MODULE"
+          python3 automation/tc_fetch_nightly.py
+          python3 dashboard/tools/generate_inventory.py
+          # Mondays: live QA OpenAPI; other days: committed snapshot from monorepo
+          if [ "$(date -u +%u)" = "1" ]; then
+            python3 dashboard/tools/generate_coverage.py --fetch-openapi || \
+              python3 dashboard/tools/generate_coverage.py
+          else
+            python3 dashboard/tools/generate_coverage.py
+          fi
+          python3 dashboard/tools/generate_nightly.py
+
+      - name: Sync site assets into Pages root
+        run: |
+          set -euo pipefail
+          D="_monorepo/gateway/unifiedApi/NexusApiRegressionTests/dashboard"
+          cp "$D/index.html" "$D/inventory.html" "$D/coverage.html" "$D/nightly.html" .
+          cp "$D/styles.css" "$D/overview.js" "$D/inventory.js" "$D/coverage.js" \
+             "$D/nightly.js" "$D/sidebar.js" .
+          cp "$D/README.md" "$D/ROADMAP.md" . 2>/dev/null || true
+          if [ -f "$D/styles-unify.css" ]; then cp "$D/styles-unify.css" .; fi
+          mkdir -p data
+          cp "$D/data/inventory.json" "$D/data/coverage.json" "$D/data/nightly.json" data/
+
+      - name: Commit and push
+        run: |
+          set -euo pipefail
+          git config user.name "nexus-ta-dashboard-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            index.html inventory.html coverage.html nightly.html \
+            styles.css overview.js inventory.js coverage.js nightly.js sidebar.js \
+            README.md ROADMAP.md \
+            data/inventory.json data/coverage.json data/nightly.json \
+            .github/workflows/refresh-dashboard.yml \
+            .github/module-overlay || true
+          if [ -f styles-unify.css ]; then git add styles-unify.css; fi
+          if git diff --cached --quiet; then
+            echo "No site changes to publish."
+          else
+            git commit -m "Refresh dashboard data ($(date -u +%Y-%m-%dT%H:%MZ))"
+            git push origin HEAD:main
+          fi
