@@ -130,7 +130,10 @@ def _inventory_url(item: dict) -> str:
 
 
 def _failure_chips(c: dict) -> list[dict]:
-    """Soft chips: Area · NEW (red) + wrapping test name (link → TeamCity)."""
+    """Soft chips: Area · NEW (red) + wrapping test name.
+
+    Whole chip is clickable via selectAction (plain text — no purple underline).
+    """
     build_url = (c.get("build") or {}).get("webUrl") or ""
     items: list[dict] = []
     for item in c["failed"][:FAIL_CAP]:
@@ -138,8 +141,6 @@ def _failure_chips(c: dict) -> list[dict]:
         name = _shorten(item.get("name") or item.get("id") or "?", NAME_LIMIT)
         new = bool(item.get("newFailure"))
         tc_url = (item.get("teamcityUrl") or "").strip() or build_url
-        # Markdown link on the name — opens that test on the TeamCity build.
-        name_md = f"[{name}]({tc_url})" if tc_url else name
         # Keep NEW on its own TextBlock so Teams paints it attention/red.
         title_cols = [
             {
@@ -186,24 +187,30 @@ def _failure_chips(c: dict) -> list[dict]:
                     ],
                 }
             )
-        items.append(
-            {
-                "type": "Container",
-                "style": "emphasis",
-                "spacing": "Small",
-                "items": [
-                    {"type": "ColumnSet", "spacing": "None", "columns": title_cols},
-                    {
-                        "type": "TextBlock",
-                        "text": name_md,
-                        "size": "Small",
-                        "isSubtle": True,
-                        "spacing": "None",
-                        "wrap": True,
-                    },
-                ],
+        chip: dict = {
+            "type": "Container",
+            "style": "emphasis",
+            "spacing": "Small",
+            "items": [
+                {"type": "ColumnSet", "spacing": "None", "columns": title_cols},
+                {
+                    "type": "TextBlock",
+                    "text": name,
+                    "size": "Small",
+                    "isSubtle": True,
+                    "spacing": "None",
+                    "wrap": True,
+                },
+            ],
+        }
+        # Whole chip opens TeamCity (plain text — no purple underline).
+        if tc_url:
+            chip["selectAction"] = {
+                "type": "Action.OpenUrl",
+                "title": "Open in TeamCity",
+                "url": tc_url,
             }
-        )
+        items.append(chip)
 
     shown = min(len(c["failed"]), FAIL_CAP)
     remaining = max(0, int(c["failed_n"] or 0) - shown)
