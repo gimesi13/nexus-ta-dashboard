@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=66" />
+  <link rel="stylesheet" href="styles.css?v=67" />
 </head>
 <body>
   <div class="app">
@@ -38,9 +38,9 @@
             <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0Zm14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/></svg>
             Coverage
           </a>
-          <a class="nav-item" href="#">
+          <a class="nav-item" href="#nightly">
             <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7.25-3.25v3.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75V4.75a.75.75 0 0 1 1.5 0Z"/></svg>
-            Nightly Run <span class="soon">soon</span>
+            Nightly Run
           </a>
           <a class="nav-item" href="#">
             <svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.998 14.5c2.832 0 5-1.98 5-4.5 0-1.463-.68-2.19-1.879-3.383l-.036-.037c-1.013-1.008-2.303-2.293-2.71-4.856-.582.362-1.66 1.017-2.5 2.117-.62.812-1.13 1.876-1.32 3.2-.297-.117-.585-.28-.86-.494a3.6 3.6 0 0 1-.354-.317c-.28.7-.443 1.463-.443 2.25 0 2.52 2.168 4.5 5 4.5Z"/></svg>
@@ -113,6 +113,16 @@
           </div>
         </section>
 
+        <section class="ov-panel ov-nightly" id="nightly" aria-label="Last nightly run">
+          <header class="ov-panel-head">
+            <h2>Last nightly run</h2>
+            <span class="ov-panel-meta" id="nightly-meta">Loading…</span>
+          </header>
+          <div id="nightly-body">
+            <div class="ov-empty">Loading…</div>
+          </div>
+        </section>
+
         <section class="ov-split">
           <article class="ov-panel">
             <header class="ov-panel-head">
@@ -178,11 +188,11 @@
                 <p>Endpoint coverage from live OpenAPI + curated tested overlay, with provenance.</p>
               </div>
             </li>
-            <li class="ov-road-item">
+            <li class="ov-road-item done">
               <span class="ov-road-mark" aria-hidden="true"></span>
               <div>
-                <div class="ov-road-title">Nightly run report <span class="chip chip-soon">planned</span></div>
-                <p>Latest TeamCity results with pass-rate trend.</p>
+                <div class="ov-road-title"><a href="#nightly">Nightly run report</a> <span class="chip">shipped</span></div>
+                <p>Latest TeamCity results on the overview (KPIs, failures, TC link).</p>
               </div>
             </li>
             <li class="ov-road-item">
@@ -205,7 +215,7 @@
     </main>
   </div>
 
-  <script src="sidebar.js?v=66"></script>
-  <script src="overview.js?v=66"></script>
+  <script src="sidebar.js?v=67"></script>
+  <script src="overview.js?v=67"></script>
 </body>
 </html>

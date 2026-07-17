@@ -99,6 +99,117 @@
     }).join("");
   }
 
+  function fmtDuration(sec) {
+    if (sec == null || isNaN(sec)) return "—";
+    if (sec < 90) return Math.round(sec) + "s";
+    var m = Math.floor(sec / 60);
+    var s = Math.round(sec % 60);
+    if (m < 90) return m + "m " + s + "s";
+    var h = Math.floor(m / 60);
+    return h + "h " + (m % 60) + "m";
+  }
+
+  function renderNightly(d) {
+    var meta = document.getElementById("nightly-meta");
+    var body = document.getElementById("nightly-body");
+    if (!meta || !body) return;
+
+    if (!d || !d.available || !d.summary) {
+      meta.textContent = "Not published yet";
+      body.innerHTML = '<div class="ov-empty">' +
+        esc((d && d.message) || "Nightly results unavailable.") +
+        "</div>";
+      return;
+    }
+
+    var s = d.summary;
+    var build = d.build || {};
+    var status = (build.status || "").toUpperCase();
+    var statusCls = status === "SUCCESS" ? "ok" : (status === "FAILURE" || status === "ERROR" ? "bad" : "mid");
+    meta.textContent = (build.number ? "#" + build.number + " · " : "") +
+      "generated " + (d.generatedAt || "—");
+
+    var kpis =
+      '<div class="ov-nightly-kpis">' +
+        '<div class="ov-nightly-kpi">' +
+          '<div class="ov-nightly-kpi-num">' + esc(String(s.passRate)) + "%</div>" +
+          '<div class="ov-nightly-kpi-label">Pass rate</div>' +
+        "</div>" +
+        '<div class="ov-nightly-kpi">' +
+          '<div class="ov-nightly-kpi-num ov-nightly-ok">' + esc(String(s.passed)) + "</div>" +
+          '<div class="ov-nightly-kpi-label">Passed</div>' +
+        "</div>" +
+        '<div class="ov-nightly-kpi">' +
+          '<div class="ov-nightly-kpi-num ov-nightly-bad">' +
+            esc(String((s.failures || 0) + (s.errors || 0))) + "</div>" +
+          '<div class="ov-nightly-kpi-label">Failed</div>' +
+        "</div>" +
+        '<div class="ov-nightly-kpi">' +
+          '<div class="ov-nightly-kpi-num">' + esc(String(s.skipped || 0)) + "</div>" +
+          '<div class="ov-nightly-kpi-label">Skipped</div>' +
+        "</div>" +
+        '<div class="ov-nightly-kpi">' +
+          '<div class="ov-nightly-kpi-num">' + esc(fmtDuration(s.timeSec)) + "</div>" +
+          '<div class="ov-nightly-kpi-label">Duration</div>' +
+        "</div>" +
+      "</div>";
+
+    var link = build.webUrl
+      ? '<a class="ov-nightly-link" href="' + esc(build.webUrl) +
+        '" target="_blank" rel="noopener">Open build in TeamCity →</a>'
+      : "";
+
+    var statusChip = status
+      ? '<span class="ov-nightly-status ' + statusCls + '">' + esc(status) + "</span>"
+      : "";
+
+    var failed = d.failed || [];
+    var failBlock;
+    if (!failed.length) {
+      failBlock = '<p class="ov-nightly-none">No failing tests in this run.</p>';
+    } else {
+      failBlock =
+        '<ul class="ov-nightly-fails">' +
+        failed.map(function (f) {
+          return '<li title="' + esc(f.id) + '"><code>' + esc(f.name || f.id) +
+            "</code>" +
+            (f.message ? '<span class="ov-nightly-msg">' + esc(f.message) + "</span>" : "") +
+            "</li>";
+        }).join("") +
+        "</ul>" +
+        (d.failedTruncated
+          ? '<p class="ov-nightly-more">+' + d.failedTruncated + " more — see TeamCity</p>"
+          : "");
+    }
+
+    var trend = d.trend || [];
+    var trendBits = trend.slice(-7).map(function (t) {
+      return '<span class="ov-nightly-trend-pt" title="' +
+        esc((t.date || "") + " · " + (t.passRate != null ? t.passRate + "%" : "")) +
+        '">' + esc(t.passRate != null ? String(Math.round(t.passRate)) : "—") + "</span>";
+    }).join("");
+    var trendRow = trendBits
+      ? '<div class="ov-nightly-trend"><span class="ov-nightly-trend-label">Pass % (recent)</span>' +
+        trendBits + "</div>"
+      : "";
+
+    body.innerHTML =
+      '<div class="ov-nightly-top">' + statusChip + link + "</div>" +
+      kpis + trendRow +
+      '<div class="ov-nightly-fail-head">Failures</div>' +
+      failBlock;
+  }
+
+  fetch("data/nightly.json", { cache: "no-cache" })
+    .then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(renderNightly)
+    .catch(function () {
+      renderNightly({ available: false, message: "Could not load nightly.json" });
+    });
+
   fetch("data/inventory.json", { cache: "no-cache" })
     .then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
