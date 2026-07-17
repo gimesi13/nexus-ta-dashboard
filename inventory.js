@@ -8,10 +8,6 @@
     expandedCases: new Set(),
     selectedTags: new Set(),
     tagMatchMode: "any", // "any" | "all"
-    runStatusFilter: new Set(), // passed | failed | muted | ignored | unknown
-    statusByCase: {},
-    statusBySpecName: {},
-    nightlyBuild: null,
   };
 
   var els = {
@@ -32,7 +28,6 @@
     provenance: document.getElementById("provenance"),
     expandAll: document.getElementById("expand-all"),
     collapseAll: document.getElementById("collapse-all"),
-    clearFilters: document.getElementById("clear-filters"),
   };
 
   function esc(s) {
@@ -143,83 +138,14 @@
     }).join("");
   }
 
-  function runStatusKey(r) {
-    return runStatus(r) || "unknown";
-  }
-
-  function renderRunLegend() {
-    var host = document.getElementById("run-legend");
-    if (!host) return;
-    if (!state.nightlyBuild) {
-      host.hidden = true;
-      host.onclick = null;
-      return;
-    }
-    host.hidden = false;
-    var statuses = [
-      { key: "passed", label: "passed" },
-      { key: "failed", label: "failed" },
-      { key: "muted", label: "muted" },
-      { key: "ignored", label: "ignored" },
-      { key: "unknown", label: "unmapped" },
-    ];
-    host.innerHTML =
-      '<span class="run-legend-label">Last nightly' +
-      (state.nightlyBuild.number ? " #" + esc(state.nightlyBuild.number) : "") +
-      ' · filter</span>' +
-      statuses.map(function (s) {
-        var active = state.runStatusFilter.has(s.key);
-        return '<button type="button" class="run-legend-btn' + (active ? " active" : "") +
-          '" data-run-status="' + esc(s.key) + '" aria-pressed="' + (active ? "true" : "false") +
-          '" title="Show ' + esc(s.label) + ' tests from last nightly">' +
-          '<span class="run-dot run-dot-' + esc(s.key) + '" aria-hidden="true"></span>' +
-          esc(s.label) +
-          "</button>";
-      }).join("");
-    host.onclick = function (e) {
-      var btn = e.target.closest("[data-run-status]");
-      if (!btn || !host.contains(btn)) return;
-      var key = btn.getAttribute("data-run-status");
-      if (state.runStatusFilter.has(key)) state.runStatusFilter.delete(key);
-      else state.runStatusFilter.add(key);
-      renderRunLegend();
-      onFilterChange();
-    };
-  }
-
   function isFiltering() {
-    return !!(els.search.value.trim() || els.area.value || els.type.value ||
-      state.selectedTags.size || state.runStatusFilter.size);
-  }
-
-  function updateClearFiltersBtn() {
-    if (!els.clearFilters) return;
-    els.clearFilters.hidden = !isFiltering();
-  }
-
-  function clearAllFilters() {
-    els.search.value = "";
-    els.area.value = "";
-    els.type.value = "";
-    state.selectedTags.clear();
-    state.runStatusFilter.clear();
-    state.tagMatchMode = "any";
-    if (els.tagModeAny) els.tagModeAny.classList.add("active");
-    if (els.tagModeAll) els.tagModeAll.classList.remove("active");
-    els.tagOptions.querySelectorAll("input[type='checkbox']").forEach(function (cb) {
-      cb.checked = false;
-    });
-    updateTagLabel();
-    setTagPanelOpen(false);
-    renderRunLegend();
-    onFilterChange();
+    return !!(els.search.value.trim() || els.area.value || els.type.value || state.selectedTags.size);
   }
 
   function filtered() {
     var q = els.search.value.trim().toLowerCase();
     var area = els.area.value, type = els.type.value;
     var tags = selectedTagList();
-    var statusFilter = state.runStatusFilter;
     return state.rows.filter(function (r) {
       if (area && r.area !== area) return false;
       if (type && r.type !== type) return false;
@@ -230,7 +156,6 @@
           : tags.some(function (t) { return rowTags.indexOf(t) !== -1; });
         if (!hit) return false;
       }
-      if (statusFilter.size && !statusFilter.has(runStatusKey(r))) return false;
       if (q) {
         var hay = (r.name + " " + r.spec + " " + (r.tags || []).join(" ")).toLowerCase();
         if (hay.indexOf(q) === -1) return false;
@@ -297,36 +222,8 @@
     return r.area + "::" + r.spec + "::" + r.name;
   }
 
-  function runStatus(r) {
-    var st = state.statusByCase[caseKey(r)];
-    if (st) return st;
-    st = state.statusBySpecName[r.spec + "::" + r.name];
-    if (st) return st;
-    // Source @Ignore when we have no TC row for this feature
-    if (r.ignored && state.nightlyBuild) return "ignored";
-    return null;
-  }
-
-  function runDotHtml(r) {
-    // Always reserve the same 6px slot so names stay aligned.
-    if (!state.nightlyBuild) {
-      return '<span class="run-dot run-dot-slot" aria-hidden="true"></span>';
-    }
-    var st = runStatus(r) || "unknown";
-    var label = {
-      passed: "Passed last nightly",
-      failed: "Failed last nightly",
-      muted: "Muted failure last nightly",
-      ignored: "Ignored / skipped last nightly",
-      unknown: "No result mapped from last nightly",
-    }[st] || st;
-    return '<span class="run-dot run-dot-' + esc(st) + '" title="' + esc(label) +
-      '" aria-label="' + esc(label) + '"></span>';
-  }
-
   function caseTitleHtml(r) {
     return '<span class="case-title">' +
-      runDotHtml(r) +
       '<span class="case-name">' + esc(r.name) + "</span>" +
       (r.ignored ? '<span class="case-ignored" title="@Ignore in source">Ignored</span>' : "") +
       "</span>";
@@ -356,25 +253,19 @@
     var expandable = r.steps && r.steps.length;
     var end = caseEndHtml(r);
     var ignoredCls = r.ignored ? " is-ignored" : "";
-    var runCls = "";
-    if (state.nightlyBuild) {
-      var st = runStatusKey(r);
-      if (st === "failed") runCls = " is-run-failed";
-      else if (st === "muted") runCls = " is-run-muted";
-    }
     var chevron = expandable
       ? '<span class="chevron case-chevron">\u25B6</span>'
       : '<span class="case-chevron case-chevron-placeholder" aria-hidden="true"></span>';
     var title = caseTitleHtml(r);
     if (!expandable) {
-      return '<div class="case-row' + ignoredCls + runCls + '" title="' + esc(r.name) +
+      return '<div class="case-row' + ignoredCls + '" title="' + esc(r.name) +
         (r.ignored ? " (@Ignore)" : "") + '">' +
         chevron + title + end +
         "</div>";
     }
     var key = caseKey(r);
     var open = state.expandedCases.has(key);
-    return '<div class="case-group' + ignoredCls + runCls + (open ? " open" : "") +
+    return '<div class="case-group' + ignoredCls + (open ? " open" : "") +
       '" data-case="' + esc(key) + '">' +
       '<div class="case-row case-header" role="button" tabindex="0" title="' +
         esc(r.name) + (r.ignored ? " (@Ignore)" : "") + '">' +
@@ -427,7 +318,6 @@
     var totalCases = sumCases(state.rows);
     var shownCases = sumCases(rows);
     els.resultCount.textContent = shownCases + " of " + totalCases + " tests";
-    updateClearFiltersBtn();
     var groups = groupRows(rows);
     if (!groups.length) {
       els.groups.innerHTML = '<div class="state-msg">No test cases match the filters.</div>';
@@ -551,7 +441,6 @@
     });
     els.expandAll.addEventListener("click", expandAll);
     els.collapseAll.addEventListener("click", collapseAll);
-    if (els.clearFilters) els.clearFilters.addEventListener("click", clearAllFilters);
 
     els.groups.addEventListener("click", function (e) {
       var tagLabel = e.target.closest(".tag-label");
@@ -634,129 +523,14 @@
     });
   }
 
-  function applyDeepLink() {
-    var params = new URLSearchParams(window.location.search);
-    var caseKey = params.get("case");
-    var q = params.get("q");
-    var run = params.get("run");
-    var areaParam = params.get("area");
-    var typeParam = params.get("type");
-    var tagParam = params.get("tag");
-    var allowed = { passed: 1, failed: 1, muted: 1, ignored: 1, unknown: 1, unmapped: 1 };
-    if (run && state.nightlyBuild) {
-      run.split(",").forEach(function (raw) {
-        var key = String(raw || "").trim().toLowerCase();
-        if (key === "unmapped") key = "unknown";
-        if (allowed[key]) state.runStatusFilter.add(key);
-      });
-    }
-    // Failure deep-links always land with the failed status filter on.
-    if (caseKey && state.nightlyBuild && state.statusByCase[caseKey] === "failed") {
-      state.runStatusFilter.add("failed");
-    }
-    if (state.runStatusFilter.size) renderRunLegend();
-
-    if (areaParam) {
-      var areaHit = Array.from(els.area.options).some(function (o) {
-        return o.value === areaParam;
-      });
-      if (areaHit) els.area.value = areaParam;
-    }
-    if (typeParam) {
-      var typeHit = Array.from(els.type.options).some(function (o) {
-        return o.value === typeParam;
-      });
-      if (typeHit) els.type.value = typeParam;
-    }
-    if (tagParam) {
-      tagParam.split(",").forEach(function (raw) {
-        var tag = String(raw || "").trim();
-        if (!tag) return;
-        var known = state.rows.some(function (r) {
-          return (r.tags || []).indexOf(tag) !== -1;
-        });
-        if (!known) return;
-        state.selectedTags.add(tag);
-        els.tagOptions.querySelectorAll("input[type='checkbox']").forEach(function (cb) {
-          if (cb.value === tag) cb.checked = true;
-        });
-      });
-      updateTagLabel();
-    }
-
-    if (q && !caseKey) {
-      els.search.value = q;
-      return;
-    }
-    if (!caseKey) return;
-
-    var parts = caseKey.split("::");
-    if (parts.length < 3) {
-      els.search.value = caseKey;
-      return;
-    }
-    var area = parts[0];
-    var spec = parts[1];
-    var name = parts.slice(2).join("::");
-    var hit = state.rows.some(function (r) {
-      return r.area === area && r.spec === spec && r.name === name;
-    });
-    if (!hit) {
-      els.search.value = name || caseKey;
-      return;
-    }
-
-    els.search.value = "";
-    // Keep area clear when status-filtering so sibling failures stay visible.
-    if (!state.runStatusFilter.size && !areaParam) els.area.value = area;
-    state.expandedAreas.add(area);
-    state.expandedSpecs.add(area + "::" + spec);
-    state.expandedCases.add(caseKey);
-    state._deepLinkCase = caseKey;
-  }
-
-  function scrollDeepLinkIntoView() {
-    if (!state._deepLinkCase) return;
-    var key = state._deepLinkCase;
-    state._deepLinkCase = null;
-    var el = null;
-    document.querySelectorAll(".case-group[data-case]").forEach(function (n) {
-      if (n.getAttribute("data-case") === key) el = n;
-    });
-    if (!el) {
-      var name = key.split("::").slice(2).join("::");
-      document.querySelectorAll(".case-row").forEach(function (n) {
-        if (n.getAttribute("title") === name || n.getAttribute("title") === name + " (@Ignore)") {
-          el = n;
-        }
-      });
-    }
-    if (!el) return;
-    el.classList.add("case-deep-link");
-    el.scrollIntoView({ block: "center", behavior: "smooth" });
-    setTimeout(function () { el.classList.remove("case-deep-link"); }, 4000);
-  }
-
-  Promise.all([
-    fetch("data/inventory.json", { cache: "no-cache" }).then(function (res) {
+  fetch("data/inventory.json", { cache: "no-cache" })
+    .then(function (res) {
       if (!res.ok) throw new Error("HTTP " + res.status);
       return res.json();
-    }),
-    fetch("data/nightly.json", { cache: "no-cache" })
-      .then(function (res) { return res.ok ? res.json() : null; })
-      .catch(function () { return null; }),
-  ])
-    .then(function (pair) {
-      var data = pair[0];
-      var nightly = pair[1];
+    })
+    .then(function (data) {
       state.rows = data.rows || [];
-      if (nightly && nightly.available) {
-        state.statusByCase = nightly.statusByCase || {};
-        state.statusBySpecName = nightly.statusBySpecName || {};
-        state.nightlyBuild = nightly.build || {};
-      }
       renderKpis(data);
-      renderRunLegend();
       fillSelect(els.area, unique(state.rows, "area"));
       fillSelect(els.type, unique(state.rows, "type"));
       fillTagMulti(unique(state.rows, "tags"));
@@ -764,12 +538,7 @@
         "Generated " + data.generatedAt + " from " + data.source +
         " \u2014 parsed directly from *TestSteps.groovy.";
       wireEvents();
-      applyDeepLink();
-      if (isFiltering()) onFilterChange();
-      else render();
-      requestAnimationFrame(function () {
-        requestAnimationFrame(scrollDeepLinkIntoView);
-      });
+      render();
     })
     .catch(function (err) {
       els.groups.innerHTML =

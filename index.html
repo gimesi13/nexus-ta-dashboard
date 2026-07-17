@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=93" />
+  <link rel="stylesheet" href="styles.css?v=66" />
 </head>
 <body>
   <div class="app">
@@ -38,9 +38,13 @@
             <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0Zm14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/></svg>
             Coverage
           </a>
-          <a class="nav-item" href="nightly.html">
+          <a class="nav-item" href="#">
             <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7.25-3.25v3.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75V4.75a.75.75 0 0 1 1.5 0Z"/></svg>
-            Nightly Run
+            Nightly Run <span class="soon">soon</span>
+          </a>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.998 14.5c2.832 0 5-1.98 5-4.5 0-1.463-.68-2.19-1.879-3.383l-.036-.037c-1.013-1.008-2.303-2.293-2.71-4.856-.582.362-1.66 1.017-2.5 2.117-.62.812-1.13 1.876-1.32 3.2-.297-.117-.585-.28-.86-.494a3.6 3.6 0 0 1-.354-.317c-.28.7-.443 1.463-.443 2.25 0 2.52 2.168 4.5 5 4.5Z"/></svg>
+            Flaky <span class="soon">soon</span>
           </a>
         </div>
         <div class="nav-group">
@@ -52,7 +56,6 @@
         </div>
       </nav>
       <div class="sidebar-bottom">
-        <div class="sidebar-owner">Owned by <strong>Gergely Gimesi</strong></div>
         <a class="invite" href="https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt?mode=builds" target="_blank" rel="noopener">
           Open in TeamCity
         </a>
@@ -110,43 +113,49 @@
           </div>
         </section>
 
-        <section class="ov-panel ov-nightly" id="nightly" aria-label="Last nightly run">
-          <header class="ov-panel-head">
-            <h2>Last nightly run</h2>
-            <span class="ov-panel-meta" id="nightly-meta">Loading…</span>
-          </header>
-          <div id="nightly-body">
-            <div class="ov-empty">Loading…</div>
-          </div>
-        </section>
-
-        <section class="ov-panel ov-coverage" id="coverage" aria-label="Endpoint coverage">
-          <header class="ov-panel-head">
-            <h2>Endpoint coverage</h2>
-            <span class="ov-panel-meta" id="coverage-meta">Loading…</span>
-          </header>
-          <div id="coverage-body">
-            <div class="ov-empty">Loading…</div>
-          </div>
-        </section>
-
-        <section class="ov-panel ov-suite ov-suite-compact" aria-label="Suite composition">
-          <header class="ov-panel-head">
-            <h2>Suite mix</h2>
-            <span class="ov-panel-meta" id="suite-meta">Loading…</span>
-          </header>
-          <div class="ov-suite-types" id="type-mix">
-            <div class="ov-empty">Loading…</div>
-          </div>
-          <div class="ov-suite-section">
-            <div class="ov-suite-section-head">
-              <h3>Largest areas</h3>
+        <section class="ov-split">
+          <article class="ov-panel">
+            <header class="ov-panel-head">
+              <h2>Tests by area</h2>
               <span class="ov-panel-meta" id="area-meta"></span>
-            </div>
-            <div class="ov-suite-areas" id="area-bars">
+            </header>
+            <div class="ov-bars" id="area-bars">
               <div class="ov-empty">Loading…</div>
             </div>
-          </div>
+          </article>
+
+          <article class="ov-panel">
+            <header class="ov-panel-head">
+              <h2>Mix by type</h2>
+              <span class="ov-panel-meta">Share of suite</span>
+            </header>
+            <div class="ov-types" id="type-mix">
+              <div class="ov-empty">Loading…</div>
+            </div>
+            <div class="ov-tags-block">
+              <h3>Top tags</h3>
+              <div class="ov-tag-cloud" id="tag-cloud"></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="ov-cta-row">
+          <a class="ov-cta-card" href="inventory.html">
+            <div>
+              <p class="ov-cta-kicker">Ready to explore</p>
+              <h2>Browse every feature method</h2>
+              <p>Filter by area, type, and multiple tags. Expand any case for Spock steps.</p>
+            </div>
+            <span class="ov-cta-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="ov-cta-card" href="coverage.html">
+            <div>
+              <p class="ov-cta-kicker">Gaps first</p>
+              <h2>See endpoint coverage</h2>
+              <p>Refreshed from live QA OpenAPI. Transparent % — no stale baseline.</p>
+            </div>
+            <span class="ov-cta-arrow" aria-hidden="true">→</span>
+          </a>
         </section>
 
         <section class="ov-panel ov-roadmap">
@@ -169,11 +178,18 @@
                 <p>Endpoint coverage from live OpenAPI + curated tested overlay, with provenance.</p>
               </div>
             </li>
-            <li class="ov-road-item done">
+            <li class="ov-road-item">
               <span class="ov-road-mark" aria-hidden="true"></span>
               <div>
-                <div class="ov-road-title"><a href="#nightly">Nightly run report</a> <span class="chip">shipped</span></div>
-                <p>Latest TeamCity results on the overview (KPIs, failures, TC link).</p>
+                <div class="ov-road-title">Nightly run report <span class="chip chip-soon">planned</span></div>
+                <p>Latest TeamCity results with pass-rate trend.</p>
+              </div>
+            </li>
+            <li class="ov-road-item">
+              <span class="ov-road-mark" aria-hidden="true"></span>
+              <div>
+                <div class="ov-road-title">Flaky tests <span class="chip chip-soon">planned</span></div>
+                <p>Tracked and ranked by flake rate.</p>
               </div>
             </li>
             <li class="ov-road-item">
@@ -189,7 +205,7 @@
     </main>
   </div>
 
-  <script src="sidebar.js?v=86"></script>
-  <script src="overview.js?v=93"></script>
+  <script src="sidebar.js?v=66"></script>
+  <script src="overview.js?v=66"></script>
 </body>
 </html>
