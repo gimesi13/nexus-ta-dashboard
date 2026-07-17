@@ -186,6 +186,10 @@ def _attach_inventory(failed: list, module_root: Path) -> list:
             "durationMs": f.get("durationMs"),
             "newFailure": bool(f.get("newFailure")),
         }
+        if f.get("testId"):
+            item["testId"] = f["testId"]
+        if f.get("teamcityUrl"):
+            item["teamcityUrl"] = f["teamcityUrl"]
         if match:
             item["area"] = match.get("area")
             item["spec"] = match.get("spec")

@@ -36,16 +36,18 @@ from pathlib import Path
 
 MODULE_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_JSON = MODULE_ROOT / "dashboard" / "data" / "nightly.json"
-DASHBOARD_NIGHTLY_URL = "https://gimesi13.github.io/nexus-ta-dashboard/nightly.html"
+DASHBOARD_BASE = "https://gimesi13.github.io/nexus-ta-dashboard/"
+DASHBOARD_NIGHTLY_URL = DASHBOARD_BASE + "nightly.html"
 ENV_NIGHTLY = "NEXUS_TEAMS_NIGHTLY_WEBHOOK_URL"
 ENV_FALLBACK = "NEXUS_TEAMS_WEBHOOK_URL"
 ENV_ALLOW_FALLBACK = "NEXUS_TEAMS_NIGHTLY_ALLOW_FALLBACK"
 # Hard cap — Teams cards must stay short even on a red night.
 FAIL_CAP = 3
-NAME_LIMIT = 72
+# Long enough for most feature titles; wrap instead of hard-cutting early.
+NAME_LIMIT = 160
 STYLES = ("A", "B", "C", "D", "E")
 STYLE_LABELS = {
-    "A": "Airy metrics",
+    "A": "Airy metrics (default)",
     "B": "Compact digest",
     "C": "Hero pass-rate",
     "D": "Status ribbon",
@@ -109,58 +111,114 @@ def _actions(build: dict) -> list[dict]:
     tc = build.get("webUrl")
     if tc:
         actions.append(
-            {"type": "Action.OpenUrl", "title": "Open TeamCity Build", "url": tc}
+            {
+                "type": "Action.OpenUrl",
+                "title": "Open TeamCity Build",
+                "url": tc,
+            }
         )
     return actions
 
 
+def _inventory_url(item: dict) -> str:
+    href = (item.get("inventoryHref") or "").lstrip("/")
+    if not href:
+        return DASHBOARD_BASE + "inventory.html?run=failed"
+    if href.startswith("http"):
+        return href
+    return DASHBOARD_BASE + href
+
+
 def _failure_chips(c: dict) -> list[dict]:
-    """Equal-ish height chips: one title line + one truncated detail line + bg."""
+    """Soft chips: Area · NEW (red) + wrapping test name (link → TeamCity)."""
+    build_url = (c.get("build") or {}).get("webUrl") or ""
     items: list[dict] = []
     for item in c["failed"][:FAIL_CAP]:
         area = item.get("area") or "?"
         name = _shorten(item.get("name") or item.get("id") or "?", NAME_LIMIT)
         new = bool(item.get("newFailure"))
-        title = f"**{area}**"
+        tc_url = (item.get("teamcityUrl") or "").strip() or build_url
+        # Markdown link on the name — opens that test on the TeamCity build.
+        name_md = f"[{name}]({tc_url})" if tc_url else name
+        # Keep NEW on its own TextBlock so Teams paints it attention/red.
+        title_cols = [
+            {
+                "type": "Column",
+                "width": "auto",
+                "items": [
+                    {
+                        "type": "TextBlock",
+                        "text": f"**{area}**",
+                        "size": "Small",
+                        "spacing": "None",
+                    }
+                ],
+            }
+        ]
         if new:
-            title += "  ·  NEW"
+            title_cols.append(
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": " · ",
+                            "size": "Small",
+                            "spacing": "None",
+                        }
+                    ],
+                }
+            )
+            title_cols.append(
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "NEW",
+                            "size": "Small",
+                            "weight": "Bolder",
+                            "color": "attention",
+                            "spacing": "None",
+                        }
+                    ],
+                }
+            )
         items.append(
             {
                 "type": "Container",
                 "style": "emphasis",
                 "spacing": "Small",
                 "items": [
+                    {"type": "ColumnSet", "spacing": "None", "columns": title_cols},
                     {
                         "type": "TextBlock",
-                        "text": title,
-                        "size": "Small",
-                        "spacing": "None",
-                        "wrap": False,
-                    },
-                    {
-                        "type": "TextBlock",
-                        "text": name,
+                        "text": name_md,
                         "size": "Small",
                         "isSubtle": True,
                         "spacing": "None",
-                        "wrap": False,
-                        "maxLines": 1,
+                        "wrap": True,
                     },
                 ],
             }
         )
+
     shown = min(len(c["failed"]), FAIL_CAP)
-    remaining = max(0, c["failed_n"] - shown)
-    # Prefer summary.failures when the feed truncates the failed[] list.
+    remaining = max(0, int(c["failed_n"] or 0) - shown)
     if c["more"]:
         remaining = max(remaining, c["more"])
     if remaining > 0:
         items.append(
             {
                 "type": "TextBlock",
-                "text": f"+ {remaining} more on the dashboard",
-                "isSubtle": True,
+                "text": (
+                    f"[+ {remaining} more on the dashboard →]"
+                    f"({DASHBOARD_NIGHTLY_URL})"
+                ),
                 "size": "Small",
+                "color": "accent",
                 "spacing": "Small",
                 "wrap": True,
             }
@@ -205,9 +263,11 @@ def _ctx(data: dict) -> dict:
     label, style, accent = _status_tone(status)
     pr = summary.get("passRate")
     failed_n = summary.get("failures", 0) or 0
+    failed = list(data.get("failed") or [])
     return {
         "build": build,
         "summary": summary,
+        "generated_at": data.get("generatedAt") or "",
         "status": status,
         "label": label,
         "container_style": style,
@@ -222,13 +282,8 @@ def _ctx(data: dict) -> dict:
         "muted": summary.get("muted", "—"),
         "skipped": summary.get("skipped", "—"),
         "tests": summary.get("tests", "—"),
-        "failed": list(data.get("failed") or []),
-        "more": max(
-            0,
-            len(list(data.get("failed") or []))
-            - FAIL_CAP
-            + int(data.get("failedTruncated") or 0),
-        ),
+        "failed": failed,
+        "more": max(0, len(failed) - FAIL_CAP + int(data.get("failedTruncated") or 0)),
     }
 
 
@@ -324,23 +379,27 @@ def _header_row(c: dict, status_text: str) -> dict:
 
 
 def style_a(c: dict) -> list[dict]:
-    """Airy metrics — chosen default (equal-height failure chips)."""
-    body = [
+    """Airy metrics — chosen look: passed up top, muted down below."""
+    body: list[dict] = [
         _header_row(c, f"●  {c['label']}"),
         {
             "type": "ColumnSet",
             "spacing": "Large",
             "separator": True,
             "columns": [
-                _kpi("pass rate", c["rate"], "good"),
+                _kpi("pass rate", c["rate"]),  # white / default — not green
+                _kpi("passed", str(c["passed"]), "good"),
                 _kpi("failed", str(c["failed_n"]), c["fail_color"]),
-                _kpi("muted", str(c["muted"])),
                 _kpi("duration", c["duration"]),
             ],
         },
         {
             "type": "TextBlock",
-            "text": f"{c['passed']} passed   ·   {c['skipped']} ignored   ·   {c['tests']} total",
+            "text": (
+                f"{c['muted']} muted   ·   "
+                f"{c['skipped']} ignored   ·   "
+                f"{c['tests']} total"
+            ),
             "isSubtle": True,
             "size": "Small",
             "horizontalAlignment": "Center",
@@ -348,6 +407,7 @@ def style_a(c: dict) -> list[dict]:
             "wrap": True,
         },
     ]
+
     if c["failed_n"] or c["failed"]:
         body.append(
             {
@@ -365,9 +425,12 @@ def style_a(c: dict) -> list[dict]:
             body.append(
                 {
                     "type": "TextBlock",
-                    "text": f"{c['failed_n']} failures — open the dashboard for details",
-                    "isSubtle": True,
+                    "text": (
+                        f"[{c['failed_n']} failures — open the dashboard →]"
+                        f"({DASHBOARD_NIGHTLY_URL})"
+                    ),
                     "size": "Small",
+                    "color": "accent",
                     "spacing": "Small",
                     "wrap": True,
                 }

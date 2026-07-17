@@ -93,7 +93,8 @@ def _fetch_all_occurrences(base: str, token: str, build_id: str) -> list[dict]:
             "locator": f"build:(id:{build_id}),count:{OCC_PAGE}",
             "fields": (
                 "count,nextHref,"
-                "testOccurrence(name,status,muted,ignored,duration,newFailure)"
+                "testOccurrence(id,name,status,muted,ignored,duration,newFailure,"
+                "test(id))"
             ),
         },
     )
@@ -104,12 +105,15 @@ def _fetch_all_occurrences(base: str, token: str, build_id: str) -> list[dict]:
             batch = [batch]
         for item in batch:
             classname, name = _parse_name(item.get("name") or "")
+            test_meta = item.get("test") or {}
             out.append({
                 "classname": classname,
                 "name": name,
                 "status": _classify(item),
                 "durationMs": item.get("duration"),
                 "newFailure": bool(item.get("newFailure")),
+                "occurrenceId": item.get("id") or "",
+                "testId": str(test_meta.get("id") or ""),
             })
         nxt = data.get("nextHref")
         if not nxt or not batch:
@@ -245,6 +249,13 @@ def main() -> int:
             continue
         if len(failed) >= FAILED_CAP:
             break
+        test_id = item.get("testId") or ""
+        teamcity_url = ""
+        if test_id:
+            teamcity_url = (
+                f"{base.rstrip('/')}/viewLog.html?buildId={build_id}"
+                f"&tab=buildResultsDiv&testNameId={urllib.parse.quote(str(test_id), safe='')}"
+            )
         failed.append({
             "id": (
                 f"{item['classname']}::{item['name']}"
@@ -254,6 +265,8 @@ def main() -> int:
             "name": item.get("name") or "",
             "durationMs": item.get("durationMs"),
             "newFailure": bool(item.get("newFailure")),
+            "testId": test_id,
+            "teamcityUrl": teamcity_url,
         })
 
     passed = int(occ.get("passed") or 0)
