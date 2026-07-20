@@ -47,20 +47,75 @@
     return href;
   }
 
+  function causeClass(cause) {
+    var c = (cause || "").toLowerCase();
+    if (c === "infra") return "ny-cause-infra";
+    if (c === "code_change" || c === "code") return "ny-cause-code";
+    if (c === "test") return "ny-cause-test";
+    if (c === "mixed") return "ny-cause-mixed";
+    return "";
+  }
+
   function nutshellHtml(n) {
     if (!n || !n.headline) return "";
     var tone = (n.tone || "ok").toLowerCase();
     if (tone !== "ok" && tone !== "warn" && tone !== "bad") tone = "ok";
-    var bullets = (n.bullets || []).map(function (b) {
+    // Nightly page: full investigation (ordered findings, most important first)
+    var detail = n.detail || {};
+    var body = detail.investigation || n.investigation || "";
+
+    // Likely cause line (prominent, right under the headline)
+    var causeHtml = "";
+    if (n.causeText || n.cause) {
+      causeHtml =
+        '<div class="ny-cause ' + causeClass(n.cause) + '">' +
+          '<div class="ny-cause-tag">Likely cause</div>' +
+          '<div class="ny-cause-text">' + esc(n.causeText || n.cause) + "</div>" +
+        "</div>";
+    }
+
+    // Ordered key findings (AI-authored, most important → least)
+    var findingsSrc = (detail.bullets && detail.bullets.length)
+      ? detail.bullets
+      : (n.bullets || []);
+    var findings = findingsSrc.map(function (b) {
       return "<li>" + esc(b) + "</li>";
     }).join("");
+
+    var areas = (detail.newFailureAreas || []).slice(0, 8).map(function (a) {
+      return '<span class="ny-nutshell-chip">' +
+        esc(a.area) + " <b>" + esc(String(a.newCount)) + "</b></span>";
+    }).join("");
+    var causes = (detail.likelyCauses || []).slice(0, 5).map(function (c) {
+      var label = c.ticket || c.version || "?";
+      var meta = [
+        c.username,
+        (c.areas || []).slice(0, 3).join(", "),
+        c.hitNewFailures != null ? (c.hitNewFailures + " overlapping new") : "",
+        (c.files || []).slice(0, 3).join(", ")
+      ].filter(Boolean).join(" · ");
+      return "<li><strong>" + esc(label) + "</strong> " +
+        esc(meta) +
+        (c.comment ? '<div class="ny-nutshell-cause-cmt">' + esc(c.comment) + "</div>" : "") +
+        "</li>";
+    }).join("");
     return '<div class="ny-nutshell ny-nutshell-' + tone + '">' +
-      '<div class="ny-nutshell-label">In a nutshell</div>' +
+      '<div class="ny-nutshell-label">Investigation</div>' +
       '<div class="ny-nutshell-headline">' + esc(n.headline) + "</div>" +
-      (n.investigation
-        ? '<p class="ny-nutshell-body">' + esc(n.investigation) + "</p>"
+      causeHtml +
+      (body ? '<p class="ny-nutshell-body">' + esc(body) + "</p>" : "") +
+      (findings
+        ? '<div class="ny-nutshell-extra"><span class="ny-nutshell-sub">Key findings</span>' +
+          '<ol class="ny-nutshell-findings">' + findings + "</ol></div>"
         : "") +
-      (bullets ? '<ul class="ny-nutshell-bullets">' + bullets + "</ul>" : "") +
+      (areas
+        ? '<div class="ny-nutshell-areas"><span class="ny-nutshell-sub">New fails by area</span>' +
+          areas + "</div>"
+        : "") +
+      (causes
+        ? '<div class="ny-nutshell-causes"><span class="ny-nutshell-sub">Likely related changes</span>' +
+          '<ul class="ny-nutshell-bullets">' + causes + "</ul></div>"
+        : "") +
       '</div>';
   }
 

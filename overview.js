@@ -281,6 +281,14 @@
     if (nut.headline) {
       var tone = (nut.tone || "ok").toLowerCase();
       if (tone !== "ok" && tone !== "warn" && tone !== "bad") tone = "ok";
+      // Overview: short only (no KPIs; Nightly page has the long investigation)
+      var shortBullets = (nut.bullets || []).slice(0, 3).map(function (b) {
+        return "<li>" + esc(b) + "</li>";
+      }).join("");
+      var causeLine = (nut.causeText || nut.cause)
+        ? '<p class="ny-nutshell-cause-line"><strong>Likely cause:</strong> ' +
+          esc(nut.causeText || nut.cause) + "</p>"
+        : "";
       nutBlock =
         '<div class="ny-nutshell ny-nutshell-compact ny-nutshell-' + tone + '">' +
           '<div class="ny-nutshell-label">In a nutshell</div>' +
@@ -288,6 +296,11 @@
           (nut.investigation
             ? '<p class="ny-nutshell-body">' + esc(nut.investigation) + "</p>"
             : "") +
+          causeLine +
+          (shortBullets
+            ? '<ul class="ny-nutshell-bullets">' + shortBullets + "</ul>"
+            : "") +
+          '<a class="ov-nightly-link" href="nightly.html">Full investigation →</a>' +
         "</div>";
     }
 

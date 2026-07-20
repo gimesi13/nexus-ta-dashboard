@@ -19,20 +19,20 @@ calls TeamCity or the monorepo directly (keeps tokens off the public site).
 TeamCity nightly finishes
         |
         v
-automation/agent-jobs/dashboard-publish.sh   (TC finish-trigger — can reach private TC)
-  1. tc_fetch + generate_* + generate_nutshell (rules + evidence pack)
-  2. publish.sh  ->  this repo (Pages)
-  3. repository_dispatch nightly-nutshell-llm
-        |
-        v
-.github/workflows/nightly-nutshell-llm.yml   (GHA cursor-agent; no TC access)
-  rewrites data/nightly.json nutshell + data/nightly-nutshell.md from evidence
+automation/agent-jobs/dashboard-publish.sh   (TC finish-trigger / cron)
+  1. git pull module checkout
+  2. tc_fetch_nightly.py          ->  .last-tc-nightly.json (+ failure details)
+  3. generate_inventory / coverage / nightly
+  4. generate_nutshell.py         ->  rules nutshell + data/nightly-evidence.json
+  5. publish.sh                   ->  gimesi13/nexus-ta-dashboard  ->  GitHub Pages
+  6. repository_dispatch          ->  nightly-nutshell-llm (GHA cursor-agent rewrite)
         |
         v  (morning)
-post-nightly-nutshell.sh  ->  nxs-ta-reports only
+post-nightly-nutshell.sh          ->  nxs-ta-reports only (same markdown artifact)
 ```
 
-Secret: `CURSOR_API_KEY` (LLM rewrite no-ops without it; rules nutshell remains).
+Public GHA cannot reach private TeamCity; the evidence pack on Pages is the LLM input.
+Secret on the Pages repo: `CURSOR_API_KEY`. Dispatch uses `DASHBOARD_PAGES_TOKEN`.
 
 | Signal | How it lands on the site |
 |---|---|

@@ -1,6 +1,6 @@
 {
   "available": true,
-  "generatedAt": "2026-07-20T07:35Z",
+  "generatedAt": "2026-07-20T09:32Z",
   "source": "teamcity-rest",
   "build": {
     "buildTypeId": "Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt",
@@ -1791,46 +1791,85 @@
     "PesNotificationTestSteps::partner event creation publishes externalEventUpdated notification": "passed"
   },
   "nutshell": {
-    "headline": "QA infra issues \u2014 46 failures (43 new)",
+    "headline": "43 new failures \u2014 mostly QA infra timeouts/502s",
     "tone": "bad",
+    "cause": "infra",
+    "causeText": "QA infrastructure (502/504/read timeouts; dk-project-feasibility-data-store, dk-project-quota-details-rest) \u2014 not a code regression.",
+    "investigation": "New fails: 41\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502); 1\u00d7 Settings defaultCountries lag. Gateway hits: dk-project-feasibility-data-store, dk-project-quota-details-rest.",
     "bullets": [
-      "96.2% pass \u00b7 #3.0.2631 \u00b7 38m 15s, faster than #3.0.2630 \u00b7 was 2 fails prior",
-      "42\u00d7 QA 502 Bad Gateway",
-      "2\u00d7 QA 504 timeout \u2014 504 Gateway Timeout",
-      "1\u00d7 Settings defaultCountries lag"
+      "41\u00d7 QA 502 Bad Gateway",
+      "1\u00d7 Settings defaultCountries lag",
+      "1\u00d7 QA 504 timeout \u2014 504 Gateway Timeout"
     ],
-    "investigation": "44/46 look like QA 502/504 (dk-project-feasibility-data-store, dk-project-quota-details-rest) \u2014 likely infra during the run, not a broad product regression. Also: GB+[en,fr] still rejected (QuotaGroup E2E) \u2014 use CA for multi-lang.",
+    "detail": {
+      "investigation": "43 of 46 unmuted failures are new since the prior build (#3.0.2630, 2 fails). Failure types (new-first): (1) 41\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. (2) 1\u00d7 Settings defaultCountries lag \u2014 Settings defaultCountries read-after-write lag. (3) 1\u00d7 QA 504 timeout \u2014 QA gateway timed out (504) \u2014 infra / overloaded dependency. Hot areas among new fails: Segment (30), SampleRules (9), pes (3), Settings (1). Infra-dominant among new fails: VCS changes are unlikely to explain 502/504/timeouts. Example new failures: Settings: Set default countries [Settings defaultCountries lag]; SampleRules: Apply sources to multiple target quota groups simultaneously: com.dynata.rest.gateway.nexu [QA 502 Bad Gateway]; Segment: Configure project with nested segments and custom quotas: com.dynata.rest.gateway.nexusapi [QA 502 Bad Gateway]; Segment: Update segment nesting and ordering: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Seg [QA 502 Bad Gateway].",
+      "bullets": [
+        "41\u00d7 QA 502 Bad Gateway",
+        "1\u00d7 Settings defaultCountries lag",
+        "1\u00d7 QA 504 timeout \u2014 504 Gateway Timeout"
+      ],
+      "newFailureAreas": [
+        {
+          "area": "Segment",
+          "newCount": 30
+        },
+        {
+          "area": "SampleRules",
+          "newCount": 9
+        },
+        {
+          "area": "pes",
+          "newCount": 3
+        },
+        {
+          "area": "Settings",
+          "newCount": 1
+        }
+      ],
+      "likelyCauses": []
+    },
     "clusters": [
       {
         "label": "infra_502",
         "display": "QA 502 Bad Gateway",
         "count": 42,
-        "sample": "502 Bad Gateway"
+        "newCount": 41,
+        "sample": "502 Bad Gateway",
+        "why": "QA gateway returned HTML 502 \u2014 infra during the run, not a product regression"
       },
       {
         "label": "infra_504",
         "display": "QA 504 timeout",
         "count": 2,
-        "sample": "504 Gateway Timeout"
+        "newCount": 1,
+        "sample": "504 Gateway Timeout",
+        "why": "QA gateway timed out (504) \u2014 infra / overloaded dependency"
       },
       {
         "label": "flaky_settings",
         "display": "Settings defaultCountries lag",
         "count": 1,
-        "sample": ""
+        "newCount": 1,
+        "sample": "",
+        "why": "Settings defaultCountries read-after-write lag"
       },
       {
         "label": "product_data_country_lang",
         "display": "GB + fr unsupported",
         "count": 1,
-        "sample": "Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]"
+        "newCount": 0,
+        "sample": "",
+        "why": "unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang)"
       }
     ],
     "suspectCommits": [],
     "source": "investigator",
-    "generatedAt": "2026-07-20T07:35Z",
+    "generatedAt": "2026-07-20T09:32Z",
     "buildNumber": "3.0.2631",
     "buildId": "9400525",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9400525"
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9400525",
+    "focus": "new_failures",
+    "newFailed": 43,
+    "failed": 46
   }
 }

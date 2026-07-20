@@ -1,0 +1,522 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-20T09:32Z",
+  "build": {
+    "number": "3.0.2631",
+    "buildId": "9400525",
+    "status": "FAILURE",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9400525",
+    "durationSec": 2295.0
+  },
+  "summary": {
+    "tests": 1330,
+    "passed": 1171,
+    "failures": 46,
+    "errors": 0,
+    "skipped": 15,
+    "muted": 98,
+    "newFailed": 43,
+    "passRate": 96.2,
+    "timeSec": 2295.0
+  },
+  "prior": {
+    "buildId": "9397986",
+    "number": "3.0.2630",
+    "status": "FAILURE",
+    "statusText": "Tests failed: 2, passed: 1269, ignored: 15, muted: 101",
+    "durationSec": 2672.0,
+    "failed": 2,
+    "passed": 1269,
+    "newFailed": 0
+  },
+  "changes": [],
+  "clusters": [
+    {
+      "label": "infra_502",
+      "display": "QA 502 Bad Gateway",
+      "count": 42,
+      "newCount": 41,
+      "sample": "502 Bad Gateway",
+      "why": "QA gateway returned HTML 502 \u2014 infra during the run, not a product regression"
+    },
+    {
+      "label": "infra_504",
+      "display": "QA 504 timeout",
+      "count": 2,
+      "newCount": 1,
+      "sample": "504 Gateway Timeout",
+      "why": "QA gateway timed out (504) \u2014 infra / overloaded dependency"
+    },
+    {
+      "label": "flaky_settings",
+      "display": "Settings defaultCountries lag",
+      "count": 1,
+      "newCount": 1,
+      "sample": "",
+      "why": "Settings defaultCountries read-after-write lag"
+    },
+    {
+      "label": "product_data_country_lang",
+      "display": "GB + fr unsupported",
+      "count": 1,
+      "newCount": 0,
+      "sample": "",
+      "why": "unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang)"
+    }
+  ],
+  "failures": [
+    {
+      "name": "Set default countries",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Settings.UserSettingsTestSteps",
+      "newFailure": true,
+      "area": "Settings",
+      "cluster": "flaky_settings",
+      "message": "Condition not satisfied:",
+      "detailsExcerpt": "Condition not satisfied: updatedSettings.defaultCountries == [\"US\", \"GB\", \"CA\"] | | | | [HU, AU] false <com.dynata.nexus.api.model.user.UserSettings@fc21ff4 defaultCountries=[HU, AU] defaultAudienceTemplate=46> at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Settings.UserSettingsTestSteps.Set default countries(UserSettingsTestSteps.groovy:55) ------- Stderr: ------- Jul 20, 2026 1:50:06 AM c\u2026"
+    },
+    {
+      "name": "End-to-end quota group lifecycle: configure, clone countries, survey, delivery, lookup",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupE2ETestSteps",
+      "newFailure": false,
+      "area": "QuotaGroup",
+      "cluster": "product_data_country_lang",
+      "message": "Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714196/core/countryLanguages 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) at feign.As\u2026"
+    },
+    {
+      "name": "Apply sources to multiple target quota groups simultaneously: com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps.Apply sources to multiple target quota groups simultaneously [phase: PROJECT, criteria: [requiresWebcam:true, requiresCookieDrops:true], #1]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps",
+      "newFailure": true,
+      "area": "SampleRules",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714215/applySource 502{ \"errors\" : [ { \"callChain\" : [ \"pos_0\", \"HTTP 502 POST http://dk-project-quota-group-sources-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroupSources/u1/sources/clone\", \"HTTP 502 GET http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups/1187\u2026"
+    },
+    {
+      "name": "Configure project with nested segments and custom quotas: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Configure project with nested segments and custom quotas",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/segmentDetails/updateNestingAndOrdering 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-details-editor-rest.nexus-ms-qa.dynata.com:8080/api/DetailsEditor/u1/nexus/quotaGroups/118714218/updateNestingAndOrdering\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-\u2026"
+    },
+    {
+      "name": "Update segment nesting and ordering: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Update segment nesting and ordering",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Apply sources with both sample requirements and brand restrictions: com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps.Apply sources with both sample requirements and brand restrictions",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps",
+      "newFailure": true,
+      "area": "SampleRules",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 502{ \"errors\" : [ { \"callChain\" : [ \"HTTP 502 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714214/clone\", \"HTTP 502 POST http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups\" ], \"status\" : \"BAD_GATEWAY\", \"message\" : \"\u2026"
+    },
+    {
+      "name": "Apply sources with both sample requirements and brand restrictions: com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps.Apply sources with both sample requirements and brand restrictions",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps",
+      "newFailure": true,
+      "area": "SampleRules",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 502{ \"errors\" : [ { \"callChain\" : [ \"HTTP 502 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714215/clone\", \"HTTP 502 POST http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups\" ], \"status\" : \"BAD_GATEWAY\", \"message\" : \"\u2026"
+    },
+    {
+      "name": "Get apply sources toggles for quota groups: com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps.Get apply sources toggles for quota groups",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps",
+      "newFailure": true,
+      "area": "SampleRules",
+      "cluster": "infra_502",
+      "message": "java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException Caused by: java.lang.reflect.InvocationTargetException:java.lang.\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714224/core/countryLanguages\", \"HTTP 500 GET https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714224/core\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"\u2026"
+    },
+    {
+      "name": "Get apply sources toggles for quota groups: com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps.Get apply sources toggles for quota groups",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps",
+      "newFailure": true,
+      "area": "SampleRules",
+      "cluster": "infra_502",
+      "message": "java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException Caused by: java.lang.reflect.InvocationTargetException:java.lang.\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714225/core/countryLanguages\", \"HTTP 500 GET https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714225/core\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"\u2026"
+    },
+    {
+      "name": "Update segment nesting and ordering: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Update segment nesting and ordering",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Preview segmented condition configurations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Preview segmented condition configurations [phase: QUOTE, scenario: Gender_Split, parameterId: 1, representation: Default_38, allAnswersSelected: true, conditions: [[answers:[1], operator:IN_LIST, percent:30.0], [answers:[2], operator:IN_LIST, percent:70.0]], #0]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Get apply sources toggles for multiple audience groups: com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps.Get apply sources toggles for multiple audience groups",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps",
+      "newFailure": true,
+      "area": "SampleRules",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2176555/fullAudienceGroupSetup 502{ \"errors\" : [ { \"callChain\" : [ \"HTTP 502 POST http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups\" ], \"status\" : \"BAD_GATEWAY\", \"message\" : \"<html>\\n<head><title>502 Bad Gateway</title></head>\\n<body>\\n<center><h1>502 Bad Gateway</\u2026"
+    },
+    {
+      "name": "Get apply sources toggles for multiple audience groups: com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps.Get apply sources toggles for multiple audience groups",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps",
+      "newFailure": true,
+      "area": "SampleRules",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2176557/fullAudienceGroupSetup 502{ \"errors\" : [ { \"callChain\" : [ \"HTTP 502 POST http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups\", \"HTTP 502 POST http://dk-project-quota-group-sources-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroupSources/u1/sources/quotaGroups/\u2026"
+    },
+    {
+      "name": "Preview segmented condition configurations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Preview segmented condition configurations [phase: PROJECT, scenario: Gender_Equal_Split, parameterId: 1, representation: Default_38, allAnswersSelected: true, conditions: [[answers:[1], operator:IN_LIST, percent:50.0], [answers:[2], operator:IN_LIST, percent:50.0]], #1]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Preview segmented condition configurations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Preview segmented condition configurations [phase: PROJECT, scenario: Age_Split, parameterId: 2, representation: Even, allAnswersSelected: false, conditions: [[answers:[18, 35], operator:BETWEEN, percent:60.0], [answers:[36, 65], operator:BETWEEN, percent:40.0]], #2]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "[DkmsError{ callChain=[HTTP 502 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroupValidations/118714218, HTTP 502 GET http://dk-project-quot\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Change quota distribution mode: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Change quota distribution mode",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "[DkmsError{ callChain=[HTTP 502 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroupValidations/118714218, HTTP 502 GET http://dk-project-quot\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Preview mirroring of source setup options: com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps.Preview mirroring of source setup options",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps",
+      "newFailure": true,
+      "area": "SampleRules",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 502{ \"errors\" : [ { \"callChain\" : [ \"HTTP 502 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714214/clone\", \"HTTP 502 POST http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups\" ], \"status\" : \"BAD_GATEWAY\", \"message\" : \"\u2026"
+    },
+    {
+      "name": "Preview mirroring of source setup options: com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps.Preview mirroring of source setup options",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesApplyTestSteps",
+      "newFailure": true,
+      "area": "SampleRules",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 502{ \"errors\" : [ { \"callChain\" : [ \"HTTP 502 PUT https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714227/core/countryLanguages\", \"HTTP 502 GET http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups/118714227/core\" ], \"status\" :\u2026"
+    },
+    {
+      "name": "Change quota distribution mode: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Change quota distribution mode",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Change quota distribution mode: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Change quota distribution mode",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Change quota distribution mode: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Change quota distribution mode",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Configure segment nesting: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Configure segment nesting",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Configure segment nesting: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Configure segment nesting",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "[DkmsError{ callChain=[HTTP 502 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroupValidations/118714218, HTTP 502 GET http://dk-project-quot\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Remove segment nesting: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Remove segment nesting",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Remove segment nesting: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Remove segment nesting",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "initializationError",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsValidationTestSteps",
+      "newFailure": false,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups 502{ \"errors\" : [ { \"callChain\" : [ \"HTTP 502 POST http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups\" ], \"status\" : \"BAD_GATEWAY\", \"message\" : \"<html>\\n<head><title>502 Bad Gateway</title></head>\\n<body>\\n<center><h1>502 Bad Gateway</h1></center>\\n</body>\\n</htm\u2026"
+    },
+    {
+      "name": "Validate quota-percentage consistency: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Validate quota-percentage consistency",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "[DkmsError{ callChain=[HTTP 502 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroupValidations/118714218, HTTP 502 GET http://dk-project-quot\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Validate quota-percentage consistency: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Validate quota-percentage consistency",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Test parameter-specific distribution modes: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Test parameter-specific distribution modes [phase: QUOTE, parameterId: 1, expectedModes: [Even, Custom, Default_38], #0]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Test parameter-specific distribution modes: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Test parameter-specific distribution modes [phase: PROJECT, parameterId: 1, expectedModes: [Even, Custom, Default_38], #1]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Test parameter-specific distribution modes: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.Test parameter-specific distribution modes [phase: PROJECT, parameterId: 2, expectedModes: [Even, Custom], #2]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "[DkmsError{ callChain=[HTTP 502 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroupValidations/118714218, HTTP 502 GET http://dk-project-quot\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "Complete segment management workflow from setup to quota adjustment",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "System census preset maintains precise percentages when quota increases: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.System census preset maintains precise percentages when quota increases",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "System census preset maintains precision through multiple quota changes: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.System census preset maintains precision through multiple quota changes",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "desiredQuotaTotal adjusts total quota to match segment sum: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.desiredQuotaTotal adjusts total quota to match segment sum [initialTotal: 1000, quotas: [700, 700], desiredQuotaTotal: 1400, #0]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "desiredQuotaTotal adjusts total quota via updateConditionPercentages: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.desiredQuotaTotal adjusts total quota via updateConditionPercentages [initialTotal: 1000, percents: [60.0, 40.0], desiredQuotaTotal: 1400, #0]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "desiredQuotaTotal adjusts start quota when tally mode is By Starts: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.desiredQuotaTotal adjusts start quota when tally mode is By Starts [initialStartQuota: 1000, quotas: [700, 700], desiredQuotaTotal: 1400, #0]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "segment quota reflects correct percentage of desiredQuotaTotal: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.segment quota reflects correct percentage of desiredQuotaTotal [initialTotal: 1000, quotas: [50, 50], desiredQuotaTotal: 100, #0]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "segment quota reflects correct percentage of desiredQuotaTotal: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.segment quota reflects correct percentage of desiredQuotaTotal [initialTotal: 1000, quotas: [100, 900], desiredQuotaTotal: 1000, #1]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "desiredQuotaTotal recalculates all segments across multiple parameters: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.desiredQuotaTotal recalculates all segments across multiple parameters [initialTotal: 1000, quotas: [700, 700], desiredQuotaTotal: 1400, #0]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "desiredQuotaTotal adjusts total quota with nested segments: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps.desiredQuotaTotal adjusts total quota with nested segments",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "desiredQuotaTotal workflow - nested, flat, tally mode switch, multi-parameter recalculation",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118714218/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118714218/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "total quota update publishes quotaGroupDetailsUpdated notification",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.pes.pes2.PesNotificationTestSteps",
+      "newFailure": true,
+      "area": "pes",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118617538/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118617538/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "soft launch quota update publishes quotaGroupPropertyUpdated notification",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.pes.pes2.PesNotificationTestSteps",
+      "newFailure": true,
+      "area": "pes",
+      "cluster": "infra_502",
+      "message": "[DkmsError{ callChain=[HTTP 502 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroupValidations/118617538, HTTP 502 GET http://dk-project-quot\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118617538/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118617538/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "tally mode update publishes quotaGroupDetailsUpdated notification",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.pes.pes2.PesNotificationTestSteps",
+      "newFailure": false,
+      "area": "pes",
+      "cluster": "infra_504",
+      "message": "[DkmsError{ callChain=[HTTP 504 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroupValidations/118617538, HTTP 504 GET http://dk-project-quot\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118617538/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118617538/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 504 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    },
+    {
+      "name": "partner allocation update publishes externalQuota notification",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.pes.pes2.PesNotificationTestSteps",
+      "newFailure": true,
+      "area": "pes",
+      "cluster": "infra_504",
+      "message": "<html> <head><title>504 Gateway Time-out</title></head> <body> <center><h1>504 Gateway Time-out</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118617538/quotas/totalQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118617538/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 504 POST http://dk-project-feasibility-data-store.nexus-ms-\u2026"
+    }
+  ],
+  "rulesNutshell": {
+    "headline": "43 new failures \u2014 mostly QA infra timeouts/502s",
+    "tone": "bad",
+    "bullets": [
+      "41\u00d7 QA 502 Bad Gateway",
+      "1\u00d7 Settings defaultCountries lag",
+      "1\u00d7 QA 504 timeout \u2014 504 Gateway Timeout"
+    ],
+    "investigation": "New fails: 41\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502); 1\u00d7 Settings defaultCountries lag. Gateway hits: dk-project-feasibility-data-store, dk-project-quota-details-rest.",
+    "detail": {
+      "investigation": "43 of 46 unmuted failures are new since the prior build (#3.0.2630, 2 fails). Failure types (new-first): (1) 41\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. (2) 1\u00d7 Settings defaultCountries lag \u2014 Settings defaultCountries read-after-write lag. (3) 1\u00d7 QA 504 timeout \u2014 QA gateway timed out (504) \u2014 infra / overloaded dependency. Hot areas among new fails: Segment (30), SampleRules (9), pes (3), Settings (1). Infra-dominant among new fails: VCS changes are unlikely to explain 502/504/timeouts. Example new failures: Settings: Set default countries [Settings defaultCountries lag]; SampleRules: Apply sources to multiple target quota groups simultaneously: com.dynata.rest.gateway.nexu [QA 502 Bad Gateway]; Segment: Configure project with nested segments and custom quotas: com.dynata.rest.gateway.nexusapi [QA 502 Bad Gateway]; Segment: Update segment nesting and ordering: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Seg [QA 502 Bad Gateway].",
+      "bullets": [
+        "41\u00d7 QA 502 Bad Gateway",
+        "1\u00d7 Settings defaultCountries lag",
+        "1\u00d7 QA 504 timeout \u2014 504 Gateway Timeout"
+      ],
+      "newFailureAreas": [
+        {
+          "area": "Segment",
+          "newCount": 30
+        },
+        {
+          "area": "SampleRules",
+          "newCount": 9
+        },
+        {
+          "area": "pes",
+          "newCount": 3
+        },
+        {
+          "area": "Settings",
+          "newCount": 1
+        }
+      ],
+      "likelyCauses": []
+    },
+    "suspectCommits": []
+  },
+  "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite."
+}
