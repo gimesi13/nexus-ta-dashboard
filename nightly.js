@@ -47,6 +47,23 @@
     return href;
   }
 
+  function nutshellHtml(n) {
+    if (!n || !n.headline) return "";
+    var tone = (n.tone || "ok").toLowerCase();
+    if (tone !== "ok" && tone !== "warn" && tone !== "bad") tone = "ok";
+    var bullets = (n.bullets || []).map(function (b) {
+      return "<li>" + esc(b) + "</li>";
+    }).join("");
+    return '<div class="ny-nutshell ny-nutshell-' + tone + '">' +
+      '<div class="ny-nutshell-label">In a nutshell</div>' +
+      '<div class="ny-nutshell-headline">' + esc(n.headline) + "</div>" +
+      (n.investigation
+        ? '<p class="ny-nutshell-body">' + esc(n.investigation) + "</p>"
+        : "") +
+      (bullets ? '<ul class="ny-nutshell-bullets">' + bullets + "</ul>" : "") +
+      '</div>';
+  }
+
   function failItemsHtml(failed, truncated) {
     if (!failed.length) {
       return '<p class="ov-nightly-none">No active (non-muted) failures in this run.</p>';
@@ -122,6 +139,7 @@
 
     body.innerHTML =
       '<div class="ov-nightly-top">' + statusChip + link + "</div>" +
+      nutshellHtml(d.nutshell) +
       '<div class="ov-nightly-kpis ov-nightly-kpis-6">' +
         '<div class="ov-nightly-kpi"><div class="ov-nightly-kpi-num">' + esc(String(s.passRate)) +
           '%</div><div class="ov-nightly-kpi-label">Pass rate</div></div>' +

@@ -276,8 +276,24 @@
           : "");
     }
 
+    var nut = d.nutshell || {};
+    var nutBlock = "";
+    if (nut.headline) {
+      var tone = (nut.tone || "ok").toLowerCase();
+      if (tone !== "ok" && tone !== "warn" && tone !== "bad") tone = "ok";
+      nutBlock =
+        '<div class="ny-nutshell ny-nutshell-compact ny-nutshell-' + tone + '">' +
+          '<div class="ny-nutshell-label">In a nutshell</div>' +
+          '<div class="ny-nutshell-headline">' + esc(nut.headline) + "</div>" +
+          (nut.investigation
+            ? '<p class="ny-nutshell-body">' + esc(nut.investigation) + "</p>"
+            : "") +
+        "</div>";
+    }
+
     body.innerHTML =
       '<div class="ov-nightly-top">' + statusChip + link + "</div>" +
+      nutBlock +
       kpis +
       '<div class="ov-nightly-fail-head">Failures</div>' +
       failBlock;
