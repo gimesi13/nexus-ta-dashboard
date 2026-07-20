@@ -1,0 +1,87 @@
+name: Nightly nutshell LLM
+
+# ACTIVE workflow for the hybrid nutshell pipeline (NXS-13444).
+# Module mirror: dynata/dk-microservices
+#   gateway/unifiedApi/NexusApiRegressionTests/automation/github/nightly-nutshell-llm.yml
+#
+# Flow:
+#   1. TeamCity publishes Pages with rules nutshell + data/nightly-evidence.json
+#      and fires repository_dispatch type nightly-nutshell-llm.
+#   2. This job rewrites nutshell prose with cursor-agent (no TeamCity access).
+#   3. Morning posts data/nightly-nutshell.md to nxs-ta-reports only.
+#
+# Secret: CURSOR_API_KEY on this repo (workflow no-ops without it).
+
+on:
+  repository_dispatch:
+    types: [nightly-nutshell-llm]
+  workflow_dispatch:
+    inputs:
+      build_number:
+        description: Optional build number label (for logs)
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nightly-nutshell-llm
+  cancel-in-progress: true
+
+jobs:
+  rewrite-nutshell:
+    runs-on: ubuntu-latest
+    env:
+      HAS_CURSOR_KEY: ${{ secrets.CURSOR_API_KEY != '' }}
+      BUILD_NUMBER: ${{ github.event.client_payload.build_number || inputs.build_number || '' }}
+    steps:
+      - name: Guard - require the Cursor API key
+        if: ${{ env.HAS_CURSOR_KEY != 'true' }}
+        run: |
+          echo "::warning::CURSOR_API_KEY is not set on nexus-ta-dashboard; skipping LLM nutshell rewrite (rules nutshell remains)."
+          exit 0
+
+      - name: Checkout Pages site
+        if: ${{ env.HAS_CURSOR_KEY == 'true' }}
+        uses: actions/checkout@v4
+
+      - name: Require evidence pack
+        if: ${{ env.HAS_CURSOR_KEY == 'true' }}
+        run: |
+          set -euo pipefail
+          test -f data/nightly-evidence.json
+          test -f data/nightly.json
+          echo "Evidence build: $(python3 -c "import json; print(json.load(open('data/nightly-evidence.json')).get('build',{}).get('number',''))")"
+          echo "Dispatch build: ${BUILD_NUMBER:-none}"
+
+      - name: Install Cursor CLI
+        if: ${{ env.HAS_CURSOR_KEY == 'true' }}
+        run: |
+          curl https://cursor.com/install -fsS | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: LLM rewrite nutshell from evidence
+        if: ${{ env.HAS_CURSOR_KEY == 'true' }}
+        env:
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+        run: |
+          set -euo pipefail
+          cursor-agent --print --force --trust --model claude-opus-4-8-thinking-high \
+            "You are the Nexus API regression TA agent writing the shared nightly nutshell (NXS-13444). Work only in this GitHub Pages checkout. Read data/nightly-evidence.json (clusters, truncated failures, prior, changes, rulesNutshell) and data/nightly.json. Rewrite the human-facing nutshell for novel failures: update data/nightly.json → nutshell with keys headline, tone (ok|warn|bad), investigation (≤2 sentences), bullets (≤4), clusters (keep from evidence), suspectCommits (only if evidence supports; never invent), source=llm, generatedAt (ISO UTC), buildNumber, buildId, webUrl. Also write data/nightly-nutshell.md as the same wording in markdown: bold headline, blank line, investigation, blank line, bullet list, TeamCity link if webUrl present, then TA Dashboard Nightly link https://gimesi13.github.io/nexus-ta-dashboard/nightly.html. Prefer infra vs product vs test-setup clarity. Do not invent authors or root causes. Do not post to Teams. Do not edit unrelated files. Commit is handled by the next workflow step — just leave the files modified."
+
+      - name: Commit and push LLM nutshell
+        if: ${{ env.HAS_CURSOR_KEY == 'true' }}
+        run: |
+          set -euo pipefail
+          git config user.name "nexus-ta-dashboard-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/nightly.json data/nightly-nutshell.md || true
+          if git diff --cached --quiet; then
+            echo "No nutshell changes from agent."
+          else
+            LABEL="${BUILD_NUMBER:-unknown}"
+            git commit -m "LLM nutshell rewrite (#${LABEL}) ($(date -u +%Y-%m-%dT%H:%MZ))"
+            git push origin HEAD:main
+            echo "Pushed LLM nutshell -> https://gimesi13.github.io/nexus-ta-dashboard/nightly.html"
+          fi
