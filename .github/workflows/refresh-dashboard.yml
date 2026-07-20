@@ -1,11 +1,9 @@
 name: Refresh dashboard
 
-# Hands-off: GitHub-hosted runner (no Mac). After TeamCity nightly (~05:30–06:30 UTC),
-# refresh inventory + coverage + nightly JSON and push this Pages repo.
+# Manual fallback only. GitHub-hosted runners cannot reach private TeamCity
+# (teamcity.dynata.com). Nightly refresh runs on TeamCity build
+# "TA Dashboard Publish" after Regression Tests finishes — no Mac needed.
 on:
-  schedule:
-    # 07:00 UTC weekdays ≈ after typical nightly finish
-    - cron: "0 7 * * 1-5"
   workflow_dispatch:
 
 permissions:
