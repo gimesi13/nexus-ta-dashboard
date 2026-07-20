@@ -2651,3 +2651,203 @@ a { color: inherit; text-decoration: none; }
   .ov-cta-card { flex-direction: column; align-items: flex-start; }
   .ov-cta-arrow { align-self: flex-end; }
 }
+
+/* ============================================================
+   AI Platform Work tab
+   ============================================================ */
+.aip-head { margin-bottom: 18px; }
+.aip-title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+.aip-sub {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: 13.5px;
+}
+.aip-sub #aip-meta { color: var(--fg-subtle); }
+.aip-intro {
+  margin: 0 0 20px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  background: var(--panel-2);
+  color: var(--fg-muted);
+  font-size: 13.5px;
+  line-height: 1.55;
+  max-width: 900px;
+}
+
+.aip-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 26px;
+}
+.aip-kpi {
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+}
+.aip-kpi-num {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--accent);
+}
+.aip-kpi-label {
+  margin-top: 5px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--fg);
+  font-weight: 600;
+}
+.aip-kpi-hint {
+  margin-top: 3px;
+  font-size: 11px;
+  color: var(--fg-subtle);
+  line-height: 1.35;
+}
+
+.aip-cats {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.aip-cat { scroll-margin-top: 20px; }
+.aip-cat-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.aip-cat-index {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--fg-subtle);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  opacity: 0.6;
+}
+.aip-cat-heads { flex: 1 1 auto; min-width: 0; }
+.aip-cat-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 4px;
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+.aip-cat-count {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--fg-muted);
+  background: var(--panel-hover);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 1px 8px;
+  line-height: 1.6;
+}
+.aip-cat-role {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: 12.5px;
+  line-height: 1.5;
+  max-width: 780px;
+}
+
+.aip-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 12px;
+}
+.aip-item {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  transition: border-color .12s ease, background .12s ease;
+}
+.aip-item:hover {
+  border-color: var(--border-strong);
+  background: var(--panel-hover);
+}
+.aip-item-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.aip-item-name {
+  font-size: 13.5px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+.aip-badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+.aip-scope {
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--fg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 1px 7px;
+  white-space: nowrap;
+}
+.aip-status {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 999px;
+  padding: 1px 8px;
+  border: 1px solid var(--fg-subtle);
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+.aip-status-live { color: var(--green); border-color: var(--green); }
+.aip-status-active { color: var(--accent); border-color: var(--accent); }
+.aip-status-proto { color: var(--yellow); border-color: var(--yellow); }
+.aip-item-sum {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+.aip-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+.aip-tag {
+  font-size: 10.5px;
+  color: var(--fg-muted);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1px 7px;
+  font-family: var(--mono);
+}
+
+@media (max-width: 560px) {
+  .aip-items { grid-template-columns: 1fr; }
+  .aip-cat-index { display: none; }
+}
