@@ -42,7 +42,7 @@ ENV_NIGHTLY = "NEXUS_TEAMS_NIGHTLY_WEBHOOK_URL"
 ENV_FALLBACK = "NEXUS_TEAMS_WEBHOOK_URL"
 ENV_ALLOW_FALLBACK = "NEXUS_TEAMS_NIGHTLY_ALLOW_FALLBACK"
 # Hard cap — Teams cards must stay short even on a red night.
-FAIL_CAP = 3
+FAIL_CAP = 2
 # Long enough for most feature titles; wrap instead of hard-cutting early.
 NAME_LIMIT = 160
 STYLES = ("A", "B", "C", "D", "E")
@@ -96,7 +96,10 @@ def _shorten(text: str, limit: int = 90) -> str:
     text = " ".join((text or "").split())
     if len(text) <= limit:
         return text
-    return text[: limit - 1].rstrip() + "…"
+    cut = text[: limit - 1].rstrip()
+    if " " in cut:
+        cut = cut[: cut.rfind(" ")].rstrip()
+    return cut + "…"
 
 
 def _actions(build: dict) -> list[dict]:
@@ -130,9 +133,9 @@ def _inventory_url(item: dict) -> str:
 
 
 def _failure_chips(c: dict) -> list[dict]:
-    """Soft chips: Area · NEW (red) + wrapping test name.
+    """Flat one-line rows: **Area**  NEW(red)  — test name (wraps).
 
-    Whole chip is clickable via selectAction (plain text — no purple underline).
+    No boxed container — keeps the list short and flat. Whole row opens TeamCity.
     """
     build_url = (c.get("build") or {}).get("webUrl") or ""
     items: list[dict] = []
@@ -141,11 +144,11 @@ def _failure_chips(c: dict) -> list[dict]:
         name = _shorten(item.get("name") or item.get("id") or "?", NAME_LIMIT)
         new = bool(item.get("newFailure"))
         tc_url = (item.get("teamcityUrl") or "").strip() or build_url
-        # Keep NEW on its own TextBlock so Teams paints it attention/red.
-        title_cols = [
+        cols: list[dict] = [
             {
                 "type": "Column",
                 "width": "auto",
+                "verticalContentAlignment": "Center",
                 "items": [
                     {
                         "type": "TextBlock",
@@ -157,24 +160,11 @@ def _failure_chips(c: dict) -> list[dict]:
             }
         ]
         if new:
-            title_cols.append(
+            cols.append(
                 {
                     "type": "Column",
                     "width": "auto",
-                    "items": [
-                        {
-                            "type": "TextBlock",
-                            "text": " · ",
-                            "size": "Small",
-                            "spacing": "None",
-                        }
-                    ],
-                }
-            )
-            title_cols.append(
-                {
-                    "type": "Column",
-                    "width": "auto",
+                    "verticalContentAlignment": "Center",
                     "items": [
                         {
                             "type": "TextBlock",
@@ -182,35 +172,42 @@ def _failure_chips(c: dict) -> list[dict]:
                             "size": "Small",
                             "weight": "Bolder",
                             "color": "attention",
-                            "spacing": "None",
+                            "spacing": "Small",
                         }
                     ],
                 }
             )
-        chip: dict = {
+        cols.append(
+            {
+                "type": "Column",
+                "width": "stretch",
+                "verticalContentAlignment": "Center",
+                "items": [
+                    {
+                        "type": "TextBlock",
+                        "text": name,
+                        "size": "Small",
+                        "isSubtle": True,
+                        "wrap": True,
+                        "spacing": "Small",
+                    }
+                ],
+            }
+        )
+        # Keep the dark box, but flat: one row per failure inside a tight container.
+        box: dict = {
             "type": "Container",
             "style": "emphasis",
             "spacing": "Small",
-            "items": [
-                {"type": "ColumnSet", "spacing": "None", "columns": title_cols},
-                {
-                    "type": "TextBlock",
-                    "text": name,
-                    "size": "Small",
-                    "isSubtle": True,
-                    "spacing": "None",
-                    "wrap": True,
-                },
-            ],
+            "items": [{"type": "ColumnSet", "spacing": "None", "columns": cols}],
         }
-        # Whole chip opens TeamCity (plain text — no purple underline).
         if tc_url:
-            chip["selectAction"] = {
+            box["selectAction"] = {
                 "type": "Action.OpenUrl",
                 "title": "Open in TeamCity",
                 "url": tc_url,
             }
-        items.append(chip)
+        items.append(box)
 
     shown = min(len(c["failed"]), FAIL_CAP)
     remaining = max(0, int(c["failed_n"] or 0) - shown)
@@ -270,7 +267,11 @@ def _ctx(data: dict) -> dict:
     label, style, accent = _status_tone(status)
     pr = summary.get("passRate")
     failed_n = summary.get("failures", 0) or 0
-    failed = list(data.get("failed") or [])
+    # New failures first (stable), so both the chips and the markdown lead with them.
+    failed = sorted(
+        list(data.get("failed") or []),
+        key=lambda x: 0 if x.get("newFailure") else 1,
+    )
     return {
         "build": build,
         "summary": summary,
@@ -291,10 +292,100 @@ def _ctx(data: dict) -> dict:
         "tests": summary.get("tests", "—"),
         "failed": failed,
         "more": max(0, len(failed) - FAIL_CAP + int(data.get("failedTruncated") or 0)),
+        "nutshell": data.get("nutshell") or {},
     }
 
 
-def _kpi(label: str, value: str, color: str = "default", size: str = "ExtraLarge") -> dict:
+# Likely-cause → (container tone, short label) for the nutshell section.
+_CAUSE_TONE = {
+    "infra": ("warning", "QA infra"),
+    "code_change": ("attention", "Code change"),
+    "test": ("accent", "Test / data"),
+    "mixed": ("warning", "Mixed"),
+    "none": ("good", "Healthy"),
+}
+
+
+def _nutshell_section(c: dict) -> list[dict]:
+    """The shared AI investigation, compact: headline + a short likely-cause line
+    + a link to the full write-up on the dashboard. Returns [] when the overnight
+    investigation has not produced a headline."""
+    nut = c.get("nutshell") or {}
+    headline = (nut.get("headline") or "").strip()
+    if not headline:
+        return []
+    cause = (nut.get("cause") or "none").lower()
+    tone, cause_label = _CAUSE_TONE.get(cause, ("emphasis", "Investigation"))
+    # A complete, self-contained cause line (never a truncated "…"). investigation
+    # is the short-but-whole overview; fall back to causeText.
+    cause_line = (nut.get("investigation") or nut.get("causeText") or "").strip()
+    bullets = [b for b in (nut.get("bullets") or []) if b][:3]
+
+    blocks: list[dict] = [
+        {
+            "type": "TextBlock",
+            "text": "🔎 Summary",
+            "weight": "Bolder",
+            "size": "Small",
+            "spacing": "Medium",
+            "separator": True,
+        },
+        {
+            "type": "TextBlock",
+            "text": headline,
+            "weight": "Bolder",
+            "size": "Small",
+            "wrap": True,
+            "spacing": "Small",
+        },
+    ]
+    cause_items: list[dict] = [
+        {
+            "type": "TextBlock",
+            "text": f"**Likely cause · {cause_label}**",
+            "size": "Small",
+            "spacing": "None",
+            "wrap": True,
+        }
+    ]
+    if cause_line:
+        cause_items.append(
+            {
+                "type": "TextBlock",
+                "text": cause_line,
+                "size": "Small",
+                "isSubtle": True,
+                "wrap": True,
+                "spacing": "None",
+            }
+        )
+    blocks.append(
+        {"type": "Container", "style": tone, "spacing": "Small", "items": cause_items}
+    )
+    if bullets:
+        blocks.append(
+            {
+                "type": "TextBlock",
+                "text": "\n".join(f"- {b}" for b in bullets),
+                "size": "Small",
+                "wrap": True,
+                "spacing": "Small",
+            }
+        )
+    blocks.append(
+        {
+            "type": "TextBlock",
+            "text": f"[Read the full summary on the dashboard →]({DASHBOARD_NIGHTLY_URL})",
+            "size": "Small",
+            "color": "accent",
+            "spacing": "Small",
+            "wrap": True,
+        }
+    )
+    return blocks
+
+
+def _kpi(label: str, value: str, color: str = "default", size: str = "Large") -> dict:
     return {
         "type": "Column",
         "width": "stretch",
@@ -352,7 +443,7 @@ def _header_row(c: dict, status_text: str) -> dict:
                     {
                         "type": "TextBlock",
                         "text": status_text,
-                        "size": "Large",
+                        "size": "Medium",
                         "weight": "Bolder",
                         "color": c["accent"],
                         "spacing": "Small",
@@ -391,7 +482,7 @@ def style_a(c: dict) -> list[dict]:
         _header_row(c, f"●  {c['label']}"),
         {
             "type": "ColumnSet",
-            "spacing": "Large",
+            "spacing": "Medium",
             "separator": True,
             "columns": [
                 _kpi("pass rate", c["rate"]),  # white / default — not green
@@ -403,8 +494,8 @@ def style_a(c: dict) -> list[dict]:
         {
             "type": "TextBlock",
             "text": (
-                f"{c['muted']} muted   ·   "
-                f"{c['skipped']} ignored   ·   "
+                f"{c['muted']} muted · "
+                f"{c['skipped']} ignored · "
                 f"{c['tests']} total"
             ),
             "isSubtle": True,
@@ -415,6 +506,8 @@ def style_a(c: dict) -> list[dict]:
         },
     ]
 
+    body.extend(_nutshell_section(c))
+
     if c["failed_n"] or c["failed"]:
         body.append(
             {
@@ -422,7 +515,7 @@ def style_a(c: dict) -> list[dict]:
                 "text": "Needs attention",
                 "weight": "Bolder",
                 "size": "Small",
-                "spacing": "Large",
+                "spacing": "Medium",
                 "separator": True,
             }
         )

@@ -56,6 +56,30 @@
     return "";
   }
 
+  function causeBadge(cause) {
+    var c = (cause || "").toLowerCase();
+    if (c === "infra") return "QA infra";
+    if (c === "code_change" || c === "code") return "Code change";
+    if (c === "test") return "Test / data";
+    if (c === "mixed") return "Mixed";
+    if (c === "none") return "Healthy";
+    return "";
+  }
+
+  // Split prose into sentences without breaking on common abbreviations, so a
+  // dense paragraph can render as a scannable list.
+  function splitSentences(text) {
+    if (!text) return [];
+    var protectedText = String(text);
+    ["i.e.", "e.g.", "vs.", "etc.", "approx.", "No.", "resp."].forEach(function (a) {
+      protectedText = protectedText.split(a).join(a.replace(/\./g, "\u0000"));
+    });
+    return protectedText
+      .split(/(?<=[.;])\s+/)
+      .map(function (s) { return s.replace(/\u0000/g, ".").trim(); })
+      .filter(Boolean);
+  }
+
   function nutshellHtml(n) {
     if (!n || !n.headline) return "";
     var tone = (n.tone || "ok").toLowerCase();
@@ -67,9 +91,15 @@
     // Likely cause line (prominent, right under the headline)
     var causeHtml = "";
     if (n.causeText || n.cause) {
+      var badge = causeBadge(n.cause);
       causeHtml =
         '<div class="ny-cause ' + causeClass(n.cause) + '">' +
-          '<div class="ny-cause-tag">Likely cause</div>' +
+          '<div class="ny-cause-head">' +
+            '<span class="ny-cause-tag">Likely cause</span>' +
+            (badge
+              ? '<span class="ny-cause-badge ' + causeClass(n.cause) + '">' + esc(badge) + "</span>"
+              : "") +
+          "</div>" +
           '<div class="ny-cause-text">' + esc(n.causeText || n.cause) + "</div>" +
         "</div>";
     }
@@ -103,7 +133,14 @@
       '<div class="ny-nutshell-label">Investigation</div>' +
       '<div class="ny-nutshell-headline">' + esc(n.headline) + "</div>" +
       causeHtml +
-      (body ? '<p class="ny-nutshell-body">' + esc(body) + "</p>" : "") +
+      (function () {
+        var lines = splitSentences(body);
+        if (!lines.length) return "";
+        return '<div class="ny-nutshell-extra"><span class="ny-nutshell-sub">What happened</span>' +
+          '<ul class="ny-nutshell-bullets ny-nutshell-happened">' +
+          lines.map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") +
+          "</ul></div>";
+      })() +
       (findings
         ? '<div class="ny-nutshell-extra"><span class="ny-nutshell-sub">Key findings</span>' +
           '<ol class="ny-nutshell-findings">' + findings + "</ol></div>"
@@ -123,8 +160,11 @@
     if (!failed.length) {
       return '<p class="ov-nightly-none">No active (non-muted) failures in this run.</p>';
     }
+    var ordered = failed.slice().sort(function (a, b) {
+      return (a.newFailure ? 0 : 1) - (b.newFailure ? 0 : 1);
+    });
     return '<ul class="ov-nightly-fails">' +
-      failed.map(function (f) {
+      ordered.map(function (f) {
         var href = failInventoryHref(f);
         var meta = [];
         if (f.area) meta.push(f.area);
@@ -194,7 +234,6 @@
 
     body.innerHTML =
       '<div class="ov-nightly-top">' + statusChip + link + "</div>" +
-      nutshellHtml(d.nutshell) +
       '<div class="ov-nightly-kpis ov-nightly-kpis-6">' +
         '<div class="ov-nightly-kpi"><div class="ov-nightly-kpi-num">' + esc(String(s.passRate)) +
           '%</div><div class="ov-nightly-kpi-label">Pass rate</div></div>' +
@@ -221,6 +260,7 @@
       (build.statusText
         ? '<p class="ny-status-text">' + esc(build.statusText) + "</p>"
         : "") +
+      nutshellHtml(d.nutshell) +
       '<div class="ov-nightly-fail-head">Failures <span class="ov-panel-meta">' +
         ((d.failed || []).length) + " non-muted" +
         ((d.failed || []).length

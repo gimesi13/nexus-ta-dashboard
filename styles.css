@@ -1848,6 +1848,12 @@ a { color: inherit; text-decoration: none; }
   color: var(--fg);
 }
 .ny-nutshell-bullets li { margin: 0.2em 0; }
+.ny-nutshell-happened {
+  color: var(--fg-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.ny-nutshell-happened li { margin: 0.3em 0; }
 .ny-nutshell-sub {
   display: block;
   font-size: 11px;
@@ -1902,14 +1908,34 @@ a { color: inherit; text-decoration: none; }
   background: rgba(127, 127, 127, 0.06);
   border-left: 3px solid var(--fg-muted);
 }
+.ny-cause-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
 .ny-cause-tag {
   font-size: 10.5px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--fg-muted);
-  margin-bottom: 4px;
 }
+.ny-cause-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 1px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--fg-muted);
+  color: var(--fg-muted);
+  line-height: 1.5;
+}
+.ny-cause-badge.ny-cause-infra { color: var(--yellow); border-color: var(--yellow); }
+.ny-cause-badge.ny-cause-code { color: var(--red); border-color: var(--red); }
+.ny-cause-badge.ny-cause-test { color: var(--accent); border-color: var(--accent); }
+.ny-cause-badge.ny-cause-mixed { color: var(--yellow); border-color: var(--yellow); }
 .ny-cause-text {
   color: var(--fg);
   font-size: 13.5px;
@@ -1925,6 +1951,12 @@ a { color: inherit; text-decoration: none; }
   color: var(--fg);
   margin: 2px 0 6px;
 }
+/* Overview nutshell: nudge each section to a slightly different font colour
+   so the blurb, likely-cause and findings read as distinct sections. */
+.ny-nutshell-compact .ny-nutshell-body { color: var(--fg-muted); }
+.ny-nutshell-compact .ny-nutshell-cause-line { color: #d4d4d4; }
+.ny-nutshell-compact .ny-nutshell-cause-line strong { color: var(--yellow); }
+.ny-nutshell-compact .ny-nutshell-bullets { color: #aeaeae; }
 .ov-nightly-link {
   font-size: 12.5px;
   color: var(--accent);

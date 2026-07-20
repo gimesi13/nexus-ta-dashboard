@@ -244,7 +244,9 @@
       ? '<span class="ov-nightly-status ' + statusCls + '">' + esc(status) + "</span>"
       : "";
 
-    var failed = d.failed || [];
+    var failed = (d.failed || []).slice().sort(function (a, b) {
+      return (a.newFailure ? 0 : 1) - (b.newFailure ? 0 : 1);
+    });
     var failBlock;
     if (!failed.length) {
       failBlock = '<p class="ov-nightly-none">No failing tests in this run.</p>';
@@ -281,7 +283,8 @@
     if (nut.headline) {
       var tone = (nut.tone || "ok").toLowerCase();
       if (tone !== "ok" && tone !== "warn" && tone !== "bad") tone = "ok";
-      // Overview: short only (no KPIs; Nightly page has the long investigation)
+      // Overview: short only (no KPIs; Nightly page has the long investigation).
+      // Each section gets a slightly different font colour so they scan apart.
       var shortBullets = (nut.bullets || []).slice(0, 3).map(function (b) {
         return "<li>" + esc(b) + "</li>";
       }).join("");
@@ -306,8 +309,8 @@
 
     body.innerHTML =
       '<div class="ov-nightly-top">' + statusChip + link + "</div>" +
-      nutBlock +
       kpis +
+      nutBlock +
       '<div class="ov-nightly-fail-head">Failures</div>' +
       failBlock;
   }
