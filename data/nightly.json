@@ -1,6 +1,6 @@
 {
   "available": true,
-  "generatedAt": "2026-07-20T07:24Z",
+  "generatedAt": "2026-07-20T07:34Z",
   "source": "teamcity-rest",
   "build": {
     "buildTypeId": "Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt",
@@ -1791,42 +1791,44 @@
     "PesNotificationTestSteps::partner event creation publishes externalEventUpdated notification": "passed"
   },
   "nutshell": {
-    "headline": "Nightly hit QA infra issues \u2014 46 unmuted failures (43 new)",
+    "headline": "QA infra issues \u2014 46 failures (43 new)",
     "tone": "bad",
     "bullets": [
-      "Pass rate 96.2% \u00b7 build #3.0.2631",
-      "Duration 38m 15s (faster than #3.0.2630 by 6m 17s)",
-      "Previous unmuted failures: 2 (#3.0.2630)",
-      "42\u00d7 infra_502: <html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> ",
-      "2\u00d7 infra_504: [DkmsError{ callChain=[HTTP 504 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGrou",
-      "1\u00d7 flaky_settings: Condition not satisfied:"
+      "96.2% pass \u00b7 #3.0.2631 \u00b7 38m 15s, faster than #3.0.2630 \u00b7 was 2 fails prior",
+      "42\u00d7 QA 502 Bad Gateway",
+      "2\u00d7 QA 504 timeout \u2014 504 Gateway Timeout",
+      "1\u00d7 Settings defaultCountries lag \u2014 Condition not satisfied:"
     ],
-    "investigation": "44 of 46 unmuted failures look like QA gateway 502/504 (call chains involving dk-project-feasibility-data-store, dk-project-quota-details-rest, dk-project-quota-group-rest). Likely transient infra during the nightly window \u2014 not a product regression across Segment/SampleRules. Recurring product/data issue: GB + [en, fr] is rejected (`Unsupported country-language combinations`). QuotaGroup E2E still exercises that combo \u2014 switch multi-lang to CA. Settings `defaultCountries` showed read-after-write lag (set US/GB/CA, read still previous). Await helper is the fix.",
+    "investigation": "44/46 look like QA 502/504 (dk-project-feasibility-data-store, dk-project-quota-details-rest) \u2014 likely infra during the run, not a broad product regression. Also: GB+[en,fr] still rejected (QuotaGroup E2E) \u2014 use CA for multi-lang.",
     "clusters": [
       {
         "label": "infra_502",
+        "display": "QA 502 Bad Gateway",
         "count": 42,
-        "sample": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>"
+        "sample": "502 Bad Gateway"
       },
       {
         "label": "infra_504",
+        "display": "QA 504 timeout",
         "count": 2,
-        "sample": "[DkmsError{ callChain=[HTTP 504 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroupValidations/118617538, HTTP 504 GET http://dk-project-quota-group-rest.nexus-ms"
+        "sample": "504 Gateway Timeout"
       },
       {
         "label": "flaky_settings",
+        "display": "Settings defaultCountries lag",
         "count": 1,
         "sample": "Condition not satisfied:"
       },
       {
         "label": "product_data_country_lang",
+        "display": "GB + fr unsupported",
         "count": 1,
         "sample": "Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]"
       }
     ],
     "suspectCommits": [],
     "source": "investigator",
-    "generatedAt": "2026-07-20T07:24Z",
+    "generatedAt": "2026-07-20T07:34Z",
     "buildNumber": "3.0.2631",
     "buildId": "9400525",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9400525"
