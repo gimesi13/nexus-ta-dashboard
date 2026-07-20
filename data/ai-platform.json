@@ -1,28 +1,71 @@
 {
   "generatedAt": "2026-07-20",
   "owner": "Gergely Gimesi",
-  "intro": "A portfolio of the AI-platform work I've built across the dk-microservices monorepo — the autonomous agents, LLM pipelines, context/knowledge systems, guardrails, and tooling that make this repo work AI-first. Organized by the competencies an AI platform engineer is expected to own.",
+  "intro": "An inventory of the AI-platform layer built into the dk-microservices monorepo — the agents, LLM pipelines, rules, guardrails, knowledge base and tooling that let Cursor work as a grounded teammate. The platform serves two roles from a single repo: backend development at the repo root and test automation in the NexusApiRegressionTests module, each with its own standards, rules and workflows. Work is grouped below by capability.",
   "stats": [
+    { "label": "Roles served", "value": "2", "hint": "backend dev + test automation" },
     { "label": "Cursor rules", "value": "19", "hint": "12 repo-root + 7 TA (.mdc)" },
     { "label": "Slash commands", "value": "26", "hint": "10 repo-root + 16 TA workflows" },
-    { "label": "Guardrail hooks", "value": "10", "hint": "3 backend + 7 TA deterministic guards" },
+    { "label": "Guardrail hooks", "value": "10", "hint": "3 repo-root + 7 TA deterministic guards" },
     { "label": "Autonomous jobs", "value": "7", "hint": "headless agent -p schedules" },
     { "label": "Agentic CI flows", "value": "4", "hint": "cursor-agent / bot GHA workflows" },
     { "label": "MCP integrations", "value": "5", "hint": "Jira, GitHub, Honeycomb, Lucid, TeamCity" },
-    { "label": "AI-generated docs", "value": "46", "hint": "reverse-engineered service READMEs" },
-    { "label": "Competency areas", "value": "8", "hint": "mapped below" }
+    { "label": "Knowledge-base docs", "value": "27", "hint": "curated backend grounding docs" },
+    { "label": "AI-generated docs", "value": "46", "hint": "reverse-engineered service READMEs" }
   ],
   "categories": [
     {
+      "id": "roles",
+      "title": "Dual-Role AI Platform (Backend + TA)",
+      "role": "One monorepo, two operating models. Each task is classified as backend development or test automation, and each role gets its own rules, commands, hooks and knowledge — so an agent behaves like the right specialist and one role's constraints never leak into the other.",
+      "items": [
+        {
+          "name": "Ticket-first role routing",
+          "scope": "Repo-root",
+          "status": "Live",
+          "summary": "An always-on baseline rule makes every agent classify the work as DEV (product behaviour) vs TA (regression tests) before acting \u2014 the \u201cMS -\u201d title is explicitly not a signal \u2014 so it adopts the correct standards from the first message.",
+          "tags": ["agent-baseline", "routing", "classification"]
+        },
+        {
+          "name": "Nested AGENTS.md briefs",
+          "scope": "Repo-root + TA",
+          "status": "Live",
+          "summary": "A role-agnostic brief at the repo root and a self-contained brief in the TA module \u2014 nearest-wins and auto-loaded \u2014 orient each session without cross-contaminating the other role.",
+          "tags": ["orientation", "nearest-wins"]
+        },
+        {
+          "name": "Backend (DEV) standard set",
+          "scope": "Repo-root",
+          "status": "Live",
+          "summary": "The developer hat: 12 rules, 10 commands, 3 write/commit hooks and the backend knowledge base govern REST, persistence, messaging and validation work under project/** and gateway/**.",
+          "tags": ["backend", "conventions"]
+        },
+        {
+          "name": "Test-automation (TA) standard set",
+          "scope": "TA module",
+          "status": "Live",
+          "summary": "The TA hat: 7 rules, 16 commands, 7 hooks, a dedicated doc set and this dashboard govern Spock regression authoring inside the NexusApiRegressionTests module.",
+          "tags": ["test-automation", "spock"]
+        },
+        {
+          "name": "Scope isolation",
+          "scope": "Repo-root + TA",
+          "status": "Live",
+          "summary": "Glob-scoped rules plus a scope-guard hook keep each role's rules loaded only on its own paths and stop edits from straying outside the intended module.",
+          "tags": ["scope-guard", "isolation"]
+        }
+      ]
+    },
+    {
       "id": "agents",
       "title": "Autonomous Agents & Orchestration",
-      "role": "Design and run agentic systems that take actions end-to-end — event-driven and scheduled — with human-in-the-loop gates, not just chat responses.",
+      "role": "Agentic systems that take actions end-to-end \u2014 event-driven and scheduled \u2014 with human-in-the-loop gates, not just chat responses.",
       "items": [
         {
           "name": "Shift-left test auto-authoring",
           "scope": "CI",
           "status": "Active",
-          "summary": "Jira \u201cIn Review\u201d fires a repository_dispatch that runs a headless cursor-agent: it reads the feature ticket + git diff, writes a test plan, implements Spock specs, runs the review gate, and opens an unmerged PR for a human.",
+          "summary": "A feature reaching \u201cIn Review\u201d fires a repository_dispatch that runs a headless cursor-agent: it reads the feature ticket + git diff, writes a test plan, implements Spock specs, runs the review gate, and opens an unmerged PR for a human.",
           "tags": ["cursor-agent", "repository_dispatch", "GHA", "human-in-the-loop"]
         },
         {
@@ -36,14 +79,14 @@
           "name": "Bot PR authorship",
           "scope": "CI",
           "status": "Active",
-          "summary": "A dedicated bot identity opens PRs so the maintainer can be the reviewer/approver — sidesteps GitHub's self-review deadlock and keeps the approval gate meaningful.",
+          "summary": "A dedicated bot identity opens PRs so the maintainer can be the reviewer/approver \u2014 sidesteps GitHub's self-review deadlock and keeps the approval gate meaningful.",
           "tags": ["bot-identity", "review-gate"]
         },
         {
           "name": "Scheduled agent jobs",
           "scope": "TA module",
           "status": "Active",
-          "summary": "Seven headless `agent -p` jobs: nightly triage, dashboard publish, morning report, weekly digest, coverage refresh, OpenAPI-drift authoring, and the nutshell post — the always-on autonomy loop.",
+          "summary": "Seven headless `agent -p` jobs: nightly triage, dashboard publish, morning report, weekly digest, coverage refresh, OpenAPI-drift authoring, and the nutshell post \u2014 the always-on autonomy loop.",
           "tags": ["agent -p", "cron", "idempotent"]
         },
         {
@@ -58,7 +101,7 @@
     {
       "id": "llm",
       "title": "LLM Pipelines & Applications",
-      "role": "Ship production LLM features with structured output, deterministic fallbacks, and grounding — the applied \u201cLLM app\u201d layer of the platform.",
+      "role": "Production LLM features with structured output, deterministic fallbacks and grounding \u2014 the applied \u201cLLM app\u201d layer of the platform.",
       "items": [
         {
           "name": "Hybrid nightly nutshell (RCA)",
@@ -71,7 +114,7 @@
           "name": "Evidence-pack contract",
           "scope": "TA module",
           "status": "Live",
-          "summary": "A sanitized, truncated JSON contract (failures, clusters, VCS changes + authors, prior build) purpose-built as the LLM's input — context engineering so the model reasons on facts, not noise.",
+          "summary": "A sanitized, truncated JSON contract (failures, clusters, VCS changes + authors, prior build) purpose-built as the LLM's input \u2014 context engineering so the model reasons on facts, not noise.",
           "tags": ["context-engineering", "schema"]
         },
         {
@@ -85,7 +128,7 @@
           "name": "Grounded prompt design",
           "scope": "TA module",
           "status": "Live",
-          "summary": "The nutshell prompt enforces a strict output schema and safety rails: read real failure messages (not coarse cluster labels), never invent blame, docs/automation-only changes can't cause test failures.",
+          "summary": "The nutshell prompt enforces a strict output schema and safety rails: read real failure messages (not coarse cluster labels), never invent blame, and docs/automation-only changes can't be named as a cause of test failures.",
           "tags": ["guardrails", "anti-hallucination"]
         }
       ]
@@ -93,41 +136,48 @@
     {
       "id": "context",
       "title": "Context & Knowledge Engineering",
-      "role": "The biggest lever on agent quality: curate rules, memory, and retrievable knowledge so agents act like senior teammates and don't hallucinate.",
+      "role": "The biggest lever on agent quality: curate rules, grounding docs and retrievable knowledge so agents act like senior teammates and don't hallucinate.",
       "items": [
         {
           "name": "Cursor rules system",
           "scope": "Repo-root + TA",
           "status": "Live",
-          "summary": "19 rules (.mdc) — always-on baseline + glob-scoped conventions — that encode scope boundaries, REST/persistence/messaging conventions, and the ticket-first workflow so behavior is correct from the first message.",
+          "summary": "19 rules (.mdc) \u2014 an always-on baseline plus glob-scoped conventions \u2014 encode scope boundaries, REST/persistence/messaging conventions and the ticket-first workflow so behaviour is correct from the first message.",
           "tags": ["rules", "conventions", "auto-loaded"]
-        },
-        {
-          "name": "AGENTS.md hierarchy",
-          "scope": "Repo-root + TA",
-          "status": "Live",
-          "summary": "Nearest-wins agent briefs at the repo root and in the TA module that classify dev vs TA work and map the whole knowledge system — loaded into every session.",
-          "tags": ["orientation", "routing"]
         },
         {
           "name": "Backend knowledge base",
           "scope": "Repo-root",
           "status": "Live",
-          "summary": "27 curated docs (architecture, domain model, data schema, service catalog, ADRs, conventions) plus a KNOWLEDGE_GAPS ledger — grounded retrieval that keeps answers repo-true.",
-          "tags": ["retrieval", "grounding", "ADRs"]
+          "summary": "27 curated grounding docs \u2014 architecture, domain model, data schema, service catalog and dependencies, PES2 events, config toggles, plus 5 ADRs \u2014 hand-written so agents reason on repo facts instead of guessing.",
+          "tags": ["grounding", "architecture", "ADRs"]
+        },
+        {
+          "name": "Mined review rulebook",
+          "scope": "Repo-root",
+          "status": "Live",
+          "summary": "Coding conventions and a review checklist distilled from real PR-review threads (with provenance) capture the unwritten rules a senior reviewer would apply, so agents produce review-ready code.",
+          "tags": ["conventions", "review-mined"]
+        },
+        {
+          "name": "Known-unknowns ledger",
+          "scope": "Repo-root",
+          "status": "Live",
+          "summary": "A living KNOWLEDGE_GAPS doc records what the platform does not yet know, so agents cite where an answer lives or say they can't confirm it rather than inventing one.",
+          "tags": ["anti-hallucination", "honesty"]
         },
         {
           "name": "Slash-command library",
           "scope": "Repo-root + TA",
           "status": "Live",
-          "summary": "27 repeatable workflows (onboard service, implement ticket, add endpoint, triage, author-from-OpenAPI, review gate, PR description…) that turn tribal know-how into invokable playbooks for humans and agents.",
+          "summary": "26 repeatable workflows (onboard service, implement ticket, add endpoint, triage, author-from-OpenAPI, review gate, PR description\u2026) that turn tribal know-how into invokable playbooks for humans and agents.",
           "tags": ["playbooks", "DevEx"]
         },
         {
           "name": "Golden-PR convergence (teach-from-pr)",
           "scope": "Repo-root",
           "status": "Prototype",
-          "summary": "A meta-skill that treats context as something to optimize: blind agents re-solve already-merged tickets, get graded against the golden diff, and the rules/docs/hooks are improved until the weakest model passes.",
+          "summary": "An eval loop that replays already-merged \u201cgolden\u201d tickets: blind agents re-solve them at the pre-PR state, get graded on tests/conventions/similarity, and the rules, docs and hooks \u2014 never the prompt \u2014 are improved until the weakest model passes.",
           "tags": ["eval-driven", "self-improving"]
         }
       ]
@@ -135,20 +185,20 @@
     {
       "id": "guardrails",
       "title": "Guardrails, Safety & Evaluation",
-      "role": "Make autonomy safe and measurable — deterministic guards, review gates, and evals so agents can't drift, leak secrets, or weaken tests.",
+      "role": "Make autonomy safe and measurable \u2014 deterministic guards, review gates and standards so agents can't drift, leak secrets, or weaken tests.",
       "items": [
         {
           "name": "Deterministic hooks",
           "scope": "Repo-root + TA",
           "status": "Live",
-          "summary": "10 write-time / shell-time guards: scope boundary, template-preflight, test-authoring preflight, comment-guard, coding-rule lint, and shell guards that block force-push and gate PR creation — enforced on interactive and headless runs alike.",
+          "summary": "10 write-time / shell-time guards: scope boundary, template-preflight, test-authoring preflight, comment-guard, coding-rule lint, and shell guards that block force-push and gate PR creation \u2014 enforced on interactive and headless runs alike.",
           "tags": ["preToolUse", "shell-guard", "policy"]
         },
         {
           "name": "Pre-PR review gate",
           "scope": "Repo-root + TA",
           "status": "Live",
-          "summary": "A command that launches Bugbot + security-review subagents on the diff and resolves findings before a PR is marked ready — an automated second pair of eyes.",
+          "summary": "A command that launches Bugbot + security-review subagents on the diff and resolves findings before a PR is marked ready \u2014 an automated second pair of eyes.",
           "tags": ["bugbot", "security-review", "subagents"]
         },
         {
@@ -157,6 +207,13 @@
           "status": "Live",
           "summary": "The authoritative 20-section coding standard that drives GitHub's PR review bot; the Cursor rules parallel and extend it for agent sessions.",
           "tags": ["copilot", "standard"]
+        },
+        {
+          "name": "Platform-ask process",
+          "scope": "Repo-root + TA",
+          "status": "Live",
+          "summary": "When a fix belongs in production or another team's tree, the agent files a ticket-style \u201cplatform ask\u201d instead of editing out of scope \u2014 keeping autonomous work inside safe boundaries.",
+          "tags": ["scope", "governance"]
         },
         {
           "name": "Autonomy ceilings",
@@ -170,13 +227,13 @@
     {
       "id": "tooling",
       "title": "Tooling & MCP Integration",
-      "role": "The platform plumbing — connect agents to the org's tools and data through MCP and CLIs so they act with real context.",
+      "role": "The platform plumbing \u2014 connect agents to the org's tools and data through MCP and CLIs so they act with real context.",
       "items": [
         {
           "name": "MCP server integration",
           "scope": "Repo-root + TA",
           "status": "Live",
-          "summary": "Wired Atlassian (Jira/Confluence), GitHub, Honeycomb, and Lucid MCP servers (plus TeamCity via REST until MCP GA) with templated config and headless auth patterns for CI agents.",
+          "summary": "Wired Atlassian (Jira/Confluence), GitHub, Honeycomb and Lucid MCP servers (plus TeamCity via REST until MCP GA) with templated config and headless auth patterns for CI agents.",
           "tags": ["MCP", "Jira", "GitHub", "Honeycomb"]
         },
         {
@@ -198,7 +255,7 @@
     {
       "id": "observability",
       "title": "Observability & Evidence",
-      "role": "Feed runtime truth to agents and humans — evidence-based decisions instead of guesses; observe both the system and the agents.",
+      "role": "Feed runtime truth to agents and humans \u2014 evidence-based decisions instead of guesses; observe both the system and the agents.",
       "items": [
         {
           "name": "Honeycomb-informed triage",
@@ -211,8 +268,15 @@
           "name": "CloudWatch log RCA",
           "scope": "TA module",
           "status": "Live",
-          "summary": "Log-native incident investigation over prod/QA application logs via AWS SSO + Logs Insights — origin exception, stack trace, downstream cascade.",
+          "summary": "Log-native incident investigation over prod/QA application logs via AWS SSO + Logs Insights \u2014 origin exception, stack trace, downstream cascade.",
           "tags": ["logs", "incident"]
+        },
+        {
+          "name": "End-of-turn agent digest",
+          "scope": "TA module",
+          "status": "Live",
+          "summary": "A stop hook regenerates a machine- and human-readable test digest at the end of a run and nudges for the mandatory \u201cfiles changed\u201d summary \u2014 lightweight observability over the agents themselves.",
+          "tags": ["agent-digest", "stop-hook"]
         },
         {
           "name": "Evidence-driven decisions",
@@ -226,7 +290,7 @@
     {
       "id": "extraction",
       "title": "AI Knowledge Extraction",
-      "role": "Use AI to mine a large brownfield codebase into durable, trustworthy documentation — shrinking tribal knowledge at scale.",
+      "role": "Use AI to mine a large brownfield codebase into durable, trustworthy documentation \u2014 shrinking tribal knowledge at scale.",
       "items": [
         {
           "name": "AI-DLC reverse-engineering",
@@ -239,14 +303,14 @@
           "name": "46 generated service READMEs",
           "scope": "Repo-root",
           "status": "Active",
-          "summary": "46 of ~114 services documented, each with an \u201cAnalyzed\u201d provenance banner and \u201cNeeds Human Verification\u201d flags, tracked in a status ledger with spot-check legend.",
+          "summary": "46 of ~114 services documented, each with an \u201cAnalyzed\u201d provenance banner and \u201cNeeds Human Verification\u201d flags, tracked in a status ledger with a spot-check legend.",
           "tags": ["docs-at-scale", "provenance"]
         },
         {
           "name": "Security findings surfaced",
           "scope": "Repo-root",
           "status": "Active",
-          "summary": "The reverse-engineer passes flagged cross-cutting security concerns (e.g. SSRF, sandbox flags) that would otherwise stay buried in code.",
+          "summary": "The reverse-engineer passes flagged cross-cutting security concerns (e.g. SSRF, sandbox flags) for human review that would otherwise stay buried in code.",
           "tags": ["security", "discovery"]
         }
       ]
@@ -260,21 +324,21 @@
           "name": "Nexus TA Dashboard",
           "scope": "Pages",
           "status": "Live",
-          "summary": "A live GitHub Pages product surfacing test inventory, endpoint coverage, the nightly AI investigation, and this AI-platform portfolio — the consumable face of the whole system.",
+          "summary": "A live GitHub Pages product surfacing test inventory, endpoint coverage, the nightly AI investigation, and this AI-platform overview \u2014 the consumable face of the whole system.",
           "tags": ["dashboard", "github-pages"]
         },
         {
           "name": "Morning Teams report",
           "scope": "Pages",
           "status": "Live",
-          "summary": "A compact Adaptive Card posted to the team channel each morning with the AI summary, likely cause, and top failures — the daily heartbeat.",
+          "summary": "A compact Adaptive Card posted to the team channel each morning with the AI summary, likely cause and top failures \u2014 the daily heartbeat.",
           "tags": ["teams", "adaptive-card"]
         },
         {
-          "name": "Onboarding & DevEx",
+          "name": "Onboarding & enablement",
           "scope": "Repo-root",
           "status": "Live",
-          "summary": "A `/welcome` orchestrator + Cursor guide that gets a new dev or agent productive fast — the enablement layer that makes the platform adoptable.",
+          "summary": "A `/welcome` orchestrator, the Cursor guide reference, a `/learn-backend-concept` tutor and task skills (e.g. add-REST-endpoint) get a new developer or agent productive quickly \u2014 the layer that makes the platform adoptable.",
           "tags": ["onboarding", "enablement"]
         }
       ]
