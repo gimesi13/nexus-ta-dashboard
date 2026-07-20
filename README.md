@@ -19,14 +19,20 @@ calls TeamCity or the monorepo directly (keeps tokens off the public site).
 TeamCity nightly finishes
         |
         v
-automation/agent-jobs/dashboard-publish.sh   (cron / TC / Cursor Automation, weekdays ~06:30)
-  1. git pull module checkout
-  2. tc_fetch_nightly.py          ->  .last-tc-nightly.json
-  3. generate_inventory.py        ->  data/inventory.json   (specs / steps / types)
-  4. generate_coverage.py         ->  data/coverage.json    (OpenAPI × overlay; Mon: --fetch-openapi)
-  5. generate_nightly.py          ->  data/nightly.json
-  6. publish.sh                   ->  gimesi13/nexus-ta-dashboard  ->  GitHub Pages
+automation/agent-jobs/dashboard-publish.sh   (TC finish-trigger — can reach private TC)
+  1. tc_fetch + generate_* + generate_nutshell (rules + evidence pack)
+  2. publish.sh  ->  this repo (Pages)
+  3. repository_dispatch nightly-nutshell-llm
+        |
+        v
+.github/workflows/nightly-nutshell-llm.yml   (GHA cursor-agent; no TC access)
+  rewrites data/nightly.json nutshell + data/nightly-nutshell.md from evidence
+        |
+        v  (morning)
+post-nightly-nutshell.sh  ->  nxs-ta-reports only
 ```
+
+Secret: `CURSOR_API_KEY` (LLM rewrite no-ops without it; rules nutshell remains).
 
 | Signal | How it lands on the site |
 |---|---|
