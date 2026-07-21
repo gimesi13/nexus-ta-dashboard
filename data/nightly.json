@@ -1,6 +1,6 @@
 {
   "available": true,
-  "generatedAt": "2026-07-21T09:51Z",
+  "generatedAt": "2026-07-21T09:59Z",
   "source": "teamcity-rest",
   "build": {
     "buildTypeId": "Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt",
@@ -1349,5 +1349,64 @@
     "PesNotificationTestSteps::partner allocation update publishes externalQuota notification": "passed",
     "SegmentsValidationTestSteps::Validate quota value constraints": "muted",
     "PesNotificationTestSteps::partner event creation publishes externalEventUpdated notification": "passed"
+  },
+  "nutshell": {
+    "headline": "1 continuing failure(s) \u2014 no new unmuted fails",
+    "tone": "warn",
+    "cause": "mixed",
+    "causeText": "VCS changes present but none map onto the failing packages \u2014 likely test/data, correlate manually.",
+    "investigation": "Failures: 1\u00d7 GB + fr unsupported.",
+    "bullets": [
+      "1\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]"
+    ],
+    "detail": {
+      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 GB + fr unsupported \u2014 unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang). Hot areas among new fails: QuotaGroup (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. Example new failures: QuotaGroup: End-to-end quota group lifecycle: configure, clone countries, survey, delivery, lookup [GB + fr unsupported].",
+      "bullets": [
+        "1\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]",
+        "NXS-13444: gergely.gimesi \u2014 [NXS-13444] Bump dashboard JS cache-busters (stats-first layout)",
+        "NXS-13444: gergely.gimesi \u2014 [NXS-13444] Nightly nutshell: LLM investigation, dashboard redesign + service READMEs"
+      ],
+      "newFailureAreas": [
+        {
+          "area": "QuotaGroup",
+          "newCount": 1
+        }
+      ],
+      "likelyCauses": []
+    },
+    "clusters": [
+      {
+        "label": "product_data_country_lang",
+        "display": "GB + fr unsupported",
+        "count": 1,
+        "newCount": 1,
+        "sample": "Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]",
+        "why": "unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang)"
+      }
+    ],
+    "suspectCommits": [
+      {
+        "version": "a09acf0779a6",
+        "username": "gergely.gimesi",
+        "comment": "[NXS-13444] Bump dashboard JS cache-busters (stats-first layout)",
+        "ticket": "NXS-13444",
+        "areas": []
+      },
+      {
+        "version": "d12e2676ad2e",
+        "username": "gergely.gimesi",
+        "comment": "[NXS-13444] Nightly nutshell: LLM investigation, dashboard redesign + service READMEs",
+        "ticket": "NXS-13444",
+        "areas": []
+      }
+    ],
+    "source": "investigator",
+    "generatedAt": "2026-07-21T09:59Z",
+    "buildNumber": "3.0.2632",
+    "buildId": "9402753",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9402753",
+    "focus": "all_failures",
+    "newFailed": 0,
+    "failed": 1
   }
 }
