@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=100" />
+  <link rel="stylesheet" href="styles.css?v=120" />
   <!-- REROLL: remove this link (+ delete styles-unify.css) to undo Coverage→Overview visual bridge -->
-  <link rel="stylesheet" href="styles-unify.css?v=1" />
+  <link rel="stylesheet" href="styles-unify.css?v=3" />
 </head>
 <body>
   <div class="app">
@@ -43,6 +43,10 @@
           <a class="nav-item" href="nightly.html">
             <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7.25-3.25v3.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75V4.75a.75.75 0 0 1 1.5 0Z"/></svg>
             Nightly Run
+          </a>
+          <a class="nav-item" href="progress.html">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M0 11.75a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75Zm5-5a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 .75.75v8.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75Zm5-6a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 .75.75v14.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75Z"/></svg>
+            Progress
           </a>
         </div>
         <div class="nav-group">
@@ -78,11 +82,7 @@
 
       <div class="content content-wide">
         <section class="cov-summary" id="summary" aria-label="Coverage summary">
-          <div class="cov-pies" id="pies" aria-label="Coverage charts"></div>
-          <div class="cov-summary-main">
-            <p class="cov-summary-lead" id="summary-lead">Loading…</p>
-            <div class="cov-summary-meta" id="summary-meta"></div>
-          </div>
+          <p class="cov-summary-lead">Loading…</p>
         </section>
 
         <div class="cov-tabs" role="tablist" aria-label="Coverage views">
@@ -174,6 +174,6 @@
   </div>
 
   <script src="sidebar.js?v=86"></script>
-  <script src="coverage.js?v=87"></script>
+  <script src="coverage.js?v=90"></script>
 </body>
 </html>

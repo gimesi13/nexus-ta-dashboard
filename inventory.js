@@ -1,6 +1,16 @@
 (function () {
   "use strict";
 
+  var TYPE_ORDER = ["CRUD", "Validation", "Workflow", "Query", "E2E", "Other"];
+  var TYPE_CLS = {
+    CRUD: "is-crud",
+    Validation: "is-val",
+    Workflow: "is-flow",
+    Query: "is-query",
+    E2E: "is-e2e",
+    Other: "is-other",
+  };
+
   var state = {
     rows: [],
     expandedAreas: new Set(),
@@ -128,19 +138,54 @@
     els.tagRoot.classList.toggle("open", open);
   }
 
+  function typeSegments(data) {
+    var byType = data.byType || {};
+    var keys = TYPE_ORDER.filter(function (k) { return byType[k]; });
+    Object.keys(byType).forEach(function (k) {
+      if (keys.indexOf(k) < 0 && byType[k]) keys.push(k);
+    });
+    return keys.map(function (k) {
+      return {
+        label: k,
+        value: byType[k] || 0,
+        cls: TYPE_CLS[k] || "is-other",
+      };
+    });
+  }
+
   function renderKpis(data) {
-    var items = [
-      { num: data.cases, label: "Tests", sub: fmtFeatureMethods(data.features) },
-      { num: data.specs, label: "Specs", sub: "\u00a0" },
-      { num: data.areas, label: "Areas", sub: "\u00a0" },
-    ];
-    els.kpis.innerHTML = items.map(function (i) {
-      return '<div class="kpi">' +
-        '<div class="kpi-num">' + i.num + "</div>" +
-        '<div class="kpi-label">' + i.label + "</div>" +
-        '<div class="kpi-sub">' + i.sub + "</div>" +
-        "</div>";
+    if (!els.kpis) return;
+    var segs = typeSegments(data);
+    var total = segs.reduce(function (n, s) { return n + s.value; }, 0) || 1;
+    var bars = segs.map(function (seg) {
+      var pct = Math.max(0.6, (seg.value / total) * 100);
+      return (
+        '<span class="inv-stack-seg ' + seg.cls + '" style="width:' + pct + '%" ' +
+          'title="' + esc(seg.label) + ": " + esc(seg.value) + ' features"></span>'
+      );
     }).join("");
+    var legend = segs.map(function (seg) {
+      return (
+        '<span class="inv-stack-key">' +
+          '<span class="inv-stack-dot ' + seg.cls + '"></span>' +
+          '<strong>' + esc(seg.value) + "</strong> " + esc(seg.label) +
+        "</span>"
+      );
+    }).join("");
+    els.kpis.innerHTML =
+      '<div class="inv-bar-hero">' +
+        '<div class="inv-bar-hero-top">' +
+          '<div class="inv-bar-pct">' + esc(data.cases) + "</div>" +
+          '<div class="inv-bar-copy">' +
+            '<div class="inv-bar-title">tests across ' + esc(data.specs) +
+              " specs · " + esc(data.areas) + " areas</div>" +
+            '<div class="inv-bar-sub">' + esc(fmtFeatureMethods(data.features)) +
+              " · mix by type</div>" +
+          "</div>" +
+        "</div>" +
+        '<div class="inv-stack" role="img" aria-label="Feature mix by type">' + bars + "</div>" +
+        '<div class="inv-stack-keys">' + legend + "</div>" +
+      "</div>";
   }
 
   function runStatusKey(r) {
@@ -774,5 +819,9 @@
     .catch(function (err) {
       els.groups.innerHTML =
         '<div class="state-msg">Failed to load inventory: ' + esc(err.message) + "</div>";
+      if (els.kpis) {
+        els.kpis.innerHTML =
+          '<p class="inv-summary-lead">Failed to load inventory: ' + esc(err.message) + "</p>";
+      }
     });
 })();

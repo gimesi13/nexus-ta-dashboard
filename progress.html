@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nightly Run · Nexus TA Dashboard</title>
-  <meta name="description" content="Latest Nexus API regression nightly from TeamCity." />
+  <title>Progress · Nexus TA Dashboard</title>
+  <meta name="description" content="Test cases added over recent sprints, from git history of the Spock suite." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -38,11 +38,11 @@
             <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0Zm14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/></svg>
             Coverage
           </a>
-          <a class="nav-item active" href="nightly.html">
+          <a class="nav-item" href="nightly.html">
             <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7.25-3.25v3.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75V4.75a.75.75 0 0 1 1.5 0Z"/></svg>
             Nightly Run
           </a>
-          <a class="nav-item" href="progress.html">
+          <a class="nav-item active" href="progress.html">
             <svg viewBox="0 0 16 16" fill="currentColor"><path d="M0 11.75a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75Zm5-5a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 .75.75v8.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75Zm5-6a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 .75.75v14.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75Z"/></svg>
             Progress
           </a>
@@ -57,7 +57,7 @@
       </nav>
       <div class="sidebar-bottom">
         <div class="sidebar-owner">Owned by <strong>Gergely Gimesi</strong></div>
-        <a class="invite" id="tc-builds-link" href="https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt?mode=builds" target="_blank" rel="noopener">
+        <a class="invite" href="https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt?mode=builds" target="_blank" rel="noopener">
           Open in TeamCity
         </a>
       </div>
@@ -65,28 +65,50 @@
 
     <div class="nav-backdrop" id="nav-backdrop"></div>
 
-    <main class="main page-overview">
-      <div class="ov-shell ny-shell">
-        <button class="hamburger ov-hamburger" id="nav-toggle" aria-label="Open menu">
-          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M1 3.75A.75.75 0 0 1 1.75 3h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 3.75Zm0 4A.75.75 0 0 1 1.75 7h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75Zm0 4A.75.75 0 0 1 1.75 11h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1-.75-.75Z"/></svg>
-        </button>
-
-        <section class="ov-panel ov-nightly ny-page-card" aria-label="Nightly run">
-          <header class="ov-panel-head">
-            <h2>Last nightly run</h2>
-            <span class="ov-panel-meta" id="nightly-meta">Loading…</span>
-          </header>
-          <div id="nightly-body">
-            <div class="ov-empty">Loading…</div>
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="hamburger" id="nav-toggle" aria-label="Open menu">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M1 3.75A.75.75 0 0 1 1.75 3h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 3.75Zm0 4A.75.75 0 0 1 1.75 7h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75Zm0 4A.75.75 0 0 1 1.75 11h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1-.75-.75Z"/></svg>
+          </button>
+          <div>
+            <h1 class="page-title">Progress</h1>
+            <p class="page-sub">Test cases added over recent sprints, from git history of the Spock suite.</p>
           </div>
-        </section>
+        </div>
+      </header>
 
+      <div class="content content-wide">
+        <div class="prog-windows" id="windows" role="tablist" aria-label="Time window"></div>
+        <section class="prog-summary" id="summary" aria-label="Progress summary">
+          <p class="prog-lead">Loading…</p>
+        </section>
+        <section class="prog-weeks" id="weeks" aria-label="Weekly additions"></section>
+        <div class="prog-grid">
+          <section class="prog-panel" aria-labelledby="additions-title">
+            <div class="prog-panel-head">
+              <h2 class="prog-panel-title" id="additions-title">Added features</h2>
+              <input type="search" id="add-search" class="prog-search" placeholder="Filter by name, area, ticket…" autocomplete="off" />
+            </div>
+            <div id="additions"></div>
+          </section>
+          <aside class="prog-side">
+            <section class="prog-panel" aria-labelledby="areas-title">
+              <h2 class="prog-panel-title" id="areas-title">By area</h2>
+              <div id="areas"></div>
+            </section>
+            <section class="prog-panel" aria-labelledby="tickets-title">
+              <h2 class="prog-panel-title" id="tickets-title">By ticket</h2>
+              <div id="tickets"></div>
+            </section>
+          </aside>
+        </div>
         <p class="provenance" id="provenance"></p>
       </div>
     </main>
   </div>
 
-  <script src="sidebar.js?v=82"></script>
-  <script src="nightly.js?v=105"></script>
+  <script src="sidebar.js?v=86"></script>
+  <script src="progress.js?v=2"></script>
 </body>
 </html>

@@ -24,6 +24,13 @@
       " " + raw.slice(9, 11) + ":" + raw.slice(11, 13) + " UTC";
   }
 
+  /** ISO / date stamp → YYYY-MM-DD (drop time). */
+  function fmtDay(raw) {
+    if (!raw) return "—";
+    var s = String(raw);
+    return s.length >= 10 ? s.slice(0, 10) : s;
+  }
+
   function statusClass(status) {
     var s = (status || "").toUpperCase();
     if (s === "SUCCESS") return "ok";
@@ -174,7 +181,7 @@
           ? '<span class="ny-fail-badge" title="Did not fail in the previous build">New</span>'
           : "";
         return '<li>' +
-          '<a class="ny-fail-link" href="' + esc(href) + '">' +
+          '<a class="ny-fail-link" href="' + esc(href) + '" title="Open in inventory">' +
             '<span class="ny-fail-name-row">' +
               '<span class="ny-fail-name">' + esc(f.name || f.id) + "</span>" +
               badge +
@@ -183,13 +190,12 @@
               (meta.length ? '<span class="ny-fail-class">' + esc(meta.join(" · ")) + "</span>" : "") +
               (dur ? '<span class="ny-fail-class">' + esc(dur) + "</span>" : "") +
             "</span>" +
-            '<span class="ny-fail-go">Open in inventory →</span>' +
           "</a>" +
           "</li>";
       }).join("") +
       "</ul>" +
       (truncated
-        ? '<p class="ov-nightly-more">+' + truncated + " more — see TeamCity</p>"
+        ? '<p class="ov-nightly-more">+' + truncated + " more</p>"
         : "");
   }
 
@@ -218,22 +224,21 @@
     var statusCls = statusClass(status);
 
     meta.textContent = (build.number ? "#" + build.number + " · " : "") +
-      "generated " + (d.generatedAt || "—");
+      fmtDay(d.generatedAt);
 
     var buildsLink = document.getElementById("tc-builds-link");
     if (buildsLink && build.buildsUrl) buildsLink.href = build.buildsUrl;
 
-    var link = build.webUrl
+    var statusChip = status
+      ? '<span class="ov-nightly-status ' + statusCls + '">' + esc(status) + "</span>"
+      : "";
+    var tcLink = build.webUrl
       ? '<a class="ov-nightly-link" href="' + esc(build.webUrl) +
         '" target="_blank" rel="noopener">Open build in TeamCity →</a>'
       : "";
 
-    var statusChip = status
-      ? '<span class="ov-nightly-status ' + statusCls + '">' + esc(status) + "</span>"
-      : "";
-
     body.innerHTML =
-      '<div class="ov-nightly-top">' + statusChip + link + "</div>" +
+      '<div class="ov-nightly-top">' + statusChip + (tcLink ? " " + tcLink : "") + "</div>" +
       '<div class="ov-nightly-kpis ov-nightly-kpis-6">' +
         '<div class="ov-nightly-kpi"><div class="ov-nightly-kpi-num">' + esc(String(s.passRate)) +
           '%</div><div class="ov-nightly-kpi-label">Pass rate</div></div>' +
@@ -270,10 +275,7 @@
       failItemsHtml(d.failed || [], d.failedTruncated || 0);
 
     if (prov) {
-      prov.textContent =
-        "Generated " + (d.generatedAt || "—") +
-        " · source " + (d.source || "—") +
-        " · latest finished build on this TeamCity config";
+      prov.textContent = "updated " + fmtDay(d.generatedAt);
     }
     showShell();
   }

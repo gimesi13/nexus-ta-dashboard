@@ -94,8 +94,11 @@
 
     if (prov) {
       prov.textContent =
-        "A living inventory of AI-platform work across the monorepo \u00b7 owner " +
-        (d.owner || "\u2014") + " \u00b7 updated " + (d.generatedAt || "\u2014");
+        (d.statsSource
+          ? d.statsSource + " "
+          : "Headline stats refresh on each publish; portfolio items are curated. ") +
+        "Owner " + (d.owner || "\u2014") +
+        " \u00b7 updated " + (d.generatedAt || "\u2014");
     }
     showShell();
   }

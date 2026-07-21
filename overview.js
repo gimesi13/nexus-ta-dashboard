@@ -16,6 +16,13 @@
     });
   }
 
+  /** ISO / date stamp → YYYY-MM-DD (drop time). */
+  function fmtDay(raw) {
+    if (!raw) return "—";
+    var s = String(raw);
+    return s.length >= 10 ? s.slice(0, 10) : s;
+  }
+
   function countUp(el, target, duration) {
     var start = 0;
     var from = 0;
@@ -54,9 +61,8 @@
   function renderSuiteMeta(total, areaCount) {
     var meta = document.getElementById("suite-meta");
     if (!meta) return;
-    meta.innerHTML =
-      esc(String(total)) + " tests · " + esc(String(areaCount)) + " domains · " +
-      '<a class="ov-nightly-link" href="inventory.html">Inventory →</a>';
+    meta.textContent =
+      total + " tests · " + areaCount + " domains";
   }
 
   function renderAreas(list, total) {
@@ -119,8 +125,7 @@
 
     var s = d.summary;
     meta.innerHTML =
-      "generated " + esc(d.generatedAt || "—") +
-      ' · <a class="ov-nightly-link" href="coverage.html">Open coverage →</a>';
+      '<a class="ov-nightly-link" href="coverage.html">Open coverage →</a>';
 
     var queue = (d.queue || []).slice(0, 5);
     var gapsHtml;
@@ -173,7 +178,8 @@
       '<div class="ov-nightly-fail-head ov-cov-gap-head">Top backlog gaps ' +
         '<span class="ov-panel-meta">' +
           '<a class="ov-nightly-link" href="coverage.html?tab=queue">Full queue →</a>' +
-        "</span></div>" +
+        "</span>" +
+      "</div>" +
       gapsHtml;
   }
 
@@ -193,8 +199,7 @@
     if (!meta || !body) return;
 
     if (!d || !d.available || !d.summary) {
-      meta.innerHTML =
-        'Not published yet · <a class="ov-nightly-link" href="nightly.html">Open Nightly Run →</a>';
+      meta.textContent = "Not published yet";
       body.innerHTML = '<div class="ov-empty">' +
         esc((d && d.message) || "Nightly results unavailable.") +
         "</div>";
@@ -207,13 +212,14 @@
     var statusCls = status === "SUCCESS" ? "ok" : (status === "FAILURE" || status === "ERROR" ? "bad" : "mid");
     meta.innerHTML =
       (build.number ? "#" + esc(build.number) + " · " : "") +
-      "generated " + esc(d.generatedAt || "—") +
+      esc(fmtDay(d.generatedAt)) +
       ' · <a class="ov-nightly-link" href="nightly.html">Open Nightly Run →</a>';
 
     var kpis =
       '<div class="ov-nightly-kpis">' +
         '<div class="ov-nightly-kpi">' +
-          '<div class="ov-nightly-kpi-num">' + esc(String(s.passRate)) + "%</div>" +
+          '<div class="ov-nightly-kpi-num">' +
+            esc(String(s.passRate)) + "%</div>" +
           '<div class="ov-nightly-kpi-label">Pass rate</div>' +
         "</div>" +
         '<div class="ov-nightly-kpi">' +
@@ -235,13 +241,12 @@
         "</div>" +
       "</div>";
 
-    var link = build.webUrl
-      ? '<a class="ov-nightly-link" href="' + esc(build.webUrl) +
-        '" target="_blank" rel="noopener">Open build in TeamCity →</a>'
-      : "";
-
     var statusChip = status
       ? '<span class="ov-nightly-status ' + statusCls + '">' + esc(status) + "</span>"
+      : "";
+    var tcLink = build.webUrl
+      ? '<a class="ov-nightly-link" href="' + esc(build.webUrl) +
+        '" target="_blank" rel="noopener">Open build in TeamCity →</a>'
       : "";
 
     var failed = (d.failed || []).slice().sort(function (a, b) {
@@ -263,18 +268,18 @@
             ? '<span class="ny-fail-badge" title="Did not fail in the previous build">New</span>'
             : "";
           return '<li>' +
-            '<a class="ny-fail-link" href="' + esc(href) + '" title="' + esc(f.id || "") + '">' +
+            '<a class="ny-fail-link" href="' + esc(href) +
+              '" title="Open in inventory">' +
               '<span class="ny-fail-name-row">' +
                 '<span class="ny-fail-name">' + esc(f.name || f.id) + "</span>" +
                 badge +
               "</span>" +
-              '<span class="ny-fail-go">Open in inventory →</span>' +
             "</a>" +
             "</li>";
         }).join("") +
         "</ul>" +
         (d.failedTruncated
-          ? '<p class="ov-nightly-more">+' + d.failedTruncated + " more — see TeamCity</p>"
+          ? '<p class="ov-nightly-more">+' + d.failedTruncated + " more</p>"
           : "");
     }
 
@@ -284,7 +289,6 @@
       var tone = (nut.tone || "ok").toLowerCase();
       if (tone !== "ok" && tone !== "warn" && tone !== "bad") tone = "ok";
       // Overview: short only (no KPIs; Nightly page has the long investigation).
-      // Each section gets a slightly different font colour so they scan apart.
       var shortBullets = (nut.bullets || []).slice(0, 3).map(function (b) {
         return "<li>" + esc(b) + "</li>";
       }).join("");
@@ -308,7 +312,7 @@
     }
 
     body.innerHTML =
-      '<div class="ov-nightly-top">' + statusChip + link + "</div>" +
+      '<div class="ov-nightly-top">' + statusChip + (tcLink ? " " + tcLink : "") + "</div>" +
       kpis +
       nutBlock +
       '<div class="ov-nightly-fail-head">Failures</div>' +
@@ -338,7 +342,7 @@
       document.getElementById("kpi-methods").textContent =
         (d.features || 0) + " feature method" + (d.features === 1 ? "" : "s");
       document.getElementById("gen-stamp").textContent =
-        "Generated " + d.generatedAt + " · parsed from " + d.source;
+        "updated " + fmtDay(d.generatedAt);
 
       countUp(document.getElementById("kpi-cases"), d.cases || 0, 900);
       countUp(document.getElementById("kpi-specs"), d.specs || 0, 900);
@@ -371,6 +375,189 @@
     .catch(function () {
       renderCoverage({ message: "Could not load coverage.json" });
     });
+
+  function renderProgress(d) {
+    var meta = document.getElementById("progress-meta");
+    var body = document.getElementById("progress-body");
+    if (!meta || !body) return;
+
+    if (!d || !d.windows) {
+      meta.textContent = "Unavailable";
+      body.innerHTML = '<div class="ov-empty">Could not load progress.json</div>';
+      return;
+    }
+
+    var w30 = d.windows["30d"] || {};
+    var w90 = d.windows["90d"] || {};
+    meta.innerHTML =
+      '<a class="ov-nightly-link" href="progress.html">Open Progress →</a>';
+
+    var cov = (d.coverage && d.coverage.currentPercent != null)
+      ? d.coverage.currentPercent + "%"
+      : "—";
+
+    var byType = w90.byType || {};
+    var typeOrder = ["CRUD", "Validation", "Workflow", "Query", "E2E", "Other"];
+    var typeItems = typeOrder.filter(function (t) { return byType[t]; }).map(function (t) {
+      return { t: t, n: byType[t] };
+    });
+    var maxT = Math.max.apply(null, typeItems.map(function (x) { return x.n; }).concat([1]));
+    var typeMeters = typeItems.map(function (x) {
+      var pct = Math.max(8, Math.round((x.n / maxT) * 100));
+      return (
+        '<div class="ov-pulse-meter">' +
+          '<div class="ov-pulse-meter-top">' +
+            '<span>' + esc(x.t) + "</span>" +
+            '<strong>+' + esc(x.n) + "</strong>" +
+          "</div>" +
+          '<div class="ov-pulse-meter-track ov-prog-type-track">' +
+            '<span style="width:' + pct + '%"></span>' +
+          "</div>" +
+        "</div>"
+      );
+    }).join("");
+
+    var areas = (w90.byArea || []).slice(0, 4);
+    var maxA = Math.max.apply(null, areas.map(function (a) {
+      return a.featuresAdded || 0;
+    }).concat([1]));
+    var areaMeters = areas.map(function (a) {
+      var n = a.featuresAdded || 0;
+      var pct = Math.max(8, Math.round((n / maxA) * 100));
+      return (
+        '<div class="ov-pulse-meter">' +
+          '<div class="ov-pulse-meter-top">' +
+            '<span>' + esc(a.area) + "</span>" +
+            '<strong>+' + esc(n) + "</strong>" +
+          "</div>" +
+          '<div class="ov-pulse-meter-track ov-prog-type-track">' +
+            '<span style="width:' + pct + '%"></span>' +
+          "</div>" +
+        "</div>"
+      );
+    }).join("");
+
+    body.innerHTML =
+      '<div class="ov-prog-stack">' +
+        '<div class="ov-prog-head">' +
+          '<div class="ov-pulse-score">' +
+            '<div class="ov-pulse-score-num">+' + esc(w90.featuresAdded || 0) + "</div>" +
+            '<div class="ov-pulse-score-label">features · 90d</div>' +
+          "</div>" +
+          '<div class="ov-prog-stats">' +
+            '<div class="ov-prog-stat"><strong>+' + esc(w30.featuresAdded || 0) +
+              "</strong><span>30 days</span></div>" +
+            '<div class="ov-prog-stat"><strong>' + esc(w90.areasTouched || 0) +
+              "</strong><span>areas</span></div>" +
+            '<div class="ov-prog-stat"><strong>' + esc(cov) +
+              "</strong><span>coverage</span></div>" +
+          "</div>" +
+        "</div>" +
+        '<div class="ov-prog-type-label">By area · 90d</div>' +
+        '<div class="ov-pulse-meters ov-prog-type-meters">' +
+          (areaMeters || '<div class="ov-pulse-empty">No additions in 90d.</div>') +
+        "</div>" +
+        '<div class="ov-prog-type-label">By type · 90d</div>' +
+        '<div class="ov-pulse-meters ov-prog-type-meters">' +
+          (typeMeters || '<div class="ov-pulse-empty">No type mix yet.</div>') +
+        "</div>" +
+      "</div>";
+  }
+
+  function renderAiPlatform(d) {
+    var meta = document.getElementById("aip-meta");
+    var body = document.getElementById("aip-body");
+    if (!meta || !body) return;
+
+    if (!d || !d.stats) {
+      meta.textContent = "Unavailable";
+      body.innerHTML = '<div class="ov-empty">Could not load ai-platform.json</div>';
+      return;
+    }
+
+    meta.innerHTML =
+      '<a class="ov-nightly-link" href="ai-platform.html">Open AI Platform →</a>';
+
+    var ov = d.overview || {};
+    var byLabel = {};
+    (d.stats || []).forEach(function (s) { byLabel[s.label] = s.value; });
+
+    var meters = [
+      { n: byLabel["Cursor rules"], t: "Rules" },
+      { n: byLabel["Slash commands"], t: "Commands" },
+      { n: byLabel["Guardrail hooks"], t: "Hooks" },
+      { n: byLabel["Autonomous jobs"], t: "Jobs" },
+      { n: byLabel["MCP integrations"], t: "MCP" },
+      { n: byLabel["Knowledge-base docs"], t: "KB docs" },
+    ];
+    var maxMeter = Math.max.apply(null, meters.map(function (m) {
+      return Number(m.n) || 0;
+    }).concat([1]));
+
+    var cats = (d.categories || []).slice(0, 4).map(function (c) {
+      return (
+        '<a class="ov-aip-cat-chip" href="ai-platform.html#' + esc(c.id || "") + '">' +
+          esc(c.title) +
+          '<em>' + ((c.items || []).length) + "</em>" +
+        "</a>"
+      );
+    }).join("");
+
+    body.innerHTML =
+      '<div class="ov-aip-stack">' +
+        '<div class="ov-prog-head">' +
+          '<div class="ov-pulse-score">' +
+            '<div class="ov-pulse-score-num">' + esc(ov.capabilities != null ? ov.capabilities : "—") + "</div>" +
+            '<div class="ov-pulse-score-label">capabilities</div>' +
+          "</div>" +
+          '<div class="ov-prog-stats">' +
+            '<div class="ov-prog-stat"><strong>' + esc(ov.live != null ? ov.live : "—") +
+              "</strong><span>live</span></div>" +
+            '<div class="ov-prog-stat"><strong>' + esc(ov.active != null ? ov.active : "—") +
+              "</strong><span>active</span></div>" +
+            '<div class="ov-prog-stat"><strong>' + esc(ov.categories != null ? ov.categories : "—") +
+              "</strong><span>categories</span></div>" +
+          "</div>" +
+        "</div>" +
+        '<div class="ov-prog-type-label">Platform surface</div>' +
+        '<div class="ov-pulse-meters ov-prog-type-meters">' +
+          meters.map(function (m) {
+            var v = Number(m.n) || 0;
+            var pct = Math.max(8, Math.round((v / maxMeter) * 100));
+            return (
+              '<div class="ov-pulse-meter" title="' + esc(m.t) + ": " + esc(m.n) + '">' +
+                '<div class="ov-pulse-meter-top">' +
+                  '<span>' + esc(m.t) + "</span>" +
+                  '<strong>' + esc(m.n || "—") + "</strong>" +
+                "</div>" +
+                '<div class="ov-pulse-meter-track">' +
+                  '<span style="width:' + pct + '%"></span>' +
+                "</div>" +
+              "</div>"
+            );
+          }).join("") +
+        "</div>" +
+        (cats
+          ? '<div class="ov-aip-cat-chips">' + cats + "</div>"
+          : "") +
+      "</div>";
+  }
+
+  fetch("data/progress.json", { cache: "no-cache" })
+    .then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(renderProgress)
+    .catch(function () { renderProgress(null); });
+
+  fetch("data/ai-platform.json", { cache: "no-cache" })
+    .then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(renderAiPlatform)
+    .catch(function () { renderAiPlatform(null); });
 
   function showOverview() {
     var shell = document.querySelector(".ov-shell");

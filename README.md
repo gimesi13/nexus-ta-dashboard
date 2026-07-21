@@ -22,7 +22,7 @@ TeamCity nightly finishes
 automation/agent-jobs/dashboard-publish.sh   (TC finish-trigger / cron)
   1. git pull module checkout
   2. tc_fetch_nightly.py          ->  .last-tc-nightly.json (+ failure details)
-  3. generate_inventory / coverage / nightly
+  3. generate_inventory / coverage / nightly / progress / ai-platform
   4. generate_nutshell.py         ->  rules nutshell + data/nightly-evidence.json
   5. publish.sh                   ->  gimesi13/nexus-ta-dashboard  ->  GitHub Pages
   6. repository_dispatch          ->  nightly-nutshell-llm (GHA cursor-agent rewrite)
@@ -40,6 +40,9 @@ Secret on the Pages repo: `CURSOR_API_KEY`. Dispatch uses `DASHBOARD_PAGES_TOKEN
 | New nightly run | `tc_fetch_nightly.py` after TC finishes |
 | New / changed API endpoint | Monday `FETCH_OPENAPI=1` (live QA); or any publish with `FETCH_OPENAPI=1` |
 | “Is this endpoint tested?” overlay | Weekly `coverage-refresh` / `openapi-drift` jobs (PRs you merge) — next morning publish picks them up |
+| Tests added (Progress) | `generate_progress.py` — git first-seen of Spock features + snapshot series |
+| AI Platform headline stats | `generate_ai_platform.py` — recount rules/commands/hooks/docs from the tree |
+| AI Platform portfolio items | Curated in `data/ai-platform.json` — edit when you ship a capability |
 
 - **In-module source** — everything under `dashboard/` is versioned in the monorepo with the tests.
 - **Static + generated** — Python generators emit JSON; a plain static site renders it (no backend,
@@ -106,8 +109,10 @@ See [docs/MCP_TEAMCITY.md](../docs/MCP_TEAMCITY.md) and [docs/AUTOMATIONS.md](..
 - `nightly.html` + `nightly.js` — **Nightly Run** (latest TeamCity build)
 - `inventory.html` + `inventory.js` — Test-Case Inventory (searchable/filterable)
 - `coverage.html` + `coverage.js` — Endpoint Coverage (OpenAPI × tested overlay)
+- `progress.html` + `progress.js` — tests added over recent windows
+- `ai-platform.html` + `ai-platform.js` — AI platform portfolio
 - `styles.css` — shared dark styling
-- `data/inventory.json` / `coverage.json` / `nightly.json` — generated data
-- `tools/generate_*.py` — regenerators (nightly only shapes automation outputs)
+- `data/*.json` — generated / curated data
+- `tools/generate_*.py` — regenerators
 - `tools/publish.sh` — regenerates data and pushes the static site to the Pages repo
-- `ROADMAP.md` — full plan (flaky tracker, AI platform work log, and more)
+- `ROADMAP.md` — full plan (flaky tracker and more)

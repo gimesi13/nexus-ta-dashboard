@@ -10,9 +10,7 @@
   };
 
   var els = {
-    summaryLead: document.getElementById("summary-lead"),
-    summaryMeta: document.getElementById("summary-meta"),
-    pies: document.getElementById("pies"),
+    summary: document.getElementById("summary"),
     queueBody: document.getElementById("queue-body"),
     queueSearch: document.getElementById("queue-search"),
     queueGap: document.getElementById("queue-gap"),
@@ -56,161 +54,67 @@
     });
   }
 
-  function polar(cx, cy, r, angle) {
-    var rad = ((angle - 90) * Math.PI) / 180;
-    return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+  /** Coverage % → red (0) → yellow (50) → green (100). */
+  function coverageColor(pct) {
+    var p = Math.max(0, Math.min(100, Number(pct) || 0)) / 100;
+    var a = p < 0.5
+      ? { r: 224, g: 108, b: 117 }   // --red
+      : { r: 214, g: 163, b: 74 };    // --yellow
+    var b = p < 0.5
+      ? { r: 214, g: 163, b: 74 }    // --yellow
+      : { r: 78, g: 195, b: 138 };   // --green
+    var t = p < 0.5 ? p * 2 : (p - 0.5) * 2;
+    return "rgb(" +
+      Math.round(a.r + (b.r - a.r) * t) + "," +
+      Math.round(a.g + (b.g - a.g) * t) + "," +
+      Math.round(a.b + (b.b - a.b) * t) + ")";
   }
 
-  function pieSlice(cx, cy, r, start, end) {
-    if (end - start >= 359.99) {
-      return (
-        '<circle cx="' + cx + '" cy="' + cy + '" r="' + r +
-        '" fill="currentColor"/>'
-      );
-    }
-    var a = polar(cx, cy, r, end);
-    var b = polar(cx, cy, r, start);
-    var large = end - start > 180 ? 1 : 0;
-    return (
-      'M ' + cx + " " + cy +
-      " L " + b.x + " " + b.y +
-      " A " + r + " " + r + " 0 " + large + " 1 " + a.x + " " + a.y +
-      " Z"
-    );
-  }
-
-  function renderPies(data) {
-    var s = data.summary;
-    var segments = [
-      { label: "Tested", value: s.tested, color: "#3d6b55", note: "Active ops with a regression path" },
-      { label: "Untested · brand-new", value: s.brandNew, color: "#8a6a2e", note: "In OpenAPI, not in the curated overlay" },
-      { label: "Untested · known", value: s.knownUntested, color: "#6e4545", note: "Tracked in overlay as t:false" },
-      { label: "Deprecated", value: s.deprecated, color: "#3a3a3a", note: "Excluded from coverage %" },
+  function mixSegments(s) {
+    return [
+      { key: "tested", label: "Tested", value: s.tested || 0, cls: "is-ok" },
+      { key: "new", label: "Brand-new", value: s.brandNew || 0, cls: "is-new" },
+      { key: "known", label: "Known gaps", value: s.knownUntested || 0, cls: "is-gap" },
+      { key: "dep", label: "Deprecated", value: s.deprecated || 0, cls: "is-dep" },
     ];
-    var total = segments.reduce(function (n, seg) { return n + seg.value; }, 0);
-    if (!total) {
-      els.pies.innerHTML = '<div class="cov-pie-empty">No data</div>';
-      return;
-    }
-
-    var cx = 90;
-    var cy = 90;
-    var r = 78;
-    var angle = 0;
-    var paths = segments.filter(function (seg) { return seg.value > 0; }).map(function (seg, idx) {
-      var sweep = (seg.value / total) * 360;
-      var start = angle;
-      var end = angle + sweep;
-      angle = end;
-      var pct = ((seg.value / total) * 100).toFixed(1);
-      var d = pieSlice(cx, cy, r, start, end);
-      var common =
-        ' class="cov-slice" data-label="' + esc(seg.label) + '"' +
-        ' data-value="' + esc(seg.value) + '"' +
-        ' data-pct="' + pct + '"' +
-        ' data-note="' + esc(seg.note) + '"' +
-        ' fill="' + seg.color + '"';
-      if (d.charAt(0) === "<") {
-        return (
-          '<circle class="cov-slice" cx="' + cx + '" cy="' + cy + '" r="' + r + '"' +
-          ' data-label="' + esc(seg.label) + '"' +
-          ' data-value="' + esc(seg.value) + '"' +
-          ' data-pct="' + pct + '"' +
-          ' data-note="' + esc(seg.note) + '"' +
-          ' fill="' + seg.color + '"/>'
-        );
-      }
-      return "<path d=\"" + d + "\"" + common + "></path>";
-    }).join("");
-
-    var keys = segments.map(function (seg) {
-      return (
-        '<span class="cov-pie-key" title="' + esc(seg.label) + ": " + esc(seg.value) + '">' +
-          '<span class="cov-pie-swatch" style="background:' + seg.color + '"></span>' +
-          esc(seg.value) +
-        "</span>"
-      );
-    }).join("");
-
-    els.pies.innerHTML =
-      '<div class="cov-pie">' +
-        '<div class="cov-pie-chart">' +
-          '<svg class="cov-pie-svg" viewBox="0 0 180 180" role="img" aria-label="Operations mix">' +
-            paths +
-            '<circle class="cov-pie-hole" cx="90" cy="90" r="48"></circle>' +
-          "</svg>" +
-          '<div class="cov-pie-center">' +
-            '<div class="cov-pie-center-num">' + esc(s.coveragePercent) + "%</div>" +
-            '<div class="cov-pie-center-label">coverage</div>' +
-          "</div>" +
-          '<div class="cov-pie-tip" id="pie-tip" hidden></div>' +
-        "</div>" +
-        '<div class="cov-pie-keys" aria-hidden="true">' + keys + "</div>" +
-      "</div>";
-
-    wirePieHover();
-  }
-
-  function wirePieHover() {
-    var chart = els.pies.querySelector(".cov-pie-chart");
-    var tip = document.getElementById("pie-tip");
-    if (!chart || !tip) return;
-
-    function hide() {
-      tip.hidden = true;
-      chart.querySelectorAll(".cov-slice.is-hot").forEach(function (el) {
-        el.classList.remove("is-hot");
-      });
-    }
-
-    chart.querySelectorAll(".cov-slice").forEach(function (slice) {
-      slice.addEventListener("mouseenter", function () {
-        chart.querySelectorAll(".cov-slice.is-hot").forEach(function (el) {
-          el.classList.remove("is-hot");
-        });
-        slice.classList.add("is-hot");
-        tip.innerHTML =
-          '<div class="cov-pie-tip-label">' + esc(slice.getAttribute("data-label")) + "</div>" +
-          '<div class="cov-pie-tip-val">' +
-            esc(slice.getAttribute("data-value")) +
-            ' <span class="cov-pie-pct">(' + esc(slice.getAttribute("data-pct")) + "%)</span>" +
-          "</div>" +
-          '<div class="cov-pie-tip-note">' + esc(slice.getAttribute("data-note")) + "</div>";
-        tip.hidden = false;
-      });
-      slice.addEventListener("mousemove", function (e) {
-        var rect = chart.getBoundingClientRect();
-        var x = e.clientX - rect.left + 14;
-        var y = e.clientY - rect.top + 14;
-        var tipW = tip.offsetWidth || 160;
-        var tipH = tip.offsetHeight || 70;
-        if (x + tipW > rect.width - 4) x = e.clientX - rect.left - tipW - 10;
-        if (y + tipH > rect.height - 4) y = e.clientY - rect.top - tipH - 10;
-        tip.style.left = Math.max(4, x) + "px";
-        tip.style.top = Math.max(4, y) + "px";
-      });
-      slice.addEventListener("mouseleave", hide);
-    });
   }
 
   function renderSummary(data) {
+    if (!els.summary) return;
     var s = data.summary;
-    els.summaryLead.textContent =
-      s.tested + " of " + s.nonDeprecated +
-      " active ops have at least one regression path (" + s.coveragePercent + "%).";
-    els.summaryMeta.innerHTML =
-      '<span><strong>' + esc(s.untested) + "</strong> gaps</span>" +
-      '<span class="cov-dot" aria-hidden="true">·</span>' +
-      '<span><strong>' + esc(s.brandNew) + "</strong> brand-new</span>" +
-      '<span class="cov-dot" aria-hidden="true">·</span>' +
-      '<span><strong>' + esc(s.knownUntested) + "</strong> known</span>" +
-      '<span class="cov-dot" aria-hidden="true">·</span>' +
-      '<span><strong>' + esc(s.highRiskGaps) + "</strong> high-risk</span>" +
-      '<span class="cov-dot" aria-hidden="true">·</span>' +
-      '<span><strong>' + esc(s.mutatingGaps) + "</strong> mutating</span>" +
-      '<span class="cov-dot" aria-hidden="true">·</span>' +
-      "<span>OpenAPI <code>" + esc(data.source.openapiInfo && data.source.openapiInfo.version) + "</code></span>";
-    renderPies(data);
+    var segs = mixSegments(s);
+    var total = segs.reduce(function (n, seg) { return n + seg.value; }, 0) || 1;
+    var bars = segs.filter(function (seg) { return seg.value > 0; }).map(function (seg) {
+      var pct = Math.max(0.6, (seg.value / total) * 100);
+      return (
+        '<span class="cov-stack-seg ' + seg.cls + '" style="width:' + pct + '%" ' +
+          'title="' + esc(seg.label) + ": " + esc(seg.value) + '"></span>'
+      );
+    }).join("");
+    var legend = segs.map(function (seg) {
+      return (
+        '<span class="cov-stack-key">' +
+          '<span class="cov-stack-dot ' + seg.cls + '"></span>' +
+          '<strong>' + esc(seg.value) + "</strong> " + esc(seg.label) +
+        "</span>"
+      );
+    }).join("");
+    els.summary.innerHTML =
+      '<div class="cov-bar-hero">' +
+        '<div class="cov-bar-hero-top">' +
+          '<div class="cov-bar-pct" style="color:' + coverageColor(s.coveragePercent) + '">' +
+            esc(s.coveragePercent) + '<span>%</span></div>' +
+          '<div class="cov-bar-copy">' +
+            '<div class="cov-bar-title">' + esc(s.tested) + " of " + esc(s.nonDeprecated) +
+              " active ops covered</div>" +
+            '<div class="cov-bar-sub">' + esc(s.untested) + " gaps · " +
+              esc(s.highRiskGaps) + " high-risk · " +
+              esc(s.mutatingGaps) + " mutating</div>" +
+          "</div>" +
+        "</div>" +
+        '<div class="cov-stack" role="img" aria-label="Operations mix">' + bars + "</div>" +
+        '<div class="cov-stack-keys">' + legend + "</div>" +
+      "</div>";
   }
 
   function filteredQueue() {
@@ -603,7 +507,10 @@
       state._deepLinkTab = null;
     })
     .catch(function (err) {
-      els.summaryLead.textContent = "Failed to load coverage: " + err.message;
+      if (els.summary) {
+        els.summary.innerHTML =
+          '<p class="cov-summary-lead">Failed to load coverage: ' + esc(err.message) + "</p>";
+      }
       els.queueBody.innerHTML =
         '<tr><td colspan="5" class="state-msg">' + esc(err.message) + "</td></tr>";
     });

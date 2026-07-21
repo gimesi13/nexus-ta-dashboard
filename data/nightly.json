@@ -1,6 +1,6 @@
 {
   "available": true,
-  "generatedAt": "2026-07-21T06:21Z",
+  "generatedAt": "2026-07-21T09:51Z",
   "source": "teamcity-rest",
   "build": {
     "buildTypeId": "Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt",
@@ -1349,45 +1349,5 @@
     "PesNotificationTestSteps::partner allocation update publishes externalQuota notification": "passed",
     "SegmentsValidationTestSteps::Validate quota value constraints": "muted",
     "PesNotificationTestSteps::partner event creation publishes externalEventUpdated notification": "passed"
-  },
-  "nutshell": {
-    "headline": "No new failures \u2014 1 continuing QuotaGroup test/data failure (GB + [en, fr] unsupported)",
-    "tone": "warn",
-    "cause": "test",
-    "causeText": "The only failure is a continuing QuotaGroup E2E test that posts an unsupported country-language combination (GB + [en, fr]) and gets a clean HTTP 400 BAD_REQUEST \u2014 a test/data problem, not infra (no timeout/SocketTimeout/502/504) and not an assertion. Fix the test data to use a multi-language market such as CA. The two VCS changes (both NXS-13444 by gergely.gimesi) touch only dashboard, docs and automation files, so they cannot cause API test failures.",
-    "investigation": "0 new failures; 1 continuing QuotaGroup failure from an unsupported GB + [en, fr] combo returning a clean 400. Not infra or code \u2014 this run's changes only touch dashboard/docs/automation.",
-    "bullets": [
-      "0 new failures; 1 continuing (QuotaGroup E2E)",
-      "GB + [en, fr] unsupported \u2014 API returns clean HTTP 400 BAD_REQUEST (test/data, not infra)",
-      "Run changes touch only dashboard/docs/automation \u2014 cannot break API tests"
-    ],
-    "detail": {
-      "investigation": "No new unmuted failures this run (newFailed=0); the single failure is continuing from prior runs. QuotaGroup::QuotaGroupE2ETestSteps 'End-to-end quota group lifecycle' fails while configuring country-languages: the API returns HTTP 400 BAD_REQUEST 'Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]' from .../quotaGroups/118716657/core/countryLanguages. This is a clean, deterministic validation rejection \u2014 not an infra symptom (no Read timed out/SocketTimeout/502/504) and not a code assertion ('Condition not satisfied'). Root cause is test/data: GB does not support the multi-language set [en, fr]; a multi-language market such as CA should be used. The two VCS changes in this build (a09acf0779a6 and d12e2676ad2e, both NXS-13444 by gergely.gimesi) touch only dashboard, README, docs, .cursor and automation files, so no changed path maps onto the QuotaGroup step packages \u2014 no code-change blame.",
-      "bullets": [
-        "0 new failures; 1 continuing failure (QuotaGroup E2E)",
-        "Message: Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]",
-        "API returned a clean HTTP 400 BAD_REQUEST \u2014 deterministic validation, not infra (no timeout/502/504)",
-        "Cause = test/data: GB does not support multi-lang [en, fr]; use a multi-language market such as CA",
-        "Changes a09acf0779a6 & d12e2676ad2e (NXS-13444, gergely.gimesi) touch only dashboard/docs/automation",
-        "No changed file maps to QuotaGroup packages \u2014 no code-change blame"
-      ],
-      "newFailureAreas": [],
-      "likelyCauses": []
-    },
-    "clusters": [
-      {
-        "label": "product_data_country_lang",
-        "display": "GB + fr unsupported",
-        "count": 1,
-        "newCount": 1,
-        "sample": "Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]",
-        "why": "unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang)"
-      }
-    ],
-    "source": "llm",
-    "generatedAt": "2026-07-21T06:23Z",
-    "buildNumber": "3.0.2632",
-    "buildId": "9402753",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9402753"
   }
 }
