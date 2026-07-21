@@ -26,8 +26,15 @@ jobs:
           repository: dynata/dk-microservices
           token: ${{ secrets.DK_MICROSERVICES_TOKEN }}
           path: _monorepo
+          # Full history required for Progress (first-seen Spock features via git log).
+          fetch-depth: 0
+          # Module + paths needed to refresh AI Platform headline stats.
+          # (Service README recount may be incomplete in sparse checkout — generator keeps prior.)
           sparse-checkout: |
             gateway/unifiedApi/NexusApiRegressionTests
+            .cursor
+            docs/backend
+            .github/workflows
           sparse-checkout-cone-mode: true
 
       - name: Overlay latest generators + fetch TC helpers
@@ -61,32 +68,40 @@ jobs:
             python3 dashboard/tools/generate_coverage.py
           fi
           python3 dashboard/tools/generate_nightly.py
+          python3 dashboard/tools/generate_progress.py
+          python3 dashboard/tools/generate_ai_platform.py
 
       - name: Sync site assets into Pages root
         run: |
           set -euo pipefail
           D="_monorepo/gateway/unifiedApi/NexusApiRegressionTests/dashboard"
-          cp "$D/index.html" "$D/inventory.html" "$D/coverage.html" "$D/nightly.html" .
+          cp "$D/index.html" "$D/inventory.html" "$D/coverage.html" "$D/nightly.html" \
+             "$D/progress.html" "$D/ai-platform.html" .
           cp "$D/styles.css" "$D/overview.js" "$D/inventory.js" "$D/coverage.js" \
-             "$D/nightly.js" "$D/sidebar.js" .
+             "$D/nightly.js" "$D/progress.js" "$D/ai-platform.js" "$D/sidebar.js" .
           cp "$D/README.md" "$D/ROADMAP.md" . 2>/dev/null || true
           if [ -f "$D/styles-unify.css" ]; then cp "$D/styles-unify.css" .; fi
           mkdir -p data
-          cp "$D/data/inventory.json" "$D/data/coverage.json" "$D/data/nightly.json" data/
+          cp "$D/data/inventory.json" "$D/data/coverage.json" "$D/data/nightly.json" \
+             "$D/data/progress.json" data/
+          if [ -f "$D/data/ai-platform.json" ]; then cp "$D/data/ai-platform.json" data/; fi
 
       - name: Commit and push
         run: |
           set -euo pipefail
           git config user.name "nexus-ta-dashboard-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add \
-            index.html inventory.html coverage.html nightly.html \
-            styles.css overview.js inventory.js coverage.js nightly.js sidebar.js \
-            README.md ROADMAP.md \
-            data/inventory.json data/coverage.json data/nightly.json \
+          STAGE=(
+            index.html inventory.html coverage.html nightly.html progress.html ai-platform.html
+            styles.css overview.js inventory.js coverage.js nightly.js progress.js ai-platform.js sidebar.js
+            README.md ROADMAP.md
+            data/inventory.json data/coverage.json data/nightly.json data/progress.json
+          )
+          if [ -f data/ai-platform.json ]; then STAGE+=(data/ai-platform.json); fi
+          if [ -f styles-unify.css ]; then STAGE+=(styles-unify.css); fi
+          git add "${STAGE[@]}" \
             .github/workflows/refresh-dashboard.yml \
             .github/module-overlay || true
-          if [ -f styles-unify.css ]; then git add styles-unify.css; fi
           if git diff --cached --quiet; then
             echo "No site changes to publish."
           else
