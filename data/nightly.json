@@ -1351,27 +1351,27 @@
     "PesNotificationTestSteps::partner event creation publishes externalEventUpdated notification": "passed"
   },
   "nutshell": {
-    "headline": "1 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "No new failures \u2014 1 continuing QuotaGroup test/data failure (GB + [en, fr] unsupported)",
     "tone": "warn",
-    "cause": "mixed",
-    "causeText": "VCS changes present but none map onto the failing packages \u2014 likely test/data, correlate manually.",
-    "investigation": "Failures: 1\u00d7 GB + fr unsupported.",
+    "cause": "test",
+    "causeText": "The only failure is a continuing QuotaGroup E2E test that posts an unsupported country-language combination (GB + [en, fr]) and gets a clean HTTP 400 BAD_REQUEST \u2014 a test/data problem, not infra (no timeout/SocketTimeout/502/504) and not an assertion. Fix the test data to use a multi-language market such as CA. The two VCS changes (both NXS-13444 by gergely.gimesi) touch only dashboard, docs and automation files, so they cannot cause API test failures.",
+    "investigation": "0 new failures; 1 continuing QuotaGroup failure from an unsupported GB + [en, fr] combo returning a clean 400. Not infra or code \u2014 this run's changes only touch dashboard/docs/automation.",
     "bullets": [
-      "1\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]"
+      "0 new failures; 1 continuing (QuotaGroup E2E)",
+      "GB + [en, fr] unsupported \u2014 API returns clean HTTP 400 BAD_REQUEST (test/data, not infra)",
+      "Run changes touch only dashboard/docs/automation \u2014 cannot break API tests"
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 GB + fr unsupported \u2014 unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang). Hot areas among new fails: QuotaGroup (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. Example new failures: QuotaGroup: End-to-end quota group lifecycle: configure, clone countries, survey, delivery, lookup [GB + fr unsupported].",
+      "investigation": "No new unmuted failures this run (newFailed=0); the single failure is continuing from prior runs. QuotaGroup::QuotaGroupE2ETestSteps 'End-to-end quota group lifecycle' fails while configuring country-languages: the API returns HTTP 400 BAD_REQUEST 'Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]' from .../quotaGroups/118716657/core/countryLanguages. This is a clean, deterministic validation rejection \u2014 not an infra symptom (no Read timed out/SocketTimeout/502/504) and not a code assertion ('Condition not satisfied'). Root cause is test/data: GB does not support the multi-language set [en, fr]; a multi-language market such as CA should be used. The two VCS changes in this build (a09acf0779a6 and d12e2676ad2e, both NXS-13444 by gergely.gimesi) touch only dashboard, README, docs, .cursor and automation files, so no changed path maps onto the QuotaGroup step packages \u2014 no code-change blame.",
       "bullets": [
-        "1\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]",
-        "NXS-13444: gergely.gimesi \u2014 [NXS-13444] Bump dashboard JS cache-busters (stats-first layout)",
-        "NXS-13444: gergely.gimesi \u2014 [NXS-13444] Nightly nutshell: LLM investigation, dashboard redesign + service READMEs"
+        "0 new failures; 1 continuing failure (QuotaGroup E2E)",
+        "Message: Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]",
+        "API returned a clean HTTP 400 BAD_REQUEST \u2014 deterministic validation, not infra (no timeout/502/504)",
+        "Cause = test/data: GB does not support multi-lang [en, fr]; use a multi-language market such as CA",
+        "Changes a09acf0779a6 & d12e2676ad2e (NXS-13444, gergely.gimesi) touch only dashboard/docs/automation",
+        "No changed file maps to QuotaGroup packages \u2014 no code-change blame"
       ],
-      "newFailureAreas": [
-        {
-          "area": "QuotaGroup",
-          "newCount": 1
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1384,29 +1384,10 @@
         "why": "unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang)"
       }
     ],
-    "suspectCommits": [
-      {
-        "version": "a09acf0779a6",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13444] Bump dashboard JS cache-busters (stats-first layout)",
-        "ticket": "NXS-13444",
-        "areas": []
-      },
-      {
-        "version": "d12e2676ad2e",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13444] Nightly nutshell: LLM investigation, dashboard redesign + service READMEs",
-        "ticket": "NXS-13444",
-        "areas": []
-      }
-    ],
-    "source": "investigator",
-    "generatedAt": "2026-07-21T06:21Z",
+    "source": "llm",
+    "generatedAt": "2026-07-21T06:23Z",
     "buildNumber": "3.0.2632",
     "buildId": "9402753",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9402753",
-    "focus": "all_failures",
-    "newFailed": 0,
-    "failed": 1
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9402753"
   }
 }
