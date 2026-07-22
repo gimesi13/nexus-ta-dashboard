@@ -4,7 +4,7 @@
 Merges:
   1. OpenAPI snapshot (existence + OpenAPI deprecated flag) — source of truth for
      which endpoints exist.
-  2. Curated tested/deprecated overlay from test-coverage-report/endpoints-data.js
+  2. Curated tested/deprecated overlay from dashboard/data/endpoints-overlay.json
      — the shrinking hand-maintained bit for "is it tested?".
 
 Also emits a risk-ranked work queue (heuristic: HTTP method weight × domain
@@ -80,9 +80,7 @@ def load_openapi(path: Path) -> tuple[list[dict], dict]:
 def load_curated_overlay(path: Path) -> dict:
     if not path.exists():
         return {}
-    text = path.read_text(encoding="utf-8")
-    text = text[text.index("{"): text.rindex("}") + 1]
-    by_cat = json.loads(text)
+    by_cat = json.loads(path.read_text(encoding="utf-8"))
     overlay = {}
     for entries in by_cat.values():
         for e in entries:
@@ -157,7 +155,7 @@ def main() -> int:
 
     module_root = args.module_root.resolve()
     openapi_path = module_root / "docs/openapi-nexus-unified-api-qa.json"
-    overlay_path = module_root / "test-coverage-report/endpoints-data.js"
+    overlay_path = module_root / "dashboard/data/endpoints-overlay.json"
 
     if args.fetch_openapi:
         try:
@@ -289,7 +287,7 @@ def main() -> int:
             "openapiUrl": OPENAPI_URL,
             "openapiInfo": openapi_info,
             "openapiFileMtimeUtc": mtime.strftime("%Y-%m-%dT%H:%MZ"),
-            "overlay": "test-coverage-report/endpoints-data.js",
+            "overlay": "dashboard/data/endpoints-overlay.json",
             "methodology": (
                 "Existence from OpenAPI paths×methods. Tested flag from curated overlay "
                 "(t). Deprecated = OpenAPI deprecated OR overlay d. Coverage % = "

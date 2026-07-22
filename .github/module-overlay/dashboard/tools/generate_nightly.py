@@ -4,10 +4,10 @@
 Does **not** call TeamCity itself. Prefers the REST summary written by
 ``automation/tc_fetch_nightly.py``:
 
-  automation/tc_fetch_nightly.py  ->  test-coverage-report/.last-tc-nightly.json
+  automation/tc_fetch_nightly.py  ->  ta-runtime/.last-tc-nightly.json
 
 Fallbacks (weaker): JUnit under build/test-results/test, then
-test-coverage-report/test-results.json from generate_digest.py.
+ta-runtime/test-results.json from generate_digest.py.
 
 Usage:
     python3 tools/generate_nightly.py [--module-root PATH]
@@ -186,10 +186,6 @@ def _attach_inventory(failed: list, module_root: Path) -> list:
             "durationMs": f.get("durationMs"),
             "newFailure": bool(f.get("newFailure")),
         }
-        if f.get("testId"):
-            item["testId"] = f["testId"]
-        if f.get("teamcityUrl"):
-            item["teamcityUrl"] = f["teamcityUrl"]
         if match:
             item["area"] = match.get("area")
             item["spec"] = match.get("spec")
@@ -212,7 +208,7 @@ def _attach_inventory(failed: list, module_root: Path) -> list:
 
 
 def _from_tc_nightly(module_root: Path):
-    raw = _load_json(module_root / "test-coverage-report" / ".last-tc-nightly.json", None)
+    raw = _load_json(module_root / "ta-runtime" / ".last-tc-nightly.json", None)
     if not raw or not raw.get("buildId"):
         return None
     summary = raw.get("summary") or {}
@@ -272,7 +268,7 @@ def _from_junit(module_root: Path):
             "durationMs": int(c.time * 1000) if c.time else None,
         })
     failed = _attach_inventory(failed_raw, module_root)
-    build = _load_json(module_root / "test-coverage-report" / ".last-tc-build.json", {}) or {}
+    build = _load_json(module_root / "ta-runtime" / ".last-tc-build.json", {}) or {}
     tests = summary.tests or 0
     pass_rate = round((summary.passed / tests) * 100.0, 1) if tests else 0.0
     return {
@@ -309,7 +305,7 @@ def _from_junit(module_root: Path):
 
 
 def _from_digest(module_root: Path):
-    digest = _load_json(module_root / "test-coverage-report" / "test-results.json", None)
+    digest = _load_json(module_root / "ta-runtime" / "test-results.json", None)
     if not digest or not digest.get("tests"):
         return None
     failed_ids = digest.get("failed") or []
@@ -324,7 +320,7 @@ def _from_digest(module_root: Path):
     failed = _attach_inventory(failed_raw, module_root)
     tests = digest.get("tests", 0) or 0
     pass_rate = round((digest.get("passed", 0) / tests) * 100.0, 1) if tests else 0.0
-    build = _load_json(module_root / "test-coverage-report" / ".last-tc-build.json", {}) or {}
+    build = _load_json(module_root / "ta-runtime" / ".last-tc-build.json", {}) or {}
     return {
         "source": "digest",
         "build": {

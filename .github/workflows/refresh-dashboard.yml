@@ -42,7 +42,7 @@ jobs:
           MODULE="_monorepo/gateway/unifiedApi/NexusApiRegressionTests"
           test -d "$MODULE"
           cp -R .github/module-overlay/. "$MODULE/"
-          mkdir -p "$MODULE/test-coverage-report" "$MODULE/dashboard/data"
+          mkdir -p "$MODULE/ta-runtime" "$MODULE/dashboard/data"
 
       - name: Set up Python
         uses: actions/setup-python@v5

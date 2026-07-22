@@ -13,7 +13,7 @@ Signals come from the feature title + Spock step labels. The Spec class name is 
 weak hint when the feature text is ambiguous. Optional overrides live in
 type_overrides.json keyed as "SpecName::exact feature title".
 
-Note: legacy test-coverage-report/recount_spock_tests.py still uses class-name substring
+Note: older class-name substring recount tooling was removed; this generator is the inventory SoT
 typing; dashboard inventory.json is the source of truth for types.
 
 Usage:
