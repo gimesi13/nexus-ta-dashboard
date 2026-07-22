@@ -1,6 +1,6 @@
 {
   "available": true,
-  "generatedAt": "2026-07-22T02:08Z",
+  "generatedAt": "2026-07-22T06:53Z",
   "source": "teamcity-rest",
   "build": {
     "buildTypeId": "Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt",
@@ -33,8 +33,6 @@
       "name": "change order flow: request, evaluation, block traffic, approve",
       "durationMs": 60133,
       "newFailure": true,
-      "testId": "5398214468995382826",
-      "teamcityUrl": "https://teamcity.dynata.com/viewLog.html?buildId=9404850&tab=buildResultsDiv&testNameId=5398214468995382826",
       "area": "QuotaGroup",
       "spec": "ChangeOrderFlowTestSteps",
       "caseKey": "QuotaGroup::ChangeOrderFlowTestSteps::change order flow: request, evaluation, block traffic, approve",
@@ -46,8 +44,6 @@
       "name": "Set default countries",
       "durationMs": 190,
       "newFailure": true,
-      "testId": "-4932859591566909567",
-      "teamcityUrl": "https://teamcity.dynata.com/viewLog.html?buildId=9404850&tab=buildResultsDiv&testNameId=-4932859591566909567",
       "area": "Settings",
       "spec": "UserSettingsTestSteps",
       "caseKey": "Settings::UserSettingsTestSteps::Set default countries",
@@ -66,7 +62,7 @@
     "AudienceGroup::AudienceTemplateValidationsTestSteps::Search audience templates with no matching country": "muted",
     "AudienceGroup::AudienceTemplateValidationsTestSteps::Search audience templates with empty country set": "passed",
     "AudienceGroup::AudienceTemplateValidationsTestSteps::Search audience templates with invalid project ID": "passed",
-    "AudienceGroup::AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E — quota, template, rename, clone, deleted list, undelete, reorder": "passed",
+    "AudienceGroup::AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder": "passed",
     "AudienceGroup::AudienceGroupCRUDLifecycleTestSteps::Delete audience group with valid deletion": "passed",
     "Fieldwork::FieldworkConfigurationTestSteps::Connect quota group to survey URL pool": "passed",
     "Fieldwork::FieldworkConfigurationTestSteps::Configure fieldwork pacing": "passed",
@@ -380,7 +376,7 @@
     "Segment::SegmentsCRUDTestSteps::Update segment quotas and percentages": "passed",
     "PartnerEvent::PartnerEventWorkflowTestSteps::Verify quota group status in PROJECT phase without partner events": "passed",
     "PartnerEvent::PartnerEventWorkflowTestSteps::Verify quota group status in PROJECT phase with active partner event": "passed",
-    "Project::DPlusProjectAcceptTestSteps::D+ project accept: draft via fullProjectSetup, accept via createD365Project, one non-draft survey per draft, QG–survey mapping": "ignored",
+    "Project::DPlusProjectAcceptTestSteps::D+ project accept: draft via fullProjectSetup, accept via createD365Project, one non-draft survey per draft, QG\u2013survey mapping": "ignored",
     "Quota::ExternalQuotaWorkflowTestSteps::External quota is set to channel percentages when switching from NATURAL to CUSTOM mode": "passed",
     "Project::ManagersTestSteps::Get project managers returns valid response": "passed",
     "Project::ManagersTestSteps::Update project manager": "passed",
@@ -736,7 +732,7 @@
     "AudienceTemplateValidationsTestSteps::Search audience templates with no matching country": "muted",
     "AudienceTemplateValidationsTestSteps::Search audience templates with empty country set": "passed",
     "AudienceTemplateValidationsTestSteps::Search audience templates with invalid project ID": "passed",
-    "AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E — quota, template, rename, clone, deleted list, undelete, reorder": "passed",
+    "AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder": "passed",
     "AudienceGroupCRUDLifecycleTestSteps::Delete audience group with valid deletion": "passed",
     "FieldworkConfigurationTestSteps::Connect quota group to survey URL pool": "passed",
     "FieldworkConfigurationTestSteps::Configure fieldwork pacing": "passed",
@@ -1050,7 +1046,7 @@
     "SegmentsCRUDTestSteps::Update segment quotas and percentages": "passed",
     "PartnerEventWorkflowTestSteps::Verify quota group status in PROJECT phase without partner events": "passed",
     "PartnerEventWorkflowTestSteps::Verify quota group status in PROJECT phase with active partner event": "passed",
-    "DPlusProjectAcceptTestSteps::D+ project accept: draft via fullProjectSetup, accept via createD365Project, one non-draft survey per draft, QG–survey mapping": "ignored",
+    "DPlusProjectAcceptTestSteps::D+ project accept: draft via fullProjectSetup, accept via createD365Project, one non-draft survey per draft, QG\u2013survey mapping": "ignored",
     "ExternalQuotaWorkflowTestSteps::External quota is set to channel percentages when switching from NATURAL to CUSTOM mode": "passed",
     "ManagersTestSteps::Get project managers returns valid response": "passed",
     "ManagersTestSteps::Update project manager": "passed",
@@ -1396,26 +1392,26 @@
     "SurveyCRUDTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "2 new failures, no code changes in this build: a ~60s QuotaGroup timeout (infra-looking) plus a fast-failing Settings test.",
+    "headline": "2 new failures in QuotaGroup",
     "tone": "warn",
-    "cause": "mixed",
-    "causeText": "This build shipped no source changes and has no suspect commits, so a code regression is not indicated. The QuotaGroup 'change order flow' test ran ~60.1s before failing — a classic socket/read-timeout signature pointing at QA infra — while the Settings 'Set default countries' test failed in 190ms, which looks like an assertion or test-data issue rather than a timeout. Detailed failure messages weren't captured in the evidence, so this is inferred from durations and the absence of changes.",
-    "investigation": "Both new failures are in different areas with no shared signature: QuotaGroup timed out at ~60s (infra) while Settings failed fast in 190ms (test/data). No code changes shipped, so no commit or developer is implicated.",
+    "cause": "code_change",
+    "causeText": "Possibly NXS-13444 by gergely.gimesi \u2014 touches QuotaGroup (1 overlapping new fails). Correlation only.",
+    "investigation": "New fails: 1\u00d7 client/Feign socket timeout; 1\u00d7 Settings defaultCountries lag. Likely related to NXS-13444 gergely.gimesi `aeebe046b7ee` (QuotaGroup, 1 new fails in overlap).",
     "bullets": [
-      "QuotaGroup · change order flow — ~60s runtime = timeout/infra signature",
-      "Settings · Set default countries — 190ms fast fail, likely assertion/test-data",
-      "No code changes in this build → no commit blamed"
+      "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
+      "1\u00d7 Settings defaultCountries lag",
+      "Change NXS-13444: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails",
+      "Change NXS-13454: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails"
     ],
     "detail": {
-      "investigation": "1) QuotaGroup::ChangeOrderFlowTestSteps 'change order flow: request, evaluation, block traffic, approve' is the most significant new failure: it ran ~60.1s before failing, the hallmark of a socket/read timeout (slow QA dependency, 502/504) on a multi-step end-to-end flow. 2) Settings::UserSettingsTestSteps 'Set default countries' failed in just 190ms — too fast for a timeout, more consistent with an assertion or test-data problem. 3) The build contained no source changes and no suspect commits, so a code regression is not indicated and no author can be blamed. 4) The rules engine only saw a coarse 'other' cluster with no dominant signature, and no failure messages/stack excerpts were present in the evidence, so classification relies on durations plus change data. Net: isolated, mixed causes (one infra-timeout, one likely test/data), 99.8% pass, nothing pointing at a code change.",
+      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2632, 1 fails). Failure types (new-first): (1) 1\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. (2) 1\u00d7 Settings defaultCountries lag \u2014 Settings defaultCountries read-after-write lag. Hot areas among new fails: QuotaGroup (1), Settings (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout]; Settings: Set default countries [Settings defaultCountries lag].",
       "bullets": [
-        "New fail #1: QuotaGroup · ChangeOrderFlowTestSteps · 'change order flow: request, evaluation, block traffic, approve'",
-        "→ ran ~60.1s before failing — socket/read-timeout signature (infra/QA)",
-        "New fail #2: Settings · UserSettingsTestSteps · 'Set default countries'",
-        "→ failed in 190ms — fast fail, likely assertion/test-data, not a timeout",
-        "No code changes in this build; suspectCommits empty → no commit or developer implicated",
-        "Cluster: 'other' (no dominant signature); failure messages not captured in evidence",
-        "Impact contained: 2 of 1404 unmuted failed, pass rate 99.8%"
+        "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
+        "1\u00d7 Settings defaultCountries lag",
+        "Change NXS-13444: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails",
+        "Change NXS-13454: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails",
+        "NXS-13444 aeebe046b7ee by gergely.gimesi \u2192 areas QuotaGroup (1 new fails) \u00b7 QuotaGroupE2ETestSteps.groovy",
+        "NXS-13454 ca720c6f7025 by gergely.gimesi \u2192 areas QuotaGroup (1 new fails) \u00b7 nexus-regression-add-spock-feature.md, check-coding-rules.py, ta-author-preflight.py, nexus-regression-coding.mdc, AGENTS.md, coverage-baseline.json"
       ],
       "newFailureAreas": [
         {
@@ -1427,21 +1423,106 @@
           "newCount": 1
         }
       ],
-      "likelyCauses": []
+      "likelyCauses": [
+        {
+          "version": "aeebe046b7ee",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13444",
+          "comment": "NXS-13444 MS - fix QuotaGroup E2E unsupported country-language",
+          "areas": [
+            "QuotaGroup"
+          ],
+          "hitNewFailures": 1,
+          "files": [
+            "QuotaGroupE2ETestSteps.groovy"
+          ]
+        },
+        {
+          "version": "ca720c6f7025",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13454",
+          "comment": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
+          "areas": [
+            "QuotaGroup"
+          ],
+          "hitNewFailures": 1,
+          "files": [
+            "nexus-regression-add-spock-feature.md",
+            "check-coding-rules.py",
+            "ta-author-preflight.py",
+            "nexus-regression-coding.mdc",
+            "AGENTS.md",
+            "coverage-baseline.json"
+          ]
+        }
+      ]
     },
     "clusters": [
       {
-        "label": "other",
-        "display": "other",
-        "count": 2,
-        "newCount": 2,
-        "sample": "change order flow: request, evaluation, block traffic, approve",
-        "why": "no dominant signature yet — open TeamCity details"
+        "label": "infra_timeout",
+        "display": "client/Feign socket timeout",
+        "count": 1,
+        "newCount": 1,
+        "sample": "feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
+        "why": "Feign/client socket timeout talking to a QA service"
+      },
+      {
+        "label": "flaky_settings",
+        "display": "Settings defaultCountries lag",
+        "count": 1,
+        "newCount": 1,
+        "sample": "",
+        "why": "Settings defaultCountries read-after-write lag"
       }
     ],
-    "suspectCommits": [],
-    "source": "llm",
-    "generatedAt": "2026-07-22T02:10:32Z",
+    "suspectCommits": [
+      {
+        "version": "d7ffb95e7501",
+        "username": "gergely.gimesi",
+        "comment": "[NXS-13444] MS - clarify interactive chat vs autonomous ta-open-pr bot",
+        "ticket": "NXS-13444",
+        "areas": []
+      },
+      {
+        "version": "ca720c6f7025",
+        "username": "gergely.gimesi",
+        "comment": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
+        "ticket": "NXS-13454",
+        "areas": [
+          "QuotaGroup"
+        ]
+      },
+      {
+        "version": "b55d4f793e32",
+        "username": "gergely.gimesi",
+        "comment": "[NXS-13444] MS - retire legacy test-coverage-report; dashboard is coverage source of truth",
+        "ticket": "NXS-13444",
+        "areas": []
+      },
+      {
+        "version": "d194dff5e61d",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13444 MS - vivid dashboard palette + AI Platform status pills",
+        "ticket": "NXS-13444",
+        "areas": []
+      },
+      {
+        "version": "5082711195e9",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13444 MS - refresh dashboard JSON after Pages publish",
+        "ticket": "NXS-13444",
+        "areas": []
+      },
+      {
+        "version": "820395e1e450",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13444 MS - Progress tab, Overview Progress/AI panels, calmer sitewide palette",
+        "ticket": "NXS-13444",
+        "areas": []
+      }
+    ],
+    "source": "investigator",
+    "generatedAt": "2026-07-22T06:53Z",
     "buildNumber": "3.0.2633",
     "buildId": "9404850",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9404850",

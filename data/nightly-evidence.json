@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-22T02:08Z",
+  "generatedAt": "2026-07-22T06:53Z",
   "build": {
     "number": "3.0.2633",
     "buildId": "9404850",
@@ -19,30 +19,243 @@
     "passRate": 99.8,
     "timeSec": 2252.0
   },
-  "prior": {},
-  "changes": [],
-  "clusters": [
+  "prior": {
+    "buildId": "9402753",
+    "number": "3.0.2632",
+    "status": "FAILURE",
+    "statusText": "Tests failed: 1, passed: 1270, ignored: 15, muted: 101",
+    "durationSec": 2555.0,
+    "failed": 1,
+    "passed": 1270,
+    "newFailed": 0
+  },
+  "changes": [
     {
-      "label": "other",
-      "display": "other",
-      "count": 2,
-      "newCount": 2,
-      "sample": "change order flow: request, evaluation, block traffic, approve",
-      "why": "no dominant signature yet \u2014 open TeamCity details"
+      "version": "d7ffb95e7501",
+      "username": "gergely.gimesi",
+      "comment": "[NXS-13444] MS - clarify interactive chat vs autonomous ta-open-pr bot",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/commands/nexus-regression-pr-description.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/AGENTS.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/github/ta-open-pr-from-branch.yml",
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/GIT_WORKFLOW.md"
+      ],
+      "areas": []
+    },
+    {
+      "version": "ca720c6f7025",
+      "username": "gergely.gimesi",
+      "comment": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/commands/nexus-regression-add-spock-feature.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/hooks/check-coding-rules.py",
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/hooks/ta-author-preflight.py",
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/rules/nexus-regression-coding.mdc",
+        "gateway/unifiedApi/NexusApiRegressionTests/AGENTS.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/coverage-baseline.json",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/coverage.json",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/endpoints-overlay.json",
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/PLATFORM_ASKS.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/TA_TEST_AUTHORING.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/ProjectHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/SegmentDetailsHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCoreTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentStatusClonePreservationTestSteps.groovy"
+      ],
+      "areas": [
+        "Project",
+        "QuotaGroup",
+        "Segment",
+        "SegmentDetails"
+      ]
+    },
+    {
+      "version": "b55d4f793e32",
+      "username": "gergely.gimesi",
+      "comment": "[NXS-13444] MS - retire legacy test-coverage-report; dashboard is coverage source of truth",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/commands/nexus-regression-author-from-openapi-diff.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/commands/nexus-regression-author-on-in-review.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/commands/nexus-regression-coverage-refresh.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/commands/nexus-regression-flaky-triage.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/commands/nexus-regression-morning-report.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/commands/nexus-regression-nightly-nutshell.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/commands/nexus-regression-tc-triage.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/commands/nexus-regression-weekly-digest.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/hooks/stop-digest.py",
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/rules/nexus-regression-ide-workspace.mdc",
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/rules/nexus-regression-jira-access.mdc",
+        "gateway/unifiedApi/NexusApiRegressionTests/.gitleaks.toml",
+        "gateway/unifiedApi/NexusApiRegressionTests/CURSOR.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/NEXUS_API_REGRESSION_TESTS.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/agent-jobs/README.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/agent-jobs/coverage-refresh.sh",
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/agent-jobs/morning-report.sh",
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/agent-jobs/openapi-drift.sh",
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/agent-jobs/post-nightly-nutshell.sh",
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/ci/nightly-full.sh"
+      ],
+      "areas": []
+    },
+    {
+      "version": "d194dff5e61d",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13444 MS - vivid dashboard palette + AI Platform status pills",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/ai-platform.html",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/coverage.html",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/index.html",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/inventory.html",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/nightly.html",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/progress.html",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/styles.css"
+      ],
+      "areas": []
+    },
+    {
+      "version": "5082711195e9",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13444 MS - refresh dashboard JSON after Pages publish",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/coverage.json",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/nightly.json",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/progress.json"
+      ],
+      "areas": []
+    },
+    {
+      "version": "820395e1e450",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13444 MS - Progress tab, Overview Progress/AI panels, calmer sitewide palette",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/README.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/ai-platform.html",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/ai-platform.js",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/coverage.html",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/coverage.js",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/ai-platform.json",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/coverage.json",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/inventory.json",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/nightly.json",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/progress.json",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/index.html",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/inventory.html",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/inventory.js",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/nightly.html",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/nightly.js",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/overview.js",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/progress.html",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/progress.js",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/styles-unify.css",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/styles.css"
+      ],
+      "areas": []
+    },
+    {
+      "version": "ef0c6f1f5ef2",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13444 MS - AI Platform tab: fact-check MCPs (Atlassian, +Playwright), role labels (Dev/TA), TA knowledge base, spel\u2026",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/ai-platform.json"
+      ],
+      "areas": []
+    },
+    {
+      "version": "aeebe046b7ee",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13444 MS - fix QuotaGroup E2E unsupported country-language",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupE2ETestSteps.groovy"
+      ],
+      "areas": [
+        "QuotaGroup"
+      ]
+    },
+    {
+      "version": "4124481f3cd7",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13444 MS - push-guard hook + TeamCity dashboard-publish pipeline doc",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/hooks/guard-shell.py",
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/CI_PIPELINE.md"
+      ],
+      "areas": []
+    },
+    {
+      "version": "a0a0943d6e69",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13444 MS - AI Platform tab: humble/factual copy, dual-role framing, deeper KB",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/ai-platform.html",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/ai-platform.json",
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/AI_PLATFORM_ROADMAP.md"
+      ],
+      "areas": []
     }
   ],
-  "failures": [],
+  "clusters": [
+    {
+      "label": "infra_timeout",
+      "display": "client/Feign socket timeout",
+      "count": 1,
+      "newCount": 1,
+      "sample": "feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
+      "why": "Feign/client socket timeout talking to a QA service"
+    },
+    {
+      "label": "flaky_settings",
+      "display": "Settings defaultCountries lag",
+      "count": 1,
+      "newCount": 1,
+      "sample": "",
+      "why": "Settings defaultCountries read-after-write lag"
+    }
+  ],
+  "failures": [
+    {
+      "name": "change order flow: request, evaluation, block traffic, approve",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.ChangeOrderFlowTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "infra_timeout",
+      "message": "feign.RetryableException:timeout executing POST https://microservices-qa.dynata.com/NexusApi/v1/nexus/d365/changeOrderStatus Caused by: java.net.SocketTimeoutE\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: http://dk-project-crm-rest.nexus-ms-qa.dynata.com:8115/api/Crm/u1/test/changeOrderStatus 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"feign.RetryableException:timeout executing POST https://microservices-qa.dynata.com/NexusApi/v1/nexus/d365/changeOrderStatus \\nCaused by: java.net.SocketTimeoutException:timeout\" } ], \"version\" : \"1.0\" } at com.dy\u2026"
+    },
+    {
+      "name": "Set default countries",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Settings.UserSettingsTestSteps",
+      "newFailure": true,
+      "area": "Settings",
+      "cluster": "flaky_settings",
+      "message": "Condition not satisfied:",
+      "detailsExcerpt": "Condition not satisfied: updatedSettings.defaultCountries == [\"US\", \"GB\", \"CA\"] | | | | [HU, AU] false <com.dynata.nexus.api.model.user.UserSettings@726e29d defaultCountries=[HU, AU] defaultAudienceTemplate=46> at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Settings.UserSettingsTestSteps.Set default countries(UserSettingsTestSteps.groovy:55) ------- Stderr: ------- Jul 22, 2026 1:57:38 AM c\u2026"
+    }
+  ],
   "rulesNutshell": {
     "headline": "2 new failures in QuotaGroup",
     "tone": "warn",
     "bullets": [
-      "2\u00d7 other \u2014 change order flow: request, evaluation, block traffic, approve"
+      "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
+      "1\u00d7 Settings defaultCountries lag",
+      "Change NXS-13444: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails",
+      "Change NXS-13454: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails"
     ],
-    "investigation": "New fails: 2\u00d7 other (no dominant signature yet).",
+    "investigation": "New fails: 1\u00d7 client/Feign socket timeout; 1\u00d7 Settings defaultCountries lag. Likely related to NXS-13444 gergely.gimesi `aeebe046b7ee` (QuotaGroup, 1 new fails in overlap).",
     "detail": {
-      "investigation": "2 of 2 unmuted failures are new since the prior build. Failure types (new-first): (1) 2\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: QuotaGroup (1), Settings (1). Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [other]; Settings: Set default countries [other].",
+      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2632, 1 fails). Failure types (new-first): (1) 1\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. (2) 1\u00d7 Settings defaultCountries lag \u2014 Settings defaultCountries read-after-write lag. Hot areas among new fails: QuotaGroup (1), Settings (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout]; Settings: Set default countries [Settings defaultCountries lag].",
       "bullets": [
-        "2\u00d7 other \u2014 change order flow: request, evaluation, block traffic, approve"
+        "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
+        "1\u00d7 Settings defaultCountries lag",
+        "Change NXS-13444: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails",
+        "Change NXS-13454: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails",
+        "NXS-13444 aeebe046b7ee by gergely.gimesi \u2192 areas QuotaGroup (1 new fails) \u00b7 QuotaGroupE2ETestSteps.groovy",
+        "NXS-13454 ca720c6f7025 by gergely.gimesi \u2192 areas QuotaGroup (1 new fails) \u00b7 nexus-regression-add-spock-feature.md, check-coding-rules.py, ta-author-preflight.py, nexus-regression-coding.mdc, AGENTS.md, coverage-baseline.json"
       ],
       "newFailureAreas": [
         {
@@ -54,9 +267,86 @@
           "newCount": 1
         }
       ],
-      "likelyCauses": []
+      "likelyCauses": [
+        {
+          "version": "aeebe046b7ee",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13444",
+          "comment": "NXS-13444 MS - fix QuotaGroup E2E unsupported country-language",
+          "areas": [
+            "QuotaGroup"
+          ],
+          "hitNewFailures": 1,
+          "files": [
+            "QuotaGroupE2ETestSteps.groovy"
+          ]
+        },
+        {
+          "version": "ca720c6f7025",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13454",
+          "comment": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
+          "areas": [
+            "QuotaGroup"
+          ],
+          "hitNewFailures": 1,
+          "files": [
+            "nexus-regression-add-spock-feature.md",
+            "check-coding-rules.py",
+            "ta-author-preflight.py",
+            "nexus-regression-coding.mdc",
+            "AGENTS.md",
+            "coverage-baseline.json"
+          ]
+        }
+      ]
     },
-    "suspectCommits": []
+    "suspectCommits": [
+      {
+        "version": "d7ffb95e7501",
+        "username": "gergely.gimesi",
+        "comment": "[NXS-13444] MS - clarify interactive chat vs autonomous ta-open-pr bot",
+        "ticket": "NXS-13444",
+        "areas": []
+      },
+      {
+        "version": "ca720c6f7025",
+        "username": "gergely.gimesi",
+        "comment": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
+        "ticket": "NXS-13454",
+        "areas": [
+          "QuotaGroup"
+        ]
+      },
+      {
+        "version": "b55d4f793e32",
+        "username": "gergely.gimesi",
+        "comment": "[NXS-13444] MS - retire legacy test-coverage-report; dashboard is coverage source of truth",
+        "ticket": "NXS-13444",
+        "areas": []
+      },
+      {
+        "version": "d194dff5e61d",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13444 MS - vivid dashboard palette + AI Platform status pills",
+        "ticket": "NXS-13444",
+        "areas": []
+      },
+      {
+        "version": "5082711195e9",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13444 MS - refresh dashboard JSON after Pages publish",
+        "ticket": "NXS-13444",
+        "areas": []
+      },
+      {
+        "version": "820395e1e450",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13444 MS - Progress tab, Overview Progress/AI panels, calmer sitewide palette",
+        "ticket": "NXS-13444",
+        "areas": []
+      }
+    ]
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite."
 }
