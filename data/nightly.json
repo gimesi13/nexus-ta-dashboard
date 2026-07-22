@@ -1392,26 +1392,27 @@
     "SurveyCRUDTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "2 new failures in QuotaGroup",
+    "headline": "2 new failures \u2014 a QuotaGroup QA socket timeout (infra) and a flaky Settings default-countries assertion; no code change implicated.",
     "tone": "warn",
-    "cause": "code_change",
-    "causeText": "Possibly NXS-13444 by gergely.gimesi \u2014 touches QuotaGroup (1 overlapping new fails). Correlation only.",
-    "investigation": "New fails: 1\u00d7 client/Feign socket timeout; 1\u00d7 Settings defaultCountries lag. Likely related to NXS-13444 gergely.gimesi `aeebe046b7ee` (QuotaGroup, 1 new fails in overlap).",
+    "cause": "mixed",
+    "causeText": "The QuotaGroup change-order-flow failure is a downstream QA infra timeout (feign.RetryableException / java.net.SocketTimeoutException, surfaced as a 500 from the d365 changeOrderStatus service), not a test defect. The Settings 'Set default countries' failure is an assertion mismatch (expected [US, GB, CA] but read back [HU, AU]), consistent with a read-after-write lag / flaky data. No code change is implicated: the QuotaGroup commits (NXS-13454 ca720c6f7025 and NXS-13444 aeebe046b7ee, gergely.gimesi) touched other spec/helper files rather than the failing ChangeOrderFlow test, and nothing touched Settings.",
+    "investigation": "Both new failures are non-code: a QuotaGroup QA socket timeout (infra) and a flaky Settings default-countries assertion (read-after-write lag). No changed file maps to either failing test, so no commit is blamed.",
     "bullets": [
-      "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
-      "1\u00d7 Settings defaultCountries lag",
-      "Change NXS-13444: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails",
-      "Change NXS-13454: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails"
+      "QuotaGroup ChangeOrderFlow \u2014 feign SocketTimeoutException / 500 from QA d365 changeOrderStatus (infra)",
+      "Settings Set default countries \u2014 assertion expected [US, GB, CA] but got [HU, AU] (flaky read-after-write)",
+      "No code change implicated \u2014 QuotaGroup commits touched other files; nothing touched Settings"
     ],
     "detail": {
-      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2632, 1 fails). Failure types (new-first): (1) 1\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. (2) 1\u00d7 Settings defaultCountries lag \u2014 Settings defaultCountries read-after-write lag. Hot areas among new fails: QuotaGroup (1), Settings (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout]; Settings: Set default countries [Settings defaultCountries lag].",
+      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2632). Reading the real messages: (1) QuotaGroup 'change order flow' failed on a Feign socket timeout \u2014 feign.RetryableException / java.net.SocketTimeoutException executing POST to the QA d365 changeOrderStatus endpoint, surfaced as an INTERNAL_SERVER_ERROR 500 from dk-project-crm-rest.nexus-ms-qa; this is a downstream QA infrastructure/availability issue, not a code or test defect. (2) Settings 'Set default countries' failed with 'Condition not satisfied: updatedSettings.defaultCountries == [US, GB, CA]' where the read-back was [HU, AU] \u2014 an assertion mismatch consistent with a settings read-after-write lag / flaky data, not infra timeout. Change correlation: all changes are gergely.gimesi under NXS-13444/NXS-13454 and are dominated by docs/.cursor/automation/dashboard edits; the only source touching QuotaGroup (ca720c6f7025, aeebe046b7ee) modified CRUD/Validation/Workflow/E2E specs and helpers \u2014 NOT the failing ChangeOrderFlowTestSteps \u2014 and no change touches Settings. Since the QuotaGroup failure is an infra timeout and the Settings failure is a flaky assertion, no commit is blamed (likelyCauses empty).",
       "bullets": [
-        "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
-        "1\u00d7 Settings defaultCountries lag",
-        "Change NXS-13444: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails",
-        "Change NXS-13454: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails",
-        "NXS-13444 aeebe046b7ee by gergely.gimesi \u2192 areas QuotaGroup (1 new fails) \u00b7 QuotaGroupE2ETestSteps.groovy",
-        "NXS-13454 ca720c6f7025 by gergely.gimesi \u2192 areas QuotaGroup (1 new fails) \u00b7 nexus-regression-add-spock-feature.md, check-coding-rules.py, ta-author-preflight.py, nexus-regression-coding.mdc, AGENTS.md, coverage-baseline.json"
+        "QuotaGroup 'change order flow' \u2014 feign.RetryableException / java.net.SocketTimeoutException on POST QA d365 changeOrderStatus; 500 INTERNAL_SERVER_ERROR from dk-project-crm-rest.nexus-ms-qa \u2192 infra",
+        "Settings 'Set default countries' \u2014 Condition not satisfied: defaultCountries expected [US, GB, CA] but got [HU, AU] \u2192 assertion / read-after-write lag (flaky)",
+        "New-failure areas: QuotaGroup (1), Settings (1)",
+        "Prior build #3.0.2632 had 1 failure and 0 new; this build has 2 new, pass rate 99.8%",
+        "QuotaGroup source changes (ca720c6f7025, aeebe046b7ee) touched CRUD/Validation/Workflow/E2E specs \u2014 not the failing ChangeOrderFlowTestSteps",
+        "No change touches the Settings area/UserSettingsTestSteps",
+        "Remaining NXS-13444 commits are docs/.cursor/automation/dashboard only \u2014 cannot cause test failures",
+        "No code change plausibly maps to either failing test \u2014 no developer blamed"
       ],
       "newFailureAreas": [
         {
@@ -1423,39 +1424,7 @@
           "newCount": 1
         }
       ],
-      "likelyCauses": [
-        {
-          "version": "aeebe046b7ee",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13444",
-          "comment": "NXS-13444 MS - fix QuotaGroup E2E unsupported country-language",
-          "areas": [
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 1,
-          "files": [
-            "QuotaGroupE2ETestSteps.groovy"
-          ]
-        },
-        {
-          "version": "ca720c6f7025",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13454",
-          "comment": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "areas": [
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 1,
-          "files": [
-            "nexus-regression-add-spock-feature.md",
-            "check-coding-rules.py",
-            "ta-author-preflight.py",
-            "nexus-regression-coding.mdc",
-            "AGENTS.md",
-            "coverage-baseline.json"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
     "clusters": [
       {
@@ -1521,8 +1490,8 @@
         "areas": []
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-07-22T06:53Z",
+    "source": "llm",
+    "generatedAt": "2026-07-22T06:55Z",
     "buildNumber": "3.0.2633",
     "buildId": "9404850",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9404850",

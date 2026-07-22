@@ -1,8 +1,8 @@
-**2 new failures in QuotaGroup**
+**2 new failures — a QuotaGroup QA socket timeout and a flaky Settings default-countries assertion; no code change implicated.**
 
-_Likely cause: Possibly NXS-13444 by gergely.gimesi — touches QuotaGroup (1 overlapping new fails)._
+_Likely cause: mixed — infra (QA d365 socket timeout) plus a flaky Settings read-after-write assertion; no commit blamed._
 
-- 1× client/Feign socket timeout — feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout
-- 1× Settings defaultCountries lag
+- QuotaGroup ChangeOrderFlow — feign SocketTimeoutException / 500 from QA d365 changeOrderStatus (infra)
+- Settings Set default countries — expected [US, GB, CA] but got [HU, AU] (flaky read-after-write)
 
 [Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9404850)
