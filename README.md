@@ -39,7 +39,7 @@ Secret on the Pages repo: `CURSOR_API_KEY`. Dispatch uses `DASHBOARD_PAGES_TOKEN
 | New / changed Spock feature or step | Morning job `git pull` + inventory regen |
 | New nightly run | `tc_fetch_nightly.py` after TC finishes |
 | New / changed API endpoint | Monday `FETCH_OPENAPI=1` (live QA); or any publish with `FETCH_OPENAPI=1` |
-| “Is this endpoint tested?” overlay | Weekly `coverage-refresh` / `openapi-drift` jobs (PRs you merge) — next morning publish picks them up |
+| “Is this endpoint tested?” overlay | Curated `data/endpoints-overlay.json`; weekly `coverage-refresh` / `openapi-drift` jobs (PRs you merge) — next morning publish picks them up |
 | Tests added (Progress) | `generate_progress.py` — git first-seen of Spock features + snapshot series |
 | AI Platform headline stats | `generate_ai_platform.py` — recount rules/commands/hooks/docs from the tree |
 | AI Platform portfolio items | Curated in `data/ai-platform.json` — edit when you ship a capability |

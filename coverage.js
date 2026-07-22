@@ -281,7 +281,7 @@
       qualityCard(
         "Stale overlay entries",
         dq.staleOverlayEntries,
-        "Still in endpoints-data.js but gone from OpenAPI."
+        "Still in endpoints-overlay.json but gone from OpenAPI."
       ) +
       qualityCard(
         "Untracked (brand-new)",

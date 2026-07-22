@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-07-21",
+  "generatedAt": "2026-07-22",
   "source": "source",
-  "features": 696,
-  "cases": 1559,
+  "features": 693,
+  "cases": 1522,
   "specs": 76,
   "areas": 16,
-  "featuresWithSteps": 673,
-  "steps": 3453,
+  "featuresWithSteps": 688,
+  "steps": 3517,
   "byType": {
-    "CRUD": 251,
-    "Validation": 199,
-    "Workflow": 129,
-    "Query": 104,
+    "CRUD": 250,
+    "Validation": 196,
+    "Workflow": 131,
+    "Query": 101,
     "E2E": 12,
-    "Other": 1
+    "Other": 3
   },
   "rows": [
     {
@@ -11127,20 +11127,6 @@
     {
       "area": "Project",
       "spec": "ProjectCRUDTestSteps",
-      "name": "Accept project [scenario: #scenario]",
-      "type": "CRUD",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - CRUD Operations",
-      "cases": 3,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "3 runs across scenario"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectCRUDTestSteps",
       "name": "Clone an existing project in QUOTE phase",
       "type": "CRUD",
       "tags": [
@@ -11181,113 +11167,34 @@
     {
       "area": "Project",
       "spec": "ProjectCRUDTestSteps",
-      "name": "Convert project to order ",
+      "name": "Delete a draft clone removes the project",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "CLONE_PROJECT"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - CRUD Operations",
       "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": []
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectCRUDTestSteps",
-      "name": "Create new project [scenario: #scenario]",
-      "type": "CRUD",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - CRUD Operations",
-      "cases": 4,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "4 runs across scenario"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectCRUDTestSteps",
-      "name": "Delete project",
-      "type": "CRUD",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - CRUD Operations",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "Unrolled across project phases (2 runs at execution)"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectCRUDTestSteps",
-      "name": "Get latest feasibility calculation time",
-      "type": "Query",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - CRUD Operations",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "Unrolled across project phases (2 runs at execution)"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectCRUDTestSteps",
-      "name": "Get project IDs by criteria [scenario: #scenario]",
-      "type": "Query",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - CRUD Operations",
-      "cases": 5,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "5 runs across scenario"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectCRUDTestSteps",
-      "name": "Get project by ID",
-      "type": "CRUD",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - CRUD Operations",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "Unrolled across project phases (2 runs at execution)"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectCRUDTestSteps",
-      "name": "Get signed URL key ID",
-      "type": "Query",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - CRUD Operations",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "Unrolled across project phases (2 runs at execution)"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectCRUDTestSteps",
-      "name": "Update project [field: #field]",
-      "type": "CRUD",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - CRUD Operations",
-      "cases": 4,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "4 runs across field"
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase with a source draft project"
+        },
+        {
+          "phase": "and",
+          "label": "A draft clone is created for deletion"
+        },
+        {
+          "phase": "when",
+          "label": "The user deletes the draft clone"
+        },
+        {
+          "phase": "then",
+          "label": "The clone is no longer accessible"
+        }
+      ]
     },
     {
       "area": "Project",
@@ -11501,6 +11408,62 @@
     {
       "area": "Project",
       "spec": "ProjectCoreTestSteps",
+      "name": "Setting survey topic by CRM category guid syncs the numeric category id",
+      "type": "Other",
+      "tags": [
+        "PROJECT_CORE"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Project Core",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCoreTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase and two known CRM survey topic guids"
+        },
+        {
+          "phase": "when",
+          "label": "The survey topic is set by CRM category guid"
+        },
+        {
+          "phase": "then",
+          "label": "The guid is persisted and a single numeric category id is resolved"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectCoreTestSteps",
+      "name": "Unknown CRM category guid is rejected",
+      "type": "Validation",
+      "tags": [
+        "PROJECT_CORE"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Project Core",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCoreTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase with a known CRM survey topic to restore after the negative"
+        },
+        {
+          "phase": "when",
+          "label": "An unrecognized CRM category guid is applied"
+        },
+        {
+          "phase": "then",
+          "label": "The survey topic cannot be resolved"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectCoreTestSteps",
       "name": "Update categories",
       "type": "CRUD",
       "tags": [
@@ -11523,6 +11486,10 @@
         {
           "phase": "then",
           "label": "Updated categories are reflected in the response"
+        },
+        {
+          "phase": "and",
+          "label": "The CRM survey topic guid stays resolved for the selected category"
         }
       ]
     },
@@ -13240,20 +13207,6 @@
     {
       "area": "Project",
       "spec": "ProjectValidationTestSteps",
-      "name": "Add multiple notes with same content [duplicateType: #duplicateType]",
-      "type": "Validation",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - Validation & Error Handling",
-      "cases": 3,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "3 runs across phase"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectValidationTestSteps",
       "name": "Add note to project with invalid project ID",
       "type": "Validation",
       "tags": [
@@ -13320,44 +13273,30 @@
     {
       "area": "Project",
       "spec": "ProjectValidationTestSteps",
-      "name": "Add note with special characters [specialCharType: #specialCharType]",
+      "name": "Deleting a live project is rejected",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "PROJECT_CORE"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
-      "cases": 7,
+      "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "7 runs across phase"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectValidationTestSteps",
-      "name": "Delete project note with invalid note ID [noteId: #noteId]",
-      "type": "Validation",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - Validation & Error Handling",
-      "cases": 3,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "3 runs across phase"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectValidationTestSteps",
-      "name": "Get project note with invalid note ID [noteId: #noteId]",
-      "type": "Validation",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - Validation & Error Handling",
-      "cases": 3,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "3 runs across phase"
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase (non-draft) is active"
+        },
+        {
+          "phase": "when",
+          "label": "The user attempts to delete the live project"
+        },
+        {
+          "phase": "then",
+          "label": "Only draft projects can be deleted"
+        }
+      ]
     },
     {
       "area": "Project",
@@ -13387,48 +13326,6 @@
         }
       ],
       "paramNote": "4 runs across exception.message.contains(\"NotFoundInDb\")"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectValidationTestSteps",
-      "name": "Search notes with invalid pagination parameters [page: #page, pageSize: #pageSize]",
-      "type": "Validation",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - Validation & Error Handling",
-      "cases": 4,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "4 runs across phase"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectValidationTestSteps",
-      "name": "Search notes with invalid search criteria [searchIssue: #searchIssue]",
-      "type": "Validation",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - Validation & Error Handling",
-      "cases": 4,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "4 runs across phase"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectValidationTestSteps",
-      "name": "Search notes with various query patterns [queryPattern: #queryPattern]",
-      "type": "Validation",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - Validation & Error Handling",
-      "cases": 7,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "7 runs across phase"
     },
     {
       "area": "Project",
@@ -13491,34 +13388,6 @@
         }
       ],
       "paramNote": "2 runs across phase"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectValidationTestSteps",
-      "name": "Update note to have same content as existing note [updateType: #updateType]",
-      "type": "Validation",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - Validation & Error Handling",
-      "cases": 3,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "3 runs across phase"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectValidationTestSteps",
-      "name": "Update project note with invalid note ID [noteId: #noteId]",
-      "type": "Validation",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - Validation & Error Handling",
-      "cases": 3,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "3 runs across phase"
     },
     {
       "area": "Project",
@@ -16477,6 +16346,34 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupCRUDTestSteps",
+      "name": "Update external auto-close and verify persistence",
+      "type": "CRUD",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "An active phase and the current external auto-close flag"
+        },
+        {
+          "phase": "when",
+          "label": "External auto-close is toggled"
+        },
+        {
+          "phase": "then",
+          "label": "The quota group shows the toggled external auto-close flag"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupCRUDTestSteps",
       "name": "Update line ID for quota group",
       "type": "CRUD",
       "tags": [],
@@ -16993,6 +16890,63 @@
         }
       ],
       "paramNote": "7 runs across phase"
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupCRUDTestSteps",
+      "name": "Update tally mode and verify persistence",
+      "type": "CRUD",
+      "tags": [
+        "QUOTA",
+        "TALLY"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "An active phase with soft launch cleared and completes-based tally mode"
+        },
+        {
+          "phase": "when",
+          "label": "Tally mode is switched to by starts"
+        },
+        {
+          "phase": "then",
+          "label": "The quota group shows tally mode by starts"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupCRUDTestSteps",
+      "name": "Update total starts quota and verify persistence",
+      "type": "CRUD",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "An active phase with soft launch cleared"
+        },
+        {
+          "phase": "when",
+          "label": "Total starts quota is updated"
+        },
+        {
+          "phase": "then",
+          "label": "The quota group shows the new total starts quota"
+        }
+      ]
     },
     {
       "area": "QuotaGroup",
@@ -18805,6 +18759,113 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupValidationTestSteps",
+      "name": "Internal auto-close update is rejected as unsupported",
+      "type": "Validation",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "when",
+          "label": "Internal auto-close is updated"
+        },
+        {
+          "phase": "then",
+          "label": "The update is rejected because internal quota is no longer supported"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupValidationTestSteps",
+      "name": "Internal channel quota update is rejected as unsupported",
+      "type": "Validation",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "when",
+          "label": "Internal channel quota is updated"
+        },
+        {
+          "phase": "then",
+          "label": "The update is rejected because internal quota is no longer supported"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupValidationTestSteps",
+      "name": "Switching tally mode to by completes is rejected when soft launch exceeds total completes",
+      "type": "Validation",
+      "tags": [
+        "QUOTA",
+        "TALLY",
+        "SOFT_LAUNCH"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Tally mode by starts with soft launch higher than total completes"
+        },
+        {
+          "phase": "when",
+          "label": "Tally mode is switched to by completes"
+        },
+        {
+          "phase": "then",
+          "label": "The switch is rejected because soft launch exceeds total completes"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupValidationTestSteps",
+      "name": "Total quota update for an unknown quota group is rejected",
+      "type": "Validation",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Validation & Error Handling",
+      "cases": 7,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "An active project phase"
+        },
+        {
+          "phase": "when",
+          "label": "Total completes quota is updated for a non-existent quota group"
+        },
+        {
+          "phase": "then",
+          "label": "The update is rejected because the quota group does not exist"
+        }
+      ],
+      "paramNote": "7 runs across exception.message.contains(\"NotFound\")"
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupValidationTestSteps",
       "name": "Update audience group ID with invalid ID",
       "type": "Validation",
       "tags": [],
@@ -19079,42 +19140,46 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupWorkflowTestSteps",
-      "name": "Change quota group status through workflow transitions",
+      "name": "Cloned market diverges on external quota while primary channel settings stay unchanged",
       "type": "Workflow",
-      "tags": [],
+      "tags": [
+        "QUOTA",
+        "TALLY",
+        "CLONE_QUOTA_GROUP"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
       "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
-      "ignored": true,
+      "ignored": false,
       "steps": [
         {
           "phase": "given",
-          "label": "Set active phase PROJECT"
+          "label": "Primary market channel baseline in project phase"
         },
         {
           "phase": "when",
-          "label": "User transitions through various statuses"
+          "label": "A GB market is cloned"
+        },
+        {
+          "phase": "and",
+          "label": "GB soft launch is cleared"
+        },
+        {
+          "phase": "and",
+          "label": "GB external channel quota is raised"
+        },
+        {
+          "phase": "and",
+          "label": "GB external auto-close is turned off"
         },
         {
           "phase": "then",
-          "label": "Status reflects started state"
+          "label": "The clone reflects the new channel policy"
         },
         {
-          "phase": "when",
-          "label": "User pauses the quota group"
-        },
-        {
-          "phase": "then",
-          "label": "Status reflects paused state"
-        },
-        {
-          "phase": "when",
-          "label": "User resumes the quota group"
-        },
-        {
-          "phase": "then",
-          "label": "Status reflects resumed state"
+          "phase": "and",
+          "label": "The primary market still has the original channel settings"
         }
       ]
     },
@@ -19239,6 +19304,39 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupWorkflowTestSteps",
+      "name": "Coordinated quotas snapshot refreshes totals while keeping tally mode and starts",
+      "type": "CRUD",
+      "tags": [
+        "QUOTA",
+        "TALLY"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Complex Workflows & Integration",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Starts-based market with known totals"
+        },
+        {
+          "phase": "and",
+          "label": "A coordinated snapshot raises totals and restores auto-close without changing tally mode"
+        },
+        {
+          "phase": "when",
+          "label": "The full quotas snapshot is saved"
+        },
+        {
+          "phase": "then",
+          "label": "Totals and auto-close follow the snapshot while tally mode and starts stay unchanged"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupWorkflowTestSteps",
       "name": "Move quota group between audience groups and verify integrity",
       "type": "Workflow",
       "tags": [],
@@ -19309,6 +19407,129 @@
         {
           "phase": "then",
           "label": "All quota updates were applied successfully"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupWorkflowTestSteps",
+      "name": "Per-country quota totals and tally modes stay independent after clone",
+      "type": "Workflow",
+      "tags": [
+        "QUOTA",
+        "TALLY",
+        "CLONE_QUOTA_GROUP"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Complex Workflows & Integration",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase with soft launch cleared on the primary market"
+        },
+        {
+          "phase": "and",
+          "label": "Primary market total completes quota is set for completes-based fielding"
+        },
+        {
+          "phase": "and",
+          "label": "Primary market total starts quota is aligned above completes"
+        },
+        {
+          "phase": "when",
+          "label": "A GB market is cloned"
+        },
+        {
+          "phase": "and",
+          "label": "GB soft launch is cleared"
+        },
+        {
+          "phase": "and",
+          "label": "GB total completes quota is set"
+        },
+        {
+          "phase": "and",
+          "label": "GB total starts quota is set higher for starts-based fielding"
+        },
+        {
+          "phase": "and",
+          "label": "GB tally mode is switched to by starts"
+        },
+        {
+          "phase": "and",
+          "label": "A DE market is cloned"
+        },
+        {
+          "phase": "and",
+          "label": "DE soft launch is cleared"
+        },
+        {
+          "phase": "and",
+          "label": "DE total completes quota is set"
+        },
+        {
+          "phase": "and",
+          "label": "DE tally mode stays by completes"
+        },
+        {
+          "phase": "then",
+          "label": "Each market keeps its own totals and tally mode"
+        },
+        {
+          "phase": "and",
+          "label": "External channel percent base follows starts only on the starts market"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupWorkflowTestSteps",
+      "name": "Starts-mode channel settings and auto-close persist together",
+      "type": "Workflow",
+      "tags": [
+        "QUOTA",
+        "TALLY"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Complex Workflows & Integration",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase ready for starts-based fielding"
+        },
+        {
+          "phase": "when",
+          "label": "Total completes quota is raised for the market"
+        },
+        {
+          "phase": "and",
+          "label": "Total starts quota is raised above completes"
+        },
+        {
+          "phase": "and",
+          "label": "Tally mode is switched to by starts"
+        },
+        {
+          "phase": "and",
+          "label": "External channel quota is tuned for partner fielding"
+        },
+        {
+          "phase": "and",
+          "label": "External auto-close is turned off"
+        },
+        {
+          "phase": "and",
+          "label": "Total auto-close is turned off"
+        },
+        {
+          "phase": "then",
+          "label": "Starts-mode channel settings are readable together"
         }
       ]
     },
@@ -21007,6 +21228,43 @@
         {
           "phase": "and",
           "label": "The halted segment is SUSPENDED on both surfaces"
+        }
+      ]
+    },
+    {
+      "area": "Segment",
+      "spec": "SegmentStatusClonePreservationTestSteps",
+      "name": "Segment autoclose off is preserved when cloning an audience group",
+      "type": "Other",
+      "tags": [
+        "SEGMENTS",
+        "CLONE_AUDIENCE_GROUP"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Segments \u2014 halted status survives clone; NexusApi and DetailsEditor SQL stay in sync (NXS-13243)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentStatusClonePreservationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A quota group with segmented parameters and autoclose turned off on every segment"
+        },
+        {
+          "phase": "and",
+          "label": "Source segments confirm autoclose is off"
+        },
+        {
+          "phase": "when",
+          "label": "The audience group is cloned"
+        },
+        {
+          "phase": "and",
+          "label": "The cloned audience group's quota group is resolved"
+        },
+        {
+          "phase": "then",
+          "label": "The cloned audience keeps autoclose off on every segment"
         }
       ]
     },

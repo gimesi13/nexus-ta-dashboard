@@ -1,133 +1,62 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-21T09:59Z",
+  "generatedAt": "2026-07-22T02:08Z",
   "build": {
-    "number": "3.0.2632",
-    "buildId": "9402753",
+    "number": "3.0.2633",
+    "buildId": "9404850",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9402753",
-    "durationSec": 2555.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9404850",
+    "durationSec": 2252.0
   },
   "summary": {
-    "tests": 1387,
-    "passed": 1270,
-    "failures": 1,
+    "tests": 1404,
+    "passed": 1289,
+    "failures": 2,
     "errors": 0,
-    "skipped": 15,
-    "muted": 101,
-    "newFailed": 0,
-    "passRate": 99.9,
-    "timeSec": 2555.0
+    "skipped": 14,
+    "muted": 99,
+    "newFailed": 2,
+    "passRate": 99.8,
+    "timeSec": 2252.0
   },
-  "prior": {
-    "buildId": "9400525",
-    "number": "3.0.2631",
-    "status": "FAILURE",
-    "statusText": "Tests failed: 46 (43 new), passed: 1171, ignored: 15, muted: 98",
-    "durationSec": 2295.0,
-    "failed": 46,
-    "passed": 1171,
-    "newFailed": 43
-  },
-  "changes": [
-    {
-      "version": "a09acf0779a6",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-13444] Bump dashboard JS cache-busters (stats-first layout)",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/index.html",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/nightly.html"
-      ],
-      "areas": []
-    },
-    {
-      "version": "d12e2676ad2e",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-13444] Nightly nutshell: LLM investigation, dashboard redesign + service READMEs",
-      "files": [
-        "gateway/dk/DKUserRest/README.md",
-        "gateway/external/DynataExternalApiGW/README.md",
-        "gateway/unifiedApi/NexusApiMeta/README.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/commands/nexus-regression-nightly-nutshell.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/agent-jobs/README.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/agent-jobs/dashboard-publish.sh",
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/agent-jobs/post-nightly-nutshell.sh",
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/generate_nutshell.py",
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/github/nightly-nutshell-llm.yml",
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/investigate_nutshell_ai.sh",
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/tc_fetch_nightly.py",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/README.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/.gitignore",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/index.html",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/nightly.html",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/nightly.js",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/overview.js",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/styles.css",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/tools/publish.sh",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/MORNING_REPORT.md"
-      ],
-      "areas": []
-    }
-  ],
+  "prior": {},
+  "changes": [],
   "clusters": [
     {
-      "label": "product_data_country_lang",
-      "display": "GB + fr unsupported",
-      "count": 1,
-      "newCount": 1,
-      "sample": "Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]",
-      "why": "unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang)"
+      "label": "other",
+      "display": "other",
+      "count": 2,
+      "newCount": 2,
+      "sample": "change order flow: request, evaluation, block traffic, approve",
+      "why": "no dominant signature yet \u2014 open TeamCity details"
     }
   ],
-  "failures": [
-    {
-      "name": "End-to-end quota group lifecycle: configure, clone countries, survey, delivery, lookup",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupE2ETestSteps",
-      "newFailure": false,
-      "area": "QuotaGroup",
-      "cluster": "product_data_country_lang",
-      "message": "Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118716657/core/countryLanguages 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) at feign.As\u2026"
-    }
-  ],
+  "failures": [],
   "rulesNutshell": {
-    "headline": "1 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "2 new failures in QuotaGroup",
     "tone": "warn",
     "bullets": [
-      "1\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]"
+      "2\u00d7 other \u2014 change order flow: request, evaluation, block traffic, approve"
     ],
-    "investigation": "Failures: 1\u00d7 GB + fr unsupported.",
+    "investigation": "New fails: 2\u00d7 other (no dominant signature yet).",
     "detail": {
-      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 GB + fr unsupported \u2014 unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang). Hot areas among new fails: QuotaGroup (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. Example new failures: QuotaGroup: End-to-end quota group lifecycle: configure, clone countries, survey, delivery, lookup [GB + fr unsupported].",
+      "investigation": "2 of 2 unmuted failures are new since the prior build. Failure types (new-first): (1) 2\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: QuotaGroup (1), Settings (1). Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [other]; Settings: Set default countries [other].",
       "bullets": [
-        "1\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]",
-        "NXS-13444: gergely.gimesi \u2014 [NXS-13444] Bump dashboard JS cache-busters (stats-first layout)",
-        "NXS-13444: gergely.gimesi \u2014 [NXS-13444] Nightly nutshell: LLM investigation, dashboard redesign + service READMEs"
+        "2\u00d7 other \u2014 change order flow: request, evaluation, block traffic, approve"
       ],
       "newFailureAreas": [
         {
           "area": "QuotaGroup",
           "newCount": 1
+        },
+        {
+          "area": "Settings",
+          "newCount": 1
         }
       ],
       "likelyCauses": []
     },
-    "suspectCommits": [
-      {
-        "version": "a09acf0779a6",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13444] Bump dashboard JS cache-busters (stats-first layout)",
-        "ticket": "NXS-13444",
-        "areas": []
-      },
-      {
-        "version": "d12e2676ad2e",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13444] Nightly nutshell: LLM investigation, dashboard redesign + service READMEs",
-        "ticket": "NXS-13444",
-        "areas": []
-      }
-    ]
+    "suspectCommits": []
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite."
 }
