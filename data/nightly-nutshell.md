@@ -1,8 +1,7 @@
-**2 new failures, no code changes in this build: a ~60s QuotaGroup timeout (infra-looking) plus a fast-failing Settings test.**
+**1 continuing failure(s) — no new unmuted fails**
 
-_Likely cause: mixed — QuotaGroup timed out at ~60s (infra/QA), Settings failed in 190ms (likely test/data); no code changes shipped, so no commit is blamed._
+_Likely cause: VCS changes present but none map onto the failing packages — likely test/data, correlate manually._
 
-- QuotaGroup · change order flow — ~60s runtime = timeout/infra signature
-- Settings · Set default countries — 190ms fast fail, likely assertion/test-data
+- 1× GB + fr unsupported — Unsupported country-language combinations! [countryIso:GB] [languageIsos:[en, fr]]
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9404850)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9402753)
