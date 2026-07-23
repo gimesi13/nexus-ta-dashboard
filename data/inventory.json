@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-07-22",
+  "generatedAt": "2026-07-23",
   "source": "source",
-  "features": 693,
-  "cases": 1522,
-  "specs": 76,
-  "areas": 16,
-  "featuresWithSteps": 688,
-  "steps": 3517,
+  "features": 687,
+  "cases": 1483,
+  "specs": 74,
+  "areas": 15,
+  "featuresWithSteps": 687,
+  "steps": 3461,
   "byType": {
-    "CRUD": 250,
-    "Validation": 196,
-    "Workflow": 131,
-    "Query": 101,
+    "CRUD": 249,
+    "Validation": 199,
+    "Workflow": 126,
+    "Query": 99,
     "E2E": 12,
-    "Other": 3
+    "Other": 2
   },
   "rows": [
     {
@@ -78,35 +78,6 @@
         {
           "phase": "then",
           "label": "Verify audience group is now marked as deleted"
-        }
-      ],
-      "paramNote": "Unrolled across project phases (2 runs at execution)"
-    },
-    {
-      "area": "AudienceGroup",
-      "spec": "AudienceGroupCRUDLifecycleTestSteps",
-      "name": "Get latest feasibility calculation time with valid ID",
-      "type": "Query",
-      "tags": [
-        "FEASIBILITY"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Audience Groups - CRUD Lifecycle (delete, undelete, clone)",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceGroupCRUDLifecycleTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "when",
-          "label": "Request latest feasibility calculation time for valid audience group"
-        },
-        {
-          "phase": "then",
-          "label": "Verify response structure and timestamp"
         }
       ],
       "paramNote": "Unrolled across project phases (2 runs at execution)"
@@ -2229,34 +2200,6 @@
     {
       "area": "BOS",
       "spec": "SalesOrderTestSteps",
-      "name": "GET sales order by guid",
-      "type": "CRUD",
-      "tags": [
-        "BOS_SALES_ORDER"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "BOS \u2013 Sales Orders",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/SalesOrderTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase and a project that has a sales order"
-        },
-        {
-          "phase": "when",
-          "label": "The user requests the sales order by guid"
-        },
-        {
-          "phase": "then",
-          "label": "The sales order is returned"
-        }
-      ]
-    },
-    {
-      "area": "BOS",
-      "spec": "SalesOrderTestSteps",
       "name": "GET sales order extended",
       "type": "Query",
       "tags": [
@@ -2279,34 +2222,6 @@
         {
           "phase": "then",
           "label": "The extended sales order is returned (guid may be uppercase from API)"
-        }
-      ]
-    },
-    {
-      "area": "BOS",
-      "spec": "SalesOrderTestSteps",
-      "name": "PUT estimated billing date",
-      "type": "CRUD",
-      "tags": [
-        "BOS_SALES_ORDER"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "BOS \u2013 Sales Orders",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/SalesOrderTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase and a project that has a sales order"
-        },
-        {
-          "phase": "when",
-          "label": "The user sets the estimated billing date on the sales order"
-        },
-        {
-          "phase": "then",
-          "label": "The call completes without exception"
         }
       ]
     },
@@ -3902,62 +3817,6 @@
     },
     {
       "area": "Fieldwork",
-      "spec": "FieldworkTallyModeTestSteps",
-      "name": "soldQuota remains unchanged when modifying quotas and tallyMode",
-      "type": "Workflow",
-      "tags": [
-        "TALLY"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Fieldwork - Tally mode",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Fieldwork/FieldworkTallyModeTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "The initial soldQuota"
-        },
-        {
-          "phase": "when",
-          "label": "Updating startQuota"
-        },
-        {
-          "phase": "then",
-          "label": "soldQuota is unchanged"
-        },
-        {
-          "phase": "when",
-          "label": "Updating totalQuota"
-        },
-        {
-          "phase": "then",
-          "label": "soldQuota is unchanged"
-        },
-        {
-          "phase": "when",
-          "label": "Switching tally mode to 'By Completes'"
-        },
-        {
-          "phase": "then",
-          "label": "soldQuota is unchanged"
-        },
-        {
-          "phase": "when",
-          "label": "Switching tally mode to 'By Starts'"
-        },
-        {
-          "phase": "then",
-          "label": "soldQuota is unchanged"
-        }
-      ]
-    },
-    {
-      "area": "Fieldwork",
       "spec": "FieldworkValidationTestSteps",
       "name": "Accept zero as valid soft launch quota for disabling",
       "type": "Validation",
@@ -5427,30 +5286,6 @@
       ]
     },
     {
-      "area": "Infrastructure",
-      "spec": "AuthorOnReviewProbeTestSteps",
-      "name": "Shift-left probe marker references linked feature and TA keys",
-      "type": "Other",
-      "tags": [
-        "QUARANTINE"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Shift-left TA probe",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Infrastructure/AuthorOnReviewProbeTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "when",
-          "label": "the author-on-review E2E probe document is read"
-        },
-        {
-          "phase": "then",
-          "label": "the marker documents the linked feature and TA item keys"
-        }
-      ]
-    },
-    {
       "area": "Lookup",
       "spec": "QuotaGroupLookupE2ETestSteps",
       "name": "Complete quota group lookup and search workflow",
@@ -5857,6 +5692,34 @@
         }
       ],
       "paramNote": "3 runs across phase"
+    },
+    {
+      "area": "Lookup",
+      "spec": "QuotaGroupLookupTestSteps",
+      "name": "Get quota group overview by project ID",
+      "type": "Query",
+      "tags": [
+        "LOOKUP"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Lookup & Search",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Lookup/QuotaGroupLookupTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Set active phase"
+        },
+        {
+          "phase": "when",
+          "label": "The user reads the quota group overview for the project"
+        },
+        {
+          "phase": "then",
+          "label": "The active quota group is present in the overview"
+        }
+      ]
     },
     {
       "area": "Lookup",
@@ -10106,62 +9969,6 @@
     },
     {
       "area": "Project",
-      "spec": "DPlusProjectAcceptTestSteps",
-      "name": "D+ project accept: draft via fullProjectSetup, accept via createD365Project, one non-draft survey per draft, QG\u2013survey mapping",
-      "type": "CRUD",
-      "tags": [
-        "PROJECT_ACCEPT"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Project \u2013 D+ accept",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/DPlusProjectAcceptTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "when",
-          "label": "link draft survey to draft QG (as in SurveyCRUDTestSteps) so accept can create and attach new survey"
-        },
-        {
-          "phase": "then",
-          "label": "draft survey is linked to draft QG"
-        },
-        {
-          "phase": "when",
-          "label": "accept (D+ accept \u2013 same as ProjectAutomationApi accept \u2192 NexusApiBos createD365Project)"
-        },
-        {
-          "phase": "then",
-          "label": "accepted project was created"
-        },
-        {
-          "phase": "when",
-          "label": "load accepted project state"
-        },
-        {
-          "phase": "then",
-          "label": "for each draft survey there is exactly one non-draft survey in the new project"
-        },
-        {
-          "phase": "and",
-          "label": "new project QG is the clone of the draft QG and has the new survey attached (urlPoolId)"
-        },
-        {
-          "phase": "and",
-          "label": "draft survey points to new survey (core.nextPhaseId) when backend sets it"
-        },
-        {
-          "phase": "and",
-          "label": "new survey points to draft (core.clonedFromUrlPoolId, core.prevPhaseId) when backend sets them"
-        },
-        {
-          "phase": "and",
-          "label": "accepted project is D+ (origin DYNATA_PLUS)"
-        }
-      ]
-    },
-    {
-      "area": "Project",
       "spec": "DedupeTestSteps",
       "name": "Get project exclusion configuration for valid project",
       "type": "Query",
@@ -11127,6 +10934,105 @@
     {
       "area": "Project",
       "spec": "ProjectCRUDTestSteps",
+      "name": "CRM fields healthcare flag persists on read-back",
+      "type": "CRUD",
+      "tags": [
+        "PROJECT_CORE",
+        "BOS_SYNC"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase is active"
+        },
+        {
+          "phase": "and",
+          "label": "Current CRM fields are captured for restore"
+        },
+        {
+          "phase": "when",
+          "label": "The user updates the healthcare professional flag"
+        },
+        {
+          "phase": "then",
+          "label": "The CRM fields reflect the new healthcare flag"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectCRUDTestSteps",
+      "name": "Client invoice comments persist on read-back",
+      "type": "CRUD",
+      "tags": [
+        "PROJECT_CORE",
+        "BOS_SYNC"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase is active"
+        },
+        {
+          "phase": "and",
+          "label": "Current invoice comments are captured for restore"
+        },
+        {
+          "phase": "when",
+          "label": "The user updates client invoice comments"
+        },
+        {
+          "phase": "then",
+          "label": "The invoice comments are persisted"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectCRUDTestSteps",
+      "name": "Client reference PO number persists on read-back",
+      "type": "CRUD",
+      "tags": [
+        "PROJECT_CORE",
+        "BOS_SYNC"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase is active"
+        },
+        {
+          "phase": "and",
+          "label": "Current PO number is captured for restore"
+        },
+        {
+          "phase": "when",
+          "label": "The user updates the client reference PO number"
+        },
+        {
+          "phase": "then",
+          "label": "The PO number is persisted"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectCRUDTestSteps",
       "name": "Clone an existing project in QUOTE phase",
       "type": "CRUD",
       "tags": [
@@ -11193,6 +11099,111 @@
         {
           "phase": "then",
           "label": "The clone is no longer accessible"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectCRUDTestSteps",
+      "name": "End-link security summary matches configured security level",
+      "type": "CRUD",
+      "tags": [
+        "PROJECT_CORE"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase is active"
+        },
+        {
+          "phase": "and",
+          "label": "The current end-link security level is captured for restore"
+        },
+        {
+          "phase": "when",
+          "label": "The user configures unsigned end-link security"
+        },
+        {
+          "phase": "then",
+          "label": "The end-link security summary reports unsigned"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectCRUDTestSteps",
+      "name": "Full project update renames a draft clone",
+      "type": "CRUD",
+      "tags": [
+        "CLONE_PROJECT",
+        "PROJECT_CORE"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase with a source draft project"
+        },
+        {
+          "phase": "and",
+          "label": "A draft clone is created for a full project update"
+        },
+        {
+          "phase": "when",
+          "label": "The user saves the full project with the new name"
+        },
+        {
+          "phase": "then",
+          "label": "The clone name is persisted"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectCRUDTestSteps",
+      "name": "Signed end-link security is reflected in the security summary",
+      "type": "Query",
+      "tags": [
+        "PROJECT_CORE"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase is active"
+        },
+        {
+          "phase": "and",
+          "label": "The current end-link security level is captured for restore"
+        },
+        {
+          "phase": "when",
+          "label": "The user enables signed URL start-end security"
+        },
+        {
+          "phase": "then",
+          "label": "The end-link security summary reports signed URL start-end"
+        },
+        {
+          "phase": "when",
+          "label": "The user looks up the signed URL key id"
+        },
+        {
+          "phase": "then",
+          "label": "The lookup succeeds without error"
         }
       ]
     },
@@ -11687,38 +11698,6 @@
         {
           "phase": "then",
           "label": "Updated total quota is reflected in the response"
-        }
-      ]
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectCoreTestSteps",
-      "name": "Update tracker details",
-      "type": "CRUD",
-      "tags": [
-        "PROJECT_CORE"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Project Core",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCoreTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "The original tracker details are stored"
-        },
-        {
-          "phase": "when",
-          "label": "Tracker details are updated"
-        },
-        {
-          "phase": "then",
-          "label": "Updated tracker details are reflected in the response"
         }
       ]
     },
@@ -12730,42 +12709,6 @@
     {
       "area": "Project",
       "spec": "ProjectNotesTestSteps",
-      "name": "Search notes filtered by project ID",
-      "type": "Query",
-      "tags": [
-        "PROJECT_NOTES"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Project Notes",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectNotesTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Get sales order GUID for the project"
-        },
-        {
-          "phase": "and",
-          "label": "Notes exist for the current project"
-        },
-        {
-          "phase": "when",
-          "label": "The user searches notes for a specific project"
-        },
-        {
-          "phase": "then",
-          "label": "Only notes from that project are returned"
-        }
-      ]
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectNotesTestSteps",
       "name": "Search notes with basic pagination",
       "type": "Query",
       "tags": [
@@ -12799,42 +12742,6 @@
         }
       ],
       "paramNote": "2 runs across phase"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectNotesTestSteps",
-      "name": "Search notes with date range filter",
-      "type": "Query",
-      "tags": [
-        "PROJECT_NOTES"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Project Notes",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectNotesTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Get sales order GUID for the project"
-        },
-        {
-          "phase": "and",
-          "label": "Notes created at different times"
-        },
-        {
-          "phase": "when",
-          "label": "The user searches notes within a date range"
-        },
-        {
-          "phase": "then",
-          "label": "Only notes within the date range are returned"
-        }
-      ]
     },
     {
       "area": "Project",
@@ -12900,43 +12807,6 @@
         }
       ],
       "paramNote": "7 runs across exception.message.contains(\"page\")"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectNotesTestSteps",
-      "name": "Search notes with text query filter",
-      "type": "Query",
-      "tags": [
-        "PROJECT_NOTES"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Project Notes",
-      "cases": 3,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectNotesTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Get sales order GUID for the project"
-        },
-        {
-          "phase": "and",
-          "label": "Multiple notes with different content"
-        },
-        {
-          "phase": "when",
-          "label": "The user searches notes with text query"
-        },
-        {
-          "phase": "then",
-          "label": "Results are returned"
-        }
-      ],
-      "paramNote": "3 runs across phase"
     },
     {
       "area": "Project",
@@ -13207,39 +13077,6 @@
     {
       "area": "Project",
       "spec": "ProjectValidationTestSteps",
-      "name": "Add note to project with invalid project ID",
-      "type": "Validation",
-      "tags": [
-        "PROJECT_NOTES"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - Validation & Error Handling",
-      "cases": 3,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Valid note content"
-        },
-        {
-          "phase": "when",
-          "label": "The user attempts to add a note to an invalid project ID"
-        },
-        {
-          "phase": "then",
-          "label": "An appropriate error is returned"
-        }
-      ],
-      "paramNote": "3 runs across phase"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectValidationTestSteps",
       "name": "Add note with invalid content",
       "type": "Validation",
       "tags": [
@@ -13273,6 +13110,30 @@
     {
       "area": "Project",
       "spec": "ProjectValidationTestSteps",
+      "name": "Client invoice comments lookup for an unknown project is rejected",
+      "type": "Validation",
+      "tags": [
+        "PROJECT_CORE"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "when",
+          "label": "The user looks up invoice comments for a non-existent project"
+        },
+        {
+          "phase": "then",
+          "label": "The lookup is rejected because the project does not exist"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectValidationTestSteps",
       "name": "Deleting a live project is rejected",
       "type": "Validation",
       "tags": [
@@ -13295,6 +13156,70 @@
         {
           "phase": "then",
           "label": "Only draft projects can be deleted"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectValidationTestSteps",
+      "name": "Draft project search rejects live project queries",
+      "type": "Validation",
+      "tags": [
+        "PROJECT_CORE"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase is active"
+        },
+        {
+          "phase": "and",
+          "label": "A search request targets live projects on the draft search API"
+        },
+        {
+          "phase": "when",
+          "label": "The user searches the draft project index for live projects"
+        },
+        {
+          "phase": "then",
+          "label": "Live project search must use the live search API"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectValidationTestSteps",
+      "name": "Draft project search rejects page size #pageSize",
+      "type": "Validation",
+      "tags": [
+        "PROJECT_CORE"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase is active"
+        },
+        {
+          "phase": "and",
+          "label": "A draft search request uses an invalid page size"
+        },
+        {
+          "phase": "when",
+          "label": "The user searches the draft project index"
+        },
+        {
+          "phase": "then",
+          "label": "The request is rejected as invalid"
         }
       ]
     },
@@ -13536,71 +13461,110 @@
     {
       "area": "Project",
       "spec": "ProjectWorkflowTestSteps",
-      "name": "Clone project with options [scenario: #scenario]",
+      "name": "Draft project search finds the active quote by project id",
       "type": "Workflow",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - Workflows & Integration",
-      "cases": 4,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "4 runs across scenario"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectWorkflowTestSteps",
-      "name": "Manage end link security [operation: #operation]",
-      "type": "Workflow",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - Workflows & Integration",
-      "cases": 4,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "4 runs across operation"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectWorkflowTestSteps",
-      "name": "Manage project CRM fields [operation: #operation]",
-      "type": "Workflow",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Projects - Workflows & Integration",
-      "cases": 3,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "3 runs across operation"
-    },
-    {
-      "area": "Project",
-      "spec": "ProjectWorkflowTestSteps",
-      "name": "Update BOS linkage",
-      "type": "Workflow",
-      "tags": [],
+      "tags": [
+        "PROJECT_CORE"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Workflows & Integration",
       "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-      "ignored": true,
-      "steps": [],
-      "paramNote": "Unrolled across project phases (2 runs at execution)"
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase is active"
+        },
+        {
+          "phase": "and",
+          "label": "A draft search uses the numeric project id"
+        },
+        {
+          "phase": "when",
+          "label": "The user searches the draft project index"
+        },
+        {
+          "phase": "then",
+          "label": "The active quote appears in the index results"
+        },
+        {
+          "phase": "when",
+          "label": "The user searches draft project labels with the same query"
+        },
+        {
+          "phase": "then",
+          "label": "The active quote appears among the label results"
+        }
+      ]
     },
     {
       "area": "Project",
       "spec": "ProjectWorkflowTestSteps",
-      "name": "Update D365 linkage",
+      "name": "Invoice comments and PO number can be updated together and both persist",
       "type": "Workflow",
-      "tags": [],
+      "tags": [
+        "PROJECT_CORE"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Workflows & Integration",
       "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-      "ignored": true,
-      "steps": []
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase with current commercial fields captured for restore"
+        },
+        {
+          "phase": "when",
+          "label": "The user updates invoice comments and the client reference PO number"
+        },
+        {
+          "phase": "then",
+          "label": "Both commercial fields persist on read-back"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectWorkflowTestSteps",
+      "name": "Renamed draft project shows the new name in label search",
+      "type": "Workflow",
+      "tags": [
+        "PROJECT_CORE"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - Workflows & Integration",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase is active"
+        },
+        {
+          "phase": "and",
+          "label": "The current project name is captured for restore"
+        },
+        {
+          "phase": "when",
+          "label": "The user renames the quote"
+        },
+        {
+          "phase": "then",
+          "label": "The rename is persisted"
+        },
+        {
+          "phase": "when",
+          "label": "The user searches draft project labels by project id"
+        },
+        {
+          "phase": "then",
+          "label": "The label result reflects the new name"
+        }
+      ]
     },
     {
       "area": "Quota",
@@ -13762,76 +13726,6 @@
         }
       ],
       "paramNote": "3 runs across phase"
-    },
-    {
-      "area": "Quota",
-      "spec": "ExternalQuotaWorkflowTestSteps",
-      "name": "3PP external quota synchronization: add events then switch to CUSTOM distribution",
-      "type": "Workflow",
-      "tags": [
-        "PARTNER_EVENT",
-        "QUOTA"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "External Quotas",
-      "cases": 2,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/ExternalQuotaWorkflowTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase and capture baseline external quota"
-        },
-        {
-          "phase": "when",
-          "label": "Add first 3PP partner event"
-        },
-        {
-          "phase": "then",
-          "label": "Verify QG external quota increases from baseline by first event quota"
-        },
-        {
-          "phase": "and",
-          "label": "Verify channel external quota also increases by first event quota"
-        },
-        {
-          "phase": "and",
-          "label": "Verify both are synchronized"
-        },
-        {
-          "phase": "when",
-          "label": "Add second 3PP partner event"
-        },
-        {
-          "phase": "then",
-          "label": "Verify QG external quota increases by second event quota"
-        },
-        {
-          "phase": "and",
-          "label": "Verify channel external quota also increases by second event quota"
-        },
-        {
-          "phase": "and",
-          "label": "Verify both are still synchronized"
-        },
-        {
-          "phase": "when",
-          "label": "Change distribution to CUSTOM mode with specified percentages"
-        },
-        {
-          "phase": "then",
-          "label": "Verify QG external quota reflects the new distribution"
-        },
-        {
-          "phase": "and",
-          "label": "Verify channel external quota also reflects the new distribution"
-        },
-        {
-          "phase": "and",
-          "label": "Verify both are still synchronized after mode change"
-        }
-      ],
-      "paramNote": "2 runs across phase"
     },
     {
       "area": "Quota",
@@ -14849,69 +14743,6 @@
     {
       "area": "Quota",
       "spec": "SoldQuotaWorkflowTestSteps",
-      "name": "Removing parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility",
-      "type": "Workflow",
-      "tags": [
-        "QUOTA",
-        "SOLD_QUOTAS",
-        "PARAMETER"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Sold Quotas",
-      "cases": 2,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaWorkflowTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Add multiple parameters first to have something to remove"
-        },
-        {
-          "phase": "and",
-          "label": "Change to Requested distribution"
-        },
-        {
-          "phase": "and",
-          "label": "Set sold quotas higher than quota capped to make them lockable, tolerant of in-flight segment regeneration"
-        },
-        {
-          "phase": "and",
-          "label": "Lock the sold quota"
-        },
-        {
-          "phase": "and",
-          "label": "Verify sold quota is initially locked"
-        },
-        {
-          "phase": "and",
-          "label": "Get initial segment data"
-        },
-        {
-          "phase": "when",
-          "label": "User removes parameter '#parameterToRemove'"
-        },
-        {
-          "phase": "then",
-          "label": "Sold quota is automatically unlocked after removing parameter"
-        },
-        {
-          "phase": "and",
-          "label": "Segment structure changes due to parameter removal"
-        },
-        {
-          "phase": "and",
-          "label": "Feasibility calculation completes and segment soldQuotas are updated"
-        }
-      ],
-      "paramNote": "2 runs across phase"
-    },
-    {
-      "area": "Quota",
-      "spec": "SoldQuotaWorkflowTestSteps",
       "name": "Removing parameters (when soldQuota is not locked) triggers feasibility and updates segment soldQuotas",
       "type": "Workflow",
       "tags": [
@@ -15121,50 +14952,6 @@
     {
       "area": "QuotaGroup",
       "spec": "ChangeOrderFlowTestSteps",
-      "name": "change order flow: request, evaluation, block traffic, revert",
-      "type": "Workflow",
-      "tags": [
-        "BOS_SYNC"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Change order \u2013 D365 audience change",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/ChangeOrderFlowTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "when",
-          "label": "change order is requested"
-        },
-        {
-          "phase": "then",
-          "label": "pending change is stored"
-        },
-        {
-          "phase": "when",
-          "label": "D365 evaluation arrives"
-        },
-        {
-          "phase": "then",
-          "label": "evaluation is stored on the quota group"
-        },
-        {
-          "phase": "and",
-          "label": "traffic is blocked"
-        },
-        {
-          "phase": "when",
-          "label": "change order is reverted in D365"
-        },
-        {
-          "phase": "then",
-          "label": "project change order is cleared but QG evaluation remains"
-        }
-      ]
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "ChangeOrderFlowTestSteps",
       "name": "change order flow: two audiences request, evaluation, approve",
       "type": "Workflow",
       "tags": [
@@ -15242,26 +15029,84 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupCRUDTestSteps",
-      "name": "Change quota group manual status",
+      "name": "Audience price calculation can be triggered",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "QUOTA"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
       "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-      "ignored": true,
+      "ignored": false,
       "steps": [
         {
           "phase": "given",
-          "label": "Set active phase"
+          "label": "PROJECT phase with a priced audience"
         },
         {
           "phase": "when",
-          "label": "User changes manual status"
+          "label": "The user triggers audience price calculation"
         },
         {
           "phase": "then",
-          "label": "Manual status is changed successfully"
+          "label": "Audience price remains readable after the calculation"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupCRUDTestSteps",
+      "name": "Audience price leaf matches the gateway quota group price",
+      "type": "CRUD",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "PROJECT phase with a priced audience"
+        },
+        {
+          "phase": "when",
+          "label": "The user reads the audience price leaf"
+        },
+        {
+          "phase": "then",
+          "label": "Both reads agree on CPI and currency"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupCRUDTestSteps",
+      "name": "Audience price leaf update persists on read-back",
+      "type": "CRUD",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "PROJECT phase with the current audience price captured for restore"
+        },
+        {
+          "phase": "when",
+          "label": "The user updates the audience price"
+        },
+        {
+          "phase": "then",
+          "label": "The audience price leaf reflects the new CPI"
         }
       ]
     },
@@ -15452,6 +15297,34 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupCRUDTestSteps",
+      "name": "Combined feasibility and price calculation can be triggered",
+      "type": "CRUD",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "PROJECT phase with an audience ready for feasibility and price work"
+        },
+        {
+          "phase": "when",
+          "label": "The user triggers feasibility and price calculation together"
+        },
+        {
+          "phase": "then",
+          "label": "Audience price remains readable after the combined trigger"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupCRUDTestSteps",
       "name": "Configure quota group settings",
       "type": "CRUD",
       "tags": [
@@ -15609,10 +15482,10 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupCRUDTestSteps",
-      "name": "First START transition forces deliveryMode=UNLIMITED when delivery.race.eligibleForRaceBoost is true",
+      "name": "Feasibility calculation job can be triggered and read",
       "type": "CRUD",
       "tags": [
-        "DELIVERY"
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -15622,23 +15495,23 @@
       "steps": [
         {
           "phase": "given",
-          "label": "PROJECT phase with race boost enabled and a freshly cloned QG (activationDate null, race inherited from project)"
-        },
-        {
-          "phase": "and",
-          "label": "Sanity preconditions for the pacing trigger \u2014 clone really did inherit raceBoost and activation hasn't run yet"
+          "label": "PROJECT phase with an audience ready for feasibility work"
         },
         {
           "phase": "when",
-          "label": "The user triggers the first START transition on the clone"
+          "label": "The user triggers a new feasibility calculation"
         },
         {
           "phase": "then",
-          "label": "RaceHandler.handleFieldworkPacing forced deliveryMode to UNLIMITED \u2014 per NXS-12915 (race-eligible QGs run unthrottled)"
+          "label": "A feasibility job payload is returned"
         },
         {
-          "phase": "and",
-          "label": "handleQuotaActivationDate set the activation date \u2014 confirms the START path actually reached the pacing handler"
+          "phase": "when",
+          "label": "The user reads the current feasibility calculation job"
+        },
+        {
+          "phase": "then",
+          "label": "The feasibility job is available"
         }
       ]
     },
@@ -15675,36 +15548,6 @@
         {
           "phase": "and",
           "label": "Overlay also populated dailyQuota and prioritizationLevel from V1 SQL \u2014 proves all three legacy fields completed the backfill"
-        }
-      ]
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupCRUDTestSteps",
-      "name": "Get audience change status for quota group",
-      "type": "CRUD",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - CRUD Operations",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "when",
-          "label": "User retrieves audience change status"
-        },
-        {
-          "phase": "then",
-          "label": "Audience change status is returned successfully"
-        },
-        {
-          "phase": "and",
-          "label": "Evaluation rules are present if change order is needed"
         }
       ]
     },
@@ -15877,32 +15720,6 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupCRUDTestSteps",
-      "name": "Get quota group status",
-      "type": "CRUD",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - CRUD Operations",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "when",
-          "label": "User retrieves quota group status"
-        },
-        {
-          "phase": "then",
-          "label": "Status is returned successfully"
-        }
-      ]
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupCRUDTestSteps",
       "name": "Initialize audience price change for quota group",
       "type": "CRUD",
       "tags": [],
@@ -16019,6 +15836,90 @@
         {
           "phase": "then",
           "label": "Both paths read the same Price object \u2014 Feasibility-Price separation reads agree"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupCRUDTestSteps",
+      "name": "Quota group core project id matches the active project",
+      "type": "CRUD",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase is active"
+        },
+        {
+          "phase": "when",
+          "label": "The user looks up the project id for the audience"
+        },
+        {
+          "phase": "then",
+          "label": "The linked project matches the active fixture project"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupCRUDTestSteps",
+      "name": "Quota group name leaf update persists on core read-back",
+      "type": "CRUD",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase with the current audience name captured for restore"
+        },
+        {
+          "phase": "when",
+          "label": "The user renames the audience via the dedicated name field"
+        },
+        {
+          "phase": "then",
+          "label": "Core read-back shows the new name"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupCRUDTestSteps",
+      "name": "Quota group type link persists on core read-back",
+      "type": "CRUD",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase with the current type link captured for restore"
+        },
+        {
+          "phase": "when",
+          "label": "The user updates the audience type link without a paired link id"
+        },
+        {
+          "phase": "then",
+          "label": "Core read-back shows the new type"
         }
       ]
     },
@@ -16283,36 +16184,6 @@
         }
       ],
       "paramNote": "2 runs across phase"
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupCRUDTestSteps",
-      "name": "Update audience group ID of quota group",
-      "type": "CRUD",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - CRUD Operations",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Clone the audience group to get a new audience group"
-        },
-        {
-          "phase": "when",
-          "label": "User updates the audience group ID"
-        },
-        {
-          "phase": "then",
-          "label": "Audience group ID is updated successfully"
-        }
-      ]
     },
     {
       "area": "QuotaGroup",
@@ -16781,34 +16652,6 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupCRUDTestSteps",
-      "name": "Update quota group price in project currency",
-      "type": "CRUD",
-      "tags": [
-        "QUOTA"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - CRUD Operations",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "when",
-          "label": "Update price in project currency"
-        },
-        {
-          "phase": "then",
-          "label": "Price is updated"
-        }
-      ]
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupCRUDTestSteps",
       "name": "Update quota group settings to boundary values",
       "type": "CRUD",
       "tags": [
@@ -16834,33 +16677,6 @@
         }
       ],
       "paramNote": "3 runs across phase"
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupCRUDTestSteps",
-      "name": "Update quota group status",
-      "type": "CRUD",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - CRUD Operations",
-      "cases": 4,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "when",
-          "label": "User updates quota group status"
-        },
-        {
-          "phase": "then",
-          "label": "Status is updated successfully"
-        }
-      ],
-      "paramNote": "4 runs across phase"
     },
     {
       "area": "QuotaGroup",
@@ -18321,54 +18137,6 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupInclusionTestSteps",
-      "name": "POST quotaGroups/{id}/hijack reevaluates and persists HijackProperties derived from the current inclusion",
-      "type": "CRUD",
-      "tags": [
-        "QUOTA"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - Inclusion Management",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupInclusionTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "PROJECT phase fixture QG with its current inclusion state"
-        },
-        {
-          "phase": "when",
-          "label": "Reevaluating hijack via the new gateway endpoint"
-        },
-        {
-          "phase": "then",
-          "label": "The endpoint returns a populated HijackProperties"
-        },
-        {
-          "phase": "and",
-          "label": "hasTargetSamplePlus is always false per the reevaluation contract (handler sets it to false unconditionally)"
-        },
-        {
-          "phase": "when",
-          "label": "Reevaluating a second time without changing the inclusion"
-        },
-        {
-          "phase": "then",
-          "label": "Reevaluation is deterministic for an unchanged inclusion shape"
-        },
-        {
-          "phase": "and",
-          "label": "Remaining flags also match"
-        },
-        {
-          "phase": "and",
-          "label": "Reevaluation did not mutate the QG inclusion itself"
-        }
-      ]
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupInclusionTestSteps",
       "name": "Update quota group inclusion conditions",
       "type": "CRUD",
       "tags": [
@@ -18445,29 +18213,58 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupValidationTestSteps",
-      "name": "Change manual status with invalid transition",
+      "name": "Audience name shorter than three characters is rejected",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "QUOTA"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
-      "cases": 3,
+      "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-      "ignored": true,
+      "ignored": false,
       "steps": [
         {
           "phase": "given",
-          "label": "Set active phase"
+          "label": "Quote phase is active"
         },
         {
           "phase": "when",
-          "label": "User attempts invalid status transition"
+          "label": "The user renames the audience with a two-character name"
         },
         {
           "phase": "then",
-          "label": "System rejects invalid transition"
+          "label": "The rename is rejected as too short"
         }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupValidationTestSteps",
+      "name": "Audience price lookup for an unknown audience is rejected",
+      "type": "Validation",
+      "tags": [
+        "QUOTA"
       ],
-      "paramNote": "3 runs across exception.message.contains(\"transition\")"
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase is active"
+        },
+        {
+          "phase": "when",
+          "label": "The user looks up audience price for a non-existent audience"
+        },
+        {
+          "phase": "then",
+          "label": "The lookup is rejected because the audience does not exist"
+        }
+      ]
     },
     {
       "area": "QuotaGroup",
@@ -18671,6 +18468,34 @@
         }
       ],
       "paramNote": "4 runs across exception.message.contains(\"400\")"
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupValidationTestSteps",
+      "name": "Exposed type link without a paired audience is rejected",
+      "type": "Validation",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase is active"
+        },
+        {
+          "phase": "when",
+          "label": "The user marks the audience as exposed without a linked audience id"
+        },
+        {
+          "phase": "then",
+          "label": "The type link update is rejected"
+        }
+      ]
     },
     {
       "area": "QuotaGroup",
@@ -18951,33 +18776,6 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupValidationTestSteps",
-      "name": "Update line ID with invalid format",
-      "type": "Validation",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - Validation & Error Handling",
-      "cases": 5,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "when",
-          "label": "User attempts to update with invalid line ID"
-        },
-        {
-          "phase": "then",
-          "label": "System rejects invalid line ID"
-        }
-      ],
-      "paramNote": "5 runs across exception.message.contains(\"line\")"
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupValidationTestSteps",
       "name": "Update quota group core with invalid bid incidence",
       "type": "Validation",
       "tags": [],
@@ -19136,6 +18934,42 @@
         }
       ],
       "paramNote": "2 runs across phase"
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupWorkflowTestSteps",
+      "name": "Audience rename, type link, price update, and recalculation stay consistent",
+      "type": "Workflow",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Complex Workflows & Integration",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote-phase identity and project-phase commercial state are captured for restore"
+        },
+        {
+          "phase": "when",
+          "label": "The user renames the quote audience and flips its type link"
+        },
+        {
+          "phase": "then",
+          "label": "Quote-phase core read-back shows the new name and type"
+        },
+        {
+          "phase": "when",
+          "label": "The user updates live-audience price and recalculates price and feasibility"
+        },
+        {
+          "phase": "then",
+          "label": "Live price persists after recalculation and the audience still maps to the active project"
+        }
+      ]
     },
     {
       "area": "QuotaGroup",
@@ -19344,7 +19178,7 @@
       "feature": "Quota Groups - Complex Workflows & Integration",
       "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
-      "ignored": true,
+      "ignored": false,
       "steps": [
         {
           "phase": "given",
@@ -19901,39 +19735,6 @@
     {
       "area": "SampleRules",
       "spec": "SampleRulesTestSteps",
-      "name": "Configure manual distribution with extreme values",
-      "type": "CRUD",
-      "tags": [
-        "CHANNEL_CRITERIA"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Sample Rules",
-      "cases": 2,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/SampleRules/SampleRulesTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "when",
-          "label": "The user configures manual channel distribution with extreme values"
-        },
-        {
-          "phase": "then",
-          "label": "The channel distribution is configured with extreme values"
-        },
-        {
-          "phase": "and",
-          "label": "The extreme values are applied correctly"
-        }
-      ],
-      "paramNote": "2 runs across phase"
-    },
-    {
-      "area": "SampleRules",
-      "spec": "SampleRulesTestSteps",
       "name": "Configure sample criteria with copying",
       "type": "CRUD",
       "tags": [
@@ -20323,48 +20124,6 @@
         }
       ],
       "paramNote": "8 runs across exception.message.contains(\"sourceQuotaGroupId must be greater than or equal to 1\")"
-    },
-    {
-      "area": "SampleRules",
-      "spec": "SampleRulesValidationTestSteps",
-      "name": "Copy sample criteria with partial source configuration",
-      "type": "Validation",
-      "tags": [
-        "CHANNEL_CRITERIA",
-        "CC_MIRRORED"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Sample Rules - Validation & Error Handling",
-      "cases": 6,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/SampleRules/SampleRulesValidationTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "An existing quota group"
-        },
-        {
-          "phase": "and",
-          "label": "with partial sample criteria configuration"
-        },
-        {
-          "phase": "when",
-          "label": "The user copies sample criteria from the partial source quota group"
-        },
-        {
-          "phase": "then",
-          "label": "The sample criteria are successfully copied"
-        },
-        {
-          "phase": "and",
-          "label": "The criteria match those of the source quota group"
-        }
-      ],
-      "paramNote": "6 runs across phase"
     },
     {
       "area": "SampleRules",
@@ -21359,6 +21118,34 @@
     {
       "area": "Segment",
       "spec": "SegmentsCRUDTestSteps",
+      "name": "Bulk condition percent update persists on read-back",
+      "type": "CRUD",
+      "tags": [
+        "SEGMENTS"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Sample Rules - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "PROJECT phase with primary segmentation and a known total quota"
+        },
+        {
+          "phase": "when",
+          "label": "The user updates condition percentages in bulk"
+        },
+        {
+          "phase": "then",
+          "label": "Condition percentages match the bulk update"
+        }
+      ]
+    },
+    {
+      "area": "Segment",
+      "spec": "SegmentsCRUDTestSteps",
       "name": "Get available quota distribution modes",
       "type": "Query",
       "tags": [
@@ -21933,6 +21720,34 @@
         }
       ],
       "paramNote": "Unrolled across project phases (2 runs at execution)"
+    },
+    {
+      "area": "Segment",
+      "spec": "SegmentsValidationTestSteps",
+      "name": "Bulk condition percent update totaling over 100% is rejected",
+      "type": "Validation",
+      "tags": [
+        "SEGMENTS"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Segments - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "PROJECT phase with primary segmentation and a known total quota"
+        },
+        {
+          "phase": "when",
+          "label": "The user bulk-updates condition percentages that exceed one hundred percent"
+        },
+        {
+          "phase": "then",
+          "label": "The bulk update is rejected"
+        }
+      ]
     },
     {
       "area": "Segment",
@@ -23803,32 +23618,6 @@
     {
       "area": "Settings",
       "spec": "UserSettingsTestSteps",
-      "name": "Delete user settings",
-      "type": "CRUD",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "User Settings",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "A user with settings"
-        },
-        {
-          "phase": "when",
-          "label": "The user settings are deleted"
-        },
-        {
-          "phase": "then",
-          "label": "The user settings are successfully removed"
-        }
-      ]
-    },
-    {
-      "area": "Settings",
-      "spec": "UserSettingsTestSteps",
       "name": "Get user settings",
       "type": "Query",
       "tags": [],
@@ -23905,32 +23694,6 @@
       ]
     },
     {
-      "area": "Settings",
-      "spec": "UserSettingsTestSteps",
-      "name": "Set default countries",
-      "type": "CRUD",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "User Settings",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "A list of valid country codes"
-        },
-        {
-          "phase": "when",
-          "label": "The user sets new default countries"
-        },
-        {
-          "phase": "then",
-          "label": "The default countries are successfully updated"
-        }
-      ]
-    },
-    {
       "area": "Survey",
       "spec": "SurveyCRUDTestSteps",
       "name": "Activate cloned survey independently",
@@ -23993,6 +23756,34 @@
         {
           "phase": "then",
           "label": "the URL pool is successfully associated with the quota group"
+        }
+      ]
+    },
+    {
+      "area": "Survey",
+      "spec": "SurveyCRUDTestSteps",
+      "name": "Base URL with tags can be set and read back",
+      "type": "CRUD",
+      "tags": [
+        "SURVEY"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Url Pools - Surveys",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "PROJECT phase with a newly created survey"
+        },
+        {
+          "phase": "when",
+          "label": "The user configures the base URL with a PSID tag"
+        },
+        {
+          "phase": "then",
+          "label": "The base URL with tags can be read back"
         }
       ]
     },
@@ -24486,48 +24277,6 @@
     {
       "area": "Survey",
       "spec": "SurveyCRUDTestSteps",
-      "name": "Export survey test results by project",
-      "type": "CRUD",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Url Pools - Surveys",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Create and activate survey with test data"
-        },
-        {
-          "phase": "when",
-          "label": "User exports survey test results by project"
-        },
-        {
-          "phase": "then",
-          "label": "Export data is generated successfully"
-        },
-        {
-          "phase": "and",
-          "label": "Export data contains required fields"
-        },
-        {
-          "phase": "and",
-          "label": "URL is valid and accessible"
-        },
-        {
-          "phase": "and",
-          "label": "File name has expected format"
-        }
-      ]
-    },
-    {
-      "area": "Survey",
-      "spec": "SurveyCRUDTestSteps",
       "name": "Generate presigned URL for file upload",
       "type": "CRUD",
       "tags": [],
@@ -24787,48 +24536,6 @@
     {
       "area": "Survey",
       "spec": "SurveyCRUDTestSteps",
-      "name": "Get uploaded URL sample values",
-      "type": "CRUD",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Url Pools - Surveys",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Create and activate survey"
-        },
-        {
-          "phase": "and",
-          "label": "Generate test links to create URL values"
-        },
-        {
-          "phase": "when",
-          "label": "User retrieves uploaded URL sample values"
-        },
-        {
-          "phase": "then",
-          "label": "Sample values response is returned"
-        },
-        {
-          "phase": "and",
-          "label": "Response contains required fields"
-        },
-        {
-          "phase": "and",
-          "label": "Sample values are present after test link generation"
-        }
-      ]
-    },
-    {
-      "area": "Survey",
-      "spec": "SurveyCRUDTestSteps",
       "name": "Modify cloned survey URL independently",
       "type": "CRUD",
       "tags": [],
@@ -24959,48 +24666,6 @@
     {
       "area": "Survey",
       "spec": "SurveyCRUDTestSteps",
-      "name": "Remove uploaded URL values",
-      "type": "CRUD",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Url Pools - Surveys",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Create and configure survey"
-        },
-        {
-          "phase": "and",
-          "label": "Generate test links to create URL values"
-        },
-        {
-          "phase": "and",
-          "label": "Verify URL values exist"
-        },
-        {
-          "phase": "when",
-          "label": "User removes uploaded URL values"
-        },
-        {
-          "phase": "then",
-          "label": "URL values are removed successfully"
-        },
-        {
-          "phase": "and",
-          "label": "URL values are cleared"
-        }
-      ]
-    },
-    {
-      "area": "Survey",
-      "spec": "SurveyCRUDTestSteps",
       "name": "Rename survey",
       "type": "CRUD",
       "tags": [
@@ -25055,6 +24720,62 @@
         {
           "phase": "then",
           "label": "the URL pool is successfully activated"
+        }
+      ]
+    },
+    {
+      "area": "Survey",
+      "spec": "SurveyCRUDTestSteps",
+      "name": "Survey re-validation returns a validation result without persisting",
+      "type": "CRUD",
+      "tags": [
+        "SURVEY"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Url Pools - Surveys",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "PROJECT phase with a newly created survey"
+        },
+        {
+          "phase": "when",
+          "label": "The user re-validates the survey without saving the result"
+        },
+        {
+          "phase": "then",
+          "label": "A validation result is returned"
+        }
+      ]
+    },
+    {
+      "area": "Survey",
+      "spec": "SurveyCRUDTestSteps",
+      "name": "Tagged base URL remains readable after survey re-validation",
+      "type": "CRUD",
+      "tags": [
+        "SURVEY"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Url Pools - Surveys",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "PROJECT phase with a newly created survey"
+        },
+        {
+          "phase": "when",
+          "label": "The user configures the base URL with tags and re-validates the survey"
+        },
+        {
+          "phase": "then",
+          "label": "Re-validation returns a result and the tagged base URL still reads back"
         }
       ]
     },
@@ -25192,6 +24913,34 @@
     {
       "area": "Survey",
       "spec": "SurveyValidationTestSteps",
+      "name": "Base URL with tags rejects an empty tag list",
+      "type": "Validation",
+      "tags": [
+        "SURVEY"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Url Pools - Surveys - Validation Tests",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase with a newly created survey"
+        },
+        {
+          "phase": "when",
+          "label": "The user configures a base URL without any tags"
+        },
+        {
+          "phase": "then",
+          "label": "The configuration is rejected because tags are required"
+        }
+      ]
+    },
+    {
+      "area": "Survey",
+      "spec": "SurveyValidationTestSteps",
       "name": "Configure end-link security with invalid value",
       "type": "Validation",
       "tags": [],
@@ -25256,36 +25005,6 @@
     {
       "area": "Survey",
       "spec": "SurveyValidationTestSteps",
-      "name": "Generate test links for inactive survey",
-      "type": "Validation",
-      "tags": [],
-      "owner": "Gergely Gimesi",
-      "feature": "Url Pools - Surveys - Validation Tests",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyValidationTestSteps.groovy",
-      "ignored": true,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Create survey without activation"
-        },
-        {
-          "phase": "when",
-          "label": "User attempts to generate test links for inactive survey"
-        },
-        {
-          "phase": "then",
-          "label": "System rejects request for inactive survey"
-        }
-      ]
-    },
-    {
-      "area": "Survey",
-      "spec": "SurveyValidationTestSteps",
       "name": "Generate test links with invalid parameters",
       "type": "Validation",
       "tags": [],
@@ -25321,41 +25040,30 @@
     {
       "area": "Survey",
       "spec": "SurveyValidationTestSteps",
-      "name": "Update survey URL with invalid patterns",
+      "name": "Survey re-validation for an unknown survey is rejected",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "SURVEY"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys - Validation Tests",
-      "cases": 5,
+      "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyValidationTestSteps.groovy",
-      "ignored": true,
+      "ignored": false,
       "steps": [
         {
           "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Create survey"
-        },
-        {
-          "phase": "and",
-          "label": "the URL pool is associated with a quota group"
-        },
-        {
-          "phase": "and",
-          "label": "the user activates the URL pool"
+          "label": "Project phase is active"
         },
         {
           "phase": "when",
-          "label": "User attempts to update with invalid URL"
+          "label": "The user re-validates a non-existent survey"
         },
         {
           "phase": "then",
-          "label": "System rejects the invalid URL"
+          "label": "The re-validation is rejected because the survey does not exist"
         }
-      ],
-      "paramNote": "5 runs across exception.message.toLowerCase().contains(\"url\")"
+      ]
     },
     {
       "area": "Survey",
