@@ -1450,26 +1450,25 @@
     "SegmentsValidationTestSteps::Validate quota value constraints": "muted"
   },
   "nutshell": {
-    "headline": "3 new failures in Quota",
+    "headline": "3 new failures are mostly QA infra (a 120s read timeout and a backend 500) plus one PES soft-launch data issue \u2014 no code regression confirmed.",
     "tone": "warn",
-    "cause": "code_change",
-    "causeText": "Possibly NXS-13454 by gergely.gimesi \u2014 touches Quota, QuotaGroup (2 overlapping new fails). Correlation only.",
-    "investigation": "New fails: 2\u00d7 other (no dominant signature yet); 1\u00d7 PES soft-launch vs tally. Likely related to NXS-13454 gergely.gimesi `390116a5e8bc` (Quota, QuotaGroup, 2 new fails in overlap).",
+    "cause": "mixed",
+    "causeText": "Reading the real messages: QuotaGroup 'Move quota group\u2026' is a 120s Read-timed-out on POST audienceGroups/clone (infra), and Quota 'Modifying totalQuota\u2026' is a 500 from the QA dk-project-feasibility-data-store setMockData call (backend/environment). The pes 'tally mode update\u2026' is a test-data fixture issue (HTTP 400 'total quota less than soft launch quota'). The rules engine's NXS-13454 (gergely.gimesi) blame is area-overlap only \u2014 those commits touch test helpers and docs/.cursor/dashboard automation, none of which maps to these infra/data causes.",
+    "investigation": "New fails are 2\u00d7 QA infra/environment (a 120s read timeout on audienceGroups/clone and a 500 from feasibility-data-store setMockData) and 1\u00d7 test-data (PES soft-launch quota > tally). No code change plausibly maps; NXS-13454 overlaps by area only.",
     "bullets": [
-      "2\u00d7 other \u2014 java.lang.RuntimeException: <url>",
-      "1\u00d7 PES soft-launch vs tally \u2014 Tally mode change is not allowed, because total quota less than soft launch quota!",
-      "Change NXS-13454: gergely.gimesi \u00b7 Quota, QuotaGroup \u00b7 2 overlapping new fails",
-      "Change NXS-13454: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails"
+      "QuotaGroup 'Move quota group\u2026' \u2014 Read timed out after 120s on POST audienceGroups/clone (infra)",
+      "Quota 'Modifying totalQuota\u2026' \u2014 HTTP 500 from QA feasibility-data-store setMockData (backend/env)",
+      "pes 'tally mode update\u2026' \u2014 HTTP 400 'total quota less than soft launch quota' (test-data fixture)"
     ],
     "detail": {
-      "investigation": "3 of 4 unmuted failures are new since the prior build (#3.0.2633, 2 fails). Failure types (new-first): (1) 2\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. Hot areas among new fails: Quota (1), QuotaGroup (1), pes (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): Example new failures: Quota: Modifying totalQuota (when soldQuota is locked) prevents any updates: com.dynata.rest.gate [other]; QuotaGroup: Move quota group between audience groups and verify integrity: com.dynata.rest.gateway.nex [other]; pes: tally mode update publishes quotaGroupDetailsUpdated notification [PES soft-launch vs tally].",
+      "investigation": "3 of 4 unmuted failures are new since the prior build (#3.0.2633, 2 fails). Reading the actual messages (not the coarse cluster labels): (1) QuotaGroup 'Move quota group between audience groups and verify integrity' (QuotaGroupWorkflowTestSteps) failed with 'Timeout after waiting 120 seconds: \u2026 Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2176537/audienceGroups/1472149/clone' \u2014 a clear QA read timeout (infra). (2) Quota 'Modifying totalQuota (when soldQuota is locked) prevents any updates' (SoldQuotaValidationTestSteps) failed on a test-setup call returning HTTP 500 from http://dk-project-feasibility-data-store.nexus-ms-qa.dynata.com setMockData (with an inner HTTP 400 from details-editor feasibilityDistribution) \u2014 a QA backend/environment 500, not an assertion. (3) pes 'tally mode update publishes quotaGroupDetailsUpdated notification' (PesNotificationTestSteps) failed with HTTP 400 'Tally mode change is not allowed, because total quota less than soft launch quota!' \u2014 a soft-launch vs tally state issue on a shared fixture (test/data). The remaining failure (ChangeOrderFlowTestSteps, assert_fail) is NOT new. Hot areas among new fails: Quota (1), QuotaGroup (1), pes (1). The NXS-13454 commits by gergely.gimesi were flagged by the rules engine on area overlap only; their changed files are test helpers (ProjectHelper/QuotaGroupHelper .groovy, Feign clients) plus docs/.cursor/dashboard automation, none of which explains a QA timeout, a backend 500, or a soft-launch fixture state \u2014 so no code change is confidently implicated.",
       "bullets": [
-        "2\u00d7 other \u2014 java.lang.RuntimeException: <url>",
-        "1\u00d7 PES soft-launch vs tally \u2014 Tally mode change is not allowed, because total quota less than soft launch quota!",
-        "Change NXS-13454: gergely.gimesi \u00b7 Quota, QuotaGroup \u00b7 2 overlapping new fails",
-        "Change NXS-13454: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails",
-        "NXS-13454 390116a5e8bc by gergely.gimesi \u2192 areas Quota, QuotaGroup (2 new fails) \u00b7 guard-shell.py, AGENTS.md, coverage-baseline.json, coverage.json, endpoints-overlay.json, inventory.json",
-        "NXS-13454 f093659dc2b9 by gergely.gimesi \u2192 areas QuotaGroup (1 new fails) \u00b7 coverage.json, endpoints-overlay.json, PLATFORM_ASKS.md, BaseTestForRegression.groovy, ProjectHelper.groovy, QuotaGroupHelper.groovy"
+        "QuotaGroup 'Move quota group\u2026' (QuotaGroupWorkflowTestSteps) \u2014 Timeout after 120s, Read timed out on POST audienceGroups/1472149/clone \u2192 infra",
+        "Quota 'Modifying totalQuota\u2026' (SoldQuotaValidationTestSteps) \u2014 HTTP 500 from QA feasibility-data-store setMockData (inner HTTP 400 details-editor) \u2192 backend/env",
+        "pes 'tally mode update\u2026' (PesNotificationTestSteps) \u2014 HTTP 400 'total quota less than soft launch quota' \u2192 test-data fixture",
+        "Not new: ChangeOrderFlowTestSteps assertion (assertAfterApprove) \u2014 carried over, not this build's regression",
+        "NXS-13454 (gergely.gimesi) flagged by rules on area overlap only; commits touch test helpers + docs/.cursor/dashboard automation \u2014 no map to the infra/data causes",
+        "Net: 2\u00d7 QA infra/environment + 1\u00d7 test-data; treat as environment noise + one fixture issue, not a code regression"
       ],
       "newFailureAreas": [
         {
@@ -1485,45 +1484,7 @@
           "newCount": 1
         }
       ],
-      "likelyCauses": [
-        {
-          "version": "390116a5e8bc",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13454",
-          "comment": "[NXS-13454] MS - Feign-ready coverage, ignore burn-down, commit hook",
-          "areas": [
-            "Quota",
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 2,
-          "files": [
-            "guard-shell.py",
-            "AGENTS.md",
-            "coverage-baseline.json",
-            "coverage.json",
-            "endpoints-overlay.json",
-            "inventory.json"
-          ]
-        },
-        {
-          "version": "f093659dc2b9",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13454",
-          "comment": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "areas": [
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 1,
-          "files": [
-            "coverage.json",
-            "endpoints-overlay.json",
-            "PLATFORM_ASKS.md",
-            "BaseTestForRegression.groovy",
-            "ProjectHelper.groovy",
-            "QuotaGroupHelper.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
     "clusters": [
       {
@@ -1586,8 +1547,8 @@
         "areas": []
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-07-23T02:02Z",
+    "source": "llm",
+    "generatedAt": "2026-07-23T02:02:00Z",
     "buildNumber": "3.0.2634",
     "buildId": "9406176",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9406176",
