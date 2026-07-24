@@ -2314,22 +2314,27 @@
     "SurveyCRUDTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "76 new failures \u2014 mainly Segment, QuotaGroup",
+    "headline": "76 new failures across QuotaGroup, Quota, PartnerEvent and Segment are all server-side HTTP 500s from the QA product (java.lang.AbstractMethodError), pointing to a broken QA deployment rather than the tests.",
     "tone": "bad",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 31\u00d7 server NestedServletException / NPE (QA threw NestedServletException/NPE/IOOB); 16\u00d7 assertion Condition not satisfied. Vs prior #3.0.2635: up 78 total fails.",
+    "cause": "infra",
+    "causeText": "Reading the actual messages, the new failures are QA-side HTTP 500 INTERNAL_SERVER_ERRORs \u2014 dominated by java.lang.AbstractMethodError (a binary/dependency incompatibility) wrapped in NestedServletException, plus NPE and IndexOutOfBoundsException, and 'quotaGroup cannot be cloned because it has been deleted or is currently being created' ValidationExceptions; the 404/EmptyResult NOT_FOUNDs cascade from those broken create/clone flows. This signature across multiple microservices is a broken QA product deployment, not the regression tests, and it is not a QA timeout/502/504. The build recorded no code changes (changes []) and the prior build was a compileJava error, so no commit or developer can be attributed.",
+    "investigation": "All 76 new failures are QA-side HTTP 500s \u2014 mostly AbstractMethodError, plus NPE/IOOB and clone ValidationExceptions \u2014 with 404 NOT_FOUNDs cascading behind them. No code changes were recorded, so this reads as a broken QA deployment rather than a test or commit fault.",
     "bullets": [
-      "31\u00d7 server NestedServletException / NPE \u2014 org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.Abs",
-      "16\u00d7 assertion Condition not satisfied",
-      "14\u00d7 NOT_FOUND / missing data \u2014 org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0"
+      "31\u00d7 server 500 NestedServletException \u2192 java.lang.AbstractMethodError on partnerEvents/quota endpoints (binary mismatch)",
+      "14\u00d7 clone ValidationException + 14\u00d7 404 NOT_FOUND cascading from the same broken create/clone flows",
+      "No build changes recorded \u2014 nothing to attribute; signature = broken QA deployment, not tests"
     ],
     "detail": {
-      "investigation": "76 of 78 unmuted failures are new since the prior build (#3.0.2635, 0 fails). Failure types (new-first): (1) 31\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. (2) 16\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (3) 14\u00d7 NOT_FOUND / missing data \u2014 missing DB row / EmptyResult / NOT_FOUND. (4) 14\u00d7 API ValidationException \u2014 API rejected the request (business validation). Hot areas among new fails: Segment (23), QuotaGroup (17), Quota (13), PartnerEvent (13), SampleRules (6), Fieldwork (3). Example new failures: AudienceGroup: Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder [NOT_FOUND / missing data]; Fieldwork: Configure fieldwork and verify impact on project counters: com.dynata.rest.gateway.nexusap [server NestedServletException / NPE]; Fieldwork: Update soft launch configuration with active partners and delivery settings: com.dynata.re [server NestedServletException / NPE]; Fieldwork: Configure soft launch with exclusions and verify impact on partner events: com.dynata.rest [server NestedServletException / NPE].",
+      "investigation": "76 of 78 unmuted failures are new since the prior build (#3.0.2635, which failed to compile). Reading the real messages instead of the coarse cluster labels: the dominant signal is HTTP 500 NestedServletException wrapping java.lang.AbstractMethodError on POST/PUT to partnerEvents (dk-project-external-event-rest) and quota endpoints \u2014 AbstractMethodError is a runtime binary/dependency incompatibility, i.e. a bad deployment, not a test bug. A second server_exception variant is java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0 on segmentedConditions/updateSoldQuotas (SoldQuota and QuotaGroup copy). 14\u00d7 validation_exception are 500s wrapping jakarta.validation.ValidationException 'The quotaGroup cannot be cloned because it has been deleted or is currently being created' on /clone. The 14\u00d7 product_data_not_found (EmptyResultDataAccessException / 'Quota group not found', HTTP 404) and the 16\u00d7 Spock 'Condition not satisfied' assertions are downstream cascades of those failed create/clone/save calls. Crucially there are no 'Read timed out'/SocketTimeout/502/504 messages, so this is not classic QA-timeout infra \u2014 it is a server-side/deployment breakage returning 500s across multiple microservices. Hot areas among new fails: Segment (23), QuotaGroup (17), Quota (13), PartnerEvent (13), SampleRules (6), Fieldwork (3), AudienceGroup (1). The build's changelist is empty (changes []) and the prior build was 'Compilation error: :compileJava (new)', so there is no commit or developer to blame; likelyCauses is empty by design (never invent blame).",
       "bullets": [
-        "31\u00d7 server NestedServletException / NPE \u2014 org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.Abs",
-        "16\u00d7 assertion Condition not satisfied",
-        "14\u00d7 NOT_FOUND / missing data \u2014 org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0"
+        "31\u00d7 server_exception: HTTP 500 NestedServletException \u2192 java.lang.AbstractMethodError on POST/PUT partnerEvents and quota endpoints \u2014 binary/dependency incompatibility from a deployment",
+        "Subset of server_exception: java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0 on segmentedConditions/updateSoldQuotas (SoldQuota, QuotaGroup copy)",
+        "14\u00d7 validation_exception: HTTP 500 jakarta.validation.ValidationException 'quotaGroup cannot be cloned \u2014 deleted or currently being created' on /clone",
+        "14\u00d7 product_data_not_found: HTTP 404 EmptyResultDataAccessException / 'Quota group not found' \u2014 cascades from failed create/clone",
+        "16\u00d7 assert_fail: Spock 'Condition not satisfied' \u2014 downstream of the 500/404 responses, not independent test bugs",
+        "Messages are HTTP 500 server errors, not Read timed out/SocketTimeout/502/504 \u2014 server-side/deployment breakage, not a QA timeout",
+        "New-failure areas: Segment 23, QuotaGroup 17, Quota 13, PartnerEvent 13, SampleRules 6, Fieldwork 3, AudienceGroup 1",
+        "changes [] is empty and prior build was a compileJava error \u2014 no commit/developer to attribute; likelyCauses []"
       ],
       "newFailureAreas": [
         {
@@ -2414,8 +2419,8 @@
       }
     ],
     "suspectCommits": [],
-    "source": "investigator",
-    "generatedAt": "2026-07-24T08:09Z",
+    "source": "llm",
+    "generatedAt": "2026-07-24T08:11:37Z",
     "buildNumber": "3.0.2636",
     "buildId": "9409083",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9409083",
