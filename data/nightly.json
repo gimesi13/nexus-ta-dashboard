@@ -2314,22 +2314,27 @@
     "SurveyCRUDTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "76 new failures \u2014 mainly Segment, QuotaGroup",
+    "headline": "76 new failures \u2014 QA microservices are returning HTTP 500s (java.lang.AbstractMethodError), not a test bug or an attributable code change.",
     "tone": "bad",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 31\u00d7 server NestedServletException / NPE (QA threw NestedServletException/NPE/IOOB); 16\u00d7 assertion Condition not satisfied. Vs prior #3.0.2635: up 78 total fails.",
+    "cause": "infra",
+    "causeText": "This build carried no code changes (changes: []) and the prior build (#3.0.2635) failed on a compile error, so there is no commit or developer to attribute. The real messages show the QA product services returning HTTP 500 java.lang.AbstractMethodError (via NestedServletException) on ExternalEvent/partnerEvents and java.lang.IndexOutOfBoundsException on DetailsEditor \u2014 an AbstractMethodError across services points to a binary/version mismatch in the QA deployment, not the regression suite. The clone 500s then cascade into 'quotaGroup cannot be cloned' validation errors and downstream 404 / EmptyResult / 'Quota group not found' and Spock assertion failures.",
+    "investigation": "All 76 new failures trace to QA services returning HTTP 500 (AbstractMethodError / IndexOutOfBounds) that cascade into clone-validation, NOT_FOUND and assertion failures. No code changes shipped in this build, so nothing is attributable to a commit or developer.",
     "bullets": [
-      "31\u00d7 server NestedServletException / NPE \u2014 org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.Abs",
-      "16\u00d7 assertion Condition not satisfied",
-      "14\u00d7 NOT_FOUND / missing data \u2014 org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0"
+      "Server 500s from QA (AbstractMethodError / IndexOutOfBounds) are the root; validation/NOT_FOUND/assert fails are downstream.",
+      "No build changes (changes: []); prior #3.0.2635 was a compile error \u2014 no commit/developer to blame.",
+      "Broad AbstractMethodError = QA deploy/version mismatch, not a test or data defect."
     ],
     "detail": {
-      "investigation": "76 of 78 unmuted failures are new since the prior build (#3.0.2635, 0 fails). Failure types (new-first): (1) 31\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. (2) 16\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (3) 14\u00d7 NOT_FOUND / missing data \u2014 missing DB row / EmptyResult / NOT_FOUND. (4) 14\u00d7 API ValidationException \u2014 API rejected the request (business validation). Hot areas among new fails: Segment (23), QuotaGroup (17), Quota (13), PartnerEvent (13), SampleRules (6), Fieldwork (3). Example new failures: AudienceGroup: Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder [NOT_FOUND / missing data]; Fieldwork: Configure fieldwork and verify impact on project counters: com.dynata.rest.gateway.nexusap [server NestedServletException / NPE]; Fieldwork: Update soft launch configuration with active partners and delivery settings: com.dynata.re [server NestedServletException / NPE]; Fieldwork: Configure soft launch with exclusions and verify impact on partner events: com.dynata.rest [server NestedServletException / NPE].",
+      "investigation": "76 of 78 unmuted failures are new since the prior build (#3.0.2635, which failed to compile and ran 0 tests). Reading the real messages behind the coarse clusters: the primary defect is the QA product tier returning HTTP 500 \u2014 java.lang.AbstractMethodError surfaced as NestedServletException on POST/PUT ExternalEvent/partnerEvents (dk-project-external-event-rest), and java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0 on DetailsEditor updateSoldQuotas (dk-project-details-editor-rest). An AbstractMethodError thrown broadly across services is the classic signature of a binary/library version mismatch in the deployed QA environment, not a fault in the regression suite. These 500s cascade: quota-group clone returns 500 'The quotaGroup cannot be cloned because it has been deleted or is currently being created', which then produces downstream 404 / EmptyResultDataAccessException / 'Quota group not found' and Spock 'Condition not satisfied' assertions in dependent steps. This build shipped NO code changes (changes: []), so there is no commit or developer to attribute; the likely cause is a broken/mismatched QA deployment (infrastructure/environment), not a code change or test-data problem. Hot areas among new fails: Segment (23), QuotaGroup (17), Quota (13), PartnerEvent (13), SampleRules (6), Fieldwork (3), AudienceGroup (1).",
       "bullets": [
-        "31\u00d7 server NestedServletException / NPE \u2014 org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.Abs",
-        "16\u00d7 assertion Condition not satisfied",
-        "14\u00d7 NOT_FOUND / missing data \u2014 org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0"
+        "Root cause is the QA product tier: HTTP 500 java.lang.AbstractMethodError (NestedServletException) on ExternalEvent/partnerEvents.",
+        "Second 500 signature: java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0 on DetailsEditor updateSoldQuotas.",
+        "Validation cluster (14) is a cascade: clone 500 'quotaGroup cannot be cloned because it has been deleted or is currently being created'.",
+        "NOT_FOUND cluster (14): 404 / EmptyResultDataAccessException / 'Quota group not found' downstream of the failed clones/creates.",
+        "Assertion cluster (16) 'Condition not satisfied' is downstream of the server-side 500s returning wrong/empty shapes.",
+        "AbstractMethodError across multiple services indicates a QA deploy binary/version mismatch, not a test/data issue.",
+        "changes: [] this build and prior #3.0.2635 was a compile error \u2014 no commit or developer can be blamed.",
+        "Failures are concentrated in Segment, QuotaGroup, Quota and PartnerEvent, all reached through the same broken QA endpoints."
       ],
       "newFailureAreas": [
         {
@@ -2414,8 +2419,8 @@
       }
     ],
     "suspectCommits": [],
-    "source": "investigator",
-    "generatedAt": "2026-07-24T06:49Z",
+    "source": "llm",
+    "generatedAt": "2026-07-24T06:49:00Z",
     "buildNumber": "3.0.2636",
     "buildId": "9409083",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9409083",

@@ -1,8 +1,8 @@
-**76 new failures — mainly Segment, QuotaGroup**
+**76 new failures — QA microservices returning HTTP 500s (AbstractMethodError), not a test bug or code change**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: broken/mismatched QA deployment — no code changes shipped this build, so no commit or developer to attribute._
 
-- 31× server NestedServletException / NPE — org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.Abs
-- 16× assertion Condition not satisfied
+- QA 500s (AbstractMethodError on ExternalEvent, IndexOutOfBounds on DetailsEditor) are the root; validation/NOT_FOUND/assert fails cascade from them.
+- No build changes (changes: []); prior build was a compile error — nothing attributable to a commit.
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9409083)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9409083)
