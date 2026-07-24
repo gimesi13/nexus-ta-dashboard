@@ -1,268 +1,105 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-23T02:02Z",
+  "generatedAt": "2026-07-24T01:32Z",
   "build": {
-    "number": "3.0.2634",
-    "buildId": "9406176",
+    "number": "3.0.2635",
+    "buildId": "9409020",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9406176",
-    "durationSec": 1854.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9409020",
+    "durationSec": 94.0
   },
   "summary": {
-    "tests": 1424,
-    "passed": 1321,
-    "failures": 4,
+    "tests": 0,
+    "passed": 0,
+    "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "muted": 99,
-    "newFailed": 3,
-    "passRate": 99.7,
-    "timeSec": 1854.0
+    "muted": 0,
+    "newFailed": 0,
+    "passRate": 0.0,
+    "timeSec": 94.0
   },
   "prior": {
-    "buildId": "9404850",
-    "number": "3.0.2633",
+    "buildId": "9406176",
+    "number": "3.0.2634",
     "status": "FAILURE",
-    "statusText": "Tests failed: 2 (2 new), passed: 1289, ignored: 14, muted: 99",
-    "durationSec": 2252.0,
-    "failed": 2,
-    "passed": 1289,
-    "newFailed": 2
+    "statusText": "Tests failed: 4 (3 new), passed: 1321, muted: 99",
+    "durationSec": 1854.0,
+    "failed": 4,
+    "passed": 1321,
+    "newFailed": 3
   },
   "changes": [
     {
-      "version": "f093659dc2b9",
+      "version": "920eba60ace7",
       "username": "gergely.gimesi",
-      "comment": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
+      "comment": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
       "files": [
         "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/coverage.json",
         "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/endpoints-overlay.json",
         "gateway/unifiedApi/NexusApiRegressionTests/docs/PLATFORM_ASKS.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/BaseTestForRegression.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/PartnerEventHelper.groovy",
         "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/ProjectHelper.groovy",
         "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/SegmentDetailsHelper.groovy",
         "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/UrlPoolHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/DetailsEditorV2FeignClient.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/NonNexusApiFeigns.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/PanelProjectPropertiesCompatFeignClient.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/QuotaDetailsTableResponse.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/QuotaGroupHijackFeignClient.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/QuotaGroupRestPriceFeignClient.java",
         "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/TestFeigns.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/nexusapi/ProjectCoreCommercialFeignClient.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/nexusapi/QuotaGroupAudiencePriceFeignClient.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/nexusapi/QuotaGroupCoreLeafFeignClient.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/nexusapi/QuotaGroupHijackFeignClient.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/nexusapi/QuotaGroupSegmentBulkFeignClient.java"
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/nexusapi/FeasibilityAdhocFeignClient.java",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/nexusapi/ProjectLogFeignClient.java",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/nexusapi/UrlPoolLeafFeignClient.java",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventCRUDTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventValidationTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventWorkflowTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy"
       ],
       "areas": [
+        "PartnerEvent",
         "Project",
         "QuotaGroup",
-        "Segment",
-        "SegmentDetails",
         "Survey",
         "UrlPool"
       ]
-    },
-    {
-      "version": "390116a5e8bc",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-13454] MS - Feign-ready coverage, ignore burn-down, commit hook",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/hooks/guard-shell.py",
-        "gateway/unifiedApi/NexusApiRegressionTests/AGENTS.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/coverage-baseline.json",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/coverage.json",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/endpoints-overlay.json",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/inventory.json",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/tools/type_overrides.json",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/.e2e-author-on-review-probe.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/DEBT_BACKLOG.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/HOOKS.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/PLATFORM_ASKS.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/SAMPLE_CONFIG_DOMAIN.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/ProjectHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/specializedhelpers/AuthorOnReviewProbeHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/apitests/ui/QGSearchTests.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/apitests/ui/UIRequirements.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceGroupCRUDLifecycleTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/SalesOrderTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Fieldwork/FieldworkTallyModeTestSteps.groovy"
-      ],
-      "areas": [
-        "AudienceGroup",
-        "BOS",
-        "Fieldwork",
-        "Infrastructure",
-        "Lookup",
-        "Project",
-        "Quota",
-        "QuotaGroup",
-        "SampleRules",
-        "Settings",
-        "Survey"
-      ]
-    },
-    {
-      "version": "7141c4ca70ec",
-      "username": "teamcity-dashboard-bot",
-      "comment": "[NXS-13444] MS - set Pages git identity in dashboard publish.sh",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/ai-platform.json",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/coverage.json",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/inventory.json",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/nightly.json",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/progress.json",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/tools/publish.sh"
-      ],
-      "areas": []
-    },
-    {
-      "version": "4acf50045546",
-      "username": "teamcity-dashboard-bot",
-      "comment": "[NXS-13442] MS - remove flaky Set default countries UserSettings test",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy"
-      ],
-      "areas": [
-        "Settings"
-      ]
     }
   ],
-  "clusters": [
-    {
-      "label": "other",
-      "display": "other",
-      "count": 2,
-      "newCount": 2,
-      "sample": "java.lang.RuntimeException: <url>",
-      "why": "no dominant signature yet \u2014 open TeamCity details"
-    },
-    {
-      "label": "assert_fail",
-      "display": "assertion Condition not satisfied",
-      "count": 1,
-      "newCount": 0,
-      "sample": "",
-      "why": "Spock assertion failed (fixture or response shape)"
-    },
-    {
-      "label": "test_setup_soft_launch",
-      "display": "PES soft-launch vs tally",
-      "count": 1,
-      "newCount": 1,
-      "sample": "Tally mode change is not allowed, because total quota less than soft launch quota!",
-      "why": "PES soft-launch total vs tally on a shared fixture"
-    }
-  ],
-  "failures": [
-    {
-      "name": "Modifying totalQuota (when soldQuota is locked) prevents any updates: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaValidationTestSteps.Modifying totalQuota (when soldQuota is locked) prevents any updates",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaValidationTestSteps",
-      "newFailure": true,
-      "area": "Quota",
-      "cluster": "other",
-      "message": "java.lang.RuntimeException: http://dk-project-feasibility-data-store.nexus-ms-qa.dynata.com:8080/api/FeasibilityDataStore/u1/quotaGroups/<id>/setMockData?testC\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: http://dk-project-feasibility-data-store.nexus-ms-qa.dynata.com:8080/api/FeasibilityDataStore/u1/quotaGroups/118720885/setMockData?testCalcMode=FEASIBLE 500{ \"errors\" : [ \"http://dk-project-details-editor-rest.nexus-ms-qa.dynata.com:8080/api/DetailsEditor/u1/nexus/quotaGroups/118720885/feasibilityDistribution - [[DkmsError{ callChain=[HTTP 400 POST http://dk-project-de\u2026"
-    },
-    {
-      "name": "change order flow: request, evaluation, block traffic, approve",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.ChangeOrderFlowTestSteps",
-      "newFailure": false,
-      "area": "QuotaGroup",
-      "cluster": "assert_fail",
-      "message": "Condition failed with Exception:",
-      "detailsExcerpt": "Condition failed with Exception: changeOrder.assertAfterApprove([quotaGroupId]) | | | | | 118720905 | Assertion failed: | | assert nxs.apiQGAudienceChangeStatus.getAudienceChangeStatus(quotaGroupId) == null | | | | | | | | | | 118720905 false | | | AudienceChangeStatus{quotaGroupId='null', lineItemGuid=null, isChangeOrderNeeded=null, blockTraffic=null, expectedEndOfQuietPeriod=null, rules=null, c\u2026"
-    },
-    {
-      "name": "Move quota group between audience groups and verify integrity: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupWorkflowTestSteps.Move quota group between audience groups and verify integrity",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupWorkflowTestSteps",
-      "newFailure": true,
-      "area": "QuotaGroup",
-      "cluster": "other",
-      "message": "java.lang.RuntimeException: Timeout after waiting 120 seconds: Giving up. Last error: Read timed out executing POST https://microservices-qa.dynata.com/NexusAp\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 120 seconds: Giving up. Last error: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2176537/audienceGroups/1472149/clone at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:121) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.AudienceGroupHelper.clo\u2026"
-    },
-    {
-      "name": "tally mode update publishes quotaGroupDetailsUpdated notification",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.pes.pes2.PesNotificationTestSteps",
-      "newFailure": true,
-      "area": "pes",
-      "cluster": "test_setup_soft_launch",
-      "message": "Tally mode change is not allowed, because total quota less than soft launch quota!",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118617538/quotas/tallyMode?tallyMode=BY_STARTS 400{ \"errors\" : [ { \"callChain\" : [ \"HTTP 400 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118617538/quotas/tallyMode?tallyMode=BY_STARTS\" ], \"status\" : \"BAD_REQUEST\", \"message\" : \"Tally mode change is \u2026"
-    }
-  ],
+  "clusters": [],
+  "failures": [],
   "rulesNutshell": {
-    "headline": "3 new failures in Quota",
+    "headline": "0 new failures",
     "tone": "warn",
     "bullets": [
-      "2\u00d7 other \u2014 java.lang.RuntimeException: <url>",
-      "1\u00d7 PES soft-launch vs tally \u2014 Tally mode change is not allowed, because total quota less than soft launch quota!",
-      "Change NXS-13454: gergely.gimesi \u00b7 Quota, QuotaGroup \u00b7 2 overlapping new fails",
-      "Change NXS-13454: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails"
+      "Change NXS-13454: gergely.gimesi \u00b7 PartnerEvent, Project, QuotaGroup"
     ],
-    "investigation": "New fails: 2\u00d7 other (no dominant signature yet); 1\u00d7 PES soft-launch vs tally. Likely related to NXS-13454 gergely.gimesi `390116a5e8bc` (Quota, QuotaGroup, 2 new fails in overlap).",
+    "investigation": "No unmuted failures.",
     "detail": {
-      "investigation": "3 of 4 unmuted failures are new since the prior build (#3.0.2633, 2 fails). Failure types (new-first): (1) 2\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. Hot areas among new fails: Quota (1), QuotaGroup (1), pes (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): Example new failures: Quota: Modifying totalQuota (when soldQuota is locked) prevents any updates: com.dynata.rest.gate [other]; QuotaGroup: Move quota group between audience groups and verify integrity: com.dynata.rest.gateway.nex [other]; pes: tally mode update publishes quotaGroupDetailsUpdated notification [PES soft-launch vs tally].",
+      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame):",
       "bullets": [
-        "2\u00d7 other \u2014 java.lang.RuntimeException: <url>",
-        "1\u00d7 PES soft-launch vs tally \u2014 Tally mode change is not allowed, because total quota less than soft launch quota!",
-        "Change NXS-13454: gergely.gimesi \u00b7 Quota, QuotaGroup \u00b7 2 overlapping new fails",
-        "Change NXS-13454: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails",
-        "NXS-13454 390116a5e8bc by gergely.gimesi \u2192 areas Quota, QuotaGroup (2 new fails) \u00b7 guard-shell.py, AGENTS.md, coverage-baseline.json, coverage.json, endpoints-overlay.json, inventory.json",
-        "NXS-13454 f093659dc2b9 by gergely.gimesi \u2192 areas QuotaGroup (1 new fails) \u00b7 coverage.json, endpoints-overlay.json, PLATFORM_ASKS.md, BaseTestForRegression.groovy, ProjectHelper.groovy, QuotaGroupHelper.groovy"
+        "Change NXS-13454: gergely.gimesi \u00b7 PartnerEvent, Project, QuotaGroup",
+        "NXS-13454 920eba60ace7 by gergely.gimesi \u2192 areas PartnerEvent, Project, QuotaGroup, Survey, UrlPool (0 new fails) \u00b7 coverage.json, endpoints-overlay.json, PLATFORM_ASKS.md, PartnerEventHelper.groovy, ProjectHelper.groovy, QuotaGroupHelper.groovy"
       ],
-      "newFailureAreas": [
-        {
-          "area": "Quota",
-          "newCount": 1
-        },
-        {
-          "area": "QuotaGroup",
-          "newCount": 1
-        },
-        {
-          "area": "pes",
-          "newCount": 1
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": [
         {
-          "version": "390116a5e8bc",
+          "version": "920eba60ace7",
           "username": "gergely.gimesi",
           "ticket": "NXS-13454",
-          "comment": "[NXS-13454] MS - Feign-ready coverage, ignore burn-down, commit hook",
+          "comment": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
           "areas": [
-            "Quota",
-            "QuotaGroup"
+            "PartnerEvent",
+            "Project",
+            "QuotaGroup",
+            "Survey",
+            "UrlPool"
           ],
-          "hitNewFailures": 2,
-          "files": [
-            "guard-shell.py",
-            "AGENTS.md",
-            "coverage-baseline.json",
-            "coverage.json",
-            "endpoints-overlay.json",
-            "inventory.json"
-          ]
-        },
-        {
-          "version": "f093659dc2b9",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13454",
-          "comment": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "areas": [
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 1,
+          "hitNewFailures": 0,
           "files": [
             "coverage.json",
             "endpoints-overlay.json",
             "PLATFORM_ASKS.md",
-            "BaseTestForRegression.groovy",
+            "PartnerEventHelper.groovy",
             "ProjectHelper.groovy",
             "QuotaGroupHelper.groovy"
           ]
@@ -271,37 +108,17 @@
     },
     "suspectCommits": [
       {
-        "version": "f093659dc2b9",
+        "version": "920eba60ace7",
         "username": "gergely.gimesi",
-        "comment": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
+        "comment": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
         "ticket": "NXS-13454",
         "areas": [
-          "QuotaGroup"
+          "PartnerEvent",
+          "Project",
+          "QuotaGroup",
+          "Survey",
+          "UrlPool"
         ]
-      },
-      {
-        "version": "390116a5e8bc",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13454] MS - Feign-ready coverage, ignore burn-down, commit hook",
-        "ticket": "NXS-13454",
-        "areas": [
-          "Quota",
-          "QuotaGroup"
-        ]
-      },
-      {
-        "version": "7141c4ca70ec",
-        "username": "teamcity-dashboard-bot",
-        "comment": "[NXS-13444] MS - set Pages git identity in dashboard publish.sh",
-        "ticket": "NXS-13444",
-        "areas": []
-      },
-      {
-        "version": "4acf50045546",
-        "username": "teamcity-dashboard-bot",
-        "comment": "[NXS-13442] MS - remove flaky Set default countries UserSettings test",
-        "ticket": "NXS-13442",
-        "areas": []
       }
     ]
   },

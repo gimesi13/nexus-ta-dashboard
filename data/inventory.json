@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-07-23",
+  "generatedAt": "2026-07-24",
   "source": "source",
-  "features": 687,
-  "cases": 1483,
+  "features": 712,
+  "cases": 1508,
   "specs": 74,
   "areas": 15,
-  "featuresWithSteps": 687,
-  "steps": 3461,
+  "featuresWithSteps": 712,
+  "steps": 3556,
   "byType": {
-    "CRUD": 249,
-    "Validation": 199,
-    "Workflow": 126,
-    "Query": 99,
+    "CRUD": 256,
+    "Validation": 210,
+    "Workflow": 131,
+    "Query": 101,
     "E2E": 12,
     "Other": 2
   },
@@ -7901,6 +7901,34 @@
     },
     {
       "area": "PartnerEvent",
+      "spec": "PartnerEventCRUDTestSteps",
+      "name": "Valid currencies for an available supplier brand are returned",
+      "type": "Query",
+      "tags": [
+        "PARTNER_EVENT"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Partner Events - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase with an available supplier brand"
+        },
+        {
+          "phase": "when",
+          "label": "The user looks up valid currencies for that brand"
+        },
+        {
+          "phase": "then",
+          "label": "A currency list is returned for the brand"
+        }
+      ]
+    },
+    {
+      "area": "PartnerEvent",
       "spec": "PartnerEventComprehensiveE2ETestSteps",
       "name": "Complete partner event lifecycle: setup, configuration, quota management, and tally mode operations",
       "type": "E2E",
@@ -9505,6 +9533,34 @@
     },
     {
       "area": "PartnerEvent",
+      "spec": "PartnerEventValidationTestSteps",
+      "name": "Valid currencies lookup for an unknown audience is rejected",
+      "type": "Validation",
+      "tags": [
+        "PARTNER_EVENT"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Partner Events - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase with an available supplier brand"
+        },
+        {
+          "phase": "when",
+          "label": "The user looks up valid currencies for a non-existent audience"
+        },
+        {
+          "phase": "then",
+          "label": "The lookup is rejected because the audience does not exist"
+        }
+      ]
+    },
+    {
+      "area": "PartnerEvent",
       "spec": "PartnerEventWorkflowTestSteps",
       "name": "Calculate start quotas after segment quota changes",
       "type": "Workflow",
@@ -9698,6 +9754,42 @@
         {
           "phase": "and",
           "label": "Related data remains consistent"
+        }
+      ]
+    },
+    {
+      "area": "PartnerEvent",
+      "spec": "PartnerEventWorkflowTestSteps",
+      "name": "Valid currencies for a supplier brand support partner event creation",
+      "type": "Workflow",
+      "tags": [
+        "PARTNER_EVENT"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Partner Events - Workflows & Integration",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase with seeded quotas and an available supplier"
+        },
+        {
+          "phase": "when",
+          "label": "The user looks up valid currencies for the supplier brand"
+        },
+        {
+          "phase": "then",
+          "label": "At least one currency is available for that brand"
+        },
+        {
+          "phase": "when",
+          "label": "The user creates a partner event for that supplier"
+        },
+        {
+          "phase": "then",
+          "label": "The partner event is created and still lists against the audience"
         }
       ]
     },
@@ -10934,6 +11026,63 @@
     {
       "area": "Project",
       "spec": "ProjectCRUDTestSteps",
+      "name": "BOS linkage update persists on project core read-back",
+      "type": "CRUD",
+      "tags": [
+        "PROJECT_CORE",
+        "BOS_SYNC"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase with current option linkage captured for restore"
+        },
+        {
+          "phase": "when",
+          "label": "The user updates the BOS option linkage"
+        },
+        {
+          "phase": "then",
+          "label": "Project core reflects the new option linkage"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectCRUDTestSteps",
+      "name": "Brand-new draft project can be created and read back",
+      "type": "CRUD",
+      "tags": [
+        "PROJECT_CORE"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A minimal draft project ready for creation"
+        },
+        {
+          "phase": "when",
+          "label": "The user creates the draft project"
+        },
+        {
+          "phase": "then",
+          "label": "The created draft is readable with the requested project number"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectCRUDTestSteps",
       "name": "CRM fields healthcare flag persists on read-back",
       "type": "CRUD",
       "tags": [
@@ -10961,6 +11110,50 @@
         {
           "phase": "then",
           "label": "The CRM fields reflect the new healthcare flag"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectCRUDTestSteps",
+      "name": "Change-order logs and export are available for the active quote",
+      "type": "Query",
+      "tags": [
+        "PROJECT_CORE"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase is active"
+        },
+        {
+          "phase": "when",
+          "label": "The user lists change-order logs for the quote"
+        },
+        {
+          "phase": "then",
+          "label": "A log list is returned"
+        },
+        {
+          "phase": "when",
+          "label": "The user exports project logs for the quote"
+        },
+        {
+          "phase": "then",
+          "label": "An export payload is returned"
+        },
+        {
+          "phase": "when",
+          "label": "The user reads the change-type catalog"
+        },
+        {
+          "phase": "then",
+          "label": "Change types are available"
         }
       ]
     },
@@ -11067,6 +11260,65 @@
         {
           "phase": "and",
           "label": "The new project has the same configuration as the source project"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectCRUDTestSteps",
+      "name": "Cloned quote can be converted to an order with persisted linkage",
+      "type": "CRUD",
+      "tags": [
+        "PROJECT_CORE",
+        "CLONE_PROJECT",
+        "BOS_SYNC"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase with a freshly cloned quote"
+        },
+        {
+          "phase": "when",
+          "label": "The user converts the cloned quote into an order"
+        },
+        {
+          "phase": "then",
+          "label": "The clone is now an order linked to the new sales-order guid and number"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectCRUDTestSteps",
+      "name": "D365 linkage update persists quote guid and number",
+      "type": "CRUD",
+      "tags": [
+        "PROJECT_CORE",
+        "BOS_SYNC"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase with current D365 quote linkage captured for restore"
+        },
+        {
+          "phase": "when",
+          "label": "The user updates the D365 quote linkage"
+        },
+        {
+          "phase": "then",
+          "label": "Project core reflects the new quote guid and number"
         }
       ]
     },
@@ -13077,6 +13329,35 @@
     {
       "area": "Project",
       "spec": "ProjectValidationTestSteps",
+      "name": "Accepting a new project without a sales order guid is rejected",
+      "type": "Validation",
+      "tags": [
+        "PROJECT_CORE",
+        "BOS_SYNC"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase is active"
+        },
+        {
+          "phase": "when",
+          "label": "The user tries to accept a new project without a sales-order guid"
+        },
+        {
+          "phase": "then",
+          "label": "The accept request is rejected"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectValidationTestSteps",
       "name": "Add note with invalid content",
       "type": "Validation",
       "tags": [
@@ -13110,6 +13391,88 @@
     {
       "area": "Project",
       "spec": "ProjectValidationTestSteps",
+      "name": "BOS accept is rejected for a D365 quote",
+      "type": "Validation",
+      "tags": [
+        "PROJECT_CORE",
+        "BOS_SYNC"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase is active on a D365-linked quote"
+        },
+        {
+          "phase": "when",
+          "label": "The user tries to accept the quote through the BOS accept path"
+        },
+        {
+          "phase": "then",
+          "label": "BOS accept is only valid for BOS-linked projects"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectValidationTestSteps",
+      "name": "BOS linkage without an option guid is rejected",
+      "type": "Validation",
+      "tags": [
+        "PROJECT_CORE",
+        "BOS_SYNC"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase is active"
+        },
+        {
+          "phase": "when",
+          "label": "The user updates BOS linkage without an option or sales-order guid"
+        },
+        {
+          "phase": "then",
+          "label": "The linkage update is rejected"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectValidationTestSteps",
+      "name": "Change-order logs for an unknown project return no rows",
+      "type": "Validation",
+      "tags": [
+        "PROJECT_CORE"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "when",
+          "label": "The user lists change-order logs for a non-existent project"
+        },
+        {
+          "phase": "then",
+          "label": "No change-order rows are returned for that project"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectValidationTestSteps",
       "name": "Client invoice comments lookup for an unknown project is rejected",
       "type": "Validation",
       "tags": [
@@ -13128,6 +13491,92 @@
         {
           "phase": "then",
           "label": "The lookup is rejected because the project does not exist"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectValidationTestSteps",
+      "name": "Converting a live project to an order is rejected",
+      "type": "Validation",
+      "tags": [
+        "PROJECT_CORE",
+        "BOS_SYNC"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase is active"
+        },
+        {
+          "phase": "when",
+          "label": "The user tries to convert a live project into an order"
+        },
+        {
+          "phase": "then",
+          "label": "Only quotes can be converted to orders"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectValidationTestSteps",
+      "name": "Converting a quote without an order guid is rejected",
+      "type": "Validation",
+      "tags": [
+        "PROJECT_CORE",
+        "BOS_SYNC"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase is active"
+        },
+        {
+          "phase": "when",
+          "label": "The user tries to convert the quote without an order guid"
+        },
+        {
+          "phase": "then",
+          "label": "The conversion is rejected"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectValidationTestSteps",
+      "name": "Creating a project without core details is rejected",
+      "type": "Validation",
+      "tags": [
+        "PROJECT_CORE"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "An empty project shell with no core details"
+        },
+        {
+          "phase": "when",
+          "label": "The user tries to create the project"
+        },
+        {
+          "phase": "then",
+          "label": "The create request is rejected"
         }
       ]
     },
@@ -13455,6 +13904,126 @@
         {
           "phase": "and",
           "label": "The modified project differs from the source project in the specified ways"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectWorkflowTestSteps",
+      "name": "Cloned quote can receive a new BOS linkage and be found by that guid",
+      "type": "Workflow",
+      "tags": [
+        "PROJECT_CORE",
+        "CLONE_PROJECT",
+        "BOS_SYNC"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - Workflows & Integration",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase with a freshly cloned quote"
+        },
+        {
+          "phase": "when",
+          "label": "The user updates BOS linkage on the clone"
+        },
+        {
+          "phase": "then",
+          "label": "The clone core stores the new option linkage"
+        },
+        {
+          "phase": "when",
+          "label": "The user looks up quote project ids by that option guid"
+        },
+        {
+          "phase": "then",
+          "label": "The clone is returned among the linked projects"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectWorkflowTestSteps",
+      "name": "Cloned quote converted to order can be found by the new sales order guid",
+      "type": "Workflow",
+      "tags": [
+        "PROJECT_CORE",
+        "CLONE_PROJECT",
+        "BOS_SYNC"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - Workflows & Integration",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase with a freshly cloned quote ready for conversion"
+        },
+        {
+          "phase": "when",
+          "label": "The user converts the cloned quote into an order"
+        },
+        {
+          "phase": "then",
+          "label": "The clone is an order with the new sales-order linkage"
+        },
+        {
+          "phase": "when",
+          "label": "The user looks up order project ids by that sales-order guid"
+        },
+        {
+          "phase": "then",
+          "label": "The converted clone is returned among the linked orders"
+        }
+      ]
+    },
+    {
+      "area": "Project",
+      "spec": "ProjectWorkflowTestSteps",
+      "name": "Created draft project can be renamed and then removed",
+      "type": "Workflow",
+      "tags": [
+        "PROJECT_CORE"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Projects - Workflows & Integration",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A freshly created draft project"
+        },
+        {
+          "phase": "when",
+          "label": "The user renames the draft project"
+        },
+        {
+          "phase": "then",
+          "label": "The draft reflects the new name"
+        },
+        {
+          "phase": "when",
+          "label": "The user deletes the draft project"
+        },
+        {
+          "phase": "then",
+          "label": "The delete completes without error"
+        },
+        {
+          "phase": "when",
+          "label": "The user tries to read the deleted draft"
+        },
+        {
+          "phase": "then",
+          "label": "The draft is no longer readable"
         }
       ]
     },
@@ -15025,6 +15594,34 @@
         }
       ],
       "paramNote": "Unrolled across project phases (2 runs at execution)"
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupCRUDTestSteps",
+      "name": "Adhoc feasibility calculation returns a feasibility result",
+      "type": "CRUD",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A DynataPlus adhoc feasibility ask for a US market"
+        },
+        {
+          "phase": "when",
+          "label": "The user runs an adhoc feasibility calculation for the market"
+        },
+        {
+          "phase": "then",
+          "label": "A feasibility result is returned for the requested quota"
+        }
+      ]
     },
     {
       "area": "QuotaGroup",
@@ -18213,6 +18810,34 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupValidationTestSteps",
+      "name": "Adhoc feasibility with too many channels is rejected",
+      "type": "Validation",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote phase is active"
+        },
+        {
+          "phase": "when",
+          "label": "The user runs adhoc feasibility with more than three channels"
+        },
+        {
+          "phase": "then",
+          "label": "The calculation is rejected as invalid"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupValidationTestSteps",
       "name": "Audience name shorter than three characters is rejected",
       "type": "Validation",
       "tags": [
@@ -18934,6 +19559,42 @@
         }
       ],
       "paramNote": "2 runs across phase"
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupWorkflowTestSteps",
+      "name": "Adhoc feasibility and live feasibility job can both be calculated",
+      "type": "Workflow",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Complex Workflows & Integration",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Quote-phase market inputs for an adhoc feasibility ask"
+        },
+        {
+          "phase": "when",
+          "label": "The user runs adhoc feasibility for the market"
+        },
+        {
+          "phase": "then",
+          "label": "Adhoc feasibility returns a result"
+        },
+        {
+          "phase": "when",
+          "label": "The user triggers a live feasibility calculation on the project audience"
+        },
+        {
+          "phase": "then",
+          "label": "A live feasibility job is available after the trigger"
+        }
+      ]
     },
     {
       "area": "QuotaGroup",
@@ -24726,6 +25387,34 @@
     {
       "area": "Survey",
       "spec": "SurveyCRUDTestSteps",
+      "name": "Survey project id leaf matches the active project",
+      "type": "CRUD",
+      "tags": [
+        "SURVEY"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Url Pools - Surveys",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "PROJECT phase with a newly created survey"
+        },
+        {
+          "phase": "when",
+          "label": "The user looks up the project id for the survey"
+        },
+        {
+          "phase": "then",
+          "label": "The survey is linked to the active project"
+        }
+      ]
+    },
+    {
+      "area": "Survey",
+      "spec": "SurveyCRUDTestSteps",
       "name": "Survey re-validation returns a validation result without persisting",
       "type": "CRUD",
       "tags": [
@@ -24912,6 +25601,54 @@
     },
     {
       "area": "Survey",
+      "spec": "SurveyCRUDTestSteps",
+      "name": "Uploaded survey URL file can be processed and sample values read",
+      "type": "CRUD",
+      "tags": [
+        "SURVEY"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Url Pools - Surveys",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "PROJECT phase with a newly created survey"
+        },
+        {
+          "phase": "when",
+          "label": "The user generates a presigned upload URL"
+        },
+        {
+          "phase": "then",
+          "label": "A storage URL and file name are returned"
+        },
+        {
+          "phase": "when",
+          "label": "The user uploads a survey URL file to storage"
+        },
+        {
+          "phase": "and",
+          "label": "The user processes the uploaded file for the survey"
+        },
+        {
+          "phase": "then",
+          "label": "Uploaded URLs are accepted"
+        },
+        {
+          "phase": "when",
+          "label": "The user reads sample uploaded values"
+        },
+        {
+          "phase": "then",
+          "label": "Sample values are available after processing"
+        }
+      ]
+    },
+    {
+      "area": "Survey",
       "spec": "SurveyValidationTestSteps",
       "name": "Base URL with tags rejects an empty tag list",
       "type": "Validation",
@@ -25036,6 +25773,62 @@
         }
       ],
       "paramNote": "6 runs across exception.message.toLowerCase().contains(\"country\")"
+    },
+    {
+      "area": "Survey",
+      "spec": "SurveyValidationTestSteps",
+      "name": "Processing an unknown uploaded survey file is rejected",
+      "type": "Validation",
+      "tags": [
+        "SURVEY"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Url Pools - Surveys - Validation Tests",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "PROJECT phase with a newly created survey"
+        },
+        {
+          "phase": "when",
+          "label": "The user processes a file name that was never uploaded"
+        },
+        {
+          "phase": "then",
+          "label": "The process step is rejected"
+        }
+      ]
+    },
+    {
+      "area": "Survey",
+      "spec": "SurveyValidationTestSteps",
+      "name": "Survey project id lookup for an unknown survey is rejected",
+      "type": "Validation",
+      "tags": [
+        "SURVEY"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Url Pools - Surveys - Validation Tests",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase is active"
+        },
+        {
+          "phase": "when",
+          "label": "The user looks up the project id for a non-existent survey"
+        },
+        {
+          "phase": "then",
+          "label": "The lookup is rejected because the survey does not exist"
+        }
+      ]
     },
     {
       "area": "Survey",
