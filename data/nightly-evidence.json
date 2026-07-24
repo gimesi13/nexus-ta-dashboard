@@ -1,126 +1,586 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-24T01:32Z",
+  "generatedAt": "2026-07-24T06:49Z",
   "build": {
-    "number": "3.0.2635",
-    "buildId": "9409020",
+    "number": "3.0.2636",
+    "buildId": "9409083",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9409020",
-    "durationSec": 94.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9409083",
+    "durationSec": 1970.0
   },
   "summary": {
-    "tests": 0,
-    "passed": 0,
-    "failures": 0,
+    "tests": 1449,
+    "passed": 1273,
+    "failures": 78,
     "errors": 0,
     "skipped": 0,
-    "muted": 0,
-    "newFailed": 0,
-    "passRate": 0.0,
-    "timeSec": 94.0
+    "muted": 98,
+    "newFailed": 76,
+    "passRate": 94.2,
+    "timeSec": 1970.0
   },
   "prior": {
-    "buildId": "9406176",
-    "number": "3.0.2634",
+    "buildId": "9409020",
+    "number": "3.0.2635",
     "status": "FAILURE",
-    "statusText": "Tests failed: 4 (3 new), passed: 1321, muted: 99",
-    "durationSec": 1854.0,
-    "failed": 4,
-    "passed": 1321,
-    "newFailed": 3
+    "statusText": "Compilation error: :compileJava (new)",
+    "durationSec": 94.0,
+    "failed": 0,
+    "passed": 0,
+    "newFailed": 0
   },
-  "changes": [
+  "changes": [],
+  "clusters": [
     {
-      "version": "920eba60ace7",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/coverage.json",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/endpoints-overlay.json",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/PLATFORM_ASKS.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/PartnerEventHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/ProjectHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/UrlPoolHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/TestFeigns.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/nexusapi/FeasibilityAdhocFeignClient.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/nexusapi/ProjectLogFeignClient.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/nexusapi/UrlPoolLeafFeignClient.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventCRUDTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventValidationTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventWorkflowTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy"
-      ],
-      "areas": [
-        "PartnerEvent",
-        "Project",
-        "QuotaGroup",
-        "Survey",
-        "UrlPool"
-      ]
+      "label": "server_exception",
+      "display": "server NestedServletException / NPE",
+      "count": 31,
+      "newCount": 31,
+      "sample": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.Abs",
+      "why": "QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path"
+    },
+    {
+      "label": "assert_fail",
+      "display": "assertion Condition not satisfied",
+      "count": 16,
+      "newCount": 16,
+      "sample": "",
+      "why": "Spock assertion failed (fixture or response shape)"
+    },
+    {
+      "label": "product_data_not_found",
+      "display": "NOT_FOUND / missing data",
+      "count": 14,
+      "newCount": 14,
+      "sample": "org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0",
+      "why": "missing DB row / EmptyResult / NOT_FOUND"
+    },
+    {
+      "label": "validation_exception",
+      "display": "API ValidationException",
+      "count": 14,
+      "newCount": 14,
+      "sample": "jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted or is curre",
+      "why": "API rejected the request (business validation)"
+    },
+    {
+      "label": "other",
+      "display": "other",
+      "count": 2,
+      "newCount": 1,
+      "sample": "The given audienceGroup does not exist with audienceGroupId: <id>",
+      "why": "no dominant signature yet \u2014 open TeamCity details"
+    },
+    {
+      "label": "test_setup_soft_launch",
+      "display": "PES soft-launch vs tally",
+      "count": 1,
+      "newCount": 0,
+      "sample": "",
+      "why": "PES soft-launch total vs tally on a shared fixture"
     }
   ],
-  "clusters": [],
-  "failures": [],
-  "rulesNutshell": {
-    "headline": "0 new failures",
-    "tone": "warn",
-    "bullets": [
-      "Change NXS-13454: gergely.gimesi \u00b7 PartnerEvent, Project, QuotaGroup"
-    ],
-    "investigation": "No unmuted failures.",
-    "detail": {
-      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame):",
-      "bullets": [
-        "Change NXS-13454: gergely.gimesi \u00b7 PartnerEvent, Project, QuotaGroup",
-        "NXS-13454 920eba60ace7 by gergely.gimesi \u2192 areas PartnerEvent, Project, QuotaGroup, Survey, UrlPool (0 new fails) \u00b7 coverage.json, endpoints-overlay.json, PLATFORM_ASKS.md, PartnerEventHelper.groovy, ProjectHelper.groovy, QuotaGroupHelper.groovy"
-      ],
-      "newFailureAreas": [],
-      "likelyCauses": [
-        {
-          "version": "920eba60ace7",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13454",
-          "comment": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "areas": [
-            "PartnerEvent",
-            "Project",
-            "QuotaGroup",
-            "Survey",
-            "UrlPool"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "coverage.json",
-            "endpoints-overlay.json",
-            "PLATFORM_ASKS.md",
-            "PartnerEventHelper.groovy",
-            "ProjectHelper.groovy",
-            "QuotaGroupHelper.groovy"
-          ]
-        }
-      ]
+  "failures": [
+    {
+      "name": "Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupE2ECloneRestoreReorderTestSteps",
+      "newFailure": true,
+      "area": "AudienceGroup",
+      "cluster": "product_data_not_found",
+      "message": "org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups 404{ \"errors\" : [ { \"callChain\" : [ \"HTTP 404 PUT http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups/118722516/createInProgress\", \"HTTP 404 POST http://dk-project-quota-group-sources-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroupSources/u1/sources/quotaGroups/11\u2026"
     },
-    "suspectCommits": [
-      {
-        "version": "920eba60ace7",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-        "ticket": "NXS-13454",
-        "areas": [
-          "PartnerEvent",
-          "Project",
-          "QuotaGroup",
-          "Survey",
-          "UrlPool"
-        ]
-      }
-    ]
+    {
+      "name": "Configure fieldwork and verify impact on project counters: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowPartnerTestSteps.Configure fieldwork and verify impact on project counters",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowPartnerTestSteps",
+      "newFailure": true,
+      "area": "Fieldwork",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "Update soft launch configuration with active partners and delivery settings: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowPartnerTestSteps.Update soft launch configuration with active partners and delivery settings",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowPartnerTestSteps",
+      "newFailure": true,
+      "area": "Fieldwork",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "Configure soft launch with exclusions and verify impact on partner events: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowPartnerTestSteps.Configure soft launch with exclusions and verify impact on partner events",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowPartnerTestSteps",
+      "newFailure": true,
+      "area": "Fieldwork",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "External quota updates when modifying partner event quota from initialQuota to newQuota in NATURAL mode: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.ExternalQuotaWorkflowTestSteps.External quota updates when modifying partner event quota from initialQuota to newQuota in NATURAL mode",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.ExternalQuotaWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "External quota updates when switching from CUSTOM to NATURAL mode: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.ExternalQuotaWorkflowTestSteps.External quota updates when switching from CUSTOM to NATURAL mode",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.ExternalQuotaWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "External quota updates when switching from CUSTOM to NATURAL mode: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.ExternalQuotaWorkflowTestSteps.External quota updates when switching from CUSTOM to NATURAL mode",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.ExternalQuotaWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "External quota updates when adding multiple partner events in NATURAL mode: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.ExternalQuotaWorkflowTestSteps.External quota updates when adding multiple partner events in NATURAL mode",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.ExternalQuotaWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "External quota remains unchanged in CUSTOM mode when partner events change: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.ExternalQuotaWorkflowTestSteps.External quota remains unchanged in CUSTOM mode when partner events change",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.ExternalQuotaWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "External quota is set to channel percentages when switching from NATURAL to CUSTOM mode: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.ExternalQuotaWorkflowTestSteps.External quota is set to channel percentages when switching from NATURAL to CUSTOM mode",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.ExternalQuotaWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "Lowering draft CPI below threshold allows PM to activate without bypass",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventPriceControlWorkflowTestSteps",
+      "newFailure": true,
+      "area": "PartnerEvent",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents/16681309 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents/16681309\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nest\u2026"
+    },
+    {
+      "name": "Active partner CPI increase above threshold keeps prior approved CPI until bypass or re-approval",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventPriceControlWorkflowTestSteps",
+      "newFailure": true,
+      "area": "PartnerEvent",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "URL-only save of 3pp partner event preserves didPriceDecrease false",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventPriceControlWorkflowTestSteps",
+      "newFailure": true,
+      "area": "PartnerEvent",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "Active 3PP partner event is validated against the separated quota group price source",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventPriceControlWorkflowTestSteps",
+      "newFailure": true,
+      "area": "PartnerEvent",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "Updating a 3PP partner event cost re-validates against the separated quota group price source",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventPriceControlWorkflowTestSteps",
+      "newFailure": true,
+      "area": "PartnerEvent",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "Handle large quota values and precision: com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventTallyModeQuotaTestSteps.Handle large quota values and precision",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventTallyModeQuotaTestSteps",
+      "newFailure": true,
+      "area": "PartnerEvent",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "Repeated tally mode changes maintain quota integrity: com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventTallyModeQuotaTestSteps.Repeated tally mode changes maintain quota integrity",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventTallyModeQuotaTestSteps",
+      "newFailure": true,
+      "area": "PartnerEvent",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "Calculate start quotas with extreme ratio values: com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventTallyModeQuotaTestSteps.Calculate start quotas with extreme ratio values",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventTallyModeQuotaTestSteps",
+      "newFailure": true,
+      "area": "PartnerEvent",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "Calculate start quotas with extreme ratio values: com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventTallyModeQuotaTestSteps.Calculate start quotas with extreme ratio values",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventTallyModeQuotaTestSteps",
+      "newFailure": true,
+      "area": "PartnerEvent",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "Calculate start quotas with extreme ratio values: com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventTallyModeQuotaTestSteps.Calculate start quotas with extreme ratio values",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventTallyModeQuotaTestSteps",
+      "newFailure": true,
+      "area": "PartnerEvent",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "Calculate start quotas with fractional results: com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventTallyModeQuotaTestSteps.Calculate start quotas with fractional results",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventTallyModeQuotaTestSteps",
+      "newFailure": true,
+      "area": "PartnerEvent",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "Calculate start quotas with fractional results: com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventTallyModeQuotaTestSteps.Calculate start quotas with fractional results",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventTallyModeQuotaTestSteps",
+      "newFailure": true,
+      "area": "PartnerEvent",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "Calculate start quotas with fractional results: com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventTallyModeQuotaTestSteps.Calculate start quotas with fractional results",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventTallyModeQuotaTestSteps",
+      "newFailure": true,
+      "area": "PartnerEvent",
+      "cluster": "server_exception",
+      "message": "org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.AbstractMethodError Caused by: java.lang.AbstractMet\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.web.util.NestedServletException:Handler dispatch failed; nested ex\u2026"
+    },
+    {
+      "name": "Configure unbalanced quota distribution: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps.Configure unbalanced quota distribution [phase: PROJECT, totalQuota: 100, distribution: [1, 1, 1, 97], #1]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "validation_exception",
+      "message": "jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted or is currently being created! quotaGroupId: 118722695",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722695/clone\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted o\u2026"
+    },
+    {
+      "name": "Configure unbalanced quota distribution: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps.Configure unbalanced quota distribution [phase: PROJECT, totalQuota: 2000, distribution: [500, 500, 500, 500], #2]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "validation_exception",
+      "message": "jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted or is currently being created! quotaGroupId: 118722695",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722695/clone\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted o\u2026"
+    },
+    {
+      "name": "Clone quota group with different configurations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps.Clone quota group with different configurations [phase: PROJECT, targetCountry: CA, targetLanguages: [en, fr], #0]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "product_data_not_found",
+      "message": "jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted or is currently being created! quotaGroupId: 118722695",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722695/clone 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted or is currently being created! quotaGroupId: 118722695\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFe\u2026"
+    },
+    {
+      "name": "Removing parameters (when soldQuota is not locked) triggers feasibility and updates segment soldQuotas: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaWorkflowTestSteps.Removing parameters (when soldQuota is not locked) triggers feasibility and updates segment soldQuotas",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "server_exception",
+      "message": "java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722739/conditions/segmentedConditions/80 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) a\u2026"
+    },
+    {
+      "name": "Nesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaWorkflowTestSteps.Nesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "server_exception",
+      "message": "java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722739/conditions/segmentedConditions/80 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) a\u2026"
+    },
+    {
+      "name": "Nesting parameters (when soldQuota is not locked) triggers feasibility and updates segment soldQuotas: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaWorkflowTestSteps.Nesting parameters (when soldQuota is not locked) triggers feasibility and updates segment soldQuotas",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "server_exception",
+      "message": "java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722739/conditions/segmentedConditions/80 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) a\u2026"
+    },
+    {
+      "name": "Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaWorkflowTestSteps.Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "server_exception",
+      "message": "java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722739/conditions/segmentedConditions/80 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) a\u2026"
+    },
+    {
+      "name": "Unnest parameters (when soldQuota not locked) triggers feasibility: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaWorkflowTestSteps.Unnest parameters (when soldQuota not locked) triggers feasibility",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "server_exception",
+      "message": "java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722739/conditions/segmentedConditions/80 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) a\u2026"
+    },
+    {
+      "name": "Modifying segmentQuotas (when soldQuota is not locked) triggers feasibility and updates segment soldQuotas: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaWorkflowTestSteps.Modifying segmentQuotas (when soldQuota is not locked) triggers feasibility and updates segment soldQuotas [phase: QUOTE, segmentQuotaUpdates: [1:600, 2:400], #0]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "server_exception",
+      "message": "java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722739/conditions/segmentedConditions/80 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) a\u2026"
+    },
+    {
+      "name": "Modifying feasibility distribution to different modes updates segment soldQuotas: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaWorkflowTestSteps.Modifying feasibility distribution to different modes updates segment soldQuotas",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "server_exception",
+      "message": "java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722739/conditions/segmentedConditions/80 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) a\u2026"
+    },
+    {
+      "name": "Rename quota group then clone for new country and validate cloned name: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps.Rename quota group then clone for new country and validate cloned name",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "validation_exception",
+      "message": "jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted or is currently being created! quotaGroupId: 118722692",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722692/clone\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted o\u2026"
+    },
+    {
+      "name": "Rename quota group then clone for new country and validate cloned name: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps.Rename quota group then clone for new country and validate cloned name",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "validation_exception",
+      "message": "jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted or is currently being created! quotaGroupId: 118722695",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722695/clone\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted o\u2026"
+    },
+    {
+      "name": "Copy configuration from RENAMED to RENAMED_2 and verify target quota group name is updated: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps.Copy configuration from RENAMED to RENAMED_2 and verify target quota group name is updated",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "server_exception",
+      "message": "java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722692/segmentDetails/updateSoldQuotas 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-details-editor-rest.nexus-ms-qa.dynata.com:8080/api/DetailsEditor/u1/nexus/quotaGroups/118722692/segmentConditions/updateSoldQuotas\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang\u2026"
+    },
+    {
+      "name": "Clone QG with keepDates=false clears quotaActivationDate on the clone (regression of NXS-12669)",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "validation_exception",
+      "message": "jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted or is currently being created! quotaGroupId: 118722695",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722695/clone 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted or is currently being created! quotaGroupId: 118722695\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFe\u2026"
+    },
+    {
+      "name": "Cloning a QG in PROJECT phase initializes delivery.race.eligibleForRaceBoost from project core",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "validation_exception",
+      "message": "jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted or is currently being created! quotaGroupId: 118722695",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722695/clone 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted or is currently being created! quotaGroupId: 118722695\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFe\u2026"
+    },
+    {
+      "name": "GET delivery on a non-draft QG returns deliveryMode reflecting the most recent gateway write (NXS-13089 LegacyDeliveryFieldsHandler overlay)",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "validation_exception",
+      "message": "jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted or is currently being created! quotaGroupId: 118722695",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722695/clone 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted or is currently being created! quotaGroupId: 118722695\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFe\u2026"
+    },
+    {
+      "name": "Configure brand exclusion with copying: com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SampleRulesTestSteps.Configure brand exclusion with copying",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SampleRulesTestSteps",
+      "newFailure": true,
+      "area": "SampleRules",
+      "cluster": "product_data_not_found",
+      "message": "org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722773/sourceSettings/brandExclusion 404{ \"errors\" : [ { \"callChain\" : [ \"HTTP 404 PUT http://dk-project-quota-group-sources-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroupSources/u1/sources/118722773/brandExclusions?quotaGroupId=118722773\", \"HTTP 400 GET http://dk-project-quota-group-rest.nexus-ms-qa\u2026"
+    },
+    {
+      "name": "Configure brand exclusion without copying: com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SampleRulesTestSteps.Configure brand exclusion without copying",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SampleRulesTestSteps",
+      "newFailure": true,
+      "area": "SampleRules",
+      "cluster": "product_data_not_found",
+      "message": "org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722773/sourceSettings/brandExclusion 404{ \"errors\" : [ { \"callChain\" : [ \"HTTP 404 PUT http://dk-project-quota-group-sources-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroupSources/u1/sources/118722773/brandExclusions?quotaGroupId=118722773\", \"HTTP 400 GET http://dk-project-quota-group-rest.nexus-ms-qa\u2026"
+    },
+    {
+      "name": "Get apply sources brand exclusions for quota groups: com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesBrandExclusionTestSteps.Get apply sources brand exclusions for quota groups",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesBrandExclusionTestSteps",
+      "newFailure": true,
+      "area": "SampleRules",
+      "cluster": "product_data_not_found",
+      "message": "org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 404{ \"errors\" : [ { \"callChain\" : [ \"HTTP 404 PUT http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups/118722862/createInProgress\", \"HTTP 404 POST http://dk-project-quota-group-sources-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroupSources/u1/sou\u2026"
+    },
+    {
+      "name": "Get apply sources brand exclusions for multiple audience groups: com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesBrandExclusionTestSteps.Get apply sources brand exclusions for multiple audience groups",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesBrandExclusionTestSteps",
+      "newFailure": true,
+      "area": "SampleRules",
+      "cluster": "validation_exception",
+      "message": "jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted or is currently being created! quotaGroupId: 118722833",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722833/clone\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted o\u2026"
+    },
+    {
+      "name": "Get apply sources brand exclusions for multiple audience groups: com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesBrandExclusionTestSteps.Get apply sources brand exclusions for multiple audience groups",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesBrandExclusionTestSteps",
+      "newFailure": true,
+      "area": "SampleRules",
+      "cluster": "validation_exception",
+      "message": "jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted or is currently being created! quotaGroupId: 118722838",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722838/clone\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted o\u2026"
+    },
+    {
+      "name": "Configure project with multiple supported countries: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupWorkflowTestSteps.Configure project with multiple supported countries",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupWorkflowTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "validation_exception",
+      "message": "jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted or is currently being created! quotaGroupId: 118722863",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722863/clone\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"jakarta.validation.ValidationException:The quotaGroup cannot be cloned because it has been deleted o\u2026"
+    },
+    {
+      "name": "Update single segment status: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps.Update single segment status",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "product_data_not_found",
+      "message": "Quota group not found",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722883/segmentAttributes/1/status 404{ \"errors\" : [ { \"callChain\" : [ \"HTTP 404 PUT http://dk-project-details-editor-rest.nexus-ms-qa.dynata.com:8080/api/DetailsEditor/u1/nexus/quotaGroups/118722883/segmentAttributes/1/status\", \"HTTP 404 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:\u2026"
+    },
+    {
+      "name": "Update single segment status: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps.Update single segment status",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "product_data_not_found",
+      "message": "Quota group not found",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722883/segmentAttributes/1/status 404{ \"errors\" : [ { \"callChain\" : [ \"HTTP 404 PUT http://dk-project-details-editor-rest.nexus-ms-qa.dynata.com:8080/api/DetailsEditor/u1/nexus/quotaGroups/118722883/segmentAttributes/1/status\", \"HTTP 404 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:\u2026"
+    },
+    {
+      "name": "Update multiple segment statuses: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps.Update multiple segment statuses",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "product_data_not_found",
+      "message": "Quota group not found",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722883/segmentAttributes/1/status 404{ \"errors\" : [ { \"callChain\" : [ \"HTTP 404 PUT http://dk-project-details-editor-rest.nexus-ms-qa.dynata.com:8080/api/DetailsEditor/u1/nexus/quotaGroups/118722883/segmentAttributes/1/status\", \"HTTP 404 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:\u2026"
+    },
+    {
+      "name": "Update multiple segment statuses: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps.Update multiple segment statuses",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "product_data_not_found",
+      "message": "Quota group not found",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722883/segmentAttributes/1/status 404{ \"errors\" : [ { \"callChain\" : [ \"HTTP 404 PUT http://dk-project-details-editor-rest.nexus-ms-qa.dynata.com:8080/api/DetailsEditor/u1/nexus/quotaGroups/118722883/segmentAttributes/1/status\", \"HTTP 404 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:\u2026"
+    },
+    {
+      "name": "Update multiple segment statuses: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps.Update multiple segment statuses",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "product_data_not_found",
+      "message": "Quota group not found",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118722883/segmentAttributes/1/status 404{ \"errors\" : [ { \"callChain\" : [ \"HTTP 404 PUT http://dk-project-details-editor-rest.nexus-ms-qa.dynata.com:8080/api/DetailsEditor/u1/nexus/quotaGroups/118722883/segmentAttributes/1/status\", \"HTTP 404 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:\u2026"
+    }
+  ],
+  "rulesNutshell": {
+    "headline": "76 new failures \u2014 mainly Segment, QuotaGroup",
+    "tone": "bad",
+    "bullets": [
+      "31\u00d7 server NestedServletException / NPE \u2014 org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.Abs",
+      "16\u00d7 assertion Condition not satisfied",
+      "14\u00d7 NOT_FOUND / missing data \u2014 org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0"
+    ],
+    "investigation": "New fails: 31\u00d7 server NestedServletException / NPE (QA threw NestedServletException/NPE/IOOB); 16\u00d7 assertion Condition not satisfied. Vs prior #3.0.2635: up 78 total fails.",
+    "detail": {
+      "investigation": "76 of 78 unmuted failures are new since the prior build (#3.0.2635, 0 fails). Failure types (new-first): (1) 31\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. (2) 16\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (3) 14\u00d7 NOT_FOUND / missing data \u2014 missing DB row / EmptyResult / NOT_FOUND. (4) 14\u00d7 API ValidationException \u2014 API rejected the request (business validation). Hot areas among new fails: Segment (23), QuotaGroup (17), Quota (13), PartnerEvent (13), SampleRules (6), Fieldwork (3). Example new failures: AudienceGroup: Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder [NOT_FOUND / missing data]; Fieldwork: Configure fieldwork and verify impact on project counters: com.dynata.rest.gateway.nexusap [server NestedServletException / NPE]; Fieldwork: Update soft launch configuration with active partners and delivery settings: com.dynata.re [server NestedServletException / NPE]; Fieldwork: Configure soft launch with exclusions and verify impact on partner events: com.dynata.rest [server NestedServletException / NPE].",
+      "bullets": [
+        "31\u00d7 server NestedServletException / NPE \u2014 org.springframework.web.util.NestedServletException:Handler dispatch failed; nested exception is java.lang.Abs",
+        "16\u00d7 assertion Condition not satisfied",
+        "14\u00d7 NOT_FOUND / missing data \u2014 org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0"
+      ],
+      "newFailureAreas": [
+        {
+          "area": "Segment",
+          "newCount": 23
+        },
+        {
+          "area": "QuotaGroup",
+          "newCount": 17
+        },
+        {
+          "area": "Quota",
+          "newCount": 13
+        },
+        {
+          "area": "PartnerEvent",
+          "newCount": 13
+        },
+        {
+          "area": "SampleRules",
+          "newCount": 6
+        },
+        {
+          "area": "Fieldwork",
+          "newCount": 3
+        },
+        {
+          "area": "AudienceGroup",
+          "newCount": 1
+        }
+      ],
+      "likelyCauses": []
+    },
+    "suspectCommits": []
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite."
 }
