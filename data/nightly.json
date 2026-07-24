@@ -31,27 +31,33 @@
   "statusByCase": {},
   "statusBySpecName": {},
   "nutshell": {
-    "headline": "0 new failures",
-    "tone": "warn",
-    "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
+    "headline": "Nightly build broke at compilation \u2014 :compileJava failed, so no tests ran.",
+    "tone": "bad",
+    "cause": "code_change",
+    "causeText": "The build stopped with a new compilation error in :compileJava before any tests executed (0 tests run, vs 1321 passing the prior night). The only change in this build is NXS-13454 (920eba60ace7) by gergely.gimesi, which edits Java Feign clients under src/main/java (TestFeigns.java, FeasibilityAdhocFeignClient.java, ProjectLogFeignClient.java, UrlPoolLeafFeignClient.java) \u2014 the plausible source of the Java compile break. This is not infra: there are no timeouts, 502s or 504s.",
+    "investigation": "The build failed at :compileJava (new) and 0 tests ran. The sole commit NXS-13454 by gergely.gimesi edits Java Feign clients, matching the Java compilation failure.",
     "bullets": [
-      "Change NXS-13454: gergely.gimesi \u00b7 PartnerEvent, Project, QuotaGroup"
+      "Build failed at :compileJava (new) \u2014 0 tests ran (prior night: 1321 passed)",
+      "Not infra: no timeouts/502/504, a genuine compile error",
+      "Suspect: NXS-13454 (gergely.gimesi) edited Java Feign clients under src/main/java"
     ],
     "detail": {
-      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame):",
+      "investigation": "The build failed with statusText 'Compilation error: :compileJava (new)' and finished in 94s (vs 1854s the prior night), so the test phase never started and the summary shows 0 tests / 0 new failures. Reading the actual signal rather than the coarse count: this is a build break, not a test regression and not infra (no 'Read timed out'/SocketTimeout/502/504 anywhere). The build contains a single change, NXS-13454 (920eba60ace7) by gergely.gimesi, which modifies Java sources compiled by :compileJava \u2014 the Feign clients TestFeigns.java, FeasibilityAdhocFeignClient.java, ProjectLogFeignClient.java and UrlPoolLeafFeignClient.java under src/main/java \u2014 so a Java compile break maps plausibly to this commit. The commit also touches Groovy helpers/steps and non-code files (coverage.json, endpoints-overlay.json, PLATFORM_ASKS.md), but the Java Feign client edits are the ones relevant to a :compileJava failure. Next step: check the compileJava error log for the offending symbol/import in those Feign clients.",
       "bullets": [
-        "Change NXS-13454: gergely.gimesi \u00b7 PartnerEvent, Project, QuotaGroup",
-        "NXS-13454 920eba60ace7 by gergely.gimesi \u2192 areas PartnerEvent, Project, QuotaGroup, Survey, UrlPool (0 new fails) \u00b7 coverage.json, endpoints-overlay.json, PLATFORM_ASKS.md, PartnerEventHelper.groovy, ProjectHelper.groovy, QuotaGroupHelper.groovy"
+        "statusText: 'Compilation error: :compileJava (new)' \u2014 build never reached the test phase",
+        "0 tests ran (summary tests=0); prior build 3.0.2634 had 1321 passing, so tests normally run",
+        "Duration 94s vs 1854s prior \u2014 consistent with an early compile-time failure",
+        "No infra signals: no Read timed out / SocketTimeout / 502 / 504",
+        "Single change in build: NXS-13454 920eba60ace7 by gergely.gimesi",
+        "Java Feign clients edited: TestFeigns.java, FeasibilityAdhocFeignClient.java, ProjectLogFeignClient.java, UrlPoolLeafFeignClient.java (src/main/java) \u2014 compiled by :compileJava",
+        "Doc/data files in the same commit (PLATFORM_ASKS.md, coverage.json, endpoints-overlay.json) cannot cause a compile failure"
       ],
       "newFailureAreas": [],
       "likelyCauses": [
         {
+          "ticket": "NXS-13454",
           "version": "920eba60ace7",
           "username": "gergely.gimesi",
-          "ticket": "NXS-13454",
-          "comment": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
           "areas": [
             "PartnerEvent",
             "Project",
@@ -61,13 +67,12 @@
           ],
           "hitNewFailures": 0,
           "files": [
-            "coverage.json",
-            "endpoints-overlay.json",
-            "PLATFORM_ASKS.md",
-            "PartnerEventHelper.groovy",
-            "ProjectHelper.groovy",
-            "QuotaGroupHelper.groovy"
-          ]
+            "TestFeigns.java",
+            "FeasibilityAdhocFeignClient.java",
+            "ProjectLogFeignClient.java",
+            "UrlPoolLeafFeignClient.java"
+          ],
+          "comment": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth"
         }
       ]
     },
@@ -87,8 +92,8 @@
         ]
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-07-24T01:32Z",
+    "source": "llm",
+    "generatedAt": "2026-07-24T01:32:00Z",
     "buildNumber": "3.0.2635",
     "buildId": "9409020",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9409020",
