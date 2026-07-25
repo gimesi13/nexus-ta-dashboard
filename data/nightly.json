@@ -1489,20 +1489,27 @@
     "SegmentsValidationTestSteps::Validate quota value constraints": "muted"
   },
   "nutshell": {
-    "headline": "1 new failure in QuotaGroup",
+    "headline": "1 new failure in QuotaGroup change-order flow - an assertion, not infra.",
     "tone": "warn",
-    "cause": "mixed",
-    "causeText": "VCS changes present but none map onto the failing packages \u2014 likely test/data, correlate manually.",
-    "investigation": "New fails: 1\u00d7 assertion Condition not satisfied. Vs prior #3.0.2636: down 75 total fails.",
+    "cause": "test",
+    "causeText": "The only new failure is a Spock assertion in QuotaGroup ChangeOrderFlow: assertAudienceChangeEvaluation expected isChangeOrderNeeded == true, but AudienceChangeStatus returned with every field null (only changeRequested=true) - a response-shape/data problem, not a Read-timeout/502/504. Neither VCS change maps to the QuotaGroup area: NXS-13444 (gergely.gimesi) touches only dashboard data/tooling and NXS-13454 (gergely.gimesi) touches docs/.cursor plus a build.gradle dependency-resolution tweak. This reads as a test-data/fixture or QA-service response issue rather than a code regression, so no commit is blamed.",
+    "investigation": "The single new failure is a QuotaGroup change-order assertion (isChangeOrderNeeded expected true, response came back all-null) - an assertion, not infra. Neither commit touches QuotaGroup code, so it looks like test-data/response-shape, not a code regression.",
     "bullets": [
-      "1\u00d7 assertion Condition not satisfied"
+      "1 new failure: QuotaGroup ChangeOrderFlow assertion (isChangeOrderNeeded null)",
+      "Not infra - no timeout/502/504 on the new failure",
+      "No VCS change maps to QuotaGroup (changes are dashboard/docs/build only)"
     ],
     "detail": {
-      "investigation": "1 of 3 unmuted failures are new since the prior build (#3.0.2636, 78 fails). Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: QuotaGroup (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. Example new failures: QuotaGroup: change order flow: two audiences request, evaluation, approve [assertion Condition not satisfied].",
+      "investigation": "1 of 3 unmuted failures is new; prior build #3.0.2636 had 78 fails (76 new), so this run is a big improvement - 3 fails, 1 new, pass rate 99.8%. The new failure is QuotaGroup > ChangeOrderFlowTestSteps 'change order flow: two audiences request, evaluation, approve': a Spock assertion `assert status.isChangeOrderNeeded == true` failed because AudienceChangeStatus returned with every field null (quotaGroupId/lineItemGuid/isChangeOrderNeeded/blockTraffic all null, only changeRequested=true) - a response-shape/data problem, not a Read-timeout/502/504, so not infra. The other two failures are NOT new: QuotaGroupWorkflowTestSteps 'Move quota group...' is a genuine infra timeout (Read timed out on POST .../clone against microservices-qa), and PesNotificationTestSteps 'tally mode update...' is a data/setup HTTP 400 (total quota < soft-launch quota) on a shared fixture. On changes: NXS-13444 (ba799a167eb1, gergely.gimesi) touches only dashboard/data/ai-platform.json and dashboard/tools/generate_ai_platform.py (automation - cannot cause test failures); NXS-13454 (1c8bfbed601a, gergely.gimesi) touches .cursor rules, CURSOR.md, docs/DEPENDENCIES.md and build.gradle (resolve nxs jars from Artifactory latest.release) - none of which map to the QuotaGroup rest-gateway / audience-change area. No commit plausibly maps to the failing area, so this is treated as test-data/fixture or a QA-service response issue, not a code regression.",
       "bullets": [
-        "1\u00d7 assertion Condition not satisfied",
-        "NXS-13444: gergely.gimesi \u2014 NXS-13444 Keep AI Platform Dev stats across sparse TC checkouts",
-        "NXS-13454: gergely.gimesi \u2014 [NXS-13454] MS - resolve Dynata nxs jars from Artifactory latest.release"
+        "New: QuotaGroup > ChangeOrderFlowTestSteps 'change order flow: two audiences request, evaluation, approve' - assertion `isChangeOrderNeeded == true` failed (returned null)",
+        "AudienceChangeStatus came back all-null (only changeRequested=true) -> response-shape/data, not infra",
+        "Not infra: no Read-timeout/502/504 on the new failure",
+        "Non-new: QuotaGroupWorkflowTestSteps 'Move quota group...' - Read timed out on POST .../clone (infra, QA)",
+        "Non-new: PesNotificationTestSteps 'tally mode update...' - HTTP 400 total quota < soft-launch quota (data/setup)",
+        "NXS-13444 (gergely.gimesi) touches only dashboard data/tooling - cannot cause test failures",
+        "NXS-13454 (gergely.gimesi) touches docs/.cursor + build.gradle (latest.release) - no map to QuotaGroup",
+        "Big improvement vs prior #3.0.2636: 78 fails -> 3 (1 new), pass rate 99.8%"
       ],
       "newFailureAreas": [
         {
@@ -1554,8 +1561,8 @@
         "areas": []
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-07-25T02:15Z",
+    "source": "llm",
+    "generatedAt": "2026-07-25T02:15:00Z",
     "buildNumber": "3.0.2638",
     "buildId": "9410446",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9410446",
