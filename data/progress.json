@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-25T02:15Z",
+  "generatedAt": "2026-07-27T02:14Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-07-19",
-      "to": "2026-07-25",
+      "from": "2026-07-21",
+      "to": "2026-07-27",
       "featuresAdded": 73,
       "casesAdded": 79,
       "areasTouched": 6,
@@ -1543,8 +1543,8 @@
       ]
     },
     "14d": {
-      "from": "2026-07-12",
-      "to": "2026-07-25",
+      "from": "2026-07-14",
+      "to": "2026-07-27",
       "featuresAdded": 78,
       "casesAdded": 84,
       "areasTouched": 7,
@@ -3196,8 +3196,8 @@
       ]
     },
     "30d": {
-      "from": "2026-06-26",
-      "to": "2026-07-25",
+      "from": "2026-06-28",
+      "to": "2026-07-27",
       "featuresAdded": 102,
       "casesAdded": 120,
       "areasTouched": 8,
@@ -5358,24 +5358,24 @@
       ]
     },
     "90d": {
-      "from": "2026-04-27",
-      "to": "2026-07-25",
-      "featuresAdded": 151,
-      "casesAdded": 190,
+      "from": "2026-04-29",
+      "to": "2026-07-27",
+      "featuresAdded": 144,
+      "casesAdded": 180,
       "areasTouched": 9,
       "ticketsTouched": 10,
       "byType": {
-        "CRUD": 52,
-        "Validation": 40,
+        "CRUD": 48,
+        "Validation": 39,
         "Workflow": 27,
-        "Query": 18,
+        "Query": 16,
         "E2E": 1,
         "Other": 13
       },
       "byArea": [
         {
           "area": "Project",
-          "featuresAdded": 60
+          "featuresAdded": 53
         },
         {
           "area": "QuotaGroup",
@@ -5419,8 +5419,8 @@
         },
         {
           "key": "NXS-12492",
-          "featuresAdded": 46,
-          "casesAdded": 67,
+          "featuresAdded": 39,
+          "casesAdded": 57,
           "latestDate": "2026-06-16"
         },
         {
@@ -8375,156 +8375,11 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Clone%20audience%20group%20and%20verify%20cloned%20audience%20group%20name%20has%20Cloned-%20prefix%20and%20quota%20group%20names%20have%20Cloned%20suffix"
-        },
-        {
-          "name": "Upload deprecated project respondent exclusion rejects missing S3 file with documented error",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectExclusionDedupeTestSteps.groovy",
-          "date": "2026-04-28",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix PE approval, add dedupe coverage",
-          "commit": "98d0464042",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "Project",
-          "spec": "ProjectExclusionDedupeTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "DEDUPE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Upload%20deprecated%20project%20respondent%20exclusion%20rejects%20missing%20S3%20file%20with%20documented%20error"
-        },
-        {
-          "name": "Update deprecated project dedupe exclusion replaces deduped project reference",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectExclusionDedupeTestSteps.groovy",
-          "date": "2026-04-28",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix PE approval, add dedupe coverage",
-          "commit": "98d0464042",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "Project",
-          "spec": "ProjectExclusionDedupeTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "DEDUPE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Update%20deprecated%20project%20dedupe%20exclusion%20replaces%20deduped%20project%20reference"
-        },
-        {
-          "name": "Get deprecated project respondent exclusion paged returns a paged result",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectExclusionDedupeTestSteps.groovy",
-          "date": "2026-04-28",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix PE approval, add dedupe coverage",
-          "commit": "98d0464042",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "Project",
-          "spec": "ProjectExclusionDedupeTestSteps",
-          "type": "Query",
-          "cases": 4,
-          "tags": [
-            "DEDUPE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Get%20deprecated%20project%20respondent%20exclusion%20paged%20returns%20a%20paged%20result"
-        },
-        {
-          "name": "Download deprecated project respondent exclusion returns a payload",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectExclusionDedupeTestSteps.groovy",
-          "date": "2026-04-28",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix PE approval, add dedupe coverage",
-          "commit": "98d0464042",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "Project",
-          "spec": "ProjectExclusionDedupeTestSteps",
-          "type": "Query",
-          "cases": 1,
-          "tags": [
-            "DEDUPE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Download%20deprecated%20project%20respondent%20exclusion%20returns%20a%20payload"
-        },
-        {
-          "name": "Delete deprecated project respondent exclusion completes without error",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectExclusionDedupeTestSteps.groovy",
-          "date": "2026-04-28",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix PE approval, add dedupe coverage",
-          "commit": "98d0464042",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "Project",
-          "spec": "ProjectExclusionDedupeTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "DEDUPE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Delete%20deprecated%20project%20respondent%20exclusion%20completes%20without%20error"
-        },
-        {
-          "name": "Delete deprecated project dedupe exclusion removes the entry",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectExclusionDedupeTestSteps.groovy",
-          "date": "2026-04-28",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix PE approval, add dedupe coverage",
-          "commit": "98d0464042",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "Project",
-          "spec": "ProjectExclusionDedupeTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "DEDUPE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Delete%20deprecated%20project%20dedupe%20exclusion%20removes%20the%20entry"
-        },
-        {
-          "name": "Add deprecated project dedupe exclusion is persisted on project",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectExclusionDedupeTestSteps.groovy",
-          "date": "2026-04-28",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix PE approval, add dedupe coverage",
-          "commit": "98d0464042",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "Project",
-          "spec": "ProjectExclusionDedupeTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "DEDUPE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Add%20deprecated%20project%20dedupe%20exclusion%20is%20persisted%20on%20project"
         }
       ]
     }
   },
   "weeks": [
-    {
-      "weekStart": "2026-05-04",
-      "featuresAdded": 2,
-      "casesAdded": 2
-    },
     {
       "weekStart": "2026-05-11",
       "featuresAdded": 4,
@@ -8579,6 +8434,11 @@
       "weekStart": "2026-07-20",
       "featuresAdded": 73,
       "casesAdded": 79
+    },
+    {
+      "weekStart": "2026-07-27",
+      "featuresAdded": 0,
+      "casesAdded": 0
     }
   ],
   "snapshots": [
@@ -8605,29 +8465,29 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-07-25",
+      "date": "2026-07-27",
       "features": 712,
       "cases": 1508,
       "specs": 74,
       "areas": 15,
-      "coveragePercent": 97.4,
+      "coveragePercent": 97.0,
       "tested": 261,
-      "untested": 7,
-      "nonDeprecated": 268
+      "untested": 8,
+      "nonDeprecated": 269
     }
   ],
   "coverage": {
-    "currentPercent": 97.4,
+    "currentPercent": 97.0,
     "tested": 261,
-    "untested": 7,
+    "untested": 8,
     "delta14d": {
-      "currentPercent": 97.4,
+      "currentPercent": 97.0,
       "priorPercent": 78.0,
-      "deltaPoints": 19.4,
+      "deltaPoints": 19.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-07-25",
+      "currentDate": "2026-07-27",
       "testedDelta": 52,
-      "untestedDelta": -52
+      "untestedDelta": -51
     }
   },
   "inventory": {
