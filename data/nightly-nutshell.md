@@ -1,8 +1,8 @@
-**2 new failures in QuotaGroup**
+**2 new failures, both QA-environment errors during test setup — not a code change.**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: QA environment instability — a Feign read timeout plus an HTTP 500 from a QA backend during setup; no source changes, so no commit implicated._
 
-- 1× client/Feign socket timeout — feign.RetryableException: Read timed out executing DELETE <url>
-- 1× NOT_FOUND / missing data — java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException Caused by: java.
+- QuotaGroup: Feign "Read timed out" on DELETE /audienceGroups (QA socket timeout)
+- Survey: HTTP 500 from dk-project-target-editor-rest during setup (QA server error, not missing data)
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9410783)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9410783)

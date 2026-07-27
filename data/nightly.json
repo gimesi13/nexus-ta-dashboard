@@ -1390,20 +1390,25 @@
     "SurveyCRUDTestSteps::initializationError": "failed"
   },
   "nutshell": {
-    "headline": "2 new failures in QuotaGroup",
+    "headline": "2 new failures, both QA-environment errors during test setup \u2014 not a code change.",
     "tone": "warn",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 1\u00d7 client/Feign socket timeout; 1\u00d7 NOT_FOUND / missing data. Gateway hits: dk-project-target-editor-rest, dk-project-quota-details-rest.",
+    "cause": "infra",
+    "causeText": "Both new failures are initializationError setups that broke while calling QA services: a Feign 'Read timed out' on DELETE /audienceGroups (QuotaGroup) and an HTTP 500 from dk-project-target-editor-rest during quotaGroups setup (Survey). This build recorded no source changes, so no commit or developer is implicated. The 'NOT_FOUND / missing data' cluster label is misleading \u2014 the real Survey error is a server-side 500 from a QA backend, i.e. environment, not test data.",
+    "investigation": "Both new failures are setup (initializationError) errors against QA services: a Feign read timeout deleting an audienceGroup and an HTTP 500 from target-editor-rest. No source changes in this build, so this points to QA environment instability, not code.",
     "bullets": [
-      "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing DELETE <url>",
-      "1\u00d7 NOT_FOUND / missing data \u2014 java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException Caused by: java."
+      "QuotaGroup: Feign 'Read timed out' on DELETE /audienceGroups \u2014 QA socket timeout (infra)",
+      "Survey: HTTP 500 from dk-project-target-editor-rest during setup \u2014 QA server error, not missing data",
+      "No build changes \u2192 no commit implicated"
     ],
     "detail": {
-      "investigation": "2 of 4 unmuted failures are new since the prior build (#3.0.2639, 5 fails). Failure types (new-first): (1) 1\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. (2) 1\u00d7 NOT_FOUND / missing data \u2014 missing DB row / EmptyResult / NOT_FOUND. Hot areas among new fails: QuotaGroup (1), Survey (1). Example new failures: QuotaGroup: initializationError [client/Feign socket timeout]; Survey: initializationError [NOT_FOUND / missing data].",
+      "investigation": "2 of 4 unmuted failures are new since the prior build (#3.0.2639). Both new failures are initializationError setup failures that never reach an assertion, and both fail against QA services. (1) QuotaGroupWorkflowTestSteps throws feign.RetryableException 'Read timed out' executing DELETE .../audienceGroups/<id> \u2014 a client/socket timeout to QA (infra). (2) SurveyCRUDTestSteps fails with HTTP 500 PUT dk-project-target-editor-rest .../qualificationConditions during quotaGroups setup \u2014 a server-side 500 from a QA backend; despite the coarse 'NOT_FOUND / missing data' cluster label, the actual message is a 500, i.e. an environment error, not missing test data. This build recorded no source changes, so no commit or developer can be blamed. The two older (non-new) failures are unrelated and out of focus: ChangeOrderFlowTestSteps is a genuine Spock assertion (assertAfterApprove) and PesNotificationTestSteps is an HTTP 400 'Tally mode change not allowed' fixture/test-data issue.",
       "bullets": [
-        "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing DELETE <url>",
-        "1\u00d7 NOT_FOUND / missing data \u2014 java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException Caused by: java."
+        "NEW \u2014 QuotaGroup/QuotaGroupWorkflowTestSteps: feign 'Read timed out' on DELETE /audienceGroups \u2192 QA socket timeout (infra)",
+        "NEW \u2014 Survey/SurveyCRUDTestSteps: HTTP 500 from dk-project-target-editor-rest during quotaGroups setup \u2192 QA server error (infra), not 'missing data'",
+        "Both new failures are initializationError \u2014 setup broke before any assertion ran",
+        "No source changes in this build \u2192 no commit or developer implicated",
+        "Old (not new) \u2014 ChangeOrderFlowTestSteps: genuine Spock assertion (assertAfterApprove)",
+        "Old (not new) \u2014 PesNotificationTestSteps: HTTP 400 'Tally mode change not allowed' \u2192 test/data fixture"
       ],
       "newFailureAreas": [
         {
@@ -1452,8 +1457,8 @@
       }
     ],
     "suspectCommits": [],
-    "source": "investigator",
-    "generatedAt": "2026-07-27T02:14Z",
+    "source": "llm",
+    "generatedAt": "2026-07-27T02:14:00Z",
     "buildNumber": "3.0.2640",
     "buildId": "9410783",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9410783",
