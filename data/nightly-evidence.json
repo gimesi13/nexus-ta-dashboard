@@ -1,32 +1,32 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-27T02:14Z",
+  "generatedAt": "2026-07-28T02:18Z",
   "build": {
-    "number": "3.0.2640",
-    "buildId": "9410783",
+    "number": "3.0.2641",
+    "buildId": "9412090",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9410783",
-    "durationSec": 2434.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9412090",
+    "durationSec": 2804.0
   },
   "summary": {
-    "tests": 1361,
-    "passed": 1262,
+    "tests": 1449,
+    "passed": 1347,
     "failures": 4,
     "errors": 0,
     "skipped": 0,
-    "muted": 95,
-    "newFailed": 2,
+    "muted": 98,
+    "newFailed": 1,
     "passRate": 99.7,
-    "timeSec": 2434.0
+    "timeSec": 2804.0
   },
   "prior": {
-    "buildId": "9408892",
-    "number": "3.0.2639",
+    "buildId": "9410783",
+    "number": "3.0.2640",
     "status": "FAILURE",
-    "statusText": "Tests failed: 5 (2 new), passed: 1328, muted: 98",
-    "durationSec": 2629.0,
-    "failed": 5,
-    "passed": 1328,
+    "statusText": "Tests failed: 4 (2 new), passed: 1262, muted: 95",
+    "durationSec": 2434.0,
+    "failed": 4,
+    "passed": 1262,
     "newFailed": 2
   },
   "changes": [],
@@ -36,7 +36,7 @@
       "display": "client/Feign socket timeout",
       "count": 1,
       "newCount": 1,
-      "sample": "feign.RetryableException: Read timed out executing DELETE <url>",
+      "sample": "feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
       "why": "Feign/client socket timeout talking to a QA service"
     },
     {
@@ -48,31 +48,31 @@
       "why": "Spock assertion failed (fixture or response shape)"
     },
     {
+      "label": "other",
+      "display": "other",
+      "count": 1,
+      "newCount": 0,
+      "sample": "",
+      "why": "no dominant signature yet \u2014 open TeamCity details"
+    },
+    {
       "label": "test_setup_soft_launch",
       "display": "PES soft-launch vs tally",
       "count": 1,
       "newCount": 0,
       "sample": "",
       "why": "PES soft-launch total vs tally on a shared fixture"
-    },
-    {
-      "label": "product_data_not_found",
-      "display": "NOT_FOUND / missing data",
-      "count": 1,
-      "newCount": 1,
-      "sample": "java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException Caused by: java.",
-      "why": "missing DB row / EmptyResult / NOT_FOUND"
     }
   ],
   "failures": [
     {
-      "name": "initializationError",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupWorkflowTestSteps",
+      "name": "change order flow: request, evaluation, block traffic, approve",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.ChangeOrderFlowTestSteps",
       "newFailure": true,
       "area": "QuotaGroup",
       "cluster": "infra_timeout",
-      "message": "feign.RetryableException: Read timed out executing DELETE https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceGroups/<id>",
-      "detailsExcerpt": "feign.RetryableException: Read timed out executing DELETE https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceGroups/1485089 at app//feign.FeignException.errorExecuting(FeignException.java:249) at app//feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:129) at app//feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:89) at app//feign.Reflective\u2026"
+      "message": "feign.RetryableException:timeout executing POST https://microservices-qa.dynata.com/NexusApi/v1/nexus/d365/changeOrderStatus Caused by: java.net.SocketTimeoutE\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: http://dk-project-crm-rest.nexus-ms-qa.dynata.com:8115/api/Crm/u1/test/changeOrderStatus 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"feign.RetryableException:timeout executing POST https://microservices-qa.dynata.com/NexusApi/v1/nexus/d365/changeOrderStatus \\nCaused by: java.net.SocketTimeoutException:timeout\" } ], \"version\" : \"1.0\" } at com.dy\u2026"
     },
     {
       "name": "change order flow: two audiences request, evaluation, approve",
@@ -81,7 +81,16 @@
       "area": "QuotaGroup",
       "cluster": "assert_fail",
       "message": "Condition failed with Exception:",
-      "detailsExcerpt": "Condition failed with Exception: changeOrder.assertAfterApprove([quotaGroupId, quotaGroupIdB]) | | | | | | 118726220 118726226 | Assertion failed: | | assert nxs.apiQGAudienceChangeStatus.getAudienceChangeStatus(quotaGroupId) == null | | | | | | | | | | 118726226 false | | | AudienceChangeStatus{quotaGroupId='null', lineItemGuid=null, isChangeOrderNeeded=null, blockTraffic=null, expectedEndOfQuie\u2026"
+      "detailsExcerpt": "Condition failed with Exception: changeOrder.assertAfterApprove([quotaGroupId, quotaGroupIdB]) | | | | | | 118727129 118727141 | Assertion failed: | | assert nxs.apiQGAudienceChangeStatus.getAudienceChangeStatus(quotaGroupId) == null | | | | | | | | | | 118727141 false | | | AudienceChangeStatus{quotaGroupId='null', lineItemGuid=null, isChangeOrderNeeded=null, blockTraffic=null, expectedEndOfQuie\u2026"
+    },
+    {
+      "name": "Move quota group between audience groups and verify integrity: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupWorkflowTestSteps.Move quota group between audience groups and verify integrity",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupWorkflowTestSteps",
+      "newFailure": false,
+      "area": "QuotaGroup",
+      "cluster": "other",
+      "message": "java.lang.RuntimeException: Timeout after waiting 120 seconds: Giving up. Last error: Read timed out executing POST https://microservices-qa.dynata.com/NexusAp\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 120 seconds: Giving up. Last error: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2176537/audienceGroups/1488466/clone at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:121) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.AudienceGroupHelper.clo\u2026"
     },
     {
       "name": "tally mode update publishes quotaGroupDetailsUpdated notification",
@@ -91,38 +100,23 @@
       "cluster": "test_setup_soft_launch",
       "message": "Tally mode change is not allowed, because total quota less than soft launch quota!",
       "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118617538/quotas/tallyMode?tallyMode=BY_STARTS 400{ \"errors\" : [ { \"callChain\" : [ \"HTTP 400 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118617538/quotas/tallyMode?tallyMode=BY_STARTS\" ], \"status\" : \"BAD_REQUEST\", \"message\" : \"Tally mode change is \u2026"
-    },
-    {
-      "name": "initializationError",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyCRUDTestSteps",
-      "newFailure": true,
-      "area": "Survey",
-      "cluster": "product_data_not_found",
-      "message": "java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException Caused by: java.lang.reflect.InvocationTargetException:java.lang.\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups 500{ \"errors\" : [ { \"callChain\" : [ \"QGInclusionsAndSegments\", \"HTTP 500 PUT http://dk-project-target-editor-rest.nexus-ms-qa.dynata.com:8080/api/TargetEditor/u1/quotaGroups/118726268/qualificationConditions\", \"HTTP 500 GET https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118726268/core\"\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "2 new failures in QuotaGroup",
+    "headline": "1 new failure in QuotaGroup",
     "tone": "warn",
     "bullets": [
-      "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing DELETE <url>",
-      "1\u00d7 NOT_FOUND / missing data \u2014 java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException Caused by: java."
+      "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout"
     ],
-    "investigation": "New fails: 1\u00d7 client/Feign socket timeout; 1\u00d7 NOT_FOUND / missing data. Gateway hits: dk-project-target-editor-rest, dk-project-quota-details-rest.",
+    "investigation": "New fails: 1\u00d7 client/Feign socket timeout. Gateway hits: dk-project-crm-rest.",
     "detail": {
-      "investigation": "2 of 4 unmuted failures are new since the prior build (#3.0.2639, 5 fails). Failure types (new-first): (1) 1\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. (2) 1\u00d7 NOT_FOUND / missing data \u2014 missing DB row / EmptyResult / NOT_FOUND. Hot areas among new fails: QuotaGroup (1), Survey (1). Example new failures: QuotaGroup: initializationError [client/Feign socket timeout]; Survey: initializationError [NOT_FOUND / missing data].",
+      "investigation": "1 of 4 unmuted failures are new since the prior build (#3.0.2640, 4 fails). Failure types (new-first): (1) 1\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. Hot areas among new fails: QuotaGroup (1). Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout].",
       "bullets": [
-        "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing DELETE <url>",
-        "1\u00d7 NOT_FOUND / missing data \u2014 java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException Caused by: java."
+        "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout"
       ],
       "newFailureAreas": [
         {
           "area": "QuotaGroup",
-          "newCount": 1
-        },
-        {
-          "area": "Survey",
           "newCount": 1
         }
       ],
