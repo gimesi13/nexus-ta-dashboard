@@ -1500,18 +1500,25 @@
     "SegmentsValidationTestSteps::Validate quota value constraints": "muted"
   },
   "nutshell": {
-    "headline": "1 new failure in QuotaGroup",
+    "headline": "1 new QuotaGroup failure, caused by a QA socket timeout (infra), not a code change.",
     "tone": "warn",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 1\u00d7 client/Feign socket timeout. Gateway hits: dk-project-crm-rest.",
+    "cause": "infra",
+    "causeText": "The single new failure (QuotaGroup change order flow) is a Feign SocketTimeoutException on POST /nexus/d365/changeOrderStatus to microservices-qa, surfacing as a 500 from dk-project-crm-rest \u2014 a QA environment timeout, not an assertion or data defect. This build shipped no code changes, so no commit is implicated. The 3 pre-existing failures are unrelated (a Spock assertion, another read-timeout, and a PES soft-launch/tally data condition).",
+    "investigation": "The only new failure is a Feign socket timeout to microservices-qa (QA infra flakiness). No build changes exist, so no commit or developer can be blamed.",
     "bullets": [
-      "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout"
+      "NEW: QuotaGroup change order flow \u2014 SocketTimeoutException to microservices-qa (infra).",
+      "No build changes \u2014 no commit implicated.",
+      "3 older failures unrelated (assertion, read-timeout, PES tally data)."
     ],
     "detail": {
-      "investigation": "1 of 4 unmuted failures are new since the prior build (#3.0.2640, 4 fails). Failure types (new-first): (1) 1\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. Hot areas among new fails: QuotaGroup (1). Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout].",
+      "investigation": "1 of 4 unmuted failures is new since the prior build (#3.0.2640, which also had 4 fails). The new failure \u2014 QuotaGroup 'change order flow: request, evaluation, block traffic, approve' \u2014 is a client/Feign socket timeout: feign.RetryableException / java.net.SocketTimeoutException on POST https://microservices-qa.dynata.com/NexusApi/v1/nexus/d365/changeOrderStatus, which bubbles up as a 500 INTERNAL_SERVER_ERROR from dk-project-crm-rest. That is a QA-environment timeout, not a code or test defect. Critically, the build's changes list is empty, so no commit or developer can be linked to this failure. The other three failures are pre-existing (not new): a Spock assertion in QuotaGroup change order flow (AudienceChangeStatus expected null), a read-timeout on audienceGroups clone (another infra timeout), and a PES notification test hitting 'Tally mode change is not allowed, total quota less than soft launch quota' (a soft-launch/tally data condition). Recommended action: re-run to confirm the QA timeout is transient; no code investigation warranted.",
       "bullets": [
-        "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout"
+        "NEW (1): QuotaGroup change order flow \u2014 feign.RetryableException / SocketTimeoutException POST changeOrderStatus to microservices-qa; 500 from dk-project-crm-rest (infra timeout).",
+        "No build changes in #3.0.2641 \u2014 no commit or developer can be blamed for the new failure.",
+        "Pre-existing: QuotaGroup change order (two audiences) \u2014 Spock assertion, AudienceChangeStatus expected null.",
+        "Pre-existing: QuotaGroup move/clone audience groups \u2014 read timed out after 120s (infra).",
+        "Pre-existing: PES notification tally mode \u2014 400 'total quota less than soft launch quota' (test/data condition).",
+        "Pass rate 99.7%; new-failure count unchanged in character from prior build (QA flakiness)."
       ],
       "newFailureAreas": [
         {
@@ -1556,8 +1563,8 @@
       }
     ],
     "suspectCommits": [],
-    "source": "investigator",
-    "generatedAt": "2026-07-28T02:18Z",
+    "source": "llm",
+    "generatedAt": "2026-07-28T02:18:59Z",
     "buildNumber": "3.0.2641",
     "buildId": "9412090",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9412090",
