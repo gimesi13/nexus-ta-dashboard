@@ -1,8 +1,8 @@
-**1 new QuotaGroup failure — a QA socket timeout (infra), not a code change.**
+**1 continuing failure(s) — no new unmuted fails**
 
-_Likely cause: Feign SocketTimeoutException to microservices-qa (QA infra); no build changes, so no commit implicated._
+_Likely cause: Possibly NXS-13505 by gergely.gimesi — touches QuotaGroup (1 overlapping new fails)._
 
-- NEW: QuotaGroup change order flow — SocketTimeoutException to microservices-qa (infra).
-- 3 older failures unrelated (assertion, read-timeout, PES tally data).
+- 1× assertion Condition not satisfied
+- Change NXS-13505: gergely.gimesi · QuotaGroup · 1 overlapping new fails
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9412090)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9414999)
