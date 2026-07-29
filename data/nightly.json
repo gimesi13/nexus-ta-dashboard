@@ -1467,45 +1467,29 @@
     "SurveyCRUDTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "Nightly is effectively green \u2014 0 new failures; the only failure is a continuing change-order approval timeout (QA/backend), not a regression.",
     "tone": "warn",
-    "cause": "code_change",
-    "causeText": "Possibly NXS-13505 by gergely.gimesi \u2014 touches QuotaGroup (1 overlapping new fails). Correlation only.",
-    "investigation": "Failures: 1\u00d7 assertion Condition not satisfied. Likely related to NXS-13505 gergely.gimesi `77a94d969c54` (QuotaGroup, 1 new fails in overlap).",
+    "cause": "infra",
+    "causeText": "The sole failure, ChangeOrderFlowTestSteps 'change order flow: two audiences request, evaluation, approve', is a QA timeout: WaitUtil.until gave up after 45s waiting for the change order to reach the approved state ('Condition never returned a non-null result'), not a Spock assertion mismatch. It is a continuing failure (newFailure=false, newFailed=0), so no new regression was introduced this run. NXS-13505 by gergely.gimesi (77a94d969c54) touched change-order waits as a stabilisation fix and failures fell 4\u21921, so no code blame is assigned \u2014 the remaining timeout points at QA backend/timing.",
+    "investigation": "The only failure is a 45-second QA wait timeout in change-order approval (WaitUtil.until via ChangeOrderFlowHelper), not an assertion. It is continuing rather than new, so this is a backend/timing issue rather than a code regression.",
     "bullets": [
-      "1\u00d7 assertion Condition not satisfied",
-      "Change NXS-13505: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails"
+      "0 new failures; 99.9% pass (1350/1449, 98 muted).",
+      "Only failure: change-order approve times out after 45s (WaitUtil) \u2014 QA timing, not an assertion.",
+      "NXS-13505 (gergely.gimesi) was a change-order wait fix; fails dropped 4\u21921. No code blame."
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: QuotaGroup (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): Example new failures: QuotaGroup: change order flow: two audiences request, evaluation, approve [assertion Condition not satisfied].",
+      "investigation": "No new unmuted failures this run (newFailed=0); the build is FAILURE only because of one continuing test. That test \u2014 ChangeOrderFlowTestSteps 'change order flow: two audiences request, evaluation, approve' (area QuotaGroup, ~136s) \u2014 is clustered as 'assertion Condition not satisfied', but the real message is java.lang.RuntimeException: 'Timeout after waiting 45 seconds: Condition never returned a non-null result' at WaitUtil.until, called from ChangeOrderFlowHelper.assertAfterApprove. That is a polling timeout waiting for the change order to reach the approved state \u2014 a QA backend/timing symptom, not a Spock assertion mismatch and not a 502/504/SocketTimeout. The single build change, NXS-13505 by gergely.gimesi (77a94d969c54), touches ChangeOrderFlowHelper.groovy and its comment is 'fix nightly PES soft-launch, move-QG, change-order waits' \u2014 an attempt to stabilise these very waits; failures fell from 4 (1 new) in prior build 3.0.2641 to 1 (0 new) here. Because the failure is continuing rather than new and is a timeout, this is treated as infra/timing and no developer blame is assigned.",
       "bullets": [
-        "1\u00d7 assertion Condition not satisfied",
-        "Change NXS-13505: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails",
-        "NXS-13505 77a94d969c54 by gergely.gimesi \u2192 areas QuotaGroup (1 new fails) \u00b7 ChangeOrderFlowHelper.groovy, QuotaGroupWorkflowTestSteps.groovy, PesNotificationTestSteps.groovy"
+        "0 new failures; 1 continuing failure; 99.9% pass (1350/1449, 98 muted).",
+        "Failure: QuotaGroup / ChangeOrderFlowTestSteps 'change order flow: two audiences request, evaluation, approve' (~136s).",
+        "Real cause: 'Timeout after waiting 45 seconds: Condition never returned a non-null result' at WaitUtil.until via ChangeOrderFlowHelper.assertAfterApprove \u2014 a QA wait timeout, not an assertion.",
+        "Cluster label 'assertion Condition not satisfied' is misleading; the message is a wrapped RuntimeException timeout.",
+        "Trend improving: prior 3.0.2641 had 4 failed (1 new); this build has 1 failed (0 new).",
+        "NXS-13505 (77a94d969c54, gergely.gimesi) touched change-order waits (ChangeOrderFlowHelper.groovy) as a fix, not a regression source.",
+        "No new failure is attributable to any code change; likelyCauses empty."
       ],
-      "newFailureAreas": [
-        {
-          "area": "QuotaGroup",
-          "newCount": 1
-        }
-      ],
-      "likelyCauses": [
-        {
-          "version": "77a94d969c54",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13505",
-          "comment": "NXS-13505 fix nightly PES soft-launch, move-QG, change-order waits",
-          "areas": [
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 1,
-          "files": [
-            "ChangeOrderFlowHelper.groovy",
-            "QuotaGroupWorkflowTestSteps.groovy",
-            "PesNotificationTestSteps.groovy"
-          ]
-        }
-      ]
+      "newFailureAreas": [],
+      "likelyCauses": []
     },
     "clusters": [
       {
@@ -1517,24 +1501,10 @@
         "why": "Spock assertion failed (fixture or response shape)"
       }
     ],
-    "suspectCommits": [
-      {
-        "version": "77a94d969c54",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13505 fix nightly PES soft-launch, move-QG, change-order waits",
-        "ticket": "NXS-13505",
-        "areas": [
-          "QuotaGroup"
-        ]
-      }
-    ],
-    "source": "investigator",
-    "generatedAt": "2026-07-29T02:09Z",
+    "source": "llm",
+    "generatedAt": "2026-07-29T02:09:00Z",
     "buildNumber": "3.0.2642",
     "buildId": "9414999",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9414999",
-    "focus": "all_failures",
-    "newFailed": 0,
-    "failed": 1
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9414999"
   }
 }
