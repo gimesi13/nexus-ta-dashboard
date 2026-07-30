@@ -1489,20 +1489,26 @@
     "SurveyCRUDTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "3 new failures in QuotaGroup",
+    "headline": "3 new QuotaGroup failures from country/language support data \u2014 not infra and not a code change.",
     "tone": "warn",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 2\u00d7 GB + fr unsupported; 1\u00d7 other (no dominant signature yet). Vs prior #3.0.2642: up 2 total fails.",
+    "causeText": "All 3 new failures are clean 400 BAD_REQUEST validation responses from the QA API (\"Unsupported country! [countryIso:QA]\", \"...[countryIso:BY]\", and \"Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]\") \u2014 no timeouts/502/504, so this is not infra. Build #3.0.2643 has no code changes, so no commit or developer can be blamed. The tests assume QA, SA and BY (and their language combos) are enabled in QA, but the environment now rejects them \u2014 a test/reference-data mismatch.",
+    "investigation": "All 3 new failures are QuotaGroup clone tests asserting QA, SA and BY are enabled, but the QA API returns \"Unsupported country\"/\"Unsupported country-language\" 400s. With no build changes and no timeouts/502/504, this is test/reference-data drift, not infra or a code regression.",
     "bullets": [
-      "2\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]",
-      "1\u00d7 other \u2014 Unsupported country! [countryIso:QA]"
+      "QA & BY now rejected as \"Unsupported country\" (400) \u2014 tests assumed they are enabled",
+      "SA + [ar, en] rejected as unsupported country-language combo (400)",
+      "No code changes in this build; no infra timeouts \u2014 no commit or developer to blame"
     ],
     "detail": {
-      "investigation": "3 of 3 unmuted failures are new since the prior build (#3.0.2642, 1 fails). Failure types (new-first): (1) 2\u00d7 GB + fr unsupported \u2014 unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang). (2) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: QuotaGroup (3). Example new failures: QuotaGroup: Clone quota group for enabled country and supported language persists correct country-lang [other]; QuotaGroup: Clone quota group for enabled country and supported language persists correct country-lang [GB + fr unsupported]; QuotaGroup: Clone quota group for enabled country with unsupported language: com.dynata.rest.gateway.n [GB + fr unsupported].",
+      "investigation": "All 3 of 3 unmuted failures are new since prior build #3.0.2642 (1 fail) and all sit in QuotaGroup clone flows against microservices-qa.dynata.com. Reading the real messages (not the coarse cluster labels): (1) QuotaGroupCRUDTestSteps [countryIso: QA, languageIsos: [ar, en]] \u2014 API returns HTTP 400 \"Unsupported country! [countryIso:QA]\"; the test expects QA to be an enabled country. (2) QuotaGroupCRUDTestSteps [countryIso: SA, languageIsos: [ar, en]] \u2014 API returns HTTP 400 \"Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]\"; the test expects SA+[ar,en] to be a valid combo. (3) QuotaGroupValidationTestSteps [countryIso: BY, languageIsos: [de]] \u2014 a Spock \"Condition not satisfied\" assertion: the test expected the error to contain \"Unsupported country-language combinations\"/\"Unsupported value\"/\"Invalid countryLanguages update request!\" but the API returned \"Unsupported country! [countryIso:BY]\", i.e. BY is now an unsupported country rather than an enabled country with an unsupported language. All three are clean 400 BAD_REQUEST validations \u2014 no SocketTimeout/Read timed out/502/504 \u2014 so this is not infra. There are no code changes in build #3.0.2643 (changes and suspectCommits are empty), so no commit or developer can be implicated. The consistent signal is that QA/SA/BY country-language support in the QA environment no longer matches what these tests hard-code, i.e. test/reference-data drift.",
       "bullets": [
-        "2\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]",
-        "1\u00d7 other \u2014 Unsupported country! [countryIso:QA]"
+        "3/3 new failures are in QuotaGroup clone tests, all hitting microservices-qa.dynata.com",
+        "QA [ar, en] \u2014 400 \"Unsupported country! [countryIso:QA]\"; test assumes QA is enabled",
+        "SA [ar, en] \u2014 400 \"Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]\"",
+        "BY [de] \u2014 assertion failed: got \"Unsupported country! [countryIso:BY]\" instead of an unsupported-language error; BY is no longer enabled",
+        "All responses are clean 400 BAD_REQUEST validations \u2014 no timeouts/502/504, so not infra",
+        "No code changes in build #3.0.2643 \u2014 no commit or developer to blame",
+        "Root signal: QA-env country/language support no longer matches the values these tests hard-code"
       ],
       "newFailureAreas": [
         {
@@ -1531,8 +1537,8 @@
       }
     ],
     "suspectCommits": [],
-    "source": "investigator",
-    "generatedAt": "2026-07-30T02:09Z",
+    "source": "llm",
+    "generatedAt": "2026-07-30T02:09:00Z",
     "buildNumber": "3.0.2643",
     "buildId": "9416344",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9416344",
