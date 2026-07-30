@@ -1,122 +1,105 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-29T02:09Z",
+  "generatedAt": "2026-07-30T02:09Z",
   "build": {
-    "number": "3.0.2642",
-    "buildId": "9414999",
+    "number": "3.0.2643",
+    "buildId": "9416344",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9414999",
-    "durationSec": 2304.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9416344",
+    "durationSec": 2155.0
   },
   "summary": {
     "tests": 1449,
-    "passed": 1350,
-    "failures": 1,
+    "passed": 1348,
+    "failures": 3,
     "errors": 0,
     "skipped": 0,
     "muted": 98,
-    "newFailed": 0,
-    "passRate": 99.9,
-    "timeSec": 2304.0
+    "newFailed": 3,
+    "passRate": 99.8,
+    "timeSec": 2155.0
   },
   "prior": {
-    "buildId": "9412090",
-    "number": "3.0.2641",
+    "buildId": "9414999",
+    "number": "3.0.2642",
     "status": "FAILURE",
-    "statusText": "Tests failed: 4 (1 new), passed: 1347, muted: 98",
-    "durationSec": 2804.0,
-    "failed": 4,
-    "passed": 1347,
-    "newFailed": 1
+    "statusText": "Tests failed: 1, passed: 1350, muted: 98",
+    "durationSec": 2304.0,
+    "failed": 1,
+    "passed": 1350,
+    "newFailed": 0
   },
-  "changes": [
-    {
-      "version": "77a94d969c54",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13505 fix nightly PES soft-launch, move-QG, change-order waits",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/ChangeOrderFlowHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/pes/pes2/PesNotificationTestSteps.groovy"
-      ],
-      "areas": [
-        "ChangeOrderFlow",
-        "QuotaGroup",
-        "pes"
-      ]
-    }
-  ],
+  "changes": [],
   "clusters": [
     {
-      "label": "assert_fail",
-      "display": "assertion Condition not satisfied",
+      "label": "product_data_country_lang",
+      "display": "GB + fr unsupported",
+      "count": 2,
+      "newCount": 2,
+      "sample": "Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]",
+      "why": "unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang)"
+    },
+    {
+      "label": "other",
+      "display": "other",
       "count": 1,
       "newCount": 1,
-      "sample": "",
-      "why": "Spock assertion failed (fixture or response shape)"
+      "sample": "Unsupported country! [countryIso:QA]",
+      "why": "no dominant signature yet \u2014 open TeamCity details"
     }
   ],
   "failures": [
     {
-      "name": "change order flow: two audiences request, evaluation, approve",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.ChangeOrderFlowTestSteps",
-      "newFailure": false,
+      "name": "Clone quota group for enabled country and supported language persists correct country-language: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps.Clone quota group for enabled country and supported language persists correct country-language [countryIso: QA, languageIsos: [ar, en], #1]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps",
+      "newFailure": true,
       "area": "QuotaGroup",
-      "cluster": "assert_fail",
-      "message": "Condition failed with Exception:",
-      "detailsExcerpt": "Condition failed with Exception: changeOrder.assertAfterApprove([quotaGroupId, quotaGroupIdB]) | | | | | | 118729112 118729120 | java.lang.RuntimeException: Timeout after waiting 45 seconds: Condition never returned a non-null result | at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:73) | at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.Ch\u2026"
+      "cluster": "other",
+      "message": "Unsupported country! [countryIso:QA]",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Unsupported country! [countryIso:QA]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) at feign.AsyncResponseHandler.handleResponse(AsyncResponseHandler.java\u2026"
+    },
+    {
+      "name": "Clone quota group for enabled country and supported language persists correct country-language: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps.Clone quota group for enabled country and supported language persists correct country-language [countryIso: SA, languageIsos: [ar, en], #2]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "product_data_country_lang",
+      "message": "Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) at feign.AsyncResponseHa\u2026"
+    },
+    {
+      "name": "Clone quota group for enabled country with unsupported language: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupValidationTestSteps.Clone quota group for enabled country with unsupported language [countryIso: BY, languageIsos: [de], #4]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupValidationTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "product_data_country_lang",
+      "message": "Unsupported country! [countryIso:BY]",
+      "detailsExcerpt": "Condition not satisfied: exception.message.contains(\"Unsupported country-language combinations\") || exception.message.contains(\"Unsupported value\") || exception.message.contains(\"Invalid countryLanguages update request!\") | | | | | | | | | | | | | false | | | false | | | false | | | | | | | https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries | | | | | | | | | | | \u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "1 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "3 new failures in QuotaGroup",
     "tone": "warn",
     "bullets": [
-      "1\u00d7 assertion Condition not satisfied",
-      "Change NXS-13505: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails"
+      "2\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]",
+      "1\u00d7 other \u2014 Unsupported country! [countryIso:QA]"
     ],
-    "investigation": "Failures: 1\u00d7 assertion Condition not satisfied. Likely related to NXS-13505 gergely.gimesi `77a94d969c54` (QuotaGroup, 1 new fails in overlap).",
+    "investigation": "New fails: 2\u00d7 GB + fr unsupported; 1\u00d7 other (no dominant signature yet). Vs prior #3.0.2642: up 2 total fails.",
     "detail": {
-      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: QuotaGroup (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): Example new failures: QuotaGroup: change order flow: two audiences request, evaluation, approve [assertion Condition not satisfied].",
+      "investigation": "3 of 3 unmuted failures are new since the prior build (#3.0.2642, 1 fails). Failure types (new-first): (1) 2\u00d7 GB + fr unsupported \u2014 unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang). (2) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: QuotaGroup (3). Example new failures: QuotaGroup: Clone quota group for enabled country and supported language persists correct country-lang [other]; QuotaGroup: Clone quota group for enabled country and supported language persists correct country-lang [GB + fr unsupported]; QuotaGroup: Clone quota group for enabled country with unsupported language: com.dynata.rest.gateway.n [GB + fr unsupported].",
       "bullets": [
-        "1\u00d7 assertion Condition not satisfied",
-        "Change NXS-13505: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails",
-        "NXS-13505 77a94d969c54 by gergely.gimesi \u2192 areas QuotaGroup (1 new fails) \u00b7 ChangeOrderFlowHelper.groovy, QuotaGroupWorkflowTestSteps.groovy, PesNotificationTestSteps.groovy"
+        "2\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]",
+        "1\u00d7 other \u2014 Unsupported country! [countryIso:QA]"
       ],
       "newFailureAreas": [
         {
           "area": "QuotaGroup",
-          "newCount": 1
+          "newCount": 3
         }
       ],
-      "likelyCauses": [
-        {
-          "version": "77a94d969c54",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13505",
-          "comment": "NXS-13505 fix nightly PES soft-launch, move-QG, change-order waits",
-          "areas": [
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 1,
-          "files": [
-            "ChangeOrderFlowHelper.groovy",
-            "QuotaGroupWorkflowTestSteps.groovy",
-            "PesNotificationTestSteps.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
-    "suspectCommits": [
-      {
-        "version": "77a94d969c54",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13505 fix nightly PES soft-launch, move-QG, change-order waits",
-        "ticket": "NXS-13505",
-        "areas": [
-          "QuotaGroup"
-        ]
-      }
-    ]
+    "suspectCommits": []
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite."
 }
