@@ -1544,18 +1544,26 @@
     "SurveyCRUDTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "5 new failures \u2014 mainly Project, Survey",
+    "headline": "5 new failures in Project overview and Survey \u2014 all NOT_FOUND for missing ProjectProperties in QA data.",
     "tone": "bad",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 5\u00d7 NOT_FOUND / missing data. Vs prior #3.0.2643: up 5 total fails.",
+    "causeText": "No build changes landed in this run, so no commit or developer can be implicated. All 5 new failures are HTTP 404 \"Could not find ProjectProperties\" returned by downstream QA microservices (dk-project-project-rest / survey-rest) \u2014 missing DB rows, not assertions or QA timeouts/502/504. This points to a test-data / environment seeding gap (project 2183035), not a code regression or infra outage.",
+    "investigation": "All 5 new failures are 404 \"Could not find ProjectProperties\" from downstream QA services (4\u00d7 Project overview on project 2183035, 1\u00d7 Survey deactivate). No build changes and no timeouts/502/504, so this is missing test data/environment, not code or infra.",
     "bullets": [
-      "5\u00d7 NOT_FOUND / missing data \u2014 Could not find ProjectProperties with id 11947ce3-2b6b-46bb-b825-1d1e8fae6fec"
+      "4\u00d7 Project overview \u2014 404 \"Could not find ProjectProperties 11947ce3\u2026\" on project 2183035",
+      "1\u00d7 Survey deactivate \u2014 404 \"Could not find ProjectProperties 63d4049d\u2026\"",
+      "No build changes and no QA timeouts/502/504 \u2192 test-data/environment, not code or infra"
     ],
     "detail": {
-      "investigation": "5 of 8 unmuted failures are new since the prior build (#3.0.2643, 3 fails). Failure types (new-first): (1) 5\u00d7 NOT_FOUND / missing data \u2014 missing DB row / EmptyResult / NOT_FOUND. Hot areas among new fails: Project (4), Survey (1). Example new failures: Project: Get project overview does not include numberOfOverQuotasForRace when race boost is disable [NOT_FOUND / missing data]; Project: Get project overview returns eligibleForRaceBoost false for standard project [NOT_FOUND / missing data]; Project: Get project overview returns numberOfOverQuotasForRace when race boost is enabled [NOT_FOUND / missing data]; Project: Get project overview returns eligibleForRaceBoost true after race boost is enabled [NOT_FOUND / missing data].",
+      "investigation": "5 of 8 unmuted failures are new since prior build #3.0.2643 (3 fails), and all 5 share one signature: HTTP 404 \"Could not find ProjectProperties\" returned by downstream QA microservices \u2014 i.e. missing data rather than an assertion or a timeout. (1) Project (4): GET /projects/2183035/overview fails because dk-project-project-rest returns 404 for projectProperties 11947ce3-2b6b-46bb-b825-1d1e8fae6fec across the race-boost / overQuota overview scenarios. (2) Survey (1): PUT /urlPools/3212110/deactivate fails because ProjectProperties 63d4049d-242e-4841-9f87-0793d974b09c is missing. The build's 'changes' list is empty, so no commit can be implicated, and the messages contain no Read timed out/SocketTimeout/502/504, which rules out QA infra. The 3 non-new failures (2\u00d7 QuotaGroup country-language for SA/QA, 1\u00d7 QuotaGroup BY 'Condition not satisfied' assertion) are pre-existing and unrelated to this regression.",
       "bullets": [
-        "5\u00d7 NOT_FOUND / missing data \u2014 Could not find ProjectProperties with id 11947ce3-2b6b-46bb-b825-1d1e8fae6fec"
+        "5 new failures, all cluster NOT_FOUND / missing data (404 \"Could not find ProjectProperties\")",
+        "Project (4): GET /projects/2183035/overview \u2192 downstream 404 for projectProperties 11947ce3\u2026",
+        "Survey (1): PUT /urlPools/3212110/deactivate \u2192 downstream 404 for projectProperties 63d4049d\u2026",
+        "No build changes ('changes' empty) \u2192 no commit or developer to blame",
+        "No Read timed out/SocketTimeout/502/504 \u2192 not QA infra",
+        "Likely cause: missing QA test data / environment seeding for project 2183035",
+        "Pre-existing (not new): 2\u00d7 QuotaGroup country-language (SA, QA), 1\u00d7 QuotaGroup BY 'Condition not satisfied' assertion"
       ],
       "newFailureAreas": [
         {
@@ -1596,8 +1604,8 @@
       }
     ],
     "suspectCommits": [],
-    "source": "investigator",
-    "generatedAt": "2026-07-31T02:06Z",
+    "source": "llm",
+    "generatedAt": "2026-07-31T02:07:00Z",
     "buildNumber": "3.0.2644",
     "buildId": "9417182",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9417182",
