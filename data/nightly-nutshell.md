@@ -1,8 +1,7 @@
-**3 new QuotaGroup failures from country/language support data — not infra, not a code change.**
+**5 new failures — mainly Project, Survey**
 
-_Likely cause: QA/SA/BY country-language combos the tests assume are enabled are rejected by the QA API (400 "Unsupported country"); no build changes and no timeouts, so test/reference-data drift._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- QA & BY rejected as "Unsupported country" (400); SA + [ar, en] rejected as unsupported combo
-- No code changes and no infra timeouts — no commit or developer to blame
+- 5× NOT_FOUND / missing data — Could not find ProjectProperties with id 11947ce3-2b6b-46bb-b825-1d1e8fae6fec
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9416344)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9417182)
