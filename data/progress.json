@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-31T02:06Z",
+  "generatedAt": "2026-08-01T02:10Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-07-25",
-      "to": "2026-07-31",
+      "from": "2026-07-26",
+      "to": "2026-08-01",
       "featuresAdded": 0,
       "casesAdded": 0,
       "areasTouched": 0,
@@ -17,8 +17,8 @@
       "additions": []
     },
     "14d": {
-      "from": "2026-07-18",
-      "to": "2026-07-31",
+      "from": "2026-07-19",
+      "to": "2026-08-01",
       "featuresAdded": 73,
       "casesAdded": 79,
       "areasTouched": 6,
@@ -1555,15 +1555,15 @@
       ]
     },
     "30d": {
-      "from": "2026-07-02",
-      "to": "2026-07-31",
-      "featuresAdded": 95,
-      "casesAdded": 113,
+      "from": "2026-07-03",
+      "to": "2026-08-01",
+      "featuresAdded": 82,
+      "casesAdded": 88,
       "areasTouched": 7,
-      "ticketsTouched": 5,
+      "ticketsTouched": 3,
       "byType": {
-        "CRUD": 32,
-        "Validation": 36,
+        "CRUD": 29,
+        "Validation": 26,
         "Workflow": 21,
         "Query": 4,
         "Other": 2
@@ -1571,11 +1571,11 @@
       "byArea": [
         {
           "area": "Project",
-          "featuresAdded": 45
+          "featuresAdded": 35
         },
         {
           "area": "QuotaGroup",
-          "featuresAdded": 29
+          "featuresAdded": 26
         },
         {
           "area": "Survey",
@@ -1606,12 +1606,6 @@
           "latestDate": "2026-07-23"
         },
         {
-          "key": "NXS-13325",
-          "featuresAdded": 10,
-          "casesAdded": 20,
-          "latestDate": "2026-07-02"
-        },
-        {
           "key": "NXS-13341",
           "featuresAdded": 5,
           "casesAdded": 5,
@@ -1622,12 +1616,6 @@
           "featuresAdded": 4,
           "casesAdded": 4,
           "latestDate": "2026-07-03"
-        },
-        {
-          "key": "NXS-13320",
-          "featuresAdded": 3,
-          "casesAdded": 5,
-          "latestDate": "2026-07-02"
         }
       ],
       "additions": [
@@ -3302,272 +3290,12 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=fullProjectSetup%20derives%20useEropMedical%20from%20the%20project%20instead%20of%20the%20client-sent%20value"
-        },
-        {
-          "name": "Update quota group prioritization level using dedicated endpoint rejects levels the user is not entitled to",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupDeliveryTestSteps.groovy",
-          "date": "2026-07-02",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13320] MS - fix Nexus API regression tests (prioritization rights, click-rate MANUAL-only, country-language clone)",
-          "commit": "ee999f3f3a",
-          "tickets": [
-            "NXS-13320"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupDeliveryTestSteps",
-          "type": "Validation",
-          "cases": 2,
-          "tags": [
-            "DELIVERY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Update%20quota%20group%20prioritization%20level%20using%20dedicated%20endpoint%20rejects%20levels%20the%20user%20is%20not%20entitled%20to"
-        },
-        {
-          "name": "Update quota group prioritization level rejects levels the user is not entitled to",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupDeliveryTestSteps.groovy",
-          "date": "2026-07-02",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13320] MS - fix Nexus API regression tests (prioritization rights, click-rate MANUAL-only, country-language clone)",
-          "commit": "ee999f3f3a",
-          "tickets": [
-            "NXS-13320"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupDeliveryTestSteps",
-          "type": "Validation",
-          "cases": 2,
-          "tags": [
-            "DELIVERY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Update%20quota%20group%20prioritization%20level%20rejects%20levels%20the%20user%20is%20not%20entitled%20to"
-        },
-        {
-          "name": "Update quota group click rate is rejected outside MANUAL delivery mode",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupDeliveryTestSteps.groovy",
-          "date": "2026-07-02",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13320] MS - fix Nexus API regression tests (prioritization rights, click-rate MANUAL-only, country-language clone)",
-          "commit": "ee999f3f3a",
-          "tickets": [
-            "NXS-13320"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupDeliveryTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "DELIVERY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Update%20quota%20group%20click%20rate%20is%20rejected%20outside%20MANUAL%20delivery%20mode"
-        },
-        {
-          "name": "removeEntry test endpoint clears all exclusion rules for the project",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ExclusionRulesTestSteps.groovy",
-          "date": "2026-07-02",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13325] MS - assert exclusion rules enable/rename return 500 UnsupportedOperationException",
-          "commit": "dd989c7e70",
-          "tickets": [
-            "NXS-13325"
-          ],
-          "area": "Project",
-          "spec": "ExclusionRulesTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "EXCLUSION_RULES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=removeEntry%20test%20endpoint%20clears%20all%20exclusion%20rules%20for%20the%20project"
-        },
-        {
-          "name": "removeEntry returns 404 NotFoundInDb for a valid but non-existent project",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ExclusionRulesTestSteps.groovy",
-          "date": "2026-07-02",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13325] MS - assert exclusion rules enable/rename return 500 UnsupportedOperationException",
-          "commit": "dd989c7e70",
-          "tickets": [
-            "NXS-13325"
-          ],
-          "area": "Project",
-          "spec": "ExclusionRulesTestSteps",
-          "type": "Validation",
-          "cases": 2,
-          "tags": [
-            "EXCLUSION_RULES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=removeEntry%20returns%20404%20NotFoundInDb%20for%20a%20valid%20but%20non-existent%20project"
-        },
-        {
-          "name": "removeEntry rejects projectId below the minimum with a validation error",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ExclusionRulesTestSteps.groovy",
-          "date": "2026-07-02",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13325] MS - assert exclusion rules enable/rename return 500 UnsupportedOperationException",
-          "commit": "dd989c7e70",
-          "tickets": [
-            "NXS-13325"
-          ],
-          "area": "Project",
-          "spec": "ExclusionRulesTestSteps",
-          "type": "Validation",
-          "cases": 2,
-          "tags": [
-            "EXCLUSION_RULES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=removeEntry%20rejects%20projectId%20below%20the%20minimum%20with%20a%20validation%20error"
-        },
-        {
-          "name": "Rename exclusion rule endpoint returns 500 UnsupportedOperationException for invalid rule ID too",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ExclusionRulesTestSteps.groovy",
-          "date": "2026-07-02",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13325] MS - assert exclusion rules enable/rename return 500 UnsupportedOperationException",
-          "commit": "dd989c7e70",
-          "tickets": [
-            "NXS-13325"
-          ],
-          "area": "Project",
-          "spec": "ExclusionRulesTestSteps",
-          "type": "Validation",
-          "cases": 2,
-          "tags": [
-            "EXCLUSION_RULES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Rename%20exclusion%20rule%20endpoint%20returns%20500%20UnsupportedOperationException%20for%20invalid%20rule%20ID%20too"
-        },
-        {
-          "name": "Rename exclusion rule endpoint returns 500 UnsupportedOperationException even for invalid name",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ExclusionRulesTestSteps.groovy",
-          "date": "2026-07-02",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13325] MS - assert exclusion rules enable/rename return 500 UnsupportedOperationException",
-          "commit": "dd989c7e70",
-          "tickets": [
-            "NXS-13325"
-          ],
-          "area": "Project",
-          "spec": "ExclusionRulesTestSteps",
-          "type": "Validation",
-          "cases": 4,
-          "tags": [
-            "EXCLUSION_RULES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Rename%20exclusion%20rule%20endpoint%20returns%20500%20UnsupportedOperationException%20even%20for%20invalid%20name"
-        },
-        {
-          "name": "Rename exclusion rule endpoint is unimplemented and returns 500 UnsupportedOperationException",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ExclusionRulesTestSteps.groovy",
-          "date": "2026-07-02",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13325] MS - assert exclusion rules enable/rename return 500 UnsupportedOperationException",
-          "commit": "dd989c7e70",
-          "tickets": [
-            "NXS-13325"
-          ],
-          "area": "Project",
-          "spec": "ExclusionRulesTestSteps",
-          "type": "Validation",
-          "cases": 2,
-          "tags": [
-            "EXCLUSION_RULES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Rename%20exclusion%20rule%20endpoint%20is%20unimplemented%20and%20returns%20500%20UnsupportedOperationException"
-        },
-        {
-          "name": "Manage multiple exclusion rules on same project; rename endpoint is unimplemented",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ExclusionRulesTestSteps.groovy",
-          "date": "2026-07-02",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13325] MS - assert exclusion rules enable/rename return 500 UnsupportedOperationException",
-          "commit": "dd989c7e70",
-          "tickets": [
-            "NXS-13325"
-          ],
-          "area": "Project",
-          "spec": "ExclusionRulesTestSteps",
-          "type": "CRUD",
-          "cases": 2,
-          "tags": [
-            "EXCLUSION_RULES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Manage%20multiple%20exclusion%20rules%20on%20same%20project%3B%20rename%20endpoint%20is%20unimplemented"
-        },
-        {
-          "name": "Enable/disable exclusion rule endpoint is unimplemented and returns 500 UnsupportedOperationException",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ExclusionRulesTestSteps.groovy",
-          "date": "2026-07-02",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13325] MS - assert exclusion rules enable/rename return 500 UnsupportedOperationException",
-          "commit": "dd989c7e70",
-          "tickets": [
-            "NXS-13325"
-          ],
-          "area": "Project",
-          "spec": "ExclusionRulesTestSteps",
-          "type": "Validation",
-          "cases": 2,
-          "tags": [
-            "EXCLUSION_RULES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Enable%2Fdisable%20exclusion%20rule%20endpoint%20is%20unimplemented%20and%20returns%20500%20UnsupportedOperationException"
-        },
-        {
-          "name": "Enable exclusion rule endpoint returns 500 UnsupportedOperationException for invalid rule ID too",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ExclusionRulesTestSteps.groovy",
-          "date": "2026-07-02",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13325] MS - assert exclusion rules enable/rename return 500 UnsupportedOperationException",
-          "commit": "dd989c7e70",
-          "tickets": [
-            "NXS-13325"
-          ],
-          "area": "Project",
-          "spec": "ExclusionRulesTestSteps",
-          "type": "Validation",
-          "cases": 2,
-          "tags": [
-            "EXCLUSION_RULES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Enable%20exclusion%20rule%20endpoint%20returns%20500%20UnsupportedOperationException%20for%20invalid%20rule%20ID%20too"
-        },
-        {
-          "name": "Create and delete exclusion rule lifecycle; rename endpoint is unimplemented",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ExclusionRulesTestSteps.groovy",
-          "date": "2026-07-02",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13325] MS - assert exclusion rules enable/rename return 500 UnsupportedOperationException",
-          "commit": "dd989c7e70",
-          "tickets": [
-            "NXS-13325"
-          ],
-          "area": "Project",
-          "spec": "ExclusionRulesTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "EXCLUSION_RULES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Create%20and%20delete%20exclusion%20rule%20lifecycle%3B%20rename%20endpoint%20is%20unimplemented"
         }
       ]
     },
     "90d": {
-      "from": "2026-05-03",
-      "to": "2026-07-31",
+      "from": "2026-05-04",
+      "to": "2026-08-01",
       "featuresAdded": 144,
       "casesAdded": 180,
       "areasTouched": 9,
@@ -6673,7 +6401,7 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-07-31",
+      "date": "2026-08-01",
       "features": 712,
       "cases": 1508,
       "specs": 74,
@@ -6693,7 +6421,7 @@
       "priorPercent": 78.0,
       "deltaPoints": 19.4,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-07-31",
+      "currentDate": "2026-08-01",
       "testedDelta": 52,
       "untestedDelta": -52
     }

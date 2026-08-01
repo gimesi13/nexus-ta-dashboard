@@ -1,44 +1,36 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-31T02:06Z",
+  "generatedAt": "2026-08-01T02:10Z",
   "build": {
-    "number": "3.0.2644",
-    "buildId": "9417182",
+    "number": "3.0.2645",
+    "buildId": "9419476",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9417182",
-    "durationSec": 1984.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9419476",
+    "durationSec": 2233.0
   },
   "summary": {
     "tests": 1449,
-    "passed": 1343,
-    "failures": 8,
+    "passed": 1346,
+    "failures": 5,
     "errors": 0,
     "skipped": 0,
     "muted": 98,
-    "newFailed": 5,
-    "passRate": 99.4,
-    "timeSec": 1984.0
+    "newFailed": 2,
+    "passRate": 99.6,
+    "timeSec": 2233.0
   },
   "prior": {
-    "buildId": "9416344",
-    "number": "3.0.2643",
+    "buildId": "9417182",
+    "number": "3.0.2644",
     "status": "FAILURE",
-    "statusText": "Tests failed: 3 (3 new), passed: 1348, muted: 98",
-    "durationSec": 2155.0,
-    "failed": 3,
-    "passed": 1348,
-    "newFailed": 3
+    "statusText": "Tests failed: 8 (5 new), passed: 1343, muted: 98",
+    "durationSec": 1984.0,
+    "failed": 8,
+    "passed": 1343,
+    "newFailed": 5
   },
   "changes": [],
   "clusters": [
-    {
-      "label": "product_data_not_found",
-      "display": "NOT_FOUND / missing data",
-      "count": 5,
-      "newCount": 5,
-      "sample": "Could not find ProjectProperties with id 11947ce3-2b6b-46bb-b825-1d1e8fae6fec",
-      "why": "missing DB row / EmptyResult / NOT_FOUND"
-    },
     {
       "label": "product_data_country_lang",
       "display": "GB + fr unsupported",
@@ -46,6 +38,14 @@
       "newCount": 0,
       "sample": "",
       "why": "unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang)"
+    },
+    {
+      "label": "infra_timeout",
+      "display": "client/Feign socket timeout",
+      "count": 2,
+      "newCount": 2,
+      "sample": "feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
+      "why": "Feign/client socket timeout talking to a QA service"
     },
     {
       "label": "other",
@@ -76,42 +76,6 @@
       "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) at feign.AsyncResponseHa\u2026"
     },
     {
-      "name": "Get project overview does not include numberOfOverQuotasForRace when race boost is disabled",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ProjectOverviewTestSteps",
-      "newFailure": true,
-      "area": "Project",
-      "cluster": "product_data_not_found",
-      "message": "Could not find ProjectProperties with id 11947ce3-2b6b-46bb-b825-1d1e8fae6fec",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/projects/2183035/overview 404{ \"errors\" : [ { \"callChain\" : [ \"core\", \"HTTP 404 GET http://dk-project-project-rest.nexus-ms-qa.dynata.com:8080/api/Project/v2/projectProperties/11947ce3-2b6b-46bb-b825-1d1e8fae6fec\" ], \"causes\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"Could not find ProjectProperties w\u2026"
-    },
-    {
-      "name": "Get project overview returns eligibleForRaceBoost false for standard project",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ProjectOverviewTestSteps",
-      "newFailure": true,
-      "area": "Project",
-      "cluster": "product_data_not_found",
-      "message": "Could not find ProjectProperties with id 11947ce3-2b6b-46bb-b825-1d1e8fae6fec",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/projects/2183035/overview 404{ \"errors\" : [ { \"callChain\" : [ \"core\", \"HTTP 404 GET http://dk-project-project-rest.nexus-ms-qa.dynata.com:8080/api/Project/v2/projectProperties/11947ce3-2b6b-46bb-b825-1d1e8fae6fec\" ], \"causes\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"Could not find ProjectProperties w\u2026"
-    },
-    {
-      "name": "Get project overview returns numberOfOverQuotasForRace when race boost is enabled",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ProjectOverviewTestSteps",
-      "newFailure": true,
-      "area": "Project",
-      "cluster": "product_data_not_found",
-      "message": "Could not find ProjectProperties with id 11947ce3-2b6b-46bb-b825-1d1e8fae6fec",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/projects/2183035/overview 404{ \"errors\" : [ { \"callChain\" : [ \"core\", \"HTTP 404 GET http://dk-project-project-rest.nexus-ms-qa.dynata.com:8080/api/Project/v2/projectProperties/11947ce3-2b6b-46bb-b825-1d1e8fae6fec\" ], \"causes\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"Could not find ProjectProperties w\u2026"
-    },
-    {
-      "name": "Get project overview returns eligibleForRaceBoost true after race boost is enabled",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ProjectOverviewTestSteps",
-      "newFailure": true,
-      "area": "Project",
-      "cluster": "product_data_not_found",
-      "message": "Could not find ProjectProperties with id 11947ce3-2b6b-46bb-b825-1d1e8fae6fec",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/projects/2183035/overview 404{ \"errors\" : [ { \"callChain\" : [ \"core\", \"HTTP 404 GET http://dk-project-project-rest.nexus-ms-qa.dynata.com:8080/api/Project/v2/projectProperties/11947ce3-2b6b-46bb-b825-1d1e8fae6fec\" ], \"causes\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"Could not find ProjectProperties w\u2026"
-    },
-    {
       "name": "Clone quota group for enabled country with unsupported language: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupValidationTestSteps.Clone quota group for enabled country with unsupported language [countryIso: BY, languageIsos: [de], #4]",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupValidationTestSteps",
       "newFailure": false,
@@ -121,35 +85,40 @@
       "detailsExcerpt": "Condition not satisfied: exception.message.contains(\"Unsupported country-language combinations\") || exception.message.contains(\"Unsupported value\") || exception.message.contains(\"Invalid countryLanguages update request!\") | | | | | | | | | | | | | false | | | false | | | false | | | | | | | https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries | | | | | | | | | | | \u2026"
     },
     {
-      "name": "Deactivate survey",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyCRUDTestSteps",
+      "name": "change order flow: request, evaluation, block traffic, approve",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.ChangeOrderFlowTestSteps",
       "newFailure": true,
-      "area": "Survey",
-      "cluster": "product_data_not_found",
-      "message": "Could not find ProjectProperties with id 63d4049d-242e-4841-9f87-0793d974b09c",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3212110/deactivate 404{ \"errors\" : [ { \"callChain\" : [ \"HTTP 404 PUT http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3212110/deactivate\", \"HTTP 404 POST http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups/118731096/changeStatus?status\u2026"
+      "area": "QuotaGroup",
+      "cluster": "infra_timeout",
+      "message": "feign.RetryableException:timeout executing POST https://microservices-qa.dynata.com/NexusApi/v1/nexus/d365/changeOrderStatus Caused by: java.net.SocketTimeoutE\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: http://dk-project-crm-rest.nexus-ms-qa.dynata.com:8115/api/Crm/u1/test/changeOrderStatus 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"feign.RetryableException:timeout executing POST https://microservices-qa.dynata.com/NexusApi/v1/nexus/d365/changeOrderStatus \\nCaused by: java.net.SocketTimeoutException:timeout\" } ], \"version\" : \"1.0\" } at com.dy\u2026"
+    },
+    {
+      "name": "change order flow: two audiences request, evaluation, approve",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.ChangeOrderFlowTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "infra_timeout",
+      "message": "feign.RetryableException: Read timed out executing POST http://dk-project-crm-rest.nexus-ms-qa.dynata.com:8115/api/Crm/u1/test/changeOrderStatus",
+      "detailsExcerpt": "feign.RetryableException: Read timed out executing POST http://dk-project-crm-rest.nexus-ms-qa.dynata.com:8115/api/Crm/u1/test/changeOrderStatus at app//feign.FeignException.errorExecuting(FeignException.java:249) at app//feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:129) at app//feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:89) at app//feign.\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "5 new failures \u2014 mainly Project, Survey",
-    "tone": "bad",
+    "headline": "2 new failures in QuotaGroup",
+    "tone": "warn",
     "bullets": [
-      "5\u00d7 NOT_FOUND / missing data \u2014 Could not find ProjectProperties with id 11947ce3-2b6b-46bb-b825-1d1e8fae6fec"
+      "2\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout"
     ],
-    "investigation": "New fails: 5\u00d7 NOT_FOUND / missing data. Vs prior #3.0.2643: up 5 total fails.",
+    "investigation": "New fails: 2\u00d7 client/Feign socket timeout. Gateway hits: dk-project-crm-rest.",
     "detail": {
-      "investigation": "5 of 8 unmuted failures are new since the prior build (#3.0.2643, 3 fails). Failure types (new-first): (1) 5\u00d7 NOT_FOUND / missing data \u2014 missing DB row / EmptyResult / NOT_FOUND. Hot areas among new fails: Project (4), Survey (1). Example new failures: Project: Get project overview does not include numberOfOverQuotasForRace when race boost is disable [NOT_FOUND / missing data]; Project: Get project overview returns eligibleForRaceBoost false for standard project [NOT_FOUND / missing data]; Project: Get project overview returns numberOfOverQuotasForRace when race boost is enabled [NOT_FOUND / missing data]; Project: Get project overview returns eligibleForRaceBoost true after race boost is enabled [NOT_FOUND / missing data].",
+      "investigation": "2 of 5 unmuted failures are new since the prior build (#3.0.2644, 8 fails). Failure types (new-first): (1) 2\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. Hot areas among new fails: QuotaGroup (2). Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout]; QuotaGroup: change order flow: two audiences request, evaluation, approve [client/Feign socket timeout].",
       "bullets": [
-        "5\u00d7 NOT_FOUND / missing data \u2014 Could not find ProjectProperties with id 11947ce3-2b6b-46bb-b825-1d1e8fae6fec"
+        "2\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout"
       ],
       "newFailureAreas": [
         {
-          "area": "Project",
-          "newCount": 4
-        },
-        {
-          "area": "Survey",
-          "newCount": 1
+          "area": "QuotaGroup",
+          "newCount": 2
         }
       ],
       "likelyCauses": []
