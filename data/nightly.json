@@ -1511,18 +1511,25 @@
     "SurveyCRUDTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "2 new failures in QuotaGroup",
+    "headline": "2 new QuotaGroup failures are QA CRM change-order timeouts, not a code regression.",
     "tone": "warn",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 2\u00d7 client/Feign socket timeout. Gateway hits: dk-project-crm-rest.",
+    "cause": "infra",
+    "causeText": "Both new failures are ChangeOrderFlow tests timing out on POSTs to the QA CRM service (dk-project-crm-rest.nexus-ms-qa / d365 changeOrderStatus): one surfaces a java.net.SocketTimeoutException, the other 'Read timed out'. This build contains no VCS changes, so there is no commit or developer to implicate. The signature points to QA environment/network slowness rather than a code or assertion defect.",
+    "investigation": "Both new failures are ChangeOrderFlow tests failing on socket/read timeouts to the QA CRM changeOrderStatus endpoint. No build changes this run, so QA infra flakiness is the likely cause.",
     "bullets": [
-      "2\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout"
+      "2\u00d7 new: change-order flow tests time out on POST to QA CRM (dk-project-crm-rest / d365 changeOrderStatus)",
+      "SocketTimeoutException + 'Read timed out' \u2014 infra, not assertions",
+      "No VCS changes this run \u2014 no code or developer to blame"
     ],
     "detail": {
-      "investigation": "2 of 5 unmuted failures are new since the prior build (#3.0.2644, 8 fails). Failure types (new-first): (1) 2\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. Hot areas among new fails: QuotaGroup (2). Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout]; QuotaGroup: change order flow: two audiences request, evaluation, approve [client/Feign socket timeout].",
+      "investigation": "Both failures new since the prior build (#3.0.2644) are in QuotaGroup/ChangeOrderFlowTestSteps and are network timeouts against the QA CRM service, not assertion failures. (1) 'change order flow: request, evaluation, block traffic, approve' returns HTTP 500 wrapping feign.RetryableException timeout / java.net.SocketTimeoutException on POST .../NexusApi/v1/nexus/d365/changeOrderStatus. (2) 'change order flow: two audiences request, evaluation, approve' fails with feign.RetryableException 'Read timed out' on POST http://dk-project-crm-rest.nexus-ms-qa.dynata.com:8115/api/Crm/u1/test/changeOrderStatus. This build carries no VCS changes, so no commit can be blamed. The other 3 failures are pre-existing (not new): unsupported country / country-language product-data validation (QuotaGroup: QA, SA[ar,en], BY[de]), which are data/config, not infra.",
       "bullets": [
-        "2\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout"
+        "New #1: 'change order flow: request, evaluation, block traffic, approve' \u2014 500 wrapping feign timeout / SocketTimeoutException on POST /NexusApi/v1/nexus/d365/changeOrderStatus",
+        "New #2: 'change order flow: two audiences request, evaluation, approve' \u2014 feign 'Read timed out' on POST dk-project-crm-rest.nexus-ms-qa:8115/api/Crm/u1/test/changeOrderStatus",
+        "Both new failures are infra timeouts to the QA CRM service, not assertions",
+        "No VCS changes in this build \u2014 no commit or developer to implicate",
+        "3 non-new failures are QuotaGroup product-data country/language validation (QA, SA[ar,en], BY[de])",
+        "5 failures total (2 new), 98 muted"
       ],
       "newFailureAreas": [
         {
@@ -1558,14 +1565,10 @@
         "why": "no dominant signature yet \u2014 open TeamCity details"
       }
     ],
-    "suspectCommits": [],
-    "source": "investigator",
-    "generatedAt": "2026-08-01T02:10Z",
+    "source": "llm",
+    "generatedAt": "2026-08-01T02:10:00Z",
     "buildNumber": "3.0.2645",
     "buildId": "9419476",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9419476",
-    "focus": "new_failures",
-    "newFailed": 2,
-    "failed": 5
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9419476"
   }
 }
