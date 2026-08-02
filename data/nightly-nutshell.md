@@ -1,8 +1,8 @@
-**2 new QuotaGroup failures are QA CRM change-order timeouts, not a code regression.**
+**5 continuing failure(s) — no new unmuted fails**
 
-_Likely cause: QA infra — both new failures time out on POST to the QA CRM changeOrderStatus endpoint (SocketTimeout / Read timed out); no VCS changes this run._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- 2× new: change-order flow tests time out on POST to QA CRM (dk-project-crm-rest / d365 changeOrderStatus)
-- No VCS changes this run — no code or developer to blame
+- 2× GB + fr unsupported — Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]
+- 2× client/Feign socket timeout — feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9419476)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9419943)

@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-01T02:10Z",
+  "generatedAt": "2026-08-02T02:15Z",
   "build": {
-    "number": "3.0.2645",
-    "buildId": "9419476",
+    "number": "3.0.2646",
+    "buildId": "9419943",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9419476",
-    "durationSec": 2233.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9419943",
+    "durationSec": 2516.0
   },
   "summary": {
     "tests": 1449,
@@ -15,19 +15,19 @@
     "errors": 0,
     "skipped": 0,
     "muted": 98,
-    "newFailed": 2,
+    "newFailed": 0,
     "passRate": 99.6,
-    "timeSec": 2233.0
+    "timeSec": 2516.0
   },
   "prior": {
-    "buildId": "9417182",
-    "number": "3.0.2644",
+    "buildId": "9419476",
+    "number": "3.0.2645",
     "status": "FAILURE",
-    "statusText": "Tests failed: 8 (5 new), passed: 1343, muted: 98",
-    "durationSec": 1984.0,
-    "failed": 8,
-    "passed": 1343,
-    "newFailed": 5
+    "statusText": "Tests failed: 5 (2 new), passed: 1346, muted: 98",
+    "durationSec": 2233.0,
+    "failed": 5,
+    "passed": 1346,
+    "newFailed": 2
   },
   "changes": [],
   "clusters": [
@@ -35,8 +35,8 @@
       "label": "product_data_country_lang",
       "display": "GB + fr unsupported",
       "count": 2,
-      "newCount": 0,
-      "sample": "",
+      "newCount": 2,
+      "sample": "Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]",
       "why": "unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang)"
     },
     {
@@ -51,8 +51,8 @@
       "label": "other",
       "display": "other",
       "count": 1,
-      "newCount": 0,
-      "sample": "",
+      "newCount": 1,
+      "sample": "Unsupported country! [countryIso:QA]",
       "why": "no dominant signature yet \u2014 open TeamCity details"
     }
   ],
@@ -87,7 +87,7 @@
     {
       "name": "change order flow: request, evaluation, block traffic, approve",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.ChangeOrderFlowTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "QuotaGroup",
       "cluster": "infra_timeout",
       "message": "feign.RetryableException:timeout executing POST https://microservices-qa.dynata.com/NexusApi/v1/nexus/d365/changeOrderStatus Caused by: java.net.SocketTimeoutE\u2026",
@@ -96,29 +96,33 @@
     {
       "name": "change order flow: two audiences request, evaluation, approve",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.ChangeOrderFlowTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "QuotaGroup",
       "cluster": "infra_timeout",
-      "message": "feign.RetryableException: Read timed out executing POST http://dk-project-crm-rest.nexus-ms-qa.dynata.com:8115/api/Crm/u1/test/changeOrderStatus",
-      "detailsExcerpt": "feign.RetryableException: Read timed out executing POST http://dk-project-crm-rest.nexus-ms-qa.dynata.com:8115/api/Crm/u1/test/changeOrderStatus at app//feign.FeignException.errorExecuting(FeignException.java:249) at app//feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:129) at app//feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:89) at app//feign.\u2026"
+      "message": "feign.RetryableException:timeout executing POST https://microservices-qa.dynata.com/NexusApi/v1/nexus/d365/changeOrderStatus Caused by: java.net.SocketTimeoutE\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: http://dk-project-crm-rest.nexus-ms-qa.dynata.com:8115/api/Crm/u1/test/changeOrderStatus 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"feign.RetryableException:timeout executing POST https://microservices-qa.dynata.com/NexusApi/v1/nexus/d365/changeOrderStatus \\nCaused by: java.net.SocketTimeoutException:timeout\" } ], \"version\" : \"1.0\" } at com.dy\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "2 new failures in QuotaGroup",
+    "headline": "5 continuing failure(s) \u2014 no new unmuted fails",
     "tone": "warn",
     "bullets": [
-      "2\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout"
+      "2\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]",
+      "2\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
+      "1\u00d7 other \u2014 Unsupported country! [countryIso:QA]"
     ],
-    "investigation": "New fails: 2\u00d7 client/Feign socket timeout. Gateway hits: dk-project-crm-rest.",
+    "investigation": "Failures: 2\u00d7 GB + fr unsupported; 2\u00d7 client/Feign socket timeout. Gateway hits: dk-project-crm-rest.",
     "detail": {
-      "investigation": "2 of 5 unmuted failures are new since the prior build (#3.0.2644, 8 fails). Failure types (new-first): (1) 2\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. Hot areas among new fails: QuotaGroup (2). Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout]; QuotaGroup: change order flow: two audiences request, evaluation, approve [client/Feign socket timeout].",
+      "investigation": "No new unmuted failures; 5 continuing from prior runs. Failure types (new-first): (1) 2\u00d7 GB + fr unsupported \u2014 unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang). (2) 2\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. (3) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: QuotaGroup (5). Example new failures: QuotaGroup: Clone quota group for enabled country and supported language persists correct country-lang [other]; QuotaGroup: Clone quota group for enabled country and supported language persists correct country-lang [GB + fr unsupported]; QuotaGroup: Clone quota group for enabled country with unsupported language: com.dynata.rest.gateway.n [GB + fr unsupported]; QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout].",
       "bullets": [
-        "2\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout"
+        "2\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]",
+        "2\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
+        "1\u00d7 other \u2014 Unsupported country! [countryIso:QA]"
       ],
       "newFailureAreas": [
         {
           "area": "QuotaGroup",
-          "newCount": 2
+          "newCount": 5
         }
       ],
       "likelyCauses": []
