@@ -1511,29 +1511,28 @@
     "SurveyCRUDTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "5 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "Build failed with 5 continuing failures and no new regressions \u2014 a mix of QA infra socket timeouts and QuotaGroup country/language test-data mismatches.",
     "tone": "warn",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "Failures: 2\u00d7 GB + fr unsupported; 2\u00d7 client/Feign socket timeout. Gateway hits: dk-project-crm-rest.",
+    "cause": "mixed",
+    "causeText": "Two ChangeOrderFlow tests failed on java.net.SocketTimeoutException talking to the QA d365/CRM service (dk-project-crm-rest) \u2014 infra \u2014 while three QuotaGroup tests failed on country/language validation: QA and SA+[ar,en] get real 400s and BY hits an assertion that expected a different error message (test/data). This build shipped no source changes (changes list is empty), so no commit or developer is implicated. All five are continuing failures with zero new regressions.",
+    "investigation": "All 5 failures are continuing (0 new): 2 are QA d365/CRM socket timeouts (infra) and 3 are QuotaGroup country/language validation/assertion mismatches (test/data). No source changes in this build, so nothing maps to a commit.",
     "bullets": [
-      "2\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]",
-      "2\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
-      "1\u00d7 other \u2014 Unsupported country! [countryIso:QA]"
+      "2\u00d7 ChangeOrderFlow \u2014 java.net.SocketTimeoutException to QA d365/CRM service (infra)",
+      "3\u00d7 QuotaGroup \u2014 country/language mismatch: QA & SA rejected (400), BY assertion expected a different message (test/data)",
+      "0 new failures; no build changes, so no commit to blame"
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 5 continuing from prior runs. Failure types (new-first): (1) 2\u00d7 GB + fr unsupported \u2014 unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang). (2) 2\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. (3) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: QuotaGroup (5). Example new failures: QuotaGroup: Clone quota group for enabled country and supported language persists correct country-lang [other]; QuotaGroup: Clone quota group for enabled country and supported language persists correct country-lang [GB + fr unsupported]; QuotaGroup: Clone quota group for enabled country with unsupported language: com.dynata.rest.gateway.n [GB + fr unsupported]; QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout].",
+      "investigation": "No new failures (newFailed=0); all 5 are continuing from prior runs, and this build shipped no source changes (changes list empty), so no commit or developer can be implicated. Reading the real messages rather than the coarse cluster labels: (1) 2\u00d7 ChangeOrderFlowTestSteps fail with feign.RetryableException / java.net.SocketTimeoutException on POST .../NexusApi/v1/nexus/d365/changeOrderStatus, surfaced as a 500 from dk-project-crm-rest QA \u2014 a classic infra/QA timeout. (2) 2\u00d7 QuotaGroupCRUDTestSteps get genuine 400 BAD_REQUEST responses for unsupported country (QA) and unsupported country-language (SA + [ar,en]) \u2014 test/data using combinations the API rejects. (3) 1\u00d7 QuotaGroupValidationTestSteps is an assertion ('Condition not satisfied'): the API returned 'Unsupported country! [countryIso:BY]' but the test only accepts messages containing 'Unsupported country-language combinations'/'Unsupported value'/'Invalid countryLanguages update request!' \u2014 a test-expectation mismatch, not infra. Net: mixed infra + test/data, all within the QuotaGroup area.",
       "bullets": [
-        "2\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]",
-        "2\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
-        "1\u00d7 other \u2014 Unsupported country! [countryIso:QA]"
+        "0 new failures; 5 continuing from prior runs (prior build had 2 new).",
+        "No source changes in this build (changes list empty) \u2014 no commit or developer to blame.",
+        "2\u00d7 ChangeOrderFlowTestSteps \u2014 java.net.SocketTimeoutException on POST .../d365/changeOrderStatus via dk-project-crm-rest QA \u2192 infra.",
+        "1\u00d7 QuotaGroupCRUDTestSteps [QA] \u2014 API 400 'Unsupported country! [countryIso:QA]' \u2192 test/data.",
+        "1\u00d7 QuotaGroupCRUDTestSteps [SA, ar/en] \u2014 API 400 'Unsupported country-language combinations!' \u2192 test/data.",
+        "1\u00d7 QuotaGroupValidationTestSteps [BY, de] \u2014 assertion mismatch: API said 'Unsupported country! [countryIso:BY]', test expected 'country-language combinations'/'Unsupported value' \u2192 test.",
+        "All failures confined to the QuotaGroup area."
       ],
-      "newFailureAreas": [
-        {
-          "area": "QuotaGroup",
-          "newCount": 5
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1563,8 +1562,8 @@
       }
     ],
     "suspectCommits": [],
-    "source": "investigator",
-    "generatedAt": "2026-08-02T02:15Z",
+    "source": "llm",
+    "generatedAt": "2026-08-02T02:15:00Z",
     "buildNumber": "3.0.2646",
     "buildId": "9419943",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9419943",
