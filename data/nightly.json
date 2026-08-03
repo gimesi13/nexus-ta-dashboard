@@ -1522,18 +1522,23 @@
     "SurveyCRUDTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in Quota",
+    "headline": "1 new failure in Quota \u2014 QA returned a 502 Bad Gateway (infra), not a product regression.",
     "tone": "warn",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Gateway hits: dk-project-quota-details-rest.",
+    "cause": "infra",
+    "causeText": "The only new failure (Quota \u203a External quota updates when switching from CUSTOM to NATURAL mode) failed on an HTTP 502 Bad Gateway returned by the QA gateway while calling dk-project-quota-details-rest. This build included no VCS changes, and a 502 is a transient gateway/infra error rather than an assertion, so no commit is implicated. Cause is QA infrastructure, not a code regression.",
+    "investigation": "The single new failure is a QA 502 Bad Gateway from dk-project-quota-details-rest \u2014 transient infra, not a regression. No build changes were included in this run, so there is nothing to blame in code.",
     "bullets": [
-      "1\u00d7 QA 502 Bad Gateway"
+      "1\u00d7 new: Quota 502 Bad Gateway (infra)",
+      "No build changes \u2014 no commit to blame"
     ],
     "detail": {
-      "investigation": "1 of 6 unmuted failures are new since the prior build (#3.0.2646, 5 fails). Failure types (new-first): (1) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: Quota (1). Example new failures: Quota: External quota updates when switching from CUSTOM to NATURAL mode: com.dynata.rest.gateway [QA 502 Bad Gateway].",
+      "investigation": "Of 6 unmuted failures (1 new) since prior build #3.0.2646, the only NEW failure is Quota \u203a 'External quota updates when switching from CUSTOM to NATURAL mode', which failed on an HTTP 502 Bad Gateway returned by the QA gateway while calling dk-project-quota-details-rest \u2014 a transient infrastructure error, not an assertion or product regression. This build carried no VCS changes, so no commit or developer can be implicated. The 5 pre-existing failures are unchanged and non-new: two QuotaGroup clone cases fail on QA test-data country/language validation ('Unsupported country! [countryIso:QA]' and 'Unsupported country-language combinations! [countryIso:SA]'), one QuotaGroup validation case is an assertion mismatch (Condition not satisfied \u2014 got 'Unsupported country! [countryIso:BY]'), and two ChangeOrderFlow cases fail on Feign SocketTimeout/500 talking to the QA CRM service (infra).",
       "bullets": [
-        "1\u00d7 QA 502 Bad Gateway"
+        "NEW: Quota 502 Bad Gateway from dk-project-quota-details-rest (infra)",
+        "No build changes \u2014 no commit or developer to blame",
+        "Pre-existing: 2\u00d7 QuotaGroup clone test-data country/language (QA, SA)",
+        "Pre-existing: 1\u00d7 QuotaGroup validation assertion mismatch (BY)",
+        "Pre-existing: 2\u00d7 ChangeOrderFlow Feign SocketTimeout to QA CRM (infra)"
       ],
       "newFailureAreas": [
         {
@@ -1578,8 +1583,8 @@
       }
     ],
     "suspectCommits": [],
-    "source": "investigator",
-    "generatedAt": "2026-08-03T02:16Z",
+    "source": "llm",
+    "generatedAt": "2026-08-03T02:16:00Z",
     "buildNumber": "3.0.2647",
     "buildId": "9420645",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9420645",
