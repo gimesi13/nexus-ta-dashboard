@@ -1,19 +1,19 @@
 {
   "generatedAt": "2026-08-03",
   "source": "source",
-  "features": 712,
-  "cases": 1508,
+  "features": 718,
+  "cases": 1497,
   "specs": 74,
   "areas": 15,
-  "featuresWithSteps": 712,
-  "steps": 3556,
+  "featuresWithSteps": 718,
+  "steps": 3572,
   "byType": {
-    "CRUD": 256,
-    "Validation": 210,
-    "Workflow": 131,
-    "Query": 101,
+    "CRUD": 257,
+    "Validation": 211,
+    "Workflow": 132,
+    "Query": 102,
     "E2E": 12,
-    "Other": 2
+    "Other": 4
   },
   "rows": [
     {
@@ -1686,40 +1686,6 @@
         {
           "phase": "then",
           "label": "Should throw validation exception"
-        }
-      ],
-      "paramNote": "Unrolled across project phases (2 runs at execution)"
-    },
-    {
-      "area": "AudienceGroup",
-      "spec": "AudienceTemplateTestSteps",
-      "name": "Search audience templates with no matching country",
-      "type": "Validation",
-      "tags": [
-        "AUDIENCE_TEMPLATE",
-        "SEARCH_AUDIENCE_TEMPLATE"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Audience Templates - CRUD & Management Operations",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceTemplateTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Prepare search request with non-existent country"
-        },
-        {
-          "phase": "when",
-          "label": "Search with non-existent country"
-        },
-        {
-          "phase": "then",
-          "label": "Should return empty result set"
         }
       ],
       "paramNote": "Unrolled across project phases (2 runs at execution)"
@@ -3979,40 +3945,6 @@
         }
       ],
       "paramNote": "8 runs across exception.message.contains(\"deliveryMode\")"
-    },
-    {
-      "area": "Fieldwork",
-      "spec": "FieldworkValidationTestSteps",
-      "name": "Configure soft launch quota exceeding total quota",
-      "type": "Validation",
-      "tags": [
-        "SOFT_LAUNCH",
-        "QUOTA"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Fieldwork - Validation & Error Handling",
-      "cases": 6,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Fieldwork/FieldworkValidationTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Set total quota to #totalQuota"
-        },
-        {
-          "phase": "when",
-          "label": "The user sets soft launch quota higher than total quota"
-        },
-        {
-          "phase": "then",
-          "label": "The system rejects or adjusts the soft launch quota"
-        }
-      ],
-      "paramNote": "6 runs across exception.message.contains(\"exceeds\")"
     },
     {
       "area": "Fieldwork",
@@ -7829,6 +7761,35 @@
     {
       "area": "PartnerEvent",
       "spec": "PartnerEventCRUDTestSteps",
+      "name": "Partner event metrics embed URL is returned for an existing partner event",
+      "type": "CRUD",
+      "tags": [
+        "PARTNER_EVENT",
+        "REX_EVENT"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Partner Events - CRUD Operations",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase with seeded quotas and a live partner event"
+        },
+        {
+          "phase": "when",
+          "label": "The user requests REX metrics for that partner event"
+        },
+        {
+          "phase": "then",
+          "label": "An embed URL is returned"
+        }
+      ]
+    },
+    {
+      "area": "PartnerEvent",
+      "spec": "PartnerEventCRUDTestSteps",
       "name": "Update partner event quota and verify start quota recalculation",
       "type": "CRUD",
       "tags": [
@@ -9476,31 +9437,31 @@
     {
       "area": "PartnerEvent",
       "spec": "PartnerEventValidationTestSteps",
-      "name": "Get redirect URLs with invalid partner event ID",
+      "name": "Partner event metrics for a missing partner event are rejected",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "REX_EVENT"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Validation & Error Handling",
-      "cases": 4,
+      "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventValidationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
           "phase": "given",
-          "label": "Set active phase"
+          "label": "Project phase"
         },
         {
           "phase": "when",
-          "label": "Attempt to get redirect URLs with invalid partner event ID #partnerEventId"
+          "label": "The user requests REX metrics for a partner event that does not exist"
         },
         {
           "phase": "then",
-          "label": "Validation error is thrown with appropriate message"
+          "label": "The request is rejected because the partner event is missing"
         }
-      ],
-      "paramNote": "4 runs across ex.message.contains(\"must be greater than or equal to 1\")"
+      ]
     },
     {
       "area": "PartnerEvent",
@@ -9720,6 +9681,35 @@
         }
       ],
       "paramNote": "3 runs across phase"
+    },
+    {
+      "area": "PartnerEvent",
+      "spec": "PartnerEventWorkflowTestSteps",
+      "name": "Partner event remains available after metrics embed URL is retrieved",
+      "type": "Workflow",
+      "tags": [
+        "PARTNER_EVENT",
+        "REX_EVENT"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Partner Events - Workflows & Integration",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase with seeded quotas and a live partner event"
+        },
+        {
+          "phase": "when",
+          "label": "The user requests REX metrics for that partner event"
+        },
+        {
+          "phase": "then",
+          "label": "An embed URL is returned and the partner event is still readable"
+        }
+      ]
     },
     {
       "area": "PartnerEvent",
@@ -19287,6 +19277,62 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupValidationTestSteps",
+      "name": "Total quota approve for a missing audience is rejected",
+      "type": "Validation",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase"
+        },
+        {
+          "phase": "when",
+          "label": "The user tries to approve a total quota change for a missing audience"
+        },
+        {
+          "phase": "then",
+          "label": "The approve is rejected because the audience does not exist"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupValidationTestSteps",
+      "name": "Total quota approve is rejected for non Dynata Plus audiences",
+      "type": "Validation",
+      "tags": [
+        "QUOTA"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase with a seeded total quota on a non Dynata Plus audience"
+        },
+        {
+          "phase": "when",
+          "label": "The user tries to approve a total quota change"
+        },
+        {
+          "phase": "then",
+          "label": "Only Dynata Plus fielding requests may be approved"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupValidationTestSteps",
       "name": "Total quota update for an unknown quota group is rejected",
       "type": "Validation",
       "tags": [
@@ -20546,36 +20592,6 @@
     {
       "area": "SampleRules",
       "spec": "SampleRulesValidationTestSteps",
-      "name": "Configure brand exclusion with invalid brand IDs",
-      "type": "Validation",
-      "tags": [
-        "CHANNEL_CRITERIA",
-        "BRAND_EXCLUSION"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Sample Rules - Validation & Error Handling",
-      "cases": 10,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/SampleRules/SampleRulesValidationTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "when",
-          "label": "The user configures brand exclusions with invalid brand IDs"
-        },
-        {
-          "phase": "then",
-          "label": "A validation error is returned"
-        }
-      ],
-      "paramNote": "10 runs across exception.message.contains(\"invalid brand\")"
-    },
-    {
-      "area": "SampleRules",
-      "spec": "SampleRulesValidationTestSteps",
       "name": "Configure manual channel distribution with invalid percentages",
       "type": "Validation",
       "tags": [
@@ -20974,6 +20990,62 @@
         {
           "phase": "then",
           "label": "Both configurations are applied to target quota groups"
+        }
+      ]
+    },
+    {
+      "area": "SampleRules",
+      "spec": "SourcesApplyTestSteps",
+      "name": "Default source quotas with an invalid country yield no channels",
+      "type": "Validation",
+      "tags": [
+        "SOURCES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Sources - Apply Sources",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/SampleRules/SourcesApplyTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase and a feasibility filter with an invalid country"
+        },
+        {
+          "phase": "when",
+          "label": "The user requests default source quotas with that filter"
+        },
+        {
+          "phase": "then",
+          "label": "No source channels are returned for the invalid country"
+        }
+      ]
+    },
+    {
+      "area": "SampleRules",
+      "spec": "SourcesApplyTestSteps",
+      "name": "Default source quotas with panel ids are returned for a feasibility filter",
+      "type": "Query",
+      "tags": [
+        "SOURCES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Sources - Apply Sources",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/SampleRules/SourcesApplyTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Project phase and a feasibility filter for US English"
+        },
+        {
+          "phase": "when",
+          "label": "The user requests default source quotas with panel ids"
+        },
+        {
+          "phase": "then",
+          "label": "At least one source channel is returned"
         }
       ]
     },
@@ -24273,6 +24345,90 @@
         {
           "phase": "and",
           "label": "The settings contain the updated default countries #countries"
+        }
+      ]
+    },
+    {
+      "area": "Settings",
+      "spec": "UserSettingsTestSteps",
+      "name": "Chameleon hashed user id is rejected for a blank guid",
+      "type": "Validation",
+      "tags": [
+        "USER_SETTINGS"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "User Settings",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "when",
+          "label": "The user requests a Chameleon hashed identity with a blank guid"
+        },
+        {
+          "phase": "then",
+          "label": "The blank guid is rejected"
+        }
+      ]
+    },
+    {
+      "area": "Settings",
+      "spec": "UserSettingsTestSteps",
+      "name": "Chameleon hashed user id is returned for a non-blank guid",
+      "type": "Other",
+      "tags": [
+        "USER_SETTINGS"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "User Settings",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A non-blank user guid"
+        },
+        {
+          "phase": "when",
+          "label": "The user requests a Chameleon hashed identity for that guid"
+        },
+        {
+          "phase": "then",
+          "label": "A HMAC hash with epoch seconds is returned"
+        }
+      ]
+    },
+    {
+      "area": "Settings",
+      "spec": "UserSettingsTestSteps",
+      "name": "Distinct user guids yield distinct Chameleon hashed identities",
+      "type": "Other",
+      "tags": [
+        "USER_SETTINGS"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "User Settings",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Two different user guids"
+        },
+        {
+          "phase": "when",
+          "label": "The user requests a Chameleon hashed identity for the first guid"
+        },
+        {
+          "phase": "and",
+          "label": "The user requests a Chameleon hashed identity for the second guid"
+        },
+        {
+          "phase": "then",
+          "label": "Each hash matches the expected shape and the digests differ"
         }
       ]
     },

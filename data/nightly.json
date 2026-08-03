@@ -1,6 +1,6 @@
 {
   "available": true,
-  "generatedAt": "2026-08-03T02:16Z",
+  "generatedAt": "2026-08-03T11:26Z",
   "source": "teamcity-rest",
   "build": {
     "buildTypeId": "Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt",
@@ -175,7 +175,6 @@
     "PartnerEvent::PartnerEventValidationTestSteps::Calculate start quotas with invalid total quotas": "muted",
     "AudienceGroup::AudienceTemplateTestSteps::Search audience templates by country": "passed",
     "AudienceGroup::AudienceTemplateTestSteps::Search audience templates by multiple labels": "passed",
-    "AudienceGroup::AudienceTemplateTestSteps::Search audience templates with no matching country": "muted",
     "Fieldwork::FieldworkWorkflowPartnerTestSteps::Verify fieldwork configuration affects survey distribution": "passed",
     "AudienceGroup::AudienceTemplateTestSteps::Search audience templates with empty country set": "passed",
     "PartnerEvent::PartnerEventValidationTestSteps::Calculate start quotas with invalid starts quotas": "passed",
@@ -194,7 +193,6 @@
     "Fieldwork::FieldworkWorkflowPartnerTestSteps::Update soft launch configuration with active partners and delivery settings": "passed",
     "PartnerEvent::PartnerEventValidationTestSteps::Get partner event defaults with invalid quota group ID": "passed",
     "Fieldwork::FieldworkEndToEndAdvancedTestSteps::Complete advanced fieldwork: tally mode switching, delivery modes, and soft launch user management": "passed",
-    "PartnerEvent::PartnerEventValidationTestSteps::Get redirect URLs with invalid partner event ID": "muted",
     "PartnerEvent::PartnerEventValidationTestSteps::Cannot deactivate active partner event": "passed",
     "Fieldwork::FieldworkWorkflowPartnerTestSteps::Configure soft launch with exclusions and verify impact on partner events": "passed",
     "PartnerEvent::PartnerEventValidationTestSteps::Cannot delete active partner event in PROJECT phase": "passed",
@@ -224,7 +222,6 @@
     "Fieldwork::FieldworkValidationTestSteps::Configure delivery mode with invalid mode value": "passed",
     "Fieldwork::FieldworkValidationTestSteps::Configure daily quota for delivery modes that don't support it": "passed",
     "Fieldwork::FieldworkValidationTestSteps::Configure soft launch with invalid quota values": "passed",
-    "Fieldwork::FieldworkValidationTestSteps::Configure soft launch quota exceeding total quota": "muted",
     "Fieldwork::FieldworkWorkflowTestSteps::Soft launch quota stays constant when switching from starts to completes mode": "passed",
     "Fieldwork::FieldworkWorkflowTestSteps::Soft launch quota stays constant when total quota changes": "passed",
     "Project::ProjectCRUDTestSteps::Clone an existing project in QUOTE phase": "passed",
@@ -713,7 +710,6 @@
     "Segment::SegmentsWorkflowTestSteps::System census preset maintains precision through multiple quota changes": "passed",
     "Segment::SegmentHiddenFlagRegressionTestSteps::A user must send every visible segment in the group": "passed",
     "Segment::SegmentHiddenFlagRegressionTestSteps::A user can hide and restore segments with desiredQuotaTotal": "passed",
-    "SampleRules::SampleRulesValidationTestSteps::Configure brand exclusion with invalid brand IDs": "muted",
     "SampleRules::SampleRulesValidationTestSteps::Update exclusion rules with invalid configurations": "passed",
     "SampleRules::SampleRulesValidationTestSteps::View exclusion rules with invalid project ID": "passed",
     "Segment::SegmentsWorkflowTestSteps::desiredQuotaTotal adjusts total quota to match segment sum": "passed",
@@ -1522,23 +1518,18 @@
     "SurveyCRUDTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in Quota \u2014 QA returned a 502 Bad Gateway (infra), not a product regression.",
+    "headline": "1 new failure in Quota",
     "tone": "warn",
-    "cause": "infra",
-    "causeText": "The only new failure (Quota \u203a External quota updates when switching from CUSTOM to NATURAL mode) failed on an HTTP 502 Bad Gateway returned by the QA gateway while calling dk-project-quota-details-rest. This build included no VCS changes, and a 502 is a transient gateway/infra error rather than an assertion, so no commit is implicated. Cause is QA infrastructure, not a code regression.",
-    "investigation": "The single new failure is a QA 502 Bad Gateway from dk-project-quota-details-rest \u2014 transient infra, not a regression. No build changes were included in this run, so there is nothing to blame in code.",
+    "cause": "test",
+    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
+    "investigation": "New fails: 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Gateway hits: dk-project-quota-details-rest.",
     "bullets": [
-      "1\u00d7 new: Quota 502 Bad Gateway (infra)",
-      "No build changes \u2014 no commit to blame"
+      "1\u00d7 QA 502 Bad Gateway"
     ],
     "detail": {
-      "investigation": "Of 6 unmuted failures (1 new) since prior build #3.0.2646, the only NEW failure is Quota \u203a 'External quota updates when switching from CUSTOM to NATURAL mode', which failed on an HTTP 502 Bad Gateway returned by the QA gateway while calling dk-project-quota-details-rest \u2014 a transient infrastructure error, not an assertion or product regression. This build carried no VCS changes, so no commit or developer can be implicated. The 5 pre-existing failures are unchanged and non-new: two QuotaGroup clone cases fail on QA test-data country/language validation ('Unsupported country! [countryIso:QA]' and 'Unsupported country-language combinations! [countryIso:SA]'), one QuotaGroup validation case is an assertion mismatch (Condition not satisfied \u2014 got 'Unsupported country! [countryIso:BY]'), and two ChangeOrderFlow cases fail on Feign SocketTimeout/500 talking to the QA CRM service (infra).",
+      "investigation": "1 of 6 unmuted failures are new since the prior build (#3.0.2646, 5 fails). Failure types (new-first): (1) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: Quota (1). Example new failures: Quota: External quota updates when switching from CUSTOM to NATURAL mode: com.dynata.rest.gateway [QA 502 Bad Gateway].",
       "bullets": [
-        "NEW: Quota 502 Bad Gateway from dk-project-quota-details-rest (infra)",
-        "No build changes \u2014 no commit or developer to blame",
-        "Pre-existing: 2\u00d7 QuotaGroup clone test-data country/language (QA, SA)",
-        "Pre-existing: 1\u00d7 QuotaGroup validation assertion mismatch (BY)",
-        "Pre-existing: 2\u00d7 ChangeOrderFlow Feign SocketTimeout to QA CRM (infra)"
+        "1\u00d7 QA 502 Bad Gateway"
       ],
       "newFailureAreas": [
         {
@@ -1583,8 +1574,8 @@
       }
     ],
     "suspectCommits": [],
-    "source": "llm",
-    "generatedAt": "2026-08-03T02:16:00Z",
+    "source": "investigator",
+    "generatedAt": "2026-08-03T11:26Z",
     "buildNumber": "3.0.2647",
     "buildId": "9420645",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9420645",
