@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-02T02:15Z",
+  "generatedAt": "2026-08-03T02:16Z",
   "source": {
     "openapi": "docs/openapi-nexus-unified-api-qa.json",
     "openapiUrl": "https://microservices-qa.dynata.com/NexusApi/swagger.json/Unified%20Api",
@@ -7,27 +7,36 @@
       "title": "NexusApi",
       "version": "J21"
     },
-    "openapiFileMtimeUtc": "2026-08-02T02:15Z",
+    "openapiFileMtimeUtc": "2026-08-03T02:16Z",
     "overlay": "dashboard/data/endpoints-overlay.json",
     "methodology": "Existence from OpenAPI paths\u00d7methods. Tested flag from curated overlay (t). Deprecated = OpenAPI deprecated OR overlay d. Coverage % = tested / non-deprecated only. Brand-new = in OpenAPI, not in overlay; known-untested = overlay t:false. Risk = method weight \u00d7 domain weight \u00d7 brand-new bump (heuristic until Honeycomb traffic is wired).",
     "riskNote": "Heuristic only \u2014 DELETE/PUT/POST on core Project/QuotaGroup paths rank higher. Not traffic-weighted yet."
   },
   "summary": {
-    "operations": 311,
-    "nonDeprecated": 268,
+    "operations": 313,
+    "nonDeprecated": 270,
     "deprecated": 43,
     "deprecatedFromOpenApi": 15,
     "deprecatedFromOverlayOnly": 28,
     "tested": 261,
-    "untested": 7,
-    "coveragePercent": 97.4,
-    "brandNew": 4,
+    "untested": 9,
+    "coveragePercent": 96.7,
+    "brandNew": 6,
     "knownUntested": 3,
     "stale": 0,
-    "mutatingGaps": 4,
-    "highRiskGaps": 2
+    "mutatingGaps": 5,
+    "highRiskGaps": 3
   },
   "queue": [
+    {
+      "m": "PUT",
+      "p": "/NexusApi/u1/nexus/partnerEvents/{partnerEventId}/segments",
+      "category": "PartnerEvents",
+      "gap": "new",
+      "risk": 7.0,
+      "riskBand": "high",
+      "operationId": "updatePartnerEventSegments"
+    },
     {
       "m": "POST",
       "p": "/NexusApi/u1/nexus/quotaGroups/sourceQuotas/default",
@@ -66,6 +75,15 @@
     },
     {
       "m": "GET",
+      "p": "/NexusApi/u1/nexus/projects/{projectId}/logs/quotaGroups/{quotaGroupId}/lastChangeOrderLogs",
+      "category": "Projects",
+      "gap": "new",
+      "risk": 3.0,
+      "riskBand": "medium",
+      "operationId": "lastChangeOrderLogs"
+    },
+    {
+      "m": "GET",
       "p": "/NexusApi/u1/nexus/projects/searchPageableParams",
       "category": "Projects - searchPageable",
       "gap": "known",
@@ -93,6 +111,137 @@
     }
   ],
   "categories": [
+    {
+      "name": "PartnerEvents",
+      "tested": 9,
+      "untested": 2,
+      "deprecated": 0,
+      "coveragePercent": 81.8,
+      "maxGapRisk": 7.0,
+      "endpoints": [
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/externalSuppliers",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/partnerEventDefaults",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/partnerEvents",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "POST",
+          "p": "/NexusApi/u1/nexus/partnerEvents",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "DELETE",
+          "p": "/NexusApi/u1/nexus/partnerEvents/{partnerEventId}",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/partnerEvents/{partnerEventId}",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "PUT",
+          "p": "/NexusApi/u1/nexus/partnerEvents/{partnerEventId}",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/partnerEvents/{partnerEventId}/metrics",
+          "t": false,
+          "d": false,
+          "status": "untested",
+          "gap": "new",
+          "risk": 1.88,
+          "riskBand": "low",
+          "deprecatedSource": null
+        },
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/partnerEvents/{partnerEventId}/redirectUrls",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "PUT",
+          "p": "/NexusApi/u1/nexus/partnerEvents/{partnerEventId}/segments",
+          "t": false,
+          "d": false,
+          "status": "untested",
+          "gap": "new",
+          "risk": 7.0,
+          "riskBand": "high",
+          "deprecatedSource": null
+        },
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/validCurrencies",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        }
+      ]
+    },
     {
       "name": "QuotaGroupSources",
       "tested": 11,
@@ -992,6 +1141,269 @@
       ]
     },
     {
+      "name": "Projects",
+      "tested": 22,
+      "untested": 1,
+      "deprecated": 0,
+      "coveragePercent": 95.7,
+      "maxGapRisk": 3.0,
+      "endpoints": [
+        {
+          "m": "POST",
+          "p": "/NexusApi/u1/nexus/projects",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "POST",
+          "p": "/NexusApi/u1/nexus/projects/accept",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "POST",
+          "p": "/NexusApi/u1/nexus/projects/clone",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/projects/ids",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "DELETE",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "PUT",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "POST",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}/accept",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "POST",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}/audienceGroups/{audienceGroupId}/clone",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "POST",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}/clone",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "POST",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}/convertToOrder",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}/crmFields",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "POST",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}/crmFields",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}/endLinkSec",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}/endlinkSecurity",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "PATCH",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}/endlinkSecurity",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}/latestFeasCalcTime",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}/logs/changeOrderLogs",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}/logs/export",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}/logs/quotaGroups/{quotaGroupId}/lastChangeOrderLogs",
+          "t": false,
+          "d": false,
+          "status": "untested",
+          "gap": "new",
+          "risk": 3.0,
+          "riskBand": "medium",
+          "deprecatedSource": null
+        },
+        {
+          "m": "GET",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}/signedUrlKeyId",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "POST",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}/updateBosLinkage",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        },
+        {
+          "m": "POST",
+          "p": "/NexusApi/u1/nexus/projects/{projectId}/updateD365Linkage",
+          "t": true,
+          "d": false,
+          "status": "tested",
+          "gap": null,
+          "risk": null,
+          "riskBand": null,
+          "deprecatedSource": null
+        }
+      ]
+    },
+    {
       "name": "Users",
       "tested": 7,
       "untested": 1,
@@ -1079,126 +1491,6 @@
         {
           "m": "PUT",
           "p": "/NexusApi/u1/users/{userId}/userSettings/defaultCountries",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        }
-      ]
-    },
-    {
-      "name": "PartnerEvents",
-      "tested": 9,
-      "untested": 1,
-      "deprecated": 0,
-      "coveragePercent": 90.0,
-      "maxGapRisk": 1.88,
-      "endpoints": [
-        {
-          "m": "GET",
-          "p": "/NexusApi/u1/nexus/externalSuppliers",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "GET",
-          "p": "/NexusApi/u1/nexus/partnerEventDefaults",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "GET",
-          "p": "/NexusApi/u1/nexus/partnerEvents",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "POST",
-          "p": "/NexusApi/u1/nexus/partnerEvents",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "DELETE",
-          "p": "/NexusApi/u1/nexus/partnerEvents/{partnerEventId}",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "GET",
-          "p": "/NexusApi/u1/nexus/partnerEvents/{partnerEventId}",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "PUT",
-          "p": "/NexusApi/u1/nexus/partnerEvents/{partnerEventId}",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "GET",
-          "p": "/NexusApi/u1/nexus/partnerEvents/{partnerEventId}/metrics",
-          "t": false,
-          "d": false,
-          "status": "untested",
-          "gap": "new",
-          "risk": 1.88,
-          "riskBand": "low",
-          "deprecatedSource": null
-        },
-        {
-          "m": "GET",
-          "p": "/NexusApi/u1/nexus/partnerEvents/{partnerEventId}/redirectUrls",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "GET",
-          "p": "/NexusApi/u1/nexus/validCurrencies",
           "t": true,
           "d": false,
           "status": "tested",
@@ -1515,258 +1807,6 @@
         {
           "m": "PUT",
           "p": "/NexusApi/u1/nexus/projects/{projectId}/core/trackerDetails",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        }
-      ]
-    },
-    {
-      "name": "Projects",
-      "tested": 22,
-      "untested": 0,
-      "deprecated": 0,
-      "coveragePercent": 100.0,
-      "maxGapRisk": null,
-      "endpoints": [
-        {
-          "m": "POST",
-          "p": "/NexusApi/u1/nexus/projects",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "POST",
-          "p": "/NexusApi/u1/nexus/projects/accept",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "POST",
-          "p": "/NexusApi/u1/nexus/projects/clone",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "GET",
-          "p": "/NexusApi/u1/nexus/projects/ids",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "DELETE",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "GET",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "PUT",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "POST",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}/accept",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "POST",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}/audienceGroups/{audienceGroupId}/clone",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "POST",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}/clone",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "POST",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}/convertToOrder",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "GET",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}/crmFields",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "POST",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}/crmFields",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "GET",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}/endLinkSec",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "GET",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}/endlinkSecurity",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "PATCH",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}/endlinkSecurity",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "GET",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}/latestFeasCalcTime",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "GET",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}/logs/changeOrderLogs",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "GET",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}/logs/export",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "GET",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}/signedUrlKeyId",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "POST",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}/updateBosLinkage",
-          "t": true,
-          "d": false,
-          "status": "tested",
-          "gap": null,
-          "risk": null,
-          "riskBand": null,
-          "deprecatedSource": null
-        },
-        {
-          "m": "POST",
-          "p": "/NexusApi/u1/nexus/projects/{projectId}/updateD365Linkage",
           "t": true,
           "d": false,
           "status": "tested",
@@ -3858,6 +3898,15 @@
   "gaps": {
     "brandNew": [
       {
+        "m": "PUT",
+        "p": "/NexusApi/u1/nexus/partnerEvents/{partnerEventId}/segments",
+        "category": "PartnerEvents",
+        "gap": "new",
+        "risk": 7.0,
+        "riskBand": "high",
+        "operationId": "updatePartnerEventSegments"
+      },
+      {
         "m": "POST",
         "p": "/NexusApi/u1/nexus/quotaGroups/sourceQuotas/default",
         "category": "QuotaGroupSources",
@@ -3874,6 +3923,15 @@
         "risk": 6.0,
         "riskBand": "high",
         "operationId": "approveTotalQuota"
+      },
+      {
+        "m": "GET",
+        "p": "/NexusApi/u1/nexus/projects/{projectId}/logs/quotaGroups/{quotaGroupId}/lastChangeOrderLogs",
+        "category": "Projects",
+        "gap": "new",
+        "risk": 3.0,
+        "riskBand": "medium",
+        "operationId": "lastChangeOrderLogs"
       },
       {
         "m": "GET",
@@ -3930,7 +3988,7 @@
     "openapiDeprecated": 15,
     "staleOverlayEntries": 0,
     "handTrackedUntested": 3,
-    "untrackedNew": 4,
+    "untrackedNew": 6,
     "inventory": {
       "features": 712,
       "cases": 1508,
@@ -3946,7 +4004,7 @@
         "Other": 2
       },
       "source": "dashboard/data/inventory.json",
-      "generatedAt": "2026-08-02"
+      "generatedAt": "2026-08-03"
     }
   }
 }

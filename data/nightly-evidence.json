@@ -1,33 +1,33 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-02T02:15Z",
+  "generatedAt": "2026-08-03T02:16Z",
   "build": {
-    "number": "3.0.2646",
-    "buildId": "9419943",
+    "number": "3.0.2647",
+    "buildId": "9420645",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9419943",
-    "durationSec": 2516.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9420645",
+    "durationSec": 2534.0
   },
   "summary": {
     "tests": 1449,
-    "passed": 1346,
-    "failures": 5,
+    "passed": 1345,
+    "failures": 6,
     "errors": 0,
     "skipped": 0,
     "muted": 98,
-    "newFailed": 0,
+    "newFailed": 1,
     "passRate": 99.6,
-    "timeSec": 2516.0
+    "timeSec": 2534.0
   },
   "prior": {
-    "buildId": "9419476",
-    "number": "3.0.2645",
+    "buildId": "9419943",
+    "number": "3.0.2646",
     "status": "FAILURE",
-    "statusText": "Tests failed: 5 (2 new), passed: 1346, muted: 98",
-    "durationSec": 2233.0,
+    "statusText": "Tests failed: 5, passed: 1346, muted: 98",
+    "durationSec": 2516.0,
     "failed": 5,
     "passed": 1346,
-    "newFailed": 2
+    "newFailed": 0
   },
   "changes": [],
   "clusters": [
@@ -35,28 +35,45 @@
       "label": "product_data_country_lang",
       "display": "GB + fr unsupported",
       "count": 2,
-      "newCount": 2,
-      "sample": "Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]",
+      "newCount": 0,
+      "sample": "",
       "why": "unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang)"
     },
     {
       "label": "infra_timeout",
       "display": "client/Feign socket timeout",
       "count": 2,
-      "newCount": 2,
-      "sample": "feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
+      "newCount": 0,
+      "sample": "",
       "why": "Feign/client socket timeout talking to a QA service"
+    },
+    {
+      "label": "infra_502",
+      "display": "QA 502 Bad Gateway",
+      "count": 1,
+      "newCount": 1,
+      "sample": "502 Bad Gateway",
+      "why": "QA gateway returned HTML 502 \u2014 infra during the run, not a product regression"
     },
     {
       "label": "other",
       "display": "other",
       "count": 1,
-      "newCount": 1,
-      "sample": "Unsupported country! [countryIso:QA]",
+      "newCount": 0,
+      "sample": "",
       "why": "no dominant signature yet \u2014 open TeamCity details"
     }
   ],
   "failures": [
+    {
+      "name": "External quota updates when switching from CUSTOM to NATURAL mode: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.ExternalQuotaWorkflowTestSteps.External quota updates when switching from CUSTOM to NATURAL mode",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.ExternalQuotaWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118733355/sourceSettings/options 502{ \"errors\" : [ { \"callChain\" : [ \"HTTP 502 GET http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118733355/quotas\" ], \"status\" : \"BAD_GATEWAY\", \"message\" : \"<html>\\n<head><title>502 Bad Gateway</title></head>\\n<body>\\n<cen\u2026"
+    },
     {
       "name": "Clone quota group for enabled country and supported language persists correct country-language: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps.Clone quota group for enabled country and supported language persists correct country-language [countryIso: QA, languageIsos: [ar, en], #1]",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCRUDTestSteps",
@@ -104,25 +121,21 @@
     }
   ],
   "rulesNutshell": {
-    "headline": "5 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "1 new failure in Quota",
     "tone": "warn",
     "bullets": [
-      "2\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]",
-      "2\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
-      "1\u00d7 other \u2014 Unsupported country! [countryIso:QA]"
+      "1\u00d7 QA 502 Bad Gateway"
     ],
-    "investigation": "Failures: 2\u00d7 GB + fr unsupported; 2\u00d7 client/Feign socket timeout. Gateway hits: dk-project-crm-rest.",
+    "investigation": "New fails: 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Gateway hits: dk-project-quota-details-rest.",
     "detail": {
-      "investigation": "No new unmuted failures; 5 continuing from prior runs. Failure types (new-first): (1) 2\u00d7 GB + fr unsupported \u2014 unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang). (2) 2\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. (3) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: QuotaGroup (5). Example new failures: QuotaGroup: Clone quota group for enabled country and supported language persists correct country-lang [other]; QuotaGroup: Clone quota group for enabled country and supported language persists correct country-lang [GB + fr unsupported]; QuotaGroup: Clone quota group for enabled country with unsupported language: com.dynata.rest.gateway.n [GB + fr unsupported]; QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout].",
+      "investigation": "1 of 6 unmuted failures are new since the prior build (#3.0.2646, 5 fails). Failure types (new-first): (1) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: Quota (1). Example new failures: Quota: External quota updates when switching from CUSTOM to NATURAL mode: com.dynata.rest.gateway [QA 502 Bad Gateway].",
       "bullets": [
-        "2\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:SA] [languageIsos:[ar, en]]",
-        "2\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
-        "1\u00d7 other \u2014 Unsupported country! [countryIso:QA]"
+        "1\u00d7 QA 502 Bad Gateway"
       ],
       "newFailureAreas": [
         {
-          "area": "QuotaGroup",
-          "newCount": 5
+          "area": "Quota",
+          "newCount": 1
         }
       ],
       "likelyCauses": []
