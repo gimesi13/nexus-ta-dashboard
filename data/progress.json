@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-03T11:26Z",
+  "generatedAt": "2026-08-04T02:21Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-07-28",
-      "to": "2026-08-03",
+      "from": "2026-07-29",
+      "to": "2026-08-04",
       "featuresAdded": 10,
       "casesAdded": 10,
       "areasTouched": 4,
@@ -251,27 +251,27 @@
       ]
     },
     "14d": {
-      "from": "2026-07-21",
-      "to": "2026-08-03",
-      "featuresAdded": 83,
-      "casesAdded": 89,
+      "from": "2026-07-22",
+      "to": "2026-08-04",
+      "featuresAdded": 67,
+      "casesAdded": 67,
       "areasTouched": 8,
       "ticketsTouched": 2,
       "byType": {
-        "CRUD": 30,
-        "Validation": 31,
-        "Workflow": 13,
+        "CRUD": 25,
+        "Validation": 25,
+        "Workflow": 10,
         "Query": 5,
-        "Other": 4
+        "Other": 2
       },
       "byArea": [
         {
           "area": "Project",
-          "featuresAdded": 31
+          "featuresAdded": 27
         },
         {
           "area": "QuotaGroup",
-          "featuresAdded": 28
+          "featuresAdded": 17
         },
         {
           "area": "Survey",
@@ -282,15 +282,15 @@
           "featuresAdded": 6
         },
         {
-          "area": "Segment",
-          "featuresAdded": 3
-        },
-        {
           "area": "Settings",
           "featuresAdded": 3
         },
         {
           "area": "SampleRules",
+          "featuresAdded": 2
+        },
+        {
+          "area": "Segment",
           "featuresAdded": 2
         },
         {
@@ -301,8 +301,8 @@
       "tickets": [
         {
           "key": "NXS-13454",
-          "featuresAdded": 73,
-          "casesAdded": 79,
+          "featuresAdded": 57,
+          "casesAdded": 57,
           "latestDate": "2026-07-23"
         },
         {
@@ -1672,342 +1672,12 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Get%20quota%20group%20overview%20by%20project%20ID"
-        },
-        {
-          "name": "Segment autoclose off is preserved when cloning an audience group",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentStatusClonePreservationTestSteps.groovy",
-          "date": "2026-07-21",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "commit": "ca720c6f70",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Segment",
-          "spec": "SegmentStatusClonePreservationTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "SEGMENTS",
-            "CLONE_AUDIENCE_GROUP"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Segment%20autoclose%20off%20is%20preserved%20when%20cloning%20an%20audience%20group"
-        },
-        {
-          "name": "Update total starts quota and verify persistence",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-07-21",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "commit": "ca720c6f70",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Update%20total%20starts%20quota%20and%20verify%20persistence"
-        },
-        {
-          "name": "Update tally mode and verify persistence",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-07-21",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "commit": "ca720c6f70",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "TALLY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Update%20tally%20mode%20and%20verify%20persistence"
-        },
-        {
-          "name": "Update external auto-close and verify persistence",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-07-21",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "commit": "ca720c6f70",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Update%20external%20auto-close%20and%20verify%20persistence"
-        },
-        {
-          "name": "Total quota update for an unknown quota group is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-07-21",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "commit": "ca720c6f70",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupValidationTestSteps",
-          "type": "Validation",
-          "cases": 7,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Total%20quota%20update%20for%20an%20unknown%20quota%20group%20is%20rejected"
-        },
-        {
-          "name": "Switching tally mode to by completes is rejected when soft launch exceeds total completes",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-07-21",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "commit": "ca720c6f70",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "TALLY",
-            "SOFT_LAUNCH"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Switching%20tally%20mode%20to%20by%20completes%20is%20rejected%20when%20soft%20launch%20exceeds%20total%20completes"
-        },
-        {
-          "name": "Starts-mode channel settings and auto-close persist together",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
-          "date": "2026-07-21",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "commit": "ca720c6f70",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "TALLY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Starts-mode%20channel%20settings%20and%20auto-close%20persist%20together"
-        },
-        {
-          "name": "Per-country quota totals and tally modes stay independent after clone",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
-          "date": "2026-07-21",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "commit": "ca720c6f70",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "TALLY",
-            "CLONE_QUOTA_GROUP"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Per-country%20quota%20totals%20and%20tally%20modes%20stay%20independent%20after%20clone"
-        },
-        {
-          "name": "Internal channel quota update is rejected as unsupported",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-07-21",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "commit": "ca720c6f70",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Internal%20channel%20quota%20update%20is%20rejected%20as%20unsupported"
-        },
-        {
-          "name": "Internal auto-close update is rejected as unsupported",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-07-21",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "commit": "ca720c6f70",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Internal%20auto-close%20update%20is%20rejected%20as%20unsupported"
-        },
-        {
-          "name": "Coordinated quotas snapshot refreshes totals while keeping tally mode and starts",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
-          "date": "2026-07-21",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "commit": "ca720c6f70",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupWorkflowTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "TALLY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Coordinated%20quotas%20snapshot%20refreshes%20totals%20while%20keeping%20tally%20mode%20and%20starts"
-        },
-        {
-          "name": "Cloned market diverges on external quota while primary channel settings stay unchanged",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
-          "date": "2026-07-21",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "commit": "ca720c6f70",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "TALLY",
-            "CLONE_QUOTA_GROUP"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Cloned%20market%20diverges%20on%20external%20quota%20while%20primary%20channel%20settings%20stay%20unchanged"
-        },
-        {
-          "name": "Unknown CRM category guid is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCoreTestSteps.groovy",
-          "date": "2026-07-21",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "commit": "ca720c6f70",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCoreTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Unknown%20CRM%20category%20guid%20is%20rejected"
-        },
-        {
-          "name": "Setting survey topic by CRM category guid syncs the numeric category id",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCoreTestSteps.groovy",
-          "date": "2026-07-21",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "commit": "ca720c6f70",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCoreTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Setting%20survey%20topic%20by%20CRM%20category%20guid%20syncs%20the%20numeric%20category%20id"
-        },
-        {
-          "name": "Deleting a live project is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-21",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "commit": "ca720c6f70",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Deleting%20a%20live%20project%20is%20rejected"
-        },
-        {
-          "name": "Delete a draft clone removes the project",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-21",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - QuotaGroup quotas field coverage plus related high-risk gaps",
-          "commit": "ca720c6f70",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "CLONE_PROJECT"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Delete%20a%20draft%20clone%20removes%20the%20project"
         }
       ]
     },
     "30d": {
-      "from": "2026-07-05",
-      "to": "2026-08-03",
+      "from": "2026-07-06",
+      "to": "2026-08-04",
       "featuresAdded": 88,
       "casesAdded": 94,
       "areasTouched": 9,
@@ -3876,10 +3546,10 @@
       ]
     },
     "90d": {
-      "from": "2026-05-06",
-      "to": "2026-08-03",
+      "from": "2026-05-07",
+      "to": "2026-08-04",
       "featuresAdded": 154,
-      "casesAdded": 190,
+      "casesAdded": 188,
       "areasTouched": 10,
       "ticketsTouched": 11,
       "byType": {
@@ -3942,7 +3612,7 @@
         {
           "key": "NXS-12492",
           "featuresAdded": 39,
-          "casesAdded": 57,
+          "casesAdded": 55,
           "latestDate": "2026-06-16"
         },
         {
@@ -7038,7 +6708,7 @@
           "area": "QuotaGroup",
           "spec": "QuotaGroupValidationTestSteps",
           "type": "Validation",
-          "cases": 6,
+          "cases": 4,
           "tags": [
             "CLONE_QUOTA_GROUP",
             "COUNTRY_LANGUAGES"
@@ -7196,34 +6866,34 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-08-03",
+      "date": "2026-08-04",
       "features": 718,
-      "cases": 1497,
+      "cases": 1495,
       "specs": 74,
       "areas": 15,
-      "coveragePercent": 99.3,
+      "coveragePercent": 100.0,
       "tested": 265,
-      "untested": 2,
-      "nonDeprecated": 267
+      "untested": 0,
+      "nonDeprecated": 265
     }
   ],
   "coverage": {
-    "currentPercent": 99.3,
+    "currentPercent": 100.0,
     "tested": 265,
-    "untested": 2,
+    "untested": 0,
     "delta14d": {
-      "currentPercent": 99.3,
-      "priorPercent": 78.0,
-      "deltaPoints": 21.3,
-      "priorDate": "2026-07-22",
-      "currentDate": "2026-08-03",
-      "testedDelta": 56,
-      "untestedDelta": -57
+      "currentPercent": 100.0,
+      "priorPercent": 72.8,
+      "deltaPoints": 27.2,
+      "priorDate": "2026-07-21",
+      "currentDate": "2026-08-04",
+      "testedDelta": 70,
+      "untestedDelta": -73
     }
   },
   "inventory": {
     "features": 718,
-    "cases": 1497,
+    "cases": 1495,
     "specs": 74,
     "areas": 15
   }

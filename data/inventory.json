@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-03",
+  "generatedAt": "2026-08-04",
   "source": "source",
   "features": 718,
-  "cases": 1497,
+  "cases": 1495,
   "specs": 74,
   "areas": 15,
   "featuresWithSteps": 718,
@@ -18921,7 +18921,7 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
-      "cases": 6,
+      "cases": 4,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
       "ignored": false,
       "steps": [
@@ -18935,10 +18935,10 @@
         },
         {
           "phase": "then",
-          "label": "The system rejects the unsupported country-language combination"
+          "label": "The system rejects the combination naming the country and the requested languages"
         }
       ],
-      "paramNote": "6 runs across exception.message.contains(\"Unsupported country-language combinations\")"
+      "paramNote": "4 runs across countryIso"
     },
     {
       "area": "QuotaGroup",
@@ -18965,10 +18965,10 @@
         },
         {
           "phase": "then",
-          "label": "The system rejects the request for the disabled country"
+          "label": "The system rejects the request naming the unsupported country"
         }
       ],
-      "paramNote": "6 runs across exception.message.contains(\"Unsupported country\")"
+      "paramNote": "6 runs across countryIso"
     },
     {
       "area": "QuotaGroup",
