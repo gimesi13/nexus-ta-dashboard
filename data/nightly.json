@@ -1467,143 +1467,35 @@
     "PesNotificationTestSteps::partner event creation publishes externalEventUpdated notification": "passed"
   },
   "nutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "headline": "Nightly is green \u2014 every executed test passed and there are no new failures.",
     "tone": "ok",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
+    "causeText": "This run recorded zero failures and zero new failures across 1355 executed tests (88 still muted), so there is no cause to attribute. The prior build 3.0.2647 had 6 failures (1 new), and this run cleared them without a fix commit \u2014 consistent with a transient/infra flake in the previous run rather than a code regression. All five changes this build are by gergely.gimesi and touch automation scripts, dashboard data, docs, and test fixtures; none produced a failing test.",
+    "investigation": "Read the evidence: 0 failures and 0 new failures at a 100% pass rate, so there was nothing to root-cause. The previous build's 6 failures cleared with no fix commit, pointing to transient noise rather than a regression.",
     "bullets": [
-      "Change NXS-13563: gergely.gimesi \u00b7 AudienceGroup, Fieldwork, PartnerEvent",
-      "Change NXS-13561: gergely.gimesi \u00b7 PartnerEvent, QuotaGroup, SampleRules"
+      "0 new failures \u2014 no test to blame, no cause assigned.",
+      "Prior build had 6 failures (1 new); they cleared without a fix commit.",
+      "All changes are gergely.gimesi's automation/test-fixture edits, none broke a test."
     ],
     "detail": {
-      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame):",
+      "investigation": "Read the failure evidence directly: this build has 0 failures, 0 errors and 0 new failures at a 100% pass rate (1355 passed, 88 muted), so there was nothing to diagnose \u2014 no messages, clusters, or failing cases exist. The prior build 3.0.2647 failed with 6 tests (1 new) but recovered here with no fix/revert commit in the changeset, which is the signature of transient QA-environment noise (timeouts/502/504-style flakes) rather than a real code regression. The five changes in this build are all by gergely.gimesi and land in automation scripts (generate_digest.py, coverage_gate.py, generate_endpoint_coverage.py), dashboard data/docs, and Groovy test fixtures/step definitions; with no failing areas to map to, none can be implicated. No developer or commit is blamed because there are no new failures to attribute.",
       "bullets": [
-        "Change NXS-13563: gergely.gimesi \u00b7 AudienceGroup, Fieldwork, PartnerEvent",
-        "Change NXS-13561: gergely.gimesi \u00b7 PartnerEvent, QuotaGroup, SampleRules",
-        "NXS-13563 57df5089844f by gergely.gimesi \u2192 areas AudienceGroup, Fieldwork, PartnerEvent, SampleRules (0 new fails) \u00b7 AudienceTemplateTestSteps.groovy, FieldworkValidationTestSteps.groovy, PartnerEventValidationTestSteps.groovy, SampleRulesValidationTestSteps.groovy",
-        "NXS-13561 70d4645e5eca by gergely.gimesi \u2192 areas PartnerEvent, QuotaGroup, SampleRules, Settings, Sources, User (0 new fails) \u00b7 coverage_gate.py, generate_endpoint_coverage.py, coverage-baseline.json, coverage.json, endpoints-overlay.json, generate_coverage.py",
-        "NXS-13594 7390dca02b77 by gergely.gimesi \u2192 areas QuotaGroup (0 new fails) \u00b7 QuotaGroupCRUDTestSteps.groovy, QuotaGroupValidationTestSteps.groovy"
+        "0 failures / 0 errors / 0 new failures \u2014 100% pass rate (1355 passed, 88 muted).",
+        "No failure messages, clusters, or failing cases present in the evidence to investigate.",
+        "Prior build 3.0.2647 had 6 failures (1 new); they cleared with no fix or revert commit \u2192 transient/infra flake, not a regression.",
+        "No cause assigned and no commit blamed \u2014 investigation focuses on NEW failures and there are none.",
+        "Changes NXS-13594 (5a760c5daa67, 8d11097fd35e) touch only automation (generate_digest.py) \u2014 cannot cause test failures.",
+        "Change NXS-13561 (70d4645e5eca) touches automation/dashboard/docs plus test helpers/fixtures \u2014 no failing area to map to.",
+        "Changes NXS-13563 (57df5089844f) and NXS-13594 (7390dca02b77) edit test fixtures/step definitions only \u2014 no resulting failure."
       ],
       "newFailureAreas": [],
-      "likelyCauses": [
-        {
-          "version": "57df5089844f",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13563",
-          "comment": "NXS-13563 MS - delete muted scenarios for Done product bugs",
-          "areas": [
-            "AudienceGroup",
-            "Fieldwork",
-            "PartnerEvent",
-            "SampleRules"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "AudienceTemplateTestSteps.groovy",
-            "FieldworkValidationTestSteps.groovy",
-            "PartnerEventValidationTestSteps.groovy",
-            "SampleRulesValidationTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "70d4645e5eca",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13561",
-          "comment": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "areas": [
-            "PartnerEvent",
-            "QuotaGroup",
-            "SampleRules",
-            "Settings",
-            "Sources",
-            "User"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "coverage_gate.py",
-            "generate_endpoint_coverage.py",
-            "coverage-baseline.json",
-            "coverage.json",
-            "endpoints-overlay.json",
-            "generate_coverage.py"
-          ]
-        },
-        {
-          "version": "7390dca02b77",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13594",
-          "comment": "NXS-13594 MS - fix country-language clone fixtures against active country list",
-          "areas": [
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "QuotaGroupCRUDTestSteps.groovy",
-            "QuotaGroupValidationTestSteps.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
     "clusters": [],
-    "suspectCommits": [
-      {
-        "version": "5a760c5daa67",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13594 MS - only compare run size on full-suite runs",
-        "ticket": "NXS-13594",
-        "areas": []
-      },
-      {
-        "version": "8d11097fd35e",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13594 MS - surface specs that never ran in the test digest",
-        "ticket": "NXS-13594",
-        "areas": []
-      },
-      {
-        "version": "7390dca02b77",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13594 MS - fix country-language clone fixtures against active country list",
-        "ticket": "NXS-13594",
-        "areas": [
-          "QuotaGroup"
-        ]
-      },
-      {
-        "version": "70d4645e5eca",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-        "ticket": "NXS-13561",
-        "areas": [
-          "PartnerEvent",
-          "QuotaGroup",
-          "SampleRules",
-          "Settings",
-          "Sources",
-          "User"
-        ]
-      },
-      {
-        "version": "57df5089844f",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13563 MS - delete muted scenarios for Done product bugs",
-        "ticket": "NXS-13563",
-        "areas": [
-          "AudienceGroup",
-          "Fieldwork",
-          "PartnerEvent",
-          "SampleRules"
-        ]
-      }
-    ],
-    "source": "investigator",
-    "generatedAt": "2026-08-04T02:21Z",
+    "source": "llm",
+    "generatedAt": "2026-08-04T02:23:53Z",
     "buildNumber": "3.0.2648",
     "buildId": "9424765",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9424765",
-    "focus": "all_failures",
-    "newFailed": 0,
-    "failed": 0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9424765"
   }
 }
