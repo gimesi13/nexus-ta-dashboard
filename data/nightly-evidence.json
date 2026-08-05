@@ -1,248 +1,77 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-04T02:21Z",
+  "generatedAt": "2026-08-05T02:24Z",
   "build": {
-    "number": "3.0.2648",
-    "buildId": "9424765",
-    "status": "SUCCESS",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9424765",
-    "durationSec": 3044.0
+    "number": "3.0.2653",
+    "buildId": "9433205",
+    "status": "FAILURE",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9433205",
+    "durationSec": 3214.0
   },
   "summary": {
     "tests": 1443,
-    "passed": 1355,
-    "failures": 0,
+    "passed": 1354,
+    "failures": 1,
     "errors": 0,
     "skipped": 0,
     "muted": 88,
-    "newFailed": 0,
-    "passRate": 100.0,
-    "timeSec": 3044.0
+    "newFailed": 1,
+    "passRate": 99.9,
+    "timeSec": 3214.0
   },
   "prior": {
-    "buildId": "9420645",
-    "number": "3.0.2647",
-    "status": "FAILURE",
-    "statusText": "Tests failed: 6 (1 new), passed: 1345, muted: 98",
-    "durationSec": 2534.0,
-    "failed": 6,
-    "passed": 1345,
-    "newFailed": 1
+    "buildId": "9424765",
+    "number": "3.0.2648",
+    "status": "SUCCESS",
+    "statusText": "Tests passed: 1355, muted: 88",
+    "durationSec": 3044.0,
+    "failed": 0,
+    "passed": 1355,
+    "newFailed": 0
   },
-  "changes": [
+  "changes": [],
+  "clusters": [
     {
-      "version": "5a760c5daa67",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13594 MS - only compare run size on full-suite runs",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/generate_digest.py"
-      ],
-      "areas": []
-    },
-    {
-      "version": "8d11097fd35e",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13594 MS - surface specs that never ran in the test digest",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/generate_digest.py"
-      ],
-      "areas": []
-    },
-    {
-      "version": "7390dca02b77",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13594 MS - fix country-language clone fixtures against active country list",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy"
-      ],
-      "areas": [
-        "QuotaGroup"
-      ]
-    },
-    {
-      "version": "70d4645e5eca",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/coverage_gate.py",
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/generate_endpoint_coverage.py",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/coverage-baseline.json",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/coverage.json",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/endpoints-overlay.json",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/tools/generate_coverage.py",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/PLATFORM_ASKS.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/PartnerEventHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/SourcesHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/UserHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/config/TestTag.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/TestFeigns.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/nexusapi/PartnerEventMetricsFeignClient.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/nexusapi/QuotaGroupDefaultSourcesFeignClient.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/nexusapi/QuotaGroupQuotasApproveFeignClient.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/nexusapi/UserChameleonFeignClient.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventCRUDTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventValidationTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventWorkflowTestSteps.groovy"
-      ],
-      "areas": [
-        "PartnerEvent",
-        "QuotaGroup",
-        "SampleRules",
-        "Settings",
-        "Sources",
-        "User"
-      ]
-    },
-    {
-      "version": "57df5089844f",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13563 MS - delete muted scenarios for Done product bugs",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceTemplateTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Fieldwork/FieldworkValidationTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventValidationTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/SampleRules/SampleRulesValidationTestSteps.groovy"
-      ],
-      "areas": [
-        "AudienceGroup",
-        "Fieldwork",
-        "PartnerEvent",
-        "SampleRules"
-      ]
+      "label": "other",
+      "display": "other",
+      "count": 1,
+      "newCount": 1,
+      "sample": "UpdateFeasibilityDistribution failed: Invalid Quota setup or missing Feasibility Calculation!",
+      "why": "no dominant signature yet \u2014 open TeamCity details"
     }
   ],
-  "clusters": [],
-  "failures": [],
+  "failures": [
+    {
+      "name": "Nesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaWorkflowTestSteps.Nesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaWorkflowTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "other",
+      "message": "UpdateFeasibilityDistribution failed: Invalid Quota setup or missing Feasibility Calculation!",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118737889/conditions/segmentedConditions/feasibilityDistributionMode 400{ \"errors\" : [ { \"callChain\" : [ \"HTTP 400 POST http://dk-project-details-editor-rest.nexus-ms-qa.dynata.com:8080/api/DetailsEditor/u1/nexus/quotaGroups/118737889/feasibilityDistribution\" ], \"status\" : \"BAD_REQUEST\", \"message\" : \"Upd\u2026"
+    }
+  ],
   "rulesNutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
-    "tone": "ok",
+    "headline": "1 new failure in Quota",
+    "tone": "warn",
     "bullets": [
-      "Change NXS-13563: gergely.gimesi \u00b7 AudienceGroup, Fieldwork, PartnerEvent",
-      "Change NXS-13561: gergely.gimesi \u00b7 PartnerEvent, QuotaGroup, SampleRules"
+      "1\u00d7 other \u2014 UpdateFeasibilityDistribution failed: Invalid Quota setup or missing Feasibility Calculation!"
     ],
-    "investigation": "No unmuted failures.",
+    "investigation": "New fails: 1\u00d7 other (no dominant signature yet). Vs prior #3.0.2648: up 1 total fails.",
     "detail": {
-      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame):",
+      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2648, 0 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Quota (1). Example new failures: Quota: Nesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility:  [other].",
       "bullets": [
-        "Change NXS-13563: gergely.gimesi \u00b7 AudienceGroup, Fieldwork, PartnerEvent",
-        "Change NXS-13561: gergely.gimesi \u00b7 PartnerEvent, QuotaGroup, SampleRules",
-        "NXS-13563 57df5089844f by gergely.gimesi \u2192 areas AudienceGroup, Fieldwork, PartnerEvent, SampleRules (0 new fails) \u00b7 AudienceTemplateTestSteps.groovy, FieldworkValidationTestSteps.groovy, PartnerEventValidationTestSteps.groovy, SampleRulesValidationTestSteps.groovy",
-        "NXS-13561 70d4645e5eca by gergely.gimesi \u2192 areas PartnerEvent, QuotaGroup, SampleRules, Settings, Sources, User (0 new fails) \u00b7 coverage_gate.py, generate_endpoint_coverage.py, coverage-baseline.json, coverage.json, endpoints-overlay.json, generate_coverage.py",
-        "NXS-13594 7390dca02b77 by gergely.gimesi \u2192 areas QuotaGroup (0 new fails) \u00b7 QuotaGroupCRUDTestSteps.groovy, QuotaGroupValidationTestSteps.groovy"
+        "1\u00d7 other \u2014 UpdateFeasibilityDistribution failed: Invalid Quota setup or missing Feasibility Calculation!"
       ],
-      "newFailureAreas": [],
-      "likelyCauses": [
+      "newFailureAreas": [
         {
-          "version": "57df5089844f",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13563",
-          "comment": "NXS-13563 MS - delete muted scenarios for Done product bugs",
-          "areas": [
-            "AudienceGroup",
-            "Fieldwork",
-            "PartnerEvent",
-            "SampleRules"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "AudienceTemplateTestSteps.groovy",
-            "FieldworkValidationTestSteps.groovy",
-            "PartnerEventValidationTestSteps.groovy",
-            "SampleRulesValidationTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "70d4645e5eca",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13561",
-          "comment": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "areas": [
-            "PartnerEvent",
-            "QuotaGroup",
-            "SampleRules",
-            "Settings",
-            "Sources",
-            "User"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "coverage_gate.py",
-            "generate_endpoint_coverage.py",
-            "coverage-baseline.json",
-            "coverage.json",
-            "endpoints-overlay.json",
-            "generate_coverage.py"
-          ]
-        },
-        {
-          "version": "7390dca02b77",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13594",
-          "comment": "NXS-13594 MS - fix country-language clone fixtures against active country list",
-          "areas": [
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "QuotaGroupCRUDTestSteps.groovy",
-            "QuotaGroupValidationTestSteps.groovy"
-          ]
+          "area": "Quota",
+          "newCount": 1
         }
-      ]
+      ],
+      "likelyCauses": []
     },
-    "suspectCommits": [
-      {
-        "version": "5a760c5daa67",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13594 MS - only compare run size on full-suite runs",
-        "ticket": "NXS-13594",
-        "areas": []
-      },
-      {
-        "version": "8d11097fd35e",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13594 MS - surface specs that never ran in the test digest",
-        "ticket": "NXS-13594",
-        "areas": []
-      },
-      {
-        "version": "7390dca02b77",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13594 MS - fix country-language clone fixtures against active country list",
-        "ticket": "NXS-13594",
-        "areas": [
-          "QuotaGroup"
-        ]
-      },
-      {
-        "version": "70d4645e5eca",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-        "ticket": "NXS-13561",
-        "areas": [
-          "PartnerEvent",
-          "QuotaGroup",
-          "SampleRules",
-          "Settings",
-          "Sources",
-          "User"
-        ]
-      },
-      {
-        "version": "57df5089844f",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13563 MS - delete muted scenarios for Done product bugs",
-        "ticket": "NXS-13563",
-        "areas": [
-          "AudienceGroup",
-          "Fieldwork",
-          "PartnerEvent",
-          "SampleRules"
-        ]
-      }
-    ]
+    "suspectCommits": []
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite."
 }

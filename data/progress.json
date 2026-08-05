@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-04T02:21Z",
+  "generatedAt": "2026-08-05T02:24Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-07-29",
-      "to": "2026-08-04",
+      "from": "2026-07-30",
+      "to": "2026-08-05",
       "featuresAdded": 10,
       "casesAdded": 10,
       "areasTouched": 4,
@@ -251,35 +251,35 @@
       ]
     },
     "14d": {
-      "from": "2026-07-22",
-      "to": "2026-08-04",
-      "featuresAdded": 67,
-      "casesAdded": 67,
-      "areasTouched": 8,
+      "from": "2026-07-23",
+      "to": "2026-08-05",
+      "featuresAdded": 35,
+      "casesAdded": 35,
+      "areasTouched": 6,
       "ticketsTouched": 2,
       "byType": {
-        "CRUD": 25,
-        "Validation": 25,
-        "Workflow": 10,
-        "Query": 5,
+        "CRUD": 8,
+        "Validation": 16,
+        "Workflow": 6,
+        "Query": 3,
         "Other": 2
       },
       "byArea": [
         {
           "area": "Project",
-          "featuresAdded": 27
-        },
-        {
-          "area": "QuotaGroup",
-          "featuresAdded": 17
-        },
-        {
-          "area": "Survey",
-          "featuresAdded": 9
+          "featuresAdded": 15
         },
         {
           "area": "PartnerEvent",
           "featuresAdded": 6
+        },
+        {
+          "area": "QuotaGroup",
+          "featuresAdded": 5
+        },
+        {
+          "area": "Survey",
+          "featuresAdded": 4
         },
         {
           "area": "Settings",
@@ -288,21 +288,13 @@
         {
           "area": "SampleRules",
           "featuresAdded": 2
-        },
-        {
-          "area": "Segment",
-          "featuresAdded": 2
-        },
-        {
-          "area": "Lookup",
-          "featuresAdded": 1
         }
       ],
       "tickets": [
         {
           "key": "NXS-13454",
-          "featuresAdded": 57,
-          "casesAdded": 57,
+          "featuresAdded": 25,
+          "casesAdded": 25,
           "latestDate": "2026-07-23"
         },
         {
@@ -1028,656 +1020,12 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Valid%20currencies%20for%20a%20supplier%20brand%20support%20partner%20event%20creation"
-        },
-        {
-          "name": "Tagged base URL remains readable after survey re-validation",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "SURVEY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Tagged%20base%20URL%20remains%20readable%20after%20survey%20re-validation"
-        },
-        {
-          "name": "Survey re-validation returns a validation result without persisting",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "SURVEY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Survey%20re-validation%20returns%20a%20validation%20result%20without%20persisting"
-        },
-        {
-          "name": "Survey re-validation for an unknown survey is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyValidationTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "SURVEY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Survey%20re-validation%20for%20an%20unknown%20survey%20is%20rejected"
-        },
-        {
-          "name": "Base URL with tags rejects an empty tag list",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyValidationTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "SURVEY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Base%20URL%20with%20tags%20rejects%20an%20empty%20tag%20list"
-        },
-        {
-          "name": "Base URL with tags can be set and read back",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "SURVEY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Base%20URL%20with%20tags%20can%20be%20set%20and%20read%20back"
-        },
-        {
-          "name": "Bulk condition percent update totaling over 100% is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsValidationTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Segment",
-          "spec": "SegmentsValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "SEGMENTS"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Bulk%20condition%20percent%20update%20totaling%20over%20100%25%20is%20rejected"
-        },
-        {
-          "name": "Bulk condition percent update persists on read-back",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Segment",
-          "spec": "SegmentsCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "SEGMENTS"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Bulk%20condition%20percent%20update%20persists%20on%20read-back"
-        },
-        {
-          "name": "Quota group type link persists on core read-back",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Quota%20group%20type%20link%20persists%20on%20core%20read-back"
-        },
-        {
-          "name": "Quota group name leaf update persists on core read-back",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Quota%20group%20name%20leaf%20update%20persists%20on%20core%20read-back"
-        },
-        {
-          "name": "Quota group core project id matches the active project",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Quota%20group%20core%20project%20id%20matches%20the%20active%20project"
-        },
-        {
-          "name": "Feasibility calculation job can be triggered and read",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Feasibility%20calculation%20job%20can%20be%20triggered%20and%20read"
-        },
-        {
-          "name": "Exposed type link without a paired audience is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Exposed%20type%20link%20without%20a%20paired%20audience%20is%20rejected"
-        },
-        {
-          "name": "Combined feasibility and price calculation can be triggered",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Combined%20feasibility%20and%20price%20calculation%20can%20be%20triggered"
-        },
-        {
-          "name": "Audience rename, type link, price update, and recalculation stay consistent",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Audience%20rename%2C%20type%20link%2C%20price%20update%2C%20and%20recalculation%20stay%20consistent"
-        },
-        {
-          "name": "Audience price lookup for an unknown audience is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Audience%20price%20lookup%20for%20an%20unknown%20audience%20is%20rejected"
-        },
-        {
-          "name": "Audience price leaf update persists on read-back",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Audience%20price%20leaf%20update%20persists%20on%20read-back"
-        },
-        {
-          "name": "Audience price leaf matches the gateway quota group price",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Audience%20price%20leaf%20matches%20the%20gateway%20quota%20group%20price"
-        },
-        {
-          "name": "Audience price calculation can be triggered",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Audience%20price%20calculation%20can%20be%20triggered"
-        },
-        {
-          "name": "Audience name shorter than three characters is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Audience%20name%20shorter%20than%20three%20characters%20is%20rejected"
-        },
-        {
-          "name": "Signed end-link security is reflected in the security summary",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - Feign-ready coverage, ignore burn-down, commit hook",
-          "commit": "390116a5e8",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "Query",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Signed%20end-link%20security%20is%20reflected%20in%20the%20security%20summary"
-        },
-        {
-          "name": "Renamed draft project shows the new name in label search",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - Feign-ready coverage, ignore burn-down, commit hook",
-          "commit": "390116a5e8",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Renamed%20draft%20project%20shows%20the%20new%20name%20in%20label%20search"
-        },
-        {
-          "name": "Invoice comments and PO number can be updated together and both persist",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Invoice%20comments%20and%20PO%20number%20can%20be%20updated%20together%20and%20both%20persist"
-        },
-        {
-          "name": "Full project update renames a draft clone",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - Feign-ready coverage, ignore burn-down, commit hook",
-          "commit": "390116a5e8",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "CLONE_PROJECT",
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Full%20project%20update%20renames%20a%20draft%20clone"
-        },
-        {
-          "name": "End-link security summary matches configured security level",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - Feign-ready coverage, ignore burn-down, commit hook",
-          "commit": "390116a5e8",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=End-link%20security%20summary%20matches%20configured%20security%20level"
-        },
-        {
-          "name": "Draft project search rejects page size #pageSize",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - Feign-ready coverage, ignore burn-down, commit hook",
-          "commit": "390116a5e8",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Draft%20project%20search%20rejects%20page%20size%20%23pageSize"
-        },
-        {
-          "name": "Draft project search rejects live project queries",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - Feign-ready coverage, ignore burn-down, commit hook",
-          "commit": "390116a5e8",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Draft%20project%20search%20rejects%20live%20project%20queries"
-        },
-        {
-          "name": "Draft project search finds the active quote by project id",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - Feign-ready coverage, ignore burn-down, commit hook",
-          "commit": "390116a5e8",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Draft%20project%20search%20finds%20the%20active%20quote%20by%20project%20id"
-        },
-        {
-          "name": "Client reference PO number persists on read-back",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Client%20reference%20PO%20number%20persists%20on%20read-back"
-        },
-        {
-          "name": "Client invoice comments persist on read-back",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Client%20invoice%20comments%20persist%20on%20read-back"
-        },
-        {
-          "name": "Client invoice comments lookup for an unknown project is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - high-risk Feign leaf coverage with CRUD, validation, and workflow depth",
-          "commit": "f093659dc2",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Client%20invoice%20comments%20lookup%20for%20an%20unknown%20project%20is%20rejected"
-        },
-        {
-          "name": "CRM fields healthcare flag persists on read-back",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - Feign-ready coverage, ignore burn-down, commit hook",
-          "commit": "390116a5e8",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=CRM%20fields%20healthcare%20flag%20persists%20on%20read-back"
-        },
-        {
-          "name": "Get quota group overview by project ID",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Lookup/QuotaGroupLookupTestSteps.groovy",
-          "date": "2026-07-22",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - Feign-ready coverage, ignore burn-down, commit hook",
-          "commit": "390116a5e8",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Lookup",
-          "spec": "QuotaGroupLookupTestSteps",
-          "type": "Query",
-          "cases": 1,
-          "tags": [
-            "LOOKUP"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Get%20quota%20group%20overview%20by%20project%20ID"
         }
       ]
     },
     "30d": {
-      "from": "2026-07-06",
-      "to": "2026-08-04",
+      "from": "2026-07-07",
+      "to": "2026-08-05",
       "featuresAdded": 88,
       "casesAdded": 94,
       "areasTouched": 9,
@@ -3546,18 +2894,17 @@
       ]
     },
     "90d": {
-      "from": "2026-05-07",
-      "to": "2026-08-04",
-      "featuresAdded": 154,
-      "casesAdded": 188,
+      "from": "2026-05-08",
+      "to": "2026-08-05",
+      "featuresAdded": 152,
+      "casesAdded": 186,
       "areasTouched": 10,
       "ticketsTouched": 11,
       "byType": {
-        "CRUD": 49,
+        "CRUD": 48,
         "Validation": 44,
         "Workflow": 28,
         "Query": 17,
-        "E2E": 1,
         "Other": 15
       },
       "byArea": [
@@ -3567,7 +2914,7 @@
         },
         {
           "area": "QuotaGroup",
-          "featuresAdded": 48
+          "featuresAdded": 46
         },
         {
           "area": "SampleRules",
@@ -3611,8 +2958,8 @@
         },
         {
           "key": "NXS-12492",
-          "featuresAdded": 39,
-          "casesAdded": 55,
+          "featuresAdded": 37,
+          "casesAdded": 53,
           "latestDate": "2026-06-16"
         },
         {
@@ -6736,46 +6083,6 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Clone%20quota%20group%20for%20enabled%20country%20and%20supported%20language%20persists%20correct%20country-language"
-        },
-        {
-          "name": "End-to-end quota group CRUD operations",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupE2ETestSteps.groovy",
-          "date": "2026-05-07",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix regression failures on new test projects",
-          "commit": "9cc570a098",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupE2ETestSteps",
-          "type": "E2E",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=End-to-end%20quota%20group%20CRUD%20operations"
-        },
-        {
-          "name": "Clone audience group and verify cloned audience group name has Cloned- prefix and quota group names have Cloned suffix",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupE2ETestSteps.groovy",
-          "date": "2026-05-07",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix regression failures on new test projects",
-          "commit": "9cc570a098",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupE2ETestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "AUDIENCE_GROUP"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Clone%20audience%20group%20and%20verify%20cloned%20audience%20group%20name%20has%20Cloned-%20prefix%20and%20quota%20group%20names%20have%20Cloned%20suffix"
         }
       ]
     }
@@ -6866,7 +6173,7 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-08-04",
+      "date": "2026-08-05",
       "features": 718,
       "cases": 1495,
       "specs": 74,
@@ -6883,12 +6190,12 @@
     "untested": 0,
     "delta14d": {
       "currentPercent": 100.0,
-      "priorPercent": 72.8,
-      "deltaPoints": 27.2,
-      "priorDate": "2026-07-21",
-      "currentDate": "2026-08-04",
-      "testedDelta": 70,
-      "untestedDelta": -73
+      "priorPercent": 78.0,
+      "deltaPoints": 22.0,
+      "priorDate": "2026-07-22",
+      "currentDate": "2026-08-05",
+      "testedDelta": 56,
+      "untestedDelta": -59
     }
   },
   "inventory": {
