@@ -1479,18 +1479,26 @@
     "PesNotificationTestSteps::partner event creation publishes externalEventUpdated notification": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in Quota",
+    "headline": "1 new Quota failure: feasibilityDistribution rejected with HTTP 400 (not infra)",
     "tone": "warn",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet). Vs prior #3.0.2648: up 1 total fails.",
+    "causeText": "The single new failure is a functional error, not infra: UpdateFeasibilityDistribution returned HTTP 400 BAD_REQUEST (\"Invalid Quota setup or missing Feasibility Calculation!\") from the project-details-editor feasibilityDistribution endpoint \u2014 not a timeout/502/504. This build recorded no source changes, so no commit or developer can be blamed. Most likely test data/setup (invalid quota state before the feasibility call) or a transient backend state issue; re-run to confirm.",
+    "investigation": "The only new failure is Quota/SoldQuotaWorkflowTestSteps, where UpdateFeasibilityDistribution got HTTP 400 BAD_REQUEST \u2014 an application-level rejection, not an infra timeout. No build changes were recorded, so no commit can be blamed; points to test data/setup.",
     "bullets": [
-      "1\u00d7 other \u2014 UpdateFeasibilityDistribution failed: Invalid Quota setup or missing Feasibility Calculation!"
+      "Quota \u2014 'Nesting parameters (when soldQuota is locked)' hit HTTP 400 on feasibilityDistribution: Invalid Quota setup or missing Feasibility Calculation",
+      "Functional 400 (BAD_REQUEST), not a timeout/502/504 \u2014 not infra",
+      "No source changes in this build \u2014 no commit or developer to blame"
     ],
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2648, 0 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Quota (1). Example new failures: Quota: Nesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility:  [other].",
+      "investigation": "1 of 1 unmuted failures is new since the prior build (#3.0.2648, 0 fails; the same suite passed). The failure is Quota/SoldQuotaWorkflowTestSteps 'Nesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility'. Reading the real message rather than the coarse 'other' cluster: a java.lang.RuntimeException surfaced because POST .../quotaGroups/118737889/conditions/segmentedConditions/feasibilityDistributionMode returned HTTP 400, whose call chain shows POST http://dk-project-details-editor-rest.nexus-ms-qa.dynata.com:8080/.../feasibilityDistribution -> 400 BAD_REQUEST 'Invalid Quota setup or missing Feasibility Calculation!'. This is an application-level rejection (BAD_REQUEST), not a QA timeout, SocketTimeout, 502 or 504, so it is not infra. The evidence lists no source changes for this build, so no commit or developer can be implicated without inventing blame. The most likely cause is test data/setup (the quota was not in a valid state / feasibility calculation missing at the time of the call) or a transient backend state issue; a targeted re-run should confirm whether it is deterministic.",
       "bullets": [
-        "1\u00d7 other \u2014 UpdateFeasibilityDistribution failed: Invalid Quota setup or missing Feasibility Calculation!"
+        "New failure: Quota / SoldQuotaWorkflowTestSteps \u2014 'Nesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility'",
+        "Real error: RuntimeException from HTTP 400 on feasibilityDistributionMode; call chain 400 BAD_REQUEST on dk-project-details-editor-rest .../feasibilityDistribution",
+        "Message: 'Invalid Quota setup or missing Feasibility Calculation!'",
+        "Classified as test/data \u2014 400 is application-level, not a timeout/502/504, so not infra",
+        "changes[] is empty for this build \u2014 no commit or developer to attribute (no blame invented)",
+        "Prior build #3.0.2648 passed the same suite (0 fails) \u2014 net +1 new failure",
+        "Suggested action: re-run the SoldQuota feasibility workflow to check if the 400 is deterministic or transient backend state"
       ],
       "newFailureAreas": [
         {
@@ -1511,8 +1519,8 @@
       }
     ],
     "suspectCommits": [],
-    "source": "investigator",
-    "generatedAt": "2026-08-05T02:24Z",
+    "source": "llm",
+    "generatedAt": "2026-08-05T02:24:00Z",
     "buildNumber": "3.0.2653",
     "buildId": "9433205",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9433205",
