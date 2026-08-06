@@ -1,8 +1,8 @@
-**2 new failures in Survey**
+**2 new Survey failures are a QA MongoDB authorization outage, not a code regression.**
 
-_Likely cause: Possibly NXS-13622 by gergely.gimesi — touches Survey (2 overlapping new fails)._
+_Likely cause: QA infra — the test-link microservice returns HTTP 500 because MongoDB rejects error 13 'Authorization failure' on nexus-api-mongo-qa._
 
-- 2× other — org.springframework.data.mongodb.UncategorizedMongoDbException:Command failed with error 13: 'Authorization fa
-- Change NXS-13622: gergely.gimesi · Survey · 2 overlapping new fails
+- 2× Survey (SurveyCRUDTestSteps) test-link endpoints return HTTP 500 from QA
+- No code blame — regression-suite changes cannot cause a server-side Mongo auth failure
 
 [Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9438931)

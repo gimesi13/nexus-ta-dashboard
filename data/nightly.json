@@ -1490,21 +1490,27 @@
     "PesNotificationTestSteps::partner event creation publishes externalEventUpdated notification": "passed"
   },
   "nutshell": {
-    "headline": "2 new failures in Survey",
+    "headline": "2 new Survey failures are a QA MongoDB authorization outage, not a code regression.",
     "tone": "warn",
-    "cause": "code_change",
-    "causeText": "Possibly NXS-13622 by gergely.gimesi \u2014 touches Survey (2 overlapping new fails). Correlation only.",
-    "investigation": "New fails: 2\u00d7 other (no dominant signature yet). Likely related to NXS-13622 gergely.gimesi `42105d2df34b` (Survey, 2 new fails in overlap).",
+    "cause": "infra",
+    "causeText": "Both new failures are server-side HTTP 500s from the QA test-link microservice, whose MongoDB rejects commands with error 13 'Authorization failure' on nexus-api-mongo-qa. This is a QA environment/auth problem, not the regression suite. The rules engine flagged NXS-13622 (gergely.gimesi) only via a path match on SurveyCRUDTestSteps.groovy, but a WaitUtil/test-step change cannot cause a server-side Mongo auth failure, so no commit or developer is implicated.",
+    "investigation": "Both new Survey failures return HTTP 500 from the QA test-link service because MongoDB rejects commands with error 13 'Authorization failure' on nexus-api-mongo-qa \u2014 a QA infra issue. The NXS-13622 correlation is a path-match false positive.",
     "bullets": [
-      "2\u00d7 other \u2014 org.springframework.data.mongodb.UncategorizedMongoDbException:Command failed with error 13: 'Authorization fa",
-      "Change NXS-13622: gergely.gimesi \u00b7 Survey \u00b7 2 overlapping new fails"
+      "2\u00d7 Survey (SurveyCRUDTestSteps): test-link endpoints return HTTP 500 from QA",
+      "Root cause: MongoDB error 13 'Authorization failure' on nexus-api-mongo-qa (server-side)",
+      "No code blame \u2014 regression-suite changes cannot cause a QA Mongo auth failure"
     ],
     "detail": {
-      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2653, 1 fails). Failure types (new-first): (1) 2\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Survey (2). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): Example new failures: Survey: Get list of test links [other]; Survey: Get test links from S3 [other].",
+      "investigation": "Both of the 2 new failures (prior build had 1) are in Survey/SurveyCRUDTestSteps: 'Get list of test links' and 'Get test links from S3'. Each is a server-side HTTP 500 from the QA test-link microservice (dk-project-test-link-rest.nexus-ms-qa.dynata.com), and the response body's root cause is org.springframework.data.mongodb.UncategorizedMongoDbException: 'Command failed with error 13: Authorization failure' on nexus-api-mongo-qa. That is a QA MongoDB authorization/credentials problem in the environment under test \u2014 not a Spock assertion ('Condition not satisfied') and not a socket timeout. The cluster label 'other' is generic; the real message is unambiguous infra. The rules engine flagged NXS-13622 (gergely.gimesi) purely because SurveyCRUDTestSteps.groovy appears in commit 42105d2df34b, but those changes (WaitUtil.untilTrue plus step refactors) cannot produce a server-side MongoDB auth failure, so no code change is implicated and no developer is blamed. Recommended action: QA/platform should restore the test-link service's MongoDB authorization on nexus-api-mongo-qa and re-run.",
       "bullets": [
-        "2\u00d7 other \u2014 org.springframework.data.mongodb.UncategorizedMongoDbException:Command failed with error 13: 'Authorization fa",
-        "Change NXS-13622: gergely.gimesi \u00b7 Survey \u00b7 2 overlapping new fails",
-        "NXS-13622 42105d2df34b by gergely.gimesi \u2192 areas Survey (2 new fails) \u00b7 WaitUtil.java, AudienceGroupE2ECloneRestoreReorderTestSteps.groovy, AudienceGroupE2EPhaseManagementWorkflowTestSteps.groovy, SurveyCRUDTestSteps.groovy"
+        "New failures (2 of 2; prior build had 1): Survey \u00b7 SurveyCRUDTestSteps \u00b7 'Get list of test links' and 'Get test links from S3'.",
+        "Both fail with HTTP 500 from the QA test-link service (dk-project-test-link-rest.nexus-ms-qa.dynata.com).",
+        "Root cause in body: MongoDB error 13 'Authorization failure' on nexus-api-mongo-qa (UncategorizedMongoDbException).",
+        "Signature is infra/environment (server-side 5xx + Mongo auth), not an assertion or a timeout.",
+        "Cluster 'other' is only a coarse label; the real message identifies the cause clearly.",
+        "NXS-13622 path-match (SurveyCRUDTestSteps.groovy) is a false positive \u2014 test-step/WaitUtil changes can't cause a server-side Mongo auth failure.",
+        "No developer or commit is implicated.",
+        "Action: QA/platform to fix MongoDB authorization on nexus-api-mongo-qa, then re-run."
       ],
       "newFailureAreas": [
         {
@@ -1512,24 +1518,7 @@
           "newCount": 2
         }
       ],
-      "likelyCauses": [
-        {
-          "version": "42105d2df34b",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13622",
-          "comment": "NXS-13622 Add WaitUtil.untilTrue for boolean waits",
-          "areas": [
-            "Survey"
-          ],
-          "hitNewFailures": 2,
-          "files": [
-            "WaitUtil.java",
-            "AudienceGroupE2ECloneRestoreReorderTestSteps.groovy",
-            "AudienceGroupE2EPhaseManagementWorkflowTestSteps.groovy",
-            "SurveyCRUDTestSteps.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
     "clusters": [
       {
@@ -1587,8 +1576,8 @@
         "areas": []
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-08-06T02:25Z",
+    "source": "llm",
+    "generatedAt": "2026-08-06T02:25:00Z",
     "buildNumber": "3.0.2659",
     "buildId": "9438931",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9438931",
