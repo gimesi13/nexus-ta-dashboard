@@ -1,8 +1,8 @@
-**1 new Quota failure: feasibilityDistribution rejected with HTTP 400 (not infra)**
+**2 new failures in Survey**
 
-_Likely cause: test/data — HTTP 400 BAD_REQUEST "Invalid Quota setup or missing Feasibility Calculation!" on feasibilityDistribution; no source changes to blame._
+_Likely cause: Possibly NXS-13622 by gergely.gimesi — touches Survey (2 overlapping new fails)._
 
-- Quota / SoldQuotaWorkflowTestSteps — RuntimeException from HTTP 400 on feasibilityDistribution (not a timeout/502/504)
-- No build changes recorded — no commit or developer to attribute
+- 2× other — org.springframework.data.mongodb.UncategorizedMongoDbException:Command failed with error 13: 'Authorization fa
+- Change NXS-13622: gergely.gimesi · Survey · 2 overlapping new fails
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9433205)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9438931)

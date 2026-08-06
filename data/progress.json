@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-05T02:24Z",
+  "generatedAt": "2026-08-06T02:25Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-07-30",
-      "to": "2026-08-05",
+      "from": "2026-07-31",
+      "to": "2026-08-06",
       "featuresAdded": 10,
       "casesAdded": 10,
       "areasTouched": 4,
@@ -201,7 +201,8 @@
           "cases": 1,
           "tags": [
             "PARTNER_EVENT",
-            "REX_EVENT"
+            "REX_EVENT",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Partner%20event%20remains%20available%20after%20metrics%20embed%20URL%20is%20retrieved"
@@ -251,39 +252,31 @@
       ]
     },
     "14d": {
-      "from": "2026-07-23",
-      "to": "2026-08-05",
-      "featuresAdded": 35,
-      "casesAdded": 35,
-      "areasTouched": 6,
-      "ticketsTouched": 2,
+      "from": "2026-07-24",
+      "to": "2026-08-06",
+      "featuresAdded": 10,
+      "casesAdded": 10,
+      "areasTouched": 4,
+      "ticketsTouched": 1,
       "byType": {
-        "CRUD": 8,
-        "Validation": 16,
-        "Workflow": 6,
-        "Query": 3,
+        "CRUD": 1,
+        "Validation": 5,
+        "Workflow": 1,
+        "Query": 1,
         "Other": 2
       },
       "byArea": [
         {
-          "area": "Project",
-          "featuresAdded": 15
-        },
-        {
           "area": "PartnerEvent",
-          "featuresAdded": 6
-        },
-        {
-          "area": "QuotaGroup",
-          "featuresAdded": 5
-        },
-        {
-          "area": "Survey",
-          "featuresAdded": 4
+          "featuresAdded": 3
         },
         {
           "area": "Settings",
           "featuresAdded": 3
+        },
+        {
+          "area": "QuotaGroup",
+          "featuresAdded": 2
         },
         {
           "area": "SampleRules",
@@ -291,12 +284,6 @@
         }
       ],
       "tickets": [
-        {
-          "key": "NXS-13454",
-          "featuresAdded": 25,
-          "casesAdded": 25,
-          "latestDate": "2026-07-23"
-        },
         {
           "key": "NXS-13561",
           "featuresAdded": 10,
@@ -461,7 +448,8 @@
           "cases": 1,
           "tags": [
             "PARTNER_EVENT",
-            "REX_EVENT"
+            "REX_EVENT",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Partner%20event%20remains%20available%20after%20metrics%20embed%20URL%20is%20retrieved"
@@ -507,525 +495,12 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Partner%20event%20metrics%20embed%20URL%20is%20returned%20for%20an%20existing%20partner%20event"
-        },
-        {
-          "name": "Uploaded survey URL file can be processed and sample values read",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "SURVEY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Uploaded%20survey%20URL%20file%20can%20be%20processed%20and%20sample%20values%20read"
-        },
-        {
-          "name": "Survey project id lookup for an unknown survey is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "SURVEY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Survey%20project%20id%20lookup%20for%20an%20unknown%20survey%20is%20rejected"
-        },
-        {
-          "name": "Survey project id leaf matches the active project",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "SURVEY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Survey%20project%20id%20leaf%20matches%20the%20active%20project"
-        },
-        {
-          "name": "Processing an unknown uploaded survey file is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "SURVEY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Processing%20an%20unknown%20uploaded%20survey%20file%20is%20rejected"
-        },
-        {
-          "name": "Adhoc feasibility with too many channels is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20with%20too%20many%20channels%20is%20rejected"
-        },
-        {
-          "name": "Adhoc feasibility calculation returns a feasibility result",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20calculation%20returns%20a%20feasibility%20result"
-        },
-        {
-          "name": "Adhoc feasibility and live feasibility job can both be calculated",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20and%20live%20feasibility%20job%20can%20both%20be%20calculated"
-        },
-        {
-          "name": "D365 linkage update persists quote guid and number",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=D365%20linkage%20update%20persists%20quote%20guid%20and%20number"
-        },
-        {
-          "name": "Creating a project without core details is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Creating%20a%20project%20without%20core%20details%20is%20rejected"
-        },
-        {
-          "name": "Created draft project can be renamed and then removed",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Created%20draft%20project%20can%20be%20renamed%20and%20then%20removed"
-        },
-        {
-          "name": "Converting a quote without an order guid is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Converting%20a%20quote%20without%20an%20order%20guid%20is%20rejected"
-        },
-        {
-          "name": "Converting a live project to an order is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Converting%20a%20live%20project%20to%20an%20order%20is%20rejected"
-        },
-        {
-          "name": "Cloned quote converted to order can be found by the new sales order guid",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "CLONE_PROJECT",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Cloned%20quote%20converted%20to%20order%20can%20be%20found%20by%20the%20new%20sales%20order%20guid"
-        },
-        {
-          "name": "Cloned quote can receive a new BOS linkage and be found by that guid",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "CLONE_PROJECT",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Cloned%20quote%20can%20receive%20a%20new%20BOS%20linkage%20and%20be%20found%20by%20that%20guid"
-        },
-        {
-          "name": "Cloned quote can be converted to an order with persisted linkage",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "CLONE_PROJECT",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Cloned%20quote%20can%20be%20converted%20to%20an%20order%20with%20persisted%20linkage"
-        },
-        {
-          "name": "Change-order logs for an unknown project return no rows",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Change-order%20logs%20for%20an%20unknown%20project%20return%20no%20rows"
-        },
-        {
-          "name": "Change-order logs and export are available for the active quote",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "Query",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Change-order%20logs%20and%20export%20are%20available%20for%20the%20active%20quote"
-        },
-        {
-          "name": "Brand-new draft project can be created and read back",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Brand-new%20draft%20project%20can%20be%20created%20and%20read%20back"
-        },
-        {
-          "name": "BOS linkage without an option guid is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=BOS%20linkage%20without%20an%20option%20guid%20is%20rejected"
-        },
-        {
-          "name": "BOS linkage update persists on project core read-back",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=BOS%20linkage%20update%20persists%20on%20project%20core%20read-back"
-        },
-        {
-          "name": "BOS accept is rejected for a D365 quote",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=BOS%20accept%20is%20rejected%20for%20a%20D365%20quote"
-        },
-        {
-          "name": "Accepting a new project without a sales order guid is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Accepting%20a%20new%20project%20without%20a%20sales%20order%20guid%20is%20rejected"
-        },
-        {
-          "name": "Valid currencies lookup for an unknown audience is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Valid%20currencies%20lookup%20for%20an%20unknown%20audience%20is%20rejected"
-        },
-        {
-          "name": "Valid currencies for an available supplier brand are returned",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventCRUDTestSteps",
-          "type": "Query",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Valid%20currencies%20for%20an%20available%20supplier%20brand%20are%20returned"
-        },
-        {
-          "name": "Valid currencies for a supplier brand support partner event creation",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventWorkflowTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Valid%20currencies%20for%20a%20supplier%20brand%20support%20partner%20event%20creation"
         }
       ]
     },
     "30d": {
-      "from": "2026-07-07",
-      "to": "2026-08-05",
+      "from": "2026-07-08",
+      "to": "2026-08-06",
       "featuresAdded": 88,
       "casesAdded": 94,
       "areasTouched": 9,
@@ -1252,7 +727,8 @@
           "cases": 1,
           "tags": [
             "PARTNER_EVENT",
-            "REX_EVENT"
+            "REX_EVENT",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Partner%20event%20remains%20available%20after%20metrics%20embed%20URL%20is%20retrieved"
@@ -1434,7 +910,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20and%20live%20feasibility%20job%20can%20both%20be%20calculated"
@@ -1495,7 +972,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Created%20draft%20project%20can%20be%20renamed%20and%20then%20removed"
@@ -1559,7 +1037,8 @@
           "tags": [
             "PROJECT_CORE",
             "CLONE_PROJECT",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Cloned%20quote%20converted%20to%20order%20can%20be%20found%20by%20the%20new%20sales%20order%20guid"
@@ -1581,7 +1060,8 @@
           "tags": [
             "PROJECT_CORE",
             "CLONE_PROJECT",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Cloned%20quote%20can%20receive%20a%20new%20BOS%20linkage%20and%20be%20found%20by%20that%20guid"
@@ -1807,7 +1287,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "PARTNER_EVENT"
+            "PARTNER_EVENT",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Valid%20currencies%20for%20a%20supplier%20brand%20support%20partner%20event%20creation"
@@ -2087,7 +1568,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Audience%20rename%2C%20type%20link%2C%20price%20update%2C%20and%20recalculation%20stay%20consistent"
@@ -2227,7 +1709,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Renamed%20draft%20project%20shows%20the%20new%20name%20in%20label%20search"
@@ -2247,7 +1730,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Invoice%20comments%20and%20PO%20number%20can%20be%20updated%20together%20and%20both%20persist"
@@ -2348,7 +1832,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Draft%20project%20search%20finds%20the%20active%20quote%20by%20project%20id"
@@ -2596,7 +2081,8 @@
           "cases": 1,
           "tags": [
             "QUOTA",
-            "TALLY"
+            "TALLY",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Starts-mode%20channel%20settings%20and%20auto-close%20persist%20together"
@@ -2618,7 +2104,8 @@
           "tags": [
             "QUOTA",
             "TALLY",
-            "CLONE_QUOTA_GROUP"
+            "CLONE_QUOTA_GROUP",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Per-country%20quota%20totals%20and%20tally%20modes%20stay%20independent%20after%20clone"
@@ -2679,7 +2166,8 @@
           "cases": 1,
           "tags": [
             "QUOTA",
-            "TALLY"
+            "TALLY",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Coordinated%20quotas%20snapshot%20refreshes%20totals%20while%20keeping%20tally%20mode%20and%20starts"
@@ -2701,7 +2189,8 @@
           "tags": [
             "QUOTA",
             "TALLY",
-            "CLONE_QUOTA_GROUP"
+            "CLONE_QUOTA_GROUP",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Cloned%20market%20diverges%20on%20external%20quota%20while%20primary%20channel%20settings%20stay%20unchanged"
@@ -2894,8 +2383,8 @@
       ]
     },
     "90d": {
-      "from": "2026-05-08",
-      "to": "2026-08-05",
+      "from": "2026-05-09",
+      "to": "2026-08-06",
       "featuresAdded": 152,
       "casesAdded": 186,
       "areasTouched": 10,
@@ -3174,7 +2663,8 @@
           "cases": 1,
           "tags": [
             "PARTNER_EVENT",
-            "REX_EVENT"
+            "REX_EVENT",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Partner%20event%20remains%20available%20after%20metrics%20embed%20URL%20is%20retrieved"
@@ -3356,7 +2846,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20and%20live%20feasibility%20job%20can%20both%20be%20calculated"
@@ -3417,7 +2908,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Created%20draft%20project%20can%20be%20renamed%20and%20then%20removed"
@@ -3481,7 +2973,8 @@
           "tags": [
             "PROJECT_CORE",
             "CLONE_PROJECT",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Cloned%20quote%20converted%20to%20order%20can%20be%20found%20by%20the%20new%20sales%20order%20guid"
@@ -3503,7 +2996,8 @@
           "tags": [
             "PROJECT_CORE",
             "CLONE_PROJECT",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Cloned%20quote%20can%20receive%20a%20new%20BOS%20linkage%20and%20be%20found%20by%20that%20guid"
@@ -3729,7 +3223,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "PARTNER_EVENT"
+            "PARTNER_EVENT",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Valid%20currencies%20for%20a%20supplier%20brand%20support%20partner%20event%20creation"
@@ -4009,7 +3504,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Audience%20rename%2C%20type%20link%2C%20price%20update%2C%20and%20recalculation%20stay%20consistent"
@@ -4149,7 +3645,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Renamed%20draft%20project%20shows%20the%20new%20name%20in%20label%20search"
@@ -4169,7 +3666,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Invoice%20comments%20and%20PO%20number%20can%20be%20updated%20together%20and%20both%20persist"
@@ -4270,7 +3768,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Draft%20project%20search%20finds%20the%20active%20quote%20by%20project%20id"
@@ -4518,7 +4017,8 @@
           "cases": 1,
           "tags": [
             "QUOTA",
-            "TALLY"
+            "TALLY",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Starts-mode%20channel%20settings%20and%20auto-close%20persist%20together"
@@ -4540,7 +4040,8 @@
           "tags": [
             "QUOTA",
             "TALLY",
-            "CLONE_QUOTA_GROUP"
+            "CLONE_QUOTA_GROUP",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Per-country%20quota%20totals%20and%20tally%20modes%20stay%20independent%20after%20clone"
@@ -4601,7 +4102,8 @@
           "cases": 1,
           "tags": [
             "QUOTA",
-            "TALLY"
+            "TALLY",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Coordinated%20quotas%20snapshot%20refreshes%20totals%20while%20keeping%20tally%20mode%20and%20starts"
@@ -4623,7 +4125,8 @@
           "tags": [
             "QUOTA",
             "TALLY",
-            "CLONE_QUOTA_GROUP"
+            "CLONE_QUOTA_GROUP",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Cloned%20market%20diverges%20on%20external%20quota%20while%20primary%20channel%20settings%20stay%20unchanged"
@@ -5303,7 +4806,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "PARTNER_EVENT"
+            "PARTNER_EVENT",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Updating%20a%203PP%20partner%20event%20cost%20re-validates%20against%20the%20separated%20quota%20group%20price%20source"
@@ -5323,7 +4827,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "PARTNER_EVENT"
+            "PARTNER_EVENT",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Active%203PP%20partner%20event%20is%20validated%20against%20the%20separated%20quota%20group%20price%20source"
@@ -5458,8 +4963,7 @@
           "type": "Query",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE",
-            "PR_SMOKE"
+            "PROJECT_CORE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Get%20project%20overview%20does%20not%20include%20numberOfOverQuotasForRace%20when%20race%20boost%20is%20disabled"
@@ -5596,7 +5100,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PARTNER_EVENT"
+            "PARTNER_EVENT",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Partner%20CPI%20exactly%20at%20approve%20threshold%20is%20rejected%20by%20inclusive%20price-limit%20comparison"
@@ -5617,7 +5122,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "PARTNER_EVENT"
+            "PARTNER_EVENT",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=URL-only%20save%20on%20inactive%20over-threshold%203pp%20partner%20event%20preserves%20didPriceDecrease%20false"
@@ -5638,7 +5144,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "PARTNER_EVENT"
+            "PARTNER_EVENT",
+            "PR_SMOKE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=URL-only%20save%20of%203pp%20partner%20event%20preserves%20didPriceDecrease%20false"
@@ -5936,8 +5443,7 @@
           "type": "Query",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE",
-            "PR_SMOKE"
+            "PROJECT_CORE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Get%20project%20overview%20returns%20eligibleForRaceBoost%20false%20for%20standard%20project"
@@ -6173,7 +5679,7 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-08-05",
+      "date": "2026-08-06",
       "features": 718,
       "cases": 1495,
       "specs": 74,
@@ -6193,7 +5699,7 @@
       "priorPercent": 78.0,
       "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-08-05",
+      "currentDate": "2026-08-06",
       "testedDelta": 56,
       "untestedDelta": -59
     }
