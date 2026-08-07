@@ -79,9 +79,29 @@ jobs:
           git add data/nightly.json data/nightly-nutshell.md || true
           if git diff --cached --quiet; then
             echo "No nutshell changes from agent."
-          else
-            LABEL="${BUILD_NUMBER:-unknown}"
-            git commit -m "LLM nutshell rewrite (#${LABEL}) ($(date -u +%Y-%m-%dT%H:%MZ))"
-            git push origin HEAD:main
-            echo "Pushed LLM nutshell -> https://gimesi13.github.io/nexus-ta-dashboard/nightly.html"
+            exit 0
           fi
+          LABEL="${BUILD_NUMBER:-unknown}"
+          MSG="LLM nutshell rewrite (#${LABEL}) ($(date -u +%Y-%m-%dT%H:%MZ))"
+          git commit -m "$MSG"
+          # main can advance during the ~3-min agent run (concurrent Pages publish / a second
+          # dispatch). Replay our two generated files onto the latest main and retry so a ref
+          # race no longer fails the whole job; if main already carries this nutshell, no-op.
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then
+              echo "Pushed LLM nutshell -> https://gimesi13.github.io/nexus-ta-dashboard/nightly.html"
+              exit 0
+            fi
+            echo "push rejected (attempt $attempt) -- replaying nutshell onto latest main"
+            git fetch origin main
+            git reset --soft origin/main
+            git add data/nightly.json data/nightly-nutshell.md
+            if git diff --cached --quiet; then
+              echo "latest main already carries this nutshell; nothing to push."
+              exit 0
+            fi
+            git commit -m "$MSG"
+            sleep $((attempt * 3))
+          done
+          echo "::error::could not push LLM nutshell after 5 attempts (main kept advancing)"
+          exit 1
