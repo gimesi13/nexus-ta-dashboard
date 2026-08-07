@@ -1446,34 +1446,29 @@
     "SurveyCRUDTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "No new failures \u2014 the one continuing failure is a QA socket timeout (infra), not a code regression.",
     "tone": "warn",
-    "cause": "mixed",
-    "causeText": "VCS changes present but none map onto the failing packages \u2014 likely test/data, correlate manually. NOTE: 7 service(s) were deployed to QA in this window (ThrottlingSettingRestJ21, ProjectEventForwarderJ21, DemandApi, DKProjectCountersRestJ21, ExtendedAttributesRestJ21\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "Failures: 1\u00d7 client/Feign socket timeout.",
+    "cause": "infra",
+    "causeText": "The only failure is a Feign 'Read timed out' on DELETE .../NexusApi/u1/nexus/audienceGroups/<id> against microservices-qa \u2014 a client/socket timeout, which is infrastructure, not a 'Condition not satisfied' assertion. It is a continuing failure (also failed in prior build 3.0.2659) with 0 new failures this run. All in-window commits are gergely.gimesi TA-module changes (docs/automation/legacy Groovy cleanup, Segment steps) that never touch QuotaGroup, and no QA-deployed backend shows a matching 5xx/DB error, so there is no code change or developer to blame.",
+    "investigation": "The single failure is a QA Feign 'Read timed out' on a QuotaGroup DELETE call \u2014 infra, not code. Zero new failures this run.",
     "bullets": [
-      "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing DELETE <url>"
+      "0 new failures; 1 continuing infra timeout (99.9% pass)",
+      "QuotaGroup: Feign 'Read timed out' on DELETE audienceGroups \u2014 client/socket timeout (infra)",
+      "No TA commit or QA backend deploy maps to this failure"
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. Hot areas among new fails: QuotaGroup (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 7 service(s) (56 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: initializationError [client/Feign socket timeout].",
+      "investigation": "No new failures this build (newFailed=0; 99.9% pass). The single failure is QuotaGroupWorkflowTestSteps.initializationError \u2014 a feign.RetryableException 'Read timed out' executing DELETE https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceGroups/<id>. A read/socket timeout is an infrastructure/QA-environment symptom, not an assertion, so despite the coarse cluster label this is infra. It also failed in the prior build (3.0.2659), i.e. continuing, not new. All VCS changes in-window are gergely.gimesi TA-module commits touching docs, CI/automation, legacy Groovy cleanup, and Segment steps \u2014 none touch QuotaGroup or the audienceGroups endpoint, and docs/automation changes cannot cause test failures. Backend QA deploys (ThrottlingSettingRest, ProjectEventForwarder, DemandApi, NexusApi, etc.) show no matching 5xx/DB/auth error against audienceGroups, so no backend regression is implicated. Recommend retry/monitor; if it recurs, check QA NexusApi latency/health.",
       "bullets": [
-        "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing DELETE <url>",
-        "NXS-13639: gergely.gimesi \u2014 [NXS-13639] MS - Antipattern burndown #1: delete 5 dead legacy Groovy files",
-        "NXS-13638: gergely.gimesi \u2014 [NXS-13638] MS - CI config/policy drift gate: workflow<->mirror parity + referenced-file existence",
-        "NXS-13636: gergely.gimesi \u2014 [NXS-13636] MS - Enforce TA antipatterns on changed code + legacy burndown backlog",
-        "[QA deploy: ThrottlingSettingRestJ21] NXS-13592 (25 commits) \u2014 [NXS-13592] MS - ThrottlingSettingRest with SpringBoot 3.5.16 and new baseimage",
-        "[QA deploy: ProjectEventForwarderJ21] NXS-13580 (8 commits) \u2014 [NXS-13580] MS - ProjectEventForwarder with SpringBoot 3.5.16 (#5172)",
-        "[QA deploy: DemandApi]  (3 commits) \u2014 Pac 732 docker fix spring messaging fix (#5180)",
-        "[QA deploy: DKProjectCountersRestJ21] NXS-13573 (12 commits) \u2014 [NXS-13573] bump new build",
-        "[QA deploy: ExtendedAttributesRestJ21]  (1 commit) \u2014 upgrade to latest dependencies",
-        "[QA deploy: DedupeRestJ21]  (1 commit) \u2014 upgrade to latest dependencies"
+        "0 new unmuted failures; 1 continuing failure (also failed in prior build 3.0.2659)",
+        "QuotaGroup initializationError: feign.RetryableException 'Read timed out' on DELETE /NexusApi/u1/nexus/audienceGroups/<id>",
+        "Real message is a socket/read timeout \u2192 infra, not an assertion despite the coarse cluster naming",
+        "All in-window commits are gergely.gimesi TA-module changes (docs/automation/legacy Groovy/Segment) \u2014 none touch QuotaGroup",
+        "Docs/CI/automation changes cannot cause product or test failures",
+        "No QA-deployed backend shows a matching 5xx/DB/auth error on audienceGroups",
+        "No code change or developer can be blamed for this failure",
+        "Action: retry/monitor; investigate QA NexusApi health if it recurs"
       ],
-      "newFailureAreas": [
-        {
-          "area": "QuotaGroup",
-          "newCount": 1
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1698,7 +1693,7 @@
         "deployedAt": "20260806T075312+0000"
       }
     ],
-    "source": "investigator",
+    "source": "llm",
     "generatedAt": "2026-08-07T02:15Z",
     "buildNumber": "3.0.2660",
     "buildId": "9446824",
