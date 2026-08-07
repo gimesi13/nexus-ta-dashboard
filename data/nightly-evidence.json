@@ -1,290 +1,683 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-06T02:25Z",
+  "generatedAt": "2026-08-07T02:15Z",
   "build": {
-    "number": "3.0.2659",
-    "buildId": "9438931",
+    "number": "3.0.2660",
+    "buildId": "9446824",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9438931",
-    "durationSec": 3270.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9446824",
+    "durationSec": 2644.0
   },
   "summary": {
-    "tests": 1443,
-    "passed": 1353,
-    "failures": 2,
+    "tests": 1421,
+    "passed": 1335,
+    "failures": 1,
     "errors": 0,
     "skipped": 0,
-    "muted": 88,
-    "newFailed": 2,
+    "muted": 85,
+    "newFailed": 0,
     "passRate": 99.9,
-    "timeSec": 3270.0
+    "timeSec": 2644.0
   },
   "prior": {
-    "buildId": "9433205",
-    "number": "3.0.2653",
+    "buildId": "9438931",
+    "number": "3.0.2659",
     "status": "FAILURE",
-    "statusText": "Tests failed: 1 (1 new), passed: 1354, muted: 88",
-    "durationSec": 3214.0,
-    "failed": 1,
-    "passed": 1354,
-    "newFailed": 1
+    "statusText": "Tests failed: 2 (2 new), passed: 1353, muted: 88",
+    "startDate": "20260806T013017+0000",
+    "durationSec": 3270.0,
+    "failed": 2,
+    "passed": 1353,
+    "newFailed": 2
   },
   "changes": [
     {
-      "version": "14b14e1ecd93",
-      "username": "105725861+gimesi13",
-      "comment": "Merge pull request #5145 from dynata/NXS-13622-gate-integrity",
+      "version": "00b2ca923b8a",
+      "username": "gergely.gimesi",
+      "comment": "[NXS-13639] MS - Antipattern burndown #1: delete 5 dead legacy Groovy files",
       "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/utils/WaitUtil.java"
+        "gateway/unifiedApi/NexusApiRegressionTests/NEXUS_API_REGRESSION_TESTS.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/ANTIPATTERN_BACKLOG.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/specializedhelpers/SampleRulesTestHelperNew.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/specializedhelpers/TallyModeChangeTestHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/workflow/NXS_10563_Steps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/workflow/SampleCreationBosTestsNew.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/workflow/steps/PartnerEventsTestSteps.groovy"
       ],
       "areas": []
     },
     {
-      "version": "6375c75d3a83",
+      "version": "7b06d866e4ac",
       "username": "gergely.gimesi",
-      "comment": "NXS-13622 Document fail-closed and OpenAPI-aware gates",
+      "comment": "[NXS-13638] MS - CI config/policy drift gate: workflow<->mirror parity + referenced-file existence",
       "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/CI_PIPELINE.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/ci/pr-gate.sh",
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/config_drift_gate.py",
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/github/ta-author-on-review.yml",
         "gateway/unifiedApi/NexusApiRegressionTests/docs/QUALITY_GATES.md"
       ],
       "areas": []
     },
     {
-      "version": "78a466b4b8b6",
+      "version": "a71afd7f9444",
       "username": "gergely.gimesi",
-      "comment": "NXS-13622 Make the coverage gate OpenAPI-aware",
+      "comment": "[NXS-13636] MS - Enforce TA antipatterns on changed code + legacy burndown backlog",
       "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/coverage_gate.py",
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/coverage-baseline.json"
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/changed_file_lint.py",
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/ci/pr-gate.sh",
+        "gateway/unifiedApi/NexusApiRegressionTests/build.gradle",
+        "gateway/unifiedApi/NexusApiRegressionTests/config/codenarc/codenarc-strict.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/ANTIPATTERN_BACKLOG.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/QUALITY_GATES.md"
       ],
       "areas": []
     },
     {
-      "version": "6dbb32cf3390",
+      "version": "6ebec5b1fe72",
       "username": "gergely.gimesi",
-      "comment": "NXS-13622 Make the PR smoke gate fail-closed",
+      "comment": "[NXS-13634] MS - Stop rebuilding segmentation fixtures per validation test",
       "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/ci/assert-tests-green.py",
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/ci/pr-smoke.sh"
-      ],
-      "areas": []
-    },
-    {
-      "version": "42105d2df34b",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13622 Add WaitUtil.untilTrue for boolean waits",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/utils/WaitUtil.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceGroupE2ECloneRestoreReorderTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceGroupE2EPhaseManagementWorkflowTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy"
-      ],
-      "areas": [
-        "AudienceGroup",
-        "Survey"
-      ]
-    },
-    {
-      "version": "229bb16bdd0c",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-13615] MS - reduce redundant QA write/poll calls in regression suite",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/hooks/comment-guard.py",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/DEPENDENCIES.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/HOOKS.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/QA_CAPACITY.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/SourcesHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/utils/WaitUtil.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceTemplateTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Fieldwork/FieldworkWorkflowPartnerTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventCRUDTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceControlWorkflowTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventTallyModeQuotaTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventValidationTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventWorkflowTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/ExternalQuotaValidationTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/ExternalQuotaWorkflowTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/ConditionsHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/SegmentDetailsHelper.groovy",
         "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentHiddenFlagRegressionTestSteps.groovy",
         "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentStatusClonePreservationTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsCRUDTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsValidationTestSteps.groovy",
         "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsWorkflowTestSteps.groovy"
       ],
       "areas": [
-        "AudienceGroup",
-        "Fieldwork",
-        "PartnerEvent",
-        "Quota",
-        "QuotaGroup",
+        "Conditions",
         "Segment",
-        "Sources",
-        "pes"
+        "SegmentDetails"
       ]
     },
     {
-      "version": "d300addfb701",
-      "username": "105725861+gimesi13",
-      "comment": "Merge branch 'master' into NXS-13612-build-overhead-and-parallelism",
+      "version": "ef7024707e66",
+      "username": "gergely.gimesi",
+      "comment": "[NXS-13632] MS - Nightly blame now sees whole-repo QA deploys",
       "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/build.gradle",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/DEPENDENCIES.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsWorkflowTestSteps.groovy"
-      ],
-      "areas": [
-        "Segment"
-      ]
-    },
-    {
-      "version": "4b8612445042",
-      "username": "105725861+gimesi13",
-      "comment": "Merge pull request #5110 from dynata/NXS-13607-pr-smoke-tier",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/build.gradle"
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/generate_nutshell.py",
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/investigate_nutshell_ai.sh",
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/tc_fetch_nightly.py"
       ],
       "areas": []
+    }
+  ],
+  "qaDeployChanges": [
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "c76489b706a6",
+      "username": "andras.banszki",
+      "comment": "[NXS-13592] MS - ThrottlingSettingRest with SpringBoot 3.5.16 and new baseimage",
+      "files": [
+        "project/ThrottlingSettingRest/src/integTest/groovy/com/surveysampling/com/rest/throttling/v1/acceptance/UThrottlingSettingRestAcceptanceTest.groovy"
+      ],
+      "deployedAt": "20260806T144236+0000"
     },
     {
-      "version": "a052aecf022d",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-13613] MS - Upgrade regression suite to Spring Boot 3 / Java 21 stack",
+      "service": "ThrottlingSettingRestJ21",
+      "version": "e337dad0e555",
+      "username": "andras.banszki",
+      "comment": "[NXS-13592] MS - ThrottlingSettingRest with SpringBoot 3.5.16 and new baseimage (#5178)",
       "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/build.gradle",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/DEPENDENCIES.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/gradle/wrapper/gradle-wrapper.properties",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/DPlusFlowHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/apitest/rex/LiamSigner.java"
+        "project/ThrottlingSettingRest/Dockerfile",
+        "project/ThrottlingSettingRest/README.md",
+        "project/ThrottlingSettingRest/build.gradle",
+        "project/ThrottlingSettingRest/src/integTest/groovy/com/surveysampling/com/rest/throttling/v1/repository/mongo/MongoTestBase.groovy"
       ],
-      "areas": [
-        "DPlusFlow"
-      ]
+      "deployedAt": "20260806T144236+0000"
     },
     {
-      "version": "bd67257ff10f",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13612 MS - Correct the capacity finding: it is a cascade, not a shortage",
+      "service": "ThrottlingSettingRestJ21",
+      "version": "e1301cb85695",
+      "username": "zsolt.remenyik",
+      "comment": "[ST-4999] Added new task role to dk-respondent-feature-value-rest cloud-formation.template.yml.",
       "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/PLATFORM_ASKS.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/QA_CAPACITY.md"
+        "dk-respondent-feature-value-rest/cloud-formation.template.yml"
       ],
-      "areas": []
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "e80e904e5ceb",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7681] [CVE] Delete dkjs-contact-fake-vendor",
+      "files": [
+        "dkjs-contact-fake-vendor/cloud-formation.template.yml",
+        "dkjs-contact-fake-vendor/group_vars/all.yml",
+        "dkjs-contact-fake-vendor/group_vars/dev.yml",
+        "dkjs-contact-fake-vendor/group_vars/production.yml",
+        "dkjs-contact-fake-vendor/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "3192789a2106",
+      "username": "szabolcs.fekete",
+      "comment": "Merge pull request #550 from dynata/features/AE-7637-DAI-adding-valkey-to-dev",
+      "files": [],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "64542f9e2a2f",
+      "username": "61739584+richardsebok",
+      "comment": "Merge pull request #551 from dynata/ST-5003-country-language-rest",
+      "files": [],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "5169aa630cc5",
+      "username": "szabolcs.fekete",
+      "comment": "Debug AI: Adding valkey to dev",
+      "files": [
+        "ae-debug-ai-agent/cloud-formation.template.yml",
+        "ae-debug-ai-agent/group_vars/all.yml"
+      ],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "9462cc3c672e",
+      "username": "richardlaszlo.sebok",
+      "comment": "[ST-5003] (CountryLanguageRest) - Changed health check to match the new spring version.",
+      "files": [
+        "dk-project-country-language-rest/group_vars/dev.yml"
+      ],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "eb48b29bb1a8",
+      "username": "55445003+dynata-hu-krisztian-erdei",
+      "comment": "Merge pull request #524 from dynata/ST-4884-upgrade-to-jdk21",
+      "files": [],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "f05f6d428501",
+      "username": "krisztian.erdei",
+      "comment": "[ST-4884] Align RewardCalculatorRest JAVA_OPTS with container MaxRAMPercentage pattern",
+      "files": [
+        "dk-management-reward-calculator-rest/group_vars/dev.yml"
+      ],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "f1696aaced35",
+      "username": "55445003+dynata-hu-krisztian-erdei",
+      "comment": "Merge pull request #549 from dynata/ST-4972-appstatus-wsendpoint-st-dkms",
+      "files": [],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "03c34728a35f",
+      "username": "krisztian.erdei",
+      "comment": "[ST-4972] Restore APPSTATUS_WSENDPOINT for ST DKMS apps on dkms-dashboard",
+      "files": [
+        "dk-dk-content-rest/group_vars/all.yml",
+        "dk-dk-feature-value-rest/group_vars/all.yml",
+        "dk-dk-nova-translator-rest/group_vars/all.yml",
+        "dk-dk-respondent-rest/group_vars/all.yml",
+        "dk-management-category-rest/group_vars/all.yml",
+        "dk-management-claim-option-rest/group_vars/all.yml",
+        "dk-management-default-pages-rest/group_vars/all.yml",
+        "dk-management-external-provider-rest/group_vars/all.yml",
+        "dk-management-feature-rest/group_vars/all.yml",
+        "dk-management-mail-rest/group_vars/all.yml",
+        "dk-management-manual-payments-rest/group_vars/all.yml",
+        "dk-management-membership-status-rest/group_vars/all.yml",
+        "dk-management-message-content-rest/group_vars/all.yml",
+        "dk-management-rex-t-rest/group_vars/all.yml",
+        "dk-management-sources-rest/group_vars/all.yml",
+        "dk-project-cascades-rest/group_vars/all.yml",
+        "dk-project-mail-template-rest/group_vars/all.yml",
+        "dk-project-subject-library-rest/group_vars/all.yml",
+        "dk-respondent-feature-value-rest/group_vars/all.yml",
+        "dk-system-encrypt-decrypt-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "02df023ed5b4",
+      "username": "\u201cviktorjanos.tassi",
+      "comment": "Add otel for project-api-gateway",
+      "files": [
+        "nexus-project-api-gateway/group_vars/dev.yml",
+        "nexus-project-api-gateway/group_vars/production.yml",
+        "nexus-project-api-gateway/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "61a6a9082a0e",
+      "username": "zsolt.remenyik",
+      "comment": "Merge pull request #548 from dynata/ST-4999-dk-respondent-feature-value-rest",
+      "files": [],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "3c0e00647e60",
+      "username": "zsolt.remenyik",
+      "comment": "[ST-4999] Modified health check URI in dk-respondent-feature-value-rest dev.yml.",
+      "files": [
+        "dk-respondent-feature-value-rest/group_vars/dev.yml"
+      ],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "8e1b00a50f8b",
+      "username": "55445003+dynata-hu-krisztian-erdei",
+      "comment": "Merge pull request #547 from dynata/ST-5005-dk-content-rest-java21",
+      "files": [],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "1b25be656b56",
+      "username": "tamas.gyarmati",
+      "comment": "Merge remote-tracking branch 'origin/master'",
+      "files": [],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "54b3c62872c1",
+      "username": "tamas.gyarmati",
+      "comment": "[NXS-13637] - create project-search-mongo",
+      "files": [
+        "project-search-mongo/cloud-formation.template.yml",
+        "project-search-mongo/group_vars/all.yml",
+        "project-search-mongo/group_vars/dev.yml",
+        "project-search-mongo/group_vars/production.yml",
+        "project-search-mongo/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "ac5fe87b63f8",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5005] DEV inventory: actuator health + container JAVA_OPTS for DKContentRest",
+      "files": [
+        "dk-dk-content-rest/group_vars/dev.yml"
+      ],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "f9868266cf56",
+      "username": "55445003+dynata-hu-krisztian-erdei",
+      "comment": "Merge pull request #546 from dynata/ST-4996-membership-status-rest-java21",
+      "files": [],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "7586fb0d347e",
+      "username": "krisztian.erdei",
+      "comment": "[ST-4996] MembershipStatusRest DEV actuator health + container JAVA_OPTS",
+      "files": [
+        "dk-management-membership-status-rest/group_vars/dev.yml"
+      ],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "45dcfd44978d",
+      "username": "55445003+dynata-hu-krisztian-erdei",
+      "comment": "Merge pull request #545 from dynata/ST-4993-cascades-rest-java21",
+      "files": [],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "11a8d2d83f27",
+      "username": "krisztian.erdei",
+      "comment": "[ST-4993] CascadesRest DEV actuator health + container JAVA_OPTS",
+      "files": [
+        "dk-project-cascades-rest/group_vars/dev.yml"
+      ],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "987edc5895fd",
+      "username": "55445003+dynata-hu-krisztian-erdei",
+      "comment": "Merge pull request #544 from dynata/ST-4990-message-content-rest-java21",
+      "files": [],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "version": "b443d025d2df",
+      "username": "krisztian.erdei",
+      "comment": "[ST-4990] MessageContentRest DEV actuator health + container JAVA_OPTS",
+      "files": [
+        "dk-management-message-content-rest/group_vars/dev.yml"
+      ],
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "33f9b1c01a1d",
+      "username": "andras.banszki",
+      "comment": "[NXS-13580] MS - ProjectEventForwarder with SpringBoot 3.5.16 (#5172)",
+      "files": [
+        "project/ProjectEventForwarder/Dockerfile",
+        "project/ProjectEventForwarder/build.gradle"
+      ],
+      "deployedAt": "20260806T120429+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "22df452ff77d",
+      "username": "zoltan.redai",
+      "comment": "update aws_auto_scaling_max_capacity to 30",
+      "files": [
+        "ae-project-evaluator-shim/group_vars/all.yml"
+      ],
+      "deployedAt": "20260806T120429+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "f6f630cd36ba",
+      "username": "55445003+dynata-hu-krisztian-erdei",
+      "comment": "Merge pull request #543 from dynata/ST-4987-manual-payments-rest-java21",
+      "files": [],
+      "deployedAt": "20260806T120429+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "a5444e9e7ee0",
+      "username": "krisztian.erdei",
+      "comment": "[ST-4987] ManualPaymentsRest DEV actuator health + container JAVA_OPTS",
+      "files": [
+        "dk-management-manual-payments-rest/group_vars/dev.yml"
+      ],
+      "deployedAt": "20260806T120429+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "cf6546362c97",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5015] ParameterService - drop java.security.manager=allow from DEV JAVA_OPTS",
+      "files": [
+        "st-parameter-service/group_vars/dev.yml"
+      ],
+      "deployedAt": "20260806T120429+0000"
+    }
+  ],
+  "qaDeployServices": [
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "commits": 25,
+      "latestTicket": "NXS-13592",
+      "latestComment": "[NXS-13592] MS - ThrottlingSettingRest with SpringBoot 3.5.16 and new baseimage",
+      "deployedAt": "20260806T144236+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "commits": 8,
+      "latestTicket": "NXS-13580",
+      "latestComment": "[NXS-13580] MS - ProjectEventForwarder with SpringBoot 3.5.16 (#5172)",
+      "deployedAt": "20260806T120429+0000"
+    },
+    {
+      "service": "DemandApi",
+      "commits": 3,
+      "latestTicket": "",
+      "latestComment": "Pac 732 docker fix spring messaging fix (#5180)",
+      "deployedAt": "20260806T115823+0000"
+    },
+    {
+      "service": "DKProjectCountersRestJ21",
+      "commits": 12,
+      "latestTicket": "NXS-13573",
+      "latestComment": "[NXS-13573] bump new build",
+      "deployedAt": "20260806T114922+0000"
+    },
+    {
+      "service": "ExtendedAttributesRestJ21",
+      "commits": 1,
+      "latestTicket": "",
+      "latestComment": "upgrade to latest dependencies",
+      "deployedAt": "20260806T104727+0000"
+    },
+    {
+      "service": "DedupeRestJ21",
+      "commits": 1,
+      "latestTicket": "",
+      "latestComment": "upgrade to latest dependencies",
+      "deployedAt": "20260806T104701+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "commits": 6,
+      "latestTicket": "NXS-13575",
+      "latestComment": "[NXS-13575] - NexusApi - fix test",
+      "deployedAt": "20260806T075312+0000"
     }
   ],
   "clusters": [
     {
-      "label": "other",
-      "display": "other",
-      "count": 2,
-      "newCount": 2,
-      "sample": "org.springframework.data.mongodb.UncategorizedMongoDbException:Command failed with error 13: 'Authorization fa",
-      "why": "no dominant signature yet \u2014 open TeamCity details"
+      "label": "infra_timeout",
+      "display": "client/Feign socket timeout",
+      "count": 1,
+      "newCount": 1,
+      "sample": "feign.RetryableException: Read timed out executing DELETE <url>",
+      "why": "Feign/client socket timeout talking to a QA service"
     }
   ],
   "failures": [
     {
-      "name": "Get list of test links",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyCRUDTestSteps",
-      "newFailure": true,
-      "area": "Survey",
-      "cluster": "other",
-      "message": "org.springframework.data.mongodb.UncategorizedMongoDbException:Command failed with error 13: 'Authorization failure' on server nexus-api-mongo-qa.cuc92mnt8kzk.\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/testLinks 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-test-link-rest.nexus-ms-qa.dynata.com:8080/api/TestLink/u1/urlPools/testLinks\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.data.mongodb.UncategorizedMongoDbException:Command failed with error 13: 'Auth\u2026"
-    },
-    {
-      "name": "Get test links from S3",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyCRUDTestSteps",
-      "newFailure": true,
-      "area": "Survey",
-      "cluster": "other",
-      "message": "org.springframework.data.mongodb.UncategorizedMongoDbException:Command failed with error 13: 'Authorization failure' on server nexus-api-mongo-qa.cuc92mnt8kzk.\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/testLinks/s3 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-test-link-rest.nexus-ms-qa.dynata.com:8080/api/TestLink/u1/urlPools/testLinks/s3\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"org.springframework.data.mongodb.UncategorizedMongoDbException:Command failed with error 13:\u2026"
+      "name": "initializationError",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupWorkflowTestSteps",
+      "newFailure": false,
+      "area": "QuotaGroup",
+      "cluster": "infra_timeout",
+      "message": "feign.RetryableException: Read timed out executing DELETE https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceGroups/<id>",
+      "detailsExcerpt": "feign.RetryableException: Read timed out executing DELETE https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceGroups/1520482 at app//feign.FeignException.errorExecuting(FeignException.java:278) at app//feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:110) at app//feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:70) at app//feign.Reflective\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "2 new failures in Survey",
+    "headline": "1 continuing failure(s) \u2014 no new unmuted fails",
     "tone": "warn",
     "bullets": [
-      "2\u00d7 other \u2014 org.springframework.data.mongodb.UncategorizedMongoDbException:Command failed with error 13: 'Authorization fa",
-      "Change NXS-13622: gergely.gimesi \u00b7 Survey \u00b7 2 overlapping new fails"
+      "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing DELETE <url>"
     ],
-    "investigation": "New fails: 2\u00d7 other (no dominant signature yet). Likely related to NXS-13622 gergely.gimesi `42105d2df34b` (Survey, 2 new fails in overlap).",
+    "investigation": "Failures: 1\u00d7 client/Feign socket timeout.",
     "detail": {
-      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2653, 1 fails). Failure types (new-first): (1) 2\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Survey (2). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): Example new failures: Survey: Get list of test links [other]; Survey: Get test links from S3 [other].",
+      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. Hot areas among new fails: QuotaGroup (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 7 service(s) (56 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: initializationError [client/Feign socket timeout].",
       "bullets": [
-        "2\u00d7 other \u2014 org.springframework.data.mongodb.UncategorizedMongoDbException:Command failed with error 13: 'Authorization fa",
-        "Change NXS-13622: gergely.gimesi \u00b7 Survey \u00b7 2 overlapping new fails",
-        "NXS-13622 42105d2df34b by gergely.gimesi \u2192 areas Survey (2 new fails) \u00b7 WaitUtil.java, AudienceGroupE2ECloneRestoreReorderTestSteps.groovy, AudienceGroupE2EPhaseManagementWorkflowTestSteps.groovy, SurveyCRUDTestSteps.groovy"
+        "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing DELETE <url>",
+        "NXS-13639: gergely.gimesi \u2014 [NXS-13639] MS - Antipattern burndown #1: delete 5 dead legacy Groovy files",
+        "NXS-13638: gergely.gimesi \u2014 [NXS-13638] MS - CI config/policy drift gate: workflow<->mirror parity + referenced-file existence",
+        "NXS-13636: gergely.gimesi \u2014 [NXS-13636] MS - Enforce TA antipatterns on changed code + legacy burndown backlog",
+        "[QA deploy: ThrottlingSettingRestJ21] NXS-13592 (25 commits) \u2014 [NXS-13592] MS - ThrottlingSettingRest with SpringBoot 3.5.16 and new baseimage",
+        "[QA deploy: ProjectEventForwarderJ21] NXS-13580 (8 commits) \u2014 [NXS-13580] MS - ProjectEventForwarder with SpringBoot 3.5.16 (#5172)",
+        "[QA deploy: DemandApi]  (3 commits) \u2014 Pac 732 docker fix spring messaging fix (#5180)",
+        "[QA deploy: DKProjectCountersRestJ21] NXS-13573 (12 commits) \u2014 [NXS-13573] bump new build",
+        "[QA deploy: ExtendedAttributesRestJ21]  (1 commit) \u2014 upgrade to latest dependencies",
+        "[QA deploy: DedupeRestJ21]  (1 commit) \u2014 upgrade to latest dependencies"
       ],
       "newFailureAreas": [
         {
-          "area": "Survey",
-          "newCount": 2
+          "area": "QuotaGroup",
+          "newCount": 1
         }
       ],
-      "likelyCauses": [
-        {
-          "version": "42105d2df34b",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13622",
-          "comment": "NXS-13622 Add WaitUtil.untilTrue for boolean waits",
-          "areas": [
-            "Survey"
-          ],
-          "hitNewFailures": 2,
-          "files": [
-            "WaitUtil.java",
-            "AudienceGroupE2ECloneRestoreReorderTestSteps.groovy",
-            "AudienceGroupE2EPhaseManagementWorkflowTestSteps.groovy",
-            "SurveyCRUDTestSteps.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
     "suspectCommits": [
       {
-        "version": "14b14e1ecd93",
-        "username": "105725861+gimesi13",
-        "comment": "Merge pull request #5145 from dynata/NXS-13622-gate-integrity",
-        "ticket": "NXS-13622",
+        "version": "00b2ca923b8a",
+        "username": "gergely.gimesi",
+        "comment": "[NXS-13639] MS - Antipattern burndown #1: delete 5 dead legacy Groovy files",
+        "ticket": "NXS-13639",
         "areas": []
       },
       {
-        "version": "6375c75d3a83",
+        "version": "7b06d866e4ac",
         "username": "gergely.gimesi",
-        "comment": "NXS-13622 Document fail-closed and OpenAPI-aware gates",
-        "ticket": "NXS-13622",
+        "comment": "[NXS-13638] MS - CI config/policy drift gate: workflow<->mirror parity + referenced-file existence",
+        "ticket": "NXS-13638",
         "areas": []
       },
       {
-        "version": "78a466b4b8b6",
+        "version": "a71afd7f9444",
         "username": "gergely.gimesi",
-        "comment": "NXS-13622 Make the coverage gate OpenAPI-aware",
-        "ticket": "NXS-13622",
+        "comment": "[NXS-13636] MS - Enforce TA antipatterns on changed code + legacy burndown backlog",
+        "ticket": "NXS-13636",
         "areas": []
       },
       {
-        "version": "6dbb32cf3390",
+        "version": "6ebec5b1fe72",
         "username": "gergely.gimesi",
-        "comment": "NXS-13622 Make the PR smoke gate fail-closed",
-        "ticket": "NXS-13622",
+        "comment": "[NXS-13634] MS - Stop rebuilding segmentation fixtures per validation test",
+        "ticket": "NXS-13634",
         "areas": []
       },
       {
-        "version": "42105d2df34b",
+        "version": "ef7024707e66",
         "username": "gergely.gimesi",
-        "comment": "NXS-13622 Add WaitUtil.untilTrue for boolean waits",
-        "ticket": "NXS-13622",
-        "areas": [
-          "Survey"
-        ]
+        "comment": "[NXS-13632] MS - Nightly blame now sees whole-repo QA deploys",
+        "ticket": "NXS-13632",
+        "areas": []
+      }
+    ],
+    "qaDeploySuspects": [
+      {
+        "service": "ThrottlingSettingRestJ21",
+        "version": "c76489b706a6",
+        "username": "andras.banszki",
+        "comment": "[NXS-13592] MS - ThrottlingSettingRest with SpringBoot 3.5.16 and new baseimage",
+        "ticket": "NXS-13592",
+        "deployedAt": "20260806T144236+0000",
+        "files": [
+          "UThrottlingSettingRestAcceptanceTest.groovy"
+        ],
+        "scope": "qa-deploy"
       },
       {
-        "version": "229bb16bdd0c",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13615] MS - reduce redundant QA write/poll calls in regression suite",
-        "ticket": "NXS-13615",
-        "areas": []
+        "service": "ThrottlingSettingRestJ21",
+        "version": "e337dad0e555",
+        "username": "andras.banszki",
+        "comment": "[NXS-13592] MS - ThrottlingSettingRest with SpringBoot 3.5.16 and new baseimage (#5178)",
+        "ticket": "NXS-13592",
+        "deployedAt": "20260806T144236+0000",
+        "files": [
+          "Dockerfile",
+          "README.md",
+          "build.gradle",
+          "MongoTestBase.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ThrottlingSettingRestJ21",
+        "version": "e1301cb85695",
+        "username": "zsolt.remenyik",
+        "comment": "[ST-4999] Added new task role to dk-respondent-feature-value-rest cloud-formation.template.yml.",
+        "ticket": "",
+        "deployedAt": "20260806T144236+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ThrottlingSettingRestJ21",
+        "version": "e80e904e5ceb",
+        "username": "bresalio.nagy",
+        "comment": "[AE-7681] [CVE] Delete dkjs-contact-fake-vendor",
+        "ticket": "",
+        "deployedAt": "20260806T144236+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml",
+          "dev.yml",
+          "production.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ThrottlingSettingRestJ21",
+        "version": "3192789a2106",
+        "username": "szabolcs.fekete",
+        "comment": "Merge pull request #550 from dynata/features/AE-7637-DAI-adding-valkey-to-dev",
+        "ticket": "",
+        "deployedAt": "20260806T144236+0000",
+        "files": [],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ThrottlingSettingRestJ21",
+        "version": "64542f9e2a2f",
+        "username": "61739584+richardsebok",
+        "comment": "Merge pull request #551 from dynata/ST-5003-country-language-rest",
+        "ticket": "",
+        "deployedAt": "20260806T144236+0000",
+        "files": [],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ThrottlingSettingRestJ21",
+        "version": "5169aa630cc5",
+        "username": "szabolcs.fekete",
+        "comment": "Debug AI: Adding valkey to dev",
+        "ticket": "",
+        "deployedAt": "20260806T144236+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ThrottlingSettingRestJ21",
+        "version": "9462cc3c672e",
+        "username": "richardlaszlo.sebok",
+        "comment": "[ST-5003] (CountryLanguageRest) - Changed health check to match the new spring version.",
+        "ticket": "",
+        "deployedAt": "20260806T144236+0000",
+        "files": [
+          "dev.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ThrottlingSettingRestJ21",
+        "version": "eb48b29bb1a8",
+        "username": "55445003+dynata-hu-krisztian-erdei",
+        "comment": "Merge pull request #524 from dynata/ST-4884-upgrade-to-jdk21",
+        "ticket": "",
+        "deployedAt": "20260806T144236+0000",
+        "files": [],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ThrottlingSettingRestJ21",
+        "version": "f05f6d428501",
+        "username": "krisztian.erdei",
+        "comment": "[ST-4884] Align RewardCalculatorRest JAVA_OPTS with container MaxRAMPercentage pattern",
+        "ticket": "",
+        "deployedAt": "20260806T144236+0000",
+        "files": [
+          "dev.yml"
+        ],
+        "scope": "qa-deploy"
       }
     ]
   },
-  "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite."
+  "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite."
 }
