@@ -1483,28 +1483,22 @@
     "SurveyCRUDTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in Quota",
+    "headline": "1 new Quota failure from a QA data-setup error (setMockData 500), no code change implicated.",
     "tone": "warn",
     "severity": "low",
-    "cause": "mixed",
-    "causeText": "VCS changes present but none map onto the failing packages \u2014 likely test/data, correlate manually. NOTE: 8 service(s) were deployed to QA in this window (SandboxServiceRestJ21, QuotaDetailsRestJ21, SurveyRestJ21, DemandReporting, ProjectSearchRestJ21\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet).",
+    "cause": "test",
+    "causeText": "The lone new failure died in test-data setup \u2014 the QA setMockData call on dk-project-feasibility-data-store returned HTTP 500 wrapping a 400 from dk-project-details-editor-rest \u2014 and no TA-module commit or QA-deployed service maps to those endpoints, so it reads as a QA data-setup/environment issue rather than a code regression.",
+    "investigation": "The one new failure (Quota/SoldQuotaValidationTestSteps) failed in setup on a setMockData 500 (inner 400 from details-editor), not on an assertion, with no change mapping to the failing endpoints.",
     "bullets": [
-      "1\u00d7 other \u2014 java.lang.RuntimeException: <url>"
+      "1\u00d7 Quota \u2014 SoldQuotaValidationTestSteps: setMockData 500 \u2190 details-editor 400 during data setup",
+      "No TA-module commit or QA-deployed service owns feasibility-data-store/details-editor"
     ],
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2660, 1 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Quota (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 8 service(s) (66 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Quota: Modifying totalQuota (when soldQuota is locked) prevents any updates: com.dynata.rest.gate [other].",
+      "investigation": "The lone new failure, Quota/SoldQuotaValidationTestSteps 'Modifying totalQuota (when soldQuota is locked) prevents any updates', never reached its assertion: the QA setMockData call on dk-project-feasibility-data-store returned HTTP 500 wrapping an HTTP 400 from dk-project-details-editor-rest's feasibilityDistribution \u2014 a data-setup failure, not a timeout/502/504 and not a 'Condition not satisfied' assertion. Neither this module's own commits (BOS/QuotaGroup migrations, setupSpec retry, automation) nor any of the 8 QA-deployed services touch feasibility-data-store or details-editor, so there is no code change to blame and it points to a QA data-setup/environment issue.",
       "bullets": [
-        "1\u00d7 other \u2014 java.lang.RuntimeException: <url>",
-        "NXS-13660: gergely.gimesi \u2014 NXS-13660 MS - Retry transient Feign failures in setupSpec AG housekeeping",
-        "NXS-13653: 105725861+gimesi13 \u2014 Merge pull request #5201 from dynata/NXS-13653-migrate-bos-workflow",
-        "NXS-13653: gergely.gimesi \u2014 NXS-13653 MS - Drop unrunnable BOS MMR variant, keep the happy path",
-        "[QA deploy: SandboxServiceRestJ21] NXS-13651 (25 commits) \u2014 [ NXS-13651 ] use latest dependencies",
-        "[QA deploy: QuotaDetailsRestJ21] NXS-13581 (2 commits) \u2014 [NXS-13581] MS - QuotaDetailsRest with SpringBoot 3.5.16 and new baseimage",
-        "[QA deploy: SurveyRestJ21] NXS-13590 (5 commits) \u2014 [NXS-13590] MS - remove liquibase",
-        "[QA deploy: DemandReporting]  (2 commits) \u2014 Pac 737 fix eligibilityservice (#5195)",
-        "[QA deploy: ProjectSearchRestJ21] NXS-13585 (13 commits) \u2014 [ NXS-13585 ] use new mongo cluster",
-        "[QA deploy: QuotaGroupRestJ21] NXS-13587 (4 commits) \u2014 [NXS-13587] - fix tests"
+        "1\u00d7 Quota \u2014 SoldQuotaValidationTestSteps setup failed: setMockData 500 \u2190 details-editor feasibilityDistribution 400 (not a timeout/502/504, not an assertion)",
+        "No TA-module change maps to Quota/feasibility endpoints (NXS-13653 touches BOS/QuotaGroup; NXS-13660 is AG-housekeeping retry in setupSpec)",
+        "None of the 8 QA-deployed services own feasibility-data-store or details-editor \u2014 no product commit to pin"
       ],
       "newFailureAreas": [
         {
@@ -1762,8 +1756,8 @@
         "deployedAt": "20260807T070128+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-08-08T02:12Z",
+    "source": "llm",
+    "generatedAt": "2026-08-08T02:12:00Z",
     "buildNumber": "3.0.2661",
     "buildId": "9450738",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt/9450738",
