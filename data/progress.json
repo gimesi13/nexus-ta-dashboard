@@ -1,22 +1,23 @@
 {
-  "generatedAt": "2026-08-07T02:15Z",
+  "generatedAt": "2026-08-08T02:12Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-08-01",
-      "to": "2026-08-07",
-      "featuresAdded": 10,
-      "casesAdded": 10,
-      "areasTouched": 4,
-      "ticketsTouched": 1,
+      "from": "2026-08-02",
+      "to": "2026-08-08",
+      "featuresAdded": 13,
+      "casesAdded": 13,
+      "areasTouched": 5,
+      "ticketsTouched": 2,
       "byType": {
         "CRUD": 1,
-        "Validation": 5,
+        "Validation": 6,
         "Workflow": 1,
         "Query": 1,
-        "Other": 2
+        "E2E": 1,
+        "Other": 3
       },
       "byArea": [
         {
@@ -24,11 +25,15 @@
           "featuresAdded": 3
         },
         {
+          "area": "QuotaGroup",
+          "featuresAdded": 3
+        },
+        {
           "area": "Settings",
           "featuresAdded": 3
         },
         {
-          "area": "QuotaGroup",
+          "area": "BOS",
           "featuresAdded": 2
         },
         {
@@ -42,9 +47,76 @@
           "featuresAdded": 10,
           "casesAdded": 10,
           "latestDate": "2026-08-03"
+        },
+        {
+          "key": "NXS-13653",
+          "featuresAdded": 3,
+          "casesAdded": 3,
+          "latestDate": "2026-08-07"
         }
       ],
       "additions": [
+        {
+          "name": "Switching tally mode to By Starts is rejected when totalStartQuota is not set",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
+          "date": "2026-08-07",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13653 MS - Migrate tally 'ByStart without totalStartQuota' guard to tagged spec",
+          "commit": "33880b450d",
+          "tickets": [
+            "NXS-13653"
+          ],
+          "area": "QuotaGroup",
+          "spec": "QuotaGroupValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "QUOTA",
+            "TALLY"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Switching%20tally%20mode%20to%20By%20Starts%20is%20rejected%20when%20totalStartQuota%20is%20not%20set"
+        },
+        {
+          "name": "sample creation - simple",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+          "date": "2026-08-07",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13653 MS - Migrate BOS quote->order + MMR workflow into tagged tests/steps",
+          "commit": "fb4632760a",
+          "tickets": [
+            "NXS-13653"
+          ],
+          "area": "BOS",
+          "spec": "BosSampleCreationTestSteps",
+          "type": "E2E",
+          "cases": 1,
+          "tags": [
+            "CREATE_QUOTE",
+            "QUOTE_2_ORDER",
+            "PROJECT_ACCEPT"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=sample%20creation%20-%20simple"
+        },
+        {
+          "name": "sample creation - MMR",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+          "date": "2026-08-07",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13653 MS - Migrate BOS quote->order + MMR workflow into tagged tests/steps",
+          "commit": "fb4632760a",
+          "tickets": [
+            "NXS-13653"
+          ],
+          "area": "BOS",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=sample%20creation%20-%20MMR",
+          "gone": true
+        },
         {
           "name": "Distinct user guids yield distinct Chameleon hashed identities",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
@@ -252,18 +324,19 @@
       ]
     },
     "14d": {
-      "from": "2026-07-25",
-      "to": "2026-08-07",
-      "featuresAdded": 10,
-      "casesAdded": 10,
-      "areasTouched": 4,
-      "ticketsTouched": 1,
+      "from": "2026-07-26",
+      "to": "2026-08-08",
+      "featuresAdded": 13,
+      "casesAdded": 13,
+      "areasTouched": 5,
+      "ticketsTouched": 2,
       "byType": {
         "CRUD": 1,
-        "Validation": 5,
+        "Validation": 6,
         "Workflow": 1,
         "Query": 1,
-        "Other": 2
+        "E2E": 1,
+        "Other": 3
       },
       "byArea": [
         {
@@ -271,11 +344,15 @@
           "featuresAdded": 3
         },
         {
+          "area": "QuotaGroup",
+          "featuresAdded": 3
+        },
+        {
           "area": "Settings",
           "featuresAdded": 3
         },
         {
-          "area": "QuotaGroup",
+          "area": "BOS",
           "featuresAdded": 2
         },
         {
@@ -289,9 +366,76 @@
           "featuresAdded": 10,
           "casesAdded": 10,
           "latestDate": "2026-08-03"
+        },
+        {
+          "key": "NXS-13653",
+          "featuresAdded": 3,
+          "casesAdded": 3,
+          "latestDate": "2026-08-07"
         }
       ],
       "additions": [
+        {
+          "name": "Switching tally mode to By Starts is rejected when totalStartQuota is not set",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
+          "date": "2026-08-07",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13653 MS - Migrate tally 'ByStart without totalStartQuota' guard to tagged spec",
+          "commit": "33880b450d",
+          "tickets": [
+            "NXS-13653"
+          ],
+          "area": "QuotaGroup",
+          "spec": "QuotaGroupValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "QUOTA",
+            "TALLY"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Switching%20tally%20mode%20to%20By%20Starts%20is%20rejected%20when%20totalStartQuota%20is%20not%20set"
+        },
+        {
+          "name": "sample creation - simple",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+          "date": "2026-08-07",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13653 MS - Migrate BOS quote->order + MMR workflow into tagged tests/steps",
+          "commit": "fb4632760a",
+          "tickets": [
+            "NXS-13653"
+          ],
+          "area": "BOS",
+          "spec": "BosSampleCreationTestSteps",
+          "type": "E2E",
+          "cases": 1,
+          "tags": [
+            "CREATE_QUOTE",
+            "QUOTE_2_ORDER",
+            "PROJECT_ACCEPT"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=sample%20creation%20-%20simple"
+        },
+        {
+          "name": "sample creation - MMR",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+          "date": "2026-08-07",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13653 MS - Migrate BOS quote->order + MMR workflow into tagged tests/steps",
+          "commit": "fb4632760a",
+          "tickets": [
+            "NXS-13653"
+          ],
+          "area": "BOS",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=sample%20creation%20-%20MMR",
+          "gone": true
+        },
         {
           "name": "Distinct user guids yield distinct Chameleon hashed identities",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
@@ -499,18 +643,19 @@
       ]
     },
     "30d": {
-      "from": "2026-07-09",
-      "to": "2026-08-07",
-      "featuresAdded": 88,
-      "casesAdded": 94,
-      "areasTouched": 9,
-      "ticketsTouched": 3,
+      "from": "2026-07-10",
+      "to": "2026-08-08",
+      "featuresAdded": 91,
+      "casesAdded": 97,
+      "areasTouched": 10,
+      "ticketsTouched": 4,
       "byType": {
         "CRUD": 30,
-        "Validation": 31,
+        "Validation": 32,
         "Workflow": 18,
         "Query": 5,
-        "Other": 4
+        "E2E": 1,
+        "Other": 5
       },
       "byArea": [
         {
@@ -519,7 +664,7 @@
         },
         {
           "area": "QuotaGroup",
-          "featuresAdded": 28
+          "featuresAdded": 29
         },
         {
           "area": "Survey",
@@ -540,6 +685,10 @@
         {
           "area": "Settings",
           "featuresAdded": 3
+        },
+        {
+          "area": "BOS",
+          "featuresAdded": 2
         },
         {
           "area": "SampleRules",
@@ -568,9 +717,76 @@
           "featuresAdded": 5,
           "casesAdded": 5,
           "latestDate": "2026-07-15"
+        },
+        {
+          "key": "NXS-13653",
+          "featuresAdded": 3,
+          "casesAdded": 3,
+          "latestDate": "2026-08-07"
         }
       ],
       "additions": [
+        {
+          "name": "Switching tally mode to By Starts is rejected when totalStartQuota is not set",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
+          "date": "2026-08-07",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13653 MS - Migrate tally 'ByStart without totalStartQuota' guard to tagged spec",
+          "commit": "33880b450d",
+          "tickets": [
+            "NXS-13653"
+          ],
+          "area": "QuotaGroup",
+          "spec": "QuotaGroupValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "QUOTA",
+            "TALLY"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Switching%20tally%20mode%20to%20By%20Starts%20is%20rejected%20when%20totalStartQuota%20is%20not%20set"
+        },
+        {
+          "name": "sample creation - simple",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+          "date": "2026-08-07",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13653 MS - Migrate BOS quote->order + MMR workflow into tagged tests/steps",
+          "commit": "fb4632760a",
+          "tickets": [
+            "NXS-13653"
+          ],
+          "area": "BOS",
+          "spec": "BosSampleCreationTestSteps",
+          "type": "E2E",
+          "cases": 1,
+          "tags": [
+            "CREATE_QUOTE",
+            "QUOTE_2_ORDER",
+            "PROJECT_ACCEPT"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=sample%20creation%20-%20simple"
+        },
+        {
+          "name": "sample creation - MMR",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+          "date": "2026-08-07",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13653 MS - Migrate BOS quote->order + MMR workflow into tagged tests/steps",
+          "commit": "fb4632760a",
+          "tickets": [
+            "NXS-13653"
+          ],
+          "area": "BOS",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=sample%20creation%20-%20MMR",
+          "gone": true
+        },
         {
           "name": "Distinct user guids yield distinct Chameleon hashed identities",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
@@ -2383,18 +2599,19 @@
       ]
     },
     "90d": {
-      "from": "2026-05-10",
-      "to": "2026-08-07",
-      "featuresAdded": 152,
-      "casesAdded": 186,
-      "areasTouched": 10,
-      "ticketsTouched": 11,
+      "from": "2026-05-11",
+      "to": "2026-08-08",
+      "featuresAdded": 155,
+      "casesAdded": 189,
+      "areasTouched": 11,
+      "ticketsTouched": 12,
       "byType": {
         "CRUD": 48,
-        "Validation": 44,
+        "Validation": 45,
         "Workflow": 28,
         "Query": 17,
-        "Other": 15
+        "E2E": 1,
+        "Other": 16
       },
       "byArea": [
         {
@@ -2403,7 +2620,7 @@
         },
         {
           "area": "QuotaGroup",
-          "featuresAdded": 46
+          "featuresAdded": 47
         },
         {
           "area": "SampleRules",
@@ -2428,6 +2645,10 @@
         {
           "area": "Settings",
           "featuresAdded": 3
+        },
+        {
+          "area": "BOS",
+          "featuresAdded": 2
         },
         {
           "area": "Infrastructure",
@@ -2494,6 +2715,12 @@
           "latestDate": "2026-07-02"
         },
         {
+          "key": "NXS-13653",
+          "featuresAdded": 3,
+          "casesAdded": 3,
+          "latestDate": "2026-08-07"
+        },
+        {
           "key": "NXS-13066",
           "featuresAdded": 2,
           "casesAdded": 2,
@@ -2507,6 +2734,67 @@
         }
       ],
       "additions": [
+        {
+          "name": "Switching tally mode to By Starts is rejected when totalStartQuota is not set",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
+          "date": "2026-08-07",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13653 MS - Migrate tally 'ByStart without totalStartQuota' guard to tagged spec",
+          "commit": "33880b450d",
+          "tickets": [
+            "NXS-13653"
+          ],
+          "area": "QuotaGroup",
+          "spec": "QuotaGroupValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "QUOTA",
+            "TALLY"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Switching%20tally%20mode%20to%20By%20Starts%20is%20rejected%20when%20totalStartQuota%20is%20not%20set"
+        },
+        {
+          "name": "sample creation - simple",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+          "date": "2026-08-07",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13653 MS - Migrate BOS quote->order + MMR workflow into tagged tests/steps",
+          "commit": "fb4632760a",
+          "tickets": [
+            "NXS-13653"
+          ],
+          "area": "BOS",
+          "spec": "BosSampleCreationTestSteps",
+          "type": "E2E",
+          "cases": 1,
+          "tags": [
+            "CREATE_QUOTE",
+            "QUOTE_2_ORDER",
+            "PROJECT_ACCEPT"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=sample%20creation%20-%20simple"
+        },
+        {
+          "name": "sample creation - MMR",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+          "date": "2026-08-07",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13653 MS - Migrate BOS quote->order + MMR workflow into tagged tests/steps",
+          "commit": "fb4632760a",
+          "tickets": [
+            "NXS-13653"
+          ],
+          "area": "BOS",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=sample%20creation%20-%20MMR",
+          "gone": true
+        },
         {
           "name": "Distinct user guids yield distinct Chameleon hashed identities",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
@@ -5651,8 +5939,8 @@
     },
     {
       "weekStart": "2026-08-03",
-      "featuresAdded": 10,
-      "casesAdded": 10
+      "featuresAdded": 13,
+      "casesAdded": 13
     }
   ],
   "snapshots": [
@@ -5679,11 +5967,11 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-08-07",
-      "features": 718,
-      "cases": 1495,
+      "date": "2026-08-08",
+      "features": 719,
+      "cases": 1496,
       "specs": 74,
-      "areas": 15,
+      "areas": 14,
       "coveragePercent": 100.0,
       "tested": 265,
       "untested": 0,
@@ -5699,15 +5987,15 @@
       "priorPercent": 78.0,
       "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-08-07",
+      "currentDate": "2026-08-08",
       "testedDelta": 56,
       "untestedDelta": -59
     }
   },
   "inventory": {
-    "features": 718,
-    "cases": 1495,
+    "features": 719,
+    "cases": 1496,
     "specs": 74,
-    "areas": 15
+    "areas": 14
   }
 }

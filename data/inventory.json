@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-08-07",
+  "generatedAt": "2026-08-08",
   "source": "source",
-  "features": 718,
-  "cases": 1495,
+  "features": 719,
+  "cases": 1496,
   "specs": 74,
-  "areas": 15,
-  "featuresWithSteps": 718,
-  "steps": 3573,
+  "areas": 14,
+  "featuresWithSteps": 719,
+  "steps": 3576,
   "byType": {
-    "CRUD": 257,
-    "Validation": 211,
+    "CRUD": 256,
+    "Validation": 212,
     "Workflow": 132,
     "Query": 102,
-    "E2E": 12,
+    "E2E": 13,
     "Other": 4
   },
   "rows": [
@@ -2165,6 +2165,32 @@
         }
       ],
       "paramNote": "Unrolled across project phases (2 runs at execution)"
+    },
+    {
+      "area": "BOS",
+      "spec": "BosSampleCreationTestSteps",
+      "name": "sample creation - simple",
+      "type": "E2E",
+      "tags": [
+        "CREATE_QUOTE",
+        "QUOTE_2_ORDER",
+        "PROJECT_ACCEPT"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "BOS - Sample creation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "when",
+          "label": "The BOS quote -> order -> accept flow runs end to end"
+        },
+        {
+          "phase": "then",
+          "label": "The accepted project exists in the ORDER phase"
+        }
+      ]
     },
     {
       "area": "BOS",
@@ -19349,6 +19375,35 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupValidationTestSteps",
+      "name": "Switching tally mode to By Starts is rejected when totalStartQuota is not set",
+      "type": "Validation",
+      "tags": [
+        "QUOTA",
+        "TALLY"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Validation & Error Handling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A freshly created quota group that has no totalStartQuota"
+        },
+        {
+          "phase": "when",
+          "label": "Tally mode is switched to By Starts without a totalStartQuota"
+        },
+        {
+          "phase": "then",
+          "label": "The switch is rejected because By Starts requires a totalStartQuota"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupValidationTestSteps",
       "name": "Switching tally mode to by completes is rejected when soft launch exceeds total completes",
       "type": "Validation",
       "tags": [
@@ -26351,28 +26406,6 @@
         {
           "phase": "then",
           "label": "a quotaGroupDetailsUpdated notification for totalQuota is observed"
-        }
-      ]
-    },
-    {
-      "area": "workflow",
-      "spec": "TallyModeChangeDefaultBehaviorTestSteps",
-      "name": "Changing tally mode to BY_STARTS when no totalStartQuota is set should NOT set tally mode to BY_STARTS",
-      "type": "CRUD",
-      "tags": [],
-      "owner": "",
-      "feature": "",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/workflow/steps/TallyModeChangeDefaultBehaviorTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "when",
-          "label": "Not setting totalStartQuota and changing tally mode to BY_STARTS"
-        },
-        {
-          "phase": "then",
-          "label": "We should get a BadRequestException with the appropriate message"
         }
       ]
     }
