@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-08-08",
+  "generatedAt": "2026-08-10",
   "source": "source",
-  "features": 719,
-  "cases": 1496,
-  "specs": 74,
+  "features": 722,
+  "cases": 1499,
+  "specs": 75,
   "areas": 14,
-  "featuresWithSteps": 719,
-  "steps": 3576,
+  "featuresWithSteps": 722,
+  "steps": 3593,
   "byType": {
     "CRUD": 256,
     "Validation": 212,
-    "Workflow": 132,
+    "Workflow": 134,
     "Query": 102,
     "E2E": 13,
-    "Other": 4
+    "Other": 5
   },
   "rows": [
     {
@@ -22,7 +22,9 @@
       "name": "Clone existing audience group",
       "type": "CRUD",
       "tags": [
-        "CLONE_AUDIENCE_GROUP"
+        "CLONE_AUDIENCE_GROUP",
+        "AUDIENCE_GROUP",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - CRUD Lifecycle (delete, undelete, clone)",
@@ -51,7 +53,8 @@
       "type": "CRUD",
       "tags": [
         "AUDIENCE_GROUP",
-        "DELETE_AUDIENCE_GROUP"
+        "DELETE_AUDIENCE_GROUP",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - CRUD Lifecycle (delete, undelete, clone)",
@@ -90,7 +93,8 @@
       "tags": [
         "AUDIENCE_GROUP",
         "DELETE_AUDIENCE_GROUP",
-        "UNDELETE_AUDIENCE_GROUP"
+        "UNDELETE_AUDIENCE_GROUP",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - CRUD Lifecycle (delete, undelete, clone)",
@@ -121,7 +125,8 @@
       "tags": [
         "AUDIENCE_GROUP",
         "DELETE_AUDIENCE_GROUP",
-        "UNDELETE_AUDIENCE_GROUP"
+        "UNDELETE_AUDIENCE_GROUP",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - CRUD Lifecycle (delete, undelete, clone)",
@@ -312,7 +317,11 @@
         "DELETE_AUDIENCE_GROUP",
         "UNDELETE_AUDIENCE_GROUP",
         "REORDER_AUDIENCE_GROUPS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "RENAME_AUDIENCE_GROUP",
+        "AUDIENCE_TEMPLATE",
+        "CLONE_AUDIENCE_GROUP",
+        "E2E"
       ],
       "owner": "Test Automation",
       "feature": "Audience Groups - E2E quota, template, clone, restore, reorder",
@@ -481,7 +490,8 @@
         "DELETE_AUDIENCE_GROUP",
         "UNDELETE_AUDIENCE_GROUP",
         "REORDER_AUDIENCE_GROUPS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Test Automation",
       "feature": "Audience Groups - E2E management across project phases",
@@ -598,7 +608,8 @@
       "name": "Get all audience groups for project with isDeleted false",
       "type": "Query",
       "tags": [
-        "AUDIENCE_GROUP"
+        "AUDIENCE_GROUP",
+        "DELETE_AUDIENCE_GROUP"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Rename, list, IDs, and reorder",
@@ -627,7 +638,8 @@
       "name": "Get all audience groups for project with isDeleted true",
       "type": "Query",
       "tags": [
-        "AUDIENCE_GROUP"
+        "AUDIENCE_GROUP",
+        "DELETE_AUDIENCE_GROUP"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Rename, list, IDs, and reorder",
@@ -660,7 +672,8 @@
       "name": "Get audience group IDs for project with isDeleted false",
       "type": "Query",
       "tags": [
-        "AUDIENCE_GROUP"
+        "AUDIENCE_GROUP",
+        "DELETE_AUDIENCE_GROUP"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Rename, list, IDs, and reorder",
@@ -693,7 +706,8 @@
       "name": "Get audience group IDs for project with isDeleted true",
       "type": "Query",
       "tags": [
-        "AUDIENCE_GROUP"
+        "AUDIENCE_GROUP",
+        "DELETE_AUDIENCE_GROUP"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Rename, list, IDs, and reorder",
@@ -841,7 +855,8 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_GROUP",
-        "CREATE_AUDIENCE_GROUP"
+        "CREATE_AUDIENCE_GROUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Validation & Error Handling",
@@ -871,7 +886,8 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_GROUP",
-        "CREATE_AUDIENCE_GROUP"
+        "CREATE_AUDIENCE_GROUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Validation & Error Handling",
@@ -901,7 +917,8 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_GROUP",
-        "DELETE_AUDIENCE_GROUP"
+        "DELETE_AUDIENCE_GROUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Validation & Error Handling",
@@ -931,7 +948,8 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_GROUP",
-        "DELETE_AUDIENCE_GROUP"
+        "DELETE_AUDIENCE_GROUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Validation & Error Handling",
@@ -960,7 +978,8 @@
       "name": "Get audience group by invalid ID",
       "type": "Validation",
       "tags": [
-        "AUDIENCE_GROUP"
+        "AUDIENCE_GROUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Validation & Error Handling",
@@ -989,7 +1008,8 @@
       "name": "Get audience group by non-existent ID",
       "type": "Validation",
       "tags": [
-        "AUDIENCE_GROUP"
+        "AUDIENCE_GROUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Validation & Error Handling",
@@ -1018,7 +1038,9 @@
       "name": "Get latest feasibility calculation time with invalid ID",
       "type": "Validation",
       "tags": [
-        "FEASIBILITY"
+        "FEASIBILITY",
+        "AUDIENCE_GROUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Validation & Error Handling",
@@ -1048,7 +1070,8 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_GROUP",
-        "RENAME_AUDIENCE_GROUP"
+        "RENAME_AUDIENCE_GROUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Validation & Error Handling",
@@ -1078,7 +1101,8 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_GROUP",
-        "RENAME_AUDIENCE_GROUP"
+        "RENAME_AUDIENCE_GROUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Validation & Error Handling",
@@ -1108,7 +1132,8 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_GROUP",
-        "REORDER_AUDIENCE_GROUPS"
+        "REORDER_AUDIENCE_GROUPS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Validation & Error Handling",
@@ -1138,7 +1163,8 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_GROUP",
-        "REORDER_AUDIENCE_GROUPS"
+        "REORDER_AUDIENCE_GROUPS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Validation & Error Handling",
@@ -1168,7 +1194,8 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_GROUP",
-        "REORDER_AUDIENCE_GROUPS"
+        "REORDER_AUDIENCE_GROUPS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Validation & Error Handling",
@@ -1198,7 +1225,8 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_GROUP",
-        "REORDER_AUDIENCE_GROUPS"
+        "REORDER_AUDIENCE_GROUPS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Validation & Error Handling",
@@ -1228,7 +1256,9 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_GROUP",
-        "UNDELETE_AUDIENCE_GROUP"
+        "UNDELETE_AUDIENCE_GROUP",
+        "DELETE_AUDIENCE_GROUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Validation & Error Handling",
@@ -1258,7 +1288,9 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_GROUP",
-        "UNDELETE_AUDIENCE_GROUP"
+        "UNDELETE_AUDIENCE_GROUP",
+        "DELETE_AUDIENCE_GROUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Validation & Error Handling",
@@ -1287,7 +1319,8 @@
       "name": "Validate audience group response schema",
       "type": "Validation",
       "tags": [
-        "AUDIENCE_GROUP"
+        "AUDIENCE_GROUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Groups - Validation & Error Handling",
@@ -1320,7 +1353,9 @@
         "CREATE_AUDIENCE_TEMPLATE",
         "SEARCH_AUDIENCE_TEMPLATE",
         "VALIDATE_AUDIENCE_TEMPLATE",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "AUDIENCE_GROUP",
+        "E2E"
       ],
       "owner": "Test Automation",
       "feature": "Audience Groups - End-to-End Workflow",
@@ -1434,7 +1469,8 @@
       "type": "CRUD",
       "tags": [
         "AUDIENCE_TEMPLATE",
-        "CREATE_AUDIENCE_TEMPLATE"
+        "CREATE_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - CRUD & Management Operations",
@@ -1465,7 +1501,8 @@
       "tags": [
         "AUDIENCE_TEMPLATE",
         "SEARCH_AUDIENCE_TEMPLATE",
-        "VALIDATE_AUDIENCE_TEMPLATE"
+        "VALIDATE_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - CRUD & Management Operations",
@@ -1515,7 +1552,9 @@
       "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
-        "SEARCH_AUDIENCE_TEMPLATE"
+        "SEARCH_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP",
+        "VALIDATE_AUDIENCE_TEMPLATE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - CRUD & Management Operations",
@@ -1560,7 +1599,9 @@
       "name": "Get audience template by valid ID",
       "type": "Query",
       "tags": [
-        "AUDIENCE_TEMPLATE"
+        "AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP",
+        "VALIDATE_AUDIENCE_TEMPLATE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - CRUD & Management Operations",
@@ -1590,7 +1631,9 @@
       "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
-        "SEARCH_AUDIENCE_TEMPLATE"
+        "SEARCH_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP",
+        "COUNTRY_LANGUAGES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - CRUD & Management Operations",
@@ -1628,7 +1671,8 @@
       "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
-        "SEARCH_AUDIENCE_TEMPLATE"
+        "SEARCH_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - CRUD & Management Operations",
@@ -1666,7 +1710,9 @@
       "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
-        "SEARCH_AUDIENCE_TEMPLATE"
+        "SEARCH_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP",
+        "COUNTRY_LANGUAGES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - CRUD & Management Operations",
@@ -1700,7 +1746,9 @@
       "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
-        "SEARCH_AUDIENCE_TEMPLATE"
+        "SEARCH_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP",
+        "VALIDATE_AUDIENCE_TEMPLATE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - CRUD & Management Operations",
@@ -1742,7 +1790,9 @@
       "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
-        "SEARCH_AUDIENCE_TEMPLATE"
+        "SEARCH_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP",
+        "VALIDATE_AUDIENCE_TEMPLATE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - CRUD & Management Operations",
@@ -1789,7 +1839,8 @@
       "tags": [
         "AUDIENCE_TEMPLATE",
         "SEARCH_AUDIENCE_TEMPLATE",
-        "VALIDATE_AUDIENCE_TEMPLATE"
+        "VALIDATE_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - CRUD & Management Operations",
@@ -1843,7 +1894,8 @@
       "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
-        "VALIDATE_AUDIENCE_TEMPLATE"
+        "VALIDATE_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - CRUD & Management Operations",
@@ -1877,7 +1929,9 @@
       "type": "Query",
       "tags": [
         "AUDIENCE_TEMPLATE",
-        "VALIDATE_AUDIENCE_TEMPLATE"
+        "VALIDATE_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP",
+        "COUNTRY_LANGUAGES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - CRUD & Management Operations",
@@ -1910,7 +1964,10 @@
       "name": "Get audience template by invalid ID",
       "type": "Validation",
       "tags": [
-        "AUDIENCE_TEMPLATE"
+        "AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP",
+        "VALIDATE_AUDIENCE_TEMPLATE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - Validation & Error Handling",
@@ -1939,7 +1996,9 @@
       "name": "Get audience template by non-existent ID",
       "type": "Validation",
       "tags": [
-        "AUDIENCE_TEMPLATE"
+        "AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - Validation & Error Handling",
@@ -1969,7 +2028,10 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_TEMPLATE",
-        "SEARCH_AUDIENCE_TEMPLATE"
+        "SEARCH_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP",
+        "COUNTRY_LANGUAGES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - Validation & Error Handling",
@@ -2003,7 +2065,10 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_TEMPLATE",
-        "SEARCH_AUDIENCE_TEMPLATE"
+        "SEARCH_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP",
+        "VALIDATE_AUDIENCE_TEMPLATE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - Validation & Error Handling",
@@ -2037,7 +2102,10 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_TEMPLATE",
-        "SEARCH_AUDIENCE_TEMPLATE"
+        "SEARCH_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP",
+        "COUNTRY_LANGUAGES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - Validation & Error Handling",
@@ -2071,7 +2139,10 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_TEMPLATE",
-        "VALIDATE_AUDIENCE_TEMPLATE"
+        "VALIDATE_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP",
+        "COUNTRY_LANGUAGES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - Validation & Error Handling",
@@ -2105,7 +2176,9 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_TEMPLATE",
-        "VALIDATE_AUDIENCE_TEMPLATE"
+        "VALIDATE_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - Validation & Error Handling",
@@ -2139,7 +2212,9 @@
       "type": "Validation",
       "tags": [
         "AUDIENCE_TEMPLATE",
-        "VALIDATE_AUDIENCE_TEMPLATE"
+        "VALIDATE_AUDIENCE_TEMPLATE",
+        "AUDIENCE_GROUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Audience Templates - Validation & Error Handling",
@@ -2165,6 +2240,137 @@
         }
       ],
       "paramNote": "Unrolled across project phases (2 runs at execution)"
+    },
+    {
+      "area": "BOS",
+      "spec": "BosD365SampleCreationTestSteps",
+      "name": "sample d365 creation workflow",
+      "type": "Workflow",
+      "tags": [
+        "CREATE_QUOTE",
+        "PROJECT_ACCEPT",
+        "CLONE_PROJECT",
+        "BOS_SYNC",
+        "D365",
+        "CRM_FIELDS"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "BOS - D365 sample creation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosD365SampleCreationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "when",
+          "label": "2. call redirect endpoint to create d365 quote sample"
+        },
+        {
+          "phase": "when",
+          "label": "3. setup the project by adding quota groups (run feas???)"
+        },
+        {
+          "phase": "when",
+          "label": "4. mock line item sync -> save product links"
+        },
+        {
+          "phase": "when",
+          "label": "5. call accept"
+        }
+      ]
+    },
+    {
+      "area": "BOS",
+      "spec": "BosD365SampleCreationTestSteps",
+      "name": "sample d365 tracker creation workflow",
+      "type": "Workflow",
+      "tags": [
+        "CREATE_QUOTE",
+        "PROJECT_ACCEPT",
+        "CLONE_PROJECT",
+        "CLONE_QUOTA_GROUP",
+        "BOS_SYNC",
+        "D365",
+        "TRACKER",
+        "CRM_FIELDS"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "BOS - D365 sample creation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosD365SampleCreationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "when",
+          "label": "2. call redirect endpoint to create d365 quote sample"
+        },
+        {
+          "phase": "when",
+          "label": "3. setup the project by adding quota groups (run feas???)"
+        },
+        {
+          "phase": "when",
+          "label": "4. mock line item sync -> save product links"
+        },
+        {
+          "phase": "when",
+          "label": "5. call accept wave 1 only one quota group"
+        },
+        {
+          "phase": "when",
+          "label": "5. call accept wave 2"
+        },
+        {
+          "phase": "when",
+          "label": "check second qg"
+        }
+      ]
+    },
+    {
+      "area": "BOS",
+      "spec": "BosSampleCreationTestSteps",
+      "name": "sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT",
+      "type": "Other",
+      "tags": [
+        "CREATE_QUOTE",
+        "QUOTE_2_ORDER",
+        "PROJECT_ACCEPT",
+        "CRM_FIELDS"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "BOS - Sample creation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A BOS sales-order template and the CRM fields it should carry"
+        },
+        {
+          "phase": "when",
+          "label": "The quote is created and its CRM fields are applied"
+        },
+        {
+          "phase": "then",
+          "label": "The QUOTE carries the expected CRM fields"
+        },
+        {
+          "phase": "when",
+          "label": "The quote is converted to an order"
+        },
+        {
+          "phase": "then",
+          "label": "The ORDER retains the same CRM fields"
+        },
+        {
+          "phase": "when",
+          "label": "The project is accepted"
+        },
+        {
+          "phase": "then",
+          "label": "The accepted PROJECT retains the same CRM fields"
+        }
+      ]
     },
     {
       "area": "BOS",
@@ -2226,7 +2432,9 @@
       "name": "Add and remove users from exclusion list in sequence",
       "type": "Query",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK",
+        "EXCLUSION_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2275,7 +2483,9 @@
       "name": "Add duplicate users to exclusion list",
       "type": "Validation",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK",
+        "EXCLUSION_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2307,7 +2517,9 @@
       "name": "Add single and multiple users to soft launch notification exclusion list",
       "type": "CRUD",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK",
+        "EXCLUSION_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2344,7 +2556,8 @@
       "name": "Change delivery mode and verify daily quota behavior",
       "type": "CRUD",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2381,7 +2594,8 @@
       "name": "Configure all delivery mode variations",
       "type": "CRUD",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2410,7 +2624,8 @@
       "name": "Configure fieldwork pacing",
       "type": "CRUD",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2443,7 +2658,8 @@
       "name": "Configure soft launch target",
       "type": "CRUD",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2472,7 +2688,8 @@
       "name": "Configure soft launch with different notification settings",
       "type": "CRUD",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2501,7 +2718,9 @@
       "name": "Configure soft launch with start and end dates",
       "type": "CRUD",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "QUOTA_DATES",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2534,7 +2753,9 @@
       "name": "Configure soft launch with user exclusions from notifications",
       "type": "CRUD",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK",
+        "EXCLUSION_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2571,7 +2792,8 @@
       "name": "Connect quota group to survey URL pool",
       "type": "CRUD",
       "tags": [
-        "UPLOAD_URLS"
+        "UPLOAD_URLS",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2599,7 +2821,8 @@
       "name": "Disable soft launch after enabling",
       "type": "CRUD",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2631,7 +2854,8 @@
       "name": "Enable and disable soft launch boosted mode",
       "type": "CRUD",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2668,7 +2892,8 @@
       "name": "Fieldwork details reflect updated notification setting consistently with direct endpoint",
       "type": "Query",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2700,7 +2925,8 @@
       "name": "Fieldwork details reflect updated soft launch quota consistently with direct endpoint",
       "type": "Query",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2732,7 +2958,9 @@
       "name": "Remove users from soft launch notification exclusion list",
       "type": "CRUD",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK",
+        "EXCLUSION_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2773,7 +3001,8 @@
       "name": "Soft launch reached flag matches on soft-launch GET and fieldwork details",
       "type": "Query",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2805,7 +3034,8 @@
       "name": "Soft launch state remains consistent across subsequent reads",
       "type": "Query",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2853,7 +3083,8 @@
       "name": "Toggle boosted mode multiple times",
       "type": "CRUD",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2894,7 +3125,9 @@
       "name": "Update soft launch dates without affecting other settings",
       "type": "CRUD",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "QUOTA_DATES",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2931,7 +3164,8 @@
       "name": "Update soft launch notifications independently without affecting quota",
       "type": "CRUD",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -2968,7 +3202,8 @@
       "name": "Update soft launch quota independently without affecting notifications",
       "type": "CRUD",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - URL pool, delivery, and soft launch (no partner creation)",
@@ -3009,7 +3244,9 @@
         "QUOTA",
         "DELIVERY",
         "SOFT_LAUNCH",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - End-to-end advanced (tally, delivery, exclusions)",
@@ -3171,7 +3408,9 @@
         "SOFT_LAUNCH",
         "TALLY",
         "QUOTA",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - End-to-end flow with partner creation",
@@ -3379,7 +3618,8 @@
       "name": "Add partners with configuration",
       "type": "CRUD",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Partner configuration (dedicated project)",
@@ -3412,7 +3652,8 @@
       "name": "Change tally mode rapidly in succession",
       "type": "CRUD",
       "tags": [
-        "TALLY"
+        "TALLY",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Tally mode",
@@ -3444,7 +3685,9 @@
       "name": "Segment quota updates correctly when tally mode changes",
       "type": "CRUD",
       "tags": [
-        "TALLY"
+        "TALLY",
+        "FIELDWORK",
+        "SEGMENTS"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Tally mode",
@@ -3521,7 +3764,10 @@
       "name": "Switching Tally Mode to By Starts recalculates segment quotas based on custom distribution percentage",
       "type": "CRUD",
       "tags": [
-        "TALLY"
+        "TALLY",
+        "QUOTA_ON_START",
+        "FIELDWORK",
+        "SEGMENTS"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Tally mode",
@@ -3574,7 +3820,10 @@
       "name": "Switching tally mode from 'By Starts' to 'By Completes' keeps correct values",
       "type": "CRUD",
       "tags": [
-        "TALLY"
+        "TALLY",
+        "QUOTA_ON_START",
+        "QUOTA_ON_COMPLETE",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Tally mode",
@@ -3603,7 +3852,10 @@
       "type": "CRUD",
       "tags": [
         "TALLY",
-        "QUOTA"
+        "QUOTA",
+        "QUOTA_ON_COMPLETE",
+        "FIELDWORK",
+        "SEGMENTS"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Tally mode",
@@ -3641,7 +3893,10 @@
       "type": "CRUD",
       "tags": [
         "TALLY",
-        "QUOTA"
+        "QUOTA",
+        "QUOTA_ON_START",
+        "FIELDWORK",
+        "SEGMENTS"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Tally mode",
@@ -3678,7 +3933,9 @@
       "name": "Updating startQuota in 'By Starts' updates quota",
       "type": "CRUD",
       "tags": [
-        "TALLY"
+        "TALLY",
+        "QUOTA_ON_START",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Tally mode",
@@ -3711,7 +3968,10 @@
       "name": "Updating startQuota in 'By Starts' updates segment details",
       "type": "CRUD",
       "tags": [
-        "TALLY"
+        "TALLY",
+        "QUOTA_ON_START",
+        "FIELDWORK",
+        "SEGMENTS"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Tally mode",
@@ -3744,7 +4004,9 @@
       "name": "Updating totalQuota in 'By Completes' updates quota",
       "type": "CRUD",
       "tags": [
-        "TALLY"
+        "TALLY",
+        "QUOTA_ON_COMPLETE",
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Tally mode",
@@ -3777,7 +4039,10 @@
       "name": "Updating totalQuota in 'By Starts' does NOT change segment details",
       "type": "CRUD",
       "tags": [
-        "TALLY"
+        "TALLY",
+        "QUOTA_ON_START",
+        "FIELDWORK",
+        "SEGMENTS"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Tally mode",
@@ -3818,7 +4083,9 @@
       "name": "Accept zero as valid soft launch quota for disabling",
       "type": "Validation",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Validation & Error Handling",
@@ -3851,7 +4118,9 @@
       "type": "Validation",
       "tags": [
         "SOFT_LAUNCH",
-        "TALLY"
+        "TALLY",
+        "FIELDWORK",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Validation & Error Handling",
@@ -3892,7 +4161,9 @@
       "name": "Change tally mode with invalid quota group ID",
       "type": "Validation",
       "tags": [
-        "TALLY"
+        "TALLY",
+        "FIELDWORK",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Validation & Error Handling",
@@ -3921,7 +4192,9 @@
       "name": "Configure daily quota for delivery modes that don't support it",
       "type": "Validation",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "FIELDWORK",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Validation & Error Handling",
@@ -3954,7 +4227,9 @@
       "name": "Configure delivery mode with invalid mode value",
       "type": "Validation",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "FIELDWORK",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Validation & Error Handling",
@@ -3983,7 +4258,9 @@
       "name": "Configure soft launch with invalid quota values",
       "type": "Validation",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Validation & Error Handling",
@@ -4012,7 +4289,10 @@
       "name": "Handle removing non-existent users from exclusion list gracefully",
       "type": "Validation",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK",
+        "EXCLUSION_RULES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Validation & Error Handling",
@@ -4049,7 +4329,10 @@
       "name": "Reject invalid soft launch date configurations",
       "type": "Validation",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "QUOTA_DATES",
+        "FIELDWORK",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Validation & Error Handling",
@@ -4082,7 +4365,9 @@
       "name": "Reject invalid soft launch quota values when updating independently",
       "type": "Validation",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Validation & Error Handling",
@@ -4111,7 +4396,10 @@
       "name": "Reject invalid user IDs when adding to exclusion list",
       "type": "Validation",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK",
+        "EXCLUSION_RULES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Validation & Error Handling",
@@ -4144,7 +4432,10 @@
       "name": "Reject past dates for soft launch configuration",
       "type": "Validation",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "QUOTA_DATES",
+        "FIELDWORK",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Validation & Error Handling",
@@ -4177,7 +4468,10 @@
       "name": "Reject removing users with invalid IDs from exclusion list",
       "type": "Validation",
       "tags": [
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "FIELDWORK",
+        "EXCLUSION_RULES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Validation & Error Handling",
@@ -4211,7 +4505,9 @@
       "type": "Validation",
       "tags": [
         "SOFT_LAUNCH",
-        "QUOTA"
+        "QUOTA",
+        "FIELDWORK",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Validation & Error Handling",
@@ -4244,7 +4540,9 @@
       "name": "startQuota rejects invalid value",
       "type": "Validation",
       "tags": [
-        "TALLY"
+        "TALLY",
+        "FIELDWORK",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Validation & Error Handling",
@@ -4273,7 +4571,9 @@
       "name": "totalQuota rejects invalid value",
       "type": "Validation",
       "tags": [
-        "TALLY"
+        "TALLY",
+        "FIELDWORK",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Validation & Error Handling",
@@ -4302,7 +4602,10 @@
       "name": "Complete fieldwork setup workflow",
       "type": "Workflow",
       "tags": [
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "PARTNER_EVENT",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows that create partner events",
@@ -4362,7 +4665,10 @@
       "name": "Configure fieldwork and verify impact on project counters",
       "type": "Workflow",
       "tags": [
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "PARTNER_EVENT",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows that create partner events",
@@ -4422,7 +4728,11 @@
       "name": "Configure fieldwork with quota group having complex segmentation",
       "type": "Workflow",
       "tags": [
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "SEGMENTS",
+        "PARTNER_EVENT",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows that create partner events",
@@ -4466,7 +4776,12 @@
       "name": "Configure soft launch with exclusions and verify impact on partner events",
       "type": "Workflow",
       "tags": [
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "SOFT_LAUNCH",
+        "FIELDWORK",
+        "PARTNER_EVENT",
+        "EXCLUSION_RULES",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows that create partner events",
@@ -4514,7 +4829,10 @@
       "name": "Modify fieldwork configuration after initial setup",
       "type": "Workflow",
       "tags": [
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "PARTNER_EVENT",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows that create partner events",
@@ -4551,7 +4869,12 @@
       "name": "Update soft launch configuration with active partners and delivery settings",
       "type": "Workflow",
       "tags": [
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "SOFT_LAUNCH",
+        "DELIVERY",
+        "FIELDWORK",
+        "PARTNER_EVENT",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows that create partner events",
@@ -4603,7 +4926,10 @@
       "name": "Verify fieldwork configuration affects survey distribution",
       "type": "Workflow",
       "tags": [
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "PARTNER_EVENT",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows that create partner events",
@@ -4651,7 +4977,11 @@
       "name": "Verify soft launch quota affects partner event quotas",
       "type": "Workflow",
       "tags": [
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "SOFT_LAUNCH",
+        "FIELDWORK",
+        "PARTNER_EVENT",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows that create partner events",
@@ -4705,7 +5035,9 @@
       "tags": [
         "SOFT_LAUNCH",
         "TALLY",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows & Integration",
@@ -4752,7 +5084,9 @@
         "SOFT_LAUNCH",
         "DELIVERY",
         "UPLOAD_URLS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows & Integration",
@@ -4799,7 +5133,9 @@
         "DELIVERY",
         "PARTNER_EVENT",
         "UPLOAD_URLS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows & Integration",
@@ -4832,7 +5168,9 @@
       "type": "Workflow",
       "tags": [
         "SOFT_LAUNCH",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows & Integration",
@@ -4894,7 +5232,9 @@
       "tags": [
         "SOFT_LAUNCH",
         "TALLY",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows & Integration",
@@ -4936,7 +5276,9 @@
       "tags": [
         "SOFT_LAUNCH",
         "TALLY",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows & Integration",
@@ -4983,7 +5325,9 @@
         "SOFT_LAUNCH",
         "TALLY",
         "QUOTA",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows & Integration",
@@ -5026,7 +5370,9 @@
       "tags": [
         "SOFT_LAUNCH",
         "DELIVERY",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows & Integration",
@@ -5087,7 +5433,10 @@
       "type": "Workflow",
       "tags": [
         "SOFT_LAUNCH",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "QUOTA_DATES",
+        "FIELDWORK",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows & Integration",
@@ -5132,7 +5481,10 @@
       "type": "Workflow",
       "tags": [
         "SOFT_LAUNCH",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "EXCLUSION_RULES",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows & Integration",
@@ -5181,7 +5533,10 @@
       "type": "Workflow",
       "tags": [
         "SOFT_LAUNCH",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FIELDWORK",
+        "EXCLUSION_RULES",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows & Integration",
@@ -5246,7 +5601,10 @@
       "type": "Workflow",
       "tags": [
         "SOFT_LAUNCH",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "QUOTA_DATES",
+        "FIELDWORK",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Fieldwork - Workflows & Integration",
@@ -5285,7 +5643,10 @@
         "LOOKUP",
         "CHANNEL",
         "DELIVERY",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "TALLY",
+        "QUOTA_ON_COMPLETE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complete Lookup & Search E2E",
@@ -6137,7 +6498,8 @@
       "type": "Validation",
       "tags": [
         "LOOKUP",
-        "CHANNEL"
+        "CHANNEL",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Lookup Validation & Error Handling",
@@ -6167,7 +6529,8 @@
       "type": "Validation",
       "tags": [
         "LOOKUP",
-        "CHANNEL"
+        "CHANNEL",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Lookup Validation & Error Handling",
@@ -6196,7 +6559,8 @@
       "type": "Query",
       "tags": [
         "LOOKUP",
-        "CHANNEL"
+        "CHANNEL",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Lookup Validation & Error Handling",
@@ -6224,7 +6588,8 @@
       "name": "Get condition validations with invalid quota group ID",
       "type": "Validation",
       "tags": [
-        "LOOKUP"
+        "LOOKUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Lookup Validation & Error Handling",
@@ -6254,7 +6619,8 @@
       "type": "Validation",
       "tags": [
         "LOOKUP",
-        "DELIVERY"
+        "DELIVERY",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Lookup Validation & Error Handling",
@@ -6283,7 +6649,8 @@
       "name": "Get quota group validations with invalid quota group ID",
       "type": "Validation",
       "tags": [
-        "LOOKUP"
+        "LOOKUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Lookup Validation & Error Handling",
@@ -6313,7 +6680,8 @@
       "type": "Validation",
       "tags": [
         "LOOKUP",
-        "SURVEY"
+        "SURVEY",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Lookup Validation & Error Handling",
@@ -6342,7 +6710,8 @@
       "name": "Search detailed quota groups with conflicting filters",
       "type": "Query",
       "tags": [
-        "LOOKUP"
+        "LOOKUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Lookup Validation & Error Handling",
@@ -6370,7 +6739,8 @@
       "name": "Search quota group IDs with empty filters",
       "type": "Query",
       "tags": [
-        "LOOKUP"
+        "LOOKUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Lookup Validation & Error Handling",
@@ -6398,7 +6768,8 @@
       "name": "Search quota group IDs with invalid project ID",
       "type": "Validation",
       "tags": [
-        "LOOKUP"
+        "LOOKUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Lookup Validation & Error Handling",
@@ -6427,7 +6798,8 @@
       "name": "Search quota group IDs with null request body",
       "type": "Query",
       "tags": [
-        "LOOKUP"
+        "LOOKUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Lookup Validation & Error Handling",
@@ -6455,7 +6827,8 @@
       "name": "Search quota group labels with invalid audience group ID",
       "type": "Validation",
       "tags": [
-        "LOOKUP"
+        "LOOKUP",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Lookup Validation & Error Handling",
@@ -6485,7 +6858,8 @@
       "type": "Validation",
       "tags": [
         "LOOKUP",
-        "CHANNEL"
+        "CHANNEL",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Lookup Validation & Error Handling",
@@ -6515,7 +6889,8 @@
       "tags": [
         "PARAMETER",
         "UNIVERSE_DEFINITION",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters & Universe Definition - Complete E2E",
@@ -7197,7 +7572,8 @@
       "name": "Get parameter answers for parameters with no answers",
       "type": "Validation",
       "tags": [
-        "PARAMETER"
+        "PARAMETER",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters - Validation & Error Handling",
@@ -7226,7 +7602,8 @@
       "name": "Get parameter answers with pagination edge cases",
       "type": "Validation",
       "tags": [
-        "PARAMETER"
+        "PARAMETER",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters - Validation & Error Handling",
@@ -7255,7 +7632,8 @@
       "name": "Get parameter answers with pagination edge cases A",
       "type": "Validation",
       "tags": [
-        "PARAMETER"
+        "PARAMETER",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters - Validation & Error Handling",
@@ -7284,7 +7662,9 @@
       "name": "Get parameter metadata for invalid country codes",
       "type": "Validation",
       "tags": [
-        "PARAMETER"
+        "PARAMETER",
+        "COUNTRY_LANGUAGES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters - Validation & Error Handling",
@@ -7313,7 +7693,8 @@
       "name": "Get parameter translations with invalid quota group context",
       "type": "Validation",
       "tags": [
-        "PARAMETER"
+        "PARAMETER",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters - Validation & Error Handling",
@@ -7342,7 +7723,8 @@
       "name": "Search parameter categories with invalid project context",
       "type": "Validation",
       "tags": [
-        "PARAMETER"
+        "PARAMETER",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters - Validation & Error Handling",
@@ -7371,7 +7753,8 @@
       "name": "Search parameter categories with invalid quota group context",
       "type": "Validation",
       "tags": [
-        "PARAMETER"
+        "PARAMETER",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters - Validation & Error Handling",
@@ -7400,7 +7783,8 @@
       "name": "Search parameters with invalid pagination values B",
       "type": "Validation",
       "tags": [
-        "PARAMETER"
+        "PARAMETER",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters - Validation & Error Handling",
@@ -7429,7 +7813,8 @@
       "name": "Search parameters with pagination boundary values",
       "type": "Validation",
       "tags": [
-        "PARAMETER"
+        "PARAMETER",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters - Validation & Error Handling",
@@ -7459,7 +7844,8 @@
       "type": "Validation",
       "tags": [
         "UNIVERSE_DEFINITION",
-        "PARAMETER"
+        "PARAMETER",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters - Validation & Error Handling",
@@ -7488,7 +7874,8 @@
       "type": "Validation",
       "tags": [
         "UNIVERSE_DEFINITION",
-        "PARAMETER"
+        "PARAMETER",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters - Validation & Error Handling",
@@ -7854,7 +8241,9 @@
       "name": "Update partner event quota and verify start quota recalculation",
       "type": "CRUD",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "TALLY",
+        "QUOTA_ON_START"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - CRUD Operations",
@@ -7959,7 +8348,8 @@
         "DELIVERY",
         "UPLOAD_URLS",
         "TALLY",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Complete E2E Operations",
@@ -8144,7 +8534,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8173,7 +8565,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8202,7 +8596,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8231,7 +8627,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8268,7 +8666,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8297,7 +8697,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8326,7 +8728,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8359,7 +8763,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8388,7 +8794,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8417,7 +8825,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8446,7 +8856,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8475,7 +8887,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8504,7 +8918,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8533,7 +8949,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8562,7 +8980,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8591,7 +9011,10 @@
       "type": "Validation",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "VALIDATION",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8620,7 +9043,10 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "VALIDATION",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8649,7 +9075,10 @@
       "type": "Validation",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "VALIDATION",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8678,7 +9107,9 @@
       "type": "Validation",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8707,7 +9138,10 @@
       "type": "Validation",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "VALIDATION",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8736,7 +9170,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8765,7 +9201,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8802,7 +9240,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8831,7 +9271,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8860,7 +9302,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8889,7 +9333,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
@@ -8925,7 +9371,9 @@
       "name": "Calculate start quotas with extreme ratio values",
       "type": "CRUD",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "TALLY",
+        "QUOTA_ON_START"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Tally mode and start quota",
@@ -8962,7 +9410,9 @@
       "name": "Calculate start quotas with fractional results",
       "type": "CRUD",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "TALLY",
+        "QUOTA_ON_START"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Tally mode and start quota",
@@ -9191,7 +9641,11 @@
       "name": "Calculate start quotas with invalid partner complete quotas",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "TALLY",
+        "QUOTA_ON_START",
+        "QUOTA_ON_COMPLETE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Validation & Error Handling",
@@ -9224,7 +9678,10 @@
       "name": "Calculate start quotas with invalid starts quotas",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "TALLY",
+        "QUOTA_ON_START",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Validation & Error Handling",
@@ -9257,7 +9714,10 @@
       "name": "Calculate start quotas with invalid total quotas",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "TALLY",
+        "QUOTA_ON_START",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Validation & Error Handling",
@@ -9290,7 +9750,8 @@
       "name": "Cannot deactivate active partner event",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Validation & Error Handling",
@@ -9322,7 +9783,8 @@
       "name": "Cannot delete active partner event in PROJECT phase",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Validation & Error Handling",
@@ -9354,7 +9816,8 @@
       "name": "Cannot delete partner event with invalid ID",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Validation & Error Handling",
@@ -9383,7 +9846,8 @@
       "name": "Create partner event with invalid field values",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Validation & Error Handling",
@@ -9412,7 +9876,8 @@
       "name": "Create partner event with missing required fields",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Validation & Error Handling",
@@ -9441,7 +9906,8 @@
       "name": "Get external suppliers with invalid quota group ID",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Validation & Error Handling",
@@ -9470,7 +9936,8 @@
       "name": "Get partner event defaults with invalid quota group ID",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Validation & Error Handling",
@@ -9499,7 +9966,8 @@
       "name": "Get partner event with invalid ID",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Validation & Error Handling",
@@ -9529,7 +9997,8 @@
       "type": "Validation",
       "tags": [
         "PARTNER_EVENT",
-        "REX_EVENT"
+        "REX_EVENT",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Validation & Error Handling",
@@ -9557,7 +10026,8 @@
       "name": "Update partner event with invalid ID",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Validation & Error Handling",
@@ -9586,7 +10056,8 @@
       "name": "Valid currencies lookup for an unknown audience is rejected",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Validation & Error Handling",
@@ -9615,7 +10086,11 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "TALLY",
+        "QUOTA_ON_START",
+        "SEGMENTS",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Workflows & Integration",
@@ -9660,7 +10135,11 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "TALLY",
+        "QUOTA_ON_START",
+        "SEGMENTS",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Workflows & Integration",
@@ -9701,7 +10180,8 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Workflows & Integration",
@@ -9739,7 +10219,8 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Workflows & Integration",
@@ -9782,7 +10263,8 @@
       "tags": [
         "PARTNER_EVENT",
         "REX_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Workflows & Integration",
@@ -9811,7 +10293,8 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Workflows & Integration",
@@ -9848,7 +10331,8 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Workflows & Integration",
@@ -9885,7 +10369,8 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Workflows & Integration",
@@ -9938,7 +10423,8 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Workflows & Integration",
@@ -9979,7 +10465,8 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Workflows & Integration",
@@ -10032,7 +10519,8 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Workflows & Integration",
@@ -10071,7 +10559,8 @@
         "PARTNER_EVENT",
         "DELIVERY",
         "UPLOAD_URLS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - End to End",
@@ -10155,7 +10644,9 @@
       "name": "Get project exclusion configuration for valid project",
       "type": "Query",
       "tags": [
-        "DEDUPE"
+        "DEDUPE",
+        "EXCLUSION_RULES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Dedupe - Operations",
@@ -10199,7 +10690,8 @@
       "name": "Create and delete exclusion rule lifecycle; rename endpoint is unimplemented",
       "type": "CRUD",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
@@ -10255,7 +10747,8 @@
       "name": "Delete already deleted exclusion rule",
       "type": "CRUD",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
@@ -10292,7 +10785,8 @@
       "name": "Delete exclusion rule",
       "type": "CRUD",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
@@ -10336,7 +10830,9 @@
       "name": "Delete exclusion rule with invalid rule ID",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
@@ -10365,7 +10861,9 @@
       "name": "Enable exclusion rule endpoint returns 500 UnsupportedOperationException for invalid rule ID too",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
@@ -10394,7 +10892,8 @@
       "name": "Enable/disable exclusion rule endpoint is unimplemented and returns 500 UnsupportedOperationException",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
@@ -10427,7 +10926,8 @@
       "name": "Get exclusion rule by ID",
       "type": "CRUD",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
@@ -10459,7 +10959,9 @@
       "name": "Get exclusion rule with invalid rule ID",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
@@ -10488,7 +10990,9 @@
       "name": "Manage exclusion rules on invalid project ID",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
@@ -10517,7 +11021,8 @@
       "name": "Manage multiple exclusion rules on same project; rename endpoint is unimplemented",
       "type": "CRUD",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
@@ -10566,7 +11071,8 @@
       "name": "Rename exclusion rule endpoint is unimplemented and returns 500 UnsupportedOperationException",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
@@ -10603,7 +11109,9 @@
       "name": "Rename exclusion rule endpoint returns 500 UnsupportedOperationException even for invalid name",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
@@ -10636,7 +11144,9 @@
       "name": "Rename exclusion rule endpoint returns 500 UnsupportedOperationException for invalid rule ID too",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
@@ -10665,7 +11175,9 @@
       "name": "removeEntry rejects projectId below the minimum with a validation error",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
@@ -10694,7 +11206,9 @@
       "name": "removeEntry returns 404 NotFoundInDb for a valid but non-existent project",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
@@ -10723,7 +11237,8 @@
       "name": "removeEntry test endpoint clears all exclusion rules for the project",
       "type": "CRUD",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
@@ -10767,7 +11282,8 @@
       "name": "fullProjectSetup derives useEropMedical from the project instead of the client-sent value",
       "type": "Workflow",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project \u2013 fullProjectSetup source setup",
@@ -10799,7 +11315,8 @@
       "name": "fullProjectSetup fills default source settings when source is omitted",
       "type": "Workflow",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project \u2013 fullProjectSetup source setup",
@@ -10831,7 +11348,9 @@
       "name": "fullProjectSetup persists quota group brand exclusion",
       "type": "Workflow",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "EXCLUSION_RULES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project \u2013 fullProjectSetup source setup",
@@ -10863,7 +11382,8 @@
       "name": "fullProjectSetup persists quota group source toggles",
       "type": "Workflow",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project \u2013 fullProjectSetup source setup",
@@ -10895,7 +11415,8 @@
       "name": "Get project managers returns valid response",
       "type": "Query",
       "tags": [
-        "MANAGERS"
+        "MANAGERS",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Managers",
@@ -10919,7 +11440,8 @@
       "name": "Update account manager",
       "type": "CRUD",
       "tags": [
-        "MANAGERS"
+        "MANAGERS",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Managers",
@@ -10947,7 +11469,8 @@
       "name": "Update all managers in bulk",
       "type": "CRUD",
       "tags": [
-        "MANAGERS"
+        "MANAGERS",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Managers",
@@ -10979,7 +11502,8 @@
       "name": "Update backup account managers",
       "type": "CRUD",
       "tags": [
-        "MANAGERS"
+        "MANAGERS",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Managers",
@@ -11007,7 +11531,9 @@
       "name": "Update backup client delivery consultants",
       "type": "CRUD",
       "tags": [
-        "MANAGERS"
+        "MANAGERS",
+        "DELIVERY",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Managers",
@@ -11035,7 +11561,8 @@
       "name": "Update backup project managers",
       "type": "CRUD",
       "tags": [
-        "MANAGERS"
+        "MANAGERS",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Managers",
@@ -11063,7 +11590,9 @@
       "name": "Update client delivery consultant",
       "type": "CRUD",
       "tags": [
-        "MANAGERS"
+        "MANAGERS",
+        "DELIVERY",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Managers",
@@ -11091,7 +11620,8 @@
       "name": "Update project manager",
       "type": "CRUD",
       "tags": [
-        "MANAGERS"
+        "MANAGERS",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Managers",
@@ -11177,7 +11707,8 @@
       "type": "CRUD",
       "tags": [
         "PROJECT_CORE",
-        "BOS_SYNC"
+        "BOS_SYNC",
+        "CRM_FIELDS"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - CRUD Operations",
@@ -11209,7 +11740,8 @@
       "name": "Change-order logs and export are available for the active quote",
       "type": "Query",
       "tags": [
-        "PROJECT_CORE"
+        "PROJECT_CORE",
+        "CHANGE_ORDER"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - CRUD Operations",
@@ -11319,7 +11851,8 @@
       "name": "Clone an existing project in QUOTE phase",
       "type": "CRUD",
       "tags": [
-        "CLONE_PROJECT"
+        "CLONE_PROJECT",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - CRUD Operations",
@@ -11390,7 +11923,8 @@
       "type": "CRUD",
       "tags": [
         "PROJECT_CORE",
-        "BOS_SYNC"
+        "BOS_SYNC",
+        "D365"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - CRUD Operations",
@@ -11418,7 +11952,8 @@
       "name": "Delete a draft clone removes the project",
       "type": "CRUD",
       "tags": [
-        "CLONE_PROJECT"
+        "CLONE_PROJECT",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - CRUD Operations",
@@ -11707,7 +12242,8 @@
       "name": "Get project core with invalid project ID returns error",
       "type": "Validation",
       "tags": [
-        "PROJECT_CORE"
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Core",
@@ -11736,7 +12272,8 @@
       "name": "Get tracker details returns valid response",
       "type": "Query",
       "tags": [
-        "PROJECT_CORE"
+        "PROJECT_CORE",
+        "TRACKER"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Core",
@@ -11764,7 +12301,8 @@
       "name": "Setting survey topic by CRM category guid syncs the numeric category id",
       "type": "Other",
       "tags": [
-        "PROJECT_CORE"
+        "PROJECT_CORE",
+        "CRM_FIELDS"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Core",
@@ -11792,7 +12330,9 @@
       "name": "Unknown CRM category guid is rejected",
       "type": "Validation",
       "tags": [
-        "PROJECT_CORE"
+        "PROJECT_CORE",
+        "CRM_FIELDS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Core",
@@ -11936,7 +12476,8 @@
       "name": "Update project name with invalid project ID returns error",
       "type": "Validation",
       "tags": [
-        "PROJECT_CORE"
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Core",
@@ -12049,7 +12590,8 @@
       "name": "Get project dates",
       "type": "Query",
       "tags": [
-        "PROJECT_DATES"
+        "PROJECT_DATES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Dates",
@@ -12077,7 +12619,8 @@
       "name": "Toggle scheduled auto close flag",
       "type": "CRUD",
       "tags": [
-        "PROJECT_DATES"
+        "PROJECT_DATES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Dates",
@@ -12121,7 +12664,8 @@
       "name": "Update all project dates at once",
       "type": "CRUD",
       "tags": [
-        "PROJECT_DATES"
+        "PROJECT_DATES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Dates",
@@ -12157,7 +12701,8 @@
       "name": "Update multiple date fields independently and verify no side effects",
       "type": "CRUD",
       "tags": [
-        "PROJECT_DATES"
+        "PROJECT_DATES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Dates",
@@ -12205,7 +12750,8 @@
       "name": "Update proposed end date",
       "type": "CRUD",
       "tags": [
-        "PROJECT_DATES"
+        "PROJECT_DATES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Dates",
@@ -12246,7 +12792,8 @@
       "name": "Update proposed start date",
       "type": "CRUD",
       "tags": [
-        "PROJECT_DATES"
+        "PROJECT_DATES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Dates",
@@ -12293,7 +12840,8 @@
         "PROJECT_DATES",
         "DEDUPE",
         "MANAGERS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project E2E",
@@ -12689,7 +13237,9 @@
       "name": "Add deprecated project dedupe exclusion is persisted on project",
       "type": "CRUD",
       "tags": [
-        "DEDUPE"
+        "DEDUPE",
+        "EXCLUSION_RULES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Deprecated Dedupe / Exclusion Operations",
@@ -12721,7 +13271,9 @@
       "name": "Delete deprecated project dedupe exclusion removes the entry",
       "type": "CRUD",
       "tags": [
-        "DEDUPE"
+        "DEDUPE",
+        "EXCLUSION_RULES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Deprecated Dedupe / Exclusion Operations",
@@ -12753,7 +13305,11 @@
       "name": "Delete deprecated project respondent exclusion completes without error",
       "type": "CRUD",
       "tags": [
-        "DEDUPE"
+        "DEDUPE",
+        "TALLY",
+        "QUOTA_ON_COMPLETE",
+        "EXCLUSION_RULES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Deprecated Dedupe / Exclusion Operations",
@@ -12785,7 +13341,9 @@
       "name": "Download deprecated project respondent exclusion returns a payload",
       "type": "Query",
       "tags": [
-        "DEDUPE"
+        "DEDUPE",
+        "EXCLUSION_RULES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Deprecated Dedupe / Exclusion Operations",
@@ -12813,7 +13371,9 @@
       "name": "Get deprecated project respondent exclusion paged returns a paged result",
       "type": "Query",
       "tags": [
-        "DEDUPE"
+        "DEDUPE",
+        "EXCLUSION_RULES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Deprecated Dedupe / Exclusion Operations",
@@ -12842,7 +13402,9 @@
       "name": "Update deprecated project dedupe exclusion replaces deduped project reference",
       "type": "CRUD",
       "tags": [
-        "DEDUPE"
+        "DEDUPE",
+        "EXCLUSION_RULES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Deprecated Dedupe / Exclusion Operations",
@@ -12874,7 +13436,10 @@
       "name": "Upload deprecated project respondent exclusion rejects missing S3 file with documented error",
       "type": "Validation",
       "tags": [
-        "DEDUPE"
+        "DEDUPE",
+        "EXCLUSION_RULES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Deprecated Dedupe / Exclusion Operations",
@@ -12902,7 +13467,8 @@
       "name": "Add note to project",
       "type": "CRUD",
       "tags": [
-        "PROJECT_NOTES"
+        "PROJECT_NOTES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Notes",
@@ -12930,7 +13496,8 @@
       "name": "Delete project note",
       "type": "CRUD",
       "tags": [
-        "PROJECT_NOTES"
+        "PROJECT_NOTES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Notes",
@@ -12962,7 +13529,8 @@
       "name": "Get project note after deletion",
       "type": "Validation",
       "tags": [
-        "PROJECT_NOTES"
+        "PROJECT_NOTES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Notes",
@@ -12994,7 +13562,8 @@
       "name": "Get project note by ID",
       "type": "CRUD",
       "tags": [
-        "PROJECT_NOTES"
+        "PROJECT_NOTES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Notes",
@@ -13026,7 +13595,9 @@
       "name": "Get project note with invalid note ID",
       "type": "Validation",
       "tags": [
-        "PROJECT_NOTES"
+        "PROJECT_NOTES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Notes",
@@ -13055,7 +13626,8 @@
       "name": "Search notes with basic pagination",
       "type": "Query",
       "tags": [
-        "PROJECT_NOTES"
+        "PROJECT_NOTES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Notes",
@@ -13092,7 +13664,8 @@
       "name": "Search notes with empty result set",
       "type": "Query",
       "tags": [
-        "PROJECT_NOTES"
+        "PROJECT_NOTES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Notes",
@@ -13124,7 +13697,9 @@
       "name": "Search notes with invalid pagination parameters",
       "type": "Validation",
       "tags": [
-        "PROJECT_NOTES"
+        "PROJECT_NOTES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Notes",
@@ -13157,7 +13732,8 @@
       "name": "Update project note",
       "type": "CRUD",
       "tags": [
-        "PROJECT_NOTES"
+        "PROJECT_NOTES",
+        "PROJECT_CORE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Project Notes",
@@ -13301,7 +13877,8 @@
       "name": "FINISHED (CIA-closed) project reopens to RUNNING when allowReopenProject is true (via FIELDWORK_COMPLETE)",
       "type": "Workflow",
       "tags": [
-        "PROJECT_CORE"
+        "PROJECT_CORE",
+        "PROJECT_SETTINGS"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Panel Project Properties",
@@ -13329,7 +13906,8 @@
       "name": "FINISHED project does not offer reopen transition when allowReopenProject is false",
       "type": "Workflow",
       "tags": [
-        "PROJECT_CORE"
+        "PROJECT_CORE",
+        "PROJECT_SETTINGS"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Panel Project Properties",
@@ -13357,7 +13935,8 @@
       "name": "FINISHED project gains FIELDWORK_COMPLETE transition when allowReopenProject is turned on after close",
       "type": "Workflow",
       "tags": [
-        "PROJECT_CORE"
+        "PROJECT_CORE",
+        "PROJECT_SETTINGS"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Panel Project Properties",
@@ -13389,7 +13968,8 @@
       "name": "SUSPENDED project still exposes FIELDWORK_COMPLETE while allowReopenProject is false (non-FINISHED path)",
       "type": "Workflow",
       "tags": [
-        "PROJECT_CORE"
+        "PROJECT_CORE",
+        "PROJECT_SETTINGS"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Panel Project Properties",
@@ -13422,7 +14002,9 @@
       "type": "Validation",
       "tags": [
         "PROJECT_CORE",
-        "BOS_SYNC"
+        "BOS_SYNC",
+        "PROJECT_ACCEPT",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13450,7 +14032,9 @@
       "name": "Add note with invalid content",
       "type": "Validation",
       "tags": [
-        "PROJECT_NOTES"
+        "PROJECT_NOTES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13484,7 +14068,10 @@
       "type": "Validation",
       "tags": [
         "PROJECT_CORE",
-        "BOS_SYNC"
+        "BOS_SYNC",
+        "PROJECT_ACCEPT",
+        "D365",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13513,7 +14100,8 @@
       "type": "Validation",
       "tags": [
         "PROJECT_CORE",
-        "BOS_SYNC"
+        "BOS_SYNC",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13541,7 +14129,9 @@
       "name": "Change-order logs for an unknown project return no rows",
       "type": "Validation",
       "tags": [
-        "PROJECT_CORE"
+        "PROJECT_CORE",
+        "CHANGE_ORDER",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13565,7 +14155,8 @@
       "name": "Client invoice comments lookup for an unknown project is rejected",
       "type": "Validation",
       "tags": [
-        "PROJECT_CORE"
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13590,7 +14181,8 @@
       "type": "Validation",
       "tags": [
         "PROJECT_CORE",
-        "BOS_SYNC"
+        "BOS_SYNC",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13619,7 +14211,8 @@
       "type": "Validation",
       "tags": [
         "PROJECT_CORE",
-        "BOS_SYNC"
+        "BOS_SYNC",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13647,7 +14240,8 @@
       "name": "Creating a project without core details is rejected",
       "type": "Validation",
       "tags": [
-        "PROJECT_CORE"
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13675,7 +14269,8 @@
       "name": "Deleting a live project is rejected",
       "type": "Validation",
       "tags": [
-        "PROJECT_CORE"
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13703,7 +14298,8 @@
       "name": "Draft project search rejects live project queries",
       "type": "Validation",
       "tags": [
-        "PROJECT_CORE"
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13735,7 +14331,8 @@
       "name": "Draft project search rejects page size #pageSize",
       "type": "Validation",
       "tags": [
-        "PROJECT_CORE"
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13767,7 +14364,9 @@
       "name": "Get project notes with invalid project ID",
       "type": "Validation",
       "tags": [
-        "PROJECT_NOTES"
+        "PROJECT_NOTES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13796,7 +14395,9 @@
       "name": "Update date with invalid epoch value",
       "type": "Validation",
       "tags": [
-        "PROJECT_DATES"
+        "PROJECT_DATES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13825,7 +14426,9 @@
       "name": "Update date with past date",
       "type": "Validation",
       "tags": [
-        "PROJECT_DATES"
+        "PROJECT_DATES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13858,7 +14461,9 @@
       "name": "Update proposed end date to be before proposed start date",
       "type": "Validation",
       "tags": [
-        "PROJECT_DATES"
+        "PROJECT_DATES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13894,7 +14499,9 @@
       "name": "Update proposed start date to be after proposed end date",
       "type": "Validation",
       "tags": [
-        "PROJECT_DATES"
+        "PROJECT_DATES",
+        "PROJECT_CORE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Validation & Error Handling",
@@ -13931,7 +14538,9 @@
       "type": "Workflow",
       "tags": [
         "CLONE_PROJECT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PROJECT_CORE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Workflows & Integration",
@@ -14006,7 +14615,8 @@
         "PROJECT_CORE",
         "CLONE_PROJECT",
         "BOS_SYNC",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Workflows & Integration",
@@ -14045,7 +14655,8 @@
         "PROJECT_CORE",
         "CLONE_PROJECT",
         "BOS_SYNC",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Workflows & Integration",
@@ -14082,7 +14693,8 @@
       "type": "Workflow",
       "tags": [
         "PROJECT_CORE",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Workflows & Integration",
@@ -14127,7 +14739,8 @@
       "type": "Workflow",
       "tags": [
         "PROJECT_CORE",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Workflows & Integration",
@@ -14168,7 +14781,8 @@
       "type": "Workflow",
       "tags": [
         "PROJECT_CORE",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Workflows & Integration",
@@ -14197,7 +14811,8 @@
       "type": "Workflow",
       "tags": [
         "PROJECT_CORE",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Workflows & Integration",
@@ -14237,7 +14852,9 @@
       "name": "External quota boundary values",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "External Quotas",
@@ -14270,7 +14887,9 @@
       "name": "External quota calculation with invalid partner event data",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "External Quotas",
@@ -14303,7 +14922,9 @@
       "name": "External quota precision and rounding",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "External Quotas",
@@ -14336,7 +14957,9 @@
       "name": "External quota with invalid percentage in CUSTOM mode should reject",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "External Quotas",
@@ -14369,7 +14992,9 @@
       "name": "External quota with zero partner events",
       "type": "Validation",
       "tags": [
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "External Quotas",
@@ -14399,7 +15024,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "QUOTA",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "External Quotas",
@@ -14433,7 +15060,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "QUOTA",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "External Quotas",
@@ -14467,7 +15096,10 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "CHANNEL",
+        "QUOTA",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "External Quotas",
@@ -14500,7 +15132,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "QUOTA",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "External Quotas",
@@ -14545,7 +15179,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "QUOTA",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "External Quotas",
@@ -14578,7 +15214,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "QUOTA",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "External Quotas",
@@ -14612,7 +15250,9 @@
       "type": "Workflow",
       "tags": [
         "PARTNER_EVENT",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "QUOTA",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "External Quotas",
@@ -14650,7 +15290,9 @@
       "type": "Workflow",
       "tags": [
         "QUOTA",
-        "SOLD_QUOTAS"
+        "SOLD_QUOTAS",
+        "FEASIBILITY",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -14707,7 +15349,9 @@
       "type": "Validation",
       "tags": [
         "QUOTA",
-        "SOLD_QUOTAS"
+        "SOLD_QUOTAS",
+        "FEASIBILITY",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -14765,7 +15409,8 @@
       "type": "Workflow",
       "tags": [
         "QUOTA",
-        "SOLD_QUOTAS"
+        "SOLD_QUOTAS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -14802,7 +15447,9 @@
       "type": "Validation",
       "tags": [
         "QUOTA",
-        "SOLD_QUOTAS"
+        "SOLD_QUOTAS",
+        "SEGMENTS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -14868,7 +15515,8 @@
       "type": "Validation",
       "tags": [
         "QUOTA",
-        "SOLD_QUOTAS"
+        "SOLD_QUOTAS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -14933,7 +15581,8 @@
       "type": "Workflow",
       "tags": [
         "QUOTA",
-        "SOLD_QUOTAS"
+        "SOLD_QUOTAS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -14973,7 +15622,9 @@
         "SOLD_QUOTAS",
         "NESTED",
         "PARAMETER",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FEASIBILITY",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -15032,7 +15683,10 @@
         "QUOTA",
         "SOLD_QUOTAS",
         "PARAMETER",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "SEGMENTS",
+        "FEASIBILITY",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -15079,7 +15733,10 @@
         "QUOTA",
         "SOLD_QUOTAS",
         "FEAS_DISTRIBUTION",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "SEGMENTS",
+        "FEASIBILITY",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -15129,7 +15786,10 @@
       "tags": [
         "QUOTA",
         "SOLD_QUOTAS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "SEGMENTS",
+        "FEASIBILITY",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -15171,7 +15831,10 @@
       "tags": [
         "QUOTA",
         "SOLD_QUOTAS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "SEGMENTS",
+        "FEASIBILITY",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -15237,7 +15900,8 @@
       "tags": [
         "QUOTA",
         "SOLD_QUOTAS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -15275,7 +15939,8 @@
       "tags": [
         "QUOTA",
         "SOLD_QUOTAS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -15315,7 +15980,9 @@
         "SOLD_QUOTAS",
         "PARAMETER",
         "NESTED",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FEASIBILITY",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -15379,7 +16046,10 @@
         "SOLD_QUOTAS",
         "PARAMETER",
         "NESTED",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "SEGMENTS",
+        "FEASIBILITY",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -15430,7 +16100,10 @@
         "QUOTA",
         "SOLD_QUOTAS",
         "PARAMETER",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "SEGMENTS",
+        "FEASIBILITY",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -15487,7 +16160,9 @@
         "SOLD_QUOTAS",
         "PARAMETER",
         "NESTED",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FEASIBILITY",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -15535,7 +16210,9 @@
         "SOLD_QUOTAS",
         "PARAMETER",
         "NESTED",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FEASIBILITY",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sold Quotas",
@@ -15595,7 +16272,9 @@
       "name": "change order flow: request, evaluation, block traffic, approve",
       "type": "Workflow",
       "tags": [
-        "BOS_SYNC"
+        "BOS_SYNC",
+        "CHANGE_ORDER",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Change order \u2013 D365 audience change",
@@ -15639,7 +16318,9 @@
       "name": "change order flow: two audiences request, evaluation, approve",
       "type": "Workflow",
       "tags": [
-        "BOS_SYNC"
+        "BOS_SYNC",
+        "CHANGE_ORDER",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Change order \u2013 D365 audience change",
@@ -15683,7 +16364,9 @@
       "name": "Add country from My New Audience quota group and verify name is My New Audience",
       "type": "CRUD",
       "tags": [
-        "AUDIENCE_GROUP"
+        "AUDIENCE_GROUP",
+        "QUOTA",
+        "COUNTRY_LANGUAGES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -15716,7 +16399,8 @@
       "name": "Adhoc feasibility calculation returns a feasibility result",
       "type": "CRUD",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "FEASIBILITY"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -15744,7 +16428,8 @@
       "name": "Audience price calculation can be triggered",
       "type": "CRUD",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "PRICING"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -15772,7 +16457,8 @@
       "name": "Audience price leaf matches the gateway quota group price",
       "type": "CRUD",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "PRICING"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -15800,7 +16486,8 @@
       "name": "Audience price leaf update persists on read-back",
       "type": "CRUD",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "PRICING"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -15829,7 +16516,8 @@
       "type": "CRUD",
       "tags": [
         "CLONE_QUOTA_GROUP",
-        "QUOTA_DATES"
+        "QUOTA_DATES",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -15862,7 +16550,8 @@
       "type": "CRUD",
       "tags": [
         "CLONE_QUOTA_GROUP",
-        "COUNTRY_LANGUAGES"
+        "COUNTRY_LANGUAGES",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -15896,7 +16585,8 @@
       "type": "CRUD",
       "tags": [
         "CLONE_QUOTA_GROUP",
-        "COUNTRY_LANGUAGES"
+        "COUNTRY_LANGUAGES",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -15925,7 +16615,8 @@
       "name": "Clone quota group with different configurations",
       "type": "CRUD",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "CLONE_QUOTA_GROUP"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -15954,7 +16645,8 @@
       "type": "CRUD",
       "tags": [
         "CLONE_QUOTA_GROUP",
-        "COUNTRY_LANGUAGES"
+        "COUNTRY_LANGUAGES",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -15984,7 +16676,8 @@
       "type": "CRUD",
       "tags": [
         "CLONE_QUOTA_GROUP",
-        "DELIVERY"
+        "DELIVERY",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -16012,7 +16705,9 @@
       "name": "Combined feasibility and price calculation can be triggered",
       "type": "CRUD",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "PRICING",
+        "FEASIBILITY"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -16131,7 +16826,8 @@
       "name": "Copy configuration from RENAMED to RENAMED_2 and verify target quota group name is updated",
       "type": "CRUD",
       "tags": [
-        "AUDIENCE_GROUP"
+        "AUDIENCE_GROUP",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -16168,7 +16864,8 @@
       "name": "Create audience group and validate quota group name is My New Audience",
       "type": "CRUD",
       "tags": [
-        "AUDIENCE_GROUP"
+        "AUDIENCE_GROUP",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -16197,7 +16894,8 @@
       "name": "Feasibility calculation job can be triggered and read",
       "type": "CRUD",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "FEASIBILITY"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -16233,7 +16931,8 @@
       "name": "GET delivery on a non-draft QG returns deliveryMode reflecting the most recent gateway write (NXS-13089 LegacyDeliveryFieldsHandler overlay)",
       "type": "CRUD",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -16269,7 +16968,8 @@
       "name": "Get original end date for quota group",
       "type": "CRUD",
       "tags": [
-        "QUOTA_DATES"
+        "QUOTA_DATES",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -16297,7 +16997,8 @@
       "name": "Get proposed end date for quota group",
       "type": "CRUD",
       "tags": [
-        "QUOTA_DATES"
+        "QUOTA_DATES",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -16325,7 +17026,8 @@
       "name": "Get proposed start date for quota group",
       "type": "CRUD",
       "tags": [
-        "QUOTA_DATES"
+        "QUOTA_DATES",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -16353,7 +17055,8 @@
       "name": "Get quota activation date for quota group",
       "type": "CRUD",
       "tags": [
-        "QUOTA_DATES"
+        "QUOTA_DATES",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -16408,7 +17111,9 @@
       "spec": "QuotaGroupCRUDTestSteps",
       "name": "Get quota group manual status",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "QUOTA"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
       "cases": 1,
@@ -16434,7 +17139,10 @@
       "spec": "QuotaGroupCRUDTestSteps",
       "name": "Initialize audience price change for quota group",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "QUOTA",
+        "PRICING"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
       "cases": 1,
@@ -16464,7 +17172,10 @@
       "spec": "QuotaGroupCRUDTestSteps",
       "name": "Initialize audience price change with future timestamp",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "QUOTA",
+        "PRICING"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
       "cases": 1,
@@ -16494,7 +17205,10 @@
       "spec": "QuotaGroupCRUDTestSteps",
       "name": "Initialize audience price change with past timestamp",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "QUOTA",
+        "PRICING"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
       "cases": 1,
@@ -16525,7 +17239,8 @@
       "name": "New QuotaGroupRest price endpoint returns the same Price the gateway exposes on the QG",
       "type": "CRUD",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "PRICING"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -16641,7 +17356,8 @@
       "name": "Rename quota group and validate the change",
       "type": "CRUD",
       "tags": [
-        "AUDIENCE_GROUP"
+        "AUDIENCE_GROUP",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -16670,7 +17386,10 @@
       "name": "Rename quota group then clone for new country and validate cloned name",
       "type": "CRUD",
       "tags": [
-        "AUDIENCE_GROUP"
+        "AUDIENCE_GROUP",
+        "QUOTA",
+        "CLONE_QUOTA_GROUP",
+        "COUNTRY_LANGUAGES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -16845,7 +17564,8 @@
       "name": "Toggle soft launch visibility on UI",
       "type": "CRUD",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "SOFT_LAUNCH"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -16903,7 +17623,8 @@
       "name": "Update country languages for quota group",
       "type": "CRUD",
       "tags": [
-        "COUNTRY_LANGUAGES"
+        "COUNTRY_LANGUAGES",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -16959,7 +17680,9 @@
       "spec": "QuotaGroupCRUDTestSteps",
       "name": "Update line ID for quota group",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "QUOTA"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
       "cases": 1,
@@ -16990,7 +17713,9 @@
       "name": "Update proposed end date before start date fails validation",
       "type": "Validation",
       "tags": [
-        "QUOTA_DATES"
+        "QUOTA_DATES",
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -17027,7 +17752,8 @@
       "name": "Update proposed end date for quota group",
       "type": "CRUD",
       "tags": [
-        "QUOTA_DATES"
+        "QUOTA_DATES",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -17060,7 +17786,9 @@
       "name": "Update proposed end date with date in the past fails validation",
       "type": "Validation",
       "tags": [
-        "QUOTA_DATES"
+        "QUOTA_DATES",
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -17093,7 +17821,8 @@
       "name": "Update proposed start and end dates maintain proper alignment",
       "type": "CRUD",
       "tags": [
-        "QUOTA_DATES"
+        "QUOTA_DATES",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -17130,7 +17859,8 @@
       "name": "Update proposed start date for quota group",
       "type": "CRUD",
       "tags": [
-        "QUOTA_DATES"
+        "QUOTA_DATES",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -17163,7 +17893,9 @@
       "name": "Update proposed start date with date in the past fails validation",
       "type": "Validation",
       "tags": [
-        "QUOTA_DATES"
+        "QUOTA_DATES",
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -17252,7 +17984,9 @@
       "spec": "QuotaGroupCRUDTestSteps",
       "name": "Update quota group core data2",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "QUOTA"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
       "cases": 2,
@@ -17280,7 +18014,8 @@
       "name": "Update quota group dates with different start and end dates",
       "type": "CRUD",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "QUOTA_DATES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -17309,7 +18044,8 @@
       "name": "Update quota group dates with extreme values",
       "type": "CRUD",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "QUOTA_DATES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -17338,7 +18074,8 @@
       "name": "Update quota group dates with valid aligned values",
       "type": "CRUD",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "QUOTA_DATES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -17367,7 +18104,8 @@
       "name": "Update quota group settings to boundary values",
       "type": "CRUD",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -17396,7 +18134,8 @@
       "name": "Update settings with valid extreme boundary values",
       "type": "CRUD",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - CRUD Operations",
@@ -17482,7 +18221,9 @@
       "name": "Add project exclusion to quota group",
       "type": "CRUD",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17510,7 +18251,9 @@
       "name": "Delete exclusion rule that does not exist",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17539,7 +18282,10 @@
       "name": "Delete exclusion rule with invalid rule ID",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17568,7 +18314,9 @@
       "name": "Delete project exclusion from quota group",
       "type": "CRUD",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17608,7 +18356,9 @@
       "name": "Delete respondent exclusions from quota group",
       "type": "CRUD",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17636,7 +18386,9 @@
       "name": "Delete respondent exclusions when none exist",
       "type": "CRUD",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17664,7 +18416,10 @@
       "name": "Delete respondent exclusions with invalid quota group ID",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17693,7 +18448,9 @@
       "name": "Download respondent exclusions from quota group",
       "type": "Query",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17721,7 +18478,9 @@
       "name": "Download respondent exclusions when none exist",
       "type": "Query",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17749,7 +18508,10 @@
       "name": "Download respondent exclusions with invalid quota group ID",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17778,7 +18540,10 @@
       "name": "Enable exclusion rule with invalid rule ID",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17807,7 +18572,10 @@
       "name": "Get exclusion rule with invalid rule ID",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17836,7 +18604,10 @@
       "name": "Get project exclusions with invalid project ID",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17865,7 +18636,9 @@
       "name": "Get quota group project exclusions",
       "type": "Query",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17893,7 +18666,9 @@
       "name": "Get quota group respondent exclusions with pagination",
       "type": "Query",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17922,7 +18697,10 @@
       "name": "Get respondent exclusions with boundary pagination values",
       "type": "Query",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17951,7 +18729,10 @@
       "name": "Get respondent exclusions with invalid pagination parameters",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -17980,7 +18761,9 @@
       "name": "Get respondent exclusions with out of bounds page number",
       "type": "Query",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -18009,7 +18792,9 @@
       "name": "Multiple project exclusions workflow - add, update, delete",
       "type": "Workflow",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -18053,7 +18838,10 @@
       "name": "Rename exclusion rule with invalid name",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -18086,7 +18874,10 @@
       "name": "Update exclusion rule with invalid rule ID",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -18122,7 +18913,9 @@
       "name": "Update project exclusion in quota group",
       "type": "CRUD",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -18154,7 +18947,9 @@
       "name": "Update same project exclusion multiple times",
       "type": "CRUD",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -18202,7 +18997,10 @@
       "name": "Upload respondent exclusions with invalid quota group ID",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "QUOTA",
+        "DEDUPE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Deduplication & Exclusion Management",
@@ -18231,7 +19029,8 @@
       "name": "Get available prioritization levels",
       "type": "Query",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Delivery Management",
@@ -18259,7 +19058,8 @@
       "name": "Get quota group delivery settings",
       "type": "Query",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Delivery Management",
@@ -18295,7 +19095,8 @@
       "name": "Toggle delivery visibility on UI",
       "type": "CRUD",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Delivery Management",
@@ -18324,7 +19125,8 @@
       "name": "Update quota group click rate",
       "type": "CRUD",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Delivery Management",
@@ -18357,7 +19159,9 @@
       "name": "Update quota group click rate is rejected outside MANUAL delivery mode",
       "type": "Validation",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Delivery Management",
@@ -18389,7 +19193,8 @@
       "name": "Update quota group click rate using dedicated endpoint",
       "type": "CRUD",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Delivery Management",
@@ -18422,7 +19227,8 @@
       "name": "Update quota group delivery settings",
       "type": "CRUD",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Delivery Management",
@@ -18455,7 +19261,8 @@
       "name": "Update quota group prioritization level",
       "type": "CRUD",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Delivery Management",
@@ -18487,7 +19294,9 @@
       "name": "Update quota group prioritization level rejects levels the user is not entitled to",
       "type": "Validation",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Delivery Management",
@@ -18520,7 +19329,8 @@
       "name": "Update quota group prioritization level using dedicated endpoint",
       "type": "CRUD",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "QUOTA"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Delivery Management",
@@ -18548,7 +19358,9 @@
       "name": "Update quota group prioritization level using dedicated endpoint rejects levels the user is not entitled to",
       "type": "Validation",
       "tags": [
-        "DELIVERY"
+        "DELIVERY",
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Delivery Management",
@@ -18578,7 +19390,10 @@
       "type": "CRUD",
       "tags": [
         "AUDIENCE_GROUP",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "QUOTA",
+        "CLONE_QUOTA_GROUP",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Long E2E lifecycle",
@@ -18631,7 +19446,8 @@
       "type": "E2E",
       "tags": [
         "QUOTA",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Long E2E lifecycle",
@@ -18691,7 +19507,8 @@
         "DELIVERY",
         "CLONE_QUOTA_GROUP",
         "LOOKUP",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Long E2E lifecycle",
@@ -18787,7 +19604,8 @@
       "name": "Get quota group inclusion conditions",
       "type": "Query",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "INCLUSION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Inclusion Management",
@@ -18823,7 +19641,8 @@
       "name": "Get quota group inclusion settings",
       "type": "Query",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "INCLUSION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Inclusion Management",
@@ -18855,7 +19674,8 @@
       "name": "Update quota group inclusion conditions",
       "type": "CRUD",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "INCLUSION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Inclusion Management",
@@ -18891,7 +19711,8 @@
       "name": "Update quota group inclusion settings",
       "type": "CRUD",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "INCLUSION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Inclusion Management",
@@ -18931,7 +19752,10 @@
       "name": "Adhoc feasibility with too many channels is rejected",
       "type": "Validation",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "CHANNEL",
+        "FEASIBILITY",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -18959,7 +19783,8 @@
       "name": "Audience name shorter than three characters is rejected",
       "type": "Validation",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -18987,7 +19812,9 @@
       "name": "Audience price lookup for an unknown audience is rejected",
       "type": "Validation",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "PRICING",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -19015,7 +19842,9 @@
       "name": "Clone non-existent quota group",
       "type": "Validation",
       "tags": [
-        "CLONE_QUOTA_GROUP"
+        "CLONE_QUOTA_GROUP",
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -19045,7 +19874,9 @@
       "type": "Validation",
       "tags": [
         "CLONE_QUOTA_GROUP",
-        "COUNTRY_LANGUAGES"
+        "COUNTRY_LANGUAGES",
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -19075,7 +19906,9 @@
       "type": "Validation",
       "tags": [
         "CLONE_QUOTA_GROUP",
-        "COUNTRY_LANGUAGES"
+        "COUNTRY_LANGUAGES",
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -19104,7 +19937,10 @@
       "name": "Clone quota group with invalid country ISO code",
       "type": "Validation",
       "tags": [
-        "CLONE_QUOTA_GROUP"
+        "CLONE_QUOTA_GROUP",
+        "QUOTA",
+        "COUNTRY_LANGUAGES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -19133,7 +19969,10 @@
       "name": "Clone quota group with invalid language ISO codes",
       "type": "Validation",
       "tags": [
-        "CLONE_QUOTA_GROUP"
+        "CLONE_QUOTA_GROUP",
+        "QUOTA",
+        "COUNTRY_LANGUAGES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -19162,7 +20001,10 @@
       "name": "Clone quota group with unsupported country-language combinations",
       "type": "Validation",
       "tags": [
-        "CLONE_QUOTA_GROUP"
+        "CLONE_QUOTA_GROUP",
+        "QUOTA",
+        "COUNTRY_LANGUAGES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -19190,7 +20032,10 @@
       "spec": "QuotaGroupValidationTestSteps",
       "name": "Configure quota groups with invalid quota values",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "QUOTA",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
       "cases": 4,
@@ -19218,7 +20063,8 @@
       "name": "Exposed type link without a paired audience is rejected",
       "type": "Validation",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -19245,7 +20091,10 @@
       "spec": "QuotaGroupValidationTestSteps",
       "name": "Handle invalid quota group settings values",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "QUOTA",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
       "cases": 6,
@@ -19272,7 +20121,11 @@
       "spec": "QuotaGroupValidationTestSteps",
       "name": "Initialize audience price change with invalid quota group ID",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "QUOTA",
+        "PRICING",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
       "cases": 5,
@@ -19303,7 +20156,11 @@
       "spec": "QuotaGroupValidationTestSteps",
       "name": "Initialize audience price change with null timestamp",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "QUOTA",
+        "PRICING",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
       "cases": 1,
@@ -19330,7 +20187,8 @@
       "name": "Internal auto-close update is rejected as unsupported",
       "type": "Validation",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -19354,7 +20212,9 @@
       "name": "Internal channel quota update is rejected as unsupported",
       "type": "Validation",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "CHANNEL",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -19379,7 +20239,9 @@
       "type": "Validation",
       "tags": [
         "QUOTA",
-        "TALLY"
+        "TALLY",
+        "QUOTA_ON_START",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -19409,7 +20271,9 @@
       "tags": [
         "QUOTA",
         "TALLY",
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "QUOTA_ON_COMPLETE",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -19437,7 +20301,8 @@
       "name": "Total quota approve for a missing audience is rejected",
       "type": "Validation",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -19465,7 +20330,8 @@
       "name": "Total quota approve is rejected for non Dynata Plus audiences",
       "type": "Validation",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -19493,7 +20359,8 @@
       "name": "Total quota update for an unknown quota group is rejected",
       "type": "Validation",
       "tags": [
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
@@ -19521,7 +20388,10 @@
       "spec": "QuotaGroupValidationTestSteps",
       "name": "Update audience group ID with invalid ID",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "QUOTA",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
       "cases": 7,
@@ -19552,7 +20422,11 @@
       "spec": "QuotaGroupValidationTestSteps",
       "name": "Update country languages with invalid country ISO",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "QUOTA",
+        "COUNTRY_LANGUAGES",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
       "cases": 9,
@@ -19579,7 +20453,11 @@
       "spec": "QuotaGroupValidationTestSteps",
       "name": "Update country languages with invalid language ISO",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "QUOTA",
+        "COUNTRY_LANGUAGES",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
       "cases": 7,
@@ -19606,7 +20484,10 @@
       "spec": "QuotaGroupValidationTestSteps",
       "name": "Update quota group core with invalid bid incidence",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "QUOTA",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
       "cases": 7,
@@ -19633,7 +20514,10 @@
       "spec": "QuotaGroupValidationTestSteps",
       "name": "Update quota group core with non-existent quota group ID",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "QUOTA",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
       "cases": 7,
@@ -19660,7 +20544,11 @@
       "spec": "QuotaGroupValidationTestSteps",
       "name": "Update quota group dates with invalid alignment",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "QUOTA_DATES",
+        "QUOTA",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
       "cases": 5,
@@ -19687,7 +20575,10 @@
       "spec": "QuotaGroupValidationTestSteps",
       "name": "Update quota group settings with invalid quota group ID",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "QUOTA",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
       "cases": 7,
@@ -19714,7 +20605,10 @@
       "spec": "QuotaGroupValidationTestSteps",
       "name": "Update quota group status with invalid status",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "QUOTA",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
       "cases": 3,
@@ -19741,7 +20635,10 @@
       "spec": "QuotaGroupValidationTestSteps",
       "name": "Update settings with invalid extreme boundary values",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "QUOTA",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Validation & Error Handling",
       "cases": 2,
@@ -19770,7 +20667,9 @@
       "type": "Workflow",
       "tags": [
         "QUOTA",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "FEASIBILITY",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
@@ -19807,7 +20706,9 @@
       "type": "Workflow",
       "tags": [
         "QUOTA",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "PRICING",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
@@ -19846,7 +20747,9 @@
         "QUOTA",
         "TALLY",
         "CLONE_QUOTA_GROUP",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "CHANNEL",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
@@ -19892,7 +20795,8 @@
       "tags": [
         "CLONE_QUOTA_GROUP",
         "QUOTA",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
@@ -19982,7 +20886,8 @@
       "type": "Workflow",
       "tags": [
         "QUOTA",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
@@ -20012,7 +20917,8 @@
       "tags": [
         "QUOTA",
         "TALLY",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
@@ -20044,7 +20950,9 @@
       "name": "Move quota group between audience groups and verify integrity",
       "type": "Workflow",
       "tags": [
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "QUOTA",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
@@ -20084,7 +20992,9 @@
       "name": "Multiple quota updates work correctly with disqualification parameter",
       "type": "Workflow",
       "tags": [
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "QUOTA",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
@@ -20127,7 +21037,9 @@
         "QUOTA",
         "TALLY",
         "CLONE_QUOTA_GROUP",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "COUNTRY_LANGUAGES",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
@@ -20201,7 +21113,9 @@
       "tags": [
         "QUOTA",
         "TALLY",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "CHANNEL",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
@@ -20249,7 +21163,10 @@
       "name": "Total quota updates correctly with disqualification parameter after failed equivalency",
       "type": "Workflow",
       "tags": [
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "QUOTA",
+        "VALIDATION",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
@@ -20297,7 +21214,9 @@
       "name": "Total quota updates correctly with multiple disqualification parameters",
       "type": "Workflow",
       "tags": [
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "QUOTA",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
@@ -20345,7 +21264,10 @@
       "name": "Update country languages and verify localization changes",
       "type": "Workflow",
       "tags": [
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "QUOTA",
+        "COUNTRY_LANGUAGES",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
@@ -20381,7 +21303,9 @@
       "name": "Update line ID and verify tracking across system",
       "type": "Workflow",
       "tags": [
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "QUOTA",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
@@ -20417,7 +21341,9 @@
       "name": "Update quota group core and verify all fields persist",
       "type": "Workflow",
       "tags": [
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "QUOTA",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
@@ -20447,7 +21373,8 @@
       "type": "Workflow",
       "tags": [
         "QUOTA",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Complex Workflows & Integration",
@@ -20482,7 +21409,9 @@
       "tags": [
         "CHANNEL_CRITERIA",
         "CC_MIRRORED",
-        "BRAND_EXCLUSION"
+        "BRAND_EXCLUSION",
+        "SAMPLE_RULES",
+        "EXCLUSION_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules",
@@ -20524,7 +21453,9 @@
       "type": "CRUD",
       "tags": [
         "CHANNEL_CRITERIA",
-        "BRAND_EXCLUSION"
+        "BRAND_EXCLUSION",
+        "SAMPLE_RULES",
+        "EXCLUSION_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules",
@@ -20558,7 +21489,9 @@
       "type": "CRUD",
       "tags": [
         "CHANNEL_CRITERIA",
-        "CC_CUSTOM"
+        "CC_CUSTOM",
+        "SAMPLE_RULES",
+        "CHANNEL"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules",
@@ -20592,7 +21525,9 @@
       "type": "CRUD",
       "tags": [
         "CHANNEL_CRITERIA",
-        "CC_NATURAL"
+        "CC_NATURAL",
+        "SAMPLE_RULES",
+        "CHANNEL"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules",
@@ -20626,7 +21561,8 @@
       "type": "CRUD",
       "tags": [
         "CHANNEL_CRITERIA",
-        "CC_MIRRORED"
+        "CC_MIRRORED",
+        "SAMPLE_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules",
@@ -20667,7 +21603,8 @@
       "name": "Configure sample criteria without copying",
       "type": "CRUD",
       "tags": [
-        "CHANNEL_CRITERIA"
+        "CHANNEL_CRITERIA",
+        "SAMPLE_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules",
@@ -20701,7 +21638,9 @@
       "type": "CRUD",
       "tags": [
         "CHANNEL_CRITERIA",
-        "CC_MIRRORED"
+        "CC_MIRRORED",
+        "SAMPLE_RULES",
+        "CHANNEL"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules",
@@ -20742,7 +21681,8 @@
       "name": "View project exclusion rules",
       "type": "Query",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "SAMPLE_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules",
@@ -20775,7 +21715,10 @@
       "name": "Configure manual channel distribution with invalid percentages",
       "type": "Validation",
       "tags": [
-        "CHANNEL_CRITERIA"
+        "CHANNEL_CRITERIA",
+        "SAMPLE_RULES",
+        "CHANNEL",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules - Validation & Error Handling",
@@ -20804,7 +21747,9 @@
       "name": "Configure manual distribution with invalid extreme values",
       "type": "Validation",
       "tags": [
-        "CHANNEL_CRITERIA"
+        "CHANNEL_CRITERIA",
+        "SAMPLE_RULES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules - Validation & Error Handling",
@@ -20833,7 +21778,9 @@
       "name": "Configure sample criteria with all possible combinations",
       "type": "CRUD",
       "tags": [
-        "CHANNEL_CRITERIA"
+        "CHANNEL_CRITERIA",
+        "SAMPLE_RULES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules - Validation & Error Handling",
@@ -20866,7 +21813,9 @@
       "name": "Configure sample criteria with invalid quota group ID [quotaGroupId: #quotaGroupId] <Phase: #phase>",
       "type": "Validation",
       "tags": [
-        "CHANNEL_CRITERIA"
+        "CHANNEL_CRITERIA",
+        "SAMPLE_RULES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules - Validation & Error Handling",
@@ -20895,7 +21844,9 @@
       "name": "Configure sample criteria with unsupported criteria",
       "type": "Validation",
       "tags": [
-        "CHANNEL_CRITERIA"
+        "CHANNEL_CRITERIA",
+        "SAMPLE_RULES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules - Validation & Error Handling",
@@ -20925,7 +21876,10 @@
       "type": "CRUD",
       "tags": [
         "CHANNEL_CRITERIA",
-        "CC_MIRRORED"
+        "CC_MIRRORED",
+        "SAMPLE_RULES",
+        "CHANNEL",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules - Validation & Error Handling",
@@ -20959,7 +21913,9 @@
       "type": "Validation",
       "tags": [
         "CHANNEL_CRITERIA",
-        "CC_MIRRORED"
+        "CC_MIRRORED",
+        "SAMPLE_RULES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules - Validation & Error Handling",
@@ -20988,7 +21944,9 @@
       "name": "Update exclusion rules with invalid configurations",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "SAMPLE_RULES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules - Validation & Error Handling",
@@ -21017,7 +21975,9 @@
       "name": "View exclusion rules with invalid project ID",
       "type": "Validation",
       "tags": [
-        "EXCLUSION_RULES"
+        "EXCLUSION_RULES",
+        "SAMPLE_RULES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules - Validation & Error Handling",
@@ -21046,7 +22006,8 @@
       "name": "Apply default sources with empty target list",
       "type": "Query",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "SAMPLE_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sources - Apply Sources",
@@ -21078,7 +22039,8 @@
       "name": "Apply sources to copy configuration from source",
       "type": "CRUD",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "SAMPLE_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sources - Apply Sources",
@@ -21114,7 +22076,8 @@
       "name": "Apply sources to multiple target quota groups simultaneously",
       "type": "CRUD",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "SAMPLE_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sources - Apply Sources",
@@ -21147,7 +22110,8 @@
       "name": "Apply sources with both sample requirements and brand restrictions",
       "type": "CRUD",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "SAMPLE_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sources - Apply Sources",
@@ -21179,7 +22143,11 @@
       "name": "Default source quotas with an invalid country yield no channels",
       "type": "Validation",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "SAMPLE_RULES",
+        "CHANNEL",
+        "COUNTRY_LANGUAGES",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sources - Apply Sources",
@@ -21207,7 +22175,9 @@
       "name": "Default source quotas with panel ids are returned for a feasibility filter",
       "type": "Query",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "SAMPLE_RULES",
+        "FEASIBILITY"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sources - Apply Sources",
@@ -21235,7 +22205,8 @@
       "name": "Get apply sources toggles for multiple audience groups",
       "type": "Query",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "SAMPLE_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sources - Apply Sources",
@@ -21267,7 +22238,8 @@
       "name": "Get apply sources toggles for quota groups",
       "type": "Query",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "SAMPLE_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sources - Apply Sources",
@@ -21299,7 +22271,8 @@
       "name": "Preview mirroring of source setup options",
       "type": "CRUD",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "SAMPLE_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sources - Apply Sources",
@@ -21331,7 +22304,10 @@
       "name": "Get apply sources brand exclusions for multiple audience groups",
       "type": "Query",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "SAMPLE_RULES",
+        "BRAND_EXCLUSION",
+        "EXCLUSION_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sources - Brand Exclusions",
@@ -21363,7 +22339,10 @@
       "name": "Get apply sources brand exclusions for quota groups",
       "type": "Query",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "SAMPLE_RULES",
+        "BRAND_EXCLUSION",
+        "EXCLUSION_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sources - Brand Exclusions",
@@ -21395,7 +22374,10 @@
       "name": "Save brand exclusions for all quota groups in project",
       "type": "CRUD",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "SAMPLE_RULES",
+        "BRAND_EXCLUSION",
+        "EXCLUSION_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sources - Brand Exclusions",
@@ -21428,7 +22410,10 @@
       "name": "Save brand exclusions for project with empty brand list",
       "type": "Query",
       "tags": [
-        "SOURCES"
+        "SOURCES",
+        "SAMPLE_RULES",
+        "BRAND_EXCLUSION",
+        "EXCLUSION_RULES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Sources - Brand Exclusions",
@@ -21582,7 +22567,8 @@
       "type": "Validation",
       "tags": [
         "SEGMENTS",
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments \u2014 hidden flag (NXS-12822)",
@@ -21619,7 +22605,8 @@
       "type": "CRUD",
       "tags": [
         "SEGMENTS",
-        "QUOTA"
+        "QUOTA",
+        "NESTED"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments \u2014 hidden flag (NXS-12822)",
@@ -21709,7 +22696,8 @@
       "type": "CRUD",
       "tags": [
         "SEGMENTS",
-        "QUOTA"
+        "QUOTA",
+        "NESTED"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments \u2014 hidden flag (NXS-12822)",
@@ -21758,7 +22746,8 @@
       "type": "CRUD",
       "tags": [
         "SEGMENTS",
-        "QUOTA"
+        "QUOTA",
+        "NESTED"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments \u2014 hidden flag (NXS-12822)",
@@ -22439,7 +23428,9 @@
       "spec": "SegmentsCRUDTestSteps",
       "name": "Update multiple segment statuses in bulk",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SEGMENTS"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Sample Rules - CRUD Operations",
       "cases": 2,
@@ -22640,7 +23631,8 @@
       "name": "Bulk condition percent update totaling over 100% is rejected",
       "type": "Validation",
       "tags": [
-        "SEGMENTS"
+        "SEGMENTS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -22668,7 +23660,8 @@
       "name": "Get available quota distribution modes with invalid request format",
       "type": "Validation",
       "tags": [
-        "SEGMENTS"
+        "SEGMENTS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -22697,7 +23690,8 @@
       "name": "Get available quota distribution modes with non-existent quota group",
       "type": "Validation",
       "tags": [
-        "SEGMENTS"
+        "SEGMENTS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -22726,7 +23720,8 @@
       "name": "Get available quota distribution modes with quota group in invalid state",
       "type": "Validation",
       "tags": [
-        "SEGMENTS"
+        "SEGMENTS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -22763,7 +23758,8 @@
       "name": "Update individual segment status with case sensitivity test",
       "type": "Validation",
       "tags": [
-        "SEGMENTS"
+        "SEGMENTS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -22796,7 +23792,8 @@
       "name": "Update individual segment status with invalid status values",
       "type": "Validation",
       "tags": [
-        "SEGMENTS"
+        "SEGMENTS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -22829,7 +23826,8 @@
       "name": "Update individual segment status with non-existent segment ID",
       "type": "Validation",
       "tags": [
-        "SEGMENTS"
+        "SEGMENTS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -22862,7 +23860,8 @@
       "name": "Update segment condition percentages totaling over 100%",
       "type": "Validation",
       "tags": [
-        "SEGMENTS"
+        "SEGMENTS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -22895,7 +23894,8 @@
       "name": "Update segment condition percentages with invalid condition order",
       "type": "Validation",
       "tags": [
-        "SEGMENTS"
+        "SEGMENTS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -22928,7 +23928,8 @@
       "name": "Update segment condition percentages with invalid parameter ID",
       "type": "Validation",
       "tags": [
-        "SEGMENTS"
+        "SEGMENTS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -22961,7 +23962,8 @@
       "name": "Update segment condition percentages with negative percentages",
       "type": "Validation",
       "tags": [
-        "SEGMENTS"
+        "SEGMENTS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -22995,7 +23997,8 @@
       "type": "Validation",
       "tags": [
         "SEGMENTS",
-        "NESTED"
+        "NESTED",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23029,7 +24032,8 @@
       "type": "Validation",
       "tags": [
         "SEGMENTS",
-        "NESTED"
+        "NESTED",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23063,7 +24067,8 @@
       "type": "Validation",
       "tags": [
         "SEGMENTS",
-        "NESTED"
+        "NESTED",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23097,7 +24102,8 @@
       "type": "Validation",
       "tags": [
         "SEGMENTS",
-        "NESTED"
+        "NESTED",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23131,7 +24137,8 @@
       "type": "CRUD",
       "tags": [
         "SEGMENTS",
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23173,7 +24180,8 @@
       "type": "CRUD",
       "tags": [
         "SEGMENTS",
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23211,7 +24219,8 @@
       "type": "Validation",
       "tags": [
         "SEGMENTS",
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23245,7 +24254,8 @@
       "type": "Validation",
       "tags": [
         "SEGMENTS",
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23279,7 +24289,8 @@
       "type": "Validation",
       "tags": [
         "SEGMENTS",
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23313,7 +24324,8 @@
       "type": "Validation",
       "tags": [
         "SEGMENTS",
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23347,7 +24359,8 @@
       "type": "Validation",
       "tags": [
         "SEGMENTS",
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23385,7 +24398,8 @@
       "type": "CRUD",
       "tags": [
         "SEGMENTS",
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23423,7 +24437,8 @@
       "type": "CRUD",
       "tags": [
         "SEGMENTS",
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23461,7 +24476,8 @@
       "type": "Validation",
       "tags": [
         "SEGMENTS",
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23495,7 +24511,8 @@
       "type": "Validation",
       "tags": [
         "SEGMENTS",
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23529,7 +24546,8 @@
       "type": "Validation",
       "tags": [
         "SEGMENTS",
-        "QUOTA"
+        "QUOTA",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23563,7 +24581,8 @@
       "type": "Validation",
       "tags": [
         "SEGMENTS",
-        "PARAMETER"
+        "PARAMETER",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Validation & Error Handling",
@@ -23594,7 +24613,8 @@
       "tags": [
         "SEGMENTS",
         "QUOTA",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -23635,7 +24655,9 @@
       "name": "Complete segment management workflow from setup to quota adjustment",
       "type": "Workflow",
       "tags": [
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "SEGMENTS",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -23725,7 +24747,8 @@
       "tags": [
         "SEGMENTS",
         "NESTED",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -23800,7 +24823,8 @@
       "tags": [
         "SEGMENTS",
         "NESTED",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -23838,7 +24862,8 @@
       "type": "Workflow",
       "tags": [
         "SEGMENTS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -23885,7 +24910,8 @@
       "tags": [
         "SEGMENTS",
         "NESTED",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -23924,7 +24950,8 @@
       "tags": [
         "SEGMENTS",
         "QUOTA",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -23970,7 +24997,8 @@
       "tags": [
         "SEGMENTS",
         "QUOTA",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -24016,7 +25044,8 @@
       "tags": [
         "SEGMENTS",
         "PARAMETER",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -24063,7 +25092,8 @@
       "tags": [
         "SEGMENTS",
         "NESTED",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -24102,7 +25132,8 @@
       "tags": [
         "SEGMENTS",
         "QUOTA",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -24145,7 +25176,8 @@
       "tags": [
         "SEGMENTS",
         "QUOTA",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -24187,7 +25219,10 @@
       "type": "Workflow",
       "tags": [
         "SEGMENTS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "TALLY",
+        "QUOTA_ON_START",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -24224,7 +25259,8 @@
       "type": "Workflow",
       "tags": [
         "SEGMENTS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -24261,7 +25297,8 @@
       "type": "Workflow",
       "tags": [
         "SEGMENTS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -24298,7 +25335,9 @@
       "type": "Workflow",
       "tags": [
         "SEGMENTS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "NESTED",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -24339,7 +25378,8 @@
       "type": "Workflow",
       "tags": [
         "SEGMENTS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -24380,7 +25420,10 @@
       "type": "Workflow",
       "tags": [
         "SEGMENTS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "TALLY",
+        "NESTED",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -24457,7 +25500,8 @@
       "type": "Workflow",
       "tags": [
         "SEGMENTS",
-        "PR_SMOKE"
+        "PR_SMOKE",
+        "E2E"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Segments - Complex Workflows & Integration",
@@ -24558,7 +25602,8 @@
       "name": "Chameleon hashed user id is rejected for a blank guid",
       "type": "Validation",
       "tags": [
-        "USER_SETTINGS"
+        "USER_SETTINGS",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "User Settings",
@@ -24641,7 +25686,9 @@
       "spec": "UserSettingsTestSteps",
       "name": "Get user settings",
       "type": "Query",
-      "tags": [],
+      "tags": [
+        "USER_SETTINGS"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "User Settings",
       "cases": 1,
@@ -24667,7 +25714,9 @@
       "spec": "UserSettingsTestSteps",
       "name": "Set default audience template",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "USER_SETTINGS"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "User Settings",
       "cases": 1,
@@ -24693,7 +25742,9 @@
       "spec": "UserSettingsTestSteps",
       "name": "Set default audience template for specific user",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "USER_SETTINGS"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "User Settings",
       "cases": 1,
@@ -24719,7 +25770,9 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Activate cloned survey independently",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -24813,7 +25866,11 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Change end-link security settings",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "URL_POOL",
+        "END_LINK_SECURITY"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 5,
@@ -24881,7 +25938,8 @@
       "name": "Clone survey preserves exact prescreener URL",
       "type": "CRUD",
       "tags": [
-        "SURVEY"
+        "SURVEY",
+        "PRESCREENER"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
@@ -24908,7 +25966,10 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Clone survey with prescreener configuration",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "PRESCREENER"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -24954,7 +26015,11 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Configure end-link security settings",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "URL_POOL",
+        "END_LINK_SECURITY"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -24980,7 +26045,11 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Configure prescreener with different URL patterns",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "URL_POOL",
+        "PRESCREENER"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -25042,7 +26111,9 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Deactivate survey",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -25080,7 +26151,9 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Delete original survey after cloning",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -25114,7 +26187,10 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Disconnect quota group from URL pool",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "URL_POOL"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -25153,7 +26229,9 @@
       "name": "End-link security",
       "type": "CRUD",
       "tags": [
-        "SURVEY"
+        "SURVEY",
+        "URL_POOL",
+        "END_LINK_SECURITY"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
@@ -25181,7 +26259,9 @@
       "name": "End-link testing",
       "type": "CRUD",
       "tags": [
-        "SURVEY"
+        "SURVEY",
+        "URL_POOL",
+        "END_LINK_SECURITY"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
@@ -25220,7 +26300,10 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Export survey URL pool values",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "URL_POOL"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -25258,7 +26341,10 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Export survey test results by URL pool IDs",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "URL_POOL"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -25300,7 +26386,12 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Generate presigned URL for file upload",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "UPLOAD_URLS",
+        "URL_POOL",
+        "END_LINK_SECURITY"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -25342,7 +26433,10 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Generate test links for survey",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "URL_POOL"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -25384,7 +26478,10 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Generate test links with different configurations",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "URL_POOL"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 7,
@@ -25419,7 +26516,10 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Get URL pool environments",
       "type": "Query",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "URL_POOL"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -25449,7 +26549,10 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Get list of test links",
       "type": "Query",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "URL_POOL"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -25483,7 +26586,9 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Get survey testing records",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -25525,7 +26630,10 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Get test links from S3",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "URL_POOL"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -25559,7 +26667,9 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Modify cloned survey URL independently",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -25593,7 +26703,9 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Modify cloned survey name independently",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -25628,7 +26740,8 @@
       "name": "Prescreener setup",
       "type": "CRUD",
       "tags": [
-        "SURVEY"
+        "SURVEY",
+        "PRESCREENER"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
@@ -25655,7 +26768,10 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Remove prescreener configuration",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "PRESCREENER"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -25833,7 +26949,10 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Update existing prescreener URL",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "PRESCREENER"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 1,
@@ -25867,7 +26986,10 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Update survey URL pattern",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "URL_POOL"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 7,
@@ -25898,7 +27020,9 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Update survey length",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 2,
@@ -25933,7 +27057,9 @@
       "spec": "SurveyCRUDTestSteps",
       "name": "Update survey name with valid edge cases",
       "type": "CRUD",
-      "tags": [],
+      "tags": [
+        "SURVEY"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
       "cases": 6,
@@ -25965,7 +27091,9 @@
       "name": "Uploaded survey URL file can be processed and sample values read",
       "type": "CRUD",
       "tags": [
-        "SURVEY"
+        "SURVEY",
+        "UPLOAD_URLS",
+        "URL_POOL"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys",
@@ -26013,7 +27141,8 @@
       "name": "Base URL with tags rejects an empty tag list",
       "type": "Validation",
       "tags": [
-        "SURVEY"
+        "SURVEY",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys - Validation Tests",
@@ -26040,7 +27169,12 @@
       "spec": "SurveyValidationTestSteps",
       "name": "Configure end-link security with invalid value",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "URL_POOL",
+        "END_LINK_SECURITY",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys - Validation Tests",
       "cases": 1,
@@ -26066,7 +27200,11 @@
       "spec": "SurveyValidationTestSteps",
       "name": "Configure prescreener with invalid URL",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "PRESCREENER",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys - Validation Tests",
       "cases": 1,
@@ -26104,7 +27242,11 @@
       "spec": "SurveyValidationTestSteps",
       "name": "Generate test links with invalid parameters",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "URL_POOL",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys - Validation Tests",
       "cases": 6,
@@ -26140,7 +27282,10 @@
       "name": "Processing an unknown uploaded survey file is rejected",
       "type": "Validation",
       "tags": [
-        "SURVEY"
+        "SURVEY",
+        "UPLOAD_URLS",
+        "URL_POOL",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys - Validation Tests",
@@ -26168,7 +27313,8 @@
       "name": "Survey project id lookup for an unknown survey is rejected",
       "type": "Validation",
       "tags": [
-        "SURVEY"
+        "SURVEY",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys - Validation Tests",
@@ -26196,7 +27342,8 @@
       "name": "Survey re-validation for an unknown survey is rejected",
       "type": "Validation",
       "tags": [
-        "SURVEY"
+        "SURVEY",
+        "VALIDATION"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys - Validation Tests",
@@ -26223,7 +27370,10 @@
       "spec": "SurveyValidationTestSteps",
       "name": "Update survey length with invalid values",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys - Validation Tests",
       "cases": 4,
@@ -26254,7 +27404,10 @@
       "spec": "SurveyValidationTestSteps",
       "name": "Update survey name with invalid values",
       "type": "Validation",
-      "tags": [],
+      "tags": [
+        "SURVEY",
+        "VALIDATION"
+      ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Surveys - Validation Tests",
       "cases": 4,
@@ -26287,7 +27440,8 @@
       "type": "Workflow",
       "tags": [
         "PES2",
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "PES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "PES - quota group change notifications (PES2 stream)",
@@ -26316,7 +27470,8 @@
       "type": "Workflow",
       "tags": [
         "PES2",
-        "PARTNER_EVENT"
+        "PARTNER_EVENT",
+        "PES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "PES - quota group change notifications (PES2 stream)",
@@ -26341,7 +27496,8 @@
       "type": "Workflow",
       "tags": [
         "PES2",
-        "SOFT_LAUNCH"
+        "SOFT_LAUNCH",
+        "PES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "PES - quota group change notifications (PES2 stream)",
@@ -26366,7 +27522,8 @@
       "type": "Workflow",
       "tags": [
         "PES2",
-        "TALLY"
+        "TALLY",
+        "PES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "PES - quota group change notifications (PES2 stream)",
@@ -26391,7 +27548,8 @@
       "type": "Workflow",
       "tags": [
         "PES2",
-        "QUOTA"
+        "QUOTA",
+        "PES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "PES - quota group change notifications (PES2 stream)",

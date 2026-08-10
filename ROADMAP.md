@@ -29,7 +29,7 @@ method×domain heuristic until Honeycomb traffic export lands. Still open: traff
 ranking, helper→Feign→spec linkage, feature/requirement lens.
 
 ### Nightly run report (TeamCity) — overview slice shipped
-**Nightly Run** page (`nightly.html`): latest finished build on the GeriTests J16 TeamCity config — pass/fail/muted/ignored, duration, non-muted failures, TC deep-link, short trend. Data flow: `automation/tc_fetch_nightly.py` → `dashboard/tools/generate_nightly.py` → `data/nightly.json`. Morning job: `automation/agent-jobs/dashboard-publish.sh` (cron ~06:30).
+**Nightly Run** page (`nightly.html`): latest finished build on the **Regression Test QA → Nightly** TeamCity config (`…_RegressionTestQa_Nightly`, J21) — pass/fail/muted/ignored, duration, non-muted failures, TC deep-link, short trend. Data flow: `automation/tc_fetch_nightly.py` → `dashboard/tools/generate_nightly.py` → `data/nightly.json`. Morning job: `automation/agent-jobs/dashboard-publish.sh` (cron ~06:30).
 
 ### AI platform engineering work log
 A separate portfolio/changelog of AI platform tasks delivered: title, date, description, impact,

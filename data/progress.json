@@ -1,61 +1,63 @@
 {
-  "generatedAt": "2026-08-08T02:12Z",
+  "generatedAt": "2026-08-10T07:39Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-08-02",
-      "to": "2026-08-08",
-      "featuresAdded": 13,
-      "casesAdded": 13,
-      "areasTouched": 5,
-      "ticketsTouched": 2,
+      "from": "2026-08-04",
+      "to": "2026-08-10",
+      "featuresAdded": 4,
+      "casesAdded": 4,
+      "areasTouched": 2,
+      "ticketsTouched": 1,
       "byType": {
-        "CRUD": 1,
-        "Validation": 6,
-        "Workflow": 1,
-        "Query": 1,
+        "Validation": 1,
         "E2E": 1,
-        "Other": 3
+        "Other": 2
       },
       "byArea": [
         {
-          "area": "PartnerEvent",
+          "area": "BOS",
           "featuresAdded": 3
         },
         {
           "area": "QuotaGroup",
-          "featuresAdded": 3
-        },
-        {
-          "area": "Settings",
-          "featuresAdded": 3
-        },
-        {
-          "area": "BOS",
-          "featuresAdded": 2
-        },
-        {
-          "area": "SampleRules",
-          "featuresAdded": 2
+          "featuresAdded": 1
         }
       ],
       "tickets": [
         {
-          "key": "NXS-13561",
-          "featuresAdded": 10,
-          "casesAdded": 10,
-          "latestDate": "2026-08-03"
-        },
-        {
           "key": "NXS-13653",
-          "featuresAdded": 3,
-          "casesAdded": 3,
-          "latestDate": "2026-08-07"
+          "featuresAdded": 4,
+          "casesAdded": 4,
+          "latestDate": "2026-08-08"
         }
       ],
       "additions": [
+        {
+          "name": "sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+          "date": "2026-08-08",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13653 MS - Migrate D365 + CRM-field-parity workflows into tagged tests/steps",
+          "commit": "6706f183ea",
+          "tickets": [
+            "NXS-13653"
+          ],
+          "area": "BOS",
+          "spec": "BosSampleCreationTestSteps",
+          "type": "Other",
+          "cases": 1,
+          "tags": [
+            "CREATE_QUOTE",
+            "QUOTE_2_ORDER",
+            "PROJECT_ACCEPT",
+            "CRM_FIELDS"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=sample%20creation%20-%20CRM%20fields%20propagate%20across%20QUOTE%2C%20ORDER%20and%20PROJECT"
+        },
         {
           "name": "Switching tally mode to By Starts is rejected when totalStartQuota is not set",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
@@ -72,7 +74,9 @@
           "cases": 1,
           "tags": [
             "QUOTA",
-            "TALLY"
+            "TALLY",
+            "QUOTA_ON_START",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Switching%20tally%20mode%20to%20By%20Starts%20is%20rejected%20when%20totalStartQuota%20is%20not%20set"
@@ -116,218 +120,14 @@
           "ignored": false,
           "inventoryHref": "inventory.html?q=sample%20creation%20-%20MMR",
           "gone": true
-        },
-        {
-          "name": "Distinct user guids yield distinct Chameleon hashed identities",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "Settings",
-          "spec": "UserSettingsTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "USER_SETTINGS"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Distinct%20user%20guids%20yield%20distinct%20Chameleon%20hashed%20identities"
-        },
-        {
-          "name": "Chameleon hashed user id is returned for a non-blank guid",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "Settings",
-          "spec": "UserSettingsTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "USER_SETTINGS"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Chameleon%20hashed%20user%20id%20is%20returned%20for%20a%20non-blank%20guid"
-        },
-        {
-          "name": "Chameleon hashed user id is rejected for a blank guid",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "Settings",
-          "spec": "UserSettingsTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "USER_SETTINGS"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Chameleon%20hashed%20user%20id%20is%20rejected%20for%20a%20blank%20guid"
-        },
-        {
-          "name": "Default source quotas with panel ids are returned for a feasibility filter",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/SampleRules/SourcesApplyTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "SampleRules",
-          "spec": "SourcesApplyTestSteps",
-          "type": "Query",
-          "cases": 1,
-          "tags": [
-            "SOURCES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Default%20source%20quotas%20with%20panel%20ids%20are%20returned%20for%20a%20feasibility%20filter"
-        },
-        {
-          "name": "Default source quotas with an invalid country yield no channels",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/SampleRules/SourcesApplyTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "SampleRules",
-          "spec": "SourcesApplyTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "SOURCES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Default%20source%20quotas%20with%20an%20invalid%20country%20yield%20no%20channels"
-        },
-        {
-          "name": "Total quota approve is rejected for non Dynata Plus audiences",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Total%20quota%20approve%20is%20rejected%20for%20non%20Dynata%20Plus%20audiences"
-        },
-        {
-          "name": "Total quota approve for a missing audience is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Total%20quota%20approve%20for%20a%20missing%20audience%20is%20rejected"
-        },
-        {
-          "name": "Partner event remains available after metrics embed URL is retrieved",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventWorkflowTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT",
-            "REX_EVENT",
-            "PR_SMOKE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Partner%20event%20remains%20available%20after%20metrics%20embed%20URL%20is%20retrieved"
-        },
-        {
-          "name": "Partner event metrics for a missing partner event are rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventValidationTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT",
-            "REX_EVENT"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Partner%20event%20metrics%20for%20a%20missing%20partner%20event%20are%20rejected"
-        },
-        {
-          "name": "Partner event metrics embed URL is returned for an existing partner event",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventCRUDTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT",
-            "REX_EVENT"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Partner%20event%20metrics%20embed%20URL%20is%20returned%20for%20an%20existing%20partner%20event"
         }
       ]
     },
     "14d": {
-      "from": "2026-07-26",
-      "to": "2026-08-08",
-      "featuresAdded": 13,
-      "casesAdded": 13,
+      "from": "2026-07-28",
+      "to": "2026-08-10",
+      "featuresAdded": 14,
+      "casesAdded": 14,
       "areasTouched": 5,
       "ticketsTouched": 2,
       "byType": {
@@ -336,9 +136,13 @@
         "Workflow": 1,
         "Query": 1,
         "E2E": 1,
-        "Other": 3
+        "Other": 4
       },
       "byArea": [
+        {
+          "area": "BOS",
+          "featuresAdded": 3
+        },
         {
           "area": "PartnerEvent",
           "featuresAdded": 3
@@ -350,10 +154,6 @@
         {
           "area": "Settings",
           "featuresAdded": 3
-        },
-        {
-          "area": "BOS",
-          "featuresAdded": 2
         },
         {
           "area": "SampleRules",
@@ -369,12 +169,35 @@
         },
         {
           "key": "NXS-13653",
-          "featuresAdded": 3,
-          "casesAdded": 3,
-          "latestDate": "2026-08-07"
+          "featuresAdded": 4,
+          "casesAdded": 4,
+          "latestDate": "2026-08-08"
         }
       ],
       "additions": [
+        {
+          "name": "sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+          "date": "2026-08-08",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13653 MS - Migrate D365 + CRM-field-parity workflows into tagged tests/steps",
+          "commit": "6706f183ea",
+          "tickets": [
+            "NXS-13653"
+          ],
+          "area": "BOS",
+          "spec": "BosSampleCreationTestSteps",
+          "type": "Other",
+          "cases": 1,
+          "tags": [
+            "CREATE_QUOTE",
+            "QUOTE_2_ORDER",
+            "PROJECT_ACCEPT",
+            "CRM_FIELDS"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=sample%20creation%20-%20CRM%20fields%20propagate%20across%20QUOTE%2C%20ORDER%20and%20PROJECT"
+        },
         {
           "name": "Switching tally mode to By Starts is rejected when totalStartQuota is not set",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
@@ -391,7 +214,9 @@
           "cases": 1,
           "tags": [
             "QUOTA",
-            "TALLY"
+            "TALLY",
+            "QUOTA_ON_START",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Switching%20tally%20mode%20to%20By%20Starts%20is%20rejected%20when%20totalStartQuota%20is%20not%20set"
@@ -491,7 +316,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "USER_SETTINGS"
+            "USER_SETTINGS",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Chameleon%20hashed%20user%20id%20is%20rejected%20for%20a%20blank%20guid"
@@ -511,7 +337,9 @@
           "type": "Query",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES",
+            "FEASIBILITY"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Default%20source%20quotas%20with%20panel%20ids%20are%20returned%20for%20a%20feasibility%20filter"
@@ -531,7 +359,11 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES",
+            "CHANNEL",
+            "COUNTRY_LANGUAGES",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Default%20source%20quotas%20with%20an%20invalid%20country%20yield%20no%20channels"
@@ -551,7 +383,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Total%20quota%20approve%20is%20rejected%20for%20non%20Dynata%20Plus%20audiences"
@@ -571,7 +404,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Total%20quota%20approve%20for%20a%20missing%20audience%20is%20rejected"
@@ -593,7 +427,8 @@
           "tags": [
             "PARTNER_EVENT",
             "REX_EVENT",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Partner%20event%20remains%20available%20after%20metrics%20embed%20URL%20is%20retrieved"
@@ -614,7 +449,8 @@
           "cases": 1,
           "tags": [
             "PARTNER_EVENT",
-            "REX_EVENT"
+            "REX_EVENT",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Partner%20event%20metrics%20for%20a%20missing%20partner%20event%20are%20rejected"
@@ -643,10 +479,10 @@
       ]
     },
     "30d": {
-      "from": "2026-07-10",
-      "to": "2026-08-08",
-      "featuresAdded": 91,
-      "casesAdded": 97,
+      "from": "2026-07-12",
+      "to": "2026-08-10",
+      "featuresAdded": 92,
+      "casesAdded": 98,
       "areasTouched": 10,
       "ticketsTouched": 4,
       "byType": {
@@ -655,7 +491,7 @@
         "Workflow": 18,
         "Query": 5,
         "E2E": 1,
-        "Other": 5
+        "Other": 6
       },
       "byArea": [
         {
@@ -679,16 +515,16 @@
           "featuresAdded": 5
         },
         {
+          "area": "BOS",
+          "featuresAdded": 3
+        },
+        {
           "area": "Segment",
           "featuresAdded": 3
         },
         {
           "area": "Settings",
           "featuresAdded": 3
-        },
-        {
-          "area": "BOS",
-          "featuresAdded": 2
         },
         {
           "area": "SampleRules",
@@ -720,12 +556,35 @@
         },
         {
           "key": "NXS-13653",
-          "featuresAdded": 3,
-          "casesAdded": 3,
-          "latestDate": "2026-08-07"
+          "featuresAdded": 4,
+          "casesAdded": 4,
+          "latestDate": "2026-08-08"
         }
       ],
       "additions": [
+        {
+          "name": "sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+          "date": "2026-08-08",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13653 MS - Migrate D365 + CRM-field-parity workflows into tagged tests/steps",
+          "commit": "6706f183ea",
+          "tickets": [
+            "NXS-13653"
+          ],
+          "area": "BOS",
+          "spec": "BosSampleCreationTestSteps",
+          "type": "Other",
+          "cases": 1,
+          "tags": [
+            "CREATE_QUOTE",
+            "QUOTE_2_ORDER",
+            "PROJECT_ACCEPT",
+            "CRM_FIELDS"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=sample%20creation%20-%20CRM%20fields%20propagate%20across%20QUOTE%2C%20ORDER%20and%20PROJECT"
+        },
         {
           "name": "Switching tally mode to By Starts is rejected when totalStartQuota is not set",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
@@ -742,7 +601,9 @@
           "cases": 1,
           "tags": [
             "QUOTA",
-            "TALLY"
+            "TALLY",
+            "QUOTA_ON_START",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Switching%20tally%20mode%20to%20By%20Starts%20is%20rejected%20when%20totalStartQuota%20is%20not%20set"
@@ -842,7 +703,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "USER_SETTINGS"
+            "USER_SETTINGS",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Chameleon%20hashed%20user%20id%20is%20rejected%20for%20a%20blank%20guid"
@@ -862,7 +724,9 @@
           "type": "Query",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES",
+            "FEASIBILITY"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Default%20source%20quotas%20with%20panel%20ids%20are%20returned%20for%20a%20feasibility%20filter"
@@ -882,7 +746,11 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES",
+            "CHANNEL",
+            "COUNTRY_LANGUAGES",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Default%20source%20quotas%20with%20an%20invalid%20country%20yield%20no%20channels"
@@ -902,7 +770,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Total%20quota%20approve%20is%20rejected%20for%20non%20Dynata%20Plus%20audiences"
@@ -922,7 +791,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Total%20quota%20approve%20for%20a%20missing%20audience%20is%20rejected"
@@ -944,7 +814,8 @@
           "tags": [
             "PARTNER_EVENT",
             "REX_EVENT",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Partner%20event%20remains%20available%20after%20metrics%20embed%20URL%20is%20retrieved"
@@ -965,7 +836,8 @@
           "cases": 1,
           "tags": [
             "PARTNER_EVENT",
-            "REX_EVENT"
+            "REX_EVENT",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Partner%20event%20metrics%20for%20a%20missing%20partner%20event%20are%20rejected"
@@ -1006,7 +878,9 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "SURVEY"
+            "SURVEY",
+            "UPLOAD_URLS",
+            "URL_POOL"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Uploaded%20survey%20URL%20file%20can%20be%20processed%20and%20sample%20values%20read"
@@ -1026,7 +900,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "SURVEY"
+            "SURVEY",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Survey%20project%20id%20lookup%20for%20an%20unknown%20survey%20is%20rejected"
@@ -1066,7 +941,10 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "SURVEY"
+            "SURVEY",
+            "UPLOAD_URLS",
+            "URL_POOL",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Processing%20an%20unknown%20uploaded%20survey%20file%20is%20rejected"
@@ -1086,7 +964,10 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "CHANNEL",
+            "FEASIBILITY",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20with%20too%20many%20channels%20is%20rejected"
@@ -1106,7 +987,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "FEASIBILITY"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20calculation%20returns%20a%20feasibility%20result"
@@ -1127,7 +1009,9 @@
           "cases": 1,
           "tags": [
             "QUOTA",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "FEASIBILITY",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20and%20live%20feasibility%20job%20can%20both%20be%20calculated"
@@ -1148,7 +1032,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "D365"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=D365%20linkage%20update%20persists%20quote%20guid%20and%20number"
@@ -1168,7 +1053,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Creating%20a%20project%20without%20core%20details%20is%20rejected"
@@ -1189,7 +1075,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Created%20draft%20project%20can%20be%20renamed%20and%20then%20removed"
@@ -1210,7 +1097,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Converting%20a%20quote%20without%20an%20order%20guid%20is%20rejected"
@@ -1231,7 +1119,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Converting%20a%20live%20project%20to%20an%20order%20is%20rejected"
@@ -1254,7 +1143,8 @@
             "PROJECT_CORE",
             "CLONE_PROJECT",
             "BOS_SYNC",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Cloned%20quote%20converted%20to%20order%20can%20be%20found%20by%20the%20new%20sales%20order%20guid"
@@ -1277,7 +1167,8 @@
             "PROJECT_CORE",
             "CLONE_PROJECT",
             "BOS_SYNC",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Cloned%20quote%20can%20receive%20a%20new%20BOS%20linkage%20and%20be%20found%20by%20that%20guid"
@@ -1319,7 +1210,9 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "CHANGE_ORDER",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Change-order%20logs%20for%20an%20unknown%20project%20return%20no%20rows"
@@ -1339,7 +1232,8 @@
           "type": "Query",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "CHANGE_ORDER"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Change-order%20logs%20and%20export%20are%20available%20for%20the%20active%20quote"
@@ -1380,7 +1274,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=BOS%20linkage%20without%20an%20option%20guid%20is%20rejected"
@@ -1422,7 +1317,10 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "PROJECT_ACCEPT",
+            "D365",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=BOS%20accept%20is%20rejected%20for%20a%20D365%20quote"
@@ -1443,7 +1341,9 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "PROJECT_ACCEPT",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Accepting%20a%20new%20project%20without%20a%20sales%20order%20guid%20is%20rejected"
@@ -1463,7 +1363,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PARTNER_EVENT"
+            "PARTNER_EVENT",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Valid%20currencies%20lookup%20for%20an%20unknown%20audience%20is%20rejected"
@@ -1504,7 +1405,8 @@
           "cases": 1,
           "tags": [
             "PARTNER_EVENT",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Valid%20currencies%20for%20a%20supplier%20brand%20support%20partner%20event%20creation"
@@ -1564,7 +1466,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "SURVEY"
+            "SURVEY",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Survey%20re-validation%20for%20an%20unknown%20survey%20is%20rejected"
@@ -1584,7 +1487,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "SURVEY"
+            "SURVEY",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Base%20URL%20with%20tags%20rejects%20an%20empty%20tag%20list"
@@ -1624,7 +1528,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "SEGMENTS"
+            "SEGMENTS",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Bulk%20condition%20percent%20update%20totaling%20over%20100%25%20is%20rejected"
@@ -1724,7 +1629,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "FEASIBILITY"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Feasibility%20calculation%20job%20can%20be%20triggered%20and%20read"
@@ -1744,7 +1650,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Exposed%20type%20link%20without%20a%20paired%20audience%20is%20rejected"
@@ -1764,7 +1671,9 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "PRICING",
+            "FEASIBILITY"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Combined%20feasibility%20and%20price%20calculation%20can%20be%20triggered"
@@ -1785,7 +1694,9 @@
           "cases": 1,
           "tags": [
             "QUOTA",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "PRICING",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Audience%20rename%2C%20type%20link%2C%20price%20update%2C%20and%20recalculation%20stay%20consistent"
@@ -1805,7 +1716,9 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "PRICING",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Audience%20price%20lookup%20for%20an%20unknown%20audience%20is%20rejected"
@@ -1825,7 +1738,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "PRICING"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Audience%20price%20leaf%20update%20persists%20on%20read-back"
@@ -1845,7 +1759,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "PRICING"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Audience%20price%20leaf%20matches%20the%20gateway%20quota%20group%20price"
@@ -1865,7 +1780,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "PRICING"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Audience%20price%20calculation%20can%20be%20triggered"
@@ -1885,7 +1801,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Audience%20name%20shorter%20than%20three%20characters%20is%20rejected"
@@ -1926,7 +1843,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Renamed%20draft%20project%20shows%20the%20new%20name%20in%20label%20search"
@@ -1947,7 +1865,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Invoice%20comments%20and%20PO%20number%20can%20be%20updated%20together%20and%20both%20persist"
@@ -2008,7 +1927,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Draft%20project%20search%20rejects%20page%20size%20%23pageSize"
@@ -2028,7 +1948,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Draft%20project%20search%20rejects%20live%20project%20queries"
@@ -2049,7 +1970,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Draft%20project%20search%20finds%20the%20active%20quote%20by%20project%20id"
@@ -2111,7 +2033,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Client%20invoice%20comments%20lookup%20for%20an%20unknown%20project%20is%20rejected"
@@ -2132,7 +2055,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "CRM_FIELDS"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=CRM%20fields%20healthcare%20flag%20persists%20on%20read-back"
@@ -2254,7 +2178,8 @@
           "type": "Validation",
           "cases": 7,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Total%20quota%20update%20for%20an%20unknown%20quota%20group%20is%20rejected"
@@ -2276,7 +2201,9 @@
           "tags": [
             "QUOTA",
             "TALLY",
-            "SOFT_LAUNCH"
+            "SOFT_LAUNCH",
+            "QUOTA_ON_COMPLETE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Switching%20tally%20mode%20to%20by%20completes%20is%20rejected%20when%20soft%20launch%20exceeds%20total%20completes"
@@ -2298,7 +2225,9 @@
           "tags": [
             "QUOTA",
             "TALLY",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "CHANNEL",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Starts-mode%20channel%20settings%20and%20auto-close%20persist%20together"
@@ -2321,7 +2250,9 @@
             "QUOTA",
             "TALLY",
             "CLONE_QUOTA_GROUP",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "COUNTRY_LANGUAGES",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Per-country%20quota%20totals%20and%20tally%20modes%20stay%20independent%20after%20clone"
@@ -2341,7 +2272,9 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "CHANNEL",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Internal%20channel%20quota%20update%20is%20rejected%20as%20unsupported"
@@ -2361,7 +2294,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Internal%20auto-close%20update%20is%20rejected%20as%20unsupported"
@@ -2383,7 +2317,8 @@
           "tags": [
             "QUOTA",
             "TALLY",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Coordinated%20quotas%20snapshot%20refreshes%20totals%20while%20keeping%20tally%20mode%20and%20starts"
@@ -2406,7 +2341,9 @@
             "QUOTA",
             "TALLY",
             "CLONE_QUOTA_GROUP",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "CHANNEL",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Cloned%20market%20diverges%20on%20external%20quota%20while%20primary%20channel%20settings%20stay%20unchanged"
@@ -2426,7 +2363,9 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "CRM_FIELDS",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Unknown%20CRM%20category%20guid%20is%20rejected"
@@ -2446,7 +2385,8 @@
           "type": "Other",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "CRM_FIELDS"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Setting%20survey%20topic%20by%20CRM%20category%20guid%20syncs%20the%20numeric%20category%20id"
@@ -2466,7 +2406,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Deleting%20a%20live%20project%20is%20rejected"
@@ -2486,7 +2427,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "CLONE_PROJECT"
+            "CLONE_PROJECT",
+            "PROJECT_CORE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Delete%20a%20draft%20clone%20removes%20the%20project"
@@ -2507,7 +2449,8 @@
           "cases": 1,
           "tags": [
             "PES2",
-            "QUOTA"
+            "QUOTA",
+            "PES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=total%20quota%20update%20publishes%20quotaGroupDetailsUpdated%20notification"
@@ -2528,7 +2471,8 @@
           "cases": 1,
           "tags": [
             "PES2",
-            "TALLY"
+            "TALLY",
+            "PES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=tally%20mode%20update%20publishes%20quotaGroupDetailsUpdated%20notification"
@@ -2549,7 +2493,8 @@
           "cases": 1,
           "tags": [
             "PES2",
-            "SOFT_LAUNCH"
+            "SOFT_LAUNCH",
+            "PES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=soft%20launch%20quota%20update%20publishes%20quotaGroupPropertyUpdated%20notification"
@@ -2570,7 +2515,8 @@
           "cases": 1,
           "tags": [
             "PES2",
-            "PARTNER_EVENT"
+            "PARTNER_EVENT",
+            "PES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=partner%20event%20creation%20publishes%20externalEventUpdated%20notification"
@@ -2591,7 +2537,8 @@
           "cases": 1,
           "tags": [
             "PES2",
-            "PARTNER_EVENT"
+            "PARTNER_EVENT",
+            "PES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=partner%20allocation%20update%20publishes%20externalQuota%20notification"
@@ -2599,10 +2546,10 @@
       ]
     },
     "90d": {
-      "from": "2026-05-11",
-      "to": "2026-08-08",
-      "featuresAdded": 155,
-      "casesAdded": 189,
+      "from": "2026-05-13",
+      "to": "2026-08-10",
+      "featuresAdded": 156,
+      "casesAdded": 190,
       "areasTouched": 11,
       "ticketsTouched": 12,
       "byType": {
@@ -2611,7 +2558,7 @@
         "Workflow": 28,
         "Query": 17,
         "E2E": 1,
-        "Other": 16
+        "Other": 17
       },
       "byArea": [
         {
@@ -2643,12 +2590,12 @@
           "featuresAdded": 5
         },
         {
-          "area": "Settings",
+          "area": "BOS",
           "featuresAdded": 3
         },
         {
-          "area": "BOS",
-          "featuresAdded": 2
+          "area": "Settings",
+          "featuresAdded": 3
         },
         {
           "area": "Infrastructure",
@@ -2703,6 +2650,12 @@
           "latestDate": "2026-07-03"
         },
         {
+          "key": "NXS-13653",
+          "featuresAdded": 4,
+          "casesAdded": 4,
+          "latestDate": "2026-08-08"
+        },
+        {
           "key": "NXS-13094",
           "featuresAdded": 3,
           "casesAdded": 3,
@@ -2713,12 +2666,6 @@
           "featuresAdded": 3,
           "casesAdded": 5,
           "latestDate": "2026-07-02"
-        },
-        {
-          "key": "NXS-13653",
-          "featuresAdded": 3,
-          "casesAdded": 3,
-          "latestDate": "2026-08-07"
         },
         {
           "key": "NXS-13066",
@@ -2735,6 +2682,29 @@
       ],
       "additions": [
         {
+          "name": "sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+          "date": "2026-08-08",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13653 MS - Migrate D365 + CRM-field-parity workflows into tagged tests/steps",
+          "commit": "6706f183ea",
+          "tickets": [
+            "NXS-13653"
+          ],
+          "area": "BOS",
+          "spec": "BosSampleCreationTestSteps",
+          "type": "Other",
+          "cases": 1,
+          "tags": [
+            "CREATE_QUOTE",
+            "QUOTE_2_ORDER",
+            "PROJECT_ACCEPT",
+            "CRM_FIELDS"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=sample%20creation%20-%20CRM%20fields%20propagate%20across%20QUOTE%2C%20ORDER%20and%20PROJECT"
+        },
+        {
           "name": "Switching tally mode to By Starts is rejected when totalStartQuota is not set",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
           "date": "2026-08-07",
@@ -2750,7 +2720,9 @@
           "cases": 1,
           "tags": [
             "QUOTA",
-            "TALLY"
+            "TALLY",
+            "QUOTA_ON_START",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Switching%20tally%20mode%20to%20By%20Starts%20is%20rejected%20when%20totalStartQuota%20is%20not%20set"
@@ -2850,7 +2822,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "USER_SETTINGS"
+            "USER_SETTINGS",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Chameleon%20hashed%20user%20id%20is%20rejected%20for%20a%20blank%20guid"
@@ -2870,7 +2843,9 @@
           "type": "Query",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES",
+            "FEASIBILITY"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Default%20source%20quotas%20with%20panel%20ids%20are%20returned%20for%20a%20feasibility%20filter"
@@ -2890,7 +2865,11 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES",
+            "CHANNEL",
+            "COUNTRY_LANGUAGES",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Default%20source%20quotas%20with%20an%20invalid%20country%20yield%20no%20channels"
@@ -2910,7 +2889,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Total%20quota%20approve%20is%20rejected%20for%20non%20Dynata%20Plus%20audiences"
@@ -2930,7 +2910,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Total%20quota%20approve%20for%20a%20missing%20audience%20is%20rejected"
@@ -2952,7 +2933,8 @@
           "tags": [
             "PARTNER_EVENT",
             "REX_EVENT",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Partner%20event%20remains%20available%20after%20metrics%20embed%20URL%20is%20retrieved"
@@ -2973,7 +2955,8 @@
           "cases": 1,
           "tags": [
             "PARTNER_EVENT",
-            "REX_EVENT"
+            "REX_EVENT",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Partner%20event%20metrics%20for%20a%20missing%20partner%20event%20are%20rejected"
@@ -3014,7 +2997,9 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "SURVEY"
+            "SURVEY",
+            "UPLOAD_URLS",
+            "URL_POOL"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Uploaded%20survey%20URL%20file%20can%20be%20processed%20and%20sample%20values%20read"
@@ -3034,7 +3019,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "SURVEY"
+            "SURVEY",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Survey%20project%20id%20lookup%20for%20an%20unknown%20survey%20is%20rejected"
@@ -3074,7 +3060,10 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "SURVEY"
+            "SURVEY",
+            "UPLOAD_URLS",
+            "URL_POOL",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Processing%20an%20unknown%20uploaded%20survey%20file%20is%20rejected"
@@ -3094,7 +3083,10 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "CHANNEL",
+            "FEASIBILITY",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20with%20too%20many%20channels%20is%20rejected"
@@ -3114,7 +3106,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "FEASIBILITY"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20calculation%20returns%20a%20feasibility%20result"
@@ -3135,7 +3128,9 @@
           "cases": 1,
           "tags": [
             "QUOTA",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "FEASIBILITY",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20and%20live%20feasibility%20job%20can%20both%20be%20calculated"
@@ -3156,7 +3151,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "D365"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=D365%20linkage%20update%20persists%20quote%20guid%20and%20number"
@@ -3176,7 +3172,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Creating%20a%20project%20without%20core%20details%20is%20rejected"
@@ -3197,7 +3194,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Created%20draft%20project%20can%20be%20renamed%20and%20then%20removed"
@@ -3218,7 +3216,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Converting%20a%20quote%20without%20an%20order%20guid%20is%20rejected"
@@ -3239,7 +3238,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Converting%20a%20live%20project%20to%20an%20order%20is%20rejected"
@@ -3262,7 +3262,8 @@
             "PROJECT_CORE",
             "CLONE_PROJECT",
             "BOS_SYNC",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Cloned%20quote%20converted%20to%20order%20can%20be%20found%20by%20the%20new%20sales%20order%20guid"
@@ -3285,7 +3286,8 @@
             "PROJECT_CORE",
             "CLONE_PROJECT",
             "BOS_SYNC",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Cloned%20quote%20can%20receive%20a%20new%20BOS%20linkage%20and%20be%20found%20by%20that%20guid"
@@ -3327,7 +3329,9 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "CHANGE_ORDER",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Change-order%20logs%20for%20an%20unknown%20project%20return%20no%20rows"
@@ -3347,7 +3351,8 @@
           "type": "Query",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "CHANGE_ORDER"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Change-order%20logs%20and%20export%20are%20available%20for%20the%20active%20quote"
@@ -3388,7 +3393,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=BOS%20linkage%20without%20an%20option%20guid%20is%20rejected"
@@ -3430,7 +3436,10 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "PROJECT_ACCEPT",
+            "D365",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=BOS%20accept%20is%20rejected%20for%20a%20D365%20quote"
@@ -3451,7 +3460,9 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "PROJECT_ACCEPT",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Accepting%20a%20new%20project%20without%20a%20sales%20order%20guid%20is%20rejected"
@@ -3471,7 +3482,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PARTNER_EVENT"
+            "PARTNER_EVENT",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Valid%20currencies%20lookup%20for%20an%20unknown%20audience%20is%20rejected"
@@ -3512,7 +3524,8 @@
           "cases": 1,
           "tags": [
             "PARTNER_EVENT",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Valid%20currencies%20for%20a%20supplier%20brand%20support%20partner%20event%20creation"
@@ -3572,7 +3585,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "SURVEY"
+            "SURVEY",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Survey%20re-validation%20for%20an%20unknown%20survey%20is%20rejected"
@@ -3592,7 +3606,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "SURVEY"
+            "SURVEY",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Base%20URL%20with%20tags%20rejects%20an%20empty%20tag%20list"
@@ -3632,7 +3647,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "SEGMENTS"
+            "SEGMENTS",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Bulk%20condition%20percent%20update%20totaling%20over%20100%25%20is%20rejected"
@@ -3732,7 +3748,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "FEASIBILITY"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Feasibility%20calculation%20job%20can%20be%20triggered%20and%20read"
@@ -3752,7 +3769,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Exposed%20type%20link%20without%20a%20paired%20audience%20is%20rejected"
@@ -3772,7 +3790,9 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "PRICING",
+            "FEASIBILITY"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Combined%20feasibility%20and%20price%20calculation%20can%20be%20triggered"
@@ -3793,7 +3813,9 @@
           "cases": 1,
           "tags": [
             "QUOTA",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "PRICING",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Audience%20rename%2C%20type%20link%2C%20price%20update%2C%20and%20recalculation%20stay%20consistent"
@@ -3813,7 +3835,9 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "PRICING",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Audience%20price%20lookup%20for%20an%20unknown%20audience%20is%20rejected"
@@ -3833,7 +3857,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "PRICING"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Audience%20price%20leaf%20update%20persists%20on%20read-back"
@@ -3853,7 +3878,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "PRICING"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Audience%20price%20leaf%20matches%20the%20gateway%20quota%20group%20price"
@@ -3873,7 +3899,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "PRICING"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Audience%20price%20calculation%20can%20be%20triggered"
@@ -3893,7 +3920,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Audience%20name%20shorter%20than%20three%20characters%20is%20rejected"
@@ -3934,7 +3962,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Renamed%20draft%20project%20shows%20the%20new%20name%20in%20label%20search"
@@ -3955,7 +3984,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Invoice%20comments%20and%20PO%20number%20can%20be%20updated%20together%20and%20both%20persist"
@@ -4016,7 +4046,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Draft%20project%20search%20rejects%20page%20size%20%23pageSize"
@@ -4036,7 +4067,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Draft%20project%20search%20rejects%20live%20project%20queries"
@@ -4057,7 +4089,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Draft%20project%20search%20finds%20the%20active%20quote%20by%20project%20id"
@@ -4119,7 +4152,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Client%20invoice%20comments%20lookup%20for%20an%20unknown%20project%20is%20rejected"
@@ -4140,7 +4174,8 @@
           "cases": 1,
           "tags": [
             "PROJECT_CORE",
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "CRM_FIELDS"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=CRM%20fields%20healthcare%20flag%20persists%20on%20read-back"
@@ -4262,7 +4297,8 @@
           "type": "Validation",
           "cases": 7,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Total%20quota%20update%20for%20an%20unknown%20quota%20group%20is%20rejected"
@@ -4284,7 +4320,9 @@
           "tags": [
             "QUOTA",
             "TALLY",
-            "SOFT_LAUNCH"
+            "SOFT_LAUNCH",
+            "QUOTA_ON_COMPLETE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Switching%20tally%20mode%20to%20by%20completes%20is%20rejected%20when%20soft%20launch%20exceeds%20total%20completes"
@@ -4306,7 +4344,9 @@
           "tags": [
             "QUOTA",
             "TALLY",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "CHANNEL",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Starts-mode%20channel%20settings%20and%20auto-close%20persist%20together"
@@ -4329,7 +4369,9 @@
             "QUOTA",
             "TALLY",
             "CLONE_QUOTA_GROUP",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "COUNTRY_LANGUAGES",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Per-country%20quota%20totals%20and%20tally%20modes%20stay%20independent%20after%20clone"
@@ -4349,7 +4391,9 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "CHANNEL",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Internal%20channel%20quota%20update%20is%20rejected%20as%20unsupported"
@@ -4369,7 +4413,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Internal%20auto-close%20update%20is%20rejected%20as%20unsupported"
@@ -4391,7 +4436,8 @@
           "tags": [
             "QUOTA",
             "TALLY",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Coordinated%20quotas%20snapshot%20refreshes%20totals%20while%20keeping%20tally%20mode%20and%20starts"
@@ -4414,7 +4460,9 @@
             "QUOTA",
             "TALLY",
             "CLONE_QUOTA_GROUP",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "CHANNEL",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Cloned%20market%20diverges%20on%20external%20quota%20while%20primary%20channel%20settings%20stay%20unchanged"
@@ -4434,7 +4482,9 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "CRM_FIELDS",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Unknown%20CRM%20category%20guid%20is%20rejected"
@@ -4454,7 +4504,8 @@
           "type": "Other",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "CRM_FIELDS"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Setting%20survey%20topic%20by%20CRM%20category%20guid%20syncs%20the%20numeric%20category%20id"
@@ -4474,7 +4525,8 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "PROJECT_CORE"
+            "PROJECT_CORE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Deleting%20a%20live%20project%20is%20rejected"
@@ -4494,7 +4546,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "CLONE_PROJECT"
+            "CLONE_PROJECT",
+            "PROJECT_CORE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Delete%20a%20draft%20clone%20removes%20the%20project"
@@ -4515,7 +4568,8 @@
           "cases": 1,
           "tags": [
             "PES2",
-            "QUOTA"
+            "QUOTA",
+            "PES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=total%20quota%20update%20publishes%20quotaGroupDetailsUpdated%20notification"
@@ -4536,7 +4590,8 @@
           "cases": 1,
           "tags": [
             "PES2",
-            "TALLY"
+            "TALLY",
+            "PES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=tally%20mode%20update%20publishes%20quotaGroupDetailsUpdated%20notification"
@@ -4557,7 +4612,8 @@
           "cases": 1,
           "tags": [
             "PES2",
-            "SOFT_LAUNCH"
+            "SOFT_LAUNCH",
+            "PES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=soft%20launch%20quota%20update%20publishes%20quotaGroupPropertyUpdated%20notification"
@@ -4578,7 +4634,8 @@
           "cases": 1,
           "tags": [
             "PES2",
-            "PARTNER_EVENT"
+            "PARTNER_EVENT",
+            "PES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=partner%20event%20creation%20publishes%20externalEventUpdated%20notification"
@@ -4599,7 +4656,8 @@
           "cases": 1,
           "tags": [
             "PES2",
-            "PARTNER_EVENT"
+            "PARTNER_EVENT",
+            "PES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=partner%20allocation%20update%20publishes%20externalQuota%20notification"
@@ -4619,7 +4677,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "PROJECT_CORE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=fullProjectSetup%20persists%20quota%20group%20source%20toggles"
@@ -4639,7 +4698,9 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "EXCLUSION_RULES",
+            "PROJECT_CORE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=fullProjectSetup%20persists%20quota%20group%20brand%20exclusion"
@@ -4659,7 +4720,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "PROJECT_CORE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=fullProjectSetup%20fills%20default%20source%20settings%20when%20source%20is%20omitted"
@@ -4679,7 +4741,8 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "PROJECT_CORE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=fullProjectSetup%20derives%20useEropMedical%20from%20the%20project%20instead%20of%20the%20client-sent%20value"
@@ -4699,7 +4762,9 @@
           "type": "Validation",
           "cases": 2,
           "tags": [
-            "DELIVERY"
+            "DELIVERY",
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Update%20quota%20group%20prioritization%20level%20using%20dedicated%20endpoint%20rejects%20levels%20the%20user%20is%20not%20entitled%20to"
@@ -4719,7 +4784,9 @@
           "type": "Validation",
           "cases": 2,
           "tags": [
-            "DELIVERY"
+            "DELIVERY",
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Update%20quota%20group%20prioritization%20level%20rejects%20levels%20the%20user%20is%20not%20entitled%20to"
@@ -4739,7 +4806,9 @@
           "type": "Validation",
           "cases": 1,
           "tags": [
-            "DELIVERY"
+            "DELIVERY",
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Update%20quota%20group%20click%20rate%20is%20rejected%20outside%20MANUAL%20delivery%20mode"
@@ -4759,7 +4828,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "EXCLUSION_RULES"
+            "EXCLUSION_RULES",
+            "PROJECT_CORE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=removeEntry%20test%20endpoint%20clears%20all%20exclusion%20rules%20for%20the%20project"
@@ -4779,7 +4849,9 @@
           "type": "Validation",
           "cases": 2,
           "tags": [
-            "EXCLUSION_RULES"
+            "EXCLUSION_RULES",
+            "PROJECT_CORE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=removeEntry%20returns%20404%20NotFoundInDb%20for%20a%20valid%20but%20non-existent%20project"
@@ -4799,7 +4871,9 @@
           "type": "Validation",
           "cases": 2,
           "tags": [
-            "EXCLUSION_RULES"
+            "EXCLUSION_RULES",
+            "PROJECT_CORE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=removeEntry%20rejects%20projectId%20below%20the%20minimum%20with%20a%20validation%20error"
@@ -4819,7 +4893,9 @@
           "type": "Validation",
           "cases": 2,
           "tags": [
-            "EXCLUSION_RULES"
+            "EXCLUSION_RULES",
+            "PROJECT_CORE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Rename%20exclusion%20rule%20endpoint%20returns%20500%20UnsupportedOperationException%20for%20invalid%20rule%20ID%20too"
@@ -4839,7 +4915,9 @@
           "type": "Validation",
           "cases": 4,
           "tags": [
-            "EXCLUSION_RULES"
+            "EXCLUSION_RULES",
+            "PROJECT_CORE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Rename%20exclusion%20rule%20endpoint%20returns%20500%20UnsupportedOperationException%20even%20for%20invalid%20name"
@@ -4859,7 +4937,8 @@
           "type": "Validation",
           "cases": 2,
           "tags": [
-            "EXCLUSION_RULES"
+            "EXCLUSION_RULES",
+            "PROJECT_CORE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Rename%20exclusion%20rule%20endpoint%20is%20unimplemented%20and%20returns%20500%20UnsupportedOperationException"
@@ -4879,7 +4958,8 @@
           "type": "CRUD",
           "cases": 2,
           "tags": [
-            "EXCLUSION_RULES"
+            "EXCLUSION_RULES",
+            "PROJECT_CORE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Manage%20multiple%20exclusion%20rules%20on%20same%20project%3B%20rename%20endpoint%20is%20unimplemented"
@@ -4899,7 +4979,8 @@
           "type": "Validation",
           "cases": 2,
           "tags": [
-            "EXCLUSION_RULES"
+            "EXCLUSION_RULES",
+            "PROJECT_CORE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Enable%2Fdisable%20exclusion%20rule%20endpoint%20is%20unimplemented%20and%20returns%20500%20UnsupportedOperationException"
@@ -4919,7 +5000,9 @@
           "type": "Validation",
           "cases": 2,
           "tags": [
-            "EXCLUSION_RULES"
+            "EXCLUSION_RULES",
+            "PROJECT_CORE",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Enable%20exclusion%20rule%20endpoint%20returns%20500%20UnsupportedOperationException%20for%20invalid%20rule%20ID%20too"
@@ -4939,7 +5022,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "EXCLUSION_RULES"
+            "EXCLUSION_RULES",
+            "PROJECT_CORE"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Create%20and%20delete%20exclusion%20rule%20lifecycle%3B%20rename%20endpoint%20is%20unimplemented"
@@ -5095,7 +5179,9 @@
           "cases": 1,
           "tags": [
             "PARTNER_EVENT",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "PRICING",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Updating%20a%203PP%20partner%20event%20cost%20re-validates%20against%20the%20separated%20quota%20group%20price%20source"
@@ -5116,7 +5202,9 @@
           "cases": 1,
           "tags": [
             "PARTNER_EVENT",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "PRICING",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Active%203PP%20partner%20event%20is%20validated%20against%20the%20separated%20quota%20group%20price%20source"
@@ -5136,7 +5224,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "DELIVERY"
+            "DELIVERY",
+            "QUOTA"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=GET%20delivery%20on%20a%20non-draft%20QG%20returns%20deliveryMode%20reflecting%20the%20most%20recent%20gateway%20write%20%28NXS-13089%20LegacyDeliveryFieldsHandler%20overlay%29"
@@ -5211,7 +5300,8 @@
           "cases": 1,
           "tags": [
             "CLONE_QUOTA_GROUP",
-            "DELIVERY"
+            "DELIVERY",
+            "QUOTA"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Cloning%20a%20QG%20in%20PROJECT%20phase%20initializes%20delivery.race.eligibleForRaceBoost%20from%20project%20core"
@@ -5271,7 +5361,9 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "CHANGE_ORDER",
+            "QUOTA"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=change%20order%20flow%3A%20two%20audiences%20request%2C%20evaluation%2C%20approve"
@@ -5309,7 +5401,9 @@
           "type": "Workflow",
           "cases": 1,
           "tags": [
-            "BOS_SYNC"
+            "BOS_SYNC",
+            "CHANGE_ORDER",
+            "QUOTA"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=change%20order%20flow%3A%20request%2C%20evaluation%2C%20block%20traffic%2C%20approve"
@@ -5347,7 +5441,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "QUOTA"
+            "QUOTA",
+            "PRICING"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=New%20QuotaGroupRest%20price%20endpoint%20returns%20the%20same%20Price%20the%20gateway%20exposes%20on%20the%20QG"
@@ -5368,7 +5463,8 @@
           "cases": 1,
           "tags": [
             "CLONE_QUOTA_GROUP",
-            "QUOTA_DATES"
+            "QUOTA_DATES",
+            "QUOTA"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Clone%20QG%20with%20keepDates%3Dfalse%20clears%20quotaActivationDate%20on%20the%20clone%20%28regression%20of%20NXS-12669%29"
@@ -5389,7 +5485,10 @@
           "cases": 1,
           "tags": [
             "PARTNER_EVENT",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "PRICING",
+            "VALIDATION",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Partner%20CPI%20exactly%20at%20approve%20threshold%20is%20rejected%20by%20inclusive%20price-limit%20comparison"
@@ -5411,7 +5510,9 @@
           "cases": 1,
           "tags": [
             "PARTNER_EVENT",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "PRICING",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=URL-only%20save%20on%20inactive%20over-threshold%203pp%20partner%20event%20preserves%20didPriceDecrease%20false"
@@ -5433,7 +5534,9 @@
           "cases": 1,
           "tags": [
             "PARTNER_EVENT",
-            "PR_SMOKE"
+            "PR_SMOKE",
+            "PRICING",
+            "E2E"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=URL-only%20save%20of%203pp%20partner%20event%20preserves%20didPriceDecrease%20false"
@@ -5453,7 +5556,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "SURVEY"
+            "SURVEY",
+            "PRESCREENER"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Clone%20survey%20preserves%20exact%20prescreener%20URL"
@@ -5473,7 +5577,10 @@
           "type": "Query",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES",
+            "BRAND_EXCLUSION",
+            "EXCLUSION_RULES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Save%20brand%20exclusions%20for%20project%20with%20empty%20brand%20list"
@@ -5493,7 +5600,10 @@
           "type": "CRUD",
           "cases": 2,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES",
+            "BRAND_EXCLUSION",
+            "EXCLUSION_RULES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Save%20brand%20exclusions%20for%20all%20quota%20groups%20in%20project"
@@ -5513,7 +5623,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Preview%20mirroring%20of%20source%20setup%20options"
@@ -5533,7 +5644,8 @@
           "type": "Query",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Get%20apply%20sources%20toggles%20for%20quota%20groups"
@@ -5553,7 +5665,8 @@
           "type": "Query",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Get%20apply%20sources%20toggles%20for%20multiple%20audience%20groups"
@@ -5573,7 +5686,10 @@
           "type": "Query",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES",
+            "BRAND_EXCLUSION",
+            "EXCLUSION_RULES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Get%20apply%20sources%20brand%20exclusions%20for%20quota%20groups"
@@ -5593,7 +5709,10 @@
           "type": "Query",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES",
+            "BRAND_EXCLUSION",
+            "EXCLUSION_RULES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Get%20apply%20sources%20brand%20exclusions%20for%20multiple%20audience%20groups"
@@ -5613,7 +5732,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Apply%20sources%20with%20both%20sample%20requirements%20and%20brand%20restrictions"
@@ -5633,7 +5753,8 @@
           "type": "CRUD",
           "cases": 2,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Apply%20sources%20to%20multiple%20target%20quota%20groups%20simultaneously"
@@ -5653,7 +5774,8 @@
           "type": "CRUD",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Apply%20sources%20to%20copy%20configuration%20from%20source"
@@ -5673,7 +5795,8 @@
           "type": "Query",
           "cases": 1,
           "tags": [
-            "SOURCES"
+            "SOURCES",
+            "SAMPLE_RULES"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Apply%20default%20sources%20with%20empty%20target%20list"
@@ -5810,7 +5933,8 @@
           "cases": 4,
           "tags": [
             "CLONE_QUOTA_GROUP",
-            "COUNTRY_LANGUAGES"
+            "COUNTRY_LANGUAGES",
+            "QUOTA"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Clone%20quota%20group%20for%20panel-enabled%20country"
@@ -5831,7 +5955,9 @@
           "cases": 6,
           "tags": [
             "CLONE_QUOTA_GROUP",
-            "COUNTRY_LANGUAGES"
+            "COUNTRY_LANGUAGES",
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Clone%20quota%20group%20for%20panel-disabled%20country%20rejects%20request"
@@ -5852,7 +5978,9 @@
           "cases": 4,
           "tags": [
             "CLONE_QUOTA_GROUP",
-            "COUNTRY_LANGUAGES"
+            "COUNTRY_LANGUAGES",
+            "QUOTA",
+            "VALIDATION"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Clone%20quota%20group%20for%20enabled%20country%20with%20unsupported%20language"
@@ -5873,7 +6001,8 @@
           "cases": 4,
           "tags": [
             "CLONE_QUOTA_GROUP",
-            "COUNTRY_LANGUAGES"
+            "COUNTRY_LANGUAGES",
+            "QUOTA"
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Clone%20quota%20group%20for%20enabled%20country%20and%20supported%20language%20persists%20correct%20country-language"
@@ -5882,11 +6011,6 @@
     }
   },
   "weeks": [
-    {
-      "weekStart": "2026-05-18",
-      "featuresAdded": 17,
-      "casesAdded": 19
-    },
     {
       "weekStart": "2026-05-25",
       "featuresAdded": 3,
@@ -5939,8 +6063,13 @@
     },
     {
       "weekStart": "2026-08-03",
-      "featuresAdded": 13,
-      "casesAdded": 13
+      "featuresAdded": 14,
+      "casesAdded": 14
+    },
+    {
+      "weekStart": "2026-08-10",
+      "featuresAdded": 0,
+      "casesAdded": 0
     }
   ],
   "snapshots": [
@@ -5967,10 +6096,10 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-08-08",
-      "features": 719,
-      "cases": 1496,
-      "specs": 74,
+      "date": "2026-08-10",
+      "features": 722,
+      "cases": 1499,
+      "specs": 75,
       "areas": 14,
       "coveragePercent": 100.0,
       "tested": 265,
@@ -5987,15 +6116,15 @@
       "priorPercent": 78.0,
       "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-08-08",
+      "currentDate": "2026-08-10",
       "testedDelta": 56,
       "untestedDelta": -59
     }
   },
   "inventory": {
-    "features": 719,
-    "cases": 1496,
-    "specs": 74,
+    "features": 722,
+    "cases": 1499,
+    "specs": 75,
     "areas": 14
   }
 }
