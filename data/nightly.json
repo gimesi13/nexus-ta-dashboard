@@ -2327,31 +2327,27 @@
     "SurveyCRUDTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "412 new failures \u2014 mainly AudienceGroup, Fieldwork",
+    "headline": "412 new failures across AudienceGroup, Fieldwork and Lookup \u2014 the new typed error-code assertions can't read valid API error responses.",
     "tone": "bad",
     "severity": "high",
-    "cause": "code_change",
-    "causeText": "Possibly NXS-13667 by gergely.gimesi \u2014 touches AudienceGroup, Fieldwork, Lookup (79 overlapping new fails). Correlation only. NOTE: 6 service(s) were deployed to QA in this window (ClientRestJ21, ReconciliationRestJ21, ProjectApiGateway, DynataExternalApiGW, NexusApiBosJ21\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 60\u00d7 assertion Condition not satisfied; 15\u00d7 NOT_FOUND / missing data. Likely related to NXS-13667 gergely.gimesi `45817a8833bb` (AudienceGroup, Fieldwork, Lookup, 79 new fails in overlap).",
+    "cause": "test",
+    "causeText": "NXS-13667 \"typed error-code assertions across regression suite\" (45817a8833bb, gergely.gimesi) added a new NexusApiErrors helper and rewired the *ValidationsTestSteps across AudienceGroup, Fieldwork and Lookup; the APIs still return correct 400/404/500 error bodies, but the helper returns null so ~75 assertions (NexusApiErrors.dkmsError/status(...), err?.status) now fail. Prior build #3.0.2663 was green (0 fails) and only this test-module change touches the failing areas, so this is a test-code regression \u2014 not a product or infra break. The single BOS 502 Bad Gateway is unrelated QA infra noise.",
+    "investigation": "~75 of the classified new fails are Spock assertions on the new NexusApiErrors helper (dkmsError/status(...) returning null) although the APIs returned valid 400/404/500 bodies. Introduced by NXS-13667 (gergely.gimesi, 45817a8833bb), whose changed step files cover exactly AudienceGroup, Fieldwork and Lookup; last night was green.",
     "bullets": [
-      "60\u00d7 assertion Condition not satisfied \u2014 Unsupported country! [countryIso:ZZ]",
-      "15\u00d7 NOT_FOUND / missing data \u2014 org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProj",
-      "3\u00d7 PES soft-launch vs tally \u2014 Tally mode change is not allowed, because total quota less than soft launch quota!",
-      "Change NXS-13667: gergely.gimesi \u00b7 AudienceGroup, Fieldwork, Lookup \u00b7 79 overlapping new fails"
+      "60\u00d7 \"Condition not satisfied\" \u2014 NexusApiErrors.dkmsError/status(exception) returns null though the API returned a valid 400/404 (e.g. \"Unsupported country! [countryIso:ZZ]\", \"No enum constant \u2026DeliveryMode.INVALID\")",
+      "15\u00d7 NOT_FOUND assertions \u2014 same helper returns null on 500 EmptyResultDataAccessException for non-existent IDs",
+      "Test-code change NXS-13667 (gergely.gimesi, 45817a8833bb) touches AudienceGroup, Fieldwork, Lookup \u2014 79 overlapping new fails; 1 BOS 502 is infra noise"
     ],
     "detail": {
-      "investigation": "412 of 413 unmuted failures are new since the prior build (#3.0.2663, 0 fails). Failure types (new-first): (1) 60\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (2) 15\u00d7 NOT_FOUND / missing data \u2014 missing DB row / EmptyResult / NOT_FOUND. (3) 3\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. (4) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: AudienceGroup (44), Fieldwork (30), Lookup (5), BOS (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 6 service(s) (52 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: AudienceGroup: Validate audience template for invalid country code: com.dynata.rest.gateway.nexusapi.rest [assertion Condition not satisfied]; AudienceGroup: Validate audience template for invalid country code: com.dynata.rest.gateway.nexusapi.rest [assertion Condition not satisfied]; AudienceGroup: Search audience templates with empty country set: com.dynata.rest.gateway.nexusapi.rest.te [assertion Condition not satisfied]; AudienceGroup: Search audience templates with empty country set: com.dynata.rest.gateway.nexusapi.rest.te [assertion Condition not satisfied].",
+      "investigation": "412 of 413 unmuted failures are new since prior build #3.0.2663, which was fully green (0 fails). The failures are not product errors: in the 60\u00d7 assert_fail cluster the API returns the correct response (400 \"Unsupported country! [countryIso:ZZ]\", 400 \"No enum constant \u2026DeliveryMode.INVALID\", 404 \"Project not found\") but the newly added NexusApiErrors helper fails to parse it \u2014 assertions like `NexusApiErrors.dkmsError(exception) != null`, `NexusApiErrors.status(exception) == \"BAD_REQUEST\"` and `err?.status == \"BAD_REQUEST\"` all evaluate against null. The 15\u00d7 product_data_not_found cluster is the same helper returning null on 500 EmptyResultDataAccessException for bogus IDs. The one and only change that touches the failing step files is NXS-13667 (45817a8833bb, gergely.gimesi), \"typed error-code assertions across regression suite\", which added NexusApiErrors.java and rewrote AudienceGroupValidationsTestSteps / AudienceTemplateTestSteps / AudienceTemplateValidationsTestSteps (AudienceGroup), FieldworkValidationTestSteps (Fieldwork) and QuotaGroupLookupValidationTestSteps (Lookup) \u2014 exactly the hot areas (AudienceGroup 44, Fieldwork 30, Lookup 5). This is a test-code/assertion regression in the TA module, not a product regression: the QA-deployed backend services return valid error bodies, so they are not implicated by these assertion-parsing failures. Genuine infra/product noise is limited to 1\u00d7 BOS 502 Bad Gateway (QA gateway) and 1\u00d7 server NPE, one occurrence each.",
       "bullets": [
-        "60\u00d7 assertion Condition not satisfied \u2014 Unsupported country! [countryIso:ZZ]",
-        "15\u00d7 NOT_FOUND / missing data \u2014 org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProj",
-        "3\u00d7 PES soft-launch vs tally \u2014 Tally mode change is not allowed, because total quota less than soft launch quota!",
-        "Change NXS-13667: gergely.gimesi \u00b7 AudienceGroup, Fieldwork, Lookup \u00b7 79 overlapping new fails",
-        "NXS-13667 45817a8833bb by gergely.gimesi \u2192 areas AudienceGroup, Fieldwork, Lookup (79 new fails) \u00b7 NexusApiErrors.java, AudienceGroupValidationsTestSteps.groovy, AudienceTemplateTestSteps.groovy, AudienceTemplateValidationsTestSteps.groovy, FieldworkValidationTestSteps.groovy, QuotaGroupLookupValidationTestSteps.groovy",
-        "[QA deploy: ClientRestJ21]  (21 commits) \u2014 chore: add dynata.common.grpc.server.port property to application.properties Cli",
-        "[QA deploy: ReconciliationRestJ21]  (18 commits) \u2014 chore: remove SpringServiceLiquibaseSql dependency from build.gradle",
-        "[QA deploy: ProjectApiGateway]  (9 commits) \u2014 docs: weekly sync (2026-08-10)",
-        "[QA deploy: DynataExternalApiGW]  (1 commit) \u2014 Pac 736 fix appstatus double registration (#5192)",
-        "[QA deploy: NexusApiBosJ21]  (2 commits) \u2014 Fix service bus SDK IDLE bug (#5209)"
+        "412 of 413 unmuted fails are new vs prior build #3.0.2663 (0 fails) \u2014 a clean-to-broken jump in one night",
+        "60\u00d7 \"Condition not satisfied\": NexusApiErrors.dkmsError/status(exception) and err?.status return null, yet the API returned the expected 400/404 error body (e.g. \"Unsupported country! [countryIso:ZZ]\", \"No enum constant \u2026DeliveryMode.INVALID\")",
+        "15\u00d7 NOT_FOUND: NexusApiErrors.status(exception) == \"NOT_FOUND\" fails on 500 EmptyResultDataAccessException for non-existent IDs \u2014 same broken helper",
+        "Root cause: test-code change NXS-13667 (45817a8833bb, gergely.gimesi) \u2014 new NexusApiErrors.java + rewired step files map exactly to AudienceGroup/Fieldwork/Lookup (79 overlapping new fails)",
+        "APIs behaved correctly \u2014 QA-deployed backend services (ClientRestJ21, ProjectApiGateway, etc.) are not implicated by these assertion-parsing failures",
+        "3\u00d7 PES soft-launch vs tally \u2014 shared-fixture test/data noise, unrelated to the helper",
+        "1\u00d7 BOS 502 Bad Gateway \u2014 transient QA infra; 1\u00d7 server NPE \u2014 isolated product path, one occurrence each"
       ],
       "newFailureAreas": [
         {
@@ -2660,8 +2656,8 @@
         "deployedAt": "20260810T064422+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-08-11T02:20Z",
+    "source": "llm",
+    "generatedAt": "2026-08-11T02:20:00Z",
     "buildNumber": "3.0.2664",
     "buildId": "9456994",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9456994",
