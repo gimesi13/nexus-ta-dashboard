@@ -40,7 +40,7 @@
     "BOS::BosD365SampleCreationTestSteps::sample d365 creation workflow": "passed",
     "AudienceGroup::AudienceGroupCRUDLifecycleTestSteps::Clone existing audience group": "passed",
     "AudienceGroup::AudienceGroupCRUDTestSteps::Create and configure new audience group": "passed",
-    "AudienceGroup::AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder": "passed",
+    "AudienceGroup::AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E — quota, template, rename, clone, deleted list, undelete, reorder": "passed",
     "AudienceGroup::AudienceGroupCRUDLifecycleTestSteps::Delete audience group with valid deletion": "passed",
     "BOS::BosD365SampleCreationTestSteps::sample d365 tracker creation workflow": "passed",
     "AudienceGroup::AudienceGroupCRUDLifecycleTestSteps::Undelete audience group with valid undelete": "passed",
@@ -763,7 +763,7 @@
     "BosD365SampleCreationTestSteps::sample d365 creation workflow": "passed",
     "AudienceGroupCRUDLifecycleTestSteps::Clone existing audience group": "passed",
     "AudienceGroupCRUDTestSteps::Create and configure new audience group": "passed",
-    "AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder": "passed",
+    "AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E — quota, template, rename, clone, deleted list, undelete, reorder": "passed",
     "AudienceGroupCRUDLifecycleTestSteps::Delete audience group with valid deletion": "passed",
     "BosD365SampleCreationTestSteps::sample d365 tracker creation workflow": "passed",
     "AudienceGroupCRUDLifecycleTestSteps::Undelete audience group with valid undelete": "passed",
@@ -1475,362 +1475,24 @@
     "SurveyCRUDTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "headline": "Nightly was green — all 1358 unmuted tests passed with no new failures.",
     "tone": "ok",
     "severity": "none",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
-    "bullets": [
-      "Change NXS-13674: gergely.gimesi \u00b7 Segment",
-      "Change NXS-13674: gergely.gimesi \u00b7 AudienceGroup"
-    ],
+    "causeText": "Clean run — no unmuted failures to investigate.",
+    "investigation": "",
+    "bullets": [],
     "detail": {
-      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 7 service(s) (51 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
-      "bullets": [
-        "Change NXS-13674: gergely.gimesi \u00b7 Segment",
-        "Change NXS-13674: gergely.gimesi \u00b7 AudienceGroup",
-        "NXS-13674 009aeb891daf by gergely.gimesi \u2192 areas Segment (0 new fails) \u00b7 SegmentsValidationTestSteps.groovy, SegmentsWorkflowTestSteps.groovy",
-        "NXS-13674 172cfd8d91a5 by gergely.gimesi \u2192 areas AudienceGroup (0 new fails) \u00b7 AudienceTemplateTestSteps.groovy",
-        "NXS-13673 481a3a50484c by gergely.gimesi \u2192 areas Settings (0 new fails) \u00b7 SUITE_TIERS.md, SettingsTestSteps.groovy, UserSettingsTestSteps.groovy",
-        "NXS-13667 dadd0462b262 by gergely.gimesi \u2192 areas AudienceGroup, Fieldwork, Lookup, Parameter, PartnerEvent, Project, Quota, QuotaGroup, SampleRules, Segment, Settings, Survey (0 new fails) \u00b7 NexusApiErrors.java, AudienceGroupValidationsTestSteps.groovy, AudienceTemplateTestSteps.groovy, AudienceTemplateValidationsTestSteps.groovy, FieldworkValidationTestSteps.groovy, QuotaGroupLookupValidationTestSteps.groovy",
-        "[QA deploy: DKProjectCountersRestJ21] NXS-13668 (4 commits) \u2014 [NXS-13668] exclude group: 'io.swagger.core.v3'",
-        "[QA deploy: NexusApiUI] NXS-13668 (24 commits) \u2014 [NXS-13668] bump SpringServiceBase:5.2.4 for swagger",
-        "[QA deploy: DetailsEditorRestJ21] NXS-13668 (10 commits) \u2014 [NXS-13668] bump SpringServiceBase:5.2.4 for swagger",
-        "[QA deploy: NexusApiMetaJ21]  (2 commits) \u2014 [ST-4997] DKNovaTranslatorRest DEV inventory for the Java 21 / Boot 3.5 image"
-      ],
+      "investigation": "",
+      "bullets": [],
       "newFailureAreas": [],
-      "likelyCauses": [
-        {
-          "version": "009aeb891daf",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13674",
-          "comment": "NXS-13674 MS - collapse duplicate helper registrations in Segments specs",
-          "areas": [
-            "Segment"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "SegmentsValidationTestSteps.groovy",
-            "SegmentsWorkflowTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "172cfd8d91a5",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13674",
-          "comment": "NXS-13674 MS - remove duplicate audience-template validation feature",
-          "areas": [
-            "AudienceGroup"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "AudienceTemplateTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "481a3a50484c",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13673",
-          "comment": "[NXS-13673] MS - consolidate shared QA-user (13858) settings writes into one spec for parallel safety",
-          "areas": [
-            "Settings"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "SUITE_TIERS.md",
-            "SettingsTestSteps.groovy",
-            "UserSettingsTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "dadd0462b262",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13667",
-          "comment": "Revert \"Merge pull request #5224 from dynata/NXS-13667-strengthen-assertions\"",
-          "areas": [
-            "AudienceGroup",
-            "Fieldwork",
-            "Lookup",
-            "Parameter",
-            "PartnerEvent",
-            "Project",
-            "Quota",
-            "QuotaGroup",
-            "SampleRules",
-            "Segment",
-            "Settings",
-            "Survey"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "NexusApiErrors.java",
-            "AudienceGroupValidationsTestSteps.groovy",
-            "AudienceTemplateTestSteps.groovy",
-            "AudienceTemplateValidationsTestSteps.groovy",
-            "FieldworkValidationTestSteps.groovy",
-            "QuotaGroupLookupValidationTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "f3d88ab2a639",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13674",
-          "comment": "NXS-13674 MS - externalise hardcoded fixture IDs to TestConstants",
-          "areas": [
-            "AudienceGroup",
-            "Settings"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "TestConstants.java",
-            "AudienceGroupE2ECloneRestoreReorderTestSteps.groovy",
-            "AudienceTemplateTestSteps.groovy",
-            "UserSettingsTestSteps.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
     "clusters": [],
-    "suspectCommits": [
-      {
-        "version": "d5dbbd3ca4c3",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13674 MS - record Phase 5 teardown audit + close ID/tag backlog item",
-        "ticket": "NXS-13674",
-        "areas": []
-      },
-      {
-        "version": "172cfd8d91a5",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13674 MS - remove duplicate audience-template validation feature",
-        "ticket": "NXS-13674",
-        "areas": [
-          "AudienceGroup"
-        ]
-      },
-      {
-        "version": "f3d88ab2a639",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13674 MS - externalise hardcoded fixture IDs to TestConstants",
-        "ticket": "NXS-13674",
-        "areas": [
-          "AudienceGroup",
-          "Settings"
-        ]
-      },
-      {
-        "version": "009aeb891daf",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13674 MS - collapse duplicate helper registrations in Segments specs",
-        "ticket": "NXS-13674",
-        "areas": [
-          "Segment"
-        ]
-      },
-      {
-        "version": "00c9b4b35648",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13674] MS - delete dead apitest test trees (Phase 5 refactor)",
-        "ticket": "NXS-13674",
-        "areas": []
-      },
-      {
-        "version": "481a3a50484c",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13673] MS - consolidate shared QA-user (13858) settings writes into one spec for parallel safety",
-        "ticket": "NXS-13673",
-        "areas": [
-          "Settings"
-        ]
-      }
-    ],
-    "qaDeploySuspects": [
-      {
-        "service": "DKProjectCountersRestJ21",
-        "version": "ec13747aa945",
-        "username": "andras.banszki",
-        "comment": "[NXS-13668] exclude group: 'io.swagger.core.v3'",
-        "ticket": "NXS-13668",
-        "deployedAt": "20260811T174612+0000",
-        "files": [
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "0eb9e495da8c",
-        "username": "andras.banszki",
-        "comment": "[NXS-13668] bump SpringServiceBase:5.2.4 for swagger",
-        "ticket": "NXS-13668",
-        "deployedAt": "20260811T174521+0000",
-        "files": [
-          "build.gradle",
-          "build.gradle",
-          "build.gradle"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "61fb9f55153d",
-        "username": "weiqun.wang",
-        "comment": "update both qa and prod to ml.g5.2xlarge",
-        "ticket": "",
-        "deployedAt": "20260811T174521+0000",
-        "files": [
-          "production.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "4867e7b1008a",
-        "username": "weiqun.wang",
-        "comment": "update prod instance to ml.g4dn.xlarge to match qa",
-        "ticket": "",
-        "deployedAt": "20260811T174521+0000",
-        "files": [
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "332640ee3034",
-        "username": "norbert.farkas",
-        "comment": "Merge pull request #603 from dynata/NXS-13549-WebSourceRest-ecr-migration",
-        "ticket": "NXS-13549",
-        "deployedAt": "20260811T174521+0000",
-        "files": [],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "9d9c802a5110",
-        "username": "norbert.farkas",
-        "comment": "Merge pull request #596 from dynata/NXS-13541-SampleRest-ecr-migration",
-        "ticket": "NXS-13541",
-        "deployedAt": "20260811T174521+0000",
-        "files": [],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "c6226cc40ed4",
-        "username": "norbert.farkas",
-        "comment": "[NXS-13549] MS - Migrate WebSourceRest from DockerHub to ECR",
-        "ticket": "NXS-13549",
-        "deployedAt": "20260811T174521+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "2ea552a44629",
-        "username": "norbert.farkas",
-        "comment": "[NXS-13541] MS - Migrate SampleRest from DockerHub to ECR",
-        "ticket": "NXS-13541",
-        "deployedAt": "20260811T174521+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "3020db790706",
-        "username": "bresalio.nagy",
-        "comment": "[AE-000] Delete support-ai-agent from CF",
-        "ticket": "",
-        "deployedAt": "20260811T174521+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "dev.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "81d91621bad2",
-        "username": "virag.urbin-szabo",
-        "comment": "add IP for PDB Ipsos Feasibility",
-        "ticket": "",
-        "deployedAt": "20260811T174521+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      }
-    ],
-    "qaDeployServices": [
-      {
-        "service": "DKProjectCountersRestJ21",
-        "commits": 4,
-        "latestTicket": "NXS-13668",
-        "latestComment": "[NXS-13668] exclude group: 'io.swagger.core.v3'",
-        "deployedAt": "20260811T174612+0000"
-      },
-      {
-        "service": "NexusApiUI",
-        "commits": 24,
-        "latestTicket": "NXS-13668",
-        "latestComment": "[NXS-13668] bump SpringServiceBase:5.2.4 for swagger",
-        "deployedAt": "20260811T174521+0000"
-      },
-      {
-        "service": "DetailsEditorRestJ21",
-        "commits": 10,
-        "latestTicket": "NXS-13668",
-        "latestComment": "[NXS-13668] bump SpringServiceBase:5.2.4 for swagger",
-        "deployedAt": "20260811T174047+0000"
-      },
-      {
-        "service": "NexusApiMetaJ21",
-        "commits": 2,
-        "latestTicket": "",
-        "latestComment": "[ST-4997] DKNovaTranslatorRest DEV inventory for the Java 21 / Boot 3.5 image",
-        "deployedAt": "20260811T165721+0000"
-      },
-      {
-        "service": "NexusApiJ21",
-        "commits": 4,
-        "latestTicket": "NXS-13575",
-        "latestComment": "[NXS-13575] - fix random acc test failure",
-        "deployedAt": "20260811T165145+0000"
-      },
-      {
-        "service": "SetOperationRestJ21",
-        "commits": 2,
-        "latestTicket": "NXS-11406",
-        "latestComment": "[NXS-11406] EOS - MS - missing file extension when downloading set operation val",
-        "deployedAt": "20260811T114308+0000"
-      },
-      {
-        "service": "DKOrder",
-        "commits": 5,
-        "latestTicket": "",
-        "latestComment": "DKOrder fix, dates",
-        "deployedAt": "20260811T105140+0000"
-      }
-    ],
-    "source": "investigator",
-    "generatedAt": "2026-08-12T02:19Z",
+    "source": "llm",
+    "generatedAt": "2026-08-12T02:19:00Z",
     "buildNumber": "3.0.2665",
     "buildId": "9459072",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9459072",
-    "focus": "all_failures",
-    "newFailed": 0,
-    "failed": 0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9459072"
   }
 }
