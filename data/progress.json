@@ -1,18 +1,19 @@
 {
-  "generatedAt": "2026-08-11T02:20Z",
+  "generatedAt": "2026-08-12T02:19Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-08-05",
-      "to": "2026-08-11",
-      "featuresAdded": 4,
-      "casesAdded": 4,
-      "areasTouched": 2,
-      "ticketsTouched": 1,
+      "from": "2026-08-06",
+      "to": "2026-08-12",
+      "featuresAdded": 5,
+      "casesAdded": 5,
+      "areasTouched": 3,
+      "ticketsTouched": 2,
       "byType": {
         "Validation": 1,
+        "Query": 1,
         "E2E": 1,
         "Other": 2
       },
@@ -24,6 +25,10 @@
         {
           "area": "QuotaGroup",
           "featuresAdded": 1
+        },
+        {
+          "area": "Settings",
+          "featuresAdded": 1
         }
       ],
       "tickets": [
@@ -32,9 +37,35 @@
           "featuresAdded": 4,
           "casesAdded": 4,
           "latestDate": "2026-08-08"
+        },
+        {
+          "key": "NXS-13673",
+          "featuresAdded": 1,
+          "casesAdded": 1,
+          "latestDate": "2026-08-11"
         }
       ],
       "additions": [
+        {
+          "name": "View user settings",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
+          "date": "2026-08-11",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-13673] MS - consolidate shared QA-user (13858) settings writes into one spec for parallel safety",
+          "commit": "481a3a5048",
+          "tickets": [
+            "NXS-13673"
+          ],
+          "area": "Settings",
+          "spec": "UserSettingsTestSteps",
+          "type": "Query",
+          "cases": 1,
+          "tags": [
+            "USER_SETTINGS"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=View%20user%20settings"
+        },
         {
           "name": "sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
@@ -124,21 +155,25 @@
       ]
     },
     "14d": {
-      "from": "2026-07-29",
-      "to": "2026-08-11",
-      "featuresAdded": 14,
-      "casesAdded": 14,
+      "from": "2026-07-30",
+      "to": "2026-08-12",
+      "featuresAdded": 15,
+      "casesAdded": 15,
       "areasTouched": 5,
-      "ticketsTouched": 2,
+      "ticketsTouched": 3,
       "byType": {
         "CRUD": 1,
         "Validation": 6,
         "Workflow": 1,
-        "Query": 1,
+        "Query": 2,
         "E2E": 1,
         "Other": 4
       },
       "byArea": [
+        {
+          "area": "Settings",
+          "featuresAdded": 4
+        },
         {
           "area": "BOS",
           "featuresAdded": 3
@@ -149,10 +184,6 @@
         },
         {
           "area": "QuotaGroup",
-          "featuresAdded": 3
-        },
-        {
-          "area": "Settings",
           "featuresAdded": 3
         },
         {
@@ -172,9 +203,35 @@
           "featuresAdded": 4,
           "casesAdded": 4,
           "latestDate": "2026-08-08"
+        },
+        {
+          "key": "NXS-13673",
+          "featuresAdded": 1,
+          "casesAdded": 1,
+          "latestDate": "2026-08-11"
         }
       ],
       "additions": [
+        {
+          "name": "View user settings",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
+          "date": "2026-08-11",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-13673] MS - consolidate shared QA-user (13858) settings writes into one spec for parallel safety",
+          "commit": "481a3a5048",
+          "tickets": [
+            "NXS-13673"
+          ],
+          "area": "Settings",
+          "spec": "UserSettingsTestSteps",
+          "type": "Query",
+          "cases": 1,
+          "tags": [
+            "USER_SETTINGS"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=View%20user%20settings"
+        },
         {
           "name": "sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
@@ -479,17 +536,17 @@
       ]
     },
     "30d": {
-      "from": "2026-07-13",
-      "to": "2026-08-11",
-      "featuresAdded": 92,
-      "casesAdded": 98,
+      "from": "2026-07-14",
+      "to": "2026-08-12",
+      "featuresAdded": 93,
+      "casesAdded": 99,
       "areasTouched": 10,
-      "ticketsTouched": 4,
+      "ticketsTouched": 5,
       "byType": {
         "CRUD": 30,
         "Validation": 32,
         "Workflow": 18,
-        "Query": 5,
+        "Query": 6,
         "E2E": 1,
         "Other": 6
       },
@@ -515,15 +572,15 @@
           "featuresAdded": 5
         },
         {
+          "area": "Settings",
+          "featuresAdded": 4
+        },
+        {
           "area": "BOS",
           "featuresAdded": 3
         },
         {
           "area": "Segment",
-          "featuresAdded": 3
-        },
-        {
-          "area": "Settings",
           "featuresAdded": 3
         },
         {
@@ -559,9 +616,35 @@
           "featuresAdded": 4,
           "casesAdded": 4,
           "latestDate": "2026-08-08"
+        },
+        {
+          "key": "NXS-13673",
+          "featuresAdded": 1,
+          "casesAdded": 1,
+          "latestDate": "2026-08-11"
         }
       ],
       "additions": [
+        {
+          "name": "View user settings",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
+          "date": "2026-08-11",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-13673] MS - consolidate shared QA-user (13858) settings writes into one spec for parallel safety",
+          "commit": "481a3a5048",
+          "tickets": [
+            "NXS-13673"
+          ],
+          "area": "Settings",
+          "spec": "UserSettingsTestSteps",
+          "type": "Query",
+          "cases": 1,
+          "tags": [
+            "USER_SETTINGS"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=View%20user%20settings"
+        },
         {
           "name": "sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
@@ -2546,17 +2629,17 @@
       ]
     },
     "90d": {
-      "from": "2026-05-14",
-      "to": "2026-08-11",
-      "featuresAdded": 156,
-      "casesAdded": 189,
+      "from": "2026-05-15",
+      "to": "2026-08-12",
+      "featuresAdded": 153,
+      "casesAdded": 173,
       "areasTouched": 11,
-      "ticketsTouched": 12,
+      "ticketsTouched": 13,
       "byType": {
-        "CRUD": 48,
-        "Validation": 45,
+        "CRUD": 46,
+        "Validation": 43,
         "Workflow": 28,
-        "Query": 17,
+        "Query": 18,
         "E2E": 1,
         "Other": 17
       },
@@ -2567,7 +2650,7 @@
         },
         {
           "area": "QuotaGroup",
-          "featuresAdded": 47
+          "featuresAdded": 43
         },
         {
           "area": "SampleRules",
@@ -2590,11 +2673,11 @@
           "featuresAdded": 5
         },
         {
-          "area": "BOS",
-          "featuresAdded": 3
+          "area": "Settings",
+          "featuresAdded": 4
         },
         {
-          "area": "Settings",
+          "area": "BOS",
           "featuresAdded": 3
         },
         {
@@ -2615,14 +2698,14 @@
         },
         {
           "key": "NXS-12492",
-          "featuresAdded": 37,
-          "casesAdded": 53,
+          "featuresAdded": 33,
+          "casesAdded": 35,
           "latestDate": "2026-06-16"
         },
         {
           "key": "NXS-13325",
           "featuresAdded": 10,
-          "casesAdded": 19,
+          "casesAdded": 20,
           "latestDate": "2026-07-02"
         },
         {
@@ -2678,9 +2761,35 @@
           "featuresAdded": 1,
           "casesAdded": 1,
           "latestDate": "2026-07-01"
+        },
+        {
+          "key": "NXS-13673",
+          "featuresAdded": 1,
+          "casesAdded": 1,
+          "latestDate": "2026-08-11"
         }
       ],
       "additions": [
+        {
+          "name": "View user settings",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
+          "date": "2026-08-11",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-13673] MS - consolidate shared QA-user (13858) settings writes into one spec for parallel safety",
+          "commit": "481a3a5048",
+          "tickets": [
+            "NXS-13673"
+          ],
+          "area": "Settings",
+          "spec": "UserSettingsTestSteps",
+          "type": "Query",
+          "cases": 1,
+          "tags": [
+            "USER_SETTINGS"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=View%20user%20settings"
+        },
         {
           "name": "sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
@@ -4847,7 +4956,7 @@
           "area": "Project",
           "spec": "ExclusionRulesTestSteps",
           "type": "Validation",
-          "cases": 1,
+          "cases": 2,
           "tags": [
             "EXCLUSION_RULES",
             "PROJECT_CORE",
@@ -5916,96 +6025,6 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Get%20project%20core%20includes%20eligibleForRaceBoost%20field"
-        },
-        {
-          "name": "Clone quota group for panel-enabled country",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-05-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression add country-language clone scenarios",
-          "commit": "645be44c4f",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 4,
-          "tags": [
-            "CLONE_QUOTA_GROUP",
-            "COUNTRY_LANGUAGES",
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Clone%20quota%20group%20for%20panel-enabled%20country"
-        },
-        {
-          "name": "Clone quota group for panel-disabled country rejects request",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-05-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression add country-language clone scenarios",
-          "commit": "645be44c4f",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupValidationTestSteps",
-          "type": "Validation",
-          "cases": 6,
-          "tags": [
-            "CLONE_QUOTA_GROUP",
-            "COUNTRY_LANGUAGES",
-            "QUOTA",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Clone%20quota%20group%20for%20panel-disabled%20country%20rejects%20request"
-        },
-        {
-          "name": "Clone quota group for enabled country with unsupported language",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-05-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression add country-language clone scenarios",
-          "commit": "645be44c4f",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupValidationTestSteps",
-          "type": "Validation",
-          "cases": 4,
-          "tags": [
-            "CLONE_QUOTA_GROUP",
-            "COUNTRY_LANGUAGES",
-            "QUOTA",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Clone%20quota%20group%20for%20enabled%20country%20with%20unsupported%20language"
-        },
-        {
-          "name": "Clone quota group for enabled country and supported language persists correct country-language",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-05-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression add country-language clone scenarios",
-          "commit": "645be44c4f",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 4,
-          "tags": [
-            "CLONE_QUOTA_GROUP",
-            "COUNTRY_LANGUAGES",
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Clone%20quota%20group%20for%20enabled%20country%20and%20supported%20language%20persists%20correct%20country-language"
         }
       ]
     }
@@ -6039,7 +6058,7 @@
     {
       "weekStart": "2026-06-29",
       "featuresAdded": 24,
-      "casesAdded": 35
+      "casesAdded": 36
     },
     {
       "weekStart": "2026-07-06",
@@ -6068,8 +6087,8 @@
     },
     {
       "weekStart": "2026-08-10",
-      "featuresAdded": 0,
-      "casesAdded": 0
+      "featuresAdded": 1,
+      "casesAdded": 1
     }
   ],
   "snapshots": [
@@ -6096,9 +6115,9 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-08-11",
-      "features": 722,
-      "cases": 1446,
+      "date": "2026-08-12",
+      "features": 721,
+      "cases": 1498,
       "specs": 75,
       "areas": 14,
       "coveragePercent": 100.0,
@@ -6116,14 +6135,14 @@
       "priorPercent": 78.0,
       "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-08-11",
+      "currentDate": "2026-08-12",
       "testedDelta": 56,
       "untestedDelta": -59
     }
   },
   "inventory": {
-    "features": 722,
-    "cases": 1446,
+    "features": 721,
+    "cases": 1498,
     "specs": 75,
     "areas": 14
   }

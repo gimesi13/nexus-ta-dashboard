@@ -1,47 +1,128 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-11T02:20Z",
+  "generatedAt": "2026-08-12T02:19Z",
   "build": {
-    "number": "3.0.2664",
-    "buildId": "9456994",
-    "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9456994",
-    "durationSec": 2724.0
+    "number": "3.0.2665",
+    "buildId": "9459072",
+    "status": "SUCCESS",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9459072",
+    "durationSec": 2745.0
   },
   "summary": {
-    "tests": 1426,
-    "passed": 928,
-    "failures": 413,
+    "tests": 1446,
+    "passed": 1358,
+    "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "muted": 85,
-    "newFailed": 412,
-    "passRate": 69.2,
-    "timeSec": 2724.0
+    "muted": 88,
+    "newFailed": 0,
+    "passRate": 100.0,
+    "timeSec": 2745.0
   },
   "prior": {
-    "buildId": "9452203",
-    "number": "3.0.2663",
-    "status": "SUCCESS",
-    "statusText": "Tests passed: 1360, muted: 88",
-    "startDate": "20260810T013240+0000",
-    "durationSec": 2450.0,
-    "failed": 0,
-    "passed": 1360,
-    "newFailed": 0
+    "buildId": "9456994",
+    "number": "3.0.2664",
+    "status": "FAILURE",
+    "statusText": "Tests failed: 413 (412 new), passed: 928, muted: 85",
+    "startDate": "20260811T013329+0000",
+    "durationSec": 2724.0,
+    "failed": 413,
+    "passed": 928,
+    "newFailed": 412
   },
   "changes": [
     {
-      "version": "74a2af571e09",
-      "username": "105725861+gimesi13",
-      "comment": "Merge pull request #5224 from dynata/NXS-13667-strengthen-assertions",
-      "files": [],
+      "version": "d5dbbd3ca4c3",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13674 MS - record Phase 5 teardown audit + close ID/tag backlog item",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/DEBT_BACKLOG.md"
+      ],
       "areas": []
     },
     {
-      "version": "45817a8833bb",
+      "version": "172cfd8d91a5",
       "username": "gergely.gimesi",
-      "comment": "[NXS-13667] MS - typed error-code assertions across regression suite",
+      "comment": "NXS-13674 MS - remove duplicate audience-template validation feature",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceTemplateTestSteps.groovy"
+      ],
+      "areas": [
+        "AudienceGroup"
+      ]
+    },
+    {
+      "version": "f3d88ab2a639",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13674 MS - externalise hardcoded fixture IDs to TestConstants",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/config/TestConstants.java",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceGroupE2ECloneRestoreReorderTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceTemplateTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy"
+      ],
+      "areas": [
+        "AudienceGroup",
+        "Settings"
+      ]
+    },
+    {
+      "version": "009aeb891daf",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13674 MS - collapse duplicate helper registrations in Segments specs",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsValidationTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsWorkflowTestSteps.groovy"
+      ],
+      "areas": [
+        "Segment"
+      ]
+    },
+    {
+      "version": "00c9b4b35648",
+      "username": "gergely.gimesi",
+      "comment": "[NXS-13674] MS - delete dead apitest test trees (Phase 5 refactor)",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/DEBT_BACKLOG.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/SUITE_TIERS.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/TEST_SUITE_MAP.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/apitest/TestCase.java",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/apitest/TestProjectIdentifiers.java",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/apitests/ui/ApiConditionTest.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/apitests/ui/ApiInclusionTest.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/apitests/ui/AudienceGroupTests.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/apitests/ui/QGCoreTests.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/apitests/ui/QGSearchTests.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/apitests/ui/QuotaGroupTest.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/apitests/ui/USASmokingAgeRestrictionTestCases.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/apitest/FeasibilityRegrTests.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/apitest/UAudienceGroupsRegrTests.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/apitest/UAudienceTemplatesRegrTests.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/apitest/UConditionsRegrTests.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/apitest/UCountersRegrTests.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/apitest/UDeliveryRegrTests.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/apitest/UExclusionRulesRegrTests.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/apitest/UInclusionTests.groovy"
+      ],
+      "areas": []
+    },
+    {
+      "version": "481a3a50484c",
+      "username": "gergely.gimesi",
+      "comment": "[NXS-13673] MS - consolidate shared QA-user (13858) settings writes into one spec for parallel safety",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/SUITE_TIERS.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/SettingsTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy"
+      ],
+      "areas": [
+        "Settings"
+      ]
+    },
+    {
+      "version": "dadd0462b262",
+      "username": "gergely.gimesi",
+      "comment": "Revert \"Merge pull request #5224 from dynata/NXS-13667-strengthen-assertions\"",
       "files": [
         "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/utils/NexusApiErrors.java",
         "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceGroupValidationsTestSteps.groovy",
@@ -78,39 +159,159 @@
         "Settings",
         "Survey"
       ]
-    },
-    {
-      "version": "8c568db4f0c5",
-      "username": "bence.csepe",
-      "comment": "[NXS-13606] MS - add clientAccountGuidCache to framework-extensions (j16) (#5106)",
-      "files": [
-        "gradle/nxs_dependencies.gradle"
-      ],
-      "areas": []
-    },
-    {
-      "version": "27afd7fae29e",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-13665] MS - docs-sync/dashboard: make weekly OpenAPI fetch best-effort",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/tools/generate_coverage.py"
-      ],
-      "areas": []
     }
   ],
   "qaDeployChanges": [
     {
-      "service": "ClientRestJ21",
-      "version": "0e8cd92826ce",
-      "username": "gabor.fial",
-      "comment": "chore: add dynata.common.grpc.server.port property to application.properties ClientRest",
+      "service": "DKProjectCountersRestJ21",
+      "version": "ec13747aa945",
+      "username": "andras.banszki",
+      "comment": "[NXS-13668] exclude group: 'io.swagger.core.v3'",
       "files": [
-        "management/ClientRest/src/integTest/resources/application.properties"
+        "gateway/dk/DKProjectCountersRest/build.gradle",
+        "gateway/unifiedApi/NexusApi/build.gradle",
+        "gateway/unifiedApi/NexusApiMeta/build.gradle",
+        "gateway/unifiedApi/NexusApiUI/build.gradle",
+        "management/NotificationHandlerRest/build.gradle",
+        "management/SetOperationRest/build.gradle",
+        "project/DedupeRest/build.gradle",
+        "project/DetailsEditorRest/build.gradle",
+        "project/ProjectArchiveRest/build.gradle",
+        "project/ProjectEventForwarder/build.gradle",
+        "project/QuotaDetailsRest/build.gradle",
+        "project/QuotaGroupDefinitionRest/build.gradle",
+        "project/QuotaGroupRest/build.gradle",
+        "project/QuotaGroupSourcesRest/build.gradle",
+        "project/SurveyRest/build.gradle",
+        "project/TargetEditorRest/build.gradle",
+        "project/TestLinkRest/build.gradle",
+        "project/ThrottlingSettingRest/build.gradle",
+        "sandbox/SandboxServiceRest/build.gradle",
+        "system/ExtendedAttributesRest/build.gradle"
       ],
-      "deployedAt": "20260810T141408+0000"
+      "deployedAt": "20260811T174612+0000"
     },
     {
-      "service": "ClientRestJ21",
+      "service": "NexusApiUI",
+      "version": "0eb9e495da8c",
+      "username": "andras.banszki",
+      "comment": "[NXS-13668] bump SpringServiceBase:5.2.4 for swagger",
+      "files": [
+        "gateway/unifiedApi/NexusApi/build.gradle",
+        "gateway/unifiedApi/NexusApiMeta/build.gradle",
+        "gateway/unifiedApi/NexusApiUI/build.gradle"
+      ],
+      "deployedAt": "20260811T174521+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "61fb9f55153d",
+      "username": "weiqun.wang",
+      "comment": "update both qa and prod to ml.g5.2xlarge",
+      "files": [
+        "ml-reconciliation-model/group_vars/production.yml",
+        "ml-reconciliation-model/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260811T174521+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "4867e7b1008a",
+      "username": "weiqun.wang",
+      "comment": "update prod instance to ml.g4dn.xlarge to match qa",
+      "files": [
+        "ml-reconciliation-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20260811T174521+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "332640ee3034",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #603 from dynata/NXS-13549-WebSourceRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260811T174521+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "9d9c802a5110",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #596 from dynata/NXS-13541-SampleRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260811T174521+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "c6226cc40ed4",
+      "username": "norbert.farkas",
+      "comment": "[NXS-13549] MS - Migrate WebSourceRest from DockerHub to ECR",
+      "files": [
+        "dk-management-web-source-rest/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260811T174521+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "2ea552a44629",
+      "username": "norbert.farkas",
+      "comment": "[NXS-13541] MS - Migrate SampleRest from DockerHub to ECR",
+      "files": [
+        "dk-system-sample-rest/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260811T174521+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "3020db790706",
+      "username": "bresalio.nagy",
+      "comment": "[AE-000] Delete support-ai-agent from CF",
+      "files": [
+        "ae-support-ai-agent/cloud-formation.template.yml",
+        "ae-support-ai-agent/group_vars/all.yml",
+        "ae-support-ai-agent/group_vars/dev.yml"
+      ],
+      "deployedAt": "20260811T174521+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "81d91621bad2",
+      "username": "virag.urbin-szabo",
+      "comment": "add IP for PDB Ipsos Feasibility",
+      "files": [
+        "pdb-feasibility-ipsos/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260811T174521+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "2bd4b108869a",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #557 from dynata/NXS-12114-DashboardRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260811T174521+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "210a4e0cc429",
+      "username": "norbert.farkas",
+      "comment": "[NXS-12114] MS - Migrate DashboardRest from DockerHub to ECR",
+      "files": [
+        "dk-project-dashboard-rest/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260811T174521+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "37457b6ef08e",
+      "username": "weiqun.wang",
+      "comment": "update qa instanct count min to 1",
+      "files": [
+        "ml-reconciliation-model/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260811T174521+0000"
+    },
+    {
+      "service": "NexusApiUI",
       "version": "8c568db4f0c5",
       "username": "bence.csepe",
       "comment": "[NXS-13606] MS - add clientAccountGuidCache to framework-extensions (j16) (#5106)",
@@ -123,10 +324,35 @@
         "utilities/framework-extension/ClientAccountGuidCache/src/test/groovy/com/dynata/nexus/caches/client/ClientAccountGuidCacheTest.groovy",
         "utilities/framework-extension/settings.gradle"
       ],
-      "deployedAt": "20260810T141408+0000"
+      "deployedAt": "20260811T174521+0000"
     },
     {
-      "service": "ClientRestJ21",
+      "service": "NexusApiUI",
+      "version": "b13906db13d3",
+      "username": "nexus-docs-bot",
+      "comment": "docs: weekly sync (2026-08-10)",
+      "files": [
+        "gateway/dk/DKUserRest/README.md",
+        "gateway/external/DynataExternalApiGW/README.md",
+        "gateway/unifiedApi/NexusApiUI/README.md",
+        "gateway/unifiedApi/ProjectApiGateway/README.md",
+        "management/CategoryRest/README.md",
+        "management/ClaimOptionRest/README.md",
+        "management/EnumRest/README.md",
+        "project/CascadesRest/README.md",
+        "project/Crm/CrmRest/README.md",
+        "project/ProjectLogRest/README.md",
+        "project/ProjectRest/README.md",
+        "project/SubjectLibraryRest/README.md",
+        "system/EncryptDecryptRest/README.md",
+        "system/ExtendedAttributesRest/README.md",
+        "system/OperatorRest/README.md",
+        "system/UserRest/README.md"
+      ],
+      "deployedAt": "20260811T174521+0000"
+    },
+    {
+      "service": "NexusApiUI",
       "version": "4d5918d16bd9",
       "username": "bresalio.nagy",
       "comment": "[AE-000] [CVE] use log router version 26",
@@ -152,10 +378,10 @@
         "ae-project-evaluator-post-qualification-engine/group_vars/all.yml",
         "ae-project-evaluator-shard-manager/group_vars/all.yml"
       ],
-      "deployedAt": "20260810T141408+0000"
+      "deployedAt": "20260811T174521+0000"
     },
     {
-      "service": "ClientRestJ21",
+      "service": "NexusApiUI",
       "version": "c0cff01d3326",
       "username": "lajos.pajger",
       "comment": "[SFC] get database credentials from secret manager",
@@ -165,10 +391,10 @@
         "ae-legacy-survey-flow-controller/cloud-formation.template.yml",
         "ae-legacy-survey-flow-controller/group_vars/all.yml"
       ],
-      "deployedAt": "20260810T141408+0000"
+      "deployedAt": "20260811T174521+0000"
     },
     {
-      "service": "ClientRestJ21",
+      "service": "NexusApiUI",
       "version": "90b7d9d46905",
       "username": "lajos.pajger",
       "comment": "dkjs-traffic gen AE apps replace datadog with open telemetry",
@@ -194,10 +420,10 @@
         "dkjs-sampling-jobs/group_vars/production.yml",
         "dkjs-sampling-jobs/group_vars/qa.yml"
       ],
-      "deployedAt": "20260810T141408+0000"
+      "deployedAt": "20260811T174521+0000"
     },
     {
-      "service": "ClientRestJ21",
+      "service": "NexusApiUI",
       "version": "38d6408d81d2",
       "username": "lajos.pajger",
       "comment": "dkjs-contact-metrics replace datadog with open telemetry",
@@ -208,10 +434,10 @@
         "dkjs-contact-metrics/group_vars/production.yml",
         "dkjs-contact-metrics/group_vars/qa.yml"
       ],
-      "deployedAt": "20260810T141408+0000"
+      "deployedAt": "20260811T174521+0000"
     },
     {
-      "service": "ClientRestJ21",
+      "service": "NexusApiUI",
       "version": "ad0e60d6d4fe",
       "username": "tamas.gyarmati",
       "comment": "[NXS-13646] - create pes-mongo",
@@ -222,840 +448,259 @@
         "pes-mongo/group_vars/production.yml",
         "pes-mongo/group_vars/qa.yml"
       ],
-      "deployedAt": "20260810T141408+0000"
+      "deployedAt": "20260811T174521+0000"
     },
     {
-      "service": "ClientRestJ21",
+      "service": "NexusApiUI",
       "version": "5a8061f0f5e6",
       "username": "134395908+dynata-hu-krisztian-kover",
       "comment": "Merge pull request #554 from dynata/ST-4998-dk-system-user-rest",
       "files": [],
-      "deployedAt": "20260810T141408+0000"
+      "deployedAt": "20260811T174521+0000"
     },
     {
-      "service": "ClientRestJ21",
+      "service": "NexusApiUI",
       "version": "c14a0f441fa1",
       "username": "krisztian.kover",
       "comment": "[ST-4998] - SystemUserRest - Changed health check url in DEV",
       "files": [
         "dk-system-user-rest/group_vars/dev.yml"
       ],
-      "deployedAt": "20260810T141408+0000"
+      "deployedAt": "20260811T174521+0000"
     },
     {
-      "service": "ClientRestJ21",
+      "service": "NexusApiUI",
       "version": "02595c2cef6f",
       "username": "lajos.pajger",
       "comment": "dkjs-contact-jobs update health check uri",
       "files": [
         "dkjs-contact-jobs/group_vars/all.yml"
       ],
-      "deployedAt": "20260810T141408+0000"
+      "deployedAt": "20260811T174521+0000"
     },
     {
-      "service": "ClientRestJ21",
+      "service": "NexusApiUI",
       "version": "668734443446",
       "username": "norbert.farkas",
       "comment": "[ NXS-13573 ] ecr migration",
       "files": [
         "dk-dk-project-counters-rest/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260810T141408+0000"
+      "deployedAt": "20260811T174521+0000"
     },
     {
-      "service": "ClientRestJ21",
+      "service": "NexusApiUI",
       "version": "4cfff6d62f9a",
       "username": "gabor.imre",
       "comment": "Merge pull request #553 from dynata/ST-4997-dk-nova-translator-rest",
       "files": [],
-      "deployedAt": "20260810T141408+0000"
+      "deployedAt": "20260811T174521+0000"
     },
     {
-      "service": "ClientRestJ21",
+      "service": "DetailsEditorRestJ21",
+      "version": "cc4c256e6838",
+      "username": "andras.banszki",
+      "comment": "[NXS-13668] bump SpringServiceBase:5.2.4 for swagger",
+      "files": [
+        "management/NotificationHandlerRest/build.gradle",
+        "management/SetOperationRest/build.gradle",
+        "project/DedupeRest/build.gradle",
+        "project/DetailsEditorRest/build.gradle",
+        "project/ProjectArchiveRest/build.gradle",
+        "project/ProjectEventForwarder/build.gradle",
+        "project/QuotaDetailsRest/build.gradle",
+        "project/QuotaGroupDefinitionRest/build.gradle",
+        "project/QuotaGroupRest/build.gradle",
+        "project/QuotaGroupSourcesRest/build.gradle",
+        "project/SurveyRest/build.gradle",
+        "project/TargetEditorRest/build.gradle",
+        "project/TestLinkRest/build.gradle",
+        "project/ThrottlingSettingRest/build.gradle",
+        "sandbox/SandboxServiceRest/build.gradle",
+        "system/ExtendedAttributesRest/build.gradle",
+        "system/OperatorRest/build.gradle"
+      ],
+      "deployedAt": "20260811T174047+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
       "version": "dfd0ec20e9bc",
       "username": "gabor.imre",
       "comment": "[ST-4997] DKNovaTranslatorRest DEV inventory for the Java 21 / Boot 3.5 image",
       "files": [
         "dk-dk-nova-translator-rest/group_vars/dev.yml"
       ],
-      "deployedAt": "20260810T141408+0000"
+      "deployedAt": "20260811T165721+0000"
     },
     {
-      "service": "ClientRestJ21",
+      "service": "NexusApiMetaJ21",
       "version": "644f2881161e",
       "username": "gergo.hajnal",
       "comment": "Merge pull request #552 from dynata/ST-4986-claim-option-rest",
       "files": [],
-      "deployedAt": "20260810T141408+0000"
+      "deployedAt": "20260811T165721+0000"
     },
     {
-      "service": "ClientRestJ21",
-      "version": "6633a9240d24",
-      "username": "55445003+dynata-hu-krisztian-erdei",
-      "comment": "Merge pull request #505 from dynata/PAC-521-remove-deprecated-change-order-queue",
+      "service": "DKProjectCountersRestJ21",
+      "version": "e0fd1679af23",
+      "username": "andras.banszki",
+      "comment": "[NXS-13668] bump SpringServiceBase:5.2.4 for swagger",
       "files": [
-        "dk-project-project-search-rest/cloud-formation.template.yml"
+        "gateway/dk/DKProjectCountersRest/build.gradle"
       ],
-      "deployedAt": "20260810T141408+0000"
+      "deployedAt": "20260811T165558+0000"
     },
     {
-      "service": "ClientRestJ21",
-      "version": "c578d1adff89",
-      "username": "\u201cviktorjanos.tassi",
-      "comment": "Add appstatus to project api gw",
+      "service": "NexusApiJ21",
+      "version": "7e97b613bf51",
+      "username": "andras.banszki",
+      "comment": "[NXS-13575] - fix random acc test failure",
       "files": [
-        "nexus-project-api-gateway/group_vars/all.yml"
+        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/v1/nexus/quotaGroups/QuotaGroupQuotasAcceptanceTest.groovy"
       ],
-      "deployedAt": "20260810T141408+0000"
-    },
-    {
-      "service": "ClientRestJ21",
-      "version": "e0338c7cbc2e",
-      "username": "virag.urbin-szabo",
-      "comment": "add IP for PDB Ipsos Feasibility",
-      "files": [
-        "pdb-feasibility-ipsos/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260810T141408+0000"
-    },
-    {
-      "service": "ClientRestJ21",
-      "version": "a657c65d4e8d",
-      "username": "gergo.hajnal",
-      "comment": "[ST-4986] (ClaimOptionsRest) java upgrade to 21",
-      "files": [
-        "dk-management-claim-option-rest/group_vars/dev.yml"
-      ],
-      "deployedAt": "20260810T141408+0000"
-    },
-    {
-      "service": "ClientRestJ21",
-      "version": "301b2609d938",
-      "username": "krisztian.erdei",
-      "comment": "[PAC-521] ProjectSearchRest: remove deprecated Change-Order-Status queue, policy and subscription",
-      "files": [
-        "dk-project-project-search-rest/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260810T141408+0000"
-    },
-    {
-      "service": "ReconciliationRestJ21",
-      "version": "d34750bbecdf",
-      "username": "gabor.fial",
-      "comment": "chore: remove SpringServiceLiquibaseSql dependency from build.gradle",
-      "files": [
-        "gateway/dk/DKOrder/build.gradle",
-        "project/ManualCreditRest/build.gradle",
-        "project/ReconciliationRest/build.gradle"
-      ],
-      "deployedAt": "20260810T102039+0000"
-    },
-    {
-      "service": "ProjectApiGateway",
-      "version": "b13906db13d3",
-      "username": "nexus-docs-bot",
-      "comment": "docs: weekly sync (2026-08-10)",
-      "files": [
-        "gateway/dk/DKUserRest/README.md",
-        "gateway/external/DynataExternalApiGW/README.md",
-        "gateway/unifiedApi/NexusApiUI/README.md",
-        "gateway/unifiedApi/ProjectApiGateway/README.md",
-        "management/CategoryRest/README.md",
-        "management/ClaimOptionRest/README.md",
-        "management/EnumRest/README.md",
-        "project/CascadesRest/README.md",
-        "project/Crm/CrmRest/README.md",
-        "project/ProjectLogRest/README.md",
-        "project/ProjectRest/README.md",
-        "project/SubjectLibraryRest/README.md",
-        "system/EncryptDecryptRest/README.md",
-        "system/ExtendedAttributesRest/README.md",
-        "system/OperatorRest/README.md",
-        "system/UserRest/README.md"
-      ],
-      "deployedAt": "20260810T090536+0000"
-    },
-    {
-      "service": "ProjectApiGateway",
-      "version": "e1301cb85695",
-      "username": "zsolt.remenyik",
-      "comment": "[ST-4999] Added new task role to dk-respondent-feature-value-rest cloud-formation.template.yml.",
-      "files": [
-        "dk-respondent-feature-value-rest/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260810T090536+0000"
-    },
-    {
-      "service": "ProjectApiGateway",
-      "version": "e80e904e5ceb",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7681] [CVE] Delete dkjs-contact-fake-vendor",
-      "files": [
-        "dkjs-contact-fake-vendor/cloud-formation.template.yml",
-        "dkjs-contact-fake-vendor/group_vars/all.yml",
-        "dkjs-contact-fake-vendor/group_vars/dev.yml",
-        "dkjs-contact-fake-vendor/group_vars/production.yml",
-        "dkjs-contact-fake-vendor/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260810T090536+0000"
-    },
-    {
-      "service": "ProjectApiGateway",
-      "version": "3192789a2106",
-      "username": "szabolcs.fekete",
-      "comment": "Merge pull request #550 from dynata/features/AE-7637-DAI-adding-valkey-to-dev",
-      "files": [],
-      "deployedAt": "20260810T090536+0000"
-    },
-    {
-      "service": "ProjectApiGateway",
-      "version": "64542f9e2a2f",
-      "username": "61739584+richardsebok",
-      "comment": "Merge pull request #551 from dynata/ST-5003-country-language-rest",
-      "files": [],
-      "deployedAt": "20260810T090536+0000"
-    },
-    {
-      "service": "ProjectApiGateway",
-      "version": "5169aa630cc5",
-      "username": "szabolcs.fekete",
-      "comment": "Debug AI: Adding valkey to dev",
-      "files": [
-        "ae-debug-ai-agent/cloud-formation.template.yml",
-        "ae-debug-ai-agent/group_vars/all.yml"
-      ],
-      "deployedAt": "20260810T090536+0000"
-    },
-    {
-      "service": "ProjectApiGateway",
-      "version": "9462cc3c672e",
-      "username": "richardlaszlo.sebok",
-      "comment": "[ST-5003] (CountryLanguageRest) - Changed health check to match the new spring version.",
-      "files": [
-        "dk-project-country-language-rest/group_vars/dev.yml"
-      ],
-      "deployedAt": "20260810T090536+0000"
-    },
-    {
-      "service": "ProjectApiGateway",
-      "version": "eb48b29bb1a8",
-      "username": "55445003+dynata-hu-krisztian-erdei",
-      "comment": "Merge pull request #524 from dynata/ST-4884-upgrade-to-jdk21",
-      "files": [],
-      "deployedAt": "20260810T090536+0000"
-    },
-    {
-      "service": "ProjectApiGateway",
-      "version": "f05f6d428501",
-      "username": "krisztian.erdei",
-      "comment": "[ST-4884] Align RewardCalculatorRest JAVA_OPTS with container MaxRAMPercentage pattern",
-      "files": [
-        "dk-management-reward-calculator-rest/group_vars/dev.yml"
-      ],
-      "deployedAt": "20260810T090536+0000"
-    },
-    {
-      "service": "ReconciliationRestJ21",
-      "version": "f1696aaced35",
-      "username": "55445003+dynata-hu-krisztian-erdei",
-      "comment": "Merge pull request #549 from dynata/ST-4972-appstatus-wsendpoint-st-dkms",
-      "files": [],
-      "deployedAt": "20260810T095042+0000"
+      "deployedAt": "20260811T165145+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "ClientRestJ21",
-      "commits": 21,
-      "latestTicket": "",
-      "latestComment": "chore: add dynata.common.grpc.server.port property to application.properties Cli",
-      "deployedAt": "20260810T141408+0000"
+      "service": "DKProjectCountersRestJ21",
+      "commits": 4,
+      "latestTicket": "NXS-13668",
+      "latestComment": "[NXS-13668] exclude group: 'io.swagger.core.v3'",
+      "deployedAt": "20260811T174612+0000"
     },
     {
-      "service": "ReconciliationRestJ21",
-      "commits": 18,
-      "latestTicket": "",
-      "latestComment": "chore: remove SpringServiceLiquibaseSql dependency from build.gradle",
-      "deployedAt": "20260810T102039+0000"
+      "service": "NexusApiUI",
+      "commits": 24,
+      "latestTicket": "NXS-13668",
+      "latestComment": "[NXS-13668] bump SpringServiceBase:5.2.4 for swagger",
+      "deployedAt": "20260811T174521+0000"
     },
     {
-      "service": "ProjectApiGateway",
-      "commits": 9,
-      "latestTicket": "",
-      "latestComment": "docs: weekly sync (2026-08-10)",
-      "deployedAt": "20260810T090536+0000"
+      "service": "DetailsEditorRestJ21",
+      "commits": 10,
+      "latestTicket": "NXS-13668",
+      "latestComment": "[NXS-13668] bump SpringServiceBase:5.2.4 for swagger",
+      "deployedAt": "20260811T174047+0000"
     },
     {
-      "service": "DynataExternalApiGW",
-      "commits": 1,
-      "latestTicket": "",
-      "latestComment": "Pac 736 fix appstatus double registration (#5192)",
-      "deployedAt": "20260810T083447+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
+      "service": "NexusApiMetaJ21",
       "commits": 2,
       "latestTicket": "",
-      "latestComment": "Fix service bus SDK IDLE bug (#5209)",
-      "deployedAt": "20260810T082617+0000"
+      "latestComment": "[ST-4997] DKNovaTranslatorRest DEV inventory for the Java 21 / Boot 3.5 image",
+      "deployedAt": "20260811T165721+0000"
     },
     {
-      "service": "CrmRestJ21",
-      "commits": 1,
+      "service": "NexusApiJ21",
+      "commits": 4,
+      "latestTicket": "NXS-13575",
+      "latestComment": "[NXS-13575] - fix random acc test failure",
+      "deployedAt": "20260811T165145+0000"
+    },
+    {
+      "service": "SetOperationRestJ21",
+      "commits": 2,
+      "latestTicket": "NXS-11406",
+      "latestComment": "[NXS-11406] EOS - MS - missing file extension when downloading set operation val",
+      "deployedAt": "20260811T114308+0000"
+    },
+    {
+      "service": "DKOrder",
+      "commits": 5,
       "latestTicket": "",
-      "latestComment": "update aws_auto_scaling_max_capacity to 30",
-      "deployedAt": "20260810T064422+0000"
+      "latestComment": "DKOrder fix, dates",
+      "deployedAt": "20260811T105140+0000"
     }
   ],
-  "clusters": [
-    {
-      "label": "assert_fail",
-      "display": "assertion Condition not satisfied",
-      "count": 60,
-      "newCount": 60,
-      "sample": "Unsupported country! [countryIso:ZZ]",
-      "why": "Spock assertion failed (fixture or response shape)"
-    },
-    {
-      "label": "product_data_not_found",
-      "display": "NOT_FOUND / missing data",
-      "count": 15,
-      "newCount": 15,
-      "sample": "org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProj",
-      "why": "missing DB row / EmptyResult / NOT_FOUND"
-    },
-    {
-      "label": "test_setup_soft_launch",
-      "display": "PES soft-launch vs tally",
-      "count": 3,
-      "newCount": 3,
-      "sample": "Tally mode change is not allowed, because total quota less than soft launch quota!",
-      "why": "PES soft-launch total vs tally on a shared fixture"
-    },
-    {
-      "label": "infra_502",
-      "display": "QA 502 Bad Gateway",
-      "count": 1,
-      "newCount": 1,
-      "sample": "502 Bad Gateway",
-      "why": "QA gateway returned HTML 502 \u2014 infra during the run, not a product regression"
-    },
-    {
-      "label": "server_exception",
-      "display": "server NestedServletException / NPE",
-      "count": 1,
-      "newCount": 1,
-      "sample": "java.lang.NullPointerException:Cannot invoke \\",
-      "why": "QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path"
-    }
-  ],
-  "failures": [
-    {
-      "name": "Validate audience template for invalid country code: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateValidationsTestSteps.Validate audience template for invalid country code",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Unsupported country! [countryIso:ZZ]",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.dkmsError(exception) != null | | | | | null | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceTemplates/1/validateForCountries | | 400{ | \"errors\" : [ { | \"status\" : \"BAD_REQUEST\", | \"message\" : \"Unsupported country! [countryIso:ZZ]\" | } ], | \"version\" : \"1.0\" | } | | at com.dynata.nexus.test.feignj16.TestFe\u2026"
-    },
-    {
-      "name": "Validate audience template for invalid country code: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateValidationsTestSteps.Validate audience template for invalid country code",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Unsupported country! [countryIso:ZZ]",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.dkmsError(exception) != null | | | | | null | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceTemplates/1/validateForCountries | | 400{ | \"errors\" : [ { | \"status\" : \"BAD_REQUEST\", | \"message\" : \"Unsupported country! [countryIso:ZZ]\" | } ], | \"version\" : \"1.0\" | } | | at com.dynata.nexus.test.feignj16.TestFe\u2026"
-    },
-    {
-      "name": "Search audience templates with empty country set: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateValidationsTestSteps.Search audience templates with empty country set",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateValidationsTestSteps.Search audience templates with empty country set(AudienceTemplateValidationsTestSteps.groovy:201) ------- Stdout: ------- 01:40:43 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2176406, audienceGr\u2026"
-    },
-    {
-      "name": "Search audience templates with empty country set: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateValidationsTestSteps.Search audience templates with empty country set",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateValidationsTestSteps.Search audience templates with empty country set(AudienceTemplateValidationsTestSteps.groovy:201) ------- Stdout: ------- 01:40:43 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2176408, audience\u2026"
-    },
-    {
-      "name": "Search audience templates with invalid project ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateValidationsTestSteps.Search audience templates with invalid project ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "product_data_not_found",
-      "message": "org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProjects, SnapshotProjects]] [_id=999999999]",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"NOT_FOUND\" | | | | | null | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceTemplates/search/labels | | 500{ | \"errors\" : [ { | \"status\" : \"INTERNAL_SERVER_ERROR\", | \"message\" : \"org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftPr\u2026"
-    },
-    {
-      "name": "Search audience templates with invalid project ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateValidationsTestSteps.Search audience templates with invalid project ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "product_data_not_found",
-      "message": "org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProjects, SnapshotProjects]] [_id=999999999]",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"NOT_FOUND\" | | | | | null | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceTemplates/search/labels | | 500{ | \"errors\" : [ { | \"status\" : \"INTERNAL_SERVER_ERROR\", | \"message\" : \"org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftPr\u2026"
-    },
-    {
-      "name": "sample d365 tracker creation workflow",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.BOS.BosD365SampleCreationTestSteps",
-      "newFailure": true,
-      "area": "BOS",
-      "cluster": "infra_502",
-      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/v2/nexus/bos/convert/order 502{ \"errors\" : [ { \"callChain\" : [ \"HTTP 502 GET https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents?quotaGroupId=118747040\", \"HTTP 502 GET http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118747040/quotas\" ], \"status\" : \"BAD_GATEWAY\"\u2026"
-    },
-    {
-      "name": "Get audience group by non-existent ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get audience group by non-existent ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "product_data_not_found",
-      "message": "org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProjects, SnapshotProjects]] [project.audienceGroups.\u2026",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"NOT_FOUND\" | | | | | null | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceGroups/99999999 | | 500{ | \"errors\" : [ { | \"status\" : \"INTERNAL_SERVER_ERROR\", | \"message\" : \"org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProjects, \u2026"
-    },
-    {
-      "name": "Get audience group by non-existent ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get audience group by non-existent ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "product_data_not_found",
-      "message": "org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProjects, SnapshotProjects]] [project.audienceGroups.\u2026",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"NOT_FOUND\" | | | | | null | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceGroups/99999999 | | 500{ | \"errors\" : [ { | \"status\" : \"INTERNAL_SERVER_ERROR\", | \"message\" : \"org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProjects, \u2026"
-    },
-    {
-      "name": "Get audience group by invalid ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get audience group by invalid ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get audience group by invalid ID(AudienceGroupValidationsTestSteps.groovy:63) ------- Stdout: ------- 01:42:37 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2176394, audienceGroupId=1532116, quotaGro\u2026"
-    },
-    {
-      "name": "Get audience group by invalid ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get audience group by invalid ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get audience group by invalid ID(AudienceGroupValidationsTestSteps.groovy:63) ------- Stdout: ------- 01:42:37 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2176394, audienceGroupId=1532116, quotaGro\u2026"
-    },
-    {
-      "name": "Get audience group by invalid ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get audience group by invalid ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get audience group by invalid ID(AudienceGroupValidationsTestSteps.groovy:63) ------- Stdout: ------- 01:42:37 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2176397, audienceGroupId=1532118, quotaG\u2026"
-    },
-    {
-      "name": "Get audience group by invalid ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get audience group by invalid ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get audience group by invalid ID(AudienceGroupValidationsTestSteps.groovy:63) ------- Stdout: ------- 01:42:37 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2176397, audienceGroupId=1532118, quotaG\u2026"
-    },
-    {
-      "name": "Delete audience group with non-existent ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Delete audience group with non-existent ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "product_data_not_found",
-      "message": "org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProjects, SnapshotProjects]] [project.audienceGroups.\u2026",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"NOT_FOUND\" | | | | | null | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceGroups/99999999 | | 500{ | \"errors\" : [ { | \"status\" : \"INTERNAL_SERVER_ERROR\", | \"message\" : \"org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProjects, \u2026"
-    },
-    {
-      "name": "Delete audience group with non-existent ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Delete audience group with non-existent ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "product_data_not_found",
-      "message": "org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProjects, SnapshotProjects]] [project.audienceGroups.\u2026",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"NOT_FOUND\" | | | | | null | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceGroups/99999999 | | 500{ | \"errors\" : [ { | \"status\" : \"INTERNAL_SERVER_ERROR\", | \"message\" : \"org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProjects, \u2026"
-    },
-    {
-      "name": "Delete audience group with invalid ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Delete audience group with invalid ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Delete audience group with invalid ID(AudienceGroupValidationsTestSteps.groovy:128) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2176394, audienceGroupId=1532116, qu\u2026"
-    },
-    {
-      "name": "Delete audience group with invalid ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Delete audience group with invalid ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Delete audience group with invalid ID(AudienceGroupValidationsTestSteps.groovy:128) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2176394, audienceGroupId=1532116, qu\u2026"
-    },
-    {
-      "name": "Delete audience group with invalid ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Delete audience group with invalid ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Delete audience group with invalid ID(AudienceGroupValidationsTestSteps.groovy:128) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2176397, audienceGroupId=1532118, \u2026"
-    },
-    {
-      "name": "Delete audience group with invalid ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Delete audience group with invalid ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Delete audience group with invalid ID(AudienceGroupValidationsTestSteps.groovy:128) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2176397, audienceGroupId=1532118, \u2026"
-    },
-    {
-      "name": "Get latest feasibility calculation time with invalid ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get latest feasibility calculation time with invalid ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get latest feasibility calculation time with invalid ID(AudienceGroupValidationsTestSteps.groovy:153) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2176394, audienceG\u2026"
-    },
-    {
-      "name": "Get latest feasibility calculation time with invalid ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get latest feasibility calculation time with invalid ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get latest feasibility calculation time with invalid ID(AudienceGroupValidationsTestSteps.groovy:153) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2176394, audienceG\u2026"
-    },
-    {
-      "name": "Get latest feasibility calculation time with invalid ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get latest feasibility calculation time with invalid ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get latest feasibility calculation time with invalid ID(AudienceGroupValidationsTestSteps.groovy:153) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2176397, audienc\u2026"
-    },
-    {
-      "name": "Get latest feasibility calculation time with invalid ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get latest feasibility calculation time with invalid ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Get latest feasibility calculation time with invalid ID(AudienceGroupValidationsTestSteps.groovy:153) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2176397, audienc\u2026"
-    },
-    {
-      "name": "Undelete audience group with non-existent ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Undelete audience group with non-existent ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "product_data_not_found",
-      "message": "org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProjects, SnapshotProjects]] [project.audienceGroups.\u2026",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"NOT_FOUND\" | | | | | null | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceGroups/99999999/undelete | | 500{ | \"errors\" : [ { | \"status\" : \"INTERNAL_SERVER_ERROR\", | \"message\" : \"org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftP\u2026"
-    },
-    {
-      "name": "Undelete audience group with non-existent ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Undelete audience group with non-existent ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "product_data_not_found",
-      "message": "org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProjects, SnapshotProjects]] [project.audienceGroups.\u2026",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"NOT_FOUND\" | | | | | null | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceGroups/99999999/undelete | | 500{ | \"errors\" : [ { | \"status\" : \"INTERNAL_SERVER_ERROR\", | \"message\" : \"org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftP\u2026"
-    },
-    {
-      "name": "Undelete audience group with invalid ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Undelete audience group with invalid ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Undelete audience group with invalid ID(AudienceGroupValidationsTestSteps.groovy:194) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2176394, audienceGroupId=1532116, \u2026"
-    },
-    {
-      "name": "Undelete audience group with invalid ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Undelete audience group with invalid ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Undelete audience group with invalid ID(AudienceGroupValidationsTestSteps.groovy:194) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2176394, audienceGroupId=1532116, \u2026"
-    },
-    {
-      "name": "Undelete audience group with invalid ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Undelete audience group with invalid ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Undelete audience group with invalid ID(AudienceGroupValidationsTestSteps.groovy:194) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2176397, audienceGroupId=1532118\u2026"
-    },
-    {
-      "name": "Undelete audience group with invalid ID: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Undelete audience group with invalid ID",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Undelete audience group with invalid ID(AudienceGroupValidationsTestSteps.groovy:194) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2176397, audienceGroupId=1532118\u2026"
-    },
-    {
-      "name": "Rename audience group with empty name: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Rename audience group with empty name",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Rename audience group with empty name(AudienceGroupValidationsTestSteps.groovy:219) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2176394, audienceGroupId=1532116, qu\u2026"
-    },
-    {
-      "name": "Rename audience group with empty name: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Rename audience group with empty name",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Rename audience group with empty name(AudienceGroupValidationsTestSteps.groovy:219) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2176397, audienceGroupId=1532118, \u2026"
-    },
-    {
-      "name": "Add audience group to non-existent project: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Add audience group to non-existent project",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "product_data_not_found",
-      "message": "Project not found: 999999",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"NOT_FOUND\" | | | | | null | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/999999/audienceGroups | | 404{ | \"errors\" : [ { | \"callChain\" : [ \"HTTP 404 GET https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/999999/core\", \"HTTP 404 GET http://dk-project-project-rest.nexus-ms\u2026"
-    },
-    {
-      "name": "Add audience group to non-existent project: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Add audience group to non-existent project",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "product_data_not_found",
-      "message": "Project not found: 999999",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"NOT_FOUND\" | | | | | null | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/999999/audienceGroups | | 404{ | \"errors\" : [ { | \"callChain\" : [ \"HTTP 404 GET https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/999999/core\", \"HTTP 404 GET http://dk-project-project-rest.nexus-ms\u2026"
-    },
-    {
-      "name": "Reorder audience groups with invalid IDs in list: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Reorder audience groups with invalid IDs in list",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Reorder audience groups with invalid IDs in list(AudienceGroupValidationsTestSteps.groovy:276) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2176394, audienceGroupId=\u2026"
-    },
-    {
-      "name": "Reorder audience groups with invalid IDs in list: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Reorder audience groups with invalid IDs in list",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Reorder audience groups with invalid IDs in list(AudienceGroupValidationsTestSteps.groovy:276) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2176397, audienceGroupI\u2026"
-    },
-    {
-      "name": "Reorder audience groups with partial ID list: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Reorder audience groups with partial ID list",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Reorder audience groups with partial ID list(AudienceGroupValidationsTestSteps.groovy:297) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2176394, audienceGroupId=1532\u2026"
-    },
-    {
-      "name": "Reorder audience groups with partial ID list: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Reorder audience groups with partial ID list",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Reorder audience groups with partial ID list(AudienceGroupValidationsTestSteps.groovy:297) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2176397, audienceGroupId=15\u2026"
-    },
-    {
-      "name": "Reorder audience groups with empty list: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Reorder audience groups with empty list",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Reorder audience groups with empty list(AudienceGroupValidationsTestSteps.groovy:316) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2176394, audienceGroupId=1532116, \u2026"
-    },
-    {
-      "name": "Reorder audience groups with empty list: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Reorder audience groups with empty list",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Reorder audience groups with empty list(AudienceGroupValidationsTestSteps.groovy:316) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2176397, audienceGroupId=1532118\u2026"
-    },
-    {
-      "name": "Reorder audience groups for non-existent project: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Reorder audience groups for non-existent project",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "product_data_not_found",
-      "message": "org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProjects, SnapshotProjects]] [_id=999999]",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"NOT_FOUND\" | | | | | null | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/999999/audienceGroups/ids | | 500{ | \"errors\" : [ { | \"status\" : \"INTERNAL_SERVER_ERROR\", | \"message\" : \"org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, Draf\u2026"
-    },
-    {
-      "name": "Reorder audience groups for non-existent project: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Reorder audience groups for non-existent project",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "product_data_not_found",
-      "message": "org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProjects, SnapshotProjects]] [_id=999999]",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"NOT_FOUND\" | | | | | null | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/999999/audienceGroups/ids | | 500{ | \"errors\" : [ { | \"status\" : \"INTERNAL_SERVER_ERROR\", | \"message\" : \"org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, Draf\u2026"
-    },
-    {
-      "name": "Create audience group with empty body should fail validation: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Create audience group with empty body should fail validation",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Create audience group with empty body should fail validation(AudienceGroupValidationsTestSteps.groovy:353) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2176394, audi\u2026"
-    },
-    {
-      "name": "Create audience group with empty body should fail validation: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Create audience group with empty body should fail validation",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupValidationsTestSteps.Create audience group with empty body should fail validation(AudienceGroupValidationsTestSteps.groovy:353) ------- Stdout: ------- 01:42:38 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2176397, au\u2026"
-    },
-    {
-      "name": "Search audience templates with empty country set: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateTestSteps.Search audience templates with empty country set",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateTestSteps.Search audience templates with empty country set(AudienceTemplateTestSteps.groovy:237) ------- Stdout: ------- 01:43:28 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2176402, audienceGroupId=1532131, quotaGr\u2026"
-    },
-    {
-      "name": "Search audience templates with empty country set: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateTestSteps.Search audience templates with empty country set",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: err?.status == \"BAD_REQUEST\" | | | null null false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceTemplateTestSteps.Search audience templates with empty country set(AudienceTemplateTestSteps.groovy:237) ------- Stdout: ------- 01:43:28 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2176405, audienceGroupId=1532134, quota\u2026"
-    },
-    {
-      "name": "Configure delivery mode with invalid mode value: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkValidationTestSteps.Configure delivery mode with invalid mode value",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkValidationTestSteps",
-      "newFailure": true,
-      "area": "Fieldwork",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"BAD_REQUEST\" | | | | | null | false | java.lang.IllegalArgumentException: No enum constant com.dynata.nexus.api.model.quotagroup.enums.DeliveryMode.INVALID | at java.base/java.lang.Enum.valueOf(Enum.java:293) | at com.dynata.nexus.api.model.quotagroup.enums.DeliveryMode.valueOf(DeliveryMode.java:3) | at com.dynata.rest.gateway.nexusapi\u2026"
-    },
-    {
-      "name": "Configure delivery mode with invalid mode value: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkValidationTestSteps.Configure delivery mode with invalid mode value",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkValidationTestSteps",
-      "newFailure": true,
-      "area": "Fieldwork",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"BAD_REQUEST\" | | | | | null | false | java.lang.IllegalArgumentException: No enum constant com.dynata.nexus.api.model.quotagroup.enums.DeliveryMode.SUPER_FAST | at java.base/java.lang.Enum.valueOf(Enum.java:293) | at com.dynata.nexus.api.model.quotagroup.enums.DeliveryMode.valueOf(DeliveryMode.java:3) | at com.dynata.rest.gateway.nexus\u2026"
-    },
-    {
-      "name": "Configure delivery mode with invalid mode value: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkValidationTestSteps.Configure delivery mode with invalid mode value",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkValidationTestSteps",
-      "newFailure": true,
-      "area": "Fieldwork",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"BAD_REQUEST\" | | | | | null | false | java.lang.IllegalArgumentException: No enum constant com.dynata.nexus.api.model.quotagroup.enums.DeliveryMode. | at java.base/java.lang.Enum.valueOf(Enum.java:293) | at com.dynata.nexus.api.model.quotagroup.enums.DeliveryMode.valueOf(DeliveryMode.java:3) | at com.dynata.rest.gateway.nexusapi.rest.t\u2026"
-    },
-    {
-      "name": "Configure delivery mode with invalid mode value: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkValidationTestSteps.Configure delivery mode with invalid mode value",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkValidationTestSteps",
-      "newFailure": true,
-      "area": "Fieldwork",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"BAD_REQUEST\" | | | | | null | false | java.lang.IllegalArgumentException: No enum constant com.dynata.nexus.api.model.quotagroup.enums.DeliveryMode.null | at java.base/java.lang.Enum.valueOf(Enum.java:293) | at com.dynata.nexus.api.model.quotagroup.enums.DeliveryMode.valueOf(DeliveryMode.java:3) | at com.dynata.rest.gateway.nexusapi.re\u2026"
-    },
-    {
-      "name": "Configure delivery mode with invalid mode value: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkValidationTestSteps.Configure delivery mode with invalid mode value",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkValidationTestSteps",
-      "newFailure": true,
-      "area": "Fieldwork",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: NexusApiErrors.status(exception) == \"BAD_REQUEST\" | | | | | null | false | java.lang.IllegalArgumentException: No enum constant com.dynata.nexus.api.model.quotagroup.enums.DeliveryMode.123 | at java.base/java.lang.Enum.valueOf(Enum.java:293) | at com.dynata.nexus.api.model.quotagroup.enums.DeliveryMode.valueOf(DeliveryMode.java:3) | at com.dynata.rest.gateway.nexusapi.res\u2026"
-    }
-  ],
+  "clusters": [],
+  "failures": [],
   "rulesNutshell": {
-    "headline": "412 new failures \u2014 mainly AudienceGroup, Fieldwork",
-    "tone": "bad",
-    "severity": "high",
+    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "tone": "ok",
+    "severity": "none",
     "bullets": [
-      "60\u00d7 assertion Condition not satisfied \u2014 Unsupported country! [countryIso:ZZ]",
-      "15\u00d7 NOT_FOUND / missing data \u2014 org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProj",
-      "3\u00d7 PES soft-launch vs tally \u2014 Tally mode change is not allowed, because total quota less than soft launch quota!",
-      "Change NXS-13667: gergely.gimesi \u00b7 AudienceGroup, Fieldwork, Lookup \u00b7 79 overlapping new fails"
+      "Change NXS-13674: gergely.gimesi \u00b7 Segment",
+      "Change NXS-13674: gergely.gimesi \u00b7 AudienceGroup"
     ],
-    "investigation": "New fails: 60\u00d7 assertion Condition not satisfied; 15\u00d7 NOT_FOUND / missing data. Likely related to NXS-13667 gergely.gimesi `45817a8833bb` (AudienceGroup, Fieldwork, Lookup, 79 new fails in overlap).",
+    "investigation": "No unmuted failures.",
     "detail": {
-      "investigation": "412 of 413 unmuted failures are new since the prior build (#3.0.2663, 0 fails). Failure types (new-first): (1) 60\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (2) 15\u00d7 NOT_FOUND / missing data \u2014 missing DB row / EmptyResult / NOT_FOUND. (3) 3\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. (4) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: AudienceGroup (44), Fieldwork (30), Lookup (5), BOS (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 6 service(s) (52 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: AudienceGroup: Validate audience template for invalid country code: com.dynata.rest.gateway.nexusapi.rest [assertion Condition not satisfied]; AudienceGroup: Validate audience template for invalid country code: com.dynata.rest.gateway.nexusapi.rest [assertion Condition not satisfied]; AudienceGroup: Search audience templates with empty country set: com.dynata.rest.gateway.nexusapi.rest.te [assertion Condition not satisfied]; AudienceGroup: Search audience templates with empty country set: com.dynata.rest.gateway.nexusapi.rest.te [assertion Condition not satisfied].",
+      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 7 service(s) (51 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
       "bullets": [
-        "60\u00d7 assertion Condition not satisfied \u2014 Unsupported country! [countryIso:ZZ]",
-        "15\u00d7 NOT_FOUND / missing data \u2014 org.springframework.dao.EmptyResultDataAccessException:No match in the given collections [[Projects, DraftProj",
-        "3\u00d7 PES soft-launch vs tally \u2014 Tally mode change is not allowed, because total quota less than soft launch quota!",
-        "Change NXS-13667: gergely.gimesi \u00b7 AudienceGroup, Fieldwork, Lookup \u00b7 79 overlapping new fails",
-        "NXS-13667 45817a8833bb by gergely.gimesi \u2192 areas AudienceGroup, Fieldwork, Lookup (79 new fails) \u00b7 NexusApiErrors.java, AudienceGroupValidationsTestSteps.groovy, AudienceTemplateTestSteps.groovy, AudienceTemplateValidationsTestSteps.groovy, FieldworkValidationTestSteps.groovy, QuotaGroupLookupValidationTestSteps.groovy",
-        "[QA deploy: ClientRestJ21]  (21 commits) \u2014 chore: add dynata.common.grpc.server.port property to application.properties Cli",
-        "[QA deploy: ReconciliationRestJ21]  (18 commits) \u2014 chore: remove SpringServiceLiquibaseSql dependency from build.gradle",
-        "[QA deploy: ProjectApiGateway]  (9 commits) \u2014 docs: weekly sync (2026-08-10)",
-        "[QA deploy: DynataExternalApiGW]  (1 commit) \u2014 Pac 736 fix appstatus double registration (#5192)",
-        "[QA deploy: NexusApiBosJ21]  (2 commits) \u2014 Fix service bus SDK IDLE bug (#5209)"
+        "Change NXS-13674: gergely.gimesi \u00b7 Segment",
+        "Change NXS-13674: gergely.gimesi \u00b7 AudienceGroup",
+        "NXS-13674 009aeb891daf by gergely.gimesi \u2192 areas Segment (0 new fails) \u00b7 SegmentsValidationTestSteps.groovy, SegmentsWorkflowTestSteps.groovy",
+        "NXS-13674 172cfd8d91a5 by gergely.gimesi \u2192 areas AudienceGroup (0 new fails) \u00b7 AudienceTemplateTestSteps.groovy",
+        "NXS-13673 481a3a50484c by gergely.gimesi \u2192 areas Settings (0 new fails) \u00b7 SUITE_TIERS.md, SettingsTestSteps.groovy, UserSettingsTestSteps.groovy",
+        "NXS-13667 dadd0462b262 by gergely.gimesi \u2192 areas AudienceGroup, Fieldwork, Lookup, Parameter, PartnerEvent, Project, Quota, QuotaGroup, SampleRules, Segment, Settings, Survey (0 new fails) \u00b7 NexusApiErrors.java, AudienceGroupValidationsTestSteps.groovy, AudienceTemplateTestSteps.groovy, AudienceTemplateValidationsTestSteps.groovy, FieldworkValidationTestSteps.groovy, QuotaGroupLookupValidationTestSteps.groovy",
+        "[QA deploy: DKProjectCountersRestJ21] NXS-13668 (4 commits) \u2014 [NXS-13668] exclude group: 'io.swagger.core.v3'",
+        "[QA deploy: NexusApiUI] NXS-13668 (24 commits) \u2014 [NXS-13668] bump SpringServiceBase:5.2.4 for swagger",
+        "[QA deploy: DetailsEditorRestJ21] NXS-13668 (10 commits) \u2014 [NXS-13668] bump SpringServiceBase:5.2.4 for swagger",
+        "[QA deploy: NexusApiMetaJ21]  (2 commits) \u2014 [ST-4997] DKNovaTranslatorRest DEV inventory for the Java 21 / Boot 3.5 image"
       ],
-      "newFailureAreas": [
-        {
-          "area": "AudienceGroup",
-          "newCount": 44
-        },
-        {
-          "area": "Fieldwork",
-          "newCount": 30
-        },
-        {
-          "area": "Lookup",
-          "newCount": 5
-        },
-        {
-          "area": "BOS",
-          "newCount": 1
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": [
         {
-          "version": "45817a8833bb",
+          "version": "009aeb891daf",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13674",
+          "comment": "NXS-13674 MS - collapse duplicate helper registrations in Segments specs",
+          "areas": [
+            "Segment"
+          ],
+          "hitNewFailures": 0,
+          "files": [
+            "SegmentsValidationTestSteps.groovy",
+            "SegmentsWorkflowTestSteps.groovy"
+          ]
+        },
+        {
+          "version": "172cfd8d91a5",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13674",
+          "comment": "NXS-13674 MS - remove duplicate audience-template validation feature",
+          "areas": [
+            "AudienceGroup"
+          ],
+          "hitNewFailures": 0,
+          "files": [
+            "AudienceTemplateTestSteps.groovy"
+          ]
+        },
+        {
+          "version": "481a3a50484c",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13673",
+          "comment": "[NXS-13673] MS - consolidate shared QA-user (13858) settings writes into one spec for parallel safety",
+          "areas": [
+            "Settings"
+          ],
+          "hitNewFailures": 0,
+          "files": [
+            "SUITE_TIERS.md",
+            "SettingsTestSteps.groovy",
+            "UserSettingsTestSteps.groovy"
+          ]
+        },
+        {
+          "version": "dadd0462b262",
           "username": "gergely.gimesi",
           "ticket": "NXS-13667",
-          "comment": "[NXS-13667] MS - typed error-code assertions across regression suite",
+          "comment": "Revert \"Merge pull request #5224 from dynata/NXS-13667-strengthen-assertions\"",
           "areas": [
             "AudienceGroup",
             "Fieldwork",
-            "Lookup"
+            "Lookup",
+            "Parameter",
+            "PartnerEvent",
+            "Project",
+            "Quota",
+            "QuotaGroup",
+            "SampleRules",
+            "Segment",
+            "Settings",
+            "Survey"
           ],
-          "hitNewFailures": 79,
+          "hitNewFailures": 0,
           "files": [
             "NexusApiErrors.java",
             "AudienceGroupValidationsTestSteps.groovy",
@@ -1064,185 +709,203 @@
             "FieldworkValidationTestSteps.groovy",
             "QuotaGroupLookupValidationTestSteps.groovy"
           ]
+        },
+        {
+          "version": "f3d88ab2a639",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13674",
+          "comment": "NXS-13674 MS - externalise hardcoded fixture IDs to TestConstants",
+          "areas": [
+            "AudienceGroup",
+            "Settings"
+          ],
+          "hitNewFailures": 0,
+          "files": [
+            "TestConstants.java",
+            "AudienceGroupE2ECloneRestoreReorderTestSteps.groovy",
+            "AudienceTemplateTestSteps.groovy",
+            "UserSettingsTestSteps.groovy"
+          ]
         }
       ]
     },
     "suspectCommits": [
       {
-        "version": "74a2af571e09",
-        "username": "105725861+gimesi13",
-        "comment": "Merge pull request #5224 from dynata/NXS-13667-strengthen-assertions",
-        "ticket": "NXS-13667",
+        "version": "d5dbbd3ca4c3",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13674 MS - record Phase 5 teardown audit + close ID/tag backlog item",
+        "ticket": "NXS-13674",
         "areas": []
       },
       {
-        "version": "45817a8833bb",
+        "version": "172cfd8d91a5",
         "username": "gergely.gimesi",
-        "comment": "[NXS-13667] MS - typed error-code assertions across regression suite",
-        "ticket": "NXS-13667",
+        "comment": "NXS-13674 MS - remove duplicate audience-template validation feature",
+        "ticket": "NXS-13674",
         "areas": [
-          "AudienceGroup",
-          "Fieldwork",
-          "Lookup"
+          "AudienceGroup"
         ]
       },
       {
-        "version": "8c568db4f0c5",
-        "username": "bence.csepe",
-        "comment": "[NXS-13606] MS - add clientAccountGuidCache to framework-extensions (j16) (#5106)",
-        "ticket": "NXS-13606",
+        "version": "f3d88ab2a639",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13674 MS - externalise hardcoded fixture IDs to TestConstants",
+        "ticket": "NXS-13674",
+        "areas": [
+          "AudienceGroup",
+          "Settings"
+        ]
+      },
+      {
+        "version": "009aeb891daf",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13674 MS - collapse duplicate helper registrations in Segments specs",
+        "ticket": "NXS-13674",
+        "areas": [
+          "Segment"
+        ]
+      },
+      {
+        "version": "00c9b4b35648",
+        "username": "gergely.gimesi",
+        "comment": "[NXS-13674] MS - delete dead apitest test trees (Phase 5 refactor)",
+        "ticket": "NXS-13674",
         "areas": []
       },
       {
-        "version": "27afd7fae29e",
+        "version": "481a3a50484c",
         "username": "gergely.gimesi",
-        "comment": "[NXS-13665] MS - docs-sync/dashboard: make weekly OpenAPI fetch best-effort",
-        "ticket": "NXS-13665",
-        "areas": []
+        "comment": "[NXS-13673] MS - consolidate shared QA-user (13858) settings writes into one spec for parallel safety",
+        "ticket": "NXS-13673",
+        "areas": [
+          "Settings"
+        ]
       }
     ],
     "qaDeploySuspects": [
       {
-        "service": "ClientRestJ21",
-        "version": "0e8cd92826ce",
-        "username": "gabor.fial",
-        "comment": "chore: add dynata.common.grpc.server.port property to application.properties ClientRest",
-        "ticket": "",
-        "deployedAt": "20260810T141408+0000",
+        "service": "DKProjectCountersRestJ21",
+        "version": "ec13747aa945",
+        "username": "andras.banszki",
+        "comment": "[NXS-13668] exclude group: 'io.swagger.core.v3'",
+        "ticket": "NXS-13668",
+        "deployedAt": "20260811T174612+0000",
         "files": [
-          "application.properties"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ClientRestJ21",
-        "version": "8c568db4f0c5",
-        "username": "bence.csepe",
-        "comment": "[NXS-13606] MS - add clientAccountGuidCache to framework-extensions (j16) (#5106)",
-        "ticket": "NXS-13606",
-        "deployedAt": "20260810T141408+0000",
-        "files": [
-          "nxs_dependencies.gradle",
           "build.gradle",
-          "ClientAccountGuidCache.java",
-          "INexusApiMetaFeignClient.java",
-          "Client.java",
-          "ClientAccountGuidCacheTest.groovy"
+          "build.gradle",
+          "build.gradle",
+          "build.gradle",
+          "build.gradle",
+          "build.gradle"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ClientRestJ21",
-        "version": "4d5918d16bd9",
-        "username": "bresalio.nagy",
-        "comment": "[AE-000] [CVE] use log router version 26",
-        "ticket": "",
-        "deployedAt": "20260810T141408+0000",
+        "service": "NexusApiUI",
+        "version": "0eb9e495da8c",
+        "username": "andras.banszki",
+        "comment": "[NXS-13668] bump SpringServiceBase:5.2.4 for swagger",
+        "ticket": "NXS-13668",
+        "deployedAt": "20260811T174521+0000",
         "files": [
-          "all.yml",
-          "all.yml",
-          "all.yml",
-          "all.yml",
-          "all.yml",
-          "all.yml"
+          "build.gradle",
+          "build.gradle",
+          "build.gradle"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ClientRestJ21",
-        "version": "c0cff01d3326",
-        "username": "lajos.pajger",
-        "comment": "[SFC] get database credentials from secret manager",
+        "service": "NexusApiUI",
+        "version": "61fb9f55153d",
+        "username": "weiqun.wang",
+        "comment": "update both qa and prod to ml.g5.2xlarge",
         "ticket": "",
-        "deployedAt": "20260810T141408+0000",
+        "deployedAt": "20260811T174521+0000",
         "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "cloud-formation.template.yml",
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ClientRestJ21",
-        "version": "90b7d9d46905",
-        "username": "lajos.pajger",
-        "comment": "dkjs-traffic gen AE apps replace datadog with open telemetry",
-        "ticket": "",
-        "deployedAt": "20260810T141408+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "dev.yml",
           "production.yml",
-          "qa.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiUI",
+        "version": "4867e7b1008a",
+        "username": "weiqun.wang",
+        "comment": "update prod instance to ml.g4dn.xlarge to match qa",
+        "ticket": "",
+        "deployedAt": "20260811T174521+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiUI",
+        "version": "332640ee3034",
+        "username": "norbert.farkas",
+        "comment": "Merge pull request #603 from dynata/NXS-13549-WebSourceRest-ecr-migration",
+        "ticket": "NXS-13549",
+        "deployedAt": "20260811T174521+0000",
+        "files": [],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiUI",
+        "version": "9d9c802a5110",
+        "username": "norbert.farkas",
+        "comment": "Merge pull request #596 from dynata/NXS-13541-SampleRest-ecr-migration",
+        "ticket": "NXS-13541",
+        "deployedAt": "20260811T174521+0000",
+        "files": [],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiUI",
+        "version": "c6226cc40ed4",
+        "username": "norbert.farkas",
+        "comment": "[NXS-13549] MS - Migrate WebSourceRest from DockerHub to ECR",
+        "ticket": "NXS-13549",
+        "deployedAt": "20260811T174521+0000",
+        "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ClientRestJ21",
-        "version": "38d6408d81d2",
-        "username": "lajos.pajger",
-        "comment": "dkjs-contact-metrics replace datadog with open telemetry",
-        "ticket": "",
-        "deployedAt": "20260810T141408+0000",
+        "service": "NexusApiUI",
+        "version": "2ea552a44629",
+        "username": "norbert.farkas",
+        "comment": "[NXS-13541] MS - Migrate SampleRest from DockerHub to ECR",
+        "ticket": "NXS-13541",
+        "deployedAt": "20260811T174521+0000",
         "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "dev.yml",
-          "production.yml",
-          "qa.yml"
+          "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ClientRestJ21",
-        "version": "ad0e60d6d4fe",
-        "username": "tamas.gyarmati",
-        "comment": "[NXS-13646] - create pes-mongo",
-        "ticket": "NXS-13646",
-        "deployedAt": "20260810T141408+0000",
+        "service": "NexusApiUI",
+        "version": "3020db790706",
+        "username": "bresalio.nagy",
+        "comment": "[AE-000] Delete support-ai-agent from CF",
+        "ticket": "",
+        "deployedAt": "20260811T174521+0000",
         "files": [
           "cloud-formation.template.yml",
           "all.yml",
-          "dev.yml",
-          "production.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ClientRestJ21",
-        "version": "5a8061f0f5e6",
-        "username": "134395908+dynata-hu-krisztian-kover",
-        "comment": "Merge pull request #554 from dynata/ST-4998-dk-system-user-rest",
-        "ticket": "",
-        "deployedAt": "20260810T141408+0000",
-        "files": [],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ClientRestJ21",
-        "version": "c14a0f441fa1",
-        "username": "krisztian.kover",
-        "comment": "[ST-4998] - SystemUserRest - Changed health check url in DEV",
-        "ticket": "",
-        "deployedAt": "20260810T141408+0000",
-        "files": [
           "dev.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ClientRestJ21",
-        "version": "02595c2cef6f",
-        "username": "lajos.pajger",
-        "comment": "dkjs-contact-jobs update health check uri",
+        "service": "NexusApiUI",
+        "version": "81d91621bad2",
+        "username": "virag.urbin-szabo",
+        "comment": "add IP for PDB Ipsos Feasibility",
         "ticket": "",
-        "deployedAt": "20260810T141408+0000",
+        "deployedAt": "20260811T174521+0000",
         "files": [
-          "all.yml"
+          "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       }
