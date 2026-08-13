@@ -1477,24 +1477,22 @@
     "SurveyValidationTestSteps::Base URL with tags rejects an empty tag list": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in BOS",
+    "headline": "1 new assertion failure in BOS (D365 sample creation)",
     "tone": "warn",
     "severity": "low",
-    "cause": "mixed",
-    "causeText": "VCS changes present but none map onto the failing packages \u2014 likely test/data, correlate manually. NOTE: 2 service(s) were deployed to QA in this window (ProjectEventForwarderJ21, NexusApiBosJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 assertion Condition not satisfied. Vs prior #3.0.2665: up 1 total fails.",
+    "cause": "test",
+    "causeText": "A single Spock assertion in the BOS D365 sample-creation workflow failed on a clonedFromQuotaGroupId mismatch (got 118749158, expected 118749154); no changed file maps to BOS, so it reads as a test/data mismatch rather than infra or a product regression.",
+    "investigation": "One new assertion failure in BOS (quota-group clone-ID mismatch); none of the night's changes touch the BOS area.",
     "bullets": [
-      "1\u00d7 assertion Condition not satisfied"
+      "1\u00d7 assertion 'Condition not satisfied' in BOS D365 sample creation \u2014 clonedFromQuotaGroupId 118749158 \u2260 118749154",
+      "No changed file maps to BOS; not infra (no timeout/502/504) \u2014 likely test/data"
     ],
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2665, 0 fails). Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: BOS (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 2 service(s) (27 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: BOS: sample d365 tracker creation workflow [assertion Condition not satisfied].",
+      "investigation": "The only new failure is BosD365SampleCreationTestSteps 'sample d365 tracker creation workflow', a Spock assertion where savedQgs[0].quotaGroup.core.clonedFromQuotaGroupId (118749158) did not equal the expected quotaGroupId (118749154). The night's TA-module commits (NXS-13674, gergely.gimesi) touch Quota/QuotaGroup/PartnerEvent/Segment steps but not BOS, and there are no QA timeouts/502/504, so this reads as a test/data ID mismatch rather than infra or a clear code regression.",
       "bullets": [
-        "1\u00d7 assertion Condition not satisfied",
-        "NXS-13674: 105725861+gimesi13 \u2014 Merge pull request #5232 from dynata/NXS-13674-collapse-features",
-        "NXS-13674: gergely.gimesi \u2014 NXS-13674 preserve exact locking-error assertion after merge",
-        "NXS-13674: gergely.gimesi \u2014 NXS-13674 collapse redundant/duplicate spec features",
-        "[QA deploy: ProjectEventForwarderJ21] NXS-13668 (25 commits) \u2014 [NXS-13668] exclude group: 'io.swagger.core.v3'",
-        "[QA deploy: NexusApiBosJ21]  (2 commits) \u2014 AccTest fix"
+        "1\u00d7 assertion 'Condition not satisfied' \u2014 clonedFromQuotaGroupId 118749158 \u2260 expected 118749154 (BOS D365 sample creation)",
+        "TA-module changes (NXS-13674, gergely.gimesi) touch Quota/QuotaGroup/PartnerEvent/Segment steps, not BOS \u2014 no clean file\u2192area map",
+        "Not infra (no timeouts/502/504); no product code change maps to the failing workflow"
       ],
       "newFailureAreas": [
         {
@@ -1691,8 +1689,8 @@
         "deployedAt": "20260812T090132+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-08-13T02:14Z",
+    "source": "llm",
+    "generatedAt": "2026-08-13T02:15Z",
     "buildNumber": "3.0.2666",
     "buildId": "9463899",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9463899",
