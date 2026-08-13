@@ -1,18 +1,19 @@
 {
-  "generatedAt": "2026-08-12T02:19Z",
+  "generatedAt": "2026-08-13T02:14Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-08-06",
-      "to": "2026-08-12",
-      "featuresAdded": 5,
-      "casesAdded": 5,
-      "areasTouched": 3,
-      "ticketsTouched": 2,
+      "from": "2026-08-07",
+      "to": "2026-08-13",
+      "featuresAdded": 7,
+      "casesAdded": 9,
+      "areasTouched": 5,
+      "ticketsTouched": 3,
       "byType": {
-        "Validation": 1,
+        "Validation": 2,
+        "Workflow": 1,
         "Query": 1,
         "E2E": 1,
         "Other": 2
@@ -21,6 +22,14 @@
         {
           "area": "BOS",
           "featuresAdded": 3
+        },
+        {
+          "area": "PartnerEvent",
+          "featuresAdded": 1
+        },
+        {
+          "area": "Quota",
+          "featuresAdded": 1
         },
         {
           "area": "QuotaGroup",
@@ -39,6 +48,12 @@
           "latestDate": "2026-08-08"
         },
         {
+          "key": "NXS-13674",
+          "featuresAdded": 2,
+          "casesAdded": 4,
+          "latestDate": "2026-08-12"
+        },
+        {
           "key": "NXS-13673",
           "featuresAdded": 1,
           "casesAdded": 1,
@@ -46,6 +61,52 @@
         }
       ],
       "additions": [
+        {
+          "name": "#action soldQuota in PROJECT phase should be disabled",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaValidationTestSteps.groovy",
+          "date": "2026-08-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674 collapse redundant/duplicate spec features",
+          "commit": "5b00f2fee2",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "Quota",
+          "spec": "SoldQuotaValidationTestSteps",
+          "type": "Workflow",
+          "cases": 2,
+          "tags": [
+            "QUOTA",
+            "SOLD_QUOTAS",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=%23action%20soldQuota%20in%20PROJECT%20phase%20should%20be%20disabled"
+        },
+        {
+          "name": "PUT with wrong #flag vs server truth returns client error",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceControlWorkflowTestSteps.groovy",
+          "date": "2026-08-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674 collapse redundant/duplicate spec features",
+          "commit": "5b00f2fee2",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "PartnerEvent",
+          "spec": "PartnerEventPriceControlWorkflowTestSteps",
+          "type": "Validation",
+          "cases": 2,
+          "tags": [
+            "PARTNER_EVENT",
+            "PR_SMOKE",
+            "PRICING",
+            "VALIDATION",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=PUT%20with%20wrong%20%23flag%20vs%20server%20truth%20returns%20client%20error"
+        },
         {
           "name": "View user settings",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
@@ -155,21 +216,25 @@
       ]
     },
     "14d": {
-      "from": "2026-07-30",
-      "to": "2026-08-12",
-      "featuresAdded": 15,
-      "casesAdded": 15,
-      "areasTouched": 5,
-      "ticketsTouched": 3,
+      "from": "2026-07-31",
+      "to": "2026-08-13",
+      "featuresAdded": 17,
+      "casesAdded": 19,
+      "areasTouched": 6,
+      "ticketsTouched": 4,
       "byType": {
         "CRUD": 1,
-        "Validation": 6,
-        "Workflow": 1,
+        "Validation": 7,
+        "Workflow": 2,
         "Query": 2,
         "E2E": 1,
         "Other": 4
       },
       "byArea": [
+        {
+          "area": "PartnerEvent",
+          "featuresAdded": 4
+        },
         {
           "area": "Settings",
           "featuresAdded": 4
@@ -179,16 +244,16 @@
           "featuresAdded": 3
         },
         {
-          "area": "PartnerEvent",
-          "featuresAdded": 3
-        },
-        {
           "area": "QuotaGroup",
           "featuresAdded": 3
         },
         {
           "area": "SampleRules",
           "featuresAdded": 2
+        },
+        {
+          "area": "Quota",
+          "featuresAdded": 1
         }
       ],
       "tickets": [
@@ -205,6 +270,12 @@
           "latestDate": "2026-08-08"
         },
         {
+          "key": "NXS-13674",
+          "featuresAdded": 2,
+          "casesAdded": 4,
+          "latestDate": "2026-08-12"
+        },
+        {
           "key": "NXS-13673",
           "featuresAdded": 1,
           "casesAdded": 1,
@@ -212,6 +283,52 @@
         }
       ],
       "additions": [
+        {
+          "name": "#action soldQuota in PROJECT phase should be disabled",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaValidationTestSteps.groovy",
+          "date": "2026-08-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674 collapse redundant/duplicate spec features",
+          "commit": "5b00f2fee2",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "Quota",
+          "spec": "SoldQuotaValidationTestSteps",
+          "type": "Workflow",
+          "cases": 2,
+          "tags": [
+            "QUOTA",
+            "SOLD_QUOTAS",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=%23action%20soldQuota%20in%20PROJECT%20phase%20should%20be%20disabled"
+        },
+        {
+          "name": "PUT with wrong #flag vs server truth returns client error",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceControlWorkflowTestSteps.groovy",
+          "date": "2026-08-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674 collapse redundant/duplicate spec features",
+          "commit": "5b00f2fee2",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "PartnerEvent",
+          "spec": "PartnerEventPriceControlWorkflowTestSteps",
+          "type": "Validation",
+          "cases": 2,
+          "tags": [
+            "PARTNER_EVENT",
+            "PR_SMOKE",
+            "PRICING",
+            "VALIDATION",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=PUT%20with%20wrong%20%23flag%20vs%20server%20truth%20returns%20client%20error"
+        },
         {
           "name": "View user settings",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
@@ -536,16 +653,16 @@
       ]
     },
     "30d": {
-      "from": "2026-07-14",
-      "to": "2026-08-12",
-      "featuresAdded": 93,
-      "casesAdded": 99,
-      "areasTouched": 10,
-      "ticketsTouched": 5,
+      "from": "2026-07-15",
+      "to": "2026-08-13",
+      "featuresAdded": 95,
+      "casesAdded": 103,
+      "areasTouched": 11,
+      "ticketsTouched": 6,
       "byType": {
         "CRUD": 30,
-        "Validation": 32,
-        "Workflow": 18,
+        "Validation": 33,
+        "Workflow": 19,
         "Query": 6,
         "E2E": 1,
         "Other": 6
@@ -565,7 +682,7 @@
         },
         {
           "area": "PartnerEvent",
-          "featuresAdded": 6
+          "featuresAdded": 7
         },
         {
           "area": "pes",
@@ -589,6 +706,10 @@
         },
         {
           "area": "Lookup",
+          "featuresAdded": 1
+        },
+        {
+          "area": "Quota",
           "featuresAdded": 1
         }
       ],
@@ -618,6 +739,12 @@
           "latestDate": "2026-08-08"
         },
         {
+          "key": "NXS-13674",
+          "featuresAdded": 2,
+          "casesAdded": 4,
+          "latestDate": "2026-08-12"
+        },
+        {
           "key": "NXS-13673",
           "featuresAdded": 1,
           "casesAdded": 1,
@@ -625,6 +752,52 @@
         }
       ],
       "additions": [
+        {
+          "name": "#action soldQuota in PROJECT phase should be disabled",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaValidationTestSteps.groovy",
+          "date": "2026-08-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674 collapse redundant/duplicate spec features",
+          "commit": "5b00f2fee2",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "Quota",
+          "spec": "SoldQuotaValidationTestSteps",
+          "type": "Workflow",
+          "cases": 2,
+          "tags": [
+            "QUOTA",
+            "SOLD_QUOTAS",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=%23action%20soldQuota%20in%20PROJECT%20phase%20should%20be%20disabled"
+        },
+        {
+          "name": "PUT with wrong #flag vs server truth returns client error",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceControlWorkflowTestSteps.groovy",
+          "date": "2026-08-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674 collapse redundant/duplicate spec features",
+          "commit": "5b00f2fee2",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "PartnerEvent",
+          "spec": "PartnerEventPriceControlWorkflowTestSteps",
+          "type": "Validation",
+          "cases": 2,
+          "tags": [
+            "PARTNER_EVENT",
+            "PR_SMOKE",
+            "PRICING",
+            "VALIDATION",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=PUT%20with%20wrong%20%23flag%20vs%20server%20truth%20returns%20client%20error"
+        },
         {
           "name": "View user settings",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
@@ -2629,16 +2802,16 @@
       ]
     },
     "90d": {
-      "from": "2026-05-15",
-      "to": "2026-08-12",
-      "featuresAdded": 153,
-      "casesAdded": 173,
-      "areasTouched": 11,
-      "ticketsTouched": 13,
+      "from": "2026-05-16",
+      "to": "2026-08-13",
+      "featuresAdded": 155,
+      "casesAdded": 177,
+      "areasTouched": 12,
+      "ticketsTouched": 14,
       "byType": {
         "CRUD": 46,
-        "Validation": 43,
-        "Workflow": 28,
+        "Validation": 44,
+        "Workflow": 29,
         "Query": 18,
         "E2E": 1,
         "Other": 17
@@ -2658,7 +2831,7 @@
         },
         {
           "area": "PartnerEvent",
-          "featuresAdded": 11
+          "featuresAdded": 12
         },
         {
           "area": "Survey",
@@ -2686,6 +2859,10 @@
         },
         {
           "area": "Lookup",
+          "featuresAdded": 1
+        },
+        {
+          "area": "Quota",
           "featuresAdded": 1
         }
       ],
@@ -2757,6 +2934,12 @@
           "latestDate": "2026-05-29"
         },
         {
+          "key": "NXS-13674",
+          "featuresAdded": 2,
+          "casesAdded": 4,
+          "latestDate": "2026-08-12"
+        },
+        {
           "key": "NXS-13306",
           "featuresAdded": 1,
           "casesAdded": 1,
@@ -2770,6 +2953,52 @@
         }
       ],
       "additions": [
+        {
+          "name": "#action soldQuota in PROJECT phase should be disabled",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaValidationTestSteps.groovy",
+          "date": "2026-08-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674 collapse redundant/duplicate spec features",
+          "commit": "5b00f2fee2",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "Quota",
+          "spec": "SoldQuotaValidationTestSteps",
+          "type": "Workflow",
+          "cases": 2,
+          "tags": [
+            "QUOTA",
+            "SOLD_QUOTAS",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=%23action%20soldQuota%20in%20PROJECT%20phase%20should%20be%20disabled"
+        },
+        {
+          "name": "PUT with wrong #flag vs server truth returns client error",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceControlWorkflowTestSteps.groovy",
+          "date": "2026-08-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674 collapse redundant/duplicate spec features",
+          "commit": "5b00f2fee2",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "PartnerEvent",
+          "spec": "PartnerEventPriceControlWorkflowTestSteps",
+          "type": "Validation",
+          "cases": 2,
+          "tags": [
+            "PARTNER_EVENT",
+            "PR_SMOKE",
+            "PRICING",
+            "VALIDATION",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=PUT%20with%20wrong%20%23flag%20vs%20server%20truth%20returns%20client%20error"
+        },
         {
           "name": "View user settings",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
@@ -6087,8 +6316,8 @@
     },
     {
       "weekStart": "2026-08-10",
-      "featuresAdded": 1,
-      "casesAdded": 1
+      "featuresAdded": 3,
+      "casesAdded": 5
     }
   ],
   "snapshots": [
@@ -6115,9 +6344,9 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-08-12",
-      "features": 721,
-      "cases": 1498,
+      "date": "2026-08-13",
+      "features": 716,
+      "cases": 1495,
       "specs": 75,
       "areas": 14,
       "coveragePercent": 100.0,
@@ -6135,14 +6364,14 @@
       "priorPercent": 78.0,
       "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-08-12",
+      "currentDate": "2026-08-13",
       "testedDelta": 56,
       "untestedDelta": -59
     }
   },
   "inventory": {
-    "features": 721,
-    "cases": 1498,
+    "features": 716,
+    "cases": 1495,
     "specs": 75,
     "areas": 14
   }

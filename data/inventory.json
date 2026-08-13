@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-08-12",
+  "generatedAt": "2026-08-13",
   "source": "source",
-  "features": 721,
-  "cases": 1498,
+  "features": 716,
+  "cases": 1495,
   "specs": 75,
   "areas": 14,
-  "featuresWithSteps": 721,
-  "steps": 3589,
+  "featuresWithSteps": 716,
+  "steps": 3568,
   "byType": {
-    "CRUD": 256,
-    "Validation": 212,
-    "Workflow": 134,
+    "CRUD": 253,
+    "Validation": 211,
+    "Workflow": 133,
     "Query": 101,
     "E2E": 13,
     "Other": 5
@@ -9035,7 +9035,7 @@
     {
       "area": "PartnerEvent",
       "spec": "PartnerEventPriceControlWorkflowTestSteps",
-      "name": "PUT with wrong exceedsApproveThreshold vs server truth returns client error",
+      "name": "PUT with wrong #flag vs server truth returns client error",
       "type": "Validation",
       "tags": [
         "PARTNER_EVENT",
@@ -9046,7 +9046,7 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - 3PP Price Control",
-      "cases": 1,
+      "cases": 2,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceControlWorkflowTestSteps.groovy",
       "ignored": false,
       "steps": [
@@ -9056,44 +9056,14 @@
         },
         {
           "phase": "when",
-          "label": "Client sends exceedsApproveThreshold false while CPI still violates"
+          "label": "Client sends a #flag value that mismatches server truth"
         },
         {
           "phase": "then",
           "label": "Request is rejected with a mismatch-style error"
         }
-      ]
-    },
-    {
-      "area": "PartnerEvent",
-      "spec": "PartnerEventPriceControlWorkflowTestSteps",
-      "name": "PUT with wrong hasRightToApprove vs server truth returns client error",
-      "type": "Validation",
-      "tags": [
-        "PARTNER_EVENT",
-        "PR_SMOKE",
-        "PRICING",
-        "E2E"
       ],
-      "owner": "Gergely Gimesi",
-      "feature": "Partner Events - 3PP Price Control",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceControlWorkflowTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Draft over CPI approval threshold as PM"
-        },
-        {
-          "phase": "when",
-          "label": "PM sends hasRightToApprove true while lacking BYPASS_3PP_PRICE_CONTROL"
-        },
-        {
-          "phase": "then",
-          "label": "Request is rejected with a mismatch-style error"
-        }
-      ]
+      "paramNote": "2 runs across flag"
     },
     {
       "area": "PartnerEvent",
@@ -15250,6 +15220,45 @@
     {
       "area": "Quota",
       "spec": "SoldQuotaValidationTestSteps",
+      "name": "#action soldQuota in PROJECT phase should be disabled",
+      "type": "Workflow",
+      "tags": [
+        "QUOTA",
+        "SOLD_QUOTAS",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Sold Quotas",
+      "cases": 2,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Set active phase to PROJECT"
+        },
+        {
+          "phase": "and",
+          "label": "Capture the initial lock state"
+        },
+        {
+          "phase": "when",
+          "label": "User attempts to #action sold quota in PROJECT phase"
+        },
+        {
+          "phase": "then",
+          "label": "#action should be disabled in PROJECT phase"
+        },
+        {
+          "phase": "and",
+          "label": "Lock state should remain unchanged"
+        }
+      ],
+      "paramNote": "2 runs across action"
+    },
+    {
+      "area": "Quota",
+      "spec": "SoldQuotaValidationTestSteps",
       "name": "Locking and unlocking sold quota while feasibility distribution is set validates lock functionality",
       "type": "Workflow",
       "tags": [
@@ -15365,44 +15374,6 @@
         }
       ],
       "paramNote": "3 runs across exception.message.contains(\"lockable\")"
-    },
-    {
-      "area": "Quota",
-      "spec": "SoldQuotaValidationTestSteps",
-      "name": "Locking soldQuota in PROJECT phase should be disabled",
-      "type": "Workflow",
-      "tags": [
-        "QUOTA",
-        "SOLD_QUOTAS",
-        "VALIDATION"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Sold Quotas",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaValidationTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase to PROJECT"
-        },
-        {
-          "phase": "and",
-          "label": "Ensure sold quota starts unlocked"
-        },
-        {
-          "phase": "when",
-          "label": "User attempts to lock sold quota"
-        },
-        {
-          "phase": "then",
-          "label": "Locking should be disabled in PROJECT phase"
-        },
-        {
-          "phase": "and",
-          "label": "Lock state should remain unchanged"
-        }
-      ]
     },
     {
       "area": "Quota",
@@ -15535,44 +15506,6 @@
         {
           "phase": "and",
           "label": "No update happens - segment requested quotas remain unchanged"
-        }
-      ]
-    },
-    {
-      "area": "Quota",
-      "spec": "SoldQuotaValidationTestSteps",
-      "name": "Unlocking soldQuota in PROJECT phase should be disabled",
-      "type": "Workflow",
-      "tags": [
-        "QUOTA",
-        "SOLD_QUOTAS",
-        "VALIDATION"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Sold Quotas",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaValidationTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase to PROJECT"
-        },
-        {
-          "phase": "and",
-          "label": "Get initial lock state"
-        },
-        {
-          "phase": "when",
-          "label": "User attempts to unlock sold quota in PROJECT phase"
-        },
-        {
-          "phase": "then",
-          "label": "Unlocking should be disabled in PROJECT phase"
-        },
-        {
-          "phase": "and",
-          "label": "Lock state should remain unchanged"
         }
       ]
     },
@@ -18341,36 +18274,6 @@
         {
           "phase": "then",
           "label": "Respondent exclusions are deleted"
-        }
-      ]
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupDedupeTestSteps",
-      "name": "Delete respondent exclusions when none exist",
-      "type": "CRUD",
-      "tags": [
-        "EXCLUSION_RULES",
-        "QUOTA",
-        "DEDUPE"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - Deduplication & Exclusion Management",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupDedupeTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "when",
-          "label": "Delete respondent exclusions when quota group has no exclusions"
-        },
-        {
-          "phase": "then",
-          "label": "Operation completes without error"
         }
       ]
     },
@@ -24140,45 +24043,6 @@
     {
       "area": "Segment",
       "spec": "SegmentsValidationTestSteps",
-      "name": "Update segment quotas with high-precision decimal percentages that sum to 100%",
-      "type": "CRUD",
-      "tags": [
-        "SEGMENTS",
-        "QUOTA",
-        "VALIDATION"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Segments - Validation & Error Handling",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsValidationTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "A quota group with a single segment parameter and deterministic quota distribution"
-        },
-        {
-          "phase": "and",
-          "label": "A payload with high-precision decimal percentages computed via BigDecimal"
-        },
-        {
-          "phase": "when",
-          "label": "Segment quota update is submitted with high-precision decimal percentages"
-        },
-        {
-          "phase": "then",
-          "label": "The validator accepts the payload without errors"
-        }
-      ],
-      "paramNote": "Unrolled across project phases (2 runs at execution)"
-    },
-    {
-      "area": "Segment",
-      "spec": "SegmentsValidationTestSteps",
       "name": "Update segment quotas with invalid segment ID",
       "type": "Validation",
       "tags": [
@@ -24390,45 +24254,6 @@
         {
           "phase": "then",
           "label": "The validator accepts the payload without precision-related errors"
-        }
-      ],
-      "paramNote": "Unrolled across project phases (2 runs at execution)"
-    },
-    {
-      "area": "Segment",
-      "spec": "SegmentsValidationTestSteps",
-      "name": "Update segment quotas with the precision payload that previously caused a validation failure",
-      "type": "CRUD",
-      "tags": [
-        "SEGMENTS",
-        "QUOTA",
-        "VALIDATION"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Segments - Validation & Error Handling",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsValidationTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "A quota group with a single segment parameter and deterministic quota distribution"
-        },
-        {
-          "phase": "and",
-          "label": "A payload built with BigDecimal even distribution matching the original precision bug pattern"
-        },
-        {
-          "phase": "when",
-          "label": "Segment quota update is submitted with the formerly failing precision scenario"
-        },
-        {
-          "phase": "then",
-          "label": "The BigDecimal-based validator accepts the request without errors"
         }
       ],
       "paramNote": "Unrolled across project phases (2 runs at execution)"
