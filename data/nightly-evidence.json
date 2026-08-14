@@ -1,276 +1,181 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-13T02:14Z",
+  "generatedAt": "2026-08-14T02:13Z",
   "build": {
-    "number": "3.0.2666",
-    "buildId": "9463899",
+    "number": "3.0.2667",
+    "buildId": "9469413",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9463899",
-    "durationSec": 2490.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9469413",
+    "durationSec": 2536.0
   },
   "summary": {
-    "tests": 1441,
-    "passed": 1353,
-    "failures": 1,
+    "tests": 1442,
+    "passed": 1352,
+    "failures": 2,
     "errors": 0,
     "skipped": 0,
-    "muted": 87,
-    "newFailed": 1,
+    "muted": 88,
+    "newFailed": 2,
     "passRate": 99.9,
-    "timeSec": 2490.0
+    "timeSec": 2536.0
   },
   "prior": {
-    "buildId": "9459072",
-    "number": "3.0.2665",
-    "status": "SUCCESS",
-    "statusText": "Tests passed: 1358, muted: 88",
-    "startDate": "20260812T013239+0000",
-    "durationSec": 2745.0,
-    "failed": 0,
-    "passed": 1358,
-    "newFailed": 0
+    "buildId": "9463899",
+    "number": "3.0.2666",
+    "status": "FAILURE",
+    "statusText": "Tests failed: 1 (1 new), passed: 1353, muted: 87",
+    "startDate": "20260813T013238+0000",
+    "durationSec": 2490.0,
+    "failed": 1,
+    "passed": 1353,
+    "newFailed": 1
   },
   "changes": [
     {
-      "version": "b0a216c9d816",
+      "version": "313dad58076a",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13683 MS - expand PES1 notification coverage to project + survey; capitalize PES folder",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/SourcesHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/specializedhelpers/PesMessagingHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/pes1/PesNotificationTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/pes/pes2/PesNotificationTestSteps.groovy"
+      ],
+      "areas": [
+        "PES",
+        "Sources",
+        "pes"
+      ]
+    },
+    {
+      "version": "b5a192453d3a",
       "username": "105725861+gimesi13",
-      "comment": "Merge pull request #5232 from dynata/NXS-13674-collapse-features",
+      "comment": "Merge pull request #5254 from dynata/NXS-13674-split-megaspecs",
       "files": [],
       "areas": []
     },
     {
-      "version": "2b65db49586e",
+      "version": "e1ce4deafe44",
       "username": "gergely.gimesi",
-      "comment": "NXS-13674 preserve exact locking-error assertion after merge",
+      "comment": "NXS-13674 MS - fix split-induced SoldQuota + PartnerEvent failures",
       "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaValidationTestSteps.groovy"
-      ],
-      "areas": [
-        "Quota"
-      ]
-    },
-    {
-      "version": "5b00f2fee2c2",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13674 collapse redundant/duplicate spec features",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceControlWorkflowTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaValidationTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupDedupeTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsValidationTestSteps.groovy"
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceApprovalTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaLockUnlockWorkflowTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaProjectPhaseTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaWorkflowTestSteps.groovy"
       ],
       "areas": [
         "PartnerEvent",
         "Quota",
-        "QuotaGroup",
+        "QuotaGroup"
+      ]
+    },
+    {
+      "version": "925e690146f3",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13681-d365-tracker-clone-lineage assert wave-2 clone lineage as set",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosD365SampleCreationTestSteps.groovy"
+      ],
+      "areas": [
+        "BOS"
+      ]
+    },
+    {
+      "version": "5cefece3a8f3",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13674 MS - restore @Shared field blocks dropped by megaspec carve + surface swallowed note-delete errors",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/ProjectHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceGroupCRUDTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Fieldwork/FieldworkDeliveryTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Fieldwork/FieldworkSoftLaunchExclusionsTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Fieldwork/FieldworkSoftLaunchTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceApprovalTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceControlEdgeCasesTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceControlWorkflowTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaLockUnlockWorkflowTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaProjectPhaseTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaWorkflowTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentHiddenFlagRegressionTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsValidationTestSteps.groovy"
+      ],
+      "areas": [
+        "AudienceGroup",
+        "Fieldwork",
+        "PartnerEvent",
+        "Project",
+        "Quota",
         "Segment"
       ]
     },
     {
-      "version": "66a09fb447ab",
-      "username": "norbert.farkas",
-      "comment": "move unused dependency files info RIP dir",
+      "version": "cf1e5b0d677f",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13674 MS - split megaspecs into cohesive specs + fix feature placement",
       "files": [
-        "gradle/dependencies_3_0_2.gradle",
-        "gradle/dependencies_3_0_3.gradle",
-        "gradle/microservice.gradle",
-        "gradle/msCheck.gradle",
-        "gradle/msGateWayPlugins.gradle",
-        "gradle/msPlugins.gradle",
-        "gradle/nxs_api_plugins.gradle",
-        "gradle/nxs_dependencies_3_0_3.gradle",
-        "gradle/nxs_dependencies_3_0_4.gradle",
-        "gradle/nxs_plugins_3_0_1.gradle",
-        "gradle/springApiPlugins_3_0.gradle",
-        "gradle/springDependencyManagement.gradle",
-        "gradle/springMsPlugins.gradle",
-        "gradle/springMsPlugins_2_1_0-noBootRun.gradle",
-        "gradle/springPlugins_3_0_1.gradle"
+        "gateway/unifiedApi/NexusApiRegressionTests/CURSOR.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/NEXUS_API_REGRESSION_TESTS.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/DEBT_BACKLOG.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/SUITE_TIERS.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/config/TestKeys.java",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceGroupCRUDTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceGroupValidationsTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceTemplateE2ETestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Fieldwork/FieldworkConfigurationTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Fieldwork/FieldworkDeliveryTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Fieldwork/FieldworkSoftLaunchExclusionsTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Fieldwork/FieldworkSoftLaunchTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Fieldwork/FieldworkValidationTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Parameter/ParameterSearchFiltersAndConditionsTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Parameter/ParameterValidationTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Parameter/UniverseDefinitionTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventCRUDTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceApprovalTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceControlEdgeCasesTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceControlWorkflowTestSteps.groovy"
       ],
-      "areas": []
+      "areas": [
+        "AudienceGroup",
+        "Fieldwork",
+        "Parameter",
+        "PartnerEvent",
+        "Project",
+        "Quota",
+        "QuotaGroup"
+      ]
     }
   ],
   "qaDeployChanges": [
     {
-      "service": "ProjectEventForwarderJ21",
-      "version": "ec13747aa945",
-      "username": "andras.banszki",
-      "comment": "[NXS-13668] exclude group: 'io.swagger.core.v3'",
+      "service": "DynataExternalApiGW",
+      "version": "b13906db13d3",
+      "username": "nexus-docs-bot",
+      "comment": "docs: weekly sync (2026-08-10)",
       "files": [
-        "gateway/dk/DKProjectCountersRest/build.gradle",
-        "gateway/unifiedApi/NexusApi/build.gradle",
-        "gateway/unifiedApi/NexusApiMeta/build.gradle",
-        "gateway/unifiedApi/NexusApiUI/build.gradle",
-        "management/NotificationHandlerRest/build.gradle",
-        "management/SetOperationRest/build.gradle",
-        "project/DedupeRest/build.gradle",
-        "project/DetailsEditorRest/build.gradle",
-        "project/ProjectArchiveRest/build.gradle",
-        "project/ProjectEventForwarder/build.gradle",
-        "project/QuotaDetailsRest/build.gradle",
-        "project/QuotaGroupDefinitionRest/build.gradle",
-        "project/QuotaGroupRest/build.gradle",
-        "project/QuotaGroupSourcesRest/build.gradle",
-        "project/SurveyRest/build.gradle",
-        "project/TargetEditorRest/build.gradle",
-        "project/TestLinkRest/build.gradle",
-        "project/ThrottlingSettingRest/build.gradle",
-        "sandbox/SandboxServiceRest/build.gradle",
-        "system/ExtendedAttributesRest/build.gradle"
+        "gateway/dk/DKUserRest/README.md",
+        "gateway/external/DynataExternalApiGW/README.md",
+        "gateway/unifiedApi/NexusApiUI/README.md",
+        "gateway/unifiedApi/ProjectApiGateway/README.md",
+        "management/CategoryRest/README.md",
+        "management/ClaimOptionRest/README.md",
+        "management/EnumRest/README.md",
+        "project/CascadesRest/README.md",
+        "project/Crm/CrmRest/README.md",
+        "project/ProjectLogRest/README.md",
+        "project/ProjectRest/README.md",
+        "project/SubjectLibraryRest/README.md",
+        "system/EncryptDecryptRest/README.md",
+        "system/ExtendedAttributesRest/README.md",
+        "system/OperatorRest/README.md",
+        "system/UserRest/README.md"
       ],
-      "deployedAt": "20260812T113959+0000"
+      "deployedAt": "20260813T142614+0000"
     },
     {
-      "service": "ProjectEventForwarderJ21",
-      "version": "cc4c256e6838",
-      "username": "andras.banszki",
-      "comment": "[NXS-13668] bump SpringServiceBase:5.2.4 for swagger",
-      "files": [
-        "management/NotificationHandlerRest/build.gradle",
-        "management/SetOperationRest/build.gradle",
-        "project/DedupeRest/build.gradle",
-        "project/DetailsEditorRest/build.gradle",
-        "project/ProjectArchiveRest/build.gradle",
-        "project/ProjectEventForwarder/build.gradle",
-        "project/QuotaDetailsRest/build.gradle",
-        "project/QuotaGroupDefinitionRest/build.gradle",
-        "project/QuotaGroupRest/build.gradle",
-        "project/QuotaGroupSourcesRest/build.gradle",
-        "project/SurveyRest/build.gradle",
-        "project/TargetEditorRest/build.gradle",
-        "project/TestLinkRest/build.gradle",
-        "project/ThrottlingSettingRest/build.gradle",
-        "sandbox/SandboxServiceRest/build.gradle",
-        "system/ExtendedAttributesRest/build.gradle",
-        "system/OperatorRest/build.gradle"
-      ],
-      "deployedAt": "20260812T113959+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "61fb9f55153d",
-      "username": "weiqun.wang",
-      "comment": "update both qa and prod to ml.g5.2xlarge",
-      "files": [
-        "ml-reconciliation-model/group_vars/production.yml",
-        "ml-reconciliation-model/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260812T113959+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "4867e7b1008a",
-      "username": "weiqun.wang",
-      "comment": "update prod instance to ml.g4dn.xlarge to match qa",
-      "files": [
-        "ml-reconciliation-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20260812T113959+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "332640ee3034",
-      "username": "norbert.farkas",
-      "comment": "Merge pull request #603 from dynata/NXS-13549-WebSourceRest-ecr-migration",
-      "files": [],
-      "deployedAt": "20260812T113959+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "9d9c802a5110",
-      "username": "norbert.farkas",
-      "comment": "Merge pull request #596 from dynata/NXS-13541-SampleRest-ecr-migration",
-      "files": [],
-      "deployedAt": "20260812T113959+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "c6226cc40ed4",
-      "username": "norbert.farkas",
-      "comment": "[NXS-13549] MS - Migrate WebSourceRest from DockerHub to ECR",
-      "files": [
-        "dk-management-web-source-rest/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260812T113959+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "2ea552a44629",
-      "username": "norbert.farkas",
-      "comment": "[NXS-13541] MS - Migrate SampleRest from DockerHub to ECR",
-      "files": [
-        "dk-system-sample-rest/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260812T113959+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "3020db790706",
-      "username": "bresalio.nagy",
-      "comment": "[AE-000] Delete support-ai-agent from CF",
-      "files": [
-        "ae-support-ai-agent/cloud-formation.template.yml",
-        "ae-support-ai-agent/group_vars/all.yml",
-        "ae-support-ai-agent/group_vars/dev.yml"
-      ],
-      "deployedAt": "20260812T113959+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "81d91621bad2",
-      "username": "virag.urbin-szabo",
-      "comment": "add IP for PDB Ipsos Feasibility",
-      "files": [
-        "pdb-feasibility-ipsos/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260812T113959+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "2bd4b108869a",
-      "username": "norbert.farkas",
-      "comment": "Merge pull request #557 from dynata/NXS-12114-DashboardRest-ecr-migration",
-      "files": [],
-      "deployedAt": "20260812T113959+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "210a4e0cc429",
-      "username": "norbert.farkas",
-      "comment": "[NXS-12114] MS - Migrate DashboardRest from DockerHub to ECR",
-      "files": [
-        "dk-project-dashboard-rest/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260812T113959+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "37457b6ef08e",
-      "username": "weiqun.wang",
-      "comment": "update qa instanct count min to 1",
-      "files": [
-        "ml-reconciliation-model/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260812T113959+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "8c568db4f0c5",
-      "username": "bence.csepe",
-      "comment": "[NXS-13606] MS - add clientAccountGuidCache to framework-extensions (j16) (#5106)",
-      "files": [
-        "gradle/nxs_dependencies.gradle",
-        "utilities/framework-extension/ClientAccountGuidCache/build.gradle",
-        "utilities/framework-extension/ClientAccountGuidCache/src/main/java/com/dynata/nexus/caches/client/ClientAccountGuidCache.java",
-        "utilities/framework-extension/ClientAccountGuidCache/src/main/java/com/dynata/nexus/caches/client/dependencies/INexusApiMetaFeignClient.java",
-        "utilities/framework-extension/ClientAccountGuidCache/src/main/java/com/dynata/nexus/caches/client/model/Client.java",
-        "utilities/framework-extension/ClientAccountGuidCache/src/test/groovy/com/dynata/nexus/caches/client/ClientAccountGuidCacheTest.groovy",
-        "utilities/framework-extension/settings.gradle"
-      ],
-      "deployedAt": "20260812T113959+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
+      "service": "DynataExternalApiGW",
       "version": "4d5918d16bd9",
       "username": "bresalio.nagy",
       "comment": "[AE-000] [CVE] use log router version 26",
@@ -296,10 +201,10 @@
         "ae-project-evaluator-post-qualification-engine/group_vars/all.yml",
         "ae-project-evaluator-shard-manager/group_vars/all.yml"
       ],
-      "deployedAt": "20260812T113959+0000"
+      "deployedAt": "20260813T142614+0000"
     },
     {
-      "service": "ProjectEventForwarderJ21",
+      "service": "DynataExternalApiGW",
       "version": "c0cff01d3326",
       "username": "lajos.pajger",
       "comment": "[SFC] get database credentials from secret manager",
@@ -309,133 +214,194 @@
         "ae-legacy-survey-flow-controller/cloud-formation.template.yml",
         "ae-legacy-survey-flow-controller/group_vars/all.yml"
       ],
-      "deployedAt": "20260812T113959+0000"
+      "deployedAt": "20260813T142614+0000"
     },
     {
-      "service": "ProjectEventForwarderJ21",
-      "version": "90b7d9d46905",
-      "username": "lajos.pajger",
-      "comment": "dkjs-traffic gen AE apps replace datadog with open telemetry",
-      "files": [
-        "dkjs-automated-sourcing-jobs/cloud-formation.template.yml",
-        "dkjs-automated-sourcing-jobs/group_vars/all.yml",
-        "dkjs-automated-sourcing-jobs/group_vars/dev.yml",
-        "dkjs-automated-sourcing-jobs/group_vars/production.yml",
-        "dkjs-automated-sourcing-jobs/group_vars/qa.yml",
-        "dkjs-common-jobs/cloud-formation.template.yml",
-        "dkjs-common-jobs/group_vars/all.yml",
-        "dkjs-common-jobs/group_vars/dev.yml",
-        "dkjs-common-jobs/group_vars/production.yml",
-        "dkjs-common-jobs/group_vars/qa.yml",
-        "dkjs-contact-jobs/cloud-formation.template.yml",
-        "dkjs-contact-jobs/group_vars/all.yml",
-        "dkjs-contact-jobs/group_vars/dev.yml",
-        "dkjs-contact-jobs/group_vars/production.yml",
-        "dkjs-contact-jobs/group_vars/qa.yml",
-        "dkjs-sampling-jobs/cloud-formation.template.yml",
-        "dkjs-sampling-jobs/group_vars/all.yml",
-        "dkjs-sampling-jobs/group_vars/dev.yml",
-        "dkjs-sampling-jobs/group_vars/production.yml",
-        "dkjs-sampling-jobs/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260812T113959+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "38d6408d81d2",
-      "username": "lajos.pajger",
-      "comment": "dkjs-contact-metrics replace datadog with open telemetry",
-      "files": [
-        "dkjs-contact-metrics/cloud-formation.template.yml",
-        "dkjs-contact-metrics/group_vars/all.yml",
-        "dkjs-contact-metrics/group_vars/dev.yml",
-        "dkjs-contact-metrics/group_vars/production.yml",
-        "dkjs-contact-metrics/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260812T113959+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "ad0e60d6d4fe",
+      "service": "QuotaGroupRestJ21",
+      "version": "054592e3691b",
       "username": "tamas.gyarmati",
-      "comment": "[NXS-13646] - create pes-mongo",
+      "comment": "[NXS-13682] - remove outputs",
       "files": [
-        "pes-mongo/cloud-formation.template.yml",
-        "pes-mongo/group_vars/all.yml",
-        "pes-mongo/group_vars/dev.yml",
-        "pes-mongo/group_vars/production.yml",
-        "pes-mongo/group_vars/qa.yml"
+        "dk-project-quota-group-rest/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260812T113959+0000"
+      "deployedAt": "20260813T140933+0000"
     },
     {
-      "service": "ProjectEventForwarderJ21",
-      "version": "5a8061f0f5e6",
-      "username": "134395908+dynata-hu-krisztian-kover",
-      "comment": "Merge pull request #554 from dynata/ST-4998-dk-system-user-rest",
+      "service": "QuotaGroupRestJ21",
+      "version": "2f632d8dfc50",
+      "username": "tamas.gyarmati",
+      "comment": "[NXS-13682] - fix indent",
+      "files": [
+        "dk-project-quota-group-rest/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260813T140933+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "3d3bd74d79e4",
+      "username": "60962201+gyarmatitamas",
+      "comment": "Merge pull request #607 from dynata/NXS-13682-QG",
       "files": [],
-      "deployedAt": "20260812T113959+0000"
+      "deployedAt": "20260813T140933+0000"
     },
     {
-      "service": "ProjectEventForwarderJ21",
-      "version": "c14a0f441fa1",
-      "username": "krisztian.kover",
-      "comment": "[ST-4998] - SystemUserRest - Changed health check url in DEV",
+      "service": "QuotaGroupRestJ21",
+      "version": "477fef0f4706",
+      "username": "tamas.gyarmati",
+      "comment": "[NXS-13682] - add iam role, remove topic",
       "files": [
-        "dk-system-user-rest/group_vars/dev.yml"
+        "dk-project-quota-group-rest/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260812T113959+0000"
+      "deployedAt": "20260813T140933+0000"
     },
     {
-      "service": "ProjectEventForwarderJ21",
-      "version": "02595c2cef6f",
-      "username": "lajos.pajger",
-      "comment": "dkjs-contact-jobs update health check uri",
+      "service": "QuotaGroupRestJ21",
+      "version": "3af7823ad7b3",
+      "username": "david.nagy",
+      "comment": "[NXS-13682] EOS - MS - create IAM role for schedulers and SQS queue in QuotaGroupRest",
       "files": [
-        "dkjs-contact-jobs/group_vars/all.yml"
+        "dk-project-quota-group-rest/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260812T113959+0000"
+      "deployedAt": "20260813T140933+0000"
     },
     {
-      "service": "ProjectEventForwarderJ21",
-      "version": "668734443446",
+      "service": "QuotaGroupRestJ21",
+      "version": "d64ba193dd72",
+      "username": "attila.sikora",
+      "comment": "[PAC-752]-PostgreSQL upgrade eligibility-service on qa.",
+      "files": [
+        "dk-project-eligibility-service/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260813T140933+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "705efcccf3eb",
+      "username": "szabolcs.fekete",
+      "comment": "DAI | Shorten elastic cache DNS alias",
+      "files": [
+        "ae-debug-ai-agent/group_vars/production.yml"
+      ],
+      "deployedAt": "20260813T140933+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "60256d979be6",
+      "username": "attila.sikora",
+      "comment": "[PAC-752]-PostgreSQL upgrade eligibility-service on dev",
+      "files": [
+        "dk-project-eligibility-service/group_vars/dev.yml"
+      ],
+      "deployedAt": "20260813T140933+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
+      "version": "2a4de603d34a",
+      "username": "gabor.fial",
+      "comment": "ProjectApiGateway integTests fix..",
+      "files": [
+        "gateway/unifiedApi/ProjectApiGateway/src/integTest/groovy/com/dynata/rest/gateway/projectapi/acceptance/ProjectApiAcceptanceTest.groovy",
+        "gateway/unifiedApi/ProjectApiGateway/src/integTest/groovy/com/dynata/rest/gateway/projectapi/acceptance/ProjectTemplateApiAcceptanceTest.groovy"
+      ],
+      "deployedAt": "20260813T140723+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
+      "version": "e4b2f9f144e6",
+      "username": "matt.spencer",
+      "comment": "[DQI-4500] Added Offer Callback SQS Queue to dq-offer-callback-resources.",
+      "files": [
+        "dq-offer-callback-resources/cloud-formation.template.yml",
+        "dq-offer-callback-resources/group_vars/dev.yml",
+        "dq-offer-callback-resources/group_vars/production.yml",
+        "dq-offer-callback-resources/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260813T140723+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
+      "version": "f24f0ab45824",
+      "username": "szabolcs.fekete",
+      "comment": "Adding standalone s3 to the managed knowledgebase",
+      "files": [
+        "ae-debug-ai-agent/cloud-formation.template.yml",
+        "ae-debug-ai-agent/group_vars/all.yml"
+      ],
+      "deployedAt": "20260813T140723+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
+      "version": "209848e4aa60",
       "username": "norbert.farkas",
-      "comment": "[ NXS-13573 ] ecr migration",
-      "files": [
-        "dk-dk-project-counters-rest/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260812T113959+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "4cfff6d62f9a",
-      "username": "gabor.imre",
-      "comment": "Merge pull request #553 from dynata/ST-4997-dk-nova-translator-rest",
+      "comment": "Merge pull request #605 from dynata/NXS-13544-CSToolsRest-ecr-migration",
       "files": [],
-      "deployedAt": "20260812T113959+0000"
+      "deployedAt": "20260813T140723+0000"
     },
     {
-      "service": "ProjectEventForwarderJ21",
-      "version": "dfd0ec20e9bc",
-      "username": "gabor.imre",
-      "comment": "[ST-4997] DKNovaTranslatorRest DEV inventory for the Java 21 / Boot 3.5 image",
+      "service": "ProjectApiGateway",
+      "version": "2450c9d3768c",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #563 from dynata/NXS-12117-DetailsTableRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260813T140723+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
+      "version": "819f5ed01ff9",
+      "username": "szabolcs.fekete",
+      "comment": "Adding bedrock managed KB to ai debug template",
       "files": [
-        "dk-dk-nova-translator-rest/group_vars/dev.yml"
+        "ae-debug-ai-agent/cloud-formation.template.yml",
+        "ae-debug-ai-agent/group_vars/all.yml"
       ],
-      "deployedAt": "20260812T113959+0000"
+      "deployedAt": "20260813T140723+0000"
     },
     {
-      "service": "NexusApiBosJ21",
-      "version": "4e8d3e58a8f4",
-      "username": "kocskam",
-      "comment": "AccTest fix",
+      "service": "ProjectApiGateway",
+      "version": "2b7ac5ebe774",
+      "username": "richardlaszlo.sebok",
+      "comment": "[ST-5011] (RespondentRest) - Changed health check to match the new spring version - qa.",
       "files": [
-        "gateway/unifiedApi/NexusApiBos/src/integTest/groovy/com/dynata/rest/gateway/nexusapibos/v2/api/acceptance/BosApiV2AcceptanceTest.groovy"
+        "st-respondent-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260812T090132+0000"
+      "deployedAt": "20260813T140723+0000"
     },
     {
-      "service": "NexusApiBosJ21",
+      "service": "ProjectApiGateway",
+      "version": "55d5ebcce695",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #595 from dynata/NXS-13540-RegionalSurveyRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260813T140723+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
+      "version": "56f2eb708df6",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #570 from dynata/NXS-12128-GeoConditionRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260813T140723+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
+      "version": "b5f8551415c0",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #601 from dynata/NXS-13547-GeoIpRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260813T140723+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
+      "version": "a1763cf586fd",
+      "username": "zsolt.remenyik",
+      "comment": "Deleted Djava.security from group var QA parameter service",
+      "files": [
+        "st-parameter-service/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260813T140723+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
       "version": "66a09fb447ab",
       "username": "norbert.farkas",
       "comment": "move unused dependency files info RIP dir",
@@ -456,229 +422,425 @@
         "gradle/springMsPlugins_2_1_0-noBootRun.gradle",
         "gradle/springPlugins_3_0_1.gradle"
       ],
-      "deployedAt": "20260812T090132+0000"
+      "deployedAt": "20260813T140723+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
+      "version": "61fb9f55153d",
+      "username": "weiqun.wang",
+      "comment": "update both qa and prod to ml.g5.2xlarge",
+      "files": [
+        "ml-reconciliation-model/group_vars/production.yml",
+        "ml-reconciliation-model/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260813T140723+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
+      "version": "4867e7b1008a",
+      "username": "weiqun.wang",
+      "comment": "update prod instance to ml.g4dn.xlarge to match qa",
+      "files": [
+        "ml-reconciliation-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20260813T140723+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
+      "version": "332640ee3034",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #603 from dynata/NXS-13549-WebSourceRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260813T140723+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
+      "version": "9d9c802a5110",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #596 from dynata/NXS-13541-SampleRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260813T140723+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
+      "version": "c6226cc40ed4",
+      "username": "norbert.farkas",
+      "comment": "[NXS-13549] MS - Migrate WebSourceRest from DockerHub to ECR",
+      "files": [
+        "dk-management-web-source-rest/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260813T140723+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
+      "version": "a8964be0c8ae",
+      "username": "norbert.farkas",
+      "comment": "[NXS-13547] MS - Migrate GeoIpRest from DockerHub to ECR",
+      "files": [
+        "dk-management-geo-ip-rest/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260813T140723+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
+      "version": "57fce99a4ad1",
+      "username": "norbert.farkas",
+      "comment": "[NXS-13544] MS - Migrate CSToolsRest from DockerHub to ECR",
+      "files": [
+        "dk-cs-management-tools-rest/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260813T140723+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "ProjectEventForwarderJ21",
-      "commits": 25,
-      "latestTicket": "NXS-13668",
-      "latestComment": "[NXS-13668] exclude group: 'io.swagger.core.v3'",
-      "deployedAt": "20260812T113959+0000"
+      "service": "DynataExternalApiGW",
+      "commits": 3,
+      "latestTicket": "",
+      "latestComment": "docs: weekly sync (2026-08-10)",
+      "deployedAt": "20260813T142614+0000"
     },
     {
-      "service": "NexusApiBosJ21",
+      "service": "QuotaGroupRestJ21",
+      "commits": 11,
+      "latestTicket": "NXS-13682",
+      "latestComment": "[NXS-13682] - remove outputs",
+      "deployedAt": "20260813T140933+0000"
+    },
+    {
+      "service": "ProjectApiGateway",
+      "commits": 19,
+      "latestTicket": "",
+      "latestComment": "ProjectApiGateway integTests fix..",
+      "deployedAt": "20260813T140723+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "commits": 4,
+      "latestTicket": "NXS-13541",
+      "latestComment": "[NXS-13541] MS - Migrate SampleRest from DockerHub to ECR",
+      "deployedAt": "20260813T132120+0000"
+    },
+    {
+      "service": "EligibilityService",
       "commits": 2,
       "latestTicket": "",
-      "latestComment": "AccTest fix",
-      "deployedAt": "20260812T090132+0000"
+      "latestComment": "[AE-000] Delete support-ai-agent from CF",
+      "deployedAt": "20260813T124704+0000"
     }
   ],
   "clusters": [
     {
-      "label": "assert_fail",
-      "display": "assertion Condition not satisfied",
+      "label": "infra_504",
+      "display": "QA 504 timeout",
       "count": 1,
       "newCount": 1,
-      "sample": "",
-      "why": "Spock assertion failed (fixture or response shape)"
+      "sample": "Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
+      "why": "QA gateway timed out (504) \u2014 infra / overloaded dependency"
+    },
+    {
+      "label": "server_exception",
+      "display": "server NestedServletException / NPE",
+      "count": 1,
+      "newCount": 1,
+      "sample": "java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
+      "why": "QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path"
     }
   ],
   "failures": [
     {
-      "name": "sample d365 tracker creation workflow",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.BOS.BosD365SampleCreationTestSteps",
+      "name": "Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaLockUnlockWorkflowTestSteps.Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaLockUnlockWorkflowTestSteps",
       "newFailure": true,
-      "area": "BOS",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: savedQgs[0].quotaGroup.core.clonedFromQuotaGroupId == quotaGroupId(QUOTE) | | | | | | | | | | | 118749158 | 118749154 | | | | false | | | <com.dynata.nexus.api.model.quotagroup.QuotaGroupCore@c6c84fa quotaGroupName=My New Audience projectId=2250380 audienceGroupId=1536163 urlPoolId=null defaultSurveyLength=15 clonedFromQuotaGroupId=118749158 orderStatus=PROJECT sourceCrmS\u2026"
+      "area": "Quota",
+      "cluster": "infra_504",
+      "message": "Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped value!",
+      "detailsExcerpt": "java.lang.RuntimeException: Failed to lock sold quota for quotaGroupId=118752959 after 20s: DetailsEditor did not register at least one sold quota > quota capped value in time (cross-service propagation lag between QuotaDetails and DetailsEditor). at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupHelper.setSoldQuotaLocked(QuotaGroupHelper.groovy:810) at com.dynata\u2026"
+    },
+    {
+      "name": "initializationError",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupMultiCountryWorkflowTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "server_exception",
+      "message": "java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceGroups/1543810 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups/118752002\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0\" } ], \"version\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "1 new failure in BOS",
+    "headline": "2 new failures in Quota",
     "tone": "warn",
     "severity": "low",
     "bullets": [
-      "1\u00d7 assertion Condition not satisfied"
+      "1\u00d7 QA 504 timeout \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
+      "1\u00d7 server NestedServletException / NPE \u2014 java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
+      "Change NXS-13674: gergely.gimesi \u00b7 Quota, QuotaGroup \u00b7 2 overlapping new fails",
+      "Change NXS-13674: gergely.gimesi \u00b7 Quota, QuotaGroup \u00b7 2 overlapping new fails"
     ],
-    "investigation": "New fails: 1\u00d7 assertion Condition not satisfied. Vs prior #3.0.2665: up 1 total fails.",
+    "investigation": "New fails: 1\u00d7 QA 504 timeout (QA gateway timed out (504)); 1\u00d7 server NestedServletException / NPE (QA threw NestedServletException/NPE/IOOB). Likely related to NXS-13674 gergely.gimesi `cf1e5b0d677f` (Quota, QuotaGroup, 2 new fails in overlap).",
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2665, 0 fails). Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: BOS (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 2 service(s) (27 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: BOS: sample d365 tracker creation workflow [assertion Condition not satisfied].",
+      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2666, 1 fails). Failure types (new-first): (1) 1\u00d7 QA 504 timeout \u2014 QA gateway timed out (504) \u2014 infra / overloaded dependency. (2) 1\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. Hot areas among new fails: Quota (1), QuotaGroup (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 5 service(s) (39 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Quota: Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility [QA 504 timeout]; QuotaGroup: initializationError [server NestedServletException / NPE].",
       "bullets": [
-        "1\u00d7 assertion Condition not satisfied",
-        "NXS-13674: 105725861+gimesi13 \u2014 Merge pull request #5232 from dynata/NXS-13674-collapse-features",
-        "NXS-13674: gergely.gimesi \u2014 NXS-13674 preserve exact locking-error assertion after merge",
-        "NXS-13674: gergely.gimesi \u2014 NXS-13674 collapse redundant/duplicate spec features",
-        "[QA deploy: ProjectEventForwarderJ21] NXS-13668 (25 commits) \u2014 [NXS-13668] exclude group: 'io.swagger.core.v3'",
-        "[QA deploy: NexusApiBosJ21]  (2 commits) \u2014 AccTest fix"
+        "1\u00d7 QA 504 timeout \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
+        "1\u00d7 server NestedServletException / NPE \u2014 java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
+        "Change NXS-13674: gergely.gimesi \u00b7 Quota, QuotaGroup \u00b7 2 overlapping new fails",
+        "Change NXS-13674: gergely.gimesi \u00b7 Quota, QuotaGroup \u00b7 2 overlapping new fails",
+        "NXS-13674 cf1e5b0d677f by gergely.gimesi \u2192 areas Quota, QuotaGroup (2 new fails) \u00b7 CURSOR.md, NEXUS_API_REGRESSION_TESTS.md, DEBT_BACKLOG.md, SUITE_TIERS.md, TestKeys.java, AudienceGroupCRUDTestSteps.groovy",
+        "NXS-13674 e1ce4deafe44 by gergely.gimesi \u2192 areas Quota, QuotaGroup (2 new fails) \u00b7 QuotaGroupHelper.groovy, PartnerEventPriceApprovalTestSteps.groovy, SoldQuotaLockUnlockWorkflowTestSteps.groovy, SoldQuotaProjectPhaseTestSteps.groovy, SoldQuotaWorkflowTestSteps.groovy",
+        "NXS-13674 5cefece3a8f3 by gergely.gimesi \u2192 areas Quota (1 new fails) \u00b7 ProjectHelper.groovy, AudienceGroupCRUDTestSteps.groovy, FieldworkDeliveryTestSteps.groovy, FieldworkSoftLaunchExclusionsTestSteps.groovy, FieldworkSoftLaunchTestSteps.groovy, PartnerEventPriceApprovalTestSteps.groovy",
+        "[QA deploy: DynataExternalApiGW]  (3 commits) \u2014 docs: weekly sync (2026-08-10)",
+        "[QA deploy: QuotaGroupRestJ21] NXS-13682 (11 commits) \u2014 [NXS-13682] - remove outputs",
+        "[QA deploy: ProjectApiGateway]  (19 commits) \u2014 ProjectApiGateway integTests fix.."
       ],
       "newFailureAreas": [
         {
-          "area": "BOS",
+          "area": "Quota",
+          "newCount": 1
+        },
+        {
+          "area": "QuotaGroup",
           "newCount": 1
         }
       ],
-      "likelyCauses": []
+      "likelyCauses": [
+        {
+          "version": "cf1e5b0d677f",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13674",
+          "comment": "NXS-13674 MS - split megaspecs into cohesive specs + fix feature placement",
+          "areas": [
+            "Quota",
+            "QuotaGroup"
+          ],
+          "hitNewFailures": 2,
+          "files": [
+            "CURSOR.md",
+            "NEXUS_API_REGRESSION_TESTS.md",
+            "DEBT_BACKLOG.md",
+            "SUITE_TIERS.md",
+            "TestKeys.java",
+            "AudienceGroupCRUDTestSteps.groovy"
+          ]
+        },
+        {
+          "version": "e1ce4deafe44",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13674",
+          "comment": "NXS-13674 MS - fix split-induced SoldQuota + PartnerEvent failures",
+          "areas": [
+            "Quota",
+            "QuotaGroup"
+          ],
+          "hitNewFailures": 2,
+          "files": [
+            "QuotaGroupHelper.groovy",
+            "PartnerEventPriceApprovalTestSteps.groovy",
+            "SoldQuotaLockUnlockWorkflowTestSteps.groovy",
+            "SoldQuotaProjectPhaseTestSteps.groovy",
+            "SoldQuotaWorkflowTestSteps.groovy"
+          ]
+        },
+        {
+          "version": "5cefece3a8f3",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13674",
+          "comment": "NXS-13674 MS - restore @Shared field blocks dropped by megaspec carve + surface swallowed note-delete errors",
+          "areas": [
+            "Quota"
+          ],
+          "hitNewFailures": 1,
+          "files": [
+            "ProjectHelper.groovy",
+            "AudienceGroupCRUDTestSteps.groovy",
+            "FieldworkDeliveryTestSteps.groovy",
+            "FieldworkSoftLaunchExclusionsTestSteps.groovy",
+            "FieldworkSoftLaunchTestSteps.groovy",
+            "PartnerEventPriceApprovalTestSteps.groovy"
+          ]
+        }
+      ]
     },
     "suspectCommits": [
       {
-        "version": "b0a216c9d816",
+        "version": "313dad58076a",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13683 MS - expand PES1 notification coverage to project + survey; capitalize PES folder",
+        "ticket": "NXS-13683",
+        "areas": []
+      },
+      {
+        "version": "b5a192453d3a",
         "username": "105725861+gimesi13",
-        "comment": "Merge pull request #5232 from dynata/NXS-13674-collapse-features",
+        "comment": "Merge pull request #5254 from dynata/NXS-13674-split-megaspecs",
         "ticket": "NXS-13674",
         "areas": []
       },
       {
-        "version": "2b65db49586e",
+        "version": "e1ce4deafe44",
         "username": "gergely.gimesi",
-        "comment": "NXS-13674 preserve exact locking-error assertion after merge",
+        "comment": "NXS-13674 MS - fix split-induced SoldQuota + PartnerEvent failures",
         "ticket": "NXS-13674",
-        "areas": []
+        "areas": [
+          "Quota",
+          "QuotaGroup"
+        ]
       },
       {
-        "version": "5b00f2fee2c2",
+        "version": "925e690146f3",
         "username": "gergely.gimesi",
-        "comment": "NXS-13674 collapse redundant/duplicate spec features",
-        "ticket": "NXS-13674",
+        "comment": "NXS-13681-d365-tracker-clone-lineage assert wave-2 clone lineage as set",
+        "ticket": "NXS-13681",
         "areas": []
       },
       {
-        "version": "66a09fb447ab",
-        "username": "norbert.farkas",
-        "comment": "move unused dependency files info RIP dir",
-        "ticket": "",
-        "areas": []
+        "version": "5cefece3a8f3",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13674 MS - restore @Shared field blocks dropped by megaspec carve + surface swallowed note-delete errors",
+        "ticket": "NXS-13674",
+        "areas": [
+          "Quota"
+        ]
+      },
+      {
+        "version": "cf1e5b0d677f",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13674 MS - split megaspecs into cohesive specs + fix feature placement",
+        "ticket": "NXS-13674",
+        "areas": [
+          "Quota",
+          "QuotaGroup"
+        ]
       }
     ],
     "qaDeploySuspects": [
       {
-        "service": "ProjectEventForwarderJ21",
-        "version": "ec13747aa945",
-        "username": "andras.banszki",
-        "comment": "[NXS-13668] exclude group: 'io.swagger.core.v3'",
-        "ticket": "NXS-13668",
-        "deployedAt": "20260812T113959+0000",
-        "files": [
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "cc4c256e6838",
-        "username": "andras.banszki",
-        "comment": "[NXS-13668] bump SpringServiceBase:5.2.4 for swagger",
-        "ticket": "NXS-13668",
-        "deployedAt": "20260812T113959+0000",
-        "files": [
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "61fb9f55153d",
-        "username": "weiqun.wang",
-        "comment": "update both qa and prod to ml.g5.2xlarge",
+        "service": "DynataExternalApiGW",
+        "version": "b13906db13d3",
+        "username": "nexus-docs-bot",
+        "comment": "docs: weekly sync (2026-08-10)",
         "ticket": "",
-        "deployedAt": "20260812T113959+0000",
+        "deployedAt": "20260813T142614+0000",
         "files": [
-          "production.yml",
+          "README.md",
+          "README.md",
+          "README.md",
+          "README.md",
+          "README.md",
+          "README.md"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DynataExternalApiGW",
+        "version": "4d5918d16bd9",
+        "username": "bresalio.nagy",
+        "comment": "[AE-000] [CVE] use log router version 26",
+        "ticket": "",
+        "deployedAt": "20260813T142614+0000",
+        "files": [
+          "all.yml",
+          "all.yml",
+          "all.yml",
+          "all.yml",
+          "all.yml",
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DynataExternalApiGW",
+        "version": "c0cff01d3326",
+        "username": "lajos.pajger",
+        "comment": "[SFC] get database credentials from secret manager",
+        "ticket": "",
+        "deployedAt": "20260813T142614+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml",
+          "cloud-formation.template.yml",
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "054592e3691b",
+        "username": "tamas.gyarmati",
+        "comment": "[NXS-13682] - remove outputs",
+        "ticket": "NXS-13682",
+        "deployedAt": "20260813T140933+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "2f632d8dfc50",
+        "username": "tamas.gyarmati",
+        "comment": "[NXS-13682] - fix indent",
+        "ticket": "NXS-13682",
+        "deployedAt": "20260813T140933+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "3d3bd74d79e4",
+        "username": "60962201+gyarmatitamas",
+        "comment": "Merge pull request #607 from dynata/NXS-13682-QG",
+        "ticket": "NXS-13682",
+        "deployedAt": "20260813T140933+0000",
+        "files": [],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "477fef0f4706",
+        "username": "tamas.gyarmati",
+        "comment": "[NXS-13682] - add iam role, remove topic",
+        "ticket": "NXS-13682",
+        "deployedAt": "20260813T140933+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "3af7823ad7b3",
+        "username": "david.nagy",
+        "comment": "[NXS-13682] EOS - MS - create IAM role for schedulers and SQS queue in QuotaGroupRest",
+        "ticket": "NXS-13682",
+        "deployedAt": "20260813T140933+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "d64ba193dd72",
+        "username": "attila.sikora",
+        "comment": "[PAC-752]-PostgreSQL upgrade  eligibility-service on qa.",
+        "ticket": "",
+        "deployedAt": "20260813T140933+0000",
+        "files": [
           "qa.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectEventForwarderJ21",
-        "version": "4867e7b1008a",
-        "username": "weiqun.wang",
-        "comment": "update prod instance to ml.g4dn.xlarge to match qa",
+        "service": "QuotaGroupRestJ21",
+        "version": "705efcccf3eb",
+        "username": "szabolcs.fekete",
+        "comment": "DAI | Shorten elastic cache DNS alias",
         "ticket": "",
-        "deployedAt": "20260812T113959+0000",
+        "deployedAt": "20260813T140933+0000",
         "files": [
           "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "332640ee3034",
-        "username": "norbert.farkas",
-        "comment": "Merge pull request #603 from dynata/NXS-13549-WebSourceRest-ecr-migration",
-        "ticket": "NXS-13549",
-        "deployedAt": "20260812T113959+0000",
-        "files": [],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "9d9c802a5110",
-        "username": "norbert.farkas",
-        "comment": "Merge pull request #596 from dynata/NXS-13541-SampleRest-ecr-migration",
-        "ticket": "NXS-13541",
-        "deployedAt": "20260812T113959+0000",
-        "files": [],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "c6226cc40ed4",
-        "username": "norbert.farkas",
-        "comment": "[NXS-13549] MS - Migrate WebSourceRest from DockerHub to ECR",
-        "ticket": "NXS-13549",
-        "deployedAt": "20260812T113959+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "2ea552a44629",
-        "username": "norbert.farkas",
-        "comment": "[NXS-13541] MS - Migrate SampleRest from DockerHub to ECR",
-        "ticket": "NXS-13541",
-        "deployedAt": "20260812T113959+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "3020db790706",
-        "username": "bresalio.nagy",
-        "comment": "[AE-000] Delete support-ai-agent from CF",
-        "ticket": "",
-        "deployedAt": "20260812T113959+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "dev.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "81d91621bad2",
-        "username": "virag.urbin-szabo",
-        "comment": "add IP for PDB Ipsos Feasibility",
-        "ticket": "",
-        "deployedAt": "20260812T113959+0000",
-        "files": [
-          "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       }
