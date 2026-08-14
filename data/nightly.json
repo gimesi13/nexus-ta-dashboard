@@ -1497,31 +1497,22 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "2 new failures in Quota",
+    "headline": "2 new failures \u2014 a real backend HTTP 500 in QuotaGroupRest plus a Quota test-helper timeout (not the infra 504 the cluster label suggests).",
     "tone": "warn",
     "severity": "low",
-    "cause": "code_change",
-    "causeText": "Possibly NXS-13674 by gergely.gimesi \u2014 touches Quota, QuotaGroup (2 overlapping new fails). Correlation only. NOTE: 5 service(s) were deployed to QA in this window (DynataExternalApiGW, QuotaGroupRestJ21, ProjectApiGateway, ManualCreditJ21, EligibilityService) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 QA 504 timeout (QA gateway timed out (504)); 1\u00d7 server NestedServletException / NPE (QA threw NestedServletException/NPE/IOOB). Likely related to NXS-13674 gergely.gimesi `cf1e5b0d677f` (Quota, QuotaGroup, 2 new fails in overlap).",
+    "cause": "mixed",
+    "causeText": "Mixed: the QuotaGroup fail is a genuine backend HTTP 500 IndexOutOfBoundsException from dk-project-quota-group-rest (product bug; its QA deploy NXS-13682 was CloudFormation-only, no code to blame), while the Quota fail is a test-helper timeout at QuotaGroupHelper.groovy:810, a file touched by NXS-13674 (gergely.gimesi).",
+    "investigation": "Neither new fail is a true infra 504: QuotaGroup is a real backend HTTP 500 (IndexOutOfBounds) from dk-project-quota-group-rest, and Quota is a test-helper timeout in QuotaGroupHelper.groovy:810 (touched by NXS-13674).",
     "bullets": [
-      "1\u00d7 QA 504 timeout \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
-      "1\u00d7 server NestedServletException / NPE \u2014 java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
-      "Change NXS-13674: gergely.gimesi \u00b7 Quota, QuotaGroup \u00b7 2 overlapping new fails",
-      "Change NXS-13674: gergely.gimesi \u00b7 Quota, QuotaGroup \u00b7 2 overlapping new fails"
+      "QuotaGroup: HTTP 500 IndexOutOfBoundsException from dk-project-quota-group-rest on DELETE quotaGroups \u2014 backend bug (QA deploy NXS-13682 was CloudFormation-only).",
+      "Quota: helper RuntimeException 'Failed to lock sold quota after 20s' at QuotaGroupHelper.groovy:810 \u2014 test-timing; helper + spec touched by NXS-13674 (gergely.gimesi)."
     ],
     "detail": {
-      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2666, 1 fails). Failure types (new-first): (1) 1\u00d7 QA 504 timeout \u2014 QA gateway timed out (504) \u2014 infra / overloaded dependency. (2) 1\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. Hot areas among new fails: Quota (1), QuotaGroup (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 5 service(s) (39 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Quota: Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility [QA 504 timeout]; QuotaGroup: initializationError [server NestedServletException / NPE].",
+      "investigation": "Both failures are new since #3.0.2666, but neither is the infra 504 the coarse cluster label implies. The QuotaGroup 'initializationError' is a genuine backend HTTP 500 IndexOutOfBoundsException returned by dk-project-quota-group-rest on DELETE .../quotaGroups \u2014 a product/server bug that cannot be pinned to a code commit because that service's QA deploy (NXS-13682) changed only CloudFormation templates; the Quota fail is a test-helper RuntimeException ('Failed to lock sold quota ... after 20s') thrown from QuotaGroupHelper.setSoldQuotaLocked (QuotaGroupHelper.groovy:810), a timing/helper issue in a file touched by NXS-13674 (gergely.gimesi).",
       "bullets": [
-        "1\u00d7 QA 504 timeout \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
-        "1\u00d7 server NestedServletException / NPE \u2014 java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
-        "Change NXS-13674: gergely.gimesi \u00b7 Quota, QuotaGroup \u00b7 2 overlapping new fails",
-        "Change NXS-13674: gergely.gimesi \u00b7 Quota, QuotaGroup \u00b7 2 overlapping new fails",
-        "NXS-13674 cf1e5b0d677f by gergely.gimesi \u2192 areas Quota, QuotaGroup (2 new fails) \u00b7 CURSOR.md, NEXUS_API_REGRESSION_TESTS.md, DEBT_BACKLOG.md, SUITE_TIERS.md, TestKeys.java, AudienceGroupCRUDTestSteps.groovy",
-        "NXS-13674 e1ce4deafe44 by gergely.gimesi \u2192 areas Quota, QuotaGroup (2 new fails) \u00b7 QuotaGroupHelper.groovy, PartnerEventPriceApprovalTestSteps.groovy, SoldQuotaLockUnlockWorkflowTestSteps.groovy, SoldQuotaProjectPhaseTestSteps.groovy, SoldQuotaWorkflowTestSteps.groovy",
-        "NXS-13674 5cefece3a8f3 by gergely.gimesi \u2192 areas Quota (1 new fails) \u00b7 ProjectHelper.groovy, AudienceGroupCRUDTestSteps.groovy, FieldworkDeliveryTestSteps.groovy, FieldworkSoftLaunchExclusionsTestSteps.groovy, FieldworkSoftLaunchTestSteps.groovy, PartnerEventPriceApprovalTestSteps.groovy",
-        "[QA deploy: DynataExternalApiGW]  (3 commits) \u2014 docs: weekly sync (2026-08-10)",
-        "[QA deploy: QuotaGroupRestJ21] NXS-13682 (11 commits) \u2014 [NXS-13682] - remove outputs",
-        "[QA deploy: ProjectApiGateway]  (19 commits) \u2014 ProjectApiGateway integTests fix.."
+        "QuotaGroup initializationError: backend HTTP 500 IndexOutOfBoundsException from dk-project-quota-group-rest on DELETE .../quotaGroups/118752002 \u2014 product/server bug.",
+        "Quota: helper RuntimeException 'Failed to lock sold quota for quotaGroupId=118752959 after 20s' at QuotaGroupHelper.groovy:810 \u2014 test-timing; both QuotaGroupHelper.groovy and SoldQuotaLockUnlockWorkflowTestSteps.groovy were touched by NXS-13674 e1ce4deafe44 (gergely.gimesi).",
+        "The QuotaGroupRest QA deploy in this window (NXS-13682) was CloudFormation-only, so the 500 cannot be blamed on a visible code change."
       ],
       "newFailureAreas": [
         {
@@ -1535,58 +1526,17 @@
       ],
       "likelyCauses": [
         {
-          "version": "cf1e5b0d677f",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13674",
-          "comment": "NXS-13674 MS - split megaspecs into cohesive specs + fix feature placement",
-          "areas": [
-            "Quota",
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 2,
-          "files": [
-            "CURSOR.md",
-            "NEXUS_API_REGRESSION_TESTS.md",
-            "DEBT_BACKLOG.md",
-            "SUITE_TIERS.md",
-            "TestKeys.java",
-            "AudienceGroupCRUDTestSteps.groovy"
-          ]
-        },
-        {
           "version": "e1ce4deafe44",
           "username": "gergely.gimesi",
           "ticket": "NXS-13674",
-          "comment": "NXS-13674 MS - fix split-induced SoldQuota + PartnerEvent failures",
-          "areas": [
-            "Quota",
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 2,
-          "files": [
-            "QuotaGroupHelper.groovy",
-            "PartnerEventPriceApprovalTestSteps.groovy",
-            "SoldQuotaLockUnlockWorkflowTestSteps.groovy",
-            "SoldQuotaProjectPhaseTestSteps.groovy",
-            "SoldQuotaWorkflowTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "5cefece3a8f3",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13674",
-          "comment": "NXS-13674 MS - restore @Shared field blocks dropped by megaspec carve + surface swallowed note-delete errors",
+          "comment": "NXS-13674 (test-side only): touches QuotaGroupHelper.groovy:810 (in the failing stack) and the failing spec SoldQuotaLockUnlockWorkflowTestSteps.groovy. Does not explain the QuotaGroup backend HTTP 500.",
           "areas": [
             "Quota"
           ],
           "hitNewFailures": 1,
           "files": [
-            "ProjectHelper.groovy",
-            "AudienceGroupCRUDTestSteps.groovy",
-            "FieldworkDeliveryTestSteps.groovy",
-            "FieldworkSoftLaunchExclusionsTestSteps.groovy",
-            "FieldworkSoftLaunchTestSteps.groovy",
-            "PartnerEventPriceApprovalTestSteps.groovy"
+            "QuotaGroupHelper.groovy",
+            "SoldQuotaLockUnlockWorkflowTestSteps.groovy"
           ]
         }
       ]
@@ -1831,7 +1781,7 @@
         "deployedAt": "20260813T124704+0000"
       }
     ],
-    "source": "investigator",
+    "source": "llm",
     "generatedAt": "2026-08-14T02:13Z",
     "buildNumber": "3.0.2667",
     "buildId": "9469413",
