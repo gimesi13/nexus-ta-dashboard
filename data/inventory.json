@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-08-14",
+  "generatedAt": "2026-08-15",
   "source": "source",
-  "features": 725,
-  "cases": 1504,
+  "features": 754,
+  "cases": 1531,
   "specs": 105,
   "areas": 14,
-  "featuresWithSteps": 725,
-  "steps": 3593,
+  "featuresWithSteps": 754,
+  "steps": 3669,
   "byType": {
-    "CRUD": 230,
+    "CRUD": 251,
     "Validation": 205,
     "Workflow": 136,
     "Query": 101,
-    "Other": 40,
+    "Other": 48,
     "E2E": 13
   },
   "rows": [
@@ -2204,90 +2204,6 @@
         }
       ],
       "paramNote": "Unrolled across project phases (2 runs at execution)"
-    },
-    {
-      "area": "BOS",
-      "spec": "BosD365SampleCreationTestSteps",
-      "name": "sample d365 creation workflow",
-      "type": "Workflow",
-      "tags": [
-        "CREATE_QUOTE",
-        "PROJECT_ACCEPT",
-        "CLONE_PROJECT",
-        "BOS_SYNC",
-        "D365",
-        "CRM_FIELDS"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "BOS - D365 sample creation",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosD365SampleCreationTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "when",
-          "label": "2. call redirect endpoint to create d365 quote sample"
-        },
-        {
-          "phase": "when",
-          "label": "3. setup the project by adding quota groups (run feas???)"
-        },
-        {
-          "phase": "when",
-          "label": "4. mock line item sync -> save product links"
-        },
-        {
-          "phase": "when",
-          "label": "5. call accept"
-        }
-      ]
-    },
-    {
-      "area": "BOS",
-      "spec": "BosD365SampleCreationTestSteps",
-      "name": "sample d365 tracker creation workflow",
-      "type": "Workflow",
-      "tags": [
-        "CREATE_QUOTE",
-        "PROJECT_ACCEPT",
-        "CLONE_PROJECT",
-        "CLONE_QUOTA_GROUP",
-        "BOS_SYNC",
-        "D365",
-        "TRACKER",
-        "CRM_FIELDS"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "BOS - D365 sample creation",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosD365SampleCreationTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "when",
-          "label": "2. call redirect endpoint to create d365 quote sample"
-        },
-        {
-          "phase": "when",
-          "label": "3. setup the project by adding quota groups (run feas???)"
-        },
-        {
-          "phase": "when",
-          "label": "4. mock line item sync -> save product links"
-        },
-        {
-          "phase": "when",
-          "label": "5. call accept wave 1 only one quota group"
-        },
-        {
-          "phase": "when",
-          "label": "5. call accept wave 2"
-        },
-        {
-          "phase": "when",
-          "label": "check second qg"
-        }
-      ]
     },
     {
       "area": "BOS",
@@ -6847,6 +6763,882 @@
     },
     {
       "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "activity update publishes ACTIVITY_CHANGE on the QuotaGroup FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "the activity starts at NONE"
+        },
+        {
+          "phase": "when",
+          "label": "the activity type is changed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "an ACTIVITY_CHANGE message for this quota group is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "allow-reopen toggle publishes ALLOW_REOPEN_PROJECT_CHANGE on the Project FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "PROJECT_CORE",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "panel project properties exist with allow-reopen off"
+        },
+        {
+          "phase": "when",
+          "label": "allow-reopen is enabled via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "an ALLOW_REOPEN_PROJECT_CHANGE message for this project is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "audience group creation publishes AUDIENCE_GROUP_CREATED on the Project FIFO topic",
+      "type": "Other",
+      "tags": [
+        "PES2",
+        "AUDIENCE_GROUP",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "no audience group is created yet"
+        },
+        {
+          "phase": "when",
+          "label": "a new audience group is created via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "an AUDIENCE_GROUP_CREATED message for this project is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "audience group rename publishes AUDIENCE_GROUP_UPDATED on the Project FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "AUDIENCE_GROUP",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "a throwaway audience group exists"
+        },
+        {
+          "phase": "when",
+          "label": "the audience group is renamed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "an AUDIENCE_GROUP_UPDATED message for this project is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "audience price update publishes PRICE_CHANGE on the QuotaGroup FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "PRICING",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "a baseline audience price"
+        },
+        {
+          "phase": "when",
+          "label": "the audience price is changed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a PRICE_CHANGE message for this quota group is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "bid incidence update publishes BID_INCIDENCE_CHANGE on the QuotaGroup FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "PRICING",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "a baseline bid incidence"
+        },
+        {
+          "phase": "when",
+          "label": "the bid incidence is changed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a BID_INCIDENCE_CHANGE message for this quota group is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "default survey length update publishes SURVEY_LENGTH_CHANGE on the QuotaGroup FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "SURVEY",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "a baseline default survey length"
+        },
+        {
+          "phase": "when",
+          "label": "the default survey length is changed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a SURVEY_LENGTH_CHANGE message for this quota group is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "delivery mode update publishes DELIVERY_CHANGE on the QuotaGroup FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "DELIVERY",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "the delivery mode starts at STANDARD"
+        },
+        {
+          "phase": "when",
+          "label": "the delivery mode is changed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a DELIVERY_CHANGE message for this quota group is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "end-link security change publishes SECURITY_CHANGE on the Project FIFO topic",
+      "type": "Other",
+      "tags": [
+        "PES2",
+        "END_LINK_SECURITY",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "a baseline end-link security level"
+        },
+        {
+          "phase": "when",
+          "label": "the end-link security level is changed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a SECURITY_CHANGE message for this project is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "exclusion rule creation publishes EXCLUSION_CHANGE on the Project FIFO topic",
+      "type": "Other",
+      "tags": [
+        "PES2",
+        "EXCLUSION_RULES",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "no exclusion rule is created yet"
+        },
+        {
+          "phase": "when",
+          "label": "an exclusion rule is created via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "an EXCLUSION_CHANGE message for this project is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "line item id update publishes LINE_ITEM_CHANGE on the QuotaGroup FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "CHANGE_ORDER",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "when",
+          "label": "the line item guid is changed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a LINE_ITEM_CHANGE message for this quota group is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "partner event creation publishes PARTNER_ALLOCATION_CHANGE on the QuotaGroup FIFO topic",
+      "type": "Other",
+      "tags": [
+        "PES2",
+        "PARTNER_EVENT",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "when",
+          "label": "a partner event is created on the quota group"
+        },
+        {
+          "phase": "then",
+          "label": "a PARTNER_ALLOCATION_CHANGE message for this quota group is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "project dates update publishes PROJECT_DATES_CHANGE on the Project FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "PROJECT_DATES",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "the original project dates are stored"
+        },
+        {
+          "phase": "when",
+          "label": "the project dates are changed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a PROJECT_DATES_CHANGE message for this project is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "project manager update publishes PROJECT_MANAGERS_CHANGE on the Project FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "MANAGERS",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "the original project manager is stored"
+        },
+        {
+          "phase": "when",
+          "label": "the project manager is changed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a PROJECT_MANAGERS_CHANGE message for this project is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "project rename publishes PROJECT_NAME_CHANGE on the Project FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "PROJECT_CORE",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "the original project name is stored"
+        },
+        {
+          "phase": "when",
+          "label": "the project is renamed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a PROJECT_NAME_CHANGE message for this project is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "proposed dates update publishes TARGET_DATES_CHANGE on the QuotaGroup FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "QUOTA_DATES",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "when",
+          "label": "the proposed end date is changed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a TARGET_DATES_CHANGE message for this quota group is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "quota group creation publishes INSERTED on the QuotaGroup FIFO topic",
+      "type": "Other",
+      "tags": [
+        "PES2",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "a baseline is captured before creating the quota group"
+        },
+        {
+          "phase": "when",
+          "label": "a new quota group is created via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "an INSERTED message for the new quota group is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "quota group deletion publishes DELETED_CHANGE on the QuotaGroup FIFO topic",
+      "type": "Other",
+      "tags": [
+        "PES2",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "a throwaway quota group exists"
+        },
+        {
+          "phase": "when",
+          "label": "the quota group is deleted via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a DELETED_CHANGE message for the quota group is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "quota group rename publishes QG_NAME_CHANGE on the QuotaGroup FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "when",
+          "label": "the quota group is renamed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a QG_NAME_CHANGE message for this quota group is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "screener url pattern update publishes SCREENER_URL_PATTERN_CHANGE on the UrlPool FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "URL_POOL",
+        "PRESCREENER",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "a throwaway survey exists on the project"
+        },
+        {
+          "phase": "when",
+          "label": "a prescreener URL is configured via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a SCREENER_URL_PATTERN_CHANGE message for this survey is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "soft launch settings update publishes SOFT_LAUNCH_CHANGE on the QuotaGroup FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "SOFT_LAUNCH",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "when",
+          "label": "the soft launch settings are updated via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a SOFT_LAUNCH_CHANGE message for this quota group is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "sources brand exclusion update publishes SOURCES_BRAND_EX_UPDATED on the QuotaGroup FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "SOURCES",
+        "BRAND_EXCLUSION",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "no brand exclusions are configured"
+        },
+        {
+          "phase": "when",
+          "label": "a brand exclusion is applied via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a SOURCES_BRAND_EX_UPDATED message for this quota group is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "sources sample-criteria toggle update publishes SOURCES_TOGGLES_UPDATED on the QuotaGroup FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "SOURCES",
+        "SAMPLE_RULES",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "sample-criteria toggles start disabled so the change is guaranteed"
+        },
+        {
+          "phase": "when",
+          "label": "a sample-criteria toggle is applied via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a SOURCES_TOGGLES_UPDATED message for this quota group is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "survey creation publishes INSERTED on the UrlPool FIFO topic",
+      "type": "Other",
+      "tags": [
+        "PES2",
+        "URL_POOL",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "a baseline is captured before creating the survey"
+        },
+        {
+          "phase": "when",
+          "label": "a new survey is created via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "an INSERTED message for the new survey is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "survey deletion publishes DELETED on the UrlPool FIFO topic",
+      "type": "Other",
+      "tags": [
+        "PES2",
+        "URL_POOL",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "a throwaway survey exists on the project"
+        },
+        {
+          "phase": "when",
+          "label": "the survey is deleted via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a DELETED message for the survey is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "survey length update publishes SURVEY_LENGTH_CHANGE on the UrlPool FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "URL_POOL",
+        "SURVEY",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "a throwaway survey exists on the project"
+        },
+        {
+          "phase": "when",
+          "label": "the survey length is changed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a SURVEY_LENGTH_CHANGE message for this survey is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "survey rename publishes SURVEY_NAME_CHANGE on the UrlPool FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "URL_POOL",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "a throwaway survey exists on the project"
+        },
+        {
+          "phase": "when",
+          "label": "the survey is renamed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a SURVEY_NAME_CHANGE message for this survey is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "survey url pattern update publishes URL_PATTERN_CHANGE on the UrlPool FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "URL_POOL",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "a throwaway survey exists on the project"
+        },
+        {
+          "phase": "when",
+          "label": "the survey quest URL is changed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a URL_PATTERN_CHANGE message for this survey is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "Pes2NotificationTestSteps",
+      "name": "total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic",
+      "type": "CRUD",
+      "tags": [
+        "PES2",
+        "QUOTA",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES2 - quota group, project and survey change stream (per-entity FIFO topics)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "when",
+          "label": "the total quota is changed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a QUOTA_CHANGE message for this quota group is captured"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "PesNotificationTestSteps",
+      "name": "bid incidence update publishes quotaGroupDetailsUpdated notification",
+      "type": "Workflow",
+      "tags": [
+        "PES1",
+        "PRICING",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES1 - quota group, project and survey change notifications (notification bus)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "a baseline bid incidence"
+        },
+        {
+          "phase": "when",
+          "label": "the bid incidence is changed via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a quotaGroupDetailsUpdated notification for bidIncidence is observed"
+        }
+      ]
+    },
+    {
+      "area": "PES",
       "spec": "PesNotificationTestSteps",
       "name": "daily quota update publishes quotaGroupPropertyUpdated notification",
       "type": "Workflow",
@@ -6858,7 +7650,7 @@
       "owner": "Gergely Gimesi",
       "feature": "PES1 - quota group, project and survey change notifications (notification bus)",
       "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/pes1/PesNotificationTestSteps.groovy",
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
@@ -6888,7 +7680,7 @@
       "owner": "Gergely Gimesi",
       "feature": "PES1 - quota group, project and survey change notifications (notification bus)",
       "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/pes1/PesNotificationTestSteps.groovy",
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
@@ -6918,7 +7710,7 @@
       "owner": "Gergely Gimesi",
       "feature": "PES1 - quota group, project and survey change notifications (notification bus)",
       "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/pes1/PesNotificationTestSteps.groovy",
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
@@ -6948,7 +7740,7 @@
       "owner": "Gergely Gimesi",
       "feature": "PES1 - quota group, project and survey change notifications (notification bus)",
       "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/pes1/PesNotificationTestSteps.groovy",
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
@@ -6964,30 +7756,26 @@
     {
       "area": "PES",
       "spec": "PesNotificationTestSteps",
-      "name": "project status change publishes projectPropertyUpdated notification",
+      "name": "proposed end date update publishes quotaGroupPropertyUpdated notification",
       "type": "Workflow",
       "tags": [
         "PES1",
-        "PROJECT_CORE",
+        "QUOTA_DATES",
         "PES"
       ],
       "owner": "Gergely Gimesi",
       "feature": "PES1 - quota group, project and survey change notifications (notification bus)",
       "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/pes1/PesNotificationTestSteps.groovy",
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
-          "phase": "given",
-          "label": "the project is running"
-        },
-        {
           "phase": "when",
-          "label": "the project status is changed via the gateway"
+          "label": "the proposed end date is changed via the gateway"
         },
         {
           "phase": "then",
-          "label": "a projectPropertyUpdated notification for status is observed"
+          "label": "a quotaGroupPropertyUpdated notification for targetEndDate is observed"
         }
       ]
     },
@@ -7003,7 +7791,7 @@
       "owner": "Gergely Gimesi",
       "feature": "PES1 - quota group, project and survey change notifications (notification bus)",
       "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/pes1/PesNotificationTestSteps.groovy",
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
@@ -7032,7 +7820,7 @@
       "owner": "Gergely Gimesi",
       "feature": "PES1 - quota group, project and survey change notifications (notification bus)",
       "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/pes1/PesNotificationTestSteps.groovy",
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
@@ -7061,7 +7849,7 @@
       "owner": "Gergely Gimesi",
       "feature": "PES1 - quota group, project and survey change notifications (notification bus)",
       "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/pes1/PesNotificationTestSteps.groovy",
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
@@ -7087,7 +7875,7 @@
       "owner": "Gergely Gimesi",
       "feature": "PES1 - quota group, project and survey change notifications (notification bus)",
       "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/pes1/PesNotificationTestSteps.groovy",
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
@@ -7113,7 +7901,7 @@
       "owner": "Gergely Gimesi",
       "feature": "PES1 - quota group, project and survey change notifications (notification bus)",
       "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/pes1/PesNotificationTestSteps.groovy",
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
@@ -7140,7 +7928,7 @@
       "owner": "Gergely Gimesi",
       "feature": "PES1 - quota group, project and survey change notifications (notification bus)",
       "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/pes1/PesNotificationTestSteps.groovy",
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
@@ -7170,7 +7958,7 @@
       "owner": "Gergely Gimesi",
       "feature": "PES1 - quota group, project and survey change notifications (notification bus)",
       "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/pes1/PesNotificationTestSteps.groovy",
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
@@ -7200,7 +7988,7 @@
       "owner": "Gergely Gimesi",
       "feature": "PES1 - quota group, project and survey change notifications (notification bus)",
       "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/pes1/PesNotificationTestSteps.groovy",
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
@@ -7210,6 +7998,36 @@
         {
           "phase": "then",
           "label": "a quotaGroupDetailsUpdated notification for quotaCheckingLevel is observed"
+        }
+      ]
+    },
+    {
+      "area": "PES",
+      "spec": "PesNotificationTestSteps",
+      "name": "total auto-close toggle publishes quotaGroupDetailsUpdated notification",
+      "type": "Workflow",
+      "tags": [
+        "PES1",
+        "QUOTA",
+        "PES"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "PES1 - quota group, project and survey change notifications (notification bus)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "total auto-close starts disabled"
+        },
+        {
+          "phase": "when",
+          "label": "total auto-close is enabled via the gateway"
+        },
+        {
+          "phase": "then",
+          "label": "a quotaGroupDetailsUpdated notification for totalAutoClose is observed"
         }
       ]
     },
@@ -7226,7 +8044,7 @@
       "owner": "Gergely Gimesi",
       "feature": "PES1 - quota group, project and survey change notifications (notification bus)",
       "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/pes1/PesNotificationTestSteps.groovy",
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
@@ -7966,7 +8784,7 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters - Validation & Error Handling",
-      "cases": 12,
+      "cases": 10,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Parameter/ParameterValidationTestSteps.groovy",
       "ignored": false,
       "steps": [
@@ -7983,7 +8801,7 @@
           "label": "The system rejects the invalid pagination values"
         }
       ],
-      "paramNote": "12 runs across exception.message.contains(\"page\")"
+      "paramNote": "10 runs across exception.message.contains(\"page\")"
     },
     {
       "area": "Parameter",
