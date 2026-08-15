@@ -1553,27 +1553,22 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in Quota",
+    "headline": "1 new Quota failure \u2014 a backend HTTP 400 on the feasibility path, not the labeled QA 504 timeout",
     "tone": "warn",
     "severity": "low",
     "cause": "mixed",
-    "causeText": "VCS changes present but none map onto the failing packages \u2014 likely test/data, correlate manually. NOTE: 5 service(s) were deployed to QA in this window (QuotaGroupRestJ21, ExternalEventRestJ16, ResourcesForTesting, CrmRestJ21, DemandReporting) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 QA 504 timeout (QA gateway timed out (504)). Gateway hits: dk-project-details-editor-rest, dk-project-feasibility-data-store.",
+    "causeText": "The lone new failure is a backend HTTP 400 BAD_REQUEST from dk-project-details-editor-rest's feasibilityDistribution \u2014 not the '504 timeout' the cluster label claims and not covered by any test-module commit, so correlate the feasibility endpoint against the in-window QA deploys/backend logs before blaming infra or a person.",
+    "investigation": "Real error on the SoldQuota feasibility step is an HTTP 400 BAD_REQUEST from dk-project-details-editor-rest (the cluster mislabeled it a 504 timeout), and no NexusApiRegressionTests commit touches the Quota path.",
     "bullets": [
-      "1\u00d7 QA 504 timeout \u2014 Feasibility Calculation unavailable!"
+      "1\u00d7 Quota \u2014 HTTP 400 BAD_REQUEST from dk-project-details-editor-rest /feasibilityDistribution (not a 504 timeout)",
+      "No test-module change touches Quota; correlate the feasibility endpoint against in-window QA deploys/backend logs"
     ],
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2667, 2 fails). Failure types (new-first): (1) 1\u00d7 QA 504 timeout \u2014 QA gateway timed out (504) \u2014 infra / overloaded dependency. Hot areas among new fails: Quota (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 5 service(s) (68 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Quota: Adding parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility: c [QA 504 timeout].",
+      "investigation": "The single new failure (Quota / SoldQuotaLockUnlockWorkflowTestSteps) is clustered as a 'QA 504 timeout', but the real detail is an HTTP 400 BAD_REQUEST returned by dk-project-details-editor-rest's feasibilityDistribution call \u2014 a backend rejection, not an infra timeout and not a Groovy assertion. No NexusApiRegressionTests commit touches the Quota feasibility path, so this is not our test change; the failing endpoint (quotaGroup 118754575) should be correlated against the in-window QA backend deploys before concluding infra vs. backend/data.",
       "bullets": [
-        "1\u00d7 QA 504 timeout \u2014 Feasibility Calculation unavailable!",
-        "NXS-13695: gergely.gimesi \u2014 NXS-13695 MS - contract-drift nightly gate for Nexus API regression tests",
-        "NXS-13693: gergely.gimesi \u2014 NXS-13693 MS - fix validation false-greens: 7 asserts no longer accept 500/NPE as a pass",
-        "NXS-13683: gergely.gimesi \u2014 NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-        "[QA deploy: QuotaGroupRestJ21] NXS-13682 (18 commits) \u2014 [NXS-13682] - fix role",
-        "[QA deploy: ExternalEventRestJ16] NXS-12124 (10 commits) \u2014 [NXS-12124] no code change, bump new TC version",
-        "[QA deploy: ResourcesForTesting]  (4 commits) \u2014 Adding standalone s3 to the managed knowledgebase",
-        "[QA deploy: CrmRestJ21] NXS-12114 (22 commits) \u2014 [NXS-12114] MS - Migrate DashboardRest from DockerHub to ECR",
-        "[QA deploy: DemandReporting]  (14 commits) \u2014 [PAC-701]-DemandReporting integtest fix."
+        "1\u00d7 Quota \u2014 HTTP 400 BAD_REQUEST from dk-project-details-editor-rest /feasibilityDistribution (cluster mislabeled 'QA 504 timeout')",
+        "None of gergely.gimesi's test-module commits (NXS-13695 / NXS-13693 / NXS-13683) touch the Quota SoldQuota feasibility path",
+        "dk-project-details-editor-rest is not among the named in-window QA deploys \u2014 check backend logs/data for the 400 on quotaGroup 118754575"
       ],
       "newFailureAreas": [
         {
@@ -1791,8 +1786,8 @@
         "deployedAt": "20260814T072907+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-08-15T02:22Z",
+    "source": "llm",
+    "generatedAt": "2026-08-15T02:23:00Z",
     "buildNumber": "3.0.2668",
     "buildId": "9471118",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9471118",
