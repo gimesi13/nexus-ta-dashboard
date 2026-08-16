@@ -1538,19 +1538,20 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in QuotaGroup",
+    "headline": "1 new QuotaGroup failure caused by a QA 502 Bad Gateway (infra).",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Gateway hits: dk-project-details-editor-rest, dk-project-quota-details-rest.",
+    "cause": "infra",
+    "causeText": "The single new failure is a QA gateway 502 Bad Gateway hitting dk-project-details-editor-rest and dk-project-quota-details-rest \u2014 transient infra during the run, not a product regression.",
+    "investigation": "QuotaGroupCloneTestSteps failed to initialize on HTTP 502s from QA backends, and there were no test-module or QA-deploy changes to implicate.",
     "bullets": [
-      "1\u00d7 QA 502 Bad Gateway"
+      "1\u00d7 QA 502 Bad Gateway in QuotaGroup (infra)"
     ],
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2668, 1 fails). Failure types (new-first): (1) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: QuotaGroup (1). Example new failures: QuotaGroup: initializationError [QA 502 Bad Gateway].",
+      "investigation": "The one new failure (QuotaGroupCloneTestSteps.initializationError) returned an HTML 502 Bad Gateway while calling QA backends dk-project-details-editor-rest and dk-project-quota-details-rest. With no test-module changes and no QA-deploy commits in the window, this reads as transient QA infra rather than a code regression.",
       "bullets": [
-        "1\u00d7 QA 502 Bad Gateway"
+        "1\u00d7 QA 502 Bad Gateway \u2014 QuotaGroup clone (initializationError)",
+        "502s from dk-project-details-editor-rest and dk-project-quota-details-rest"
       ],
       "newFailureAreas": [
         {
@@ -1573,8 +1574,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-08-16T02:23Z",
+    "source": "llm",
+    "generatedAt": "2026-08-16T02:23:00Z",
     "buildNumber": "3.0.2669",
     "buildId": "9471452",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9471452",
