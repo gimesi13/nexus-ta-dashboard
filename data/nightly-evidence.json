@@ -1,33 +1,33 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-16T02:23Z",
+  "generatedAt": "2026-08-17T02:18Z",
   "build": {
-    "number": "3.0.2669",
-    "buildId": "9471452",
+    "number": "3.0.2670",
+    "buildId": "9471548",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9471452",
-    "durationSec": 3169.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9471548",
+    "durationSec": 2687.0
   },
   "summary": {
-    "tests": 1465,
-    "passed": 1376,
-    "failures": 1,
+    "tests": 1471,
+    "passed": 1382,
+    "failures": 2,
     "errors": 0,
     "skipped": 0,
-    "muted": 88,
+    "muted": 87,
     "newFailed": 1,
     "passRate": 99.9,
-    "timeSec": 3169.0
+    "timeSec": 2687.0
   },
   "prior": {
-    "buildId": "9471118",
-    "number": "3.0.2668",
+    "buildId": "9471452",
+    "number": "3.0.2669",
     "status": "FAILURE",
-    "statusText": "Tests failed: 1 (1 new), passed: 1391, muted: 87",
-    "startDate": "20260815T013031+0000",
-    "durationSec": 3086.0,
+    "statusText": "Tests failed: 1 (1 new), passed: 1376, muted: 88",
+    "startDate": "20260816T013005+0000",
+    "durationSec": 3169.0,
     "failed": 1,
-    "passed": 1391,
+    "passed": 1376,
     "newFailed": 1
   },
   "changes": [],
@@ -35,41 +35,58 @@
   "qaDeployServices": [],
   "clusters": [
     {
-      "label": "infra_502",
-      "display": "QA 502 Bad Gateway",
+      "label": "server_exception",
+      "display": "server NestedServletException / NPE",
+      "count": 1,
+      "newCount": 0,
+      "sample": "",
+      "why": "QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path"
+    },
+    {
+      "label": "other",
+      "display": "other",
       "count": 1,
       "newCount": 1,
-      "sample": "502 Bad Gateway",
-      "why": "QA gateway returned HTML 502 \u2014 infra during the run, not a product regression"
+      "sample": "software.amazon.awssdk.core.exception.SdkClientException:Received an UnknownHostException when attempting to i",
+      "why": "no dominant signature yet \u2014 open TeamCity details"
     }
   ],
   "failures": [
     {
       "name": "initializationError",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCloneTestSteps",
-      "newFailure": true,
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupMultiCountryWorkflowTestSteps",
+      "newFailure": false,
       "area": "QuotaGroup",
-      "cluster": "infra_502",
-      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups 502{ \"errors\" : [ { \"callChain\" : [ \"QGInclusionsAndSegments\", \"HTTP 502 PUT http://dk-project-details-editor-rest.nexus-ms-qa.dynata.com:8080/api/DetailsEditor/u1/nexus/quotaGroups/118754957/segmentConditions/override\", \"HTTP 502 GET http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/Q\u2026"
+      "cluster": "server_exception",
+      "message": "java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceGroups/1551581 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) at com.dynata.rest.gateway.nexusap\u2026"
+    },
+    {
+      "name": "Cloning the audience group keeps the halted segment SUSPENDED and SQL in sync with NexusApi",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentStatusClonePreservationTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "other",
+      "message": "software.amazon.awssdk.core.exception.SdkClientException:Received an UnknownHostException when attempting to interact with a service. See cause for the exact e\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2214760/audienceGroups/1553300/clone 500{ \"errors\" : [ { \"callChain\" : [ \"cloneQuotaGroups\", \"HTTP 500 POST http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups\", \"HTTP 500 POST http://dk-project-quota-group-sources-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroupSourc\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "1 new failure in QuotaGroup",
+    "headline": "1 new failure in Segment",
     "tone": "warn",
     "severity": "low",
     "bullets": [
-      "1\u00d7 QA 502 Bad Gateway"
+      "1\u00d7 other \u2014 software.amazon.awssdk.core.exception.SdkClientException:Received an UnknownHostException when attempting to i"
     ],
-    "investigation": "New fails: 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Gateway hits: dk-project-details-editor-rest, dk-project-quota-details-rest.",
+    "investigation": "New fails: 1\u00d7 other (no dominant signature yet). Vs prior #3.0.2669: up 1 total fails.",
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2668, 1 fails). Failure types (new-first): (1) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: QuotaGroup (1). Example new failures: QuotaGroup: initializationError [QA 502 Bad Gateway].",
+      "investigation": "1 of 2 unmuted failures are new since the prior build (#3.0.2669, 1 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Segment (1). Example new failures: Segment: Cloning the audience group keeps the halted segment SUSPENDED and SQL in sync with NexusAp [other].",
       "bullets": [
-        "1\u00d7 QA 502 Bad Gateway"
+        "1\u00d7 other \u2014 software.amazon.awssdk.core.exception.SdkClientException:Received an UnknownHostException when attempting to i"
       ],
       "newFailureAreas": [
         {
-          "area": "QuotaGroup",
+          "area": "Segment",
           "newCount": 1
         }
       ],
