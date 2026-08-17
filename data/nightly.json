@@ -1555,19 +1555,22 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in Segment",
+    "headline": "1 new Segment clone failure from a QA-side UnknownHostException (HTTP 500), with no code changes in this build.",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet). Vs prior #3.0.2669: up 1 total fails.",
+    "cause": "infra",
+    "causeText": "The Segment clone test hit a QA-side HTTP 500 rooted in an AWS SDK UnknownHostException (DNS/network), and with no build or QA-deploy changes this points to environment/infra rather than a code regression.",
+    "investigation": "The sole new failure is Segment clone returning 500 from an UnknownHostException, and both changes and qaDeployChanges are empty.",
     "bullets": [
-      "1\u00d7 other \u2014 software.amazon.awssdk.core.exception.SdkClientException:Received an UnknownHostException when attempting to i"
+      "1\u00d7 Segment clone \u2014 QA 500 from SdkClientException/UnknownHostException (DNS/network, infra)",
+      "No commits or QA-deploy changes in the window \u2014 not attributed to code"
     ],
     "detail": {
-      "investigation": "1 of 2 unmuted failures are new since the prior build (#3.0.2669, 1 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Segment (1). Example new failures: Segment: Cloning the audience group keeps the halted segment SUSPENDED and SQL in sync with NexusAp [other].",
+      "investigation": "1 of 2 unmuted failures is new: 'Cloning the audience group keeps the halted segment SUSPENDED and SQL in sync with NexusApi' (Segment), which failed on a QA-side HTTP 500 whose cause chain is an AWS SDK UnknownHostException \u2014 a DNS/network resolution error, not an assertion. With no build changes and no QA-deploy changes in the window, this reads as infra/environment flakiness rather than a product regression.",
       "bullets": [
-        "1\u00d7 other \u2014 software.amazon.awssdk.core.exception.SdkClientException:Received an UnknownHostException when attempting to i"
+        "Segment clone \u2192 QA 500; detailsExcerpt callChain is cloneQuotaGroups \u2192 HTTP 500 from dk-project-quota-group-rest / -sources-rest, rooted in an UnknownHostException (DNS)",
+        "changes=[] and qaDeployChanges=[] \u2014 no commit or backend deploy to attribute, so no blame assigned",
+        "Pre-existing (non-new) failure: QuotaGroup initializationError 500 IndexOutOfBounds \u2014 not new, tracked separately"
       ],
       "newFailureAreas": [
         {
@@ -1598,8 +1601,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-08-17T02:18Z",
+    "source": "llm",
+    "generatedAt": "2026-08-17T02:18:00Z",
     "buildNumber": "3.0.2670",
     "buildId": "9471548",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9471548",
