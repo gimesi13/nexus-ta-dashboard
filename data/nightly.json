@@ -1544,29 +1544,24 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "No new failures \u2014 1 continuing server-side 500 (IndexOutOfBoundsException) in the QuotaGroup delete path.",
     "tone": "warn",
     "severity": "low",
-    "cause": "mixed",
-    "causeText": "VCS changes present but none map onto the failing packages \u2014 likely test/data, correlate manually. NOTE: 2 service(s) were deployed to QA in this window (EligibilityService, ProjectLogRestJ16) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "Failures: 1\u00d7 server NestedServletException / NPE (QA threw NestedServletException/NPE/IOOB).",
+    "cause": "code_change",
+    "causeText": "The lone failure is a continuing server-side 500 (java.lang.IndexOutOfBoundsException) on DELETE dk-project-quota-group-rest .../quotaGroups \u2014 a product/server bug, not infra \u2014 and no commit deployed tonight plausibly maps to it (the only same-service change, NXS-13682 'fix role' by tamas.gyarmati, is a CFN/permissions edit that cannot cause an IOOB and the failure predates this window).",
+    "investigation": "0 new failures; the sole failure is a continuing server 500 (IndexOutOfBoundsException) in the QuotaGroup delete path \u2014 a product bug, not infra.",
     "bullets": [
-      "1\u00d7 server NestedServletException / NPE \u2014 java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0"
+      "0 new; 1 continuing server 500 (IndexOutOfBoundsException) on DELETE dk-project-quota-group-rest QuotaGroup \u2014 product bug, not infra.",
+      "No commit maps: NXS-13682 (dk-project-quota-group-rest) is a CFN role fix that can't cause an IOOB; TA-module NXS-13695 is docs/automation only."
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. Hot areas among new fails: QuotaGroup (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 2 service(s) (27 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: initializationError [server NestedServletException / NPE].",
+      "investigation": "No new unmuted failures (0 new); one continuing failure carried from prior runs \u2014 a genuine server 500, java.lang.IndexOutOfBoundsException from DELETE http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080 quotaGroups, surfaced via the QuotaGroup init step. This is an application-level product/server defect (not a QA timeout/502/504, so not infra), and nothing deployed to QA tonight maps to it: the only same-service change (NXS-13682 'fix role' by tamas.gyarmati, dk-project-quota-group-rest CFN) is a permissions/template edit that cannot produce an IndexOutOfBoundsException, and the failure predates this window.",
       "bullets": [
-        "1\u00d7 server NestedServletException / NPE \u2014 java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
-        "NXS-13695: gergely.gimesi \u2014 NXS-13695 MS - contract-drift: scope to Nexus surface, stabilise + seed baseline",
-        "[QA deploy: EligibilityService]  (25 commits) \u2014 TC trigger.",
-        "[QA deploy: ProjectLogRestJ16] NXS-13598 (2 commits) \u2014 [NXS-13598] bump dependency versions"
+        "1\u00d7 server 500 \u2014 java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0 (DELETE dk-project-quota-group-rest QuotaGroup) \u2014 continuing, not new.",
+        "Not infra: an application-level 500, not a timeout/502/504.",
+        "No blame assigned: NXS-13682 (tamas.gyarmati) touches dk-project-quota-group-rest CFN but is a role fix (can't cause an IOOB); TA-module NXS-13695 (gergely.gimesi) is docs/automation only."
       ],
-      "newFailureAreas": [
-        {
-          "area": "QuotaGroup",
-          "newCount": 1
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1726,8 +1721,8 @@
         "deployedAt": "20260817T085945+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-08-18T02:18Z",
+    "source": "llm",
+    "generatedAt": "2026-08-18T02:18:00Z",
     "buildNumber": "3.0.2671",
     "buildId": "9474063",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9474063",
