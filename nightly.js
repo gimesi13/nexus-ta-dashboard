@@ -136,6 +136,22 @@
         (c.comment ? '<div class="ny-nutshell-cause-cmt">' + esc(c.comment) + "</div>" : "") +
         "</li>";
     }).join("");
+    var driftHtml = "";
+    var cd = n.contractDrift;
+    if (cd && typeof cd.newCount === "number") {
+      var known = (cd.currentCount != null ? cd.currentCount : cd.baselineCount) || 0;
+      var driftMsg = cd.newCount > 0
+        ? ("\u26A0\uFE0F " + cd.newCount + " new contract violation" + (cd.newCount === 1 ? "" : "s") + " vs baseline")
+        : "\u2705 No new contract drift";
+      var driftExamples = (cd.examples || []).slice(0, 5).map(function (e) {
+        return "<li>" + esc(typeof e === "string" ? e : (e && e.key ? e.key : JSON.stringify(e))) + "</li>";
+      }).join("");
+      driftHtml =
+        '<div class="ny-nutshell-extra"><span class="ny-nutshell-sub">Contract drift</span>' +
+          '<ul class="ny-nutshell-bullets"><li>' + esc(driftMsg) +
+            " \u2014 " + esc(String(known)) + " known in baseline</li>" + driftExamples +
+          "</ul></div>";
+    }
     return '<div class="ny-nutshell ny-nutshell-' + tone + '">' +
       '<div class="ny-nutshell-label">Investigation</div>' +
       '<div class="ny-nutshell-headline">' + esc(n.headline) + "</div>" +
@@ -152,6 +168,7 @@
         ? '<div class="ny-nutshell-extra"><span class="ny-nutshell-sub">Key findings</span>' +
           '<ol class="ny-nutshell-findings">' + findings + "</ol></div>"
         : "") +
+      driftHtml +
       (areas
         ? '<div class="ny-nutshell-areas"><span class="ny-nutshell-sub">New fails by area</span>' +
           areas + "</div>"
