@@ -1,7 +1,7 @@
-**1 new Segment clone failure from a QA-side UnknownHostException (HTTP 500), no code changes in this build.**
+**1 continuing failure(s) — no new unmuted fails**
 
-_Likely cause: QA-side HTTP 500 rooted in an AWS SDK UnknownHostException (DNS/network); no build or QA-deploy changes, so infra/environment rather than a code regression._
+_Likely cause: VCS changes present but none map onto the failing packages — likely test/data, correlate manually._
 
-- 1× Segment clone — QA 500 from SdkClientException/UnknownHostException (DNS/network, infra)
+- 1× server NestedServletException / NPE — java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9471548)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9474063)

@@ -1,54 +1,351 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-17T02:18Z",
+  "generatedAt": "2026-08-18T02:18Z",
   "build": {
-    "number": "3.0.2670",
-    "buildId": "9471548",
+    "number": "3.0.2671",
+    "buildId": "9474063",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9471548",
-    "durationSec": 2687.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9474063",
+    "durationSec": 2643.0
   },
   "summary": {
     "tests": 1471,
-    "passed": 1382,
-    "failures": 2,
+    "passed": 1383,
+    "failures": 1,
     "errors": 0,
     "skipped": 0,
     "muted": 87,
-    "newFailed": 1,
+    "newFailed": 0,
     "passRate": 99.9,
-    "timeSec": 2687.0
+    "timeSec": 2643.0
   },
   "prior": {
-    "buildId": "9471452",
-    "number": "3.0.2669",
+    "buildId": "9471548",
+    "number": "3.0.2670",
     "status": "FAILURE",
-    "statusText": "Tests failed: 1 (1 new), passed: 1376, muted: 88",
-    "startDate": "20260816T013005+0000",
-    "durationSec": 3169.0,
-    "failed": 1,
-    "passed": 1376,
+    "statusText": "Tests failed: 2 (1 new), passed: 1382, muted: 87",
+    "startDate": "20260817T013236+0000",
+    "durationSec": 2687.0,
+    "failed": 2,
+    "passed": 1382,
     "newFailed": 1
   },
-  "changes": [],
-  "qaDeployChanges": [],
-  "qaDeployServices": [],
+  "changes": [
+    {
+      "version": "99df1f6b845d",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13695 MS - contract-drift: scope to Nexus surface, stabilise + seed baseline",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/contract_baseline.txt",
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/tc_fetch_contract_drift.py",
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/CONTRACT_TESTING.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidator.groovy"
+      ],
+      "areas": []
+    }
+  ],
+  "qaDeployChanges": [
+    {
+      "service": "EligibilityService",
+      "version": "2b429dfafbb2",
+      "username": "attila.sikora",
+      "comment": "TC trigger.",
+      "files": [
+        "project/EligibilityService/build.gradle"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "eba61ce2dd9f",
+      "username": "grace.chen",
+      "comment": "[FAI-431] update to correct arn ml-reconciliation-model-decompress-qa",
+      "files": [
+        "ml-data-capture-bucket/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "8601c0e2d250",
+      "username": "grace.chen",
+      "comment": "[FAI-431] add ml-reconciliation-model-decompress-onfailure-qa to ml-data-capture-bucket",
+      "files": [
+        "ml-data-capture-bucket/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "a3b85e173057",
+      "username": "grace.chen",
+      "comment": "[FAI-431] use IsQAOrProd to only wire SNS for prod and qa",
+      "files": [
+        "ml-reconciliation-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "fd4893046529",
+      "username": "grace.chen",
+      "comment": "[FAI-431] add OnFailure in case lambda decompression failed",
+      "files": [
+        "ml-reconciliation-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "4f2102bca263",
+      "username": "weiqun.wang",
+      "comment": "fix: increase SageMaker deployment timeout to 1800s",
+      "files": [
+        "ml-reconciliation-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "c7d0ffd51baa",
+      "username": "weiqun.wang",
+      "comment": "rollback to ml.g5.2xlarge",
+      "files": [
+        "ml-reconciliation-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "e7e8dac32219",
+      "username": "weiqun.wang",
+      "comment": "prod ml.g5.2xlarge keeps failing, try ml.g4dn.xlarge",
+      "files": [
+        "ml-reconciliation-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "2b76e1720883",
+      "username": "tamas.gyarmati",
+      "comment": "[NXS-13682] - fix role",
+      "files": [
+        "dk-project-quota-group-rest/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "306acbe2d98b",
+      "username": "weiqun.wang",
+      "comment": "update sagemaker_instance_count for qa",
+      "files": [
+        "ml-reconciliation-model/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "fdbc25021ab9",
+      "username": "andras.banszki",
+      "comment": "Merge pull request #567 from dynata/NXS-12124-ExternalEventRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "643598828176",
+      "username": "laszlo.szalkai",
+      "comment": "[AE-DS] add https listener",
+      "files": [
+        "ae-drop-service/cloud-formation.template.yml",
+        "ae-drop-service/group_vars/all.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "9caf6432858d",
+      "username": "adam.veres",
+      "comment": "FEAS-2493 Add CF Template and env files to redi-elastic-gateway app",
+      "files": [
+        "redi-elastic-gateway/cloud-formation.template.yml",
+        "redi-elastic-gateway/group_vars/all.yml",
+        "redi-elastic-gateway/group_vars/dev.yml",
+        "redi-elastic-gateway/group_vars/production.yml",
+        "redi-elastic-gateway/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "960596c6591f",
+      "username": "105725861+gimesi13",
+      "comment": "Merge pull request #610 from dynata/NXS-13683-pes2-queue-name-fix",
+      "files": [],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "1d2696d787f2",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13683 fix PES2 test-sink queue name collision with nxs-pes2-action-log",
+      "files": [
+        "nxs-test-resources/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "ae62f321d2de",
+      "username": "105725861+gimesi13",
+      "comment": "Merge pull request #609 from dynata/NXS-13683-pes2-test-capture",
+      "files": [],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "b112dfdd7975",
+      "username": "szabolcs.fekete",
+      "comment": "DEAI Sharing prod KB s3 with dev",
+      "files": [
+        "ae-debug-ai-agent/cloud-formation.template.yml",
+        "ae-debug-ai-agent/group_vars/all.yml",
+        "ae-debug-ai-agent/group_vars/dev.yml",
+        "ae-debug-ai-agent/group_vars/production.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "62878abc76e5",
+      "username": "grace.chen",
+      "comment": "[FAI-431] change unzipped directory",
+      "files": [
+        "ml-reconciliation-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "4b899ddede65",
+      "username": "grace.chen",
+      "comment": "[FAI-431] typo of ARN",
+      "files": [
+        "ml-data-capture-bucket/group_vars/dev.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "06a23aaa60f8",
+      "username": "grace.chen",
+      "comment": "[FAI-431] added decompress lambda ARN to ml-data-capture-bucket CFN and ansible vars, udpated NotificationConfiguration",
+      "files": [
+        "ml-data-capture-bucket/cloud-formation.template.yml",
+        "ml-data-capture-bucket/group_vars/all.yml",
+        "ml-data-capture-bucket/group_vars/dev.yml",
+        "ml-data-capture-bucket/group_vars/production.yml",
+        "ml-data-capture-bucket/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "2a157271336e",
+      "username": "grace.chen",
+      "comment": "[FAI-431] compressed data capture files will go to zipped folder, added decompression lambda to unzip the file and save\u2026",
+      "files": [
+        "ml-reconciliation-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "1cd75df8e871",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13683 Subscribe PES2 FIFO topics to the QA/dev test-capture sink",
+      "files": [
+        "nxs-test-resources/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "119b510ae5b8",
+      "username": "matt.spencer",
+      "comment": "[DQI-4500] Added Subscription resource to dq-offer-callback-resources.",
+      "files": [
+        "dq-offer-callback-resources/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "304ec1bfa145",
+      "username": "107616474+kricsi14",
+      "comment": "fix(location): remove ECS container health check (NXS-13472)",
+      "files": [],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "version": "39124aa79ff4",
+      "username": "richard.keki",
+      "comment": "[NXS-13472] - remove container curl health check from frontend-location",
+      "files": [
+        "frontend-location/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "ProjectLogRestJ16",
+      "version": "0e65ea31ee7b",
+      "username": "bence.csepe",
+      "comment": "[NXS-13598] bump dependency versions",
+      "files": [
+        "project/ProjectLogRest/README.md",
+        "project/ProjectLogRest/build.gradle"
+      ],
+      "deployedAt": "20260817T085945+0000"
+    },
+    {
+      "service": "ProjectLogRestJ16",
+      "version": "f023c511ea06",
+      "username": "bence.csepe",
+      "comment": "[NXS-13598] EOS - MS - Occurred in Column of Project Log shows ORD instead of QUO (#5220)",
+      "files": [
+        "project/ProjectLogRest/src/main/java/com/surveysampling/rest/projectlog/u1/helpers/ProjectDataHelper.java",
+        "project/ProjectLogRest/src/test/groovy/com/surveysampling/rest/projectlog/u1/helpers/ProjectDataHelperTest.groovy"
+      ],
+      "deployedAt": "20260817T085945+0000"
+    }
+  ],
+  "qaDeployServices": [
+    {
+      "service": "EligibilityService",
+      "commits": 25,
+      "latestTicket": "",
+      "latestComment": "TC trigger.",
+      "deployedAt": "20260817T113525+0000"
+    },
+    {
+      "service": "ProjectLogRestJ16",
+      "commits": 2,
+      "latestTicket": "NXS-13598",
+      "latestComment": "[NXS-13598] bump dependency versions",
+      "deployedAt": "20260817T085945+0000"
+    }
+  ],
   "clusters": [
     {
       "label": "server_exception",
       "display": "server NestedServletException / NPE",
       "count": 1,
-      "newCount": 0,
-      "sample": "",
-      "why": "QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path"
-    },
-    {
-      "label": "other",
-      "display": "other",
-      "count": 1,
       "newCount": 1,
-      "sample": "software.amazon.awssdk.core.exception.SdkClientException:Received an UnknownHostException when attempting to i",
-      "why": "no dominant signature yet \u2014 open TeamCity details"
+      "sample": "java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
+      "why": "QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path"
     }
   ],
   "failures": [
@@ -59,46 +356,169 @@
       "area": "QuotaGroup",
       "cluster": "server_exception",
       "message": "java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceGroups/1551581 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) at com.dynata.rest.gateway.nexusap\u2026"
-    },
-    {
-      "name": "Cloning the audience group keeps the halted segment SUSPENDED and SQL in sync with NexusApi",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentStatusClonePreservationTestSteps",
-      "newFailure": true,
-      "area": "Segment",
-      "cluster": "other",
-      "message": "software.amazon.awssdk.core.exception.SdkClientException:Received an UnknownHostException when attempting to interact with a service. See cause for the exact e\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2214760/audienceGroups/1553300/clone 500{ \"errors\" : [ { \"callChain\" : [ \"cloneQuotaGroups\", \"HTTP 500 POST http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups\", \"HTTP 500 POST http://dk-project-quota-group-sources-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroupSourc\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/audienceGroups/1557385 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups/118757260\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0\" } ], \"version\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "1 new failure in Segment",
+    "headline": "1 continuing failure(s) \u2014 no new unmuted fails",
     "tone": "warn",
     "severity": "low",
     "bullets": [
-      "1\u00d7 other \u2014 software.amazon.awssdk.core.exception.SdkClientException:Received an UnknownHostException when attempting to i"
+      "1\u00d7 server NestedServletException / NPE \u2014 java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0"
     ],
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet). Vs prior #3.0.2669: up 1 total fails.",
+    "investigation": "Failures: 1\u00d7 server NestedServletException / NPE (QA threw NestedServletException/NPE/IOOB).",
     "detail": {
-      "investigation": "1 of 2 unmuted failures are new since the prior build (#3.0.2669, 1 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Segment (1). Example new failures: Segment: Cloning the audience group keeps the halted segment SUSPENDED and SQL in sync with NexusAp [other].",
+      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. Hot areas among new fails: QuotaGroup (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 2 service(s) (27 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: initializationError [server NestedServletException / NPE].",
       "bullets": [
-        "1\u00d7 other \u2014 software.amazon.awssdk.core.exception.SdkClientException:Received an UnknownHostException when attempting to i"
+        "1\u00d7 server NestedServletException / NPE \u2014 java.lang.IndexOutOfBoundsException:Index 0 out of bounds for length 0",
+        "NXS-13695: gergely.gimesi \u2014 NXS-13695 MS - contract-drift: scope to Nexus surface, stabilise + seed baseline",
+        "[QA deploy: EligibilityService]  (25 commits) \u2014 TC trigger.",
+        "[QA deploy: ProjectLogRestJ16] NXS-13598 (2 commits) \u2014 [NXS-13598] bump dependency versions"
       ],
       "newFailureAreas": [
         {
-          "area": "Segment",
+          "area": "QuotaGroup",
           "newCount": 1
         }
       ],
       "likelyCauses": []
     },
-    "suspectCommits": [],
-    "qaDeploySuspects": []
+    "suspectCommits": [
+      {
+        "version": "99df1f6b845d",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13695 MS - contract-drift: scope to Nexus surface, stabilise + seed baseline",
+        "ticket": "NXS-13695",
+        "areas": []
+      }
+    ],
+    "qaDeploySuspects": [
+      {
+        "service": "EligibilityService",
+        "version": "2b429dfafbb2",
+        "username": "attila.sikora",
+        "comment": "TC trigger.",
+        "ticket": "",
+        "deployedAt": "20260817T113525+0000",
+        "files": [
+          "build.gradle"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "EligibilityService",
+        "version": "eba61ce2dd9f",
+        "username": "grace.chen",
+        "comment": "[FAI-431] update to correct arn ml-reconciliation-model-decompress-qa",
+        "ticket": "",
+        "deployedAt": "20260817T113525+0000",
+        "files": [
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "EligibilityService",
+        "version": "8601c0e2d250",
+        "username": "grace.chen",
+        "comment": "[FAI-431] add ml-reconciliation-model-decompress-onfailure-qa to ml-data-capture-bucket",
+        "ticket": "",
+        "deployedAt": "20260817T113525+0000",
+        "files": [
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "EligibilityService",
+        "version": "a3b85e173057",
+        "username": "grace.chen",
+        "comment": "[FAI-431] use IsQAOrProd to only wire SNS for prod and qa",
+        "ticket": "",
+        "deployedAt": "20260817T113525+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "EligibilityService",
+        "version": "fd4893046529",
+        "username": "grace.chen",
+        "comment": "[FAI-431] add OnFailure in case lambda decompression failed",
+        "ticket": "",
+        "deployedAt": "20260817T113525+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "EligibilityService",
+        "version": "4f2102bca263",
+        "username": "weiqun.wang",
+        "comment": "fix: increase SageMaker deployment timeout to 1800s",
+        "ticket": "",
+        "deployedAt": "20260817T113525+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "EligibilityService",
+        "version": "c7d0ffd51baa",
+        "username": "weiqun.wang",
+        "comment": "rollback to ml.g5.2xlarge",
+        "ticket": "",
+        "deployedAt": "20260817T113525+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "EligibilityService",
+        "version": "e7e8dac32219",
+        "username": "weiqun.wang",
+        "comment": "prod ml.g5.2xlarge keeps failing, try ml.g4dn.xlarge",
+        "ticket": "",
+        "deployedAt": "20260817T113525+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "EligibilityService",
+        "version": "2b76e1720883",
+        "username": "tamas.gyarmati",
+        "comment": "[NXS-13682] - fix role",
+        "ticket": "NXS-13682",
+        "deployedAt": "20260817T113525+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "EligibilityService",
+        "version": "306acbe2d98b",
+        "username": "weiqun.wang",
+        "comment": "update sagemaker_instance_count for qa",
+        "ticket": "",
+        "deployedAt": "20260817T113525+0000",
+        "files": [
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      }
+    ]
   },
   "contractDrift": {
     "newCount": 0,
-    "baselineCount": 0,
-    "currentCount": 0,
+    "baselineCount": 95,
+    "currentCount": 94,
     "examples": []
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."
