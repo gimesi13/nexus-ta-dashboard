@@ -1,27 +1,28 @@
 {
-  "generatedAt": "2026-08-18T02:18Z",
+  "generatedAt": "2026-08-19T02:37Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-08-12",
-      "to": "2026-08-18",
-      "featuresAdded": 290,
-      "casesAdded": 508,
-      "areasTouched": 11,
+      "from": "2026-08-13",
+      "to": "2026-08-19",
+      "featuresAdded": 294,
+      "casesAdded": 491,
+      "areasTouched": 13,
       "ticketsTouched": 2,
       "byType": {
-        "CRUD": 102,
-        "Validation": 63,
-        "Workflow": 66,
+        "CRUD": 103,
+        "Validation": 59,
+        "Workflow": 65,
         "Query": 14,
-        "Other": 45
+        "E2E": 2,
+        "Other": 51
       },
       "byArea": [
         {
           "area": "QuotaGroup",
-          "featuresAdded": 110
+          "featuresAdded": 108
         },
         {
           "area": "PES",
@@ -33,19 +34,19 @@
         },
         {
           "area": "PartnerEvent",
-          "featuresAdded": 24
+          "featuresAdded": 23
         },
         {
           "area": "Survey",
-          "featuresAdded": 22
+          "featuresAdded": 23
         },
         {
           "area": "Quota",
-          "featuresAdded": 13
+          "featuresAdded": 12
         },
         {
           "area": "SampleRules",
-          "featuresAdded": 11
+          "featuresAdded": 12
         },
         {
           "area": "Fieldwork",
@@ -53,23 +54,31 @@
         },
         {
           "area": "Project",
-          "featuresAdded": 5
+          "featuresAdded": 7
+        },
+        {
+          "area": "AudienceGroup",
+          "featuresAdded": 2
+        },
+        {
+          "area": "BOS",
+          "featuresAdded": 2
         },
         {
           "area": "Parameter",
           "featuresAdded": 2
         },
         {
-          "area": "AudienceGroup",
+          "area": "Security",
           "featuresAdded": 1
         }
       ],
       "tickets": [
         {
           "key": "NXS-13674",
-          "featuresAdded": 243,
-          "casesAdded": 461,
-          "latestDate": "2026-08-13"
+          "featuresAdded": 247,
+          "casesAdded": 444,
+          "latestDate": "2026-08-18"
         },
         {
           "key": "NXS-13683",
@@ -79,6 +88,143 @@
         }
       ],
       "additions": [
+        {
+          "name": "Survey E2E - fieldwork prep: create through activation, QG link, security and clone",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyE2ETestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: Survey + SampleRules E2E specs + SURVEY_E2E/SAMPLE_RULES_E2E fixtures",
+          "commit": "b452aa7ffd",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "Survey",
+          "spec": "SurveyE2ETestSteps",
+          "type": "E2E",
+          "cases": 1,
+          "tags": [
+            "E2E",
+            "SURVEY",
+            "URL_POOL",
+            "PRESCREENER",
+            "END_LINK_SECURITY"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Survey%20E2E%20-%20fieldwork%20prep%3A%20create%20through%20activation%2C%20QG%20link%2C%20security%20and%20clone"
+        },
+        {
+          "name": "gateway rejects [#authScenario] to #endpoint with HTTP 401",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Security/GatewayAuthenticationMatrixTestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: gateway authentication matrix (Phase 6 authz)",
+          "commit": "f6ac8d0609",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "Security",
+          "spec": "GatewayAuthenticationMatrixTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "SECURITY",
+            "AUTHZ",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=gateway%20rejects%20%5B%23authScenario%5D%20to%20%23endpoint%20with%20HTTP%20401"
+        },
+        {
+          "name": "SampleRules E2E - source-to-target rollout: configure, apply, verify",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/SampleRules/SampleRulesE2ETestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: Survey + SampleRules E2E specs + SURVEY_E2E/SAMPLE_RULES_E2E fixtures",
+          "commit": "b452aa7ffd",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "SampleRules",
+          "spec": "SampleRulesE2ETestSteps",
+          "type": "E2E",
+          "cases": 1,
+          "tags": [
+            "E2E",
+            "SAMPLE_RULES",
+            "SOURCES",
+            "CHANNEL_CRITERIA",
+            "CHANNEL",
+            "BRAND_EXCLUSION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=SampleRules%20E2E%20-%20source-to-target%20rollout%3A%20configure%2C%20apply%2C%20verify"
+        },
+        {
+          "name": "sample creation - sales-order linkage stays resolvable across ORDER and accepted PROJECT",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: fold BOS sales-order linkage check into sample-creation spec",
+          "commit": "a79b65358d",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "BOS",
+          "spec": "BosSampleCreationTestSteps",
+          "type": "Other",
+          "cases": 1,
+          "tags": [
+            "E2E",
+            "CREATE_QUOTE",
+            "QUOTE_2_ORDER",
+            "PROJECT_ACCEPT",
+            "BOS_SALES_ORDER"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=sample%20creation%20-%20sales-order%20linkage%20stays%20resolvable%20across%20ORDER%20and%20accepted%20PROJECT"
+        },
+        {
+          "name": "BOS E2E - quote through accepted project: CRM propagation + sales-order verification",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosCommercialLifecycleE2ETestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: BOS commercial-lifecycle E2E spec + mark god-helper split won't-fix",
+          "commit": "9f6d8d84dd",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "BOS",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=BOS%20E2E%20-%20quote%20through%20accepted%20project%3A%20CRM%20propagation%20%2B%20sales-order%20verification",
+          "gone": true
+        },
+        {
+          "name": "Clone audience group and verify cloned audience group name has Cloned- prefix and quota group names have Cloned suffix",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceGroupE2ECloneRestoreReorderTestSteps.groovy",
+          "date": "2026-08-17",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674 Tier-3 cleanup: delete duplicate exclusion-rule specs + 2 cross-folder moves",
+          "commit": "8f20585060",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "AudienceGroup",
+          "spec": "AudienceGroupE2ECloneRestoreReorderTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "AUDIENCE_GROUP",
+            "PR_SMOKE",
+            "QUOTA",
+            "CLONE_QUOTA_GROUP",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Clone%20audience%20group%20and%20verify%20cloned%20audience%20group%20name%20has%20Cloned-%20prefix%20and%20quota%20group%20names%20have%20Cloned%20suffix"
+        },
         {
           "name": "total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
@@ -1003,7 +1149,7 @@
           "area": "Survey",
           "spec": "SurveyEndLinkSecurityTestSteps",
           "type": "CRUD",
-          "cases": 7,
+          "cases": 8,
           "tags": [
             "SURVEY",
             "URL_POOL"
@@ -3481,17 +3627,12 @@
             "NXS-13674"
           ],
           "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
-          "type": "Validation",
-          "cases": 6,
-          "tags": [
-            "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
-            "VALIDATION"
-          ],
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Rename%20exclusion%20rule%20with%20invalid%20name"
+          "inventoryHref": "inventory.html?q=Rename%20exclusion%20rule%20with%20invalid%20name",
+          "gone": true
         },
         {
           "name": "Quota group type link persists on core read-back",
@@ -3931,17 +4072,12 @@
             "NXS-13674"
           ],
           "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
-          "type": "Validation",
-          "cases": 6,
-          "tags": [
-            "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
-            "VALIDATION"
-          ],
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Get%20project%20exclusions%20with%20invalid%20project%20ID"
+          "inventoryHref": "inventory.html?q=Get%20project%20exclusions%20with%20invalid%20project%20ID",
+          "gone": true
         },
         {
           "name": "Get original end date for quota group",
@@ -3974,14 +4110,13 @@
           "tickets": [
             "NXS-13674"
           ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
+          "area": "Project",
+          "spec": "ExclusionRulesTestSteps",
           "type": "Validation",
-          "cases": 6,
+          "cases": 4,
           "tags": [
             "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
+            "PROJECT_CORE",
             "VALIDATION"
           ],
           "ignored": false,
@@ -4061,17 +4196,12 @@
             "NXS-13674"
           ],
           "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
-          "type": "Validation",
-          "cases": 5,
-          "tags": [
-            "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
-            "VALIDATION"
-          ],
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Enable%20exclusion%20rule%20with%20invalid%20rule%20ID"
+          "inventoryHref": "inventory.html?q=Enable%20exclusion%20rule%20with%20invalid%20rule%20ID",
+          "gone": true
         },
         {
           "name": "Download respondent exclusions with invalid quota group ID",
@@ -4129,14 +4259,13 @@
           "tickets": [
             "NXS-13674"
           ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
+          "area": "Project",
+          "spec": "ExclusionRulesTestSteps",
           "type": "Validation",
-          "cases": 5,
+          "cases": 4,
           "tags": [
             "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
+            "PROJECT_CORE",
             "VALIDATION"
           ],
           "ignored": false,
@@ -4153,16 +4282,12 @@
             "NXS-13674"
           ],
           "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
-          "type": "Validation",
-          "cases": 4,
-          "tags": [
-            "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE"
-          ],
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Delete%20exclusion%20rule%20that%20does%20not%20exist"
+          "inventoryHref": "inventory.html?q=Delete%20exclusion%20rule%20that%20does%20not%20exist",
+          "gone": true
         },
         {
           "name": "Create audience group and validate quota group name is My New Audience",
@@ -6362,74 +6487,28 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Validate%20audience%20group%20response%20schema"
-        },
-        {
-          "name": "#action soldQuota in PROJECT phase should be disabled",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaValidationTestSteps.groovy",
-          "date": "2026-08-12",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13674 collapse redundant/duplicate spec features",
-          "commit": "5b00f2fee2",
-          "tickets": [
-            "NXS-13674"
-          ],
-          "area": "Quota",
-          "spec": "SoldQuotaValidationTestSteps",
-          "type": "Workflow",
-          "cases": 2,
-          "tags": [
-            "QUOTA",
-            "SOLD_QUOTAS",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=%23action%20soldQuota%20in%20PROJECT%20phase%20should%20be%20disabled"
-        },
-        {
-          "name": "PUT with wrong #flag vs server truth returns client error",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceControlWorkflowTestSteps.groovy",
-          "date": "2026-08-12",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13674 collapse redundant/duplicate spec features",
-          "commit": "5b00f2fee2",
-          "tickets": [
-            "NXS-13674"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventPriceApprovalTestSteps",
-          "type": "Validation",
-          "cases": 2,
-          "tags": [
-            "PARTNER_EVENT",
-            "PR_SMOKE",
-            "PRICING",
-            "VALIDATION",
-            "E2E"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=PUT%20with%20wrong%20%23flag%20vs%20server%20truth%20returns%20client%20error"
         }
       ]
     },
     "14d": {
-      "from": "2026-08-05",
-      "to": "2026-08-18",
-      "featuresAdded": 295,
-      "casesAdded": 513,
-      "areasTouched": 13,
+      "from": "2026-08-06",
+      "to": "2026-08-19",
+      "featuresAdded": 301,
+      "casesAdded": 500,
+      "areasTouched": 14,
       "ticketsTouched": 4,
       "byType": {
-        "CRUD": 102,
-        "Validation": 64,
+        "CRUD": 103,
+        "Validation": 61,
         "Workflow": 66,
         "Query": 15,
-        "E2E": 1,
-        "Other": 47
+        "E2E": 3,
+        "Other": 53
       },
       "byArea": [
         {
           "area": "QuotaGroup",
-          "featuresAdded": 111
+          "featuresAdded": 109
         },
         {
           "area": "PES",
@@ -6445,7 +6524,7 @@
         },
         {
           "area": "Survey",
-          "featuresAdded": 22
+          "featuresAdded": 23
         },
         {
           "area": "Quota",
@@ -6453,7 +6532,7 @@
         },
         {
           "area": "SampleRules",
-          "featuresAdded": 11
+          "featuresAdded": 12
         },
         {
           "area": "Fieldwork",
@@ -6461,18 +6540,22 @@
         },
         {
           "area": "Project",
-          "featuresAdded": 5
+          "featuresAdded": 7
         },
         {
           "area": "BOS",
-          "featuresAdded": 3
+          "featuresAdded": 5
+        },
+        {
+          "area": "AudienceGroup",
+          "featuresAdded": 2
         },
         {
           "area": "Parameter",
           "featuresAdded": 2
         },
         {
-          "area": "AudienceGroup",
+          "area": "Security",
           "featuresAdded": 1
         },
         {
@@ -6483,9 +6566,9 @@
       "tickets": [
         {
           "key": "NXS-13674",
-          "featuresAdded": 243,
-          "casesAdded": 461,
-          "latestDate": "2026-08-13"
+          "featuresAdded": 249,
+          "casesAdded": 448,
+          "latestDate": "2026-08-18"
         },
         {
           "key": "NXS-13683",
@@ -6507,6 +6590,143 @@
         }
       ],
       "additions": [
+        {
+          "name": "Survey E2E - fieldwork prep: create through activation, QG link, security and clone",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyE2ETestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: Survey + SampleRules E2E specs + SURVEY_E2E/SAMPLE_RULES_E2E fixtures",
+          "commit": "b452aa7ffd",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "Survey",
+          "spec": "SurveyE2ETestSteps",
+          "type": "E2E",
+          "cases": 1,
+          "tags": [
+            "E2E",
+            "SURVEY",
+            "URL_POOL",
+            "PRESCREENER",
+            "END_LINK_SECURITY"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Survey%20E2E%20-%20fieldwork%20prep%3A%20create%20through%20activation%2C%20QG%20link%2C%20security%20and%20clone"
+        },
+        {
+          "name": "gateway rejects [#authScenario] to #endpoint with HTTP 401",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Security/GatewayAuthenticationMatrixTestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: gateway authentication matrix (Phase 6 authz)",
+          "commit": "f6ac8d0609",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "Security",
+          "spec": "GatewayAuthenticationMatrixTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "SECURITY",
+            "AUTHZ",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=gateway%20rejects%20%5B%23authScenario%5D%20to%20%23endpoint%20with%20HTTP%20401"
+        },
+        {
+          "name": "SampleRules E2E - source-to-target rollout: configure, apply, verify",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/SampleRules/SampleRulesE2ETestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: Survey + SampleRules E2E specs + SURVEY_E2E/SAMPLE_RULES_E2E fixtures",
+          "commit": "b452aa7ffd",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "SampleRules",
+          "spec": "SampleRulesE2ETestSteps",
+          "type": "E2E",
+          "cases": 1,
+          "tags": [
+            "E2E",
+            "SAMPLE_RULES",
+            "SOURCES",
+            "CHANNEL_CRITERIA",
+            "CHANNEL",
+            "BRAND_EXCLUSION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=SampleRules%20E2E%20-%20source-to-target%20rollout%3A%20configure%2C%20apply%2C%20verify"
+        },
+        {
+          "name": "sample creation - sales-order linkage stays resolvable across ORDER and accepted PROJECT",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: fold BOS sales-order linkage check into sample-creation spec",
+          "commit": "a79b65358d",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "BOS",
+          "spec": "BosSampleCreationTestSteps",
+          "type": "Other",
+          "cases": 1,
+          "tags": [
+            "E2E",
+            "CREATE_QUOTE",
+            "QUOTE_2_ORDER",
+            "PROJECT_ACCEPT",
+            "BOS_SALES_ORDER"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=sample%20creation%20-%20sales-order%20linkage%20stays%20resolvable%20across%20ORDER%20and%20accepted%20PROJECT"
+        },
+        {
+          "name": "BOS E2E - quote through accepted project: CRM propagation + sales-order verification",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosCommercialLifecycleE2ETestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: BOS commercial-lifecycle E2E spec + mark god-helper split won't-fix",
+          "commit": "9f6d8d84dd",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "BOS",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=BOS%20E2E%20-%20quote%20through%20accepted%20project%3A%20CRM%20propagation%20%2B%20sales-order%20verification",
+          "gone": true
+        },
+        {
+          "name": "Clone audience group and verify cloned audience group name has Cloned- prefix and quota group names have Cloned suffix",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceGroupE2ECloneRestoreReorderTestSteps.groovy",
+          "date": "2026-08-17",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674 Tier-3 cleanup: delete duplicate exclusion-rule specs + 2 cross-folder moves",
+          "commit": "8f20585060",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "AudienceGroup",
+          "spec": "AudienceGroupE2ECloneRestoreReorderTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "AUDIENCE_GROUP",
+            "PR_SMOKE",
+            "QUOTA",
+            "CLONE_QUOTA_GROUP",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Clone%20audience%20group%20and%20verify%20cloned%20audience%20group%20name%20has%20Cloned-%20prefix%20and%20quota%20group%20names%20have%20Cloned%20suffix"
+        },
         {
           "name": "total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
@@ -7431,7 +7651,7 @@
           "area": "Survey",
           "spec": "SurveyEndLinkSecurityTestSteps",
           "type": "CRUD",
-          "cases": 7,
+          "cases": 8,
           "tags": [
             "SURVEY",
             "URL_POOL"
@@ -9909,17 +10129,12 @@
             "NXS-13674"
           ],
           "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
-          "type": "Validation",
-          "cases": 6,
-          "tags": [
-            "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
-            "VALIDATION"
-          ],
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Rename%20exclusion%20rule%20with%20invalid%20name"
+          "inventoryHref": "inventory.html?q=Rename%20exclusion%20rule%20with%20invalid%20name",
+          "gone": true
         },
         {
           "name": "Quota group type link persists on core read-back",
@@ -10359,17 +10574,12 @@
             "NXS-13674"
           ],
           "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
-          "type": "Validation",
-          "cases": 6,
-          "tags": [
-            "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
-            "VALIDATION"
-          ],
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Get%20project%20exclusions%20with%20invalid%20project%20ID"
+          "inventoryHref": "inventory.html?q=Get%20project%20exclusions%20with%20invalid%20project%20ID",
+          "gone": true
         },
         {
           "name": "Get original end date for quota group",
@@ -10402,14 +10612,13 @@
           "tickets": [
             "NXS-13674"
           ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
+          "area": "Project",
+          "spec": "ExclusionRulesTestSteps",
           "type": "Validation",
-          "cases": 6,
+          "cases": 4,
           "tags": [
             "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
+            "PROJECT_CORE",
             "VALIDATION"
           ],
           "ignored": false,
@@ -10489,17 +10698,12 @@
             "NXS-13674"
           ],
           "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
-          "type": "Validation",
-          "cases": 5,
-          "tags": [
-            "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
-            "VALIDATION"
-          ],
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Enable%20exclusion%20rule%20with%20invalid%20rule%20ID"
+          "inventoryHref": "inventory.html?q=Enable%20exclusion%20rule%20with%20invalid%20rule%20ID",
+          "gone": true
         },
         {
           "name": "Download respondent exclusions with invalid quota group ID",
@@ -10557,14 +10761,13 @@
           "tickets": [
             "NXS-13674"
           ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
+          "area": "Project",
+          "spec": "ExclusionRulesTestSteps",
           "type": "Validation",
-          "cases": 5,
+          "cases": 4,
           "tags": [
             "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
+            "PROJECT_CORE",
             "VALIDATION"
           ],
           "ignored": false,
@@ -10581,16 +10784,12 @@
             "NXS-13674"
           ],
           "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
-          "type": "Validation",
-          "cases": 4,
-          "tags": [
-            "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE"
-          ],
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Delete%20exclusion%20rule%20that%20does%20not%20exist"
+          "inventoryHref": "inventory.html?q=Delete%20exclusion%20rule%20that%20does%20not%20exist",
+          "gone": true
         },
         {
           "name": "Create audience group and validate quota group name is My New Audience",
@@ -12946,24 +13145,24 @@
       ]
     },
     "30d": {
-      "from": "2026-07-20",
-      "to": "2026-08-18",
-      "featuresAdded": 378,
-      "casesAdded": 602,
-      "areasTouched": 14,
+      "from": "2026-07-21",
+      "to": "2026-08-19",
+      "featuresAdded": 384,
+      "casesAdded": 589,
+      "areasTouched": 15,
       "ticketsTouched": 6,
       "byType": {
-        "CRUD": 122,
-        "Validation": 95,
+        "CRUD": 123,
+        "Validation": 92,
         "Workflow": 82,
         "Query": 20,
-        "E2E": 1,
-        "Other": 58
+        "E2E": 3,
+        "Other": 64
       },
       "byArea": [
         {
           "area": "QuotaGroup",
-          "featuresAdded": 139
+          "featuresAdded": 137
         },
         {
           "area": "Segment",
@@ -12975,22 +13174,22 @@
         },
         {
           "area": "Project",
-          "featuresAdded": 36
+          "featuresAdded": 38
         },
         {
           "area": "Survey",
-          "featuresAdded": 31
+          "featuresAdded": 32
         },
         {
           "area": "PartnerEvent",
           "featuresAdded": 30
         },
         {
-          "area": "Quota",
-          "featuresAdded": 13
+          "area": "SampleRules",
+          "featuresAdded": 14
         },
         {
-          "area": "SampleRules",
+          "area": "Quota",
           "featuresAdded": 13
         },
         {
@@ -12998,32 +13197,36 @@
           "featuresAdded": 10
         },
         {
+          "area": "BOS",
+          "featuresAdded": 5
+        },
+        {
           "area": "Settings",
           "featuresAdded": 4
         },
         {
-          "area": "BOS",
-          "featuresAdded": 3
+          "area": "AudienceGroup",
+          "featuresAdded": 2
         },
         {
           "area": "Parameter",
           "featuresAdded": 2
         },
         {
-          "area": "AudienceGroup",
+          "area": "Lookup",
           "featuresAdded": 1
         },
         {
-          "area": "Lookup",
+          "area": "Security",
           "featuresAdded": 1
         }
       ],
       "tickets": [
         {
           "key": "NXS-13674",
-          "featuresAdded": 243,
-          "casesAdded": 461,
-          "latestDate": "2026-08-13"
+          "featuresAdded": 249,
+          "casesAdded": 448,
+          "latestDate": "2026-08-18"
         },
         {
           "key": "NXS-13454",
@@ -13057,6 +13260,143 @@
         }
       ],
       "additions": [
+        {
+          "name": "Survey E2E - fieldwork prep: create through activation, QG link, security and clone",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyE2ETestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: Survey + SampleRules E2E specs + SURVEY_E2E/SAMPLE_RULES_E2E fixtures",
+          "commit": "b452aa7ffd",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "Survey",
+          "spec": "SurveyE2ETestSteps",
+          "type": "E2E",
+          "cases": 1,
+          "tags": [
+            "E2E",
+            "SURVEY",
+            "URL_POOL",
+            "PRESCREENER",
+            "END_LINK_SECURITY"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Survey%20E2E%20-%20fieldwork%20prep%3A%20create%20through%20activation%2C%20QG%20link%2C%20security%20and%20clone"
+        },
+        {
+          "name": "gateway rejects [#authScenario] to #endpoint with HTTP 401",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Security/GatewayAuthenticationMatrixTestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: gateway authentication matrix (Phase 6 authz)",
+          "commit": "f6ac8d0609",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "Security",
+          "spec": "GatewayAuthenticationMatrixTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "SECURITY",
+            "AUTHZ",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=gateway%20rejects%20%5B%23authScenario%5D%20to%20%23endpoint%20with%20HTTP%20401"
+        },
+        {
+          "name": "SampleRules E2E - source-to-target rollout: configure, apply, verify",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/SampleRules/SampleRulesE2ETestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: Survey + SampleRules E2E specs + SURVEY_E2E/SAMPLE_RULES_E2E fixtures",
+          "commit": "b452aa7ffd",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "SampleRules",
+          "spec": "SampleRulesE2ETestSteps",
+          "type": "E2E",
+          "cases": 1,
+          "tags": [
+            "E2E",
+            "SAMPLE_RULES",
+            "SOURCES",
+            "CHANNEL_CRITERIA",
+            "CHANNEL",
+            "BRAND_EXCLUSION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=SampleRules%20E2E%20-%20source-to-target%20rollout%3A%20configure%2C%20apply%2C%20verify"
+        },
+        {
+          "name": "sample creation - sales-order linkage stays resolvable across ORDER and accepted PROJECT",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: fold BOS sales-order linkage check into sample-creation spec",
+          "commit": "a79b65358d",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "BOS",
+          "spec": "BosSampleCreationTestSteps",
+          "type": "Other",
+          "cases": 1,
+          "tags": [
+            "E2E",
+            "CREATE_QUOTE",
+            "QUOTE_2_ORDER",
+            "PROJECT_ACCEPT",
+            "BOS_SALES_ORDER"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=sample%20creation%20-%20sales-order%20linkage%20stays%20resolvable%20across%20ORDER%20and%20accepted%20PROJECT"
+        },
+        {
+          "name": "BOS E2E - quote through accepted project: CRM propagation + sales-order verification",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosCommercialLifecycleE2ETestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: BOS commercial-lifecycle E2E spec + mark god-helper split won't-fix",
+          "commit": "9f6d8d84dd",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "BOS",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=BOS%20E2E%20-%20quote%20through%20accepted%20project%3A%20CRM%20propagation%20%2B%20sales-order%20verification",
+          "gone": true
+        },
+        {
+          "name": "Clone audience group and verify cloned audience group name has Cloned- prefix and quota group names have Cloned suffix",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceGroupE2ECloneRestoreReorderTestSteps.groovy",
+          "date": "2026-08-17",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674 Tier-3 cleanup: delete duplicate exclusion-rule specs + 2 cross-folder moves",
+          "commit": "8f20585060",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "AudienceGroup",
+          "spec": "AudienceGroupE2ECloneRestoreReorderTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "AUDIENCE_GROUP",
+            "PR_SMOKE",
+            "QUOTA",
+            "CLONE_QUOTA_GROUP",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Clone%20audience%20group%20and%20verify%20cloned%20audience%20group%20name%20has%20Cloned-%20prefix%20and%20quota%20group%20names%20have%20Cloned%20suffix"
+        },
         {
           "name": "total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
@@ -13981,7 +14321,7 @@
           "area": "Survey",
           "spec": "SurveyEndLinkSecurityTestSteps",
           "type": "CRUD",
-          "cases": 7,
+          "cases": 8,
           "tags": [
             "SURVEY",
             "URL_POOL"
@@ -16459,17 +16799,12 @@
             "NXS-13674"
           ],
           "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
-          "type": "Validation",
-          "cases": 6,
-          "tags": [
-            "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
-            "VALIDATION"
-          ],
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Rename%20exclusion%20rule%20with%20invalid%20name"
+          "inventoryHref": "inventory.html?q=Rename%20exclusion%20rule%20with%20invalid%20name",
+          "gone": true
         },
         {
           "name": "Quota group type link persists on core read-back",
@@ -16909,17 +17244,12 @@
             "NXS-13674"
           ],
           "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
-          "type": "Validation",
-          "cases": 6,
-          "tags": [
-            "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
-            "VALIDATION"
-          ],
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Get%20project%20exclusions%20with%20invalid%20project%20ID"
+          "inventoryHref": "inventory.html?q=Get%20project%20exclusions%20with%20invalid%20project%20ID",
+          "gone": true
         },
         {
           "name": "Get original end date for quota group",
@@ -16952,14 +17282,13 @@
           "tickets": [
             "NXS-13674"
           ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
+          "area": "Project",
+          "spec": "ExclusionRulesTestSteps",
           "type": "Validation",
-          "cases": 6,
+          "cases": 4,
           "tags": [
             "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
+            "PROJECT_CORE",
             "VALIDATION"
           ],
           "ignored": false,
@@ -17039,17 +17368,12 @@
             "NXS-13674"
           ],
           "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
-          "type": "Validation",
-          "cases": 5,
-          "tags": [
-            "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
-            "VALIDATION"
-          ],
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Enable%20exclusion%20rule%20with%20invalid%20rule%20ID"
+          "inventoryHref": "inventory.html?q=Enable%20exclusion%20rule%20with%20invalid%20rule%20ID",
+          "gone": true
         },
         {
           "name": "Download respondent exclusions with invalid quota group ID",
@@ -17107,14 +17431,13 @@
           "tickets": [
             "NXS-13674"
           ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
+          "area": "Project",
+          "spec": "ExclusionRulesTestSteps",
           "type": "Validation",
-          "cases": 5,
+          "cases": 4,
           "tags": [
             "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
+            "PROJECT_CORE",
             "VALIDATION"
           ],
           "ignored": false,
@@ -17131,16 +17454,12 @@
             "NXS-13674"
           ],
           "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
-          "type": "Validation",
-          "cases": 4,
-          "tags": [
-            "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE"
-          ],
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Delete%20exclusion%20rule%20that%20does%20not%20exist"
+          "inventoryHref": "inventory.html?q=Delete%20exclusion%20rule%20that%20does%20not%20exist",
+          "gone": true
         },
         {
           "name": "Create audience group and validate quota group name is My New Audience",
@@ -21281,28 +21600,28 @@
       ]
     },
     "90d": {
-      "from": "2026-05-21",
-      "to": "2026-08-18",
-      "featuresAdded": 443,
-      "casesAdded": 681,
-      "areasTouched": 15,
+      "from": "2026-05-22",
+      "to": "2026-08-19",
+      "featuresAdded": 449,
+      "casesAdded": 669,
+      "areasTouched": 16,
       "ticketsTouched": 15,
       "byType": {
-        "CRUD": 137,
-        "Validation": 106,
+        "CRUD": 138,
+        "Validation": 103,
         "Workflow": 95,
         "Query": 32,
-        "E2E": 1,
-        "Other": 72
+        "E2E": 3,
+        "Other": 78
       },
       "byArea": [
         {
           "area": "QuotaGroup",
-          "featuresAdded": 153
+          "featuresAdded": 151
         },
         {
           "area": "Project",
-          "featuresAdded": 58
+          "featuresAdded": 60
         },
         {
           "area": "Segment",
@@ -21318,11 +21637,11 @@
         },
         {
           "area": "Survey",
-          "featuresAdded": 32
+          "featuresAdded": 33
         },
         {
           "area": "SampleRules",
-          "featuresAdded": 24
+          "featuresAdded": 25
         },
         {
           "area": "Quota",
@@ -21333,20 +21652,20 @@
           "featuresAdded": 10
         },
         {
+          "area": "BOS",
+          "featuresAdded": 5
+        },
+        {
           "area": "Settings",
           "featuresAdded": 4
         },
         {
-          "area": "BOS",
-          "featuresAdded": 3
+          "area": "AudienceGroup",
+          "featuresAdded": 2
         },
         {
           "area": "Parameter",
           "featuresAdded": 2
-        },
-        {
-          "area": "AudienceGroup",
-          "featuresAdded": 1
         },
         {
           "area": "Infrastructure",
@@ -21355,14 +21674,18 @@
         {
           "area": "Lookup",
           "featuresAdded": 1
+        },
+        {
+          "area": "Security",
+          "featuresAdded": 1
         }
       ],
       "tickets": [
         {
           "key": "NXS-13674",
-          "featuresAdded": 243,
-          "casesAdded": 461,
-          "latestDate": "2026-08-13"
+          "featuresAdded": 249,
+          "casesAdded": 448,
+          "latestDate": "2026-08-18"
         },
         {
           "key": "NXS-13454",
@@ -21385,7 +21708,7 @@
         {
           "key": "NXS-13325",
           "featuresAdded": 10,
-          "casesAdded": 20,
+          "casesAdded": 21,
           "latestDate": "2026-07-02"
         },
         {
@@ -21450,6 +21773,143 @@
         }
       ],
       "additions": [
+        {
+          "name": "Survey E2E - fieldwork prep: create through activation, QG link, security and clone",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyE2ETestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: Survey + SampleRules E2E specs + SURVEY_E2E/SAMPLE_RULES_E2E fixtures",
+          "commit": "b452aa7ffd",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "Survey",
+          "spec": "SurveyE2ETestSteps",
+          "type": "E2E",
+          "cases": 1,
+          "tags": [
+            "E2E",
+            "SURVEY",
+            "URL_POOL",
+            "PRESCREENER",
+            "END_LINK_SECURITY"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Survey%20E2E%20-%20fieldwork%20prep%3A%20create%20through%20activation%2C%20QG%20link%2C%20security%20and%20clone"
+        },
+        {
+          "name": "gateway rejects [#authScenario] to #endpoint with HTTP 401",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Security/GatewayAuthenticationMatrixTestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: gateway authentication matrix (Phase 6 authz)",
+          "commit": "f6ac8d0609",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "Security",
+          "spec": "GatewayAuthenticationMatrixTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "SECURITY",
+            "AUTHZ",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=gateway%20rejects%20%5B%23authScenario%5D%20to%20%23endpoint%20with%20HTTP%20401"
+        },
+        {
+          "name": "SampleRules E2E - source-to-target rollout: configure, apply, verify",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/SampleRules/SampleRulesE2ETestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: Survey + SampleRules E2E specs + SURVEY_E2E/SAMPLE_RULES_E2E fixtures",
+          "commit": "b452aa7ffd",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "SampleRules",
+          "spec": "SampleRulesE2ETestSteps",
+          "type": "E2E",
+          "cases": 1,
+          "tags": [
+            "E2E",
+            "SAMPLE_RULES",
+            "SOURCES",
+            "CHANNEL_CRITERIA",
+            "CHANNEL",
+            "BRAND_EXCLUSION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=SampleRules%20E2E%20-%20source-to-target%20rollout%3A%20configure%2C%20apply%2C%20verify"
+        },
+        {
+          "name": "sample creation - sales-order linkage stays resolvable across ORDER and accepted PROJECT",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: fold BOS sales-order linkage check into sample-creation spec",
+          "commit": "a79b65358d",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "BOS",
+          "spec": "BosSampleCreationTestSteps",
+          "type": "Other",
+          "cases": 1,
+          "tags": [
+            "E2E",
+            "CREATE_QUOTE",
+            "QUOTE_2_ORDER",
+            "PROJECT_ACCEPT",
+            "BOS_SALES_ORDER"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=sample%20creation%20-%20sales-order%20linkage%20stays%20resolvable%20across%20ORDER%20and%20accepted%20PROJECT"
+        },
+        {
+          "name": "BOS E2E - quote through accepted project: CRM propagation + sales-order verification",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosCommercialLifecycleE2ETestSteps.groovy",
+          "date": "2026-08-18",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674: BOS commercial-lifecycle E2E spec + mark god-helper split won't-fix",
+          "commit": "9f6d8d84dd",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "BOS",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=BOS%20E2E%20-%20quote%20through%20accepted%20project%3A%20CRM%20propagation%20%2B%20sales-order%20verification",
+          "gone": true
+        },
+        {
+          "name": "Clone audience group and verify cloned audience group name has Cloned- prefix and quota group names have Cloned suffix",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceGroupE2ECloneRestoreReorderTestSteps.groovy",
+          "date": "2026-08-17",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13674 Tier-3 cleanup: delete duplicate exclusion-rule specs + 2 cross-folder moves",
+          "commit": "8f20585060",
+          "tickets": [
+            "NXS-13674"
+          ],
+          "area": "AudienceGroup",
+          "spec": "AudienceGroupE2ECloneRestoreReorderTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "AUDIENCE_GROUP",
+            "PR_SMOKE",
+            "QUOTA",
+            "CLONE_QUOTA_GROUP",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Clone%20audience%20group%20and%20verify%20cloned%20audience%20group%20name%20has%20Cloned-%20prefix%20and%20quota%20group%20names%20have%20Cloned%20suffix"
+        },
         {
           "name": "total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
@@ -22374,7 +22834,7 @@
           "area": "Survey",
           "spec": "SurveyEndLinkSecurityTestSteps",
           "type": "CRUD",
-          "cases": 7,
+          "cases": 8,
           "tags": [
             "SURVEY",
             "URL_POOL"
@@ -24852,17 +25312,12 @@
             "NXS-13674"
           ],
           "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
-          "type": "Validation",
-          "cases": 6,
-          "tags": [
-            "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
-            "VALIDATION"
-          ],
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Rename%20exclusion%20rule%20with%20invalid%20name"
+          "inventoryHref": "inventory.html?q=Rename%20exclusion%20rule%20with%20invalid%20name",
+          "gone": true
         },
         {
           "name": "Quota group type link persists on core read-back",
@@ -25302,17 +25757,12 @@
             "NXS-13674"
           ],
           "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
-          "type": "Validation",
-          "cases": 6,
-          "tags": [
-            "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
-            "VALIDATION"
-          ],
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Get%20project%20exclusions%20with%20invalid%20project%20ID"
+          "inventoryHref": "inventory.html?q=Get%20project%20exclusions%20with%20invalid%20project%20ID",
+          "gone": true
         },
         {
           "name": "Get original end date for quota group",
@@ -25345,14 +25795,13 @@
           "tickets": [
             "NXS-13674"
           ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
+          "area": "Project",
+          "spec": "ExclusionRulesTestSteps",
           "type": "Validation",
-          "cases": 6,
+          "cases": 4,
           "tags": [
             "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
+            "PROJECT_CORE",
             "VALIDATION"
           ],
           "ignored": false,
@@ -25432,17 +25881,12 @@
             "NXS-13674"
           ],
           "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
-          "type": "Validation",
-          "cases": 5,
-          "tags": [
-            "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
-            "VALIDATION"
-          ],
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Enable%20exclusion%20rule%20with%20invalid%20rule%20ID"
+          "inventoryHref": "inventory.html?q=Enable%20exclusion%20rule%20with%20invalid%20rule%20ID",
+          "gone": true
         },
         {
           "name": "Download respondent exclusions with invalid quota group ID",
@@ -25500,14 +25944,13 @@
           "tickets": [
             "NXS-13674"
           ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
+          "area": "Project",
+          "spec": "ExclusionRulesTestSteps",
           "type": "Validation",
-          "cases": 5,
+          "cases": 4,
           "tags": [
             "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE",
+            "PROJECT_CORE",
             "VALIDATION"
           ],
           "ignored": false,
@@ -25524,16 +25967,12 @@
             "NXS-13674"
           ],
           "area": "QuotaGroup",
-          "spec": "QuotaGroupDedupeValidationTestSteps",
-          "type": "Validation",
-          "cases": 4,
-          "tags": [
-            "EXCLUSION_RULES",
-            "QUOTA",
-            "DEDUPE"
-          ],
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Delete%20exclusion%20rule%20that%20does%20not%20exist"
+          "inventoryHref": "inventory.html?q=Delete%20exclusion%20rule%20that%20does%20not%20exist",
+          "gone": true
         },
         {
           "name": "Create audience group and validate quota group name is My New Audience",
@@ -30117,7 +30556,7 @@
           "area": "Project",
           "spec": "ExclusionRulesTestSteps",
           "type": "Validation",
-          "cases": 2,
+          "cases": 3,
           "tags": [
             "EXCLUSION_RULES",
             "PROJECT_CORE",
@@ -31063,7 +31502,7 @@
     {
       "weekStart": "2026-06-29",
       "featuresAdded": 24,
-      "casesAdded": 36
+      "casesAdded": 37
     },
     {
       "weekStart": "2026-07-06",
@@ -31093,12 +31532,12 @@
     {
       "weekStart": "2026-08-10",
       "featuresAdded": 291,
-      "casesAdded": 509
+      "casesAdded": 490
     },
     {
       "weekStart": "2026-08-17",
-      "featuresAdded": 0,
-      "casesAdded": 0
+      "featuresAdded": 6,
+      "casesAdded": 6
     }
   ],
   "snapshots": [
@@ -31125,11 +31564,11 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-08-18",
-      "features": 754,
-      "cases": 1531,
-      "specs": 105,
-      "areas": 14,
+      "date": "2026-08-19",
+      "features": 750,
+      "cases": 1515,
+      "specs": 108,
+      "areas": 15,
       "coveragePercent": 100.0,
       "tested": 265,
       "untested": 0,
@@ -31145,15 +31584,15 @@
       "priorPercent": 78.0,
       "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-08-18",
+      "currentDate": "2026-08-19",
       "testedDelta": 56,
       "untestedDelta": -59
     }
   },
   "inventory": {
-    "features": 754,
-    "cases": 1531,
-    "specs": 105,
-    "areas": 14
+    "features": 750,
+    "cases": 1515,
+    "specs": 108,
+    "areas": 15
   }
 }

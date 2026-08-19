@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-08-18",
+  "generatedAt": "2026-08-19",
   "source": "source",
-  "features": 754,
-  "cases": 1531,
-  "specs": 105,
-  "areas": 14,
-  "featuresWithSteps": 754,
-  "steps": 3669,
+  "features": 750,
+  "cases": 1515,
+  "specs": 108,
+  "areas": 15,
+  "featuresWithSteps": 750,
+  "steps": 3685,
   "byType": {
-    "CRUD": 251,
-    "Validation": 205,
+    "CRUD": 249,
+    "Validation": 200,
     "Workflow": 136,
     "Query": 101,
-    "Other": 48,
-    "E2E": 13
+    "Other": 49,
+    "E2E": 15
   },
   "rows": [
     {
@@ -331,7 +331,7 @@
         },
         {
           "phase": "then",
-          "label": "Validate response against schema"
+          "label": "Response conforms to the expected schema"
         }
       ],
       "paramNote": "Unrolled across project phases (2 runs at execution)"
@@ -506,6 +506,62 @@
         {
           "phase": "then",
           "label": "Verify cloned quota groups have same size and names as source"
+        }
+      ]
+    },
+    {
+      "area": "AudienceGroup",
+      "spec": "AudienceGroupE2ECloneRestoreReorderTestSteps",
+      "name": "Clone audience group and verify cloned audience group name has Cloned- prefix and quota group names have Cloned suffix",
+      "type": "CRUD",
+      "tags": [
+        "AUDIENCE_GROUP",
+        "PR_SMOKE",
+        "QUOTA",
+        "CLONE_QUOTA_GROUP",
+        "E2E"
+      ],
+      "owner": "Test Automation",
+      "feature": "Audience Groups - E2E quota, template, clone, restore, reorder",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceGroupE2ECloneRestoreReorderTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Set active phase"
+        },
+        {
+          "phase": "and",
+          "label": "Create a fresh audience group with three named quota groups"
+        },
+        {
+          "phase": "when",
+          "label": "User clones the entire audience group"
+        },
+        {
+          "phase": "then",
+          "label": "Verify the cloned audience group was created with name prefixed with Cloned-"
+        },
+        {
+          "phase": "when",
+          "label": "Retrieve all quota groups from the cloned audience group"
+        },
+        {
+          "phase": "then",
+          "label": "Verify cloned quota groups exist"
+        },
+        {
+          "phase": "when",
+          "label": "Extract the names of all cloned quota groups"
+        },
+        {
+          "phase": "then",
+          "label": "Verify all cloned quota group names have original names with ' Cloned' appended"
+        },
+        {
+          "phase": "and",
+          "label": "Verify all cloned names end with ' Cloned'"
         }
       ]
     },
@@ -2255,6 +2311,46 @@
     {
       "area": "BOS",
       "spec": "BosSampleCreationTestSteps",
+      "name": "sample creation - sales-order linkage stays resolvable across ORDER and accepted PROJECT",
+      "type": "Other",
+      "tags": [
+        "E2E",
+        "CREATE_QUOTE",
+        "QUOTE_2_ORDER",
+        "PROJECT_ACCEPT",
+        "BOS_SALES_ORDER"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "BOS - Sample creation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A BOS sales-order template"
+        },
+        {
+          "phase": "when",
+          "label": "The quote is created, converted to an order and its sales-order linkage is saved"
+        },
+        {
+          "phase": "then",
+          "label": "The order's sales order is resolvable and its extended view matches the saved guid"
+        },
+        {
+          "phase": "when",
+          "label": "The project is accepted"
+        },
+        {
+          "phase": "then",
+          "label": "The accepted project exists and its sales-order linkage is still resolvable"
+        }
+      ]
+    },
+    {
+      "area": "BOS",
+      "spec": "BosSampleCreationTestSteps",
       "name": "sample creation - simple",
       "type": "E2E",
       "tags": [
@@ -2814,40 +2910,6 @@
           "label": "Partner events exist and test completes successfully"
         }
       ]
-    },
-    {
-      "area": "Fieldwork",
-      "spec": "FieldworkPartnerConfigurationTestSteps",
-      "name": "Add partners with configuration",
-      "type": "CRUD",
-      "tags": [
-        "PARTNER_EVENT",
-        "FIELDWORK"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Fieldwork - Partner configuration (dedicated project)",
-      "cases": 2,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Fieldwork/FieldworkPartnerConfigurationTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Set audience quotas to allow partner event creation"
-        },
-        {
-          "phase": "when",
-          "label": "The user creates a partner event with passthrough #passthroughEnabled"
-        },
-        {
-          "phase": "then",
-          "label": "The partner event is successfully created with correct configuration"
-        }
-      ],
-      "paramNote": "2 runs across phase"
     },
     {
       "area": "Fieldwork",
@@ -8694,7 +8756,7 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters - Search Filters & Conditions",
-      "cases": 16,
+      "cases": 18,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Parameter/ParameterSearchFiltersAndConditionsTestSteps.groovy",
       "ignored": false,
       "steps": [
@@ -8711,7 +8773,7 @@
           "label": "The system handles the text query appropriately"
         }
       ],
-      "paramNote": "16 runs across phase"
+      "paramNote": "18 runs across } else if (query == \"nonexistent\""
     },
     {
       "area": "Parameter",
@@ -8724,7 +8786,7 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters - Validation & Error Handling",
-      "cases": 4,
+      "cases": 5,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Parameter/ParameterValidationTestSteps.groovy",
       "ignored": false,
       "steps": [
@@ -8741,7 +8803,7 @@
           "label": "The system handles parameters with no answers appropriately"
         }
       ],
-      "paramNote": "4 runs across phase"
+      "paramNote": "5 runs across assert result.content.isEmpty()"
     },
     {
       "area": "Parameter",
@@ -8754,7 +8816,7 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters - Validation & Error Handling",
-      "cases": 10,
+      "cases": 13,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Parameter/ParameterValidationTestSteps.groovy",
       "ignored": false,
       "steps": [
@@ -8771,7 +8833,7 @@
           "label": "The system handles pagination edge cases appropriately"
         }
       ],
-      "paramNote": "10 runs across phase"
+      "paramNote": "13 runs across if (page < 0"
     },
     {
       "area": "Parameter",
@@ -8965,7 +9027,7 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Parameters - Validation & Error Handling",
-      "cases": 12,
+      "cases": 15,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Parameter/ParameterValidationTestSteps.groovy",
       "ignored": false,
       "steps": [
@@ -8982,7 +9044,7 @@
           "label": "The system handles pagination boundary values appropriately"
         }
       ],
-      "paramNote": "12 runs across phase"
+      "paramNote": "15 runs across if (page < 0"
     },
     {
       "area": "Parameter",
@@ -9572,7 +9634,7 @@
         },
         {
           "phase": "when",
-          "label": "Verify partner integration configuration"
+          "label": "Retrieve partner event to verify integration"
         },
         {
           "phase": "then",
@@ -9663,6 +9725,40 @@
           "label": "Complete partner event E2E workflow verified"
         }
       ]
+    },
+    {
+      "area": "PartnerEvent",
+      "spec": "PartnerEventConfigurationTestSteps",
+      "name": "Add partners with configuration",
+      "type": "CRUD",
+      "tags": [
+        "PARTNER_EVENT",
+        "FIELDWORK"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Partner Event - Configuration (dedicated project)",
+      "cases": 2,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventConfigurationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Set active phase"
+        },
+        {
+          "phase": "and",
+          "label": "Set audience quotas to allow partner event creation"
+        },
+        {
+          "phase": "when",
+          "label": "The user creates a partner event with passthrough #passthroughEnabled"
+        },
+        {
+          "phase": "then",
+          "label": "The partner event is successfully created with correct configuration"
+        }
+      ],
+      "paramNote": "2 runs across phase"
     },
     {
       "area": "PartnerEvent",
@@ -11331,7 +11427,7 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Partner Events - Workflows & Integration",
-      "cases": 4,
+      "cases": 6,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventWorkflowTestSteps.groovy",
       "ignored": false,
       "steps": [
@@ -11356,7 +11452,7 @@
           "label": "Default field #defaultField is properly configured"
         }
       ],
-      "paramNote": "4 runs across phase"
+      "paramNote": "6 runs across if (defaults.cost.supplierCpi == 0.0"
     },
     {
       "area": "PartnerEvent",
@@ -11982,7 +12078,7 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
-      "cases": 3,
+      "cases": 4,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ExclusionRulesTestSteps.groovy",
       "ignored": false,
       "steps": [
@@ -11999,7 +12095,7 @@
           "label": "An appropriate error is returned"
         }
       ],
-      "paramNote": "3 runs across exception.message.contains(\"There is no rule with this ruleId\")"
+      "paramNote": "4 runs across exception.message.contains(\"There is no rule with this ruleId\")"
     },
     {
       "area": "Project",
@@ -12013,7 +12109,7 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Projects - Exclusion Rules",
-      "cases": 2,
+      "cases": 3,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ExclusionRulesTestSteps.groovy",
       "ignored": false,
       "steps": [
@@ -12030,7 +12126,7 @@
           "label": "The unimplemented endpoint returns 500 with UnsupportedOperationException before any input validation"
         }
       ],
-      "paramNote": "2 runs across phase"
+      "paramNote": "3 runs across phase"
     },
     {
       "area": "Project",
@@ -19602,78 +19698,6 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeTestSteps",
-      "name": "Add project exclusion to quota group",
-      "type": "CRUD",
-      "tags": [
-        "EXCLUSION_RULES",
-        "QUOTA",
-        "DEDUPE"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - Deduplication & Exclusion Management",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupDedupeTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "when",
-          "label": "Create exclusion rule for project exclusion"
-        },
-        {
-          "phase": "then",
-          "label": "Exclusion rule is created"
-        }
-      ]
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupDedupeTestSteps",
-      "name": "Delete project exclusion from quota group",
-      "type": "CRUD",
-      "tags": [
-        "EXCLUSION_RULES",
-        "QUOTA",
-        "DEDUPE"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - Deduplication & Exclusion Management",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupDedupeTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Create exclusion rule first"
-        },
-        {
-          "phase": "when",
-          "label": "Delete exclusion rule"
-        },
-        {
-          "phase": "then",
-          "label": "Exclusion rule is deleted"
-        },
-        {
-          "phase": "when",
-          "label": "Attempt to retrieve deleted rule"
-        },
-        {
-          "phase": "then",
-          "label": "Rule cannot be found"
-        }
-      ]
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupDedupeTestSteps",
       "name": "Delete respondent exclusions from quota group",
       "type": "CRUD",
       "tags": [
@@ -19955,69 +19979,6 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupDedupeValidationTestSteps",
-      "name": "Delete exclusion rule that does not exist",
-      "type": "Validation",
-      "tags": [
-        "EXCLUSION_RULES",
-        "QUOTA",
-        "DEDUPE"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - Deduplication & Exclusion Validation",
-      "cases": 4,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupDedupeValidationTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "when",
-          "label": "Delete non-existent exclusion rule"
-        },
-        {
-          "phase": "then",
-          "label": "A validation error is returned"
-        }
-      ],
-      "paramNote": "4 runs across exception.message.contains(\"not found\")"
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupDedupeValidationTestSteps",
-      "name": "Delete exclusion rule with invalid rule ID",
-      "type": "Validation",
-      "tags": [
-        "EXCLUSION_RULES",
-        "QUOTA",
-        "DEDUPE",
-        "VALIDATION"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - Deduplication & Exclusion Validation",
-      "cases": 5,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupDedupeValidationTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "when",
-          "label": "Delete exclusion rule with invalid rule ID"
-        },
-        {
-          "phase": "then",
-          "label": "A validation error is returned"
-        }
-      ],
-      "paramNote": "5 runs across exception.message.contains(\"NotFoundInDb\")"
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupDedupeValidationTestSteps",
       "name": "Delete respondent exclusions with invalid quota group ID",
       "type": "Validation",
       "tags": [
@@ -20078,102 +20039,6 @@
         }
       ],
       "paramNote": "4 runs across exception.message.contains(\"not found\")"
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupDedupeValidationTestSteps",
-      "name": "Enable exclusion rule with invalid rule ID",
-      "type": "Validation",
-      "tags": [
-        "EXCLUSION_RULES",
-        "QUOTA",
-        "DEDUPE",
-        "VALIDATION"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - Deduplication & Exclusion Validation",
-      "cases": 5,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupDedupeValidationTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "when",
-          "label": "Enable exclusion rule with invalid rule ID"
-        },
-        {
-          "phase": "then",
-          "label": "A validation error is returned"
-        }
-      ],
-      "paramNote": "5 runs across exception.message.contains(\"NotFoundInDb\")"
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupDedupeValidationTestSteps",
-      "name": "Get exclusion rule with invalid rule ID",
-      "type": "Validation",
-      "tags": [
-        "EXCLUSION_RULES",
-        "QUOTA",
-        "DEDUPE",
-        "VALIDATION"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - Deduplication & Exclusion Validation",
-      "cases": 6,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupDedupeValidationTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "when",
-          "label": "Retrieve exclusion rule with invalid rule ID"
-        },
-        {
-          "phase": "then",
-          "label": "A validation error is returned"
-        }
-      ],
-      "paramNote": "6 runs across exception.message.contains(\"NotFoundInDb\")"
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupDedupeValidationTestSteps",
-      "name": "Get project exclusions with invalid project ID",
-      "type": "Validation",
-      "tags": [
-        "EXCLUSION_RULES",
-        "QUOTA",
-        "DEDUPE",
-        "VALIDATION"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - Deduplication & Exclusion Validation",
-      "cases": 6,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupDedupeValidationTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "when",
-          "label": "Retrieve project exclusions with invalid project ID"
-        },
-        {
-          "phase": "then",
-          "label": "A validation error is returned"
-        }
-      ],
-      "paramNote": "6 runs across exception.message.contains(\"not found\")"
     },
     {
       "area": "QuotaGroup",
@@ -20269,42 +20134,6 @@
         }
       ],
       "paramNote": "3 runs across phase"
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupDedupeValidationTestSteps",
-      "name": "Rename exclusion rule with invalid name",
-      "type": "Validation",
-      "tags": [
-        "EXCLUSION_RULES",
-        "QUOTA",
-        "DEDUPE",
-        "VALIDATION"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - Deduplication & Exclusion Validation",
-      "cases": 6,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupDedupeValidationTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Create exclusion rule"
-        },
-        {
-          "phase": "when",
-          "label": "Rename with invalid name"
-        },
-        {
-          "phase": "then",
-          "label": "A validation error is returned"
-        }
-      ],
-      "paramNote": "6 runs across exception.message.contains(\"validation\")"
     },
     {
       "area": "QuotaGroup",
@@ -20814,62 +20643,6 @@
         {
           "phase": "then",
           "label": "Total quota is updated correctly despite multiple disqualification parameters"
-        }
-      ]
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupE2ETestSteps",
-      "name": "Clone audience group and verify cloned audience group name has Cloned- prefix and quota group names have Cloned suffix",
-      "type": "CRUD",
-      "tags": [
-        "AUDIENCE_GROUP",
-        "PR_SMOKE",
-        "QUOTA",
-        "CLONE_QUOTA_GROUP",
-        "E2E"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - Long E2E lifecycle",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupE2ETestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Set active phase"
-        },
-        {
-          "phase": "and",
-          "label": "Create a fresh audience group with three named quota groups"
-        },
-        {
-          "phase": "when",
-          "label": "User clones the entire audience group"
-        },
-        {
-          "phase": "then",
-          "label": "Verify the cloned audience group was created with name prefixed with Cloned-"
-        },
-        {
-          "phase": "when",
-          "label": "Retrieve all quota groups from the cloned audience group"
-        },
-        {
-          "phase": "then",
-          "label": "Verify cloned quota groups exist"
-        },
-        {
-          "phase": "when",
-          "label": "Extract the names of all cloned quota groups"
-        },
-        {
-          "phase": "then",
-          "label": "Verify all cloned quota group names have original names with ' Cloned' appended"
-        },
-        {
-          "phase": "and",
-          "label": "Verify all cloned names end with ' Cloned'"
         }
       ]
     },
@@ -22482,6 +22255,79 @@
     },
     {
       "area": "SampleRules",
+      "spec": "SampleRulesE2ETestSteps",
+      "name": "SampleRules E2E - source-to-target rollout: configure, apply, verify",
+      "type": "E2E",
+      "tags": [
+        "E2E",
+        "SAMPLE_RULES",
+        "SOURCES",
+        "CHANNEL_CRITERIA",
+        "CHANNEL",
+        "BRAND_EXCLUSION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Sample Rules - Source rollout E2E",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/SampleRules/SampleRulesE2ETestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Active phase is PROJECT and the fixture's first quota group is the source"
+        },
+        {
+          "phase": "and",
+          "label": "Two target quota groups are created on the audience group (cloned for new countries, so they start from source defaults)"
+        },
+        {
+          "phase": "and",
+          "label": "The source quota group gets custom sample criteria"
+        },
+        {
+          "phase": "and",
+          "label": "The source quota group gets a manual channel distribution"
+        },
+        {
+          "phase": "when",
+          "label": "Mirroring of the source's setup options is previewed onto the first target"
+        },
+        {
+          "phase": "then",
+          "label": "A preview is produced and points back at the source quota group"
+        },
+        {
+          "phase": "when",
+          "label": "The source's sample requirements are applied to both targets"
+        },
+        {
+          "phase": "then",
+          "label": "Both targets carry the source's sample criteria toggles"
+        },
+        {
+          "phase": "and",
+          "label": "The apply-sources toggles view lists the source quota group"
+        },
+        {
+          "phase": "when",
+          "label": "Brand exclusions are saved for every quota group in the project"
+        },
+        {
+          "phase": "then",
+          "label": "The source and both targets carry the project brand exclusions"
+        },
+        {
+          "phase": "and",
+          "label": "The apply-sources brand exclusions view lists the source quota group"
+        },
+        {
+          "phase": "and",
+          "label": "The source quota group's source setup options are retrievable"
+        }
+      ]
+    },
+    {
+      "area": "SampleRules",
       "spec": "SampleRulesTestSteps",
       "name": "Configure channel distribution manually",
       "type": "CRUD",
@@ -23515,6 +23361,36 @@
         {
           "phase": "then",
           "label": "Preview is generated successfully and shows expected channel configuration"
+        }
+      ]
+    },
+    {
+      "area": "Security",
+      "spec": "GatewayAuthenticationMatrixTestSteps",
+      "name": "gateway rejects [#authScenario] to #endpoint with HTTP 401",
+      "type": "Validation",
+      "tags": [
+        "SECURITY",
+        "AUTHZ",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Security - Gateway authentication matrix",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Security/GatewayAuthenticationMatrixTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "An unauthenticated Nexus API client and a read endpoint on the /NexusApi/u1 surface"
+        },
+        {
+          "phase": "when",
+          "label": "The endpoint is called without valid authentication"
+        },
+        {
+          "phase": "then",
+          "label": "The gateway rejects it at the auth layer with 401 Unauthorized, not a routing/handler error"
         }
       ]
     },
@@ -27294,6 +27170,118 @@
     },
     {
       "area": "Survey",
+      "spec": "SurveyE2ETestSteps",
+      "name": "Survey E2E - fieldwork prep: create through activation, QG link, security and clone",
+      "type": "E2E",
+      "tags": [
+        "E2E",
+        "SURVEY",
+        "URL_POOL",
+        "PRESCREENER",
+        "END_LINK_SECURITY"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Survey - Fieldwork prep E2E",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyE2ETestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The E2E project is on the PROJECT phase"
+        },
+        {
+          "phase": "when",
+          "label": "The user creates a new survey"
+        },
+        {
+          "phase": "then",
+          "label": "The survey is created with the expected core attributes"
+        },
+        {
+          "phase": "and",
+          "label": "The survey is listed under the project"
+        },
+        {
+          "phase": "when",
+          "label": "The user configures a prescreener for the survey"
+        },
+        {
+          "phase": "then",
+          "label": "The prescreener URL is persisted"
+        },
+        {
+          "phase": "when",
+          "label": "The user updates the survey length"
+        },
+        {
+          "phase": "then",
+          "label": "The survey length is updated"
+        },
+        {
+          "phase": "when",
+          "label": "The user configures the base URL with a PSID tag"
+        },
+        {
+          "phase": "then",
+          "label": "The tagged base URL can be read back"
+        },
+        {
+          "phase": "when",
+          "label": "The user connects the quota group to the survey URL pool"
+        },
+        {
+          "phase": "then",
+          "label": "The quota group reflects the connected URL pool"
+        },
+        {
+          "phase": "when",
+          "label": "The user configures project end-link security"
+        },
+        {
+          "phase": "then",
+          "label": "The end-link security level is applied to the project"
+        },
+        {
+          "phase": "when",
+          "label": "The user activates the survey"
+        },
+        {
+          "phase": "then",
+          "label": "The survey is active"
+        },
+        {
+          "phase": "when",
+          "label": "The user generates test links for the survey"
+        },
+        {
+          "phase": "then",
+          "label": "A resolved test link is produced"
+        },
+        {
+          "phase": "and",
+          "label": "The generated test links can be listed"
+        },
+        {
+          "phase": "when",
+          "label": "The user clones the survey"
+        },
+        {
+          "phase": "then",
+          "label": "The clone is a distinct survey that exists under the project"
+        },
+        {
+          "phase": "when",
+          "label": "The user gives the clone a distinct URL, connects the quota group and activates it"
+        },
+        {
+          "phase": "then",
+          "label": "The clone is active and carries its own distinct URL"
+        }
+      ]
+    },
+    {
+      "area": "Survey",
       "spec": "SurveyEndLinkSecurityTestSteps",
       "name": "Change end-link security settings",
       "type": "CRUD",
@@ -27485,7 +27473,7 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Url Pools - Survey End-Link Security",
-      "cases": 7,
+      "cases": 8,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyEndLinkSecurityTestSteps.groovy",
       "ignored": false,
       "steps": [
@@ -27510,7 +27498,7 @@
           "label": "Links contain expected country and language codes"
         }
       ],
-      "paramNote": "7 runs across countryCode"
+      "paramNote": "8 runs across assert testLinksResponse.validationErrors() == null"
     },
     {
       "area": "Survey",

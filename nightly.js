@@ -139,7 +139,7 @@
     var driftHtml = "";
     var cd = n.contractDrift;
     if (cd && typeof cd.newCount === "number") {
-      var known = (cd.currentCount != null ? cd.currentCount : cd.baselineCount) || 0;
+      var known = (cd.baselineCount != null ? cd.baselineCount : cd.currentCount) || 0;
       var driftMsg = cd.newCount > 0
         ? ("\u26A0\uFE0F " + cd.newCount + " new contract violation" + (cd.newCount === 1 ? "" : "s") + " vs baseline")
         : "\u2705 No new contract drift";

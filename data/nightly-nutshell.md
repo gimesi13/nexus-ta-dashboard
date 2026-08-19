@@ -1,7 +1,7 @@
-**No new failures — 1 continuing server-side 500 (IndexOutOfBoundsException) in the QuotaGroup delete path.**
+**1 new failure in Quota**
 
-_Likely cause: continuing server-side 500 on DELETE dk-project-quota-group-rest QuotaGroup — a product bug, not infra; no commit deployed tonight maps to it._
+_Likely cause: VCS changes present but none map onto the failing packages — likely test/data, correlate manually._
 
-- 0 new; 1 continuing server 500 (IndexOutOfBoundsException) on DELETE QuotaGroup — product bug, not infra.
+- 1× QA 504 timeout — Feasibility Calculation unavailable!
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9474063)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9479427)
