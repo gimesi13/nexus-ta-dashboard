@@ -1545,28 +1545,22 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in Quota",
+    "headline": "1 new Quota failure \u2014 a feasibility HTTP 400, not the labeled 504 timeout",
     "tone": "warn",
     "severity": "low",
-    "cause": "mixed",
-    "causeText": "VCS changes present but none map onto the failing packages \u2014 likely test/data, correlate manually. NOTE: 8 service(s) were deployed to QA in this window (DemandApi, SetOperationRestJ21, ProjectArchiveRestJ21, DedupeRestJ21, OperatorRestJ21\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 QA 504 timeout (QA gateway timed out (504)). Gateway hits: dk-project-details-editor-rest, dk-project-feasibility-data-store.",
+    "cause": "test",
+    "causeText": "The lone new failure is a single HTTP 400 BAD_REQUEST (\"Feasibility Calculation unavailable!\") from dk-project-details-editor-rest on one Quota lock/unlock scenario \u2014 a data-dependent rejection, not the infra 504 the cluster label implies \u2014 and no TA-module commit or QA-deployed service maps to the feasibility endpoint.",
+    "investigation": "Despite the 'QA 504 timeout' cluster label, the real error is an HTTP 400 BAD_REQUEST on POST .../feasibilityDistribution while the sibling Nesting/Unnesting scenarios passed, pointing to an isolated test/data rejection rather than infra.",
     "bullets": [
-      "1\u00d7 QA 504 timeout \u2014 Feasibility Calculation unavailable!"
+      "1\u00d7 Quota feasibility HTTP 400 (not a 504) \u2014 'Feasibility Calculation unavailable!' on SoldQuotaLockUnlock 'Adding parameters'",
+      "No TA-module commit or QA-deployed service maps to the details-editor feasibility endpoint"
     ],
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2671, 1 fails). Failure types (new-first): (1) 1\u00d7 QA 504 timeout \u2014 QA gateway timed out (504) \u2014 infra / overloaded dependency. Hot areas among new fails: Quota (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 8 service(s) (92 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Quota: Adding parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility: c [QA 504 timeout].",
+      "investigation": "The single new failure \u2014 SoldQuotaLockUnlockWorkflow 'Adding parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility' \u2014 fails with HTTP 400 BAD_REQUEST 'Feasibility Calculation unavailable!' from dk-project-details-editor-rest's feasibilityDistribution endpoint, while its Nesting/Unnesting sibling scenarios passed, which points to a data-dependent request rejection rather than the '504 timeout' the coarse cluster label suggests. No NexusApiRegressionTests commit touches Quota/feasibility (they cover dashboard/docs/BOS/dependency pins), and none of the 8 QA-deployed services maps to the details-editor feasibility path, so a product code regression is not indicated.",
       "bullets": [
-        "1\u00d7 QA 504 timeout \u2014 Feasibility Calculation unavailable!",
-        "NXS-13674: gergely.gimesi \u2014 NXS-13674: fix contract-drift nutshell to label baseline count correctly",
-        "NXS-13674: gergely.gimesi \u2014 NXS-13674: fold BOS sales-order linkage check into sample-creation spec",
-        "NXS-13674: gergely.gimesi \u2014 NXS-13674: surface contract-drift on nightly dashboard (nightly.js render + v106)",
-        "[QA deploy: DemandApi]  (17 commits) \u2014 [PAC-761] DemandApi - new queue d365 project create msg handling",
-        "[QA deploy: SetOperationRestJ21] NXS-13668 (10 commits) \u2014 [NXS-13668] exclude group: 'io.swagger.core.v3'",
-        "[QA deploy: ProjectArchiveRestJ21] NXS-12114 (15 commits) \u2014 Merge pull request #557 from dynata/NXS-12114-DashboardRest-ecr-migration",
-        "[QA deploy: DedupeRestJ21]  (1 commit) \u2014 [ST-4997] DKNovaTranslatorRest DEV inventory for the Java 21 / Boot 3.5 image",
-        "[QA deploy: OperatorRestJ21]  (1 commit) \u2014 docs: weekly sync (2026-08-10)",
-        "[QA deploy: NexusApiJ21] NXS-13657 (19 commits) \u2014 [NXS-13657] - change value to path"
+        "New fail: Quota / SoldQuotaLockUnlockWorkflow 'Adding parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility' \u2014 HTTP 400 BAD_REQUEST 'Feasibility Calculation unavailable!' from dk-project-details-editor-rest",
+        "Cluster label 'QA 504 timeout' is inaccurate \u2014 the actual status is 400 BAD_REQUEST (data/request rejection), not a socket/gateway timeout",
+        "Sibling scenarios (Nesting/Unnesting) passed and no changed file or QA deploy maps to feasibility \u2014 likely transient test/data, not a code regression"
       ],
       "newFailureAreas": [
         {
@@ -1813,8 +1807,8 @@
         "deployedAt": "20260818T071313+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-08-19T02:37Z",
+    "source": "llm",
+    "generatedAt": "2026-08-19T02:37:00Z",
     "buildNumber": "3.0.2672",
     "buildId": "9479427",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9479427",
