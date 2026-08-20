@@ -1545,25 +1545,22 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in QuotaGroup",
+    "headline": "1 new QuotaGroup failure from a QA socket timeout on the D365 changeOrderStatus endpoint \u2014 infra, not a code regression.",
     "tone": "warn",
     "severity": "low",
-    "cause": "code_change",
-    "causeText": "Possibly NXS-13726 by gergely.gimesi \u2014 touches QuotaGroup (1 overlapping new fails). Correlation only. NOTE: 3 service(s) were deployed to QA in this window (EventForwarderRestJ16, NexusApiBosJ21, QuotaGroupRestJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 client/Feign socket timeout. Likely related to NXS-13726 gergely.gimesi `e49048d1bfd2` (QuotaGroup, 1 new fails in overlap).",
+    "cause": "infra",
+    "causeText": "The single new failure is a Feign RetryableException / java.net.SocketTimeoutException calling QA's d365/changeOrderStatus (a 500 wrapping a client timeout), i.e. a QA/infra timeout, not a code regression \u2014 the only test-module change (NXS-13726, gergely.gimesi) touched test helpers only and cannot cause product failures.",
+    "investigation": "The lone new fail's real message is java.net.SocketTimeoutException on POST d365/changeOrderStatus, so it's a QA timeout rather than an assertion or code change.",
     "bullets": [
-      "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
-      "Change NXS-13726: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails"
+      "1\u00d7 QuotaGroup \u2014 Feign SocketTimeoutException on POST d365/changeOrderStatus (500 wrapping a client timeout) = QA/infra timeout.",
+      "No code blame: NXS-13726 (gergely.gimesi) touched only test-helper .groovy files."
     ],
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2672, 1 fails). Failure types (new-first): (1) 1\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. Hot areas among new fails: QuotaGroup (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 3 service(s) (28 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout].",
+      "investigation": "The single new failure (QuotaGroup \u203a change order flow: request, evaluation, block traffic, approve) is a feign.RetryableException / java.net.SocketTimeoutException while POSTing to https://microservices-qa.dynata.com/NexusApi/v1/nexus/d365/changeOrderStatus, surfaced as a 500 from dk-project-crm-rest \u2014 a QA/infra timeout, not an assertion. No code regression is implicated: the only test-module commit (NXS-13726, gergely.gimesi) touched QuotaGroupHelper.groovy/SegmentDetailsHelper.groovy, which are test helpers and cannot cause product failures.",
       "bullets": [
-        "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
-        "Change NXS-13726: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails",
-        "NXS-13726 e49048d1bfd2 by gergely.gimesi \u2192 areas QuotaGroup (1 new fails) \u00b7 QuotaGroupHelper.groovy, SegmentDetailsHelper.groovy",
-        "[QA deploy: EventForwarderRestJ16]  (14 commits) \u2014 [FAI-431] regarget S3 zipped folder from the old lambda to the new one",
-        "[QA deploy: NexusApiBosJ21]  (11 commits) \u2014 [ PAC-760 ] Send LOI value to D365 directly from quotaGroupCore instead of feas ",
-        "[QA deploy: QuotaGroupRestJ21] NXS-13485 (3 commits) \u2014 [NXS-13485] - fix test"
+        "1\u00d7 QuotaGroup \u203a change order flow: request, evaluation, block traffic, approve \u2014 feign.RetryableException / java.net.SocketTimeoutException on POST d365/changeOrderStatus, wrapped as a 500.",
+        "Cause = QA/infra timeout (SocketTimeout), not an assertion failure.",
+        "No plausible code blame: NXS-13726 (gergely.gimesi) changed only test-module helper .groovy files."
       ],
       "newFailureAreas": [
         {
@@ -1571,22 +1568,7 @@
           "newCount": 1
         }
       ],
-      "likelyCauses": [
-        {
-          "version": "e49048d1bfd2",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13726",
-          "comment": "NXS-13726-feasibility-distribution-race poll distribution until feasibility ready",
-          "areas": [
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 1,
-          "files": [
-            "QuotaGroupHelper.groovy",
-            "SegmentDetailsHelper.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
     "clusters": [
       {
@@ -1773,8 +1755,8 @@
         "deployedAt": "20260819T070833+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-08-20T02:41Z",
+    "source": "llm",
+    "generatedAt": "2026-08-20T02:42:00Z",
     "buildNumber": "3.0.2673",
     "buildId": "9482712",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9482712",
