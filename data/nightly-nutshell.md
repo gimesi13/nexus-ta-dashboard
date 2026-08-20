@@ -1,7 +1,7 @@
-**1 new Quota failure — a feasibility HTTP 400, not the labeled 504 timeout**
+**1 new failure in QuotaGroup**
 
-_Likely cause: test/data — a single feasibility request was rejected (HTTP 400 "Feasibility Calculation unavailable!"); no code change or QA deploy maps to it._
+_Likely cause: Possibly NXS-13726 by gergely.gimesi — touches QuotaGroup (1 overlapping new fails)._
 
-- Quota / SoldQuotaLockUnlock "Adding parameters…triggers feasibility": HTTP 400 from dk-project-details-editor-rest; sibling scenarios passed.
+- 1× client/Feign socket timeout — feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9479427)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9482712)
