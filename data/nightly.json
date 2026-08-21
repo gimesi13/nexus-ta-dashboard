@@ -1556,19 +1556,22 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in PartnerEvent",
+    "headline": "1 new PartnerEvent failure \u2014 a server-side NPE (HTTP 500) on POST /partnerEvents, not infra or a test flake.",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 1\u00d7 server NestedServletException / NPE (QA threw NestedServletException/NPE/IOOB). Vs prior #3.0.2673: up 1 total fails.",
+    "cause": "code_change",
+    "causeText": "The one new failure is a deterministic server-side NullPointerException (HTTP 500 on POST /u1/nexus/partnerEvents, \"Cannot read field 'currencyCode' because 'qgPrice' is null\") \u2014 a product/server defect, not a timeout or test assertion \u2014 but no test-module or QA-deploy changes were captured this window, so no commit or developer can be named.",
+    "investigation": "One new PartnerEvent failure is a server NPE (500) on POST /partnerEvents; the second failure is a pre-existing (non-new) Feign socket timeout (infra).",
     "bullets": [
-      "1\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot read field \\"
+      "NEW \u00b7 PartnerEvent \u2014 server 500 NPE: Cannot read field 'currencyCode' because 'qgPrice' is null on POST /partnerEvents (product bug, not a timeout).",
+      "No test-module or QA-deploy changes in the window \u2014 no commit/developer to attribute; likelyCauses empty."
     ],
     "detail": {
-      "investigation": "1 of 2 unmuted failures are new since the prior build (#3.0.2673, 1 fails). Failure types (new-first): (1) 1\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. Hot areas among new fails: PartnerEvent (1). Example new failures: PartnerEvent: Verify quota group status in QUOTE phase with inactive partner event [server NestedServletException / NPE].",
+      "investigation": "1 of 2 unmuted failures is new since prior build #3.0.2673: PartnerEvent 'Verify quota group status in QUOTE phase with inactive partner event', which fails because POST /u1/nexus/partnerEvents returns HTTP 500 from dk-project-external-event-rest with java.lang.NullPointerException: Cannot read field 'currencyCode' because 'qgPrice' is null \u2014 a server-side product defect, not a timeout/502/504 (infra) or a test assertion. No test-module commits (changes=[]) and no QA-deploy commits (qaDeployChanges=[]) were captured this window, so the defect cannot be attributed to any commit or developer; the second failure (QuotaGroup ChangeOrderFlow) is a non-new Feign SocketTimeout (infra).",
       "bullets": [
-        "1\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot read field \\"
+        "NEW \u00b7 PartnerEvent: POST /u1/nexus/partnerEvents \u2192 500, NPE 'Cannot read field \"currencyCode\" because \"qgPrice\" is null' (server-side product bug).",
+        "Not new \u00b7 QuotaGroup ChangeOrderFlow: Feign SocketTimeout on d365/changeOrderStatus \u2014 infra, not a new failure.",
+        "Contract drift (2 new): partnerEvents 500 and quotaGroups 502 responses undefined in the OpenAPI spec \u2014 separate lane from the test failure."
       ],
       "newFailureAreas": [
         {
@@ -1599,8 +1602,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-08-21T02:37Z",
+    "source": "llm",
+    "generatedAt": "2026-08-21T02:37:00Z",
     "buildNumber": "3.0.2674",
     "buildId": "9483809",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9483809",

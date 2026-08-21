@@ -1,10 +1,7 @@
-**1 new failure in PartnerEvent**
+**1 new PartnerEvent failure — a server-side NPE (HTTP 500) on POST /partnerEvents, not infra or a test flake.**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: server-side NullPointerException (500) on POST /partnerEvents ("currencyCode" from a null "qgPrice") — a product bug, but no code changes were deployed this window, so no commit can be named._
 
-- 1× server NestedServletException / NPE — java.lang.NullPointerException:Cannot read field \
-
-⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
-- POST /u1/nexus/partnerEvents :: Response status 500 not defined for path '/u1/nexus/partnerEvents'.
+- NEW · PartnerEvent — server 500 NPE: Cannot read field 'currencyCode' because 'qgPrice' is null (product bug, not a timeout).
 
 [Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9483809)
