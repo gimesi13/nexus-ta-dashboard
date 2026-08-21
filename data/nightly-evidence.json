@@ -1,396 +1,70 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-20T02:41Z",
+  "generatedAt": "2026-08-21T02:37Z",
   "build": {
-    "number": "3.0.2673",
-    "buildId": "9482712",
+    "number": "3.0.2674",
+    "buildId": "9483809",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9482712",
-    "durationSec": 4083.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9483809",
+    "durationSec": 3829.0
   },
   "summary": {
     "tests": 1479,
-    "passed": 1391,
-    "failures": 1,
+    "passed": 1390,
+    "failures": 2,
     "errors": 0,
     "skipped": 0,
     "muted": 87,
     "newFailed": 1,
     "passRate": 99.9,
-    "timeSec": 4083.0
+    "timeSec": 3829.0
   },
   "prior": {
-    "buildId": "9479427",
-    "number": "3.0.2672",
+    "buildId": "9482712",
+    "number": "3.0.2673",
     "status": "FAILURE",
     "statusText": "Tests failed: 1 (1 new), passed: 1391, muted: 87",
-    "startDate": "20260819T013226+0000",
-    "durationSec": 3838.0,
+    "startDate": "20260820T013303+0000",
+    "durationSec": 4083.0,
     "failed": 1,
     "passed": 1391,
     "newFailed": 1
   },
-  "changes": [
-    {
-      "version": "e49048d1bfd2",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13726-feasibility-distribution-race poll distribution until feasibility ready",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/SegmentDetailsHelper.groovy"
-      ],
-      "areas": [
-        "QuotaGroup",
-        "SegmentDetails"
-      ]
-    }
-  ],
-  "qaDeployChanges": [
-    {
-      "service": "EventForwarderRestJ16",
-      "version": "6db598c2471e",
-      "username": "grace.chen",
-      "comment": "[FAI-431] regarget S3 zipped folder from the old lambda to the new one",
-      "files": [
-        "ml-data-capture-bucket/cloud-formation.template.yml",
-        "ml-data-capture-bucket/group_vars/all.yml",
-        "ml-data-capture-bucket/group_vars/dev.yml",
-        "ml-data-capture-bucket/group_vars/production.yml",
-        "ml-data-capture-bucket/group_vars/qa.yml",
-        "ml-reconciliation-model/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260819T085933+0000"
-    },
-    {
-      "service": "EventForwarderRestJ16",
-      "version": "44db7ef8e737",
-      "username": "grace.chen",
-      "comment": "[FAI-431] regarget S3 zipped folder from the old lambda to the new one",
-      "files": [
-        "ml-data-capture-bucket/group_vars/dev.yml",
-        "ml-data-capture-bucket/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260819T085933+0000"
-    },
-    {
-      "service": "EventForwarderRestJ16",
-      "version": "dede0eb754e0",
-      "username": "partlo2012",
-      "comment": "Renaming target group",
-      "files": [
-        "dupe-collect-canary/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260819T085933+0000"
-    },
-    {
-      "service": "EventForwarderRestJ16",
-      "version": "ad7089aa89bb",
-      "username": "partlo2012",
-      "comment": "Renaming",
-      "files": [
-        "dupe-collect-canary/cloud-formation.template.yml",
-        "dupe-collect-canary/group_vars/all.yml",
-        "dupe-collect-canary/group_vars/dev.yml",
-        "dupe-collect-canary/group_vars/production.yml",
-        "dupe-collect-canary/group_vars/qa.yml",
-        "dupe-collect-canary/inventory.ini",
-        "dupe-collect-service-canary/cloud-formation.template.yml",
-        "dupe-collect-service-canary/group_vars/all.yml",
-        "dupe-collect-service-canary/group_vars/dev.yml",
-        "dupe-collect-service-canary/group_vars/production.yml",
-        "dupe-collect-service-canary/group_vars/qa.yml",
-        "dupe-collect-service-canary/inventory.ini"
-      ],
-      "deployedAt": "20260819T085933+0000"
-    },
-    {
-      "service": "EventForwarderRestJ16",
-      "version": "f243874f7562",
-      "username": "partlo2012",
-      "comment": "Creating canary service for Dupe Collect",
-      "files": [
-        "dupe-collect-service-canary/cloud-formation.template.yml",
-        "dupe-collect-service-canary/group_vars/all.yml",
-        "dupe-collect-service-canary/group_vars/dev.yml",
-        "dupe-collect-service-canary/group_vars/production.yml",
-        "dupe-collect-service-canary/group_vars/qa.yml",
-        "dupe-collect-service-canary/inventory.ini"
-      ],
-      "deployedAt": "20260819T085933+0000"
-    },
-    {
-      "service": "EventForwarderRestJ16",
-      "version": "02ce3db980c9",
-      "username": "bradley.clawson",
-      "comment": "adding pelican sec groups to alcatraz",
-      "files": [
-        "alcatraz/cloud-formation.template.yml",
-        "alcatraz/group_vars/dev.yml",
-        "alcatraz/group_vars/production.yml",
-        "alcatraz/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260819T085933+0000"
-    },
-    {
-      "service": "EventForwarderRestJ16",
-      "version": "b8a330478c0f",
-      "username": "partlo2012",
-      "comment": "Adjusting Guardian Java opts",
-      "files": [
-        "guardian/group_vars/dev.yml",
-        "guardian/group_vars/production.yml",
-        "guardian/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260819T085933+0000"
-    },
-    {
-      "service": "EventForwarderRestJ16",
-      "version": "790abaf88db0",
-      "username": "grace.chen",
-      "comment": "[FAI-431] set ReconciliationDataCaptureDecompressLambdaArn for qa",
-      "files": [
-        "ml-data-capture-bucket/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260819T085933+0000"
-    },
-    {
-      "service": "EventForwarderRestJ16",
-      "version": "a63323af9439",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-12134 ] ecr migration",
-      "files": [
-        "dk-project-overview-rest/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260819T085933+0000"
-    },
-    {
-      "service": "EventForwarderRestJ16",
-      "version": "26c1015e3db8",
-      "username": "norbert.farkas",
-      "comment": "Merge pull request #564 from dynata/NXS-12120-EventForwarderRest-ecr-migration",
-      "files": [],
-      "deployedAt": "20260819T085933+0000"
-    },
-    {
-      "service": "EventForwarderRestJ16",
-      "version": "e6eacf75dffa",
-      "username": "norbert.farkas",
-      "comment": "Merge pull request #558 from dynata/NXS-12121-ExportCountersRest-ecr-migration",
-      "files": [],
-      "deployedAt": "20260819T085933+0000"
-    },
-    {
-      "service": "EventForwarderRestJ16",
-      "version": "07bff0b14d29",
-      "username": "norbert.farkas",
-      "comment": "Merge pull request #593 from dynata/NXS-13538-ProjectMembershipRest-ecr-migration",
-      "files": [],
-      "deployedAt": "20260819T085933+0000"
-    },
-    {
-      "service": "EventForwarderRestJ16",
-      "version": "00ef8385a565",
-      "username": "norbert.farkas",
-      "comment": "Merge pull request #577 from dynata/NXS-12146-ResourceBrowserRest-ecr-migration",
-      "files": [],
-      "deployedAt": "20260819T085933+0000"
-    },
-    {
-      "service": "EventForwarderRestJ16",
-      "version": "5af0713c9e1f",
-      "username": "gabor.fial",
-      "comment": "[PAC-761] DemandApi - new queue d365 project create msg handling",
-      "files": [
-        "demand-api-rest/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260819T085933+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "version": "4ec1b6a904a6",
-      "username": "43554565+kokusz19",
-      "comment": "[ PAC-760 ] Send LOI value to D365 directly from quotaGroupCore instead of feas caltulation (#5271)",
-      "files": [
-        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/v1/service/ProductService.java",
-        "gateway/unifiedApi/NexusApiBos/src/test/groovy/com/dynata/rest/gateway/nexusapibos/v1/api/D365ApiTest.groovy",
-        "gateway/unifiedApi/NexusApiBos/src/test/groovy/com/dynata/rest/gateway/nexusapibos/v1/service/ProductServiceTest.groovy"
-      ],
-      "deployedAt": "20260819T081547+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "version": "21dc12a5b7b8",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-13602 ] ecr migration",
-      "files": [
-        "dk-management-notification-handler-rest/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260819T081547+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "version": "a60a53f512f8",
-      "username": "mate.csicsek",
-      "comment": "Merge pull request #612 from dynata/dynataplus-endlink-endpoints-hotfix",
-      "files": [],
-      "deployedAt": "20260819T081547+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "version": "3913c1b81d4c",
-      "username": "mate.csicsek",
-      "comment": "Update endlinkSecurity endpoint to use sampleId instead of projectId and streamline PATCH integration",
-      "files": [
-        "project-backend-plus-api-gateway/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260819T081547+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "version": "2f09e785045d",
-      "username": "mate.csicsek",
-      "comment": "Merge pull request #611 from dynata/endlink-security-gateway-dplus",
-      "files": [],
-      "deployedAt": "20260819T081547+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "version": "a5ff530b9d3b",
-      "username": "mate.csicsek",
-      "comment": "add new endpoints for endlinkSecurity with GET and PATCH methods",
-      "files": [
-        "project-backend-plus-api-gateway/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260819T081547+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "version": "05566577bfd6",
-      "username": "adam.veres",
-      "comment": "FEAS-2493 Fix description",
-      "files": [
-        "redi-elastic-gateway/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260819T081547+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "version": "4ec4c4c115e0",
-      "username": "adam.veres",
-      "comment": "FEAS-2493 Add HTTPS endpoint to gateway too",
-      "files": [
-        "redi-elastic-gateway/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260819T081547+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "version": "f4a61219337c",
-      "username": "szabolcs.fekete",
-      "comment": "DAI removing depricated KB stack",
-      "files": [
-        "ae-debug-ai-knowledge-base/cloud-formation.template.yml",
-        "ae-debug-ai-knowledge-base/group_vars/all.yml"
-      ],
-      "deployedAt": "20260819T081547+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "version": "beabab5d3b42",
-      "username": "grace.chen",
-      "comment": "[FAI-431] set DataCaptureDecompressLambdaName for dev",
-      "files": [
-        "ml-data-capture-bucket/group_vars/dev.yml"
-      ],
-      "deployedAt": "20260819T081547+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "version": "e7a4a393c099",
-      "username": "grace.chen",
-      "comment": "[FAI-431] point capture data at zipped bucket, update AllowS3Invoke to zipped bucket ARN",
-      "files": [
-        "ml-reconciliation-model/cloud-formation.template.yml",
-        "ml-reconciliation-model/group_vars/all.yml"
-      ],
-      "deployedAt": "20260819T081547+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "2cc2720272a0",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-13485] - fix test",
-      "files": [
-        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/quota/v2/sql/SqlTestBase.groovy"
-      ],
-      "deployedAt": "20260819T070833+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "fbf7fe82d39e",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-13485] - fix test",
-      "files": [
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandlerTest.groovy"
-      ],
-      "deployedAt": "20260819T070833+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "83c11a87dc46",
-      "username": "60962201+gyarmatitamas",
-      "comment": "[NXS-13485, NXS-13669] - QuotaGroupRest - EventBridge scheduler handling (#5259)",
-      "files": [
-        "project/QuotaGroupRest/README.md",
-        "project/QuotaGroupRest/build.gradle",
-        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupSchedulingRestAcceptanceTest.groovy",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/EventBridgeScheduleHandler.java",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandler.java",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/config/SchedulerClientConfiguration.java",
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/components/EventBridgeScheduleHandlerTest.groovy",
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandlerTest.groovy"
-      ],
-      "deployedAt": "20260819T070833+0000"
-    }
-  ],
-  "qaDeployServices": [
-    {
-      "service": "EventForwarderRestJ16",
-      "commits": 14,
-      "latestTicket": "",
-      "latestComment": "[FAI-431] regarget S3 zipped folder from the old lambda to the new one",
-      "deployedAt": "20260819T085933+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "commits": 11,
-      "latestTicket": "",
-      "latestComment": "[ PAC-760 ] Send LOI value to D365 directly from quotaGroupCore instead of feas ",
-      "deployedAt": "20260819T081547+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "commits": 3,
-      "latestTicket": "NXS-13485",
-      "latestComment": "[NXS-13485] - fix test",
-      "deployedAt": "20260819T070833+0000"
-    }
-  ],
+  "changes": [],
+  "qaDeployChanges": [],
+  "qaDeployServices": [],
   "clusters": [
+    {
+      "label": "server_exception",
+      "display": "server NestedServletException / NPE",
+      "count": 1,
+      "newCount": 1,
+      "sample": "java.lang.NullPointerException:Cannot read field \\",
+      "why": "QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path"
+    },
     {
       "label": "infra_timeout",
       "display": "client/Feign socket timeout",
       "count": 1,
-      "newCount": 1,
-      "sample": "feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
+      "newCount": 0,
+      "sample": "",
       "why": "Feign/client socket timeout talking to a QA service"
     }
   ],
   "failures": [
     {
+      "name": "Verify quota group status in QUOTE phase with inactive partner event",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventWorkflowTestSteps",
+      "newFailure": true,
+      "area": "PartnerEvent",
+      "cluster": "server_exception",
+      "message": "java.lang.NullPointerException:Cannot read field \\",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot read field \\\"currencyCode\\\" because \\\"qgPrice\\\" \u2026"
+    },
+    {
       "name": "change order flow: request, evaluation, block traffic, approve",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.ChangeOrderFlowTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "QuotaGroup",
       "cluster": "infra_timeout",
       "message": "feign.RetryableException:timeout executing POST https://microservices-qa.dynata.com/NexusApi/v1/nexus/d365/changeOrderStatus Caused by: java.net.SocketTimeoutE\u2026",
@@ -398,205 +72,37 @@
     }
   ],
   "rulesNutshell": {
-    "headline": "1 new failure in QuotaGroup",
+    "headline": "1 new failure in PartnerEvent",
     "tone": "warn",
     "severity": "low",
     "bullets": [
-      "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
-      "Change NXS-13726: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails"
+      "1\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot read field \\"
     ],
-    "investigation": "New fails: 1\u00d7 client/Feign socket timeout. Likely related to NXS-13726 gergely.gimesi `e49048d1bfd2` (QuotaGroup, 1 new fails in overlap).",
+    "investigation": "New fails: 1\u00d7 server NestedServletException / NPE (QA threw NestedServletException/NPE/IOOB). Vs prior #3.0.2673: up 1 total fails.",
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2672, 1 fails). Failure types (new-first): (1) 1\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. Hot areas among new fails: QuotaGroup (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 3 service(s) (28 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout].",
+      "investigation": "1 of 2 unmuted failures are new since the prior build (#3.0.2673, 1 fails). Failure types (new-first): (1) 1\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. Hot areas among new fails: PartnerEvent (1). Example new failures: PartnerEvent: Verify quota group status in QUOTE phase with inactive partner event [server NestedServletException / NPE].",
       "bullets": [
-        "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
-        "Change NXS-13726: gergely.gimesi \u00b7 QuotaGroup \u00b7 1 overlapping new fails",
-        "NXS-13726 e49048d1bfd2 by gergely.gimesi \u2192 areas QuotaGroup (1 new fails) \u00b7 QuotaGroupHelper.groovy, SegmentDetailsHelper.groovy",
-        "[QA deploy: EventForwarderRestJ16]  (14 commits) \u2014 [FAI-431] regarget S3 zipped folder from the old lambda to the new one",
-        "[QA deploy: NexusApiBosJ21]  (11 commits) \u2014 [ PAC-760 ] Send LOI value to D365 directly from quotaGroupCore instead of feas ",
-        "[QA deploy: QuotaGroupRestJ21] NXS-13485 (3 commits) \u2014 [NXS-13485] - fix test"
+        "1\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot read field \\"
       ],
       "newFailureAreas": [
         {
-          "area": "QuotaGroup",
+          "area": "PartnerEvent",
           "newCount": 1
         }
       ],
-      "likelyCauses": [
-        {
-          "version": "e49048d1bfd2",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13726",
-          "comment": "NXS-13726-feasibility-distribution-race poll distribution until feasibility ready",
-          "areas": [
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 1,
-          "files": [
-            "QuotaGroupHelper.groovy",
-            "SegmentDetailsHelper.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
-    "suspectCommits": [
-      {
-        "version": "e49048d1bfd2",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13726-feasibility-distribution-race poll distribution until feasibility ready",
-        "ticket": "NXS-13726",
-        "areas": [
-          "QuotaGroup"
-        ]
-      }
-    ],
-    "qaDeploySuspects": [
-      {
-        "service": "EventForwarderRestJ16",
-        "version": "6db598c2471e",
-        "username": "grace.chen",
-        "comment": "[FAI-431] regarget S3 zipped folder from the old lambda to the new one",
-        "ticket": "",
-        "deployedAt": "20260819T085933+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "dev.yml",
-          "production.yml",
-          "qa.yml",
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "EventForwarderRestJ16",
-        "version": "44db7ef8e737",
-        "username": "grace.chen",
-        "comment": "[FAI-431] regarget S3 zipped folder from the old lambda to the new one",
-        "ticket": "",
-        "deployedAt": "20260819T085933+0000",
-        "files": [
-          "dev.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "EventForwarderRestJ16",
-        "version": "dede0eb754e0",
-        "username": "partlo2012",
-        "comment": "Renaming target group",
-        "ticket": "",
-        "deployedAt": "20260819T085933+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "EventForwarderRestJ16",
-        "version": "ad7089aa89bb",
-        "username": "partlo2012",
-        "comment": "Renaming",
-        "ticket": "",
-        "deployedAt": "20260819T085933+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "dev.yml",
-          "production.yml",
-          "qa.yml",
-          "inventory.ini"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "EventForwarderRestJ16",
-        "version": "f243874f7562",
-        "username": "partlo2012",
-        "comment": "Creating canary service for Dupe Collect",
-        "ticket": "",
-        "deployedAt": "20260819T085933+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "dev.yml",
-          "production.yml",
-          "qa.yml",
-          "inventory.ini"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "EventForwarderRestJ16",
-        "version": "02ce3db980c9",
-        "username": "bradley.clawson",
-        "comment": "adding pelican sec groups to alcatraz",
-        "ticket": "",
-        "deployedAt": "20260819T085933+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "dev.yml",
-          "production.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "EventForwarderRestJ16",
-        "version": "b8a330478c0f",
-        "username": "partlo2012",
-        "comment": "Adjusting Guardian Java opts",
-        "ticket": "",
-        "deployedAt": "20260819T085933+0000",
-        "files": [
-          "dev.yml",
-          "production.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "EventForwarderRestJ16",
-        "version": "790abaf88db0",
-        "username": "grace.chen",
-        "comment": "[FAI-431] set ReconciliationDataCaptureDecompressLambdaArn for qa",
-        "ticket": "",
-        "deployedAt": "20260819T085933+0000",
-        "files": [
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "EventForwarderRestJ16",
-        "version": "a63323af9439",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-12134 ] ecr migration",
-        "ticket": "NXS-12134",
-        "deployedAt": "20260819T085933+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "EventForwarderRestJ16",
-        "version": "26c1015e3db8",
-        "username": "norbert.farkas",
-        "comment": "Merge pull request #564 from dynata/NXS-12120-EventForwarderRest-ecr-migration",
-        "ticket": "NXS-12120",
-        "deployedAt": "20260819T085933+0000",
-        "files": [],
-        "scope": "qa-deploy"
-      }
-    ]
+    "suspectCommits": [],
+    "qaDeploySuspects": []
   },
   "contractDrift": {
-    "newCount": 0,
+    "newCount": 2,
     "baselineCount": 94,
-    "currentCount": 92,
-    "examples": []
+    "currentCount": 94,
+    "examples": [
+      "POST /u1/nexus/partnerEvents :: Response status 500 not defined for path '/u1/nexus/partnerEvents'.",
+      "POST /u1/nexus/quotaGroups :: Response status 502 not defined for path '/u1/nexus/quotaGroups'."
+    ]
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."
 }
