@@ -1560,15 +1560,18 @@
     "tone": "warn",
     "severity": "low",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 1\u00d7 QA 504 timeout (QA gateway timed out (504)).",
+    "causeText": "The lone new failure is an assertion in Fieldwork (deliveryMode came back MANUAL, expected SLOWEST) \u2014 not the 504 its cluster label implies \u2014 and with no code or QA-deploy changes in the window it points to test/data, not a regression.",
+    "investigation": "1 new failure: a Fieldwork delivery-mode assertion (MANUAL vs SLOWEST) mislabeled as a 504; no build changes to blame.",
     "bullets": [
-      "1\u00d7 QA 504 timeout"
+      "Fieldwork delivery-mode assertion: got MANUAL, expected SLOWEST (not a 504)",
+      "No code or QA-deploy changes this window \u2014 test/data, not a regression"
     ],
     "detail": {
-      "investigation": "1 of 2 unmuted failures are new since the prior build (#3.0.2674, 2 fails). Failure types (new-first): (1) 1\u00d7 QA 504 timeout \u2014 QA gateway timed out (504) \u2014 infra / overloaded dependency. Hot areas among new fails: Fieldwork (1). Example new failures: Fieldwork: Configure all delivery mode variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps. [QA 504 timeout].",
+      "investigation": "The single new failure \u2014 Fieldwork 'Configure all delivery mode variations' \u2014 is an assertion (delivery.deliveryMode.toString() == deliveryMode returned MANUAL, expected SLOWEST), so the infra_504 cluster label is misleading. With no commits in changes or qaDeployChanges this window there is no code to implicate, so it reads as test/data; the older QuotaGroup 'change order flow' failure is a genuine QA timeout (SocketTimeout/500) but is not new.",
       "bullets": [
-        "1\u00d7 QA 504 timeout"
+        "New: Fieldwork 'Configure all delivery mode variations' \u2014 assertion, deliveryMode returned MANUAL, expected SLOWEST (cluster label infra_504 is wrong)",
+        "No changes or qaDeployChanges in window \u2014 no commit/developer to implicate; likely test/data",
+        "Older QuotaGroup 'change order flow' failure is infra (feign SocketTimeout/500) but not new"
       ],
       "newFailureAreas": [
         {
@@ -1591,8 +1594,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-08-22T02:37Z",
+    "source": "llm",
+    "generatedAt": "2026-08-22T02:37:00Z",
     "buildNumber": "3.0.2675",
     "buildId": "9484034",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9484034",
