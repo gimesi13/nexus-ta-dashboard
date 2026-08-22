@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-21T02:37Z",
+  "generatedAt": "2026-08-22T02:37Z",
   "build": {
-    "number": "3.0.2674",
-    "buildId": "9483809",
+    "number": "3.0.2675",
+    "buildId": "9484034",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9483809",
-    "durationSec": 3829.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9484034",
+    "durationSec": 3824.0
   },
   "summary": {
     "tests": 1479,
@@ -17,17 +17,17 @@
     "muted": 87,
     "newFailed": 1,
     "passRate": 99.9,
-    "timeSec": 3829.0
+    "timeSec": 3824.0
   },
   "prior": {
-    "buildId": "9482712",
-    "number": "3.0.2673",
+    "buildId": "9483809",
+    "number": "3.0.2674",
     "status": "FAILURE",
-    "statusText": "Tests failed: 1 (1 new), passed: 1391, muted: 87",
-    "startDate": "20260820T013303+0000",
-    "durationSec": 4083.0,
-    "failed": 1,
-    "passed": 1391,
+    "statusText": "Tests failed: 2 (1 new), passed: 1390, muted: 87",
+    "startDate": "20260821T013223+0000",
+    "durationSec": 3829.0,
+    "failed": 2,
+    "passed": 1390,
     "newFailed": 1
   },
   "changes": [],
@@ -35,58 +35,50 @@
   "qaDeployServices": [],
   "clusters": [
     {
-      "label": "server_exception",
-      "display": "server NestedServletException / NPE",
-      "count": 1,
+      "label": "infra_504",
+      "display": "QA 504 timeout",
+      "count": 2,
       "newCount": 1,
-      "sample": "java.lang.NullPointerException:Cannot read field \\",
-      "why": "QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path"
-    },
-    {
-      "label": "infra_timeout",
-      "display": "client/Feign socket timeout",
-      "count": 1,
-      "newCount": 0,
       "sample": "",
-      "why": "Feign/client socket timeout talking to a QA service"
+      "why": "QA gateway timed out (504) \u2014 infra / overloaded dependency"
     }
   ],
   "failures": [
     {
-      "name": "Verify quota group status in QUOTE phase with inactive partner event",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventWorkflowTestSteps",
+      "name": "Configure all delivery mode variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkDeliveryTestSteps.Configure all delivery mode variations",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkDeliveryTestSteps",
       "newFailure": true,
-      "area": "PartnerEvent",
-      "cluster": "server_exception",
-      "message": "java.lang.NullPointerException:Cannot read field \\",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-external-event-rest.nexus-ms-qa.dynata.com:8080/api/ExternalEvent/u1/partnerEvents?userId=7404\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot read field \\\"currencyCode\\\" because \\\"qgPrice\\\" \u2026"
+      "area": "Fieldwork",
+      "cluster": "infra_504",
+      "message": "Condition not satisfied:",
+      "detailsExcerpt": "Condition not satisfied: delivery.deliveryMode.toString() == deliveryMode | | | | | | MANUAL MANUAL | SLOWEST | false | 7 differences (0% similarity) | (MANUAL-) | (SLOWEST) <com.dynata.nexus.api.model.quotagroup.Delivery@7a85dc58 deliveryMode=MANUAL dailyQuota=150 clickRatePerUnit=null clickRateUnit=null prioritizationLevel=NONE prioritizationChangedAt=null deliveryVisibleOnUI=true boostOptionsV\u2026"
     },
     {
       "name": "change order flow: request, evaluation, block traffic, approve",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.ChangeOrderFlowTestSteps",
       "newFailure": false,
       "area": "QuotaGroup",
-      "cluster": "infra_timeout",
+      "cluster": "infra_504",
       "message": "feign.RetryableException:timeout executing POST https://microservices-qa.dynata.com/NexusApi/v1/nexus/d365/changeOrderStatus Caused by: java.net.SocketTimeoutE\u2026",
       "detailsExcerpt": "java.lang.RuntimeException: http://dk-project-crm-rest.nexus-ms-qa.dynata.com:8115/api/Crm/u1/test/changeOrderStatus 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"feign.RetryableException:timeout executing POST https://microservices-qa.dynata.com/NexusApi/v1/nexus/d365/changeOrderStatus \\nCaused by: java.net.SocketTimeoutException:timeout\" } ], \"version\" : \"1.0\" } at com.dy\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "1 new failure in PartnerEvent",
+    "headline": "1 new failure in Fieldwork",
     "tone": "warn",
     "severity": "low",
     "bullets": [
-      "1\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot read field \\"
+      "1\u00d7 QA 504 timeout"
     ],
-    "investigation": "New fails: 1\u00d7 server NestedServletException / NPE (QA threw NestedServletException/NPE/IOOB). Vs prior #3.0.2673: up 1 total fails.",
+    "investigation": "New fails: 1\u00d7 QA 504 timeout (QA gateway timed out (504)).",
     "detail": {
-      "investigation": "1 of 2 unmuted failures are new since the prior build (#3.0.2673, 1 fails). Failure types (new-first): (1) 1\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. Hot areas among new fails: PartnerEvent (1). Example new failures: PartnerEvent: Verify quota group status in QUOTE phase with inactive partner event [server NestedServletException / NPE].",
+      "investigation": "1 of 2 unmuted failures are new since the prior build (#3.0.2674, 2 fails). Failure types (new-first): (1) 1\u00d7 QA 504 timeout \u2014 QA gateway timed out (504) \u2014 infra / overloaded dependency. Hot areas among new fails: Fieldwork (1). Example new failures: Fieldwork: Configure all delivery mode variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps. [QA 504 timeout].",
       "bullets": [
-        "1\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot read field \\"
+        "1\u00d7 QA 504 timeout"
       ],
       "newFailureAreas": [
         {
-          "area": "PartnerEvent",
+          "area": "Fieldwork",
           "newCount": 1
         }
       ],
@@ -96,13 +88,10 @@
     "qaDeploySuspects": []
   },
   "contractDrift": {
-    "newCount": 2,
+    "newCount": 0,
     "baselineCount": 94,
-    "currentCount": 94,
-    "examples": [
-      "POST /u1/nexus/partnerEvents :: Response status 500 not defined for path '/u1/nexus/partnerEvents'.",
-      "POST /u1/nexus/quotaGroups :: Response status 502 not defined for path '/u1/nexus/quotaGroups'."
-    ]
+    "currentCount": 92,
+    "examples": []
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."
 }

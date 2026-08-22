@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-21T02:37Z",
+  "generatedAt": "2026-08-22T02:37Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-08-15",
-      "to": "2026-08-21",
+      "from": "2026-08-16",
+      "to": "2026-08-22",
       "featuresAdded": 6,
       "casesAdded": 6,
       "areasTouched": 5,
@@ -188,19 +188,19 @@
       ]
     },
     "14d": {
-      "from": "2026-08-08",
-      "to": "2026-08-21",
-      "featuresAdded": 298,
-      "casesAdded": 497,
+      "from": "2026-08-09",
+      "to": "2026-08-22",
+      "featuresAdded": 297,
+      "casesAdded": 496,
       "areasTouched": 14,
-      "ticketsTouched": 4,
+      "ticketsTouched": 3,
       "byType": {
         "CRUD": 103,
         "Validation": 60,
         "Workflow": 66,
         "Query": 15,
         "E2E": 2,
-        "Other": 52
+        "Other": 51
       },
       "byArea": [
         {
@@ -240,11 +240,11 @@
           "featuresAdded": 7
         },
         {
-          "area": "BOS",
-          "featuresAdded": 3
+          "area": "AudienceGroup",
+          "featuresAdded": 2
         },
         {
-          "area": "AudienceGroup",
+          "area": "BOS",
           "featuresAdded": 2
         },
         {
@@ -272,12 +272,6 @@
           "featuresAdded": 47,
           "casesAdded": 47,
           "latestDate": "2026-08-14"
-        },
-        {
-          "key": "NXS-13653",
-          "featuresAdded": 1,
-          "casesAdded": 1,
-          "latestDate": "2026-08-08"
         },
         {
           "key": "NXS-13673",
@@ -6752,51 +6746,28 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=View%20user%20settings"
-        },
-        {
-          "name": "sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
-          "date": "2026-08-08",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13653 MS - Migrate D365 + CRM-field-parity workflows into tagged tests/steps",
-          "commit": "6706f183ea",
-          "tickets": [
-            "NXS-13653"
-          ],
-          "area": "BOS",
-          "spec": "BosSampleCreationTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "CREATE_QUOTE",
-            "QUOTE_2_ORDER",
-            "PROJECT_ACCEPT",
-            "CRM_FIELDS"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=sample%20creation%20-%20CRM%20fields%20propagate%20across%20QUOTE%2C%20ORDER%20and%20PROJECT"
         }
       ]
     },
     "30d": {
-      "from": "2026-07-23",
-      "to": "2026-08-21",
-      "featuresAdded": 336,
-      "casesAdded": 535,
+      "from": "2026-07-24",
+      "to": "2026-08-22",
+      "featuresAdded": 311,
+      "casesAdded": 510,
       "areasTouched": 14,
-      "ticketsTouched": 6,
+      "ticketsTouched": 5,
       "byType": {
-        "CRUD": 109,
-        "Validation": 77,
-        "Workflow": 72,
-        "Query": 18,
+        "CRUD": 104,
+        "Validation": 66,
+        "Workflow": 67,
+        "Query": 16,
         "E2E": 3,
-        "Other": 57
+        "Other": 55
       },
       "byArea": [
         {
           "area": "QuotaGroup",
-          "featuresAdded": 114
+          "featuresAdded": 111
         },
         {
           "area": "PES",
@@ -6808,15 +6779,11 @@
         },
         {
           "area": "PartnerEvent",
-          "featuresAdded": 30
-        },
-        {
-          "area": "Survey",
           "featuresAdded": 27
         },
         {
-          "area": "Project",
-          "featuresAdded": 22
+          "area": "Survey",
+          "featuresAdded": 23
         },
         {
           "area": "SampleRules",
@@ -6829,6 +6796,10 @@
         {
           "area": "Fieldwork",
           "featuresAdded": 10
+        },
+        {
+          "area": "Project",
+          "featuresAdded": 7
         },
         {
           "area": "BOS",
@@ -6863,12 +6834,6 @@
           "featuresAdded": 47,
           "casesAdded": 47,
           "latestDate": "2026-08-14"
-        },
-        {
-          "key": "NXS-13454",
-          "featuresAdded": 25,
-          "casesAdded": 25,
-          "latestDate": "2026-07-23"
         },
         {
           "key": "NXS-13561",
@@ -13656,560 +13621,12 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Partner%20event%20metrics%20embed%20URL%20is%20returned%20for%20an%20existing%20partner%20event"
-        },
-        {
-          "name": "Uploaded survey URL file can be processed and sample values read",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyUrlPoolTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "SURVEY",
-            "UPLOAD_URLS",
-            "URL_POOL"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Uploaded%20survey%20URL%20file%20can%20be%20processed%20and%20sample%20values%20read"
-        },
-        {
-          "name": "Survey project id lookup for an unknown survey is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "SURVEY",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Survey%20project%20id%20lookup%20for%20an%20unknown%20survey%20is%20rejected"
-        },
-        {
-          "name": "Survey project id leaf matches the active project",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "SURVEY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Survey%20project%20id%20leaf%20matches%20the%20active%20project"
-        },
-        {
-          "name": "Processing an unknown uploaded survey file is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "SURVEY",
-            "UPLOAD_URLS",
-            "URL_POOL",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Processing%20an%20unknown%20uploaded%20survey%20file%20is%20rejected"
-        },
-        {
-          "name": "Adhoc feasibility with too many channels is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupBusinessRuleValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "CHANNEL",
-            "FEASIBILITY",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20with%20too%20many%20channels%20is%20rejected"
-        },
-        {
-          "name": "Adhoc feasibility calculation returns a feasibility result",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupPricingTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "FEASIBILITY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20calculation%20returns%20a%20feasibility%20result"
-        },
-        {
-          "name": "Adhoc feasibility and live feasibility job can both be calculated",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCommercialWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "PR_SMOKE",
-            "FEASIBILITY",
-            "E2E"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20and%20live%20feasibility%20job%20can%20both%20be%20calculated"
-        },
-        {
-          "name": "D365 linkage update persists quote guid and number",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC",
-            "D365"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=D365%20linkage%20update%20persists%20quote%20guid%20and%20number"
-        },
-        {
-          "name": "Creating a project without core details is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Creating%20a%20project%20without%20core%20details%20is%20rejected"
-        },
-        {
-          "name": "Created draft project can be renamed and then removed",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "PR_SMOKE",
-            "E2E"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Created%20draft%20project%20can%20be%20renamed%20and%20then%20removed"
-        },
-        {
-          "name": "Converting a quote without an order guid is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Converting%20a%20quote%20without%20an%20order%20guid%20is%20rejected"
-        },
-        {
-          "name": "Converting a live project to an order is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Converting%20a%20live%20project%20to%20an%20order%20is%20rejected"
-        },
-        {
-          "name": "Cloned quote converted to order can be found by the new sales order guid",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "CLONE_PROJECT",
-            "BOS_SYNC",
-            "PR_SMOKE",
-            "E2E"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Cloned%20quote%20converted%20to%20order%20can%20be%20found%20by%20the%20new%20sales%20order%20guid"
-        },
-        {
-          "name": "Cloned quote can receive a new BOS linkage and be found by that guid",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "CLONE_PROJECT",
-            "BOS_SYNC",
-            "PR_SMOKE",
-            "E2E"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Cloned%20quote%20can%20receive%20a%20new%20BOS%20linkage%20and%20be%20found%20by%20that%20guid"
-        },
-        {
-          "name": "Cloned quote can be converted to an order with persisted linkage",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "CLONE_PROJECT",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Cloned%20quote%20can%20be%20converted%20to%20an%20order%20with%20persisted%20linkage"
-        },
-        {
-          "name": "Change-order logs for an unknown project return no rows",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "CHANGE_ORDER",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Change-order%20logs%20for%20an%20unknown%20project%20return%20no%20rows"
-        },
-        {
-          "name": "Change-order logs and export are available for the active quote",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "Query",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "CHANGE_ORDER"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Change-order%20logs%20and%20export%20are%20available%20for%20the%20active%20quote"
-        },
-        {
-          "name": "Brand-new draft project can be created and read back",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Brand-new%20draft%20project%20can%20be%20created%20and%20read%20back"
-        },
-        {
-          "name": "BOS linkage without an option guid is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=BOS%20linkage%20without%20an%20option%20guid%20is%20rejected"
-        },
-        {
-          "name": "BOS linkage update persists on project core read-back",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=BOS%20linkage%20update%20persists%20on%20project%20core%20read-back"
-        },
-        {
-          "name": "BOS accept is rejected for a D365 quote",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC",
-            "PROJECT_ACCEPT",
-            "D365",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=BOS%20accept%20is%20rejected%20for%20a%20D365%20quote"
-        },
-        {
-          "name": "Accepting a new project without a sales order guid is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC",
-            "PROJECT_ACCEPT",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Accepting%20a%20new%20project%20without%20a%20sales%20order%20guid%20is%20rejected"
-        },
-        {
-          "name": "Valid currencies lookup for an unknown audience is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Valid%20currencies%20lookup%20for%20an%20unknown%20audience%20is%20rejected"
-        },
-        {
-          "name": "Valid currencies for an available supplier brand are returned",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventCRUDTestSteps",
-          "type": "Query",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Valid%20currencies%20for%20an%20available%20supplier%20brand%20are%20returned"
-        },
-        {
-          "name": "Valid currencies for a supplier brand support partner event creation",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventWorkflowTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT",
-            "PR_SMOKE",
-            "E2E"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Valid%20currencies%20for%20a%20supplier%20brand%20support%20partner%20event%20creation"
         }
       ]
     },
     "90d": {
-      "from": "2026-05-24",
-      "to": "2026-08-21",
+      "from": "2026-05-25",
+      "to": "2026-08-22",
       "featuresAdded": 432,
       "casesAdded": 650,
       "areasTouched": 16,
@@ -23817,7 +23234,7 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-08-21",
+      "date": "2026-08-22",
       "features": 750,
       "cases": 1515,
       "specs": 108,
@@ -23837,7 +23254,7 @@
       "priorPercent": 78.0,
       "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-08-21",
+      "currentDate": "2026-08-22",
       "testedDelta": 56,
       "untestedDelta": -59
     }
