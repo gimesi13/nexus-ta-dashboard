@@ -1545,26 +1545,24 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "1 continuing failure \u2014 a QA socket timeout, no new unmuted fails",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "Failures: 1\u00d7 client/Feign socket timeout. Gateway hits: dk-project-crm-rest.",
+    "cause": "infra",
+    "causeText": "The single failure is a Feign/socket timeout calling the QA changeOrderStatus endpoint \u2014 QA infra flakiness, not a code change (no build or QA-deploy commits in the window).",
+    "investigation": "1\u00d7 QuotaGroup change-order flow failed on a Feign SocketTimeout to QA changeOrderStatus; no code changes to implicate.",
     "bullets": [
-      "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout"
+      "1\u00d7 QuotaGroup \u2014 Feign SocketTimeout on POST changeOrderStatus (QA infra timeout, continuing)",
+      "Contract drift (separate lane): 1 new \u2014 GET /u1/nexus/urlPools/{} returns an undocumented 500"
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. Hot areas among new fails: QuotaGroup (1). Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout].",
+      "investigation": "No new unmuted failures; the single failure continues from prior runs \u2014 QuotaGroup change-order flow fails with feign.RetryableException / java.net.SocketTimeoutException while POSTing to QA changeOrderStatus, i.e. a QA-side infra timeout rather than an assertion. There are no `changes` or `qaDeployChanges` in the window, so no commit or developer can be implicated.",
       "bullets": [
-        "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout"
+        "QuotaGroup: change order flow \u2014 Feign SocketTimeout on POST .../nexus/d365/changeOrderStatus (QA timeout, newFailure=false)",
+        "No changes or qaDeployChanges in the window \u2014 no commit/developer to blame",
+        "Contract drift (separate lane): 1 new \u2014 GET /u1/nexus/urlPools/{} :: response 500 not defined in the OpenAPI contract"
       ],
-      "newFailureAreas": [
-        {
-          "area": "QuotaGroup",
-          "newCount": 1
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1580,8 +1578,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-08-23T02:35Z",
+    "source": "llm",
+    "generatedAt": "2026-08-23T02:35:00Z",
     "buildNumber": "3.0.2676",
     "buildId": "9484624",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9484624",
