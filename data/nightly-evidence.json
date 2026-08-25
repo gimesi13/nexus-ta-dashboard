@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-23T02:35Z",
+  "generatedAt": "2026-08-25T02:35Z",
   "build": {
-    "number": "3.0.2676",
-    "buildId": "9484624",
+    "number": "3.0.2678",
+    "buildId": "9487993",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9484624",
-    "durationSec": 3725.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9487993",
+    "durationSec": 3791.0
   },
   "summary": {
     "tests": 1479,
@@ -17,22 +17,445 @@
     "muted": 87,
     "newFailed": 0,
     "passRate": 99.9,
-    "timeSec": 3725.0
+    "timeSec": 3791.0
   },
   "prior": {
-    "buildId": "9484034",
-    "number": "3.0.2675",
+    "buildId": "9484441",
+    "number": "3.0.2677",
     "status": "FAILURE",
-    "statusText": "Tests failed: 2 (1 new), passed: 1390, muted: 87",
-    "startDate": "20260822T013245+0000",
-    "durationSec": 3824.0,
-    "failed": 2,
-    "passed": 1390,
-    "newFailed": 1
+    "statusText": "Tests failed: 1, passed: 1391, muted: 87",
+    "startDate": "20260824T013224+0000",
+    "durationSec": 4077.0,
+    "failed": 1,
+    "passed": 1391,
+    "newFailed": 0
   },
   "changes": [],
-  "qaDeployChanges": [],
-  "qaDeployServices": [],
+  "qaDeployChanges": [
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "b0139302566f",
+      "username": "tibor.olah",
+      "comment": "migrate fbr to ecr",
+      "files": [
+        "dk-project-feasibility-batch-rest/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "9c34598be016",
+      "username": "tibor.olah",
+      "comment": "FBR touch",
+      "files": [
+        "project/Feasibility/FeasibilityBatchRest/Dockerfile"
+      ],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "09f36aad6a7c",
+      "username": "tibor.olah",
+      "comment": "FBR touch",
+      "files": [
+        "project/Feasibility/FeasibilityBatchRest/Dockerfile"
+      ],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "c3635767d1c0",
+      "username": "sajak.upadhyaya",
+      "comment": "test commit reversal",
+      "files": [
+        "ml-data-capture-bucket/group_vars/all.yml"
+      ],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "3f90c24dc53c",
+      "username": "sajak.upadhyaya",
+      "comment": "TC connection to deployment inventory VCS test",
+      "files": [
+        "ml-data-capture-bucket/group_vars/all.yml"
+      ],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "e444aed50a67",
+      "username": "weiqun.wang",
+      "comment": "add AutoScaling back",
+      "files": [
+        "ml-quality-score-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "23a44100a434",
+      "username": "grace.chen",
+      "comment": "[FAI-431] raise ml-reconciliation-model/group_vars/all.yml to 60 minutes",
+      "files": [
+        "ml-reconciliation-model/group_vars/all.yml"
+      ],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "82a550375483",
+      "username": "weiqun.wang",
+      "comment": "disable auto Scaling to fix let deployment go through and restore sagemaker_instance_counts",
+      "files": [
+        "ml-quality-score-model/cloud-formation.template.yml",
+        "ml-quality-score-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "2989dbafae15",
+      "username": "brian.connolly",
+      "comment": "update qa replica count",
+      "files": [
+        "ae-legacy-registration-nova-gateway/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "da5b6bc65260",
+      "username": "brian.connolly",
+      "comment": "Cleanup some older logic: remove explicit tagging, update execution role, remove non-https listener rules.",
+      "files": [
+        "ae-legacy-registration-nova-gateway/cloud-formation.template.yml",
+        "ae-legacy-registration-nova-gateway/group_vars/all.yml"
+      ],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "cf88f27dbaa5",
+      "username": "brian.connolly",
+      "comment": "clean up production config in preparation for release",
+      "files": [
+        "ae-legacy-registration-nova-gateway/group_vars/all.yml",
+        "ae-legacy-registration-nova-gateway/group_vars/production.yml"
+      ],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "c756b4ff9c06",
+      "username": "brian.connolly",
+      "comment": "alarm settings",
+      "files": [
+        "ae-legacy-registration-nova-gateway/cloud-formation.template.yml",
+        "ae-legacy-registration-nova-gateway/group_vars/all.yml"
+      ],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "9eece18cd524",
+      "username": "brian.connolly",
+      "comment": "add bucket",
+      "files": [
+        "ae-legacy-registration-nova-gateway/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "5e035fad7867",
+      "username": "brian.connolly",
+      "comment": "add stack name",
+      "files": [
+        "ae-legacy-registration-nova-gateway/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "e119b41a2d7c",
+      "username": "brian.connolly",
+      "comment": "Update nova gateway template to remove jinja expressions",
+      "files": [
+        "ae-legacy-registration-nova-gateway/cloud-formation.template.yml",
+        "ae-legacy-registration-nova-gateway/group_vars/all.yml",
+        "ae-legacy-registration-nova-gateway/group_vars/dev.yml"
+      ],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "cb9acb611b67",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #581 from dynata/NXS-12155-TrafficDetailsRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "a92d8e4fc140",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #565 from dynata/NXS-12122-ExportProjectRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "b794d5cc1303",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #561 from dynata/NXS-12110-ConditionEditorRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "6bea08b0c1a6",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #573 from dynata/NXS-12134-OverviewRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "965addbd6448",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #585 from dynata/NXS-12174-DKProjectMetaRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "0add89fda555",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #590 from dynata/NXS-13535-DKJWTProvider-ecr-migration",
+      "files": [],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "9d01b510ad0b",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #591 from dynata/NXS-13536-DKCopyProjectRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "92578c4c21a4",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #594 from dynata/NXS-13539-RefinementRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "d4faf2a6b1f8",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #602 from dynata/NXS-13548-JobSchedulerRest-ecr-migration",
+      "files": [],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "3cd80263ac62",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-13539 ] ecr migration",
+      "files": [
+        "dk-respondent-refinement-rest/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "MailFilterRestJ16",
+      "version": "9924a045a882",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-13749 ] ECR j16",
+      "files": [
+        "project/MailFilterRest/build.gradle"
+      ],
+      "deployedAt": "20260824T154105+0000"
+    },
+    {
+      "service": "MailFilterRestJ16",
+      "version": "408baf791c6f",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-13749 ] ECR j16",
+      "files": [
+        "project/MailFilterRest/build.gradle"
+      ],
+      "deployedAt": "20260824T154105+0000"
+    },
+    {
+      "service": "MailFilterRestJ16",
+      "version": "c3bbcaf3c4c9",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-13541 ] Add APPSTATUS_WSENDPOINT to group_vars/all.yml",
+      "files": [
+        "dk-system-sample-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20260824T154105+0000"
+    },
+    {
+      "service": "MailFilterRestJ16",
+      "version": "25130714b674",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-13540 ] Add APPSTATUS_WSENDPOINT to group_vars/all.yml",
+      "files": [
+        "dk-respondent-regional-survey-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20260824T154105+0000"
+    },
+    {
+      "service": "MailEventRestJ16",
+      "version": "16192696b9fc",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-13764 ] ECR j16",
+      "files": [
+        "project/MailEventRest/build.gradle"
+      ],
+      "deployedAt": "20260824T154009+0000"
+    }
+  ],
+  "qaDeployServices": [
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "commits": 25,
+      "latestTicket": "",
+      "latestComment": "migrate fbr to ecr",
+      "deployedAt": "20260824T185223+0000"
+    },
+    {
+      "service": "MailFilterRestJ16",
+      "commits": 4,
+      "latestTicket": "NXS-13749",
+      "latestComment": "[ NXS-13749 ] ECR j16",
+      "deployedAt": "20260824T154105+0000"
+    },
+    {
+      "service": "MailEventRestJ16",
+      "commits": 3,
+      "latestTicket": "NXS-13764",
+      "latestComment": "[ NXS-13764 ] ECR j16",
+      "deployedAt": "20260824T154009+0000"
+    },
+    {
+      "service": "GeoIpRestJ16",
+      "commits": 1,
+      "latestTicket": "NXS-13748",
+      "latestComment": "[ NXS-13748 ] ECR j16",
+      "deployedAt": "20260824T152937+0000"
+    },
+    {
+      "service": "FeasibilityDataStoreJ16",
+      "commits": 1,
+      "latestTicket": "NXS-13747",
+      "latestComment": "[ NXS-13747 ] ECR j16",
+      "deployedAt": "20260824T150924+0000"
+    },
+    {
+      "service": "J16",
+      "commits": 2,
+      "latestTicket": "NXS-13746",
+      "latestComment": "[ NXS-13746 ] ECR j16",
+      "deployedAt": "20260824T150435+0000"
+    },
+    {
+      "service": "GeoConditionRestJ16",
+      "commits": 1,
+      "latestTicket": "NXS-13707",
+      "latestComment": "[ NXS-13707 ] ECR j16",
+      "deployedAt": "20260824T150804+0000"
+    },
+    {
+      "service": "ExternalEventRestJ16",
+      "commits": 1,
+      "latestTicket": "NXS-12146",
+      "latestComment": "[ NXS-12146 ] Add APPSTATUS_WSENDPOINT to group_vars/all.yml",
+      "deployedAt": "20260824T145930+0000"
+    },
+    {
+      "service": "EventForwarderRestJ16",
+      "commits": 1,
+      "latestTicket": "NXS-13710",
+      "latestComment": "[ NXS-13710 ] ECR j16",
+      "deployedAt": "20260824T145759+0000"
+    },
+    {
+      "service": "DetailsTableRestJ16",
+      "commits": 3,
+      "latestTicket": "NXS-13743",
+      "latestComment": "[ NXS-13743 ] ECR j16",
+      "deployedAt": "20260824T145227+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "commits": 25,
+      "latestTicket": "NXS-13668",
+      "latestComment": "[NXS-13668] exclude group: 'io.swagger.core.v3'",
+      "deployedAt": "20260824T141355+0000"
+    },
+    {
+      "service": "2",
+      "commits": 12,
+      "latestTicket": "NXS-12134",
+      "latestComment": "[ NXS-12134 ] Add APPSTATUS_WSENDPOINT to group_vars/all.yml",
+      "deployedAt": "20260824T112418+0000"
+    },
+    {
+      "service": "TrafficDetailsRestJ16",
+      "commits": 1,
+      "latestTicket": "NXS-13760",
+      "latestComment": "[ NXS-13760 ] ECR j16",
+      "deployedAt": "20260824T111547+0000"
+    },
+    {
+      "service": "SamplRestJ16",
+      "commits": 1,
+      "latestTicket": "NXS-13541",
+      "latestComment": "[ NXS-13541 ] ECR j16",
+      "deployedAt": "20260824T102910+0000"
+    },
+    {
+      "service": "ConditionEditorRestJ16",
+      "commits": 2,
+      "latestTicket": "NXS-13739",
+      "latestComment": "[ NXS-13739 ] ECR j16",
+      "deployedAt": "20260824T101622+0000"
+    },
+    {
+      "service": "AlertServiceRestJ16",
+      "commits": 3,
+      "latestTicket": "NXS-13732",
+      "latestComment": "[ NXS-13732 ] ECR j16",
+      "deployedAt": "20260824T101455+0000"
+    },
+    {
+      "service": "CookieRestJ16",
+      "commits": 1,
+      "latestTicket": "NXS-13742",
+      "latestComment": "[ NXS-13742 ] ECR j16",
+      "deployedAt": "20260824T101027+0000"
+    },
+    {
+      "service": "CSToolsRestJ16",
+      "commits": 1,
+      "latestTicket": "NXS-13731",
+      "latestComment": "[ NXS-13731 ] ECR j16",
+      "deployedAt": "20260824T100204+0000"
+    },
+    {
+      "service": "ArchiveRestJ16",
+      "commits": 1,
+      "latestTicket": "NXS-13733",
+      "latestComment": "[ NXS-13733 ] ECR j16",
+      "deployedAt": "20260824T100149+0000"
+    }
+  ],
   "clusters": [
     {
       "label": "infra_timeout",
@@ -63,9 +486,17 @@
     ],
     "investigation": "Failures: 1\u00d7 client/Feign socket timeout. Gateway hits: dk-project-crm-rest.",
     "detail": {
-      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. Hot areas among new fails: QuotaGroup (1). Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout].",
+      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. Hot areas among new fails: QuotaGroup (1). 19 service(s) (89 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout].",
       "bullets": [
-        "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout"
+        "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
+        "[QA deploy: FeasibilityBatchRestDocker]  (25 commits) \u2014 migrate fbr to ecr",
+        "[QA deploy: MailFilterRestJ16] NXS-13749 (4 commits) \u2014 [ NXS-13749 ] ECR j16",
+        "[QA deploy: MailEventRestJ16] NXS-13764 (3 commits) \u2014 [ NXS-13764 ] ECR j16",
+        "[QA deploy: GeoIpRestJ16] NXS-13748 (1 commit) \u2014 [ NXS-13748 ] ECR j16",
+        "[QA deploy: FeasibilityDataStoreJ16] NXS-13747 (1 commit) \u2014 [ NXS-13747 ] ECR j16",
+        "[QA deploy: J16] NXS-13746 (2 commits) \u2014 [ NXS-13746 ] ECR j16",
+        "[QA deploy: GeoConditionRestJ16] NXS-13707 (1 commit) \u2014 [ NXS-13707 ] ECR j16",
+        "[QA deploy: ExternalEventRestJ16] NXS-12146 (1 commit) \u2014 [ NXS-12146 ] Add APPSTATUS_WSENDPOINT to group_vars/all.yml"
       ],
       "newFailureAreas": [
         {
@@ -76,7 +507,130 @@
       "likelyCauses": []
     },
     "suspectCommits": [],
-    "qaDeploySuspects": []
+    "qaDeploySuspects": [
+      {
+        "service": "FeasibilityBatchRestDocker",
+        "version": "b0139302566f",
+        "username": "tibor.olah",
+        "comment": "migrate fbr to ecr",
+        "ticket": "",
+        "deployedAt": "20260824T185223+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "FeasibilityBatchRestDocker",
+        "version": "9c34598be016",
+        "username": "tibor.olah",
+        "comment": "FBR touch",
+        "ticket": "",
+        "deployedAt": "20260824T185223+0000",
+        "files": [
+          "Dockerfile"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "FeasibilityBatchRestDocker",
+        "version": "09f36aad6a7c",
+        "username": "tibor.olah",
+        "comment": "FBR touch",
+        "ticket": "",
+        "deployedAt": "20260824T185223+0000",
+        "files": [
+          "Dockerfile"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "FeasibilityBatchRestDocker",
+        "version": "c3635767d1c0",
+        "username": "sajak.upadhyaya",
+        "comment": "test commit reversal",
+        "ticket": "",
+        "deployedAt": "20260824T185223+0000",
+        "files": [
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "FeasibilityBatchRestDocker",
+        "version": "3f90c24dc53c",
+        "username": "sajak.upadhyaya",
+        "comment": "TC connection to deployment inventory VCS test",
+        "ticket": "",
+        "deployedAt": "20260824T185223+0000",
+        "files": [
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "FeasibilityBatchRestDocker",
+        "version": "e444aed50a67",
+        "username": "weiqun.wang",
+        "comment": "add AutoScaling back",
+        "ticket": "",
+        "deployedAt": "20260824T185223+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "FeasibilityBatchRestDocker",
+        "version": "23a44100a434",
+        "username": "grace.chen",
+        "comment": "[FAI-431] raise ml-reconciliation-model/group_vars/all.yml to 60 minutes",
+        "ticket": "",
+        "deployedAt": "20260824T185223+0000",
+        "files": [
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "FeasibilityBatchRestDocker",
+        "version": "82a550375483",
+        "username": "weiqun.wang",
+        "comment": "disable auto Scaling to fix let deployment go through and restore sagemaker_instance_counts",
+        "ticket": "",
+        "deployedAt": "20260824T185223+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "FeasibilityBatchRestDocker",
+        "version": "2989dbafae15",
+        "username": "brian.connolly",
+        "comment": "update qa replica count",
+        "ticket": "",
+        "deployedAt": "20260824T185223+0000",
+        "files": [
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "FeasibilityBatchRestDocker",
+        "version": "da5b6bc65260",
+        "username": "brian.connolly",
+        "comment": "Cleanup some older logic: remove explicit tagging, update execution role, remove non-https listener rules.",
+        "ticket": "",
+        "deployedAt": "20260824T185223+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      }
+    ]
   },
   "contractDrift": {
     "newCount": 1,
