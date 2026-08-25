@@ -1,10 +1,7 @@
-**1 continuing failure(s) — no new unmuted fails**
+**1 continuing Feign socket timeout — no new failures, likely QA infra**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: QA infra — Feign SocketTimeout to d365/changeOrderStatus, not a code regression._
 
-- 1× client/Feign socket timeout — feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout
+- 1× QuotaGroup change-order flow — Feign/client socket timeout (infra)
 
-⚠️ Contract drift: 1 new response-schema violation(s) vs baseline.
-- GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'.
-
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9487993)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9487993)

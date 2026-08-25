@@ -1545,34 +1545,24 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "1 continuing Feign socket timeout \u2014 no new failures, likely QA infra",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 19 service(s) were deployed to QA in this window (FeasibilityBatchRestDocker, MailFilterRestJ16, MailEventRestJ16, GeoIpRestJ16, FeasibilityDataStoreJ16\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "Failures: 1\u00d7 client/Feign socket timeout. Gateway hits: dk-project-crm-rest.",
+    "cause": "infra",
+    "causeText": "Infra: the lone continuing failure is a Feign SocketTimeout on POST d365/changeOrderStatus (via dk-project-crm-rest), i.e. QA-side flakiness rather than a code regression.",
+    "investigation": "The single failure is a socket timeout (infra), not an assertion, and no new failures appeared this run.",
     "bullets": [
-      "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout"
+      "1\u00d7 QuotaGroup change-order flow \u2014 Feign SocketTimeout to d365/changeOrderStatus (QA infra, continuing)",
+      "Contract drift (separate lane): 1 new \u2014 GET /u1/nexus/urlPools/{} returned an undocumented 500"
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. Hot areas among new fails: QuotaGroup (1). 19 service(s) (89 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout].",
+      "investigation": "No new failures this run; the one continuing failure is a Feign/client SocketTimeout on POST d365/changeOrderStatus (dk-project-crm-rest), which is QA infra rather than an assertion or code regression. The QA-deployed services in the window touched only infra/config files (cloud-formation, Dockerfile, group_vars) and none map to the CRM/d365 path, so no code change is implicated.",
       "bullets": [
-        "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException:timeout executing POST <url> Caused by: java.net.SocketTimeoutException:timeout",
-        "[QA deploy: FeasibilityBatchRestDocker]  (25 commits) \u2014 migrate fbr to ecr",
-        "[QA deploy: MailFilterRestJ16] NXS-13749 (4 commits) \u2014 [ NXS-13749 ] ECR j16",
-        "[QA deploy: MailEventRestJ16] NXS-13764 (3 commits) \u2014 [ NXS-13764 ] ECR j16",
-        "[QA deploy: GeoIpRestJ16] NXS-13748 (1 commit) \u2014 [ NXS-13748 ] ECR j16",
-        "[QA deploy: FeasibilityDataStoreJ16] NXS-13747 (1 commit) \u2014 [ NXS-13747 ] ECR j16",
-        "[QA deploy: J16] NXS-13746 (2 commits) \u2014 [ NXS-13746 ] ECR j16",
-        "[QA deploy: GeoConditionRestJ16] NXS-13707 (1 commit) \u2014 [ NXS-13707 ] ECR j16",
-        "[QA deploy: ExternalEventRestJ16] NXS-12146 (1 commit) \u2014 [ NXS-12146 ] Add APPSTATUS_WSENDPOINT to group_vars/all.yml"
+        "1\u00d7 QuotaGroup change-order flow \u2014 Feign SocketTimeout executing POST d365/changeOrderStatus (infra, continuing from prior run)",
+        "No new unmuted failures; prior run (3.0.2677) also had exactly 1 continuing failure",
+        "Contract drift (separate lane): GET /u1/nexus/urlPools/{urlPoolId} returned an undocumented 500"
       ],
-      "newFailureAreas": [
-        {
-          "area": "QuotaGroup",
-          "newCount": 1
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1845,8 +1835,8 @@
         "deployedAt": "20260824T100149+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-08-25T02:35Z",
+    "source": "llm",
+    "generatedAt": "2026-08-25T02:36Z",
     "buildNumber": "3.0.2678",
     "buildId": "9487993",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9487993",
