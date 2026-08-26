@@ -1545,34 +1545,22 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "1 continuing failure \u2014 a QA Feign socket timeout; no new failures this run.",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 9 service(s) were deployed to QA in this window (DKSurveyRestJ16, DKDashboardRestJ16, ProjectRestJ16, CountersRestJ16, DemandApi\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "Failures: 1\u00d7 client/Feign socket timeout. Gateway hits: dk-project-crm-rest.",
+    "cause": "infra",
+    "causeText": "The lone failure is a Feign 'Read timed out' calling dk-project-crm-rest changeOrderStatus \u2014 a QA socket timeout (infra), not an assertion or a code regression.",
+    "investigation": "1\u00d7 Feign socket timeout to dk-project-crm-rest (Crm/changeOrderStatus); no new failures, continuing from prior build 3.0.2678.",
     "bullets": [
-      "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing POST <url>"
+      "1\u00d7 client/Feign socket timeout \u2014 Read timed out POST /api/Crm/u1/test/changeOrderStatus (dk-project-crm-rest)"
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. Hot areas among new fails: QuotaGroup (1). 9 service(s) (52 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [client/Feign socket timeout].",
+      "investigation": "No new unmuted failures; the single QuotaGroup failure is a Feign 'Read timed out' against dk-project-crm-rest, an infra/QA socket timeout rather than an assertion. It is not new \u2014 it also failed in prior build 3.0.2678 \u2014 so despite 9 services deploying to QA in the window, the timeout symptom and its recurrence point to environment latency, not a specific commit.",
       "bullets": [
-        "1\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing POST <url>",
-        "[QA deploy: DKSurveyRestJ16]  (25 commits) \u2014 Add Notification service task role for QuotaGroupChangedCounters SQS",
-        "[QA deploy: DKDashboardRestJ16] NXS-13735 (6 commits) \u2014 [ NXS-13735 ] ECR j16",
-        "[QA deploy: ProjectRestJ16]  (4 commits) \u2014 [PAC-767] ProjectRest - New Origin handle",
-        "[QA deploy: CountersRestJ16] NXS-13734 (2 commits) \u2014 [ NXS-13734 ] ECR j16",
-        "[QA deploy: DemandApi] NXS-12004 (2 commits) \u2014 [NXS-12004] - Cobalt - DemandApi - DemandClient extend with fields (#4526)",
-        "[QA deploy: CrmRestJ21]  (2 commits) \u2014 [PAC-774] CrmRest - New Origin handle",
-        "[QA deploy: QuotaDetailsRestJ21]  (1 commit) \u2014 PAC-770 support CustomApi origin in QuotaDetailsRest (#5282)",
-        "[QA deploy: FeasibilityDataStoreJ16]  (9 commits) \u2014 [PAC-773] FeasibilityDataStore - New Origin handle (#5283)"
+        "1\u00d7 client/Feign socket timeout \u2014 Read timed out executing POST /api/Crm/u1/test/changeOrderStatus (dk-project-crm-rest)",
+        "Not a new failure \u2014 continuing from prior build 3.0.2678 (1 failed / 1391 passed)"
       ],
-      "newFailureAreas": [
-        {
-          "area": "QuotaGroup",
-          "newCount": 1
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1585,209 +1573,11 @@
         "why": "Feign/client socket timeout talking to a QA service"
       }
     ],
-    "suspectCommits": [],
-    "qaDeploySuspects": [
-      {
-        "service": "DKSurveyRestJ16",
-        "version": "95a6f8abb768",
-        "username": "elodani10",
-        "comment": "Add Notification service task role for QuotaGroupChangedCounters SQS",
-        "ticket": "",
-        "deployedAt": "20260825T151158+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "dev.yml",
-          "production.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKSurveyRestJ16",
-        "version": "100fc1c87d8c",
-        "username": "tamas.gyarmati",
-        "comment": "UnusedSQSCleaner - rename rule",
-        "ticket": "",
-        "deployedAt": "20260825T151158+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKSurveyRestJ16",
-        "version": "b0139302566f",
-        "username": "tibor.olah",
-        "comment": "migrate fbr to ecr",
-        "ticket": "",
-        "deployedAt": "20260825T151158+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKSurveyRestJ16",
-        "version": "c3635767d1c0",
-        "username": "sajak.upadhyaya",
-        "comment": "test commit reversal",
-        "ticket": "",
-        "deployedAt": "20260825T151158+0000",
-        "files": [
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKSurveyRestJ16",
-        "version": "3f90c24dc53c",
-        "username": "sajak.upadhyaya",
-        "comment": "TC connection to deployment inventory VCS test",
-        "ticket": "",
-        "deployedAt": "20260825T151158+0000",
-        "files": [
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKSurveyRestJ16",
-        "version": "cc28c45b6527",
-        "username": "krisztian.erdei",
-        "comment": "[ST-5050] Remove comment from supply-offer aws_db_version default",
-        "ticket": "",
-        "deployedAt": "20260825T151158+0000",
-        "files": [
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKSurveyRestJ16",
-        "version": "3b3cbd901658",
-        "username": "krisztian.erdei",
-        "comment": "[ST-5050] Upgrade supply-offer Aurora PostgreSQL to 18.4 on DEV and QA",
-        "ticket": "",
-        "deployedAt": "20260825T151158+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "dev.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKSurveyRestJ16",
-        "version": "e444aed50a67",
-        "username": "weiqun.wang",
-        "comment": "add AutoScaling back",
-        "ticket": "",
-        "deployedAt": "20260825T151158+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKSurveyRestJ16",
-        "version": "23a44100a434",
-        "username": "grace.chen",
-        "comment": "[FAI-431] raise ml-reconciliation-model/group_vars/all.yml to 60 minutes",
-        "ticket": "",
-        "deployedAt": "20260825T151158+0000",
-        "files": [
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKSurveyRestJ16",
-        "version": "82a550375483",
-        "username": "weiqun.wang",
-        "comment": "disable auto Scaling to fix let deployment go through and restore sagemaker_instance_counts",
-        "ticket": "",
-        "deployedAt": "20260825T151158+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      }
-    ],
-    "qaDeployServices": [
-      {
-        "service": "DKSurveyRestJ16",
-        "commits": 25,
-        "latestTicket": "",
-        "latestComment": "Add Notification service task role for QuotaGroupChangedCounters SQS",
-        "deployedAt": "20260825T151158+0000"
-      },
-      {
-        "service": "DKDashboardRestJ16",
-        "commits": 6,
-        "latestTicket": "NXS-13735",
-        "latestComment": "[ NXS-13735 ] ECR j16",
-        "deployedAt": "20260825T144745+0000"
-      },
-      {
-        "service": "ProjectRestJ16",
-        "commits": 4,
-        "latestTicket": "",
-        "latestComment": "[PAC-767] ProjectRest - New Origin handle",
-        "deployedAt": "20260825T092610+0000"
-      },
-      {
-        "service": "CountersRestJ16",
-        "commits": 2,
-        "latestTicket": "NXS-13734",
-        "latestComment": "[ NXS-13734 ] ECR j16",
-        "deployedAt": "20260825T090154+0000"
-      },
-      {
-        "service": "DemandApi",
-        "commits": 2,
-        "latestTicket": "NXS-12004",
-        "latestComment": "[NXS-12004] - Cobalt - DemandApi - DemandClient extend with fields (#4526)",
-        "deployedAt": "20260825T085200+0000"
-      },
-      {
-        "service": "CrmRestJ21",
-        "commits": 2,
-        "latestTicket": "",
-        "latestComment": "[PAC-774] CrmRest - New Origin handle",
-        "deployedAt": "20260825T082324+0000"
-      },
-      {
-        "service": "QuotaDetailsRestJ21",
-        "commits": 1,
-        "latestTicket": "",
-        "latestComment": "PAC-770 support CustomApi origin in QuotaDetailsRest (#5282)",
-        "deployedAt": "20260825T082017+0000"
-      },
-      {
-        "service": "FeasibilityDataStoreJ16",
-        "commits": 9,
-        "latestTicket": "",
-        "latestComment": "[PAC-773] FeasibilityDataStore - New Origin handle (#5283)",
-        "deployedAt": "20260825T081722+0000"
-      },
-      {
-        "service": "ClientRestJ21",
-        "commits": 1,
-        "latestTicket": "NXS-12003",
-        "latestComment": "[NXS-12003] - Cobalt - ClientRest - DemandClient extend with fields (#4488)",
-        "deployedAt": "20260825T073947+0000"
-      }
-    ],
-    "source": "investigator",
-    "generatedAt": "2026-08-26T02:36Z",
+    "source": "llm",
+    "generatedAt": "2026-08-26T02:38:17Z",
     "buildNumber": "3.0.2679",
     "buildId": "9490612",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9490612",
-    "focus": "all_failures",
-    "newFailed": 0,
-    "failed": 1,
     "contractDrift": {
       "newCount": 0,
       "baselineCount": 94,
