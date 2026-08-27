@@ -1533,85 +1533,18 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "headline": "Nightly was green \u2014 no new unmuted failures.",
     "tone": "ok",
     "severity": "none",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
-    "bullets": [
-      "Change NXS-13730: gergely.gimesi \u00b7 ChangeOrderFlow",
-      "Change NXS-13778: gergely.gimesi \u00b7 PartnerEvent, Project, QuotaGroup"
-    ],
+    "causeText": "No unmuted failures \u2014 all 1,393 executed tests passed.",
+    "investigation": "",
+    "bullets": [],
     "detail": {
-      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 11 service(s) (76 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
-      "bullets": [
-        "Change NXS-13730: gergely.gimesi \u00b7 ChangeOrderFlow",
-        "Change NXS-13778: gergely.gimesi \u00b7 PartnerEvent, Project, QuotaGroup",
-        "NXS-13730 131a163755ab by gergely.gimesi \u2192 areas ChangeOrderFlow (0 new fails) \u00b7 ChangeOrderFlowHelper.groovy, TransientFeignErrors.java, WaitUtil.java",
-        "NXS-13778 7029df9c464e by gergely.gimesi \u2192 areas PartnerEvent, Project, QuotaGroup, SegmentDetails, Sources, UrlPool, User (0 new fails) \u00b7 nexus-regression-author-from-openapi-diff.md, nexus-regression-coverage-refresh.md, nexus-regression-ci-gradle.mdc, CURSOR.md, NEXUS_API_REGRESSION_TESTS.md, coverage-refresh.sh",
-        "NXS-13730 cd7bfc907d7c by gergely.gimesi \u2192 areas ChangeOrderFlow (0 new fails) \u00b7 ChangeOrderFlowHelper.groovy",
-        "[QA deploy: EventForwarderRestJ16] NXS-13710 (15 commits) \u2014 [ NXS-13710 ] ECR j16",
-        "[QA deploy: DKCopyProjectRestJ16] NXS-13717 (1 commit) \u2014 [ NXS-13717 ] ECR j16",
-        "[QA deploy: SurveyRestJ21] NXS-13668 (19 commits) \u2014 [NXS-13668] exclude group: 'io.swagger.core.v3'",
-        "[QA deploy: DKSurveyRestJ16] NXS-13755 (1 commit) \u2014 [ NXS-13755 ] ECR j16",
-        "[QA deploy: ExternalEventRestJ16] NXS-13745 (9 commits) \u2014 [ NXS-13745 ] ECR j16"
-      ],
+      "investigation": "",
+      "bullets": [],
       "newFailureAreas": [],
-      "likelyCauses": [
-        {
-          "version": "131a163755ab",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13730",
-          "comment": "[NXS-13730] MS - Harden change-order D365 approve against CRM timeout flake",
-          "areas": [
-            "ChangeOrderFlow"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "ChangeOrderFlowHelper.groovy",
-            "TransientFeignErrors.java",
-            "WaitUtil.java"
-          ]
-        },
-        {
-          "version": "7029df9c464e",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13778",
-          "comment": "[NXS-13778] MS - Make UNexusApiFeigns the only NexusApi client source of truth",
-          "areas": [
-            "PartnerEvent",
-            "Project",
-            "QuotaGroup",
-            "SegmentDetails",
-            "Sources",
-            "UrlPool",
-            "User"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "nexus-regression-author-from-openapi-diff.md",
-            "nexus-regression-coverage-refresh.md",
-            "nexus-regression-ci-gradle.mdc",
-            "CURSOR.md",
-            "NEXUS_API_REGRESSION_TESTS.md",
-            "coverage-refresh.sh"
-          ]
-        },
-        {
-          "version": "cd7bfc907d7c",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13730",
-          "comment": "[NXS-13730] Avoid nested 180s waits when re-posting D365 approve",
-          "areas": [
-            "ChangeOrderFlow"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "ChangeOrderFlowHelper.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
     "clusters": [],
     "suspectCommits": [
@@ -1871,8 +1804,8 @@
         "deployedAt": "20260826T053602+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-08-27T02:25Z",
+    "source": "llm",
+    "generatedAt": "2026-08-27T02:25:00Z",
     "buildNumber": "3.0.2680",
     "buildId": "9491707",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9491707",
