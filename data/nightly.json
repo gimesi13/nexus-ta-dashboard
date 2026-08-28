@@ -1533,22 +1533,16 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "headline": "Nightly was green \u2014 no new unmuted failures.",
     "tone": "ok",
     "severity": "none",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
+    "causeText": "Clean run \u2014 all unmuted tests passed with no new failures.",
+    "investigation": "",
     "bullets": [],
     "detail": {
-      "investigation": "Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 4 service(s) (37 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
-      "bullets": [
-        "NXS-13782: gergely.gimesi \u2014 [NXS-13782] MS - Fail PRs that add a NexusApi *Api without a test Feign",
-        "[QA deploy: FeasibilityBatchRestDocker]  (23 commits) \u2014 toggle off audit data writes",
-        "[QA deploy: SandboxServiceRestJ21] NXS-13651 (5 commits) \u2014 [NXS-13651] use env in listeners",
-        "[QA deploy: ProjectLogRestJ16] NXS-13777 (4 commits) \u2014 [NXS-13777] force new build",
-        "[QA deploy: SurveyRestJ21] NXS-12347 (5 commits) \u2014 [NXS-12347] Feign base package fix"
-      ],
+      "investigation": "",
+      "bullets": [],
       "newFailureAreas": [],
       "likelyCauses": []
     },
@@ -1722,7 +1716,7 @@
         "deployedAt": "20260827T095719+0000"
       }
     ],
-    "source": "investigator",
+    "source": "llm",
     "generatedAt": "2026-08-28T02:33Z",
     "buildNumber": "3.0.2681",
     "buildId": "9494112",
