@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-28T02:33Z",
+  "generatedAt": "2026-08-29T02:34Z",
   "build": {
-    "number": "3.0.2681",
-    "buildId": "9494112",
+    "number": "3.0.2682",
+    "buildId": "9497052",
     "status": "SUCCESS",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9494112",
-    "durationSec": 3559.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9497052",
+    "durationSec": 3633.0
   },
   "summary": {
     "tests": 1479,
@@ -17,84 +17,76 @@
     "muted": 86,
     "newFailed": 0,
     "passRate": 100.0,
-    "timeSec": 3559.0
+    "timeSec": 3633.0
   },
   "prior": {
-    "buildId": "9491707",
-    "number": "3.0.2680",
+    "buildId": "9494112",
+    "number": "3.0.2681",
     "status": "SUCCESS",
     "statusText": "Tests passed: 1393, muted: 86",
-    "startDate": "20260827T013304+0000",
-    "durationSec": 3079.0,
+    "startDate": "20260828T013253+0000",
+    "durationSec": 3559.0,
     "failed": 0,
     "passed": 1393,
     "newFailed": 0
   },
-  "changes": [
-    {
-      "version": "b2fcae9df806",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-13782] MS - Fail PRs that add a NexusApi *Api without a test Feign",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/commands/nexus-regression-author-from-openapi-diff.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/commands/nexus-regression-coverage-refresh.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/rules/nexus-regression-ci-gradle.mdc",
-        "gateway/unifiedApi/NexusApiRegressionTests/NEXUS_API_REGRESSION_TESTS.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/generate_feign_gap.py",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/ADDING_NEW_FEIGN_CLIENT.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/CONTRACT_TESTING.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/PLATFORM_ASKS.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/ta-runtime/.gitignore"
-      ],
-      "areas": []
-    }
-  ],
+  "changes": [],
   "qaDeployChanges": [
     {
-      "service": "FeasibilityBatchRestDocker",
-      "version": "63376346947a",
-      "username": "tibor.olah",
-      "comment": "toggle off audit data writes",
+      "service": "DashboardRestDockerJ16",
+      "version": "a68cdde82563",
+      "username": "andras.banszki",
+      "comment": "[ NXS-13758 ] acc test update, looks like this was realy bad all the time",
       "files": [
-        "project/Feasibility/FeasibilityApi/src/main/java/com/dynata/feasibility/calcdecouple/controller/impl/CalculatorController.java",
-        "project/Feasibility/FeasibilityApi/src/main/java/com/surveysampling/feasibility/ui/context/FeasibilityUiContext.java",
-        "project/Feasibility/FeasibilityApi/src/test/groovy/com/dynata/feasibility/calcdecouple/controller/impl/CalculatorControllerTest.groovy",
-        "project/Feasibility/FeasibilityBatchRest/src/main/java/com/surveysampling/rest/feasibilitybatch/beans/ResourceFactory.java"
+        "project/DashboardRest/src/integTest/groovy/com/surveysampling/rest/dashboard/acceptance/CloneProjectBackwardCompatibilityTest.groovy",
+        "project/DashboardRest/src/integTest/groovy/com/surveysampling/rest/dashboard/acceptance/v2/helper/model/java/CategoryRecord.java"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
+      "version": "4e0b9c45760d",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5008] (export-service) modify memory to percentage base",
+      "files": [
+        "export-service/group_vars/dev.yml",
+        "export-service/group_vars/prod.yml",
+        "export-service/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260828T132224+0000"
+    },
+    {
+      "service": "DashboardRestDockerJ16",
       "version": "46f3e7fab917",
       "username": "krisztian.kover",
       "comment": "[ST-4998] - SystemUserRest - Changed health check url in QA",
       "files": [
         "dk-system-user-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "0ccc093ce918",
       "username": "erik.paulsen",
       "comment": "Exclude 75K terms errors from pager query",
       "files": [
         "redi-elastic-gateway/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "4d2be65335bd",
       "username": "brian.connolly",
       "comment": "Add DependsOn to force correct deletion ordering.",
       "files": [
         "ae-client-eligibility-redis/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "46b7fb01e510",
       "username": "brian.connolly",
       "comment": "Update skill to ensure ENVIRONMENT is set and cloud config vars are set via jinja references instead of hardcoded.",
@@ -104,10 +96,10 @@
         ".cursor/skills/migrate-ansible-cfn-group-vars/templates/create-changeset.sh",
         ".cursor/skills/migrate-ansible-cfn-group-vars/templates/group_vars_all.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "ba477e2a4c5c",
       "username": "richard.santos",
       "comment": "[FAI-451] adjust LowInvocation alarm for redemption-model",
@@ -115,10 +107,10 @@
         "ml-redemption-guard-model/cloud-formation.template.yml",
         "ml-redemption-guard-model/group_vars/all.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "213864010076",
       "username": "richard.santos",
       "comment": "[FAI-451] adjust LowInvocation alarm for ibzp-redemption-model",
@@ -126,40 +118,40 @@
         "ml-ibzp-redemption-guard-model/cloud-formation.template.yml",
         "ml-ibzp-redemption-guard-model/group_vars/all.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "35ff234d1d67",
       "username": "weiqun.wang",
       "comment": "change sagemaker_instance_count back to 3",
       "files": [
         "ml-reconciliation-model/group_vars/production.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "913f1eaa8aff",
       "username": "weiqun.wang",
       "comment": "change prod instance to g4dn",
       "files": [
         "ml-reconciliation-model/group_vars/production.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "b4df6b77ed40",
       "username": "grace.chen",
       "comment": "[FAI-431] add decompress ARN in prod",
       "files": [
         "ml-data-capture-bucket/group_vars/production.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "27094e37eac5",
       "username": "norbert.farkas",
       "comment": "[ NXS-12140 ] ecr migration",
@@ -169,10 +161,10 @@
         "dk-project-project-search-rest/group_vars/production.yml",
         "dk-project-project-search-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "9842a61a7333",
       "username": "norbert.farkas",
       "comment": "[ NXS-12179 ] ecr migration",
@@ -182,58 +174,58 @@
         "dk-dk-traffic-rest/group_vars/production.yml",
         "dk-dk-traffic-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "83fcb66f813b",
       "username": "gergo.hajnal",
       "comment": "[ST-5011] (st-respondent-rest) change healthcheck to actuator",
       "files": [
         "st-respondent-rest/group_vars/prod.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "9eeaebe7523b",
       "username": "gergo.hajnal",
       "comment": "(st-respondent-rest) removing temporary production.yml",
       "files": [
         "st-respondent-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "fd9dd857838a",
       "username": "47777290+koattila",
       "comment": "Merge pull request #614 from dynata/DQI-4404",
       "files": [],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "cd87a8f583b8",
       "username": "gergo.hajnal",
       "comment": "(st-respondent-rest) adding temporary production.yml to finish PROD deploy",
       "files": [
         "st-respondent-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "32179bf74fb4",
       "username": "grace.chen",
       "comment": "[FAI-431] Added MLAlertTopicsKmsKey, Both topics now set KmsMasterKeyId: MLAlertTopicsKmsKey",
       "files": [
         "ml-alert-topics/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "89037992f490",
       "username": "47777290+koattila",
       "comment": "DQI-4404 remove dy models LB reference from redemption guard dev and QA as well",
@@ -241,10 +233,10 @@
         "redemption-guard/group_vars/dev.yml",
         "redemption-guard/group_vars/qa.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "6e2c608a5d64",
       "username": "47777290+koattila",
       "comment": "DQI-4404 remove dq models LB reference from redemption guard prod yml; remove client-manager-api from dep inventory",
@@ -256,10 +248,10 @@
         "client-manager-api/inventory.ini",
         "redemption-guard/group_vars/production.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "95a6f8abb768",
       "username": "elodani10",
       "comment": "Add Notification service task role for QuotaGroupChangedCounters SQS",
@@ -269,140 +261,158 @@
         "recs/group_vars/production.yml",
         "recs/group_vars/qa.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
+      "service": "DashboardRestDockerJ16",
       "version": "100fc1c87d8c",
       "username": "tamas.gyarmati",
       "comment": "UnusedSQSCleaner - rename rule",
       "files": [
         "nexus-unused-sqs-cleaner-lambda/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260827T210522+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "FeasibilityBatchRestDocker",
-      "version": "cc28c45b6527",
-      "username": "krisztian.erdei",
-      "comment": "[ST-5050] Remove comment from supply-offer aws_db_version default",
-      "files": [
-        "supply-offer-service/group_vars/all.yml"
-      ],
-      "deployedAt": "20260827T210522+0000"
-    },
-    {
-      "service": "FeasibilityBatchRestDocker",
-      "version": "3b3cbd901658",
-      "username": "krisztian.erdei",
-      "comment": "[ST-5050] Upgrade supply-offer Aurora PostgreSQL to 18.4 on DEV and QA",
-      "files": [
-        "supply-offer-service/cloud-formation.template.yml",
-        "supply-offer-service/group_vars/all.yml",
-        "supply-offer-service/group_vars/dev.yml",
-        "supply-offer-service/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260827T210522+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "7990a8aeb0ab",
-      "username": "andras.banszki",
-      "comment": "[NXS-13651] use env in listeners",
-      "files": [
-        "sandbox/SandboxServiceRest/src/main/java/com/surveysampling/rest/alertmonitoring/v2/SandboxServiceImpl.java"
-      ],
-      "deployedAt": "20260827T172804+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "ad240ebc1a57",
-      "username": "andras.banszki",
-      "comment": "[NXS-13651] temp fix",
-      "files": [
-        "sandbox/SandboxServiceRest/src/main/java/com/surveysampling/rest/alertmonitoring/SandboxServiceRestApplication.java"
-      ],
-      "deployedAt": "20260827T172804+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "d4cc785cce9d",
-      "username": "andras.banszki",
-      "comment": "[NXS-13651] add timeout",
-      "files": [
-        "sandbox/SandboxServiceRest/src/integTest/groovy/com/surveysampling/rest/alertmonitoring/acceptance/SandboxServiceRestV2AcceptanceTest.groovy"
-      ],
-      "deployedAt": "20260827T172804+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "3c23b86fe022",
-      "username": "andras.banszki",
-      "comment": "[NXS-13651] fix queue name - rerun build with deployemtn inv changes",
-      "files": [
-        "sandbox/SandboxServiceRest/build.gradle"
-      ],
-      "deployedAt": "20260827T172804+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
+      "service": "DashboardRestDockerJ16",
       "version": "b0139302566f",
       "username": "tibor.olah",
       "comment": "migrate fbr to ecr",
       "files": [
         "dk-project-feasibility-batch-rest/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260827T172804+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "ProjectLogRestJ16",
-      "version": "45a308785108",
-      "username": "bence.csepe",
-      "comment": "[NXS-13777] force new build",
+      "service": "DashboardRestDockerJ16",
+      "version": "c3635767d1c0",
+      "username": "sajak.upadhyaya",
+      "comment": "test commit reversal",
       "files": [
-        "project/ProjectLogRest/build.gradle"
+        "ml-data-capture-bucket/group_vars/all.yml"
       ],
-      "deployedAt": "20260827T171523+0000"
+      "deployedAt": "20260828T132224+0000"
     },
     {
-      "service": "ProjectLogRestJ16",
-      "version": "b00966ff6943",
-      "username": "bence.csepe",
-      "comment": "[NXS-13777] force new build",
+      "service": "DashboardRestDockerJ16",
+      "version": "3f90c24dc53c",
+      "username": "sajak.upadhyaya",
+      "comment": "TC connection to deployment inventory VCS test",
       "files": [
-        "project/ProjectLogRest/build.gradle"
+        "ml-data-capture-bucket/group_vars/all.yml"
       ],
-      "deployedAt": "20260827T171523+0000"
+      "deployedAt": "20260828T132224+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "c7b45ea6a870",
+      "username": "40339600+tamasroma",
+      "comment": "[NXS-12347] DubKnowledge uppercase first letter (#5312)",
+      "files": [
+        "project/SurveyRest/src/main/java/com/surveysampling/rest/survey/u1/components/PatternValidator.java",
+        "project/SurveyRest/src/test/groovy/com/surveysampling/rest/survey/u1/components/PatternValidatorImplTest.groovy"
+      ],
+      "deployedAt": "20260828T093225+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "ea1fae3160fe",
+      "username": "bence.csepe",
+      "comment": "[NXS-13686] MS - Return tracker attributes if a Project (#5288)",
+      "files": [
+        "gateway/unifiedApi/NexusApiUI/src/integTest/groovy/com/dynata/rest/gateway/nexusuiapi/acceptance/u1/UProjectAccTest.groovy",
+        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/u1/nexus/projects/projectid/UProjectController.java",
+        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/v1/nexus/projects/model/ProjectOverview.java",
+        "gateway/unifiedApi/NexusApiUI/src/test/groovy/com/dynata/rest/gateway/nexusuiapi/u1/UProjectsImplTest.groovy"
+      ],
+      "deployedAt": "20260828T082040+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "c3befef45766",
+      "username": "bence.csepe",
+      "comment": "Revert \"[NXS-13686] MS - Return tracker attributes if a Project\"",
+      "files": [
+        "gateway/unifiedApi/NexusApiUI/src/integTest/groovy/com/dynata/rest/gateway/nexusuiapi/acceptance/u1/UProjectAccTest.groovy",
+        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/u1/nexus/projects/projectid/UProjectController.java",
+        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/v1/nexus/projects/model/ProjectOverview.java",
+        "gateway/unifiedApi/NexusApiUI/src/test/groovy/com/dynata/rest/gateway/nexusuiapi/u1/UProjectsImplTest.groovy"
+      ],
+      "deployedAt": "20260828T082040+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "e68b3ce0036e",
+      "username": "bence.csepe",
+      "comment": "[NXS-13686] MS - Return tracker attributes if a Project",
+      "files": [
+        "gateway/unifiedApi/NexusApiUI/src/integTest/groovy/com/dynata/rest/gateway/nexusuiapi/acceptance/u1/UProjectAccTest.groovy",
+        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/u1/nexus/projects/projectid/UProjectController.java",
+        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/v1/nexus/projects/model/ProjectOverview.java",
+        "gateway/unifiedApi/NexusApiUI/src/test/groovy/com/dynata/rest/gateway/nexusuiapi/u1/UProjectsImplTest.groovy"
+      ],
+      "deployedAt": "20260828T082040+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "cb5806cbce66",
+      "username": "tamas.szotak",
+      "comment": "[PAC-748] -DemandApi integTest fix",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/DemandUtil.groovy"
+      ],
+      "deployedAt": "20260828T081217+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "FeasibilityBatchRestDocker",
-      "commits": 23,
-      "latestTicket": "",
-      "latestComment": "toggle off audit data writes",
-      "deployedAt": "20260827T210522+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "commits": 5,
-      "latestTicket": "NXS-13651",
-      "latestComment": "[NXS-13651] use env in listeners",
-      "deployedAt": "20260827T172804+0000"
-    },
-    {
-      "service": "ProjectLogRestJ16",
-      "commits": 4,
-      "latestTicket": "NXS-13777",
-      "latestComment": "[NXS-13777] force new build",
-      "deployedAt": "20260827T171523+0000"
+      "service": "DashboardRestDockerJ16",
+      "commits": 25,
+      "latestTicket": "NXS-13758",
+      "latestComment": "[ NXS-13758 ] acc test update, looks like this was realy bad all the time",
+      "deployedAt": "20260828T132224+0000"
     },
     {
       "service": "SurveyRestJ21",
-      "commits": 5,
+      "commits": 1,
       "latestTicket": "NXS-12347",
-      "latestComment": "[NXS-12347] Feign base package fix",
-      "deployedAt": "20260827T095719+0000"
+      "latestComment": "[NXS-12347] DubKnowledge uppercase first letter (#5312)",
+      "deployedAt": "20260828T093225+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "commits": 3,
+      "latestTicket": "NXS-13686",
+      "latestComment": "[NXS-13686] MS - Return tracker attributes if a Project (#5288)",
+      "deployedAt": "20260828T082040+0000"
+    },
+    {
+      "service": "DemandApi",
+      "commits": 5,
+      "latestTicket": "",
+      "latestComment": "[PAC-748] -DemandApi integTest fix",
+      "deployedAt": "20260828T081217+0000"
+    },
+    {
+      "service": "ProjectAutomationApi",
+      "commits": 1,
+      "latestTicket": "",
+      "latestComment": "[PAC-776] ProjectAutomationApi - cloned project id pass for dcp maste\u2026 (#5295)",
+      "deployedAt": "20260828T081009+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "commits": 1,
+      "latestTicket": "NXS-13767",
+      "latestComment": "[NXS-13767] - NexusApi - TCO endpoints (#5299)",
+      "deployedAt": "20260828T071229+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "commits": 3,
+      "latestTicket": "NXS-13768",
+      "latestComment": "[NXS-13768] - ProjectRest - dummy TCO endpoints (#5296)",
+      "deployedAt": "20260828T072655+0000"
     }
   ],
   "clusters": [],
@@ -414,85 +424,91 @@
     "bullets": [],
     "investigation": "No unmuted failures.",
     "detail": {
-      "investigation": "Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 4 service(s) (37 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
+      "investigation": "7 service(s) (39 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
       "bullets": [
-        "NXS-13782: gergely.gimesi \u2014 [NXS-13782] MS - Fail PRs that add a NexusApi *Api without a test Feign",
-        "[QA deploy: FeasibilityBatchRestDocker]  (23 commits) \u2014 toggle off audit data writes",
-        "[QA deploy: SandboxServiceRestJ21] NXS-13651 (5 commits) \u2014 [NXS-13651] use env in listeners",
-        "[QA deploy: ProjectLogRestJ16] NXS-13777 (4 commits) \u2014 [NXS-13777] force new build",
-        "[QA deploy: SurveyRestJ21] NXS-12347 (5 commits) \u2014 [NXS-12347] Feign base package fix"
+        "[QA deploy: DashboardRestDockerJ16] NXS-13758 (25 commits) \u2014 [ NXS-13758 ] acc test update, looks like this was realy bad all the time",
+        "[QA deploy: SurveyRestJ21] NXS-12347 (1 commit) \u2014 [NXS-12347] DubKnowledge uppercase first letter (#5312)",
+        "[QA deploy: NexusApiUI] NXS-13686 (3 commits) \u2014 [NXS-13686] MS - Return tracker attributes if a Project (#5288)",
+        "[QA deploy: DemandApi]  (5 commits) \u2014 [PAC-748] -DemandApi integTest fix",
+        "[QA deploy: ProjectAutomationApi]  (1 commit) \u2014 [PAC-776] ProjectAutomationApi - cloned project id pass for dcp maste\u2026 (#5295)",
+        "[QA deploy: NexusApiJ21] NXS-13767 (1 commit) \u2014 [NXS-13767] - NexusApi - TCO endpoints (#5299)",
+        "[QA deploy: ProjectRestJ16] NXS-13768 (3 commits) \u2014 [NXS-13768] - ProjectRest - dummy TCO endpoints (#5296)"
       ],
       "newFailureAreas": [],
       "likelyCauses": []
     },
-    "suspectCommits": [
-      {
-        "version": "b2fcae9df806",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13782] MS - Fail PRs that add a NexusApi *Api without a test Feign",
-        "ticket": "NXS-13782",
-        "areas": []
-      }
-    ],
+    "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "FeasibilityBatchRestDocker",
-        "version": "63376346947a",
-        "username": "tibor.olah",
-        "comment": "toggle off audit data writes",
-        "ticket": "",
-        "deployedAt": "20260827T210522+0000",
+        "service": "DashboardRestDockerJ16",
+        "version": "a68cdde82563",
+        "username": "andras.banszki",
+        "comment": "[ NXS-13758 ] acc test update, looks like this was realy bad all the time",
+        "ticket": "NXS-13758",
+        "deployedAt": "20260828T132224+0000",
         "files": [
-          "CalculatorController.java",
-          "FeasibilityUiContext.java",
-          "CalculatorControllerTest.groovy",
-          "ResourceFactory.java"
+          "CloneProjectBackwardCompatibilityTest.groovy",
+          "CategoryRecord.java"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "FeasibilityBatchRestDocker",
+        "service": "DashboardRestDockerJ16",
+        "version": "4e0b9c45760d",
+        "username": "gergo.hajnal",
+        "comment": "[ST-5008] (export-service) modify memory to percentage base",
+        "ticket": "",
+        "deployedAt": "20260828T132224+0000",
+        "files": [
+          "dev.yml",
+          "prod.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DashboardRestDockerJ16",
         "version": "46f3e7fab917",
         "username": "krisztian.kover",
         "comment": "[ST-4998] - SystemUserRest - Changed health check url in QA",
         "ticket": "",
-        "deployedAt": "20260827T210522+0000",
+        "deployedAt": "20260828T132224+0000",
         "files": [
           "qa.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "FeasibilityBatchRestDocker",
+        "service": "DashboardRestDockerJ16",
         "version": "0ccc093ce918",
         "username": "erik.paulsen",
         "comment": "Exclude 75K terms errors from pager query",
         "ticket": "",
-        "deployedAt": "20260827T210522+0000",
+        "deployedAt": "20260828T132224+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "FeasibilityBatchRestDocker",
+        "service": "DashboardRestDockerJ16",
         "version": "4d2be65335bd",
         "username": "brian.connolly",
         "comment": "Add DependsOn to force correct deletion ordering.",
         "ticket": "",
-        "deployedAt": "20260827T210522+0000",
+        "deployedAt": "20260828T132224+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "FeasibilityBatchRestDocker",
+        "service": "DashboardRestDockerJ16",
         "version": "46b7fb01e510",
         "username": "brian.connolly",
         "comment": "Update skill to ensure ENVIRONMENT is set and cloud config vars are set via jinja references instead of hardcoded.",
         "ticket": "",
-        "deployedAt": "20260827T210522+0000",
+        "deployedAt": "20260828T132224+0000",
         "files": [
           "SKILL.md",
           "reference.md",
@@ -502,12 +518,12 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "FeasibilityBatchRestDocker",
+        "service": "DashboardRestDockerJ16",
         "version": "ba477e2a4c5c",
         "username": "richard.santos",
         "comment": "[FAI-451] adjust LowInvocation alarm for redemption-model",
         "ticket": "",
-        "deployedAt": "20260827T210522+0000",
+        "deployedAt": "20260828T132224+0000",
         "files": [
           "cloud-formation.template.yml",
           "all.yml"
@@ -515,12 +531,12 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "FeasibilityBatchRestDocker",
+        "service": "DashboardRestDockerJ16",
         "version": "213864010076",
         "username": "richard.santos",
         "comment": "[FAI-451] adjust LowInvocation alarm for ibzp-redemption-model",
         "ticket": "",
-        "deployedAt": "20260827T210522+0000",
+        "deployedAt": "20260828T132224+0000",
         "files": [
           "cloud-formation.template.yml",
           "all.yml"
@@ -528,36 +544,24 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "FeasibilityBatchRestDocker",
+        "service": "DashboardRestDockerJ16",
         "version": "35ff234d1d67",
         "username": "weiqun.wang",
         "comment": "change sagemaker_instance_count back to 3",
         "ticket": "",
-        "deployedAt": "20260827T210522+0000",
+        "deployedAt": "20260828T132224+0000",
         "files": [
           "production.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "FeasibilityBatchRestDocker",
+        "service": "DashboardRestDockerJ16",
         "version": "913f1eaa8aff",
         "username": "weiqun.wang",
         "comment": "change prod instance to g4dn",
         "ticket": "",
-        "deployedAt": "20260827T210522+0000",
-        "files": [
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "FeasibilityBatchRestDocker",
-        "version": "b4df6b77ed40",
-        "username": "grace.chen",
-        "comment": "[FAI-431] add decompress ARN in prod",
-        "ticket": "",
-        "deployedAt": "20260827T210522+0000",
+        "deployedAt": "20260828T132224+0000",
         "files": [
           "production.yml"
         ],
