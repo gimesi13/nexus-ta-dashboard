@@ -1533,24 +1533,16 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "headline": "Nightly was green \u2014 all tests passed with no new failures.",
     "tone": "ok",
     "severity": "none",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
+    "causeText": "Clean run \u2014 no unmuted failures, so nothing to investigate.",
+    "investigation": "",
     "bullets": [],
     "detail": {
-      "investigation": "7 service(s) (39 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
-      "bullets": [
-        "[QA deploy: DashboardRestDockerJ16] NXS-13758 (25 commits) \u2014 [ NXS-13758 ] acc test update, looks like this was realy bad all the time",
-        "[QA deploy: SurveyRestJ21] NXS-12347 (1 commit) \u2014 [NXS-12347] DubKnowledge uppercase first letter (#5312)",
-        "[QA deploy: NexusApiUI] NXS-13686 (3 commits) \u2014 [NXS-13686] MS - Return tracker attributes if a Project (#5288)",
-        "[QA deploy: DemandApi]  (5 commits) \u2014 [PAC-748] -DemandApi integTest fix",
-        "[QA deploy: ProjectAutomationApi]  (1 commit) \u2014 [PAC-776] ProjectAutomationApi - cloned project id pass for dcp maste\u2026 (#5295)",
-        "[QA deploy: NexusApiJ21] NXS-13767 (1 commit) \u2014 [NXS-13767] - NexusApi - TCO endpoints (#5299)",
-        "[QA deploy: ProjectRestJ16] NXS-13768 (3 commits) \u2014 [NXS-13768] - ProjectRest - dummy TCO endpoints (#5296)"
-      ],
+      "investigation": "",
+      "bullets": [],
       "newFailureAreas": [],
       "likelyCauses": []
     },
@@ -1737,8 +1729,8 @@
         "deployedAt": "20260828T072655+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-08-29T02:34Z",
+    "source": "llm",
+    "generatedAt": "2026-08-29T02:35Z",
     "buildNumber": "3.0.2682",
     "buildId": "9497052",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9497052",
