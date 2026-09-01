@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-30T02:33Z",
+  "generatedAt": "2026-09-01T01:49Z",
   "build": {
-    "number": "3.0.2683",
-    "buildId": "9497729",
+    "number": "3.0.2685",
+    "buildId": "9499294",
     "status": "SUCCESS",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9497729",
-    "durationSec": 3615.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9499294",
+    "durationSec": 1146.0
   },
   "summary": {
     "tests": 1479,
@@ -17,22 +17,381 @@
     "muted": 86,
     "newFailed": 0,
     "passRate": 100.0,
-    "timeSec": 3615.0
+    "timeSec": 1146.0
   },
   "prior": {
-    "buildId": "9497052",
-    "number": "3.0.2682",
-    "status": "SUCCESS",
-    "statusText": "Tests passed: 1393, muted: 86",
-    "startDate": "20260829T013332+0000",
-    "durationSec": 3633.0,
-    "failed": 0,
-    "passed": 1393,
-    "newFailed": 0
+    "buildId": "9497454",
+    "number": "3.0.2684",
+    "status": "FAILURE",
+    "statusText": "Tests failed: 2 (2 new), passed: 1391, muted: 86",
+    "startDate": "20260831T013300+0000",
+    "durationSec": 1165.0,
+    "failed": 2,
+    "passed": 1391,
+    "newFailed": 2
   },
   "changes": [],
-  "qaDeployChanges": [],
-  "qaDeployServices": [],
+  "qaDeployChanges": [
+    {
+      "service": "J16",
+      "version": "f55a2f117de1",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5003] (dk-project-country-language-rest) addig actuator healthcheck to QA",
+      "files": [
+        "dk-project-country-language-rest/group_vars/dev.yml",
+        "dk-project-country-language-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "b77eb0dd14c0",
+      "username": "weiqun.wang",
+      "comment": "try ml.c6i.2xlarge in qa",
+      "files": [
+        "ml-reconciliation-model/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "31b2934a459e",
+      "username": "gergo.hajnal",
+      "comment": "(dk-management-enum-rest) increase DEV memory",
+      "files": [
+        "dk-management-enum-rest/group_vars/dev.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "4e0b9c45760d",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5008] (export-service) modify memory to percentage base",
+      "files": [
+        "export-service/group_vars/dev.yml",
+        "export-service/group_vars/prod.yml",
+        "export-service/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "46f3e7fab917",
+      "username": "krisztian.kover",
+      "comment": "[ST-4998] - SystemUserRest - Changed health check url in QA",
+      "files": [
+        "dk-system-user-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "0ccc093ce918",
+      "username": "erik.paulsen",
+      "comment": "Exclude 75K terms errors from pager query",
+      "files": [
+        "redi-elastic-gateway/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "4d2be65335bd",
+      "username": "brian.connolly",
+      "comment": "Add DependsOn to force correct deletion ordering.",
+      "files": [
+        "ae-client-eligibility-redis/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "46b7fb01e510",
+      "username": "brian.connolly",
+      "comment": "Update skill to ensure ENVIRONMENT is set and cloud config vars are set via jinja references instead of hardcoded.",
+      "files": [
+        ".cursor/skills/migrate-ansible-cfn-group-vars/SKILL.md",
+        ".cursor/skills/migrate-ansible-cfn-group-vars/reference.md",
+        ".cursor/skills/migrate-ansible-cfn-group-vars/templates/create-changeset.sh",
+        ".cursor/skills/migrate-ansible-cfn-group-vars/templates/group_vars_all.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "ba477e2a4c5c",
+      "username": "richard.santos",
+      "comment": "[FAI-451] adjust LowInvocation alarm for redemption-model",
+      "files": [
+        "ml-redemption-guard-model/cloud-formation.template.yml",
+        "ml-redemption-guard-model/group_vars/all.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "213864010076",
+      "username": "richard.santos",
+      "comment": "[FAI-451] adjust LowInvocation alarm for ibzp-redemption-model",
+      "files": [
+        "ml-ibzp-redemption-guard-model/cloud-formation.template.yml",
+        "ml-ibzp-redemption-guard-model/group_vars/all.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "35ff234d1d67",
+      "username": "weiqun.wang",
+      "comment": "change sagemaker_instance_count back to 3",
+      "files": [
+        "ml-reconciliation-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "913f1eaa8aff",
+      "username": "weiqun.wang",
+      "comment": "change prod instance to g4dn",
+      "files": [
+        "ml-reconciliation-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "b4df6b77ed40",
+      "username": "grace.chen",
+      "comment": "[FAI-431] add decompress ARN in prod",
+      "files": [
+        "ml-data-capture-bucket/group_vars/production.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "27094e37eac5",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-12140 ] ecr migration",
+      "files": [
+        "dk-project-project-search-rest/cloud-formation.template.yml",
+        "dk-project-project-search-rest/group_vars/dev.yml",
+        "dk-project-project-search-rest/group_vars/production.yml",
+        "dk-project-project-search-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "9842a61a7333",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-12179 ] ecr migration",
+      "files": [
+        "dk-dk-traffic-rest/cloud-formation.template.yml",
+        "dk-dk-traffic-rest/group_vars/dev.yml",
+        "dk-dk-traffic-rest/group_vars/production.yml",
+        "dk-dk-traffic-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "cf0ebba20da4",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-13736 ] ECR j16",
+      "files": [
+        "gateway/dk/DKExportRest/build.gradle"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "83fcb66f813b",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5011] (st-respondent-rest) change healthcheck to actuator",
+      "files": [
+        "st-respondent-rest/group_vars/prod.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "9eeaebe7523b",
+      "username": "gergo.hajnal",
+      "comment": "(st-respondent-rest) removing temporary production.yml",
+      "files": [
+        "st-respondent-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "fd9dd857838a",
+      "username": "47777290+koattila",
+      "comment": "Merge pull request #614 from dynata/DQI-4404",
+      "files": [],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "cd87a8f583b8",
+      "username": "gergo.hajnal",
+      "comment": "(st-respondent-rest) adding temporary production.yml to finish PROD deploy",
+      "files": [
+        "st-respondent-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "32179bf74fb4",
+      "username": "grace.chen",
+      "comment": "[FAI-431] Added MLAlertTopicsKmsKey, Both topics now set KmsMasterKeyId: MLAlertTopicsKmsKey",
+      "files": [
+        "ml-alert-topics/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "89037992f490",
+      "username": "47777290+koattila",
+      "comment": "DQI-4404 remove dy models LB reference from redemption guard dev and QA as well",
+      "files": [
+        "redemption-guard/group_vars/dev.yml",
+        "redemption-guard/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "6e2c608a5d64",
+      "username": "47777290+koattila",
+      "comment": "DQI-4404 remove dq models LB reference from redemption guard prod yml; remove client-manager-api from dep inventory",
+      "files": [
+        "client-manager-api/cloud-formation.template.yml",
+        "client-manager-api/group_vars/all.yml",
+        "client-manager-api/group_vars/production.yml",
+        "client-manager-api/group_vars/qa.yml",
+        "client-manager-api/inventory.ini",
+        "redemption-guard/group_vars/production.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "95a6f8abb768",
+      "username": "elodani10",
+      "comment": "Add Notification service task role for QuotaGroupChangedCounters SQS",
+      "files": [
+        "recs/cloud-formation.template.yml",
+        "recs/group_vars/dev.yml",
+        "recs/group_vars/production.yml",
+        "recs/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "J16",
+      "version": "100fc1c87d8c",
+      "username": "tamas.gyarmati",
+      "comment": "UnusedSQSCleaner - rename rule",
+      "files": [
+        "nexus-unused-sqs-cleaner-lambda/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "DKProjectRestJ16",
+      "version": "8c318e596fd9",
+      "username": "andras.banszki",
+      "comment": "[ NXS-13741 ] filter projects 'ORD-17' to narrow down matched results and avoid read timeout caused by 'ORD' filtering",
+      "files": [
+        "gateway/dk/DKProjectRest/src/integTest/groovy/com/surveysampling/rest/gateway/project/service/v1/acceptance/ProjectGatewayAcceptanceTest.groovy"
+      ],
+      "deployedAt": "20260831T155300+0000"
+    },
+    {
+      "service": "DKProjectRestJ16",
+      "version": "c3971d9322e8",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-13741 ] ECR j16",
+      "files": [
+        "gateway/dk/DKProjectRest/build.gradle"
+      ],
+      "deployedAt": "20260831T155300+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "version": "61a3f08ec04b",
+      "username": "tibor.olah",
+      "comment": "toggle off audit data writes: extra wiring",
+      "files": [
+        "project/Feasibility/FeasibilityApi/src/main/java/com/surveysampling/feasibility/ui/service/expose/batchrequest/ServiceBase.java",
+        "project/Feasibility/FeasibilityBatchRest/src/main/java/com/surveysampling/rest/feasibilitybatch/service/v1/BatchServiceRest.java"
+      ],
+      "deployedAt": "20260831T145718+0000"
+    },
+    {
+      "service": "ExportCountersRestJ16",
+      "version": "81b5bd93dfe0",
+      "username": "andras.banszki",
+      "comment": "NXS-13711 - dbo.check_and_set_questionnaire_feature_value dropped (https://github.com/dynata/respondentStatusManager/co\u2026",
+      "files": [
+        "project/ExportCountersRest/src/integTest/groovy/com/surveysampling/dk/traffic/export/impl/GetAllCountersIT.groovy"
+      ],
+      "deployedAt": "20260831T130346+0000"
+    },
+    {
+      "service": "DKSystemRestJ16",
+      "version": "c308b10a626e",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-13756 ] ECR j16",
+      "files": [
+        "management/gateways/DKSystemRest/build.gradle"
+      ],
+      "deployedAt": "20260831T113552+0000"
+    }
+  ],
+  "qaDeployServices": [
+    {
+      "service": "J16",
+      "commits": 25,
+      "latestTicket": "",
+      "latestComment": "[ST-5003] (dk-project-country-language-rest) addig actuator healthcheck to QA",
+      "deployedAt": "20260831T160003+0000"
+    },
+    {
+      "service": "DKProjectRestJ16",
+      "commits": 2,
+      "latestTicket": "NXS-13741",
+      "latestComment": "[ NXS-13741 ] filter projects 'ORD-17' to narrow down matched results and avoid ",
+      "deployedAt": "20260831T155300+0000"
+    },
+    {
+      "service": "FeasibilityBatchRestDocker",
+      "commits": 1,
+      "latestTicket": "",
+      "latestComment": "toggle off audit data writes: extra wiring",
+      "deployedAt": "20260831T145718+0000"
+    },
+    {
+      "service": "ExportCountersRestJ16",
+      "commits": 1,
+      "latestTicket": "NXS-13711",
+      "latestComment": "NXS-13711 - dbo.check_and_set_questionnaire_feature_value dropped (https://githu",
+      "deployedAt": "20260831T130346+0000"
+    },
+    {
+      "service": "DKSystemRestJ16",
+      "commits": 1,
+      "latestTicket": "NXS-13756",
+      "latestComment": "[ NXS-13756 ] ECR j16",
+      "deployedAt": "20260831T113552+0000"
+    }
+  ],
   "clusters": [],
   "failures": [],
   "rulesNutshell": {
@@ -42,13 +401,148 @@
     "bullets": [],
     "investigation": "No unmuted failures.",
     "detail": {
-      "investigation": "",
-      "bullets": [],
+      "investigation": "5 service(s) (30 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
+      "bullets": [
+        "[QA deploy: J16]  (25 commits) \u2014 [ST-5003] (dk-project-country-language-rest) addig actuator healthcheck to QA",
+        "[QA deploy: DKProjectRestJ16] NXS-13741 (2 commits) \u2014 [ NXS-13741 ] filter projects 'ORD-17' to narrow down matched results and avoid ",
+        "[QA deploy: FeasibilityBatchRestDocker]  (1 commit) \u2014 toggle off audit data writes: extra wiring",
+        "[QA deploy: ExportCountersRestJ16] NXS-13711 (1 commit) \u2014 NXS-13711 - dbo.check_and_set_questionnaire_feature_value dropped (https://githu",
+        "[QA deploy: DKSystemRestJ16] NXS-13756 (1 commit) \u2014 [ NXS-13756 ] ECR j16"
+      ],
       "newFailureAreas": [],
       "likelyCauses": []
     },
     "suspectCommits": [],
-    "qaDeploySuspects": []
+    "qaDeploySuspects": [
+      {
+        "service": "J16",
+        "version": "f55a2f117de1",
+        "username": "gergo.hajnal",
+        "comment": "[ST-5003] (dk-project-country-language-rest) addig actuator healthcheck to QA",
+        "ticket": "",
+        "deployedAt": "20260831T160003+0000",
+        "files": [
+          "dev.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "J16",
+        "version": "b77eb0dd14c0",
+        "username": "weiqun.wang",
+        "comment": "try ml.c6i.2xlarge in qa",
+        "ticket": "",
+        "deployedAt": "20260831T160003+0000",
+        "files": [
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "J16",
+        "version": "31b2934a459e",
+        "username": "gergo.hajnal",
+        "comment": "(dk-management-enum-rest) increase DEV memory",
+        "ticket": "",
+        "deployedAt": "20260831T160003+0000",
+        "files": [
+          "dev.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "J16",
+        "version": "4e0b9c45760d",
+        "username": "gergo.hajnal",
+        "comment": "[ST-5008] (export-service) modify memory to percentage base",
+        "ticket": "",
+        "deployedAt": "20260831T160003+0000",
+        "files": [
+          "dev.yml",
+          "prod.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "J16",
+        "version": "46f3e7fab917",
+        "username": "krisztian.kover",
+        "comment": "[ST-4998] - SystemUserRest - Changed health check url in QA",
+        "ticket": "",
+        "deployedAt": "20260831T160003+0000",
+        "files": [
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "J16",
+        "version": "0ccc093ce918",
+        "username": "erik.paulsen",
+        "comment": "Exclude 75K terms errors from pager query",
+        "ticket": "",
+        "deployedAt": "20260831T160003+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "J16",
+        "version": "4d2be65335bd",
+        "username": "brian.connolly",
+        "comment": "Add DependsOn to force correct deletion ordering.",
+        "ticket": "",
+        "deployedAt": "20260831T160003+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "J16",
+        "version": "46b7fb01e510",
+        "username": "brian.connolly",
+        "comment": "Update skill to ensure ENVIRONMENT is set and cloud config vars are set via jinja references instead of hardcoded.",
+        "ticket": "",
+        "deployedAt": "20260831T160003+0000",
+        "files": [
+          "SKILL.md",
+          "reference.md",
+          "create-changeset.sh",
+          "group_vars_all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "J16",
+        "version": "ba477e2a4c5c",
+        "username": "richard.santos",
+        "comment": "[FAI-451] adjust LowInvocation alarm for redemption-model",
+        "ticket": "",
+        "deployedAt": "20260831T160003+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "J16",
+        "version": "213864010076",
+        "username": "richard.santos",
+        "comment": "[FAI-451] adjust LowInvocation alarm for ibzp-redemption-model",
+        "ticket": "",
+        "deployedAt": "20260831T160003+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      }
+    ]
   },
   "contractDrift": {
     "newCount": 0,

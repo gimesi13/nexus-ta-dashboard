@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-30T02:33Z",
+  "generatedAt": "2026-09-01T01:49Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-08-24",
-      "to": "2026-08-30",
+      "from": "2026-08-26",
+      "to": "2026-09-01",
       "featuresAdded": 0,
       "casesAdded": 0,
       "areasTouched": 0,
@@ -17,191 +17,20 @@
       "additions": []
     },
     "14d": {
-      "from": "2026-08-17",
-      "to": "2026-08-30",
-      "featuresAdded": 6,
-      "casesAdded": 6,
-      "areasTouched": 5,
-      "ticketsTouched": 1,
-      "byType": {
-        "CRUD": 1,
-        "Validation": 1,
-        "E2E": 2,
-        "Other": 2
-      },
-      "byArea": [
-        {
-          "area": "BOS",
-          "featuresAdded": 2
-        },
-        {
-          "area": "AudienceGroup",
-          "featuresAdded": 1
-        },
-        {
-          "area": "SampleRules",
-          "featuresAdded": 1
-        },
-        {
-          "area": "Security",
-          "featuresAdded": 1
-        },
-        {
-          "area": "Survey",
-          "featuresAdded": 1
-        }
-      ],
-      "tickets": [
-        {
-          "key": "NXS-13674",
-          "featuresAdded": 6,
-          "casesAdded": 6,
-          "latestDate": "2026-08-18"
-        }
-      ],
-      "additions": [
-        {
-          "name": "Survey E2E - fieldwork prep: create through activation, QG link, security and clone",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyE2ETestSteps.groovy",
-          "date": "2026-08-18",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13674: Survey + SampleRules E2E specs + SURVEY_E2E/SAMPLE_RULES_E2E fixtures",
-          "commit": "b452aa7ffd",
-          "tickets": [
-            "NXS-13674"
-          ],
-          "area": "Survey",
-          "spec": "SurveyE2ETestSteps",
-          "type": "E2E",
-          "cases": 1,
-          "tags": [
-            "E2E",
-            "SURVEY",
-            "URL_POOL",
-            "PRESCREENER",
-            "END_LINK_SECURITY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Survey%20E2E%20-%20fieldwork%20prep%3A%20create%20through%20activation%2C%20QG%20link%2C%20security%20and%20clone"
-        },
-        {
-          "name": "gateway rejects [#authScenario] to #endpoint with HTTP 401",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Security/GatewayAuthenticationMatrixTestSteps.groovy",
-          "date": "2026-08-18",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13674: gateway authentication matrix (Phase 6 authz)",
-          "commit": "f6ac8d0609",
-          "tickets": [
-            "NXS-13674"
-          ],
-          "area": "Security",
-          "spec": "GatewayAuthenticationMatrixTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "SECURITY",
-            "AUTHZ",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=gateway%20rejects%20%5B%23authScenario%5D%20to%20%23endpoint%20with%20HTTP%20401"
-        },
-        {
-          "name": "SampleRules E2E - source-to-target rollout: configure, apply, verify",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/SampleRules/SampleRulesE2ETestSteps.groovy",
-          "date": "2026-08-18",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13674: Survey + SampleRules E2E specs + SURVEY_E2E/SAMPLE_RULES_E2E fixtures",
-          "commit": "b452aa7ffd",
-          "tickets": [
-            "NXS-13674"
-          ],
-          "area": "SampleRules",
-          "spec": "SampleRulesE2ETestSteps",
-          "type": "E2E",
-          "cases": 1,
-          "tags": [
-            "E2E",
-            "SAMPLE_RULES",
-            "SOURCES",
-            "CHANNEL_CRITERIA",
-            "CHANNEL",
-            "BRAND_EXCLUSION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=SampleRules%20E2E%20-%20source-to-target%20rollout%3A%20configure%2C%20apply%2C%20verify"
-        },
-        {
-          "name": "sample creation - sales-order linkage stays resolvable across ORDER and accepted PROJECT",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
-          "date": "2026-08-18",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13674: fold BOS sales-order linkage check into sample-creation spec",
-          "commit": "a79b65358d",
-          "tickets": [
-            "NXS-13674"
-          ],
-          "area": "BOS",
-          "spec": "BosSampleCreationTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "E2E",
-            "CREATE_QUOTE",
-            "QUOTE_2_ORDER",
-            "PROJECT_ACCEPT",
-            "BOS_SALES_ORDER"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=sample%20creation%20-%20sales-order%20linkage%20stays%20resolvable%20across%20ORDER%20and%20accepted%20PROJECT"
-        },
-        {
-          "name": "BOS E2E - quote through accepted project: CRM propagation + sales-order verification",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosCommercialLifecycleE2ETestSteps.groovy",
-          "date": "2026-08-18",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13674: BOS commercial-lifecycle E2E spec + mark god-helper split won't-fix",
-          "commit": "9f6d8d84dd",
-          "tickets": [
-            "NXS-13674"
-          ],
-          "area": "BOS",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=BOS%20E2E%20-%20quote%20through%20accepted%20project%3A%20CRM%20propagation%20%2B%20sales-order%20verification",
-          "gone": true
-        },
-        {
-          "name": "Clone audience group and verify cloned audience group name has Cloned- prefix and quota group names have Cloned suffix",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceGroupE2ECloneRestoreReorderTestSteps.groovy",
-          "date": "2026-08-17",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13674 Tier-3 cleanup: delete duplicate exclusion-rule specs + 2 cross-folder moves",
-          "commit": "8f20585060",
-          "tickets": [
-            "NXS-13674"
-          ],
-          "area": "AudienceGroup",
-          "spec": "AudienceGroupE2ECloneRestoreReorderTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "AUDIENCE_GROUP",
-            "PR_SMOKE",
-            "QUOTA",
-            "CLONE_QUOTA_GROUP",
-            "E2E"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Clone%20audience%20group%20and%20verify%20cloned%20audience%20group%20name%20has%20Cloned-%20prefix%20and%20quota%20group%20names%20have%20Cloned%20suffix"
-        }
-      ]
+      "from": "2026-08-19",
+      "to": "2026-09-01",
+      "featuresAdded": 0,
+      "casesAdded": 0,
+      "areasTouched": 0,
+      "ticketsTouched": 0,
+      "byType": {},
+      "byArea": [],
+      "tickets": [],
+      "additions": []
     },
     "30d": {
-      "from": "2026-08-01",
-      "to": "2026-08-30",
+      "from": "2026-08-03",
+      "to": "2026-09-01",
       "featuresAdded": 311,
       "casesAdded": 510,
       "areasTouched": 14,
@@ -7075,8 +6904,8 @@
       ]
     },
     "90d": {
-      "from": "2026-06-02",
-      "to": "2026-08-30",
+      "from": "2026-06-04",
+      "to": "2026-09-01",
       "featuresAdded": 429,
       "casesAdded": 647,
       "areasTouched": 16,
@@ -16525,11 +16354,6 @@
   },
   "weeks": [
     {
-      "weekStart": "2026-06-08",
-      "featuresAdded": 3,
-      "casesAdded": 3
-    },
-    {
       "weekStart": "2026-06-15",
       "featuresAdded": 9,
       "casesAdded": 9
@@ -16583,6 +16407,11 @@
       "weekStart": "2026-08-24",
       "featuresAdded": 0,
       "casesAdded": 0
+    },
+    {
+      "weekStart": "2026-08-31",
+      "featuresAdded": 0,
+      "casesAdded": 0
     }
   ],
   "snapshots": [
@@ -16609,7 +16438,7 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-08-30",
+      "date": "2026-09-01",
       "features": 750,
       "cases": 1515,
       "specs": 108,
@@ -16629,7 +16458,7 @@
       "priorPercent": 78.0,
       "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-08-30",
+      "currentDate": "2026-09-01",
       "testedDelta": 56,
       "untestedDelta": -59
     }
