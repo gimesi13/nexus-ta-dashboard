@@ -1,10 +1,7 @@
-**1 new failure in Fieldwork**
+**1 new Fieldwork failure — a QA 502 Bad Gateway (infra, not a product regression)**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: transient QA infrastructure — HTTP 502 Bad Gateway from the QA gateway, not a code regression._
 
-- 1× QA 502 Bad Gateway
+- 1× QA 502 Bad Gateway (Fieldwork)
 
-⚠️ Contract drift: 1 new response-schema violation(s) vs baseline.
-- PUT /u1/nexus/quotaGroups/{}/conditions/segmentedConditions/{} :: Response status 502 not defined for path '/u1/nexus/quotaGroups/{quotaGroupId}/conditions/segmentedConditions/{parameterId}'.
-
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9503948)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9503948)

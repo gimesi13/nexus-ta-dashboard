@@ -1545,24 +1545,21 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in Fieldwork",
+    "headline": "1 new Fieldwork failure \u2014 a QA 502 Bad Gateway (infra, not a product regression)",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 5 service(s) were deployed to QA in this window (TrafficDetailsRestJ21, ProjectMembershipRestJ162, ProjectLogRestJ16, FeasibilityBatchRestDocker, 2) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Gateway hits: dk-project-details-editor-rest, dk-management-enum-rest.",
+    "cause": "infra",
+    "causeText": "The single new Fieldwork failure is an HTTP 502 Bad Gateway returned by the QA gateway on PUT .../segmentedConditions (call chain 502s at dk-project-details-editor-rest and dk-management-enum-rest) \u2014 transient QA infra, not an assertion or code regression.",
+    "investigation": "1\u00d7 QA 502 Bad Gateway in Fieldwork; no QA-deployed change maps to the failing endpoints (dk-management-enum-rest's deploy touched only dev.yml).",
     "bullets": [
-      "1\u00d7 QA 502 Bad Gateway"
+      "1\u00d7 QA 502 Bad Gateway (Fieldwork)"
     ],
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2685, 0 fails). Failure types (new-first): (1) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: Fieldwork (1). 5 service(s) (21 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Fieldwork: Configure fieldwork with quota group having complex segmentation: com.dynata.rest.gateway. [QA 502 Bad Gateway].",
+      "investigation": "The only new failure (1 of 1 unmuted, prior build #3.0.2685 was green) is a QA 502 Bad Gateway on PUT /u1/nexus/quotaGroups/{}/conditions/segmentedConditions, with the call chain 502-ing at dk-project-details-editor-rest and dk-management-enum-rest \u2014 a gateway/infra error, not an assertion. Of the 5 services deployed to QA in-window, only dk-management-enum-rest matches a failing endpoint and its change touched dev.yml (DEV memory) not QA, so no code change is implicated.",
       "bullets": [
-        "1\u00d7 QA 502 Bad Gateway",
-        "[QA deploy: TrafficDetailsRestJ21] NXS-13784 (5 commits) \u2014 [NXS-13784] drop TrafficDetailsRest Xmx JAVA_OPTS for container RAM% - new build",
-        "[QA deploy: ProjectMembershipRestJ162]  (1 commit) \u2014 [NA-1931] - increase grace period",
-        "[QA deploy: ProjectLogRestJ16] NXS-13777 (10 commits) \u2014 [NXS-13777] added credentials for prod deploy",
-        "[QA deploy: FeasibilityBatchRestDocker]  (1 commit) \u2014 [PAC-783] Fix - BOS case: QuotaGroup insert into mongo without sourceCrmSystem (",
-        "[QA deploy: 2] NXS-13715 (4 commits) \u2014 NXS-13715 - add springQuery map to CategoryRestFeignClient too"
+        "1\u00d7 QA 502 Bad Gateway \u2014 Fieldwork: Configure fieldwork with quota group having complex segmentation",
+        "Call chain 502s at dk-project-details-editor-rest and dk-management-enum-rest (gateway/infra, not an assertion)",
+        "Contract drift (separate lane): PUT .../segmentedConditions returned an undocumented 502 status"
       ],
       "newFailureAreas": [
         {
@@ -1755,8 +1752,8 @@
         "deployedAt": "20260901T074416+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-09-02T01:54Z",
+    "source": "llm",
+    "generatedAt": "2026-09-02T01:56:13Z",
     "buildNumber": "3.0.2686",
     "buildId": "9503948",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9503948",
