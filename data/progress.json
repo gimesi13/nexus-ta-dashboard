@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-01T01:49Z",
+  "generatedAt": "2026-09-02T01:54Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-08-26",
-      "to": "2026-09-01",
+      "from": "2026-08-27",
+      "to": "2026-09-02",
       "featuresAdded": 0,
       "casesAdded": 0,
       "areasTouched": 0,
@@ -17,8 +17,8 @@
       "additions": []
     },
     "14d": {
-      "from": "2026-08-19",
-      "to": "2026-09-01",
+      "from": "2026-08-20",
+      "to": "2026-09-02",
       "featuresAdded": 0,
       "casesAdded": 0,
       "areasTouched": 0,
@@ -29,24 +29,24 @@
       "additions": []
     },
     "30d": {
-      "from": "2026-08-03",
-      "to": "2026-09-01",
-      "featuresAdded": 311,
-      "casesAdded": 510,
+      "from": "2026-08-04",
+      "to": "2026-09-02",
+      "featuresAdded": 301,
+      "casesAdded": 500,
       "areasTouched": 14,
-      "ticketsTouched": 5,
+      "ticketsTouched": 4,
       "byType": {
-        "CRUD": 104,
-        "Validation": 66,
-        "Workflow": 67,
-        "Query": 16,
+        "CRUD": 103,
+        "Validation": 61,
+        "Workflow": 66,
+        "Query": 15,
         "E2E": 3,
-        "Other": 55
+        "Other": 53
       },
       "byArea": [
         {
           "area": "QuotaGroup",
-          "featuresAdded": 111
+          "featuresAdded": 109
         },
         {
           "area": "PES",
@@ -58,19 +58,19 @@
         },
         {
           "area": "PartnerEvent",
-          "featuresAdded": 27
+          "featuresAdded": 24
         },
         {
           "area": "Survey",
           "featuresAdded": 23
         },
         {
-          "area": "SampleRules",
-          "featuresAdded": 14
-        },
-        {
           "area": "Quota",
           "featuresAdded": 13
+        },
+        {
+          "area": "SampleRules",
+          "featuresAdded": 12
         },
         {
           "area": "Fieldwork",
@@ -85,10 +85,6 @@
           "featuresAdded": 5
         },
         {
-          "area": "Settings",
-          "featuresAdded": 4
-        },
-        {
           "area": "AudienceGroup",
           "featuresAdded": 2
         },
@@ -98,6 +94,10 @@
         },
         {
           "area": "Security",
+          "featuresAdded": 1
+        },
+        {
+          "area": "Settings",
           "featuresAdded": 1
         }
       ],
@@ -113,12 +113,6 @@
           "featuresAdded": 47,
           "casesAdded": 47,
           "latestDate": "2026-08-14"
-        },
-        {
-          "key": "NXS-13561",
-          "featuresAdded": 10,
-          "casesAdded": 10,
-          "latestDate": "2026-08-03"
         },
         {
           "key": "NXS-13653",
@@ -6685,243 +6679,28 @@
           "ignored": false,
           "inventoryHref": "inventory.html?q=sample%20creation%20-%20MMR",
           "gone": true
-        },
-        {
-          "name": "Distinct user guids yield distinct Chameleon hashed identities",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "Settings",
-          "spec": "UserSettingsTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "USER_SETTINGS"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Distinct%20user%20guids%20yield%20distinct%20Chameleon%20hashed%20identities"
-        },
-        {
-          "name": "Chameleon hashed user id is returned for a non-blank guid",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "Settings",
-          "spec": "UserSettingsTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "USER_SETTINGS"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Chameleon%20hashed%20user%20id%20is%20returned%20for%20a%20non-blank%20guid"
-        },
-        {
-          "name": "Chameleon hashed user id is rejected for a blank guid",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Settings/UserSettingsTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "Settings",
-          "spec": "UserSettingsTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "USER_SETTINGS",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Chameleon%20hashed%20user%20id%20is%20rejected%20for%20a%20blank%20guid"
-        },
-        {
-          "name": "Default source quotas with panel ids are returned for a feasibility filter",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/SampleRules/SourcesApplyTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "SampleRules",
-          "spec": "SourcesQueryTestSteps",
-          "type": "Query",
-          "cases": 1,
-          "tags": [
-            "SOURCES",
-            "SAMPLE_RULES",
-            "FEASIBILITY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Default%20source%20quotas%20with%20panel%20ids%20are%20returned%20for%20a%20feasibility%20filter"
-        },
-        {
-          "name": "Default source quotas with an invalid country yield no channels",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/SampleRules/SourcesApplyTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "SampleRules",
-          "spec": "SourcesQueryTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "SOURCES",
-            "SAMPLE_RULES",
-            "CHANNEL",
-            "COUNTRY_LANGUAGES",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Default%20source%20quotas%20with%20an%20invalid%20country%20yield%20no%20channels"
-        },
-        {
-          "name": "Total quota approve is rejected for non Dynata Plus audiences",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupBusinessRuleValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Total%20quota%20approve%20is%20rejected%20for%20non%20Dynata%20Plus%20audiences"
-        },
-        {
-          "name": "Total quota approve for a missing audience is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupBusinessRuleValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Total%20quota%20approve%20for%20a%20missing%20audience%20is%20rejected"
-        },
-        {
-          "name": "Partner event remains available after metrics embed URL is retrieved",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventWorkflowTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT",
-            "REX_EVENT",
-            "PR_SMOKE",
-            "E2E"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Partner%20event%20remains%20available%20after%20metrics%20embed%20URL%20is%20retrieved"
-        },
-        {
-          "name": "Partner event metrics for a missing partner event are rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventValidationTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT",
-            "REX_EVENT",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Partner%20event%20metrics%20for%20a%20missing%20partner%20event%20are%20rejected"
-        },
-        {
-          "name": "Partner event metrics embed URL is returned for an existing partner event",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventCRUDTestSteps.groovy",
-          "date": "2026-08-03",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13561 MS - close remaining endpoint coverage via Map Feign leaves",
-          "commit": "70d4645e5e",
-          "tickets": [
-            "NXS-13561"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT",
-            "REX_EVENT"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Partner%20event%20metrics%20embed%20URL%20is%20returned%20for%20an%20existing%20partner%20event"
         }
       ]
     },
     "90d": {
-      "from": "2026-06-04",
-      "to": "2026-09-01",
-      "featuresAdded": 429,
-      "casesAdded": 647,
+      "from": "2026-06-05",
+      "to": "2026-09-02",
+      "featuresAdded": 425,
+      "casesAdded": 643,
       "areasTouched": 16,
       "ticketsTouched": 14,
       "byType": {
-        "CRUD": 132,
-        "Validation": 103,
+        "CRUD": 131,
+        "Validation": 102,
         "Workflow": 94,
         "Query": 22,
         "E2E": 3,
-        "Other": 75
+        "Other": 73
       },
       "byArea": [
         {
           "area": "QuotaGroup",
-          "featuresAdded": 151
+          "featuresAdded": 148
         },
         {
           "area": "Project",
@@ -6937,7 +6716,7 @@
         },
         {
           "area": "PartnerEvent",
-          "featuresAdded": 33
+          "featuresAdded": 32
         },
         {
           "area": "Survey",
@@ -7004,12 +6783,6 @@
           "latestDate": "2026-08-14"
         },
         {
-          "key": "NXS-12492",
-          "featuresAdded": 13,
-          "casesAdded": 13,
-          "latestDate": "2026-06-16"
-        },
-        {
           "key": "NXS-13325",
           "featuresAdded": 10,
           "casesAdded": 21,
@@ -7020,6 +6793,12 @@
           "featuresAdded": 10,
           "casesAdded": 10,
           "latestDate": "2026-08-03"
+        },
+        {
+          "key": "NXS-12492",
+          "featuresAdded": 9,
+          "casesAdded": 9,
+          "latestDate": "2026-06-16"
         },
         {
           "key": "NXS-13311",
@@ -16263,91 +16042,6 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=change%20order%20flow%3A%20request%2C%20evaluation%2C%20block%20traffic%2C%20approve"
-        },
-        {
-          "name": "POST quotaGroups/{id}/hijack reevaluates and persists HijackProperties derived from the current inclusion",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupInclusionTestSteps.groovy",
-          "date": "2026-06-04",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix partner-event validation failures",
-          "commit": "22cb5cb0fc",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "QuotaGroup",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=POST%20quotaGroups%2F%7Bid%7D%2Fhijack%20reevaluates%20and%20persists%20HijackProperties%20derived%20from%20the%20current%20inclusion",
-          "gone": true
-        },
-        {
-          "name": "New QuotaGroupRest price endpoint returns the same Price the gateway exposes on the QG",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-06-04",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix partner-event validation failures",
-          "commit": "22cb5cb0fc",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupPricingTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "PRICING"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=New%20QuotaGroupRest%20price%20endpoint%20returns%20the%20same%20Price%20the%20gateway%20exposes%20on%20the%20QG"
-        },
-        {
-          "name": "Clone QG with keepDates=false clears quotaActivationDate on the clone (regression of NXS-12669)",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-06-04",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix partner-event validation failures",
-          "commit": "22cb5cb0fc",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCloneTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "CLONE_QUOTA_GROUP",
-            "QUOTA_DATES",
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Clone%20QG%20with%20keepDates%3Dfalse%20clears%20quotaActivationDate%20on%20the%20clone%20%28regression%20of%20NXS-12669%29"
-        },
-        {
-          "name": "Partner CPI exactly at approve threshold is rejected by inclusive price-limit comparison",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceControlWorkflowTestSteps.groovy",
-          "date": "2026-06-04",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix partner-event validation failures",
-          "commit": "22cb5cb0fc",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventPriceApprovalTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT",
-            "PR_SMOKE",
-            "PRICING",
-            "VALIDATION",
-            "E2E"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Partner%20CPI%20exactly%20at%20approve%20threshold%20is%20rejected%20by%20inclusive%20price-limit%20comparison"
         }
       ]
     }
@@ -16438,7 +16132,7 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-09-01",
+      "date": "2026-09-02",
       "features": 750,
       "cases": 1515,
       "specs": 108,
@@ -16458,7 +16152,7 @@
       "priorPercent": 78.0,
       "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-09-01",
+      "currentDate": "2026-09-02",
       "testedDelta": 56,
       "untestedDelta": -59
     }

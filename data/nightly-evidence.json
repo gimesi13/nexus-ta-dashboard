@@ -1,39 +1,185 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-01T01:49Z",
+  "generatedAt": "2026-09-02T01:54Z",
   "build": {
-    "number": "3.0.2685",
-    "buildId": "9499294",
-    "status": "SUCCESS",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9499294",
-    "durationSec": 1146.0
+    "number": "3.0.2686",
+    "buildId": "9503948",
+    "status": "FAILURE",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9503948",
+    "durationSec": 1273.0
   },
   "summary": {
     "tests": 1479,
-    "passed": 1393,
-    "failures": 0,
+    "passed": 1392,
+    "failures": 1,
     "errors": 0,
     "skipped": 0,
     "muted": 86,
-    "newFailed": 0,
-    "passRate": 100.0,
-    "timeSec": 1146.0
+    "newFailed": 1,
+    "passRate": 99.9,
+    "timeSec": 1273.0
   },
   "prior": {
-    "buildId": "9497454",
-    "number": "3.0.2684",
-    "status": "FAILURE",
-    "statusText": "Tests failed: 2 (2 new), passed: 1391, muted: 86",
-    "startDate": "20260831T013300+0000",
-    "durationSec": 1165.0,
-    "failed": 2,
-    "passed": 1391,
-    "newFailed": 2
+    "buildId": "9499294",
+    "number": "3.0.2685",
+    "status": "SUCCESS",
+    "statusText": "Tests passed: 1393, muted: 86",
+    "startDate": "20260901T013006+0000",
+    "durationSec": 1146.0,
+    "failed": 0,
+    "passed": 1393,
+    "newFailed": 0
   },
   "changes": [],
   "qaDeployChanges": [
     {
-      "service": "J16",
+      "service": "TrafficDetailsRestJ21",
+      "version": "1d58921644f6",
+      "username": "andras.banszki",
+      "comment": "[NXS-13784] drop TrafficDetailsRest Xmx JAVA_OPTS for container RAM% - new build deployment inv change",
+      "files": [
+        "project/TrafficDetailsRest/build.gradle"
+      ],
+      "deployedAt": "20260901T154152+0000"
+    },
+    {
+      "service": "TrafficDetailsRestJ21",
+      "version": "87f632b8f881",
+      "username": "andras.banszki",
+      "comment": "[NXS_13784] drop TrafficDetailsRest Xmx JAVA_OPTS for container RAM%",
+      "files": [
+        "dk-project-traffic-details-rest/group_vars/dev.yml",
+        "dk-project-traffic-details-rest/group_vars/production.yml",
+        "dk-project-traffic-details-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260901T154152+0000"
+    },
+    {
+      "service": "TrafficDetailsRestJ21",
+      "version": "3540d9af3e96",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4978] (DefaultPagesRest) adding healthcheck endpoint for QA",
+      "files": [
+        "dk-management-default-pages-rest/group_vars/dev.yml",
+        "dk-management-default-pages-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260901T154152+0000"
+    },
+    {
+      "service": "TrafficDetailsRestJ21",
+      "version": "b767252629fd",
+      "username": "andras.banszki",
+      "comment": "[NXS-13784] Migrate TrafficDetails to J21 - update pacts",
+      "files": [
+        "project/TrafficDetailsRest/src/integTest/groovy/com/surveysampling/rest/trafficdetails/service/v1/pacts/ProjectPact.groovy",
+        "project/TrafficDetailsRest/src/integTest/groovy/com/surveysampling/rest/trafficdetails/service/v1/pacts/QuotaGroupPact.groovy"
+      ],
+      "deployedAt": "20260901T154152+0000"
+    },
+    {
+      "service": "TrafficDetailsRestJ21",
+      "version": "8590ac95613f",
+      "username": "sajak.upadhyaya",
+      "comment": "[FAI-443] length restriction workaround on names for SM models",
+      "files": [
+        "ml-fraud-risk-model/cloud-formation.template.yml",
+        "ml-fraud-risk-model/group_vars/all.yml",
+        "ml-ibzp-redemption-guard-model/cloud-formation.template.yml",
+        "ml-ibzp-redemption-guard-model/group_vars/all.yml",
+        "ml-quality-score-model/cloud-formation.template.yml",
+        "ml-quality-score-model/group_vars/all.yml",
+        "ml-reconciliation-model/cloud-formation.template.yml",
+        "ml-reconciliation-model/group_vars/all.yml",
+        "ml-redemption-guard-model/cloud-formation.template.yml",
+        "ml-redemption-guard-model/group_vars/all.yml",
+        "ml-registration-guard-model/cloud-formation.template.yml",
+        "ml-registration-guard-model/group_vars/all.yml",
+        "ml-screenout-model/cloud-formation.template.yml",
+        "ml-screenout-model/group_vars/all.yml"
+      ],
+      "deployedAt": "20260901T154152+0000"
+    },
+    {
+      "service": "ProjectMembershipRestJ162",
+      "version": "c89320392fc5",
+      "username": "adam.szotak",
+      "comment": "[NA-1931] - increase grace period",
+      "files": [
+        "reds-data-loader/cloud-formation.template.yml",
+        "reds-data-loader/group_vars/all.yml"
+      ],
+      "deployedAt": "20260901T122113+0000"
+    },
+    {
+      "service": "ProjectLogRestJ16",
+      "version": "0ba44787b41f",
+      "username": "bence.csepe",
+      "comment": "[NXS-13777] added credentials for prod deploy",
+      "files": [
+        "project/ProjectLogRest/build.gradle"
+      ],
+      "deployedAt": "20260901T101456+0000"
+    },
+    {
+      "service": "ProjectLogRestJ16",
+      "version": "f1086895d5ed",
+      "username": "grace.chen",
+      "comment": "[FAI-431] lower sagemaker_instance_type to ml.c6i.2xlarge",
+      "files": [
+        "ml-reconciliation-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20260901T101456+0000"
+    },
+    {
+      "service": "ProjectLogRestJ16",
+      "version": "e88b5bb8032b",
+      "username": "tibor.olah",
+      "comment": "enable https for: gtr-selection-es-service",
+      "files": [
+        "gtr-selection-es-service/cloud-formation.template.yml",
+        "gtr-selection-es-service/group_vars/dev.yml",
+        "gtr-selection-es-service/group_vars/production.yml",
+        "gtr-selection-es-service/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260901T101456+0000"
+    },
+    {
+      "service": "ProjectLogRestJ16",
+      "version": "1041072b8936",
+      "username": "tibor.olah",
+      "comment": "enable https for: gtr-respondent-data-collector",
+      "files": [
+        "gtr-respondent-data-collector/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260901T101456+0000"
+    },
+    {
+      "service": "ProjectLogRestJ16",
+      "version": "ed0723bcadfa",
+      "username": "tibor.olah",
+      "comment": "enable https for: gtr-respondent-data-collector",
+      "files": [
+        "gtr-respondent-data-collector/group_vars/dev.yml",
+        "gtr-respondent-data-collector/group_vars/production.yml",
+        "gtr-respondent-data-collector/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260901T101456+0000"
+    },
+    {
+      "service": "ProjectLogRestJ16",
+      "version": "58972d83d1c2",
+      "username": "tibor.olah",
+      "comment": "enable https for: gtr-respondent-data-collector",
+      "files": [
+        "gtr-respondent-data-collector/cloud-formation.template.yml",
+        "gtr-respondent-data-collector/group_vars/dev.yml",
+        "gtr-respondent-data-collector/group_vars/production.yml",
+        "gtr-respondent-data-collector/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260901T101456+0000"
+    },
+    {
+      "service": "ProjectLogRestJ16",
       "version": "f55a2f117de1",
       "username": "gergo.hajnal",
       "comment": "[ST-5003] (dk-project-country-language-rest) addig actuator healthcheck to QA",
@@ -41,30 +187,30 @@
         "dk-project-country-language-rest/group_vars/dev.yml",
         "dk-project-country-language-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260831T160003+0000"
+      "deployedAt": "20260901T101456+0000"
     },
     {
-      "service": "J16",
+      "service": "ProjectLogRestJ16",
       "version": "b77eb0dd14c0",
       "username": "weiqun.wang",
       "comment": "try ml.c6i.2xlarge in qa",
       "files": [
         "ml-reconciliation-model/group_vars/qa.yml"
       ],
-      "deployedAt": "20260831T160003+0000"
+      "deployedAt": "20260901T101456+0000"
     },
     {
-      "service": "J16",
+      "service": "ProjectLogRestJ16",
       "version": "31b2934a459e",
       "username": "gergo.hajnal",
       "comment": "(dk-management-enum-rest) increase DEV memory",
       "files": [
         "dk-management-enum-rest/group_vars/dev.yml"
       ],
-      "deployedAt": "20260831T160003+0000"
+      "deployedAt": "20260901T101456+0000"
     },
     {
-      "service": "J16",
+      "service": "ProjectLogRestJ16",
       "version": "4e0b9c45760d",
       "username": "gergo.hajnal",
       "comment": "[ST-5008] (export-service) modify memory to percentage base",
@@ -73,354 +219,184 @@
         "export-service/group_vars/prod.yml",
         "export-service/group_vars/qa.yml"
       ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "46f3e7fab917",
-      "username": "krisztian.kover",
-      "comment": "[ST-4998] - SystemUserRest - Changed health check url in QA",
-      "files": [
-        "dk-system-user-rest/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "0ccc093ce918",
-      "username": "erik.paulsen",
-      "comment": "Exclude 75K terms errors from pager query",
-      "files": [
-        "redi-elastic-gateway/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "4d2be65335bd",
-      "username": "brian.connolly",
-      "comment": "Add DependsOn to force correct deletion ordering.",
-      "files": [
-        "ae-client-eligibility-redis/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "46b7fb01e510",
-      "username": "brian.connolly",
-      "comment": "Update skill to ensure ENVIRONMENT is set and cloud config vars are set via jinja references instead of hardcoded.",
-      "files": [
-        ".cursor/skills/migrate-ansible-cfn-group-vars/SKILL.md",
-        ".cursor/skills/migrate-ansible-cfn-group-vars/reference.md",
-        ".cursor/skills/migrate-ansible-cfn-group-vars/templates/create-changeset.sh",
-        ".cursor/skills/migrate-ansible-cfn-group-vars/templates/group_vars_all.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "ba477e2a4c5c",
-      "username": "richard.santos",
-      "comment": "[FAI-451] adjust LowInvocation alarm for redemption-model",
-      "files": [
-        "ml-redemption-guard-model/cloud-formation.template.yml",
-        "ml-redemption-guard-model/group_vars/all.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "213864010076",
-      "username": "richard.santos",
-      "comment": "[FAI-451] adjust LowInvocation alarm for ibzp-redemption-model",
-      "files": [
-        "ml-ibzp-redemption-guard-model/cloud-formation.template.yml",
-        "ml-ibzp-redemption-guard-model/group_vars/all.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "35ff234d1d67",
-      "username": "weiqun.wang",
-      "comment": "change sagemaker_instance_count back to 3",
-      "files": [
-        "ml-reconciliation-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "913f1eaa8aff",
-      "username": "weiqun.wang",
-      "comment": "change prod instance to g4dn",
-      "files": [
-        "ml-reconciliation-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "b4df6b77ed40",
-      "username": "grace.chen",
-      "comment": "[FAI-431] add decompress ARN in prod",
-      "files": [
-        "ml-data-capture-bucket/group_vars/production.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "27094e37eac5",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-12140 ] ecr migration",
-      "files": [
-        "dk-project-project-search-rest/cloud-formation.template.yml",
-        "dk-project-project-search-rest/group_vars/dev.yml",
-        "dk-project-project-search-rest/group_vars/production.yml",
-        "dk-project-project-search-rest/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "9842a61a7333",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-12179 ] ecr migration",
-      "files": [
-        "dk-dk-traffic-rest/cloud-formation.template.yml",
-        "dk-dk-traffic-rest/group_vars/dev.yml",
-        "dk-dk-traffic-rest/group_vars/production.yml",
-        "dk-dk-traffic-rest/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "cf0ebba20da4",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-13736 ] ECR j16",
-      "files": [
-        "gateway/dk/DKExportRest/build.gradle"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "83fcb66f813b",
-      "username": "gergo.hajnal",
-      "comment": "[ST-5011] (st-respondent-rest) change healthcheck to actuator",
-      "files": [
-        "st-respondent-rest/group_vars/prod.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "9eeaebe7523b",
-      "username": "gergo.hajnal",
-      "comment": "(st-respondent-rest) removing temporary production.yml",
-      "files": [
-        "st-respondent-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "fd9dd857838a",
-      "username": "47777290+koattila",
-      "comment": "Merge pull request #614 from dynata/DQI-4404",
-      "files": [],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "cd87a8f583b8",
-      "username": "gergo.hajnal",
-      "comment": "(st-respondent-rest) adding temporary production.yml to finish PROD deploy",
-      "files": [
-        "st-respondent-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "32179bf74fb4",
-      "username": "grace.chen",
-      "comment": "[FAI-431] Added MLAlertTopicsKmsKey, Both topics now set KmsMasterKeyId: MLAlertTopicsKmsKey",
-      "files": [
-        "ml-alert-topics/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "89037992f490",
-      "username": "47777290+koattila",
-      "comment": "DQI-4404 remove dy models LB reference from redemption guard dev and QA as well",
-      "files": [
-        "redemption-guard/group_vars/dev.yml",
-        "redemption-guard/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "6e2c608a5d64",
-      "username": "47777290+koattila",
-      "comment": "DQI-4404 remove dq models LB reference from redemption guard prod yml; remove client-manager-api from dep inventory",
-      "files": [
-        "client-manager-api/cloud-formation.template.yml",
-        "client-manager-api/group_vars/all.yml",
-        "client-manager-api/group_vars/production.yml",
-        "client-manager-api/group_vars/qa.yml",
-        "client-manager-api/inventory.ini",
-        "redemption-guard/group_vars/production.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "95a6f8abb768",
-      "username": "elodani10",
-      "comment": "Add Notification service task role for QuotaGroupChangedCounters SQS",
-      "files": [
-        "recs/cloud-formation.template.yml",
-        "recs/group_vars/dev.yml",
-        "recs/group_vars/production.yml",
-        "recs/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "J16",
-      "version": "100fc1c87d8c",
-      "username": "tamas.gyarmati",
-      "comment": "UnusedSQSCleaner - rename rule",
-      "files": [
-        "nexus-unused-sqs-cleaner-lambda/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260831T160003+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "8c318e596fd9",
-      "username": "andras.banszki",
-      "comment": "[ NXS-13741 ] filter projects 'ORD-17' to narrow down matched results and avoid read timeout caused by 'ORD' filtering",
-      "files": [
-        "gateway/dk/DKProjectRest/src/integTest/groovy/com/surveysampling/rest/gateway/project/service/v1/acceptance/ProjectGatewayAcceptanceTest.groovy"
-      ],
-      "deployedAt": "20260831T155300+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "c3971d9322e8",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-13741 ] ECR j16",
-      "files": [
-        "gateway/dk/DKProjectRest/build.gradle"
-      ],
-      "deployedAt": "20260831T155300+0000"
+      "deployedAt": "20260901T101456+0000"
     },
     {
       "service": "FeasibilityBatchRestDocker",
-      "version": "61a3f08ec04b",
-      "username": "tibor.olah",
-      "comment": "toggle off audit data writes: extra wiring",
+      "version": "bf9a9b92e8b3",
+      "username": "82085952+gaborfial",
+      "comment": "[PAC-783] Fix - BOS case: QuotaGroup insert into mongo without sourceCrmSystem (#5319)",
       "files": [
-        "project/Feasibility/FeasibilityApi/src/main/java/com/surveysampling/feasibility/ui/service/expose/batchrequest/ServiceBase.java",
-        "project/Feasibility/FeasibilityBatchRest/src/main/java/com/surveysampling/rest/feasibilitybatch/service/v1/BatchServiceRest.java"
+        "project/Feasibility/FeasibilityBatchRest/src/main/java/com/surveysampling/rest/feasibilitybatch/helper/nexusApi/QuotaGroupCore.java",
+        "project/Feasibility/FeasibilityBatchRest/src/main/java/com/surveysampling/rest/feasibilitybatch/helper/nexusApi/SourceCrmSystem.java",
+        "project/Feasibility/FeasibilityBatchRest/src/main/java/com/surveysampling/rest/feasibilitybatch/mongo/DocQuotaGroup.java",
+        "project/Feasibility/FeasibilityBatchRest/src/test/groovy/com/surveysampling/rest/feasibilitybatch/service/v1/AcceptProjectRestUnitTest.groovy",
+        "project/Feasibility/FeasibilityBatchRest/src/test/groovy/com/surveysampling/rest/feasibilitybatch/service/v1/CreateQuotaGroupsTest.groovy"
       ],
-      "deployedAt": "20260831T145718+0000"
+      "deployedAt": "20260901T074505+0000"
     },
     {
-      "service": "ExportCountersRestJ16",
-      "version": "81b5bd93dfe0",
+      "service": "2",
+      "version": "f6a664f44c78",
       "username": "andras.banszki",
-      "comment": "NXS-13711 - dbo.check_and_set_questionnaire_feature_value dropped (https://github.com/dynata/respondentStatusManager/co\u2026",
+      "comment": "NXS-13715 - add springQuery map to CategoryRestFeignClient too",
       "files": [
-        "project/ExportCountersRest/src/integTest/groovy/com/surveysampling/dk/traffic/export/impl/GetAllCountersIT.groovy"
+        "gateway/dk/DKProjectMetaRest/src/main/java/com/surveysampling/rest/gateway/projectmeta/v1/dependencies/CategoryRestHelper.java"
       ],
-      "deployedAt": "20260831T130346+0000"
+      "deployedAt": "20260901T074416+0000"
     },
     {
-      "service": "DKSystemRestJ16",
-      "version": "c308b10a626e",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-13756 ] ECR j16",
+      "service": "2",
+      "version": "6e3699e04ea5",
+      "username": "andras.banszki",
+      "comment": "NXS-13715 - add springQuery map to acc test feingClients too",
       "files": [
-        "management/gateways/DKSystemRest/build.gradle"
+        "gateway/dk/DKProjectMetaRest/src/integTest/groovy/com/surveysampling/rest/gateway/projectmeta/v1/acceptance/CategoryFeignClient.java",
+        "gateway/dk/DKProjectMetaRest/src/integTest/groovy/com/surveysampling/rest/gateway/projectmeta/v1/acceptance/ClientFeignClient.java",
+        "gateway/dk/DKProjectMetaRest/src/integTest/groovy/com/surveysampling/rest/gateway/projectmeta/v1/acceptance/ExternalProviderFeignClient.java"
       ],
-      "deployedAt": "20260831T113552+0000"
+      "deployedAt": "20260901T074416+0000"
+    },
+    {
+      "service": "2",
+      "version": "8621b7d106fb",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-13715 ] ECR j16",
+      "files": [
+        "gateway/dk/DKProjectMetaRest/src/main/java/com/surveysampling/rest/gateway/projectmeta/v1/dependencies/ExternalProviderRestHelper.java"
+      ],
+      "deployedAt": "20260901T074416+0000"
+    },
+    {
+      "service": "2",
+      "version": "a3374da63fd4",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-13715 ] ECR j16",
+      "files": [
+        "gateway/dk/DKProjectMetaRest/src/main/java/com/surveysampling/rest/gateway/projectmeta/v1/dependencies/ClientRestHelper.java"
+      ],
+      "deployedAt": "20260901T074416+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "J16",
-      "commits": 25,
-      "latestTicket": "",
-      "latestComment": "[ST-5003] (dk-project-country-language-rest) addig actuator healthcheck to QA",
-      "deployedAt": "20260831T160003+0000"
+      "service": "TrafficDetailsRestJ21",
+      "commits": 5,
+      "latestTicket": "NXS-13784",
+      "latestComment": "[NXS-13784] drop TrafficDetailsRest Xmx JAVA_OPTS for container RAM% - new build",
+      "deployedAt": "20260901T154152+0000"
     },
     {
-      "service": "DKProjectRestJ16",
-      "commits": 2,
-      "latestTicket": "NXS-13741",
-      "latestComment": "[ NXS-13741 ] filter projects 'ORD-17' to narrow down matched results and avoid ",
-      "deployedAt": "20260831T155300+0000"
+      "service": "ProjectMembershipRestJ162",
+      "commits": 1,
+      "latestTicket": "",
+      "latestComment": "[NA-1931] - increase grace period",
+      "deployedAt": "20260901T122113+0000"
+    },
+    {
+      "service": "ProjectLogRestJ16",
+      "commits": 10,
+      "latestTicket": "NXS-13777",
+      "latestComment": "[NXS-13777] added credentials for prod deploy",
+      "deployedAt": "20260901T101456+0000"
     },
     {
       "service": "FeasibilityBatchRestDocker",
       "commits": 1,
       "latestTicket": "",
-      "latestComment": "toggle off audit data writes: extra wiring",
-      "deployedAt": "20260831T145718+0000"
+      "latestComment": "[PAC-783] Fix - BOS case: QuotaGroup insert into mongo without sourceCrmSystem (",
+      "deployedAt": "20260901T074505+0000"
     },
     {
-      "service": "ExportCountersRestJ16",
-      "commits": 1,
-      "latestTicket": "NXS-13711",
-      "latestComment": "NXS-13711 - dbo.check_and_set_questionnaire_feature_value dropped (https://githu",
-      "deployedAt": "20260831T130346+0000"
-    },
-    {
-      "service": "DKSystemRestJ16",
-      "commits": 1,
-      "latestTicket": "NXS-13756",
-      "latestComment": "[ NXS-13756 ] ECR j16",
-      "deployedAt": "20260831T113552+0000"
+      "service": "2",
+      "commits": 4,
+      "latestTicket": "NXS-13715",
+      "latestComment": "NXS-13715 - add springQuery map to CategoryRestFeignClient too",
+      "deployedAt": "20260901T074416+0000"
     }
   ],
-  "clusters": [],
-  "failures": [],
+  "clusters": [
+    {
+      "label": "infra_502",
+      "display": "QA 502 Bad Gateway",
+      "count": 1,
+      "newCount": 1,
+      "sample": "502 Bad Gateway",
+      "why": "QA gateway returned HTML 502 \u2014 infra during the run, not a product regression"
+    }
+  ],
+  "failures": [
+    {
+      "name": "Configure fieldwork with quota group having complex segmentation: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowPartnerTestSteps.Configure fieldwork with quota group having complex segmentation",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowPartnerTestSteps",
+      "newFailure": true,
+      "area": "Fieldwork",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118775918/conditions/segmentedConditions/1 502{ \"errors\" : [ { \"callChain\" : [ \"HTTP 502 PUT http://dk-project-details-editor-rest.nexus-ms-qa.dynata.com:8080/api/DetailsEditor/u1/nexus/quotaGroups/118775918/segmentConditions\", \"HTTP 502 GET http://dk-management-enum-rest.nexus-ms-qa.dynata.com:8080/api/\u2026"
+    }
+  ],
   "rulesNutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
-    "tone": "ok",
-    "severity": "none",
-    "bullets": [],
-    "investigation": "No unmuted failures.",
+    "headline": "1 new failure in Fieldwork",
+    "tone": "warn",
+    "severity": "low",
+    "bullets": [
+      "1\u00d7 QA 502 Bad Gateway"
+    ],
+    "investigation": "New fails: 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Gateway hits: dk-project-details-editor-rest, dk-management-enum-rest.",
     "detail": {
-      "investigation": "5 service(s) (30 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
+      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2685, 0 fails). Failure types (new-first): (1) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: Fieldwork (1). 5 service(s) (21 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Fieldwork: Configure fieldwork with quota group having complex segmentation: com.dynata.rest.gateway. [QA 502 Bad Gateway].",
       "bullets": [
-        "[QA deploy: J16]  (25 commits) \u2014 [ST-5003] (dk-project-country-language-rest) addig actuator healthcheck to QA",
-        "[QA deploy: DKProjectRestJ16] NXS-13741 (2 commits) \u2014 [ NXS-13741 ] filter projects 'ORD-17' to narrow down matched results and avoid ",
-        "[QA deploy: FeasibilityBatchRestDocker]  (1 commit) \u2014 toggle off audit data writes: extra wiring",
-        "[QA deploy: ExportCountersRestJ16] NXS-13711 (1 commit) \u2014 NXS-13711 - dbo.check_and_set_questionnaire_feature_value dropped (https://githu",
-        "[QA deploy: DKSystemRestJ16] NXS-13756 (1 commit) \u2014 [ NXS-13756 ] ECR j16"
+        "1\u00d7 QA 502 Bad Gateway",
+        "[QA deploy: TrafficDetailsRestJ21] NXS-13784 (5 commits) \u2014 [NXS-13784] drop TrafficDetailsRest Xmx JAVA_OPTS for container RAM% - new build",
+        "[QA deploy: ProjectMembershipRestJ162]  (1 commit) \u2014 [NA-1931] - increase grace period",
+        "[QA deploy: ProjectLogRestJ16] NXS-13777 (10 commits) \u2014 [NXS-13777] added credentials for prod deploy",
+        "[QA deploy: FeasibilityBatchRestDocker]  (1 commit) \u2014 [PAC-783] Fix - BOS case: QuotaGroup insert into mongo without sourceCrmSystem (",
+        "[QA deploy: 2] NXS-13715 (4 commits) \u2014 NXS-13715 - add springQuery map to CategoryRestFeignClient too"
       ],
-      "newFailureAreas": [],
+      "newFailureAreas": [
+        {
+          "area": "Fieldwork",
+          "newCount": 1
+        }
+      ],
       "likelyCauses": []
     },
     "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "J16",
-        "version": "f55a2f117de1",
-        "username": "gergo.hajnal",
-        "comment": "[ST-5003] (dk-project-country-language-rest) addig actuator healthcheck to QA",
+        "service": "TrafficDetailsRestJ21",
+        "version": "1d58921644f6",
+        "username": "andras.banszki",
+        "comment": "[NXS-13784] drop TrafficDetailsRest Xmx JAVA_OPTS for container RAM% - new build deployment inv change",
+        "ticket": "NXS-13784",
+        "deployedAt": "20260901T154152+0000",
+        "files": [
+          "build.gradle"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "TrafficDetailsRestJ21",
+        "version": "87f632b8f881",
+        "username": "andras.banszki",
+        "comment": "[NXS_13784] drop TrafficDetailsRest Xmx JAVA_OPTS for container RAM%",
         "ticket": "",
-        "deployedAt": "20260831T160003+0000",
+        "deployedAt": "20260901T154152+0000",
+        "files": [
+          "dev.yml",
+          "production.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "TrafficDetailsRestJ21",
+        "version": "3540d9af3e96",
+        "username": "gergo.hajnal",
+        "comment": "[ST-4978] (DefaultPagesRest) adding healthcheck endpoint for QA",
+        "ticket": "",
+        "deployedAt": "20260901T154152+0000",
         "files": [
           "dev.yml",
           "qa.yml"
@@ -428,127 +404,108 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "J16",
-        "version": "b77eb0dd14c0",
-        "username": "weiqun.wang",
-        "comment": "try ml.c6i.2xlarge in qa",
-        "ticket": "",
-        "deployedAt": "20260831T160003+0000",
+        "service": "TrafficDetailsRestJ21",
+        "version": "b767252629fd",
+        "username": "andras.banszki",
+        "comment": "[NXS-13784] Migrate TrafficDetails to J21 - update pacts",
+        "ticket": "NXS-13784",
+        "deployedAt": "20260901T154152+0000",
         "files": [
-          "qa.yml"
+          "ProjectPact.groovy",
+          "QuotaGroupPact.groovy"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "J16",
-        "version": "31b2934a459e",
-        "username": "gergo.hajnal",
-        "comment": "(dk-management-enum-rest) increase DEV memory",
+        "service": "TrafficDetailsRestJ21",
+        "version": "8590ac95613f",
+        "username": "sajak.upadhyaya",
+        "comment": "[FAI-443] length restriction workaround on names for SM models",
         "ticket": "",
-        "deployedAt": "20260831T160003+0000",
+        "deployedAt": "20260901T154152+0000",
         "files": [
-          "dev.yml"
+          "cloud-formation.template.yml",
+          "all.yml",
+          "cloud-formation.template.yml",
+          "all.yml",
+          "cloud-formation.template.yml",
+          "all.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "J16",
-        "version": "4e0b9c45760d",
-        "username": "gergo.hajnal",
-        "comment": "[ST-5008] (export-service) modify memory to percentage base",
+        "service": "ProjectMembershipRestJ162",
+        "version": "c89320392fc5",
+        "username": "adam.szotak",
+        "comment": "[NA-1931] - increase grace period",
         "ticket": "",
-        "deployedAt": "20260831T160003+0000",
+        "deployedAt": "20260901T122113+0000",
         "files": [
+          "cloud-formation.template.yml",
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ProjectLogRestJ16",
+        "version": "0ba44787b41f",
+        "username": "bence.csepe",
+        "comment": "[NXS-13777] added credentials for prod deploy",
+        "ticket": "NXS-13777",
+        "deployedAt": "20260901T101456+0000",
+        "files": [
+          "build.gradle"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ProjectLogRestJ16",
+        "version": "f1086895d5ed",
+        "username": "grace.chen",
+        "comment": "[FAI-431] lower sagemaker_instance_type to ml.c6i.2xlarge",
+        "ticket": "",
+        "deployedAt": "20260901T101456+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ProjectLogRestJ16",
+        "version": "e88b5bb8032b",
+        "username": "tibor.olah",
+        "comment": "enable https for: gtr-selection-es-service",
+        "ticket": "",
+        "deployedAt": "20260901T101456+0000",
+        "files": [
+          "cloud-formation.template.yml",
           "dev.yml",
-          "prod.yml",
+          "production.yml",
           "qa.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "J16",
-        "version": "46f3e7fab917",
-        "username": "krisztian.kover",
-        "comment": "[ST-4998] - SystemUserRest - Changed health check url in QA",
+        "service": "ProjectLogRestJ16",
+        "version": "1041072b8936",
+        "username": "tibor.olah",
+        "comment": "enable https for: gtr-respondent-data-collector",
         "ticket": "",
-        "deployedAt": "20260831T160003+0000",
-        "files": [
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "J16",
-        "version": "0ccc093ce918",
-        "username": "erik.paulsen",
-        "comment": "Exclude 75K terms errors from pager query",
-        "ticket": "",
-        "deployedAt": "20260831T160003+0000",
+        "deployedAt": "20260901T101456+0000",
         "files": [
           "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "J16",
-        "version": "4d2be65335bd",
-        "username": "brian.connolly",
-        "comment": "Add DependsOn to force correct deletion ordering.",
-        "ticket": "",
-        "deployedAt": "20260831T160003+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "J16",
-        "version": "46b7fb01e510",
-        "username": "brian.connolly",
-        "comment": "Update skill to ensure ENVIRONMENT is set and cloud config vars are set via jinja references instead of hardcoded.",
-        "ticket": "",
-        "deployedAt": "20260831T160003+0000",
-        "files": [
-          "SKILL.md",
-          "reference.md",
-          "create-changeset.sh",
-          "group_vars_all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "J16",
-        "version": "ba477e2a4c5c",
-        "username": "richard.santos",
-        "comment": "[FAI-451] adjust LowInvocation alarm for redemption-model",
-        "ticket": "",
-        "deployedAt": "20260831T160003+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "J16",
-        "version": "213864010076",
-        "username": "richard.santos",
-        "comment": "[FAI-451] adjust LowInvocation alarm for ibzp-redemption-model",
-        "ticket": "",
-        "deployedAt": "20260831T160003+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml"
         ],
         "scope": "qa-deploy"
       }
     ]
   },
   "contractDrift": {
-    "newCount": 0,
+    "newCount": 1,
     "baselineCount": 94,
-    "currentCount": 94,
-    "examples": []
+    "currentCount": 95,
+    "examples": [
+      "PUT /u1/nexus/quotaGroups/{}/conditions/segmentedConditions/{} :: Response status 502 not defined for path '/u1/nexus/quotaGroups/{quotaGroupId}/conditions/segmentedConditions/{parameterId}'."
+    ]
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."
 }
