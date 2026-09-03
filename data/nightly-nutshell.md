@@ -1,7 +1,10 @@
-**1 new Fieldwork failure — a QA 502 Bad Gateway (infra, not a product regression)**
+**4 new failures — mainly Settings**
 
-_Likely cause: transient QA infrastructure — HTTP 502 Bad Gateway from the QA gateway, not a code regression._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- 1× QA 502 Bad Gateway (Fieldwork)
+- 4× other — org.springframework.data.mongodb.UncategorizedMongoDbException:Command failed with error 13: 'Authorization fa
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9503948)
+⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
+- GET /u1/users/currentUser/userSettings :: Response status 500 not defined for path '/u1/users/currentUser/userSettings'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9505988)
