@@ -1,10 +1,7 @@
-**4 new failures — mainly Settings**
+**4 new Settings failures from a QA MongoDB authorization error on dk-system-user-rest — infra, not a code change.**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: QA MongoDB 'Authorization failure' (error 13) on nexus-api-mongo-qa making dk-system-user-rest return 500 on /userSettings — infra, not a product code change._
 
-- 4× other — org.springframework.data.mongodb.UncategorizedMongoDbException:Command failed with error 13: 'Authorization fa
+- 4× Settings /userSettings calls → HTTP 500 from dk-system-user-rest (MongoDB error 13 auth failure).
 
-⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
-- GET /u1/users/currentUser/userSettings :: Response status 500 not defined for path '/u1/users/currentUser/userSettings'.
-
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9505988)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9505988)

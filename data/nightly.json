@@ -1578,24 +1578,22 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "4 new failures \u2014 mainly Settings",
-    "tone": "bad",
-    "severity": "high",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 5 service(s) were deployed to QA in this window (SampleDetailsRestJ21, ConditionEditorRestJ21, QuotaDetailsRestJ21, ProjectRestJ16, DKOrder) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 4\u00d7 other (no dominant signature yet). Vs prior #3.0.2686: up 3 total fails.",
+    "headline": "4 new Settings failures from a QA MongoDB authorization error on dk-system-user-rest \u2014 infra, not a code change.",
+    "tone": "warn",
+    "severity": "low",
+    "cause": "infra",
+    "causeText": "All 4 new failures share one QA environment fault: dk-system-user-rest returns HTTP 500 because MongoDB rejects it with error 13 'Authorization failure' on nexus-api-mongo-qa \u2014 an infra/credential issue, not a product code regression.",
+    "investigation": "Real messages show all 4 Settings /userSettings failures are the same MongoDB 'Authorization failure' (error 13) on the QA cluster, and no in-window QA deploy touches Mongo auth for dk-system-user-rest.",
     "bullets": [
-      "4\u00d7 other \u2014 org.springframework.data.mongodb.UncategorizedMongoDbException:Command failed with error 13: 'Authorization fa"
+      "4\u00d7 Settings /userSettings \u2192 HTTP 500 from dk-system-user-rest, root cause MongoDB error 13 'Authorization failure' on nexus-api-mongo-qa (infra).",
+      "Contract drift (2 new, separate lane): 500 on /userSettings not defined in the OpenAPI contract \u2014 a side effect of the same outage."
     ],
     "detail": {
-      "investigation": "4 of 4 unmuted failures are new since the prior build (#3.0.2686, 1 fails). Failure types (new-first): (1) 4\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Settings (4). 5 service(s) (37 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Settings: Get user settings [other]; Settings: Set default audience template [other]; Settings: Set default audience template for specific user [other]; Settings: View user settings: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Settings.UserSetting [other].",
+      "investigation": "All 4 new failures are the View/Set user-settings tests hitting /userSettings, which return HTTP 500 because dk-system-user-rest cannot authorize against MongoDB (error 13 'Authorization failure' on nexus-api-mongo-qa) \u2014 an environment/credential fault, not a test/data or product regression. Of the QA deploys in-window only ST-4998 (krisztian.kover) touched dk-system-user-rest, changing just the QA health-check URL (group_vars/qa.yml), which cannot cause a Mongo authorization failure, so no code change is blamed.",
       "bullets": [
-        "4\u00d7 other \u2014 org.springframework.data.mongodb.UncategorizedMongoDbException:Command failed with error 13: 'Authorization fa",
-        "[QA deploy: SampleDetailsRestJ21] NXS-12245 (9 commits) \u2014 NXS-12245 MS - migrate SampleDetailsRest to J21",
-        "[QA deploy: ConditionEditorRestJ21]  (1 commit) \u2014 [DEPLOY-13910] [PQE] Request count per target = 3000",
-        "[QA deploy: QuotaDetailsRestJ21] NXS-13824 (25 commits) \u2014 [NXS-13824] MS - bumb QuotaDetailsRest dependency versions (#5327)",
-        "[QA deploy: ProjectRestJ16] NXS-13823 (1 commit) \u2014 [NXS-13823] MS - bumb ProjectRest dependency versions (#5326)",
-        "[QA deploy: DKOrder]  (1 commit) \u2014 Pac 759 dkorder acceptance fix (#5274)"
+        "4\u00d7 Settings: GET/PUT /userSettings \u2192 HTTP 500 from dk-system-user-rest; underlying error MongoDB 'Command failed with error 13: Authorization failure' on nexus-api-mongo-qa.",
+        "No in-window QA deploy maps to Mongo auth for dk-system-user-rest; ST-4998 (krisztian.kover) only edited dk-system-user-rest/group_vars/qa.yml (health-check URL) \u2014 not a plausible cause.",
+        "Contract drift (2 new, separate lane): 500 on /u1/users/currentUser/userSettings and /u1/users/{userId}/userSettings not defined in the OpenAPI contract \u2014 a side effect of these 500s."
       ],
       "newFailureAreas": [
         {
@@ -1779,7 +1777,7 @@
         "deployedAt": "20260902T085133+0000"
       }
     ],
-    "source": "investigator",
+    "source": "llm",
     "generatedAt": "2026-09-03T01:50Z",
     "buildNumber": "3.0.2687",
     "buildId": "9505988",
