@@ -1533,21 +1533,16 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "headline": "Green nightly \u2014 all 1393 tests passed, no new failures",
     "tone": "ok",
     "severity": "none",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
+    "causeText": "No unmuted failures. Separately (contract lane, not a test failure): 1 endpoint drifted from the OpenAPI contract \u2014 GET /u1/nexus/urlPools/{urlPoolId} returned an undocumented 500.",
+    "investigation": "",
     "bullets": [],
     "detail": {
-      "investigation": "4 service(s) (40 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
-      "bullets": [
-        "[QA deploy: SurveyRestJ21]  (25 commits) \u2014 [ST-5001] (FeatureRest) containersupport and memory plus actuator healthcheck",
-        "[QA deploy: 2] NXS-12214 (1 commit) \u2014 [NXS-12214] Pact fix",
-        "[QA deploy: DKOrder]  (1 commit) \u2014 [PAC-793] DemandApi - fix failed LINE_ITEM_CREATION handling",
-        "[QA deploy: DemandApi]  (13 commits) \u2014 [PAC-793] DemandApi quotaGroup updatelimit tests."
-      ],
+      "investigation": "",
+      "bullets": [],
       "newFailureAreas": [],
       "likelyCauses": []
     },
@@ -1708,8 +1703,8 @@
         "deployedAt": "20260904T072518+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-09-05T01:57Z",
+    "source": "llm",
+    "generatedAt": "2026-09-05T01:57:00Z",
     "buildNumber": "3.0.2689",
     "buildId": "9510015",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9510015",
