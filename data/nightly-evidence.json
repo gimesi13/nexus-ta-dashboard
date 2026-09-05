@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-04T01:52Z",
+  "generatedAt": "2026-09-05T01:57Z",
   "build": {
-    "number": "3.0.2688",
-    "buildId": "9507939",
+    "number": "3.0.2689",
+    "buildId": "9510015",
     "status": "SUCCESS",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9507939",
-    "durationSec": 1305.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9510015",
+    "durationSec": 1441.0
   },
   "summary": {
     "tests": 1479,
@@ -17,388 +17,365 @@
     "muted": 86,
     "newFailed": 0,
     "passRate": 100.0,
-    "timeSec": 1305.0
+    "timeSec": 1441.0
   },
   "prior": {
-    "buildId": "9505988",
-    "number": "3.0.2687",
-    "status": "FAILURE",
-    "statusText": "Tests failed: 4 (4 new), passed: 1389, muted: 86",
-    "startDate": "20260903T013017+0000",
-    "durationSec": 1206.0,
-    "failed": 4,
-    "passed": 1389,
-    "newFailed": 4
+    "buildId": "9507939",
+    "number": "3.0.2688",
+    "status": "SUCCESS",
+    "statusText": "Tests passed: 1393, muted: 86",
+    "startDate": "20260904T013015+0000",
+    "durationSec": 1305.0,
+    "failed": 0,
+    "passed": 1393,
+    "newFailed": 0
   },
   "changes": [],
   "qaDeployChanges": [
     {
-      "service": "ProjectAutomationApi",
-      "version": "44cac163d879",
-      "username": "66064023+szotaktamas",
-      "comment": "[PAC-790] - Update Quota Group Type for New OTS Combinations to NORMAL (#5331)",
+      "service": "SurveyRestJ21",
+      "version": "7ead4a1034e6",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5001] (FeatureRest) containersupport and memory plus actuator healthcheck",
       "files": [
-        "gateway/unifiedApi/ProjectAutomationApi/src/integTest/groovy/com/dynata/rest/gateway/projectautomationapi/workflow/BrandLiftWorkflowTest.groovy",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/service/SampleServiceImpl.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/test/groovy/u1/nexus/projects/service/SampleServiceImplTest.groovy"
+        "dk-management-feature-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260903T114550+0000"
+      "deployedAt": "20260904T171330+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "SurveyRestJ21",
+      "version": "2357e531eec7",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4997] (DKNovaTranslatorRest) containersupport and memory plus actuator healthcheck",
+      "files": [
+        "dk-dk-nova-translator-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "abfdbe8a6852",
+      "username": "zoltan.beke",
+      "comment": "[NXS-13837] MS - Internal page for CS to add Dynata+ survey hosts to the whitelist",
+      "files": [
+        "project/SurveyRest/src/main/java/com/surveysampling/rest/survey/d1/components/caches/DPlusWhitelistedBaseUrlCache.java"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "0b6b0b46d5df",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4996] (MembershipStatusRest) containersupport and memory plus actuator healthcheck",
+      "files": [
+        "dk-management-membership-status-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "bc98f13e2ff2",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4993] (CascadesRest) containersupport and memory plus actuator healthcheck",
+      "files": [
+        "dk-project-cascades-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "ff960803a3ac",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4991] (RewardCalculatorRest) slightly increase container based memory percentage",
+      "files": [
+        "dk-management-reward-calculator-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "39ab66fc9a5e",
+      "username": "partlo2012",
+      "comment": "Reverting",
+      "files": [
+        "passphrase-api/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "f7e883a5f350",
+      "username": "partlo2012",
+      "comment": "Correcting internal Route53",
+      "files": [
+        "passphrase-api/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "9cf97211cbab",
+      "username": "partlo2012",
+      "comment": "Adding new Route53 records",
+      "files": [
+        "passphrase-api/cloud-formation.template.yml",
+        "passphrase-api/group_vars/dev.yml",
+        "passphrase-api/group_vars/production.yml",
+        "passphrase-api/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "ed3dc0a76259",
+      "username": "grace.chen",
+      "comment": "[FAI-431] update the decompress project to load json",
+      "files": [
+        "ml-data-capture-decompress/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "c67f0a3e1bba",
+      "username": "grace.chen",
+      "comment": "set enable_auto_scaling true for QA deployment",
+      "files": [
+        "ml-reconciliation-model/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "bc05d85ca0e5",
+      "username": "grace.chen",
+      "comment": "set enable_auto_scaling false for QA deployment",
+      "files": [
+        "ml-reconciliation-model/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "2e68e632384b",
+      "username": "grace.chen",
+      "comment": "mute insufficient data alarm for Dev and QA for all alarm metrics for ml-reconciliation-model",
+      "files": [
+        "ml-reconciliation-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "f831ab8bd5cf",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4990] (MessageContent) containersupport and memory plus healthcheck",
+      "files": [
+        "dk-management-message-content-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "9c9c59cddebe",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4989] (CategoryRest) containersupport and memory plus healthcheck",
+      "files": [
+        "dk-management-category-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "660dab97b45a",
+      "username": "akos.nagy",
+      "comment": "Trying to fix nxs-eco-partnerstatus missing LoadBalancerListerner and rules",
+      "files": [
+        "nxs-eco-partnerstatus/group_vars/production.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "b06cbac192d0",
+      "username": "akos.nagy",
+      "comment": "Trying to fix nxs-eco-partnerstatus missing LoadBalancerListerner and rules",
+      "files": [
+        "nxs-eco-partnerstatus/cloud-formation.template.yml",
+        "nxs-eco-partnerstatus/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "e0167b99253b",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4987] (ManualPaymentsRest) container support and memory plus healthcheck",
+      "files": [
+        "dk-management-manual-payments-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "1f92fd138bf5",
+      "username": "akos.nagy",
+      "comment": "Trying to fix nxs-eco-partnerstatus missing LoadBalancerListerner and rules",
+      "files": [
+        "nxs-eco-partnerstatus/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "6e203dd17eab",
+      "username": "akos.nagy",
+      "comment": "Trying to fix nxs-eco-partnerstatus missing LoadBalancerListerner and rules",
+      "files": [
+        "nxs-eco-partnerstatus/cloud-formation.template.yml",
+        "nxs-eco-partnerstatus/group_vars/dev.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "cf2d90105788",
+      "username": "adam.veres",
+      "comment": "FEAS-2460 IAM auth changes on feas-global-cache",
+      "files": [
+        "feasibility-global-cache/cloud-formation.template.yml",
+        "feasibility-global-cache/group_vars/dev.yml",
+        "feasibility-global-cache/group_vars/production.yml",
+        "feasibility-global-cache/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "a182f563267c",
+      "username": "akos.nagy",
+      "comment": "Trying to fix nxs-eco-partnerstatus missing LoadBalancerListerner and rules",
+      "files": [
+        "nxs-eco-partnerstatus/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260904T171330+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
       "version": "8be74da84f22",
       "username": "gergo.hajnal",
       "comment": "[ST-4984] (SubjectLibraryRest) container support and memory, actuator healthcheck",
       "files": [
         "dk-project-subject-library-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260903T114550+0000"
+      "deployedAt": "20260904T171330+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "SurveyRestJ21",
       "version": "870f0a874682",
       "username": "gergo.hajnal",
       "comment": "[ST-4983] (RexTRest) containersupport and memory for QA",
       "files": [
         "dk-management-rex-t-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260903T114550+0000"
+      "deployedAt": "20260904T171330+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "SurveyRestJ21",
       "version": "171fd66f1808",
       "username": "maomaofish",
       "comment": "Reapply \"DQI-4490 change logging config file name for redemption-guard prod\"",
       "files": [
         "redemption-guard/group_vars/production.yml"
       ],
-      "deployedAt": "20260903T114550+0000"
+      "deployedAt": "20260904T171330+0000"
     },
     {
-      "service": "ProjectAutomationApi",
-      "version": "1323f147d687",
-      "username": "maomaofish",
-      "comment": "Revert \"DQI-4490 change logging config file name for redemption-guard prod\"",
+      "service": "2",
+      "version": "e2a58617da7f",
+      "username": "40339600+tamasroma",
+      "comment": "[NXS-12214] Pact fix",
       "files": [
-        "redemption-guard/group_vars/production.yml"
+        "project/CountersRest/src/main/java/com/surveysampling/rest/counters/dependencies/project/ProjectRestClient.java",
+        "project/CountersRest/src/main/java/com/surveysampling/rest/counters/gwdependencies/dksystem/DKSystemRest.java",
+        "project/CountersRest/src/main/java/com/surveysampling/rest/counters/v2/dependencies/quotadetails/QuotaDetailsRestClient.java",
+        "project/CountersRest/src/main/java/com/surveysampling/rest/counters/v2/dependencies/quotagroup/QuotaGroupV2RestClient.java",
+        "project/CountersRest/src/main/java/com/surveysampling/rest/counters/v2/dependencies/survey/SurveyRestClient.java"
       ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "60c5f32bc124",
-      "username": "maomaofish",
-      "comment": "DQI-4490 change logging config file name for redemption-guard prod",
-      "files": [
-        "redemption-guard/group_vars/production.yml"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "c45cbd585dde",
-      "username": "matt.spencer",
-      "comment": "[DQI-4549] Reverting passphrase-api dns_alias_public_name for now. Will need to clean up later.",
-      "files": [
-        "passphrase-api/group_vars/dev.yml",
-        "passphrase-api/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "626a0dfe38f7",
-      "username": "matt.spencer",
-      "comment": "[DQI-4549] Updated passphrase-api dns_alias_public_name to new URL in dev and QA.",
-      "files": [
-        "passphrase-api/group_vars/dev.yml",
-        "passphrase-api/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "1b6b1a0b48bc",
-      "username": "sajak.upadhyaya",
-      "comment": "[FAI-418] bug fixes with backfill script",
-      "files": [
-        "ml-repository-creation-template/cloud-formation.template.yml",
-        "ml-repository-creation-template/lifecycle-policy-backfill/root-policy.json",
-        "ml-repository-creation-template/lifecycle-policy-backfill/train-policy.json"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "1e1e684b7cc7",
-      "username": "maomaofish",
-      "comment": "DQI-4490 change logging config file name for redemption-guard dev and qa",
-      "files": [
-        "redemption-guard/group_vars/dev.yml",
-        "redemption-guard/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "3de67e542bb1",
-      "username": "andras.banszki",
-      "comment": "NXS-12245 MS - migrate SampleDetailsRest to J21",
-      "files": [
-        "dk-project-sample-details-rest/group_vars/dev.yml",
-        "dk-project-sample-details-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "c43c63048d6c",
-      "username": "bresalio.nagy",
-      "comment": "Revert \"[DEPLOY-13910] [PQE] Request count per target = 3000\"",
-      "files": [
-        "ae-project-evaluator-post-qualification-engine/group_vars/all.yml"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "e809fb376c89",
-      "username": "55445003+dynata-hu-krisztian-erdei",
-      "comment": "Merge pull request #617 from dynata/ST-5050-pg18-param-groups-qa",
-      "files": [],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "8ccf3f3d69ca",
-      "username": "55445003+dynata-hu-krisztian-erdei",
-      "comment": "Merge pull request #616 from dynata/ST-5050-pg18-param-groups-dev-qa",
-      "files": [],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "aa1a341d74f4",
-      "username": "krisztian.erdei",
-      "comment": "[ST-5050] Emit offer cluster parameter group without jinja if",
-      "files": [
-        "supply-offer-service/cloud-formation.template.yml",
-        "supply-offer-service/group_vars/production.yml",
-        "supply-offer-service/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "efb0143a934c",
-      "username": "84325812+bresalio-nagy-dynata",
-      "comment": "[DEPLOY-13910] [PQE] Request count per target = 3000",
-      "files": [
-        "ae-project-evaluator-post-qualification-engine/group_vars/all.yml"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "05b39234ec7f",
-      "username": "sajak.upadhyaya",
-      "comment": "[FAI-420] and [FAI-418] updating ecr lifecycle policy rules",
-      "files": [
-        "ml-repository-creation-template/cloud-formation.template.yml",
-        "ml-repository-creation-template/group_vars/all.yml",
-        "ml-repository-creation-template/lifecycle-policy-backfill/README.md",
-        "ml-repository-creation-template/lifecycle-policy-backfill/root-policy.json",
-        "ml-repository-creation-template/lifecycle-policy-backfill/train-policy.json"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "2aab94976057",
-      "username": "grace.chen",
-      "comment": "[FAI-431] add TreatMissingData to stops Insufficient data flapping on an idle queue in QA",
-      "files": [
-        "ml-data-capture-decompress/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "87f632b8f881",
-      "username": "andras.banszki",
-      "comment": "[NXS_13784] drop TrafficDetailsRest Xmx JAVA_OPTS for container RAM%",
-      "files": [
-        "dk-project-traffic-details-rest/group_vars/dev.yml",
-        "dk-project-traffic-details-rest/group_vars/production.yml",
-        "dk-project-traffic-details-rest/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "3540d9af3e96",
-      "username": "gergo.hajnal",
-      "comment": "[ST-4978] (DefaultPagesRest) adding healthcheck endpoint for QA",
-      "files": [
-        "dk-management-default-pages-rest/group_vars/dev.yml",
-        "dk-management-default-pages-rest/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "8590ac95613f",
-      "username": "sajak.upadhyaya",
-      "comment": "[FAI-443] length restriction workaround on names for SM models",
-      "files": [
-        "ml-fraud-risk-model/cloud-formation.template.yml",
-        "ml-fraud-risk-model/group_vars/all.yml",
-        "ml-ibzp-redemption-guard-model/cloud-formation.template.yml",
-        "ml-ibzp-redemption-guard-model/group_vars/all.yml",
-        "ml-quality-score-model/cloud-formation.template.yml",
-        "ml-quality-score-model/group_vars/all.yml",
-        "ml-reconciliation-model/cloud-formation.template.yml",
-        "ml-reconciliation-model/group_vars/all.yml",
-        "ml-redemption-guard-model/cloud-formation.template.yml",
-        "ml-redemption-guard-model/group_vars/all.yml",
-        "ml-registration-guard-model/cloud-formation.template.yml",
-        "ml-registration-guard-model/group_vars/all.yml",
-        "ml-screenout-model/cloud-formation.template.yml",
-        "ml-screenout-model/group_vars/all.yml"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "c89320392fc5",
-      "username": "adam.szotak",
-      "comment": "[NA-1931] - increase grace period",
-      "files": [
-        "reds-data-loader/cloud-formation.template.yml",
-        "reds-data-loader/group_vars/all.yml"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "f1086895d5ed",
-      "username": "grace.chen",
-      "comment": "[FAI-431] lower sagemaker_instance_type to ml.c6i.2xlarge",
-      "files": [
-        "ml-reconciliation-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "e88b5bb8032b",
-      "username": "tibor.olah",
-      "comment": "enable https for: gtr-selection-es-service",
-      "files": [
-        "gtr-selection-es-service/cloud-formation.template.yml",
-        "gtr-selection-es-service/group_vars/dev.yml",
-        "gtr-selection-es-service/group_vars/production.yml",
-        "gtr-selection-es-service/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "1041072b8936",
-      "username": "tibor.olah",
-      "comment": "enable https for: gtr-respondent-data-collector",
-      "files": [
-        "gtr-respondent-data-collector/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260903T114550+0000"
-    },
-    {
-      "service": "SurveyRestJ21",
-      "version": "da69025bfa33",
-      "username": "gabor.fial",
-      "comment": "[PAC-794] TargetEditor - save targeting if missing, different error, mirror issue",
-      "files": [
-        "project/TargetEditorRest/src/main/java/com/surveysampling/rest/targeteditor/service/u1/mongo/InclusionConditionsPersistHandler.java",
-        "project/TargetEditorRest/src/main/java/com/surveysampling/rest/targeteditor/service/u1/mongo/TargetMirroringMongoHandler.java"
-      ],
-      "deployedAt": "20260903T111021+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "c2b70907f1e1",
-      "username": "66064023+szotaktamas",
-      "comment": "[PAC-745] - Cobalt - NexusApi - fullProjectSetup use new fields (#5293)",
-      "files": [
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/project/model/CreateProjectRequest.java",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/v1/nexus/projects/components/ProjectHandlerTest.groovy"
-      ],
-      "deployedAt": "20260903T084244+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "ed0723bcadfa",
-      "username": "tibor.olah",
-      "comment": "enable https for: gtr-respondent-data-collector",
-      "files": [
-        "gtr-respondent-data-collector/group_vars/dev.yml",
-        "gtr-respondent-data-collector/group_vars/production.yml",
-        "gtr-respondent-data-collector/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260903T084244+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "58972d83d1c2",
-      "username": "tibor.olah",
-      "comment": "enable https for: gtr-respondent-data-collector",
-      "files": [
-        "gtr-respondent-data-collector/cloud-formation.template.yml",
-        "gtr-respondent-data-collector/group_vars/dev.yml",
-        "gtr-respondent-data-collector/group_vars/production.yml",
-        "gtr-respondent-data-collector/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260903T084244+0000"
+      "deployedAt": "20260904T135003+0000"
     },
     {
       "service": "DKOrder",
-      "version": "a832cfb3efd6",
-      "username": "44774205+ssi-hu-viktor-tassi",
-      "comment": "Pac 792 fix message logging (#5334)",
+      "version": "44759a9d71a2",
+      "username": "gabor.fial",
+      "comment": "[PAC-793] DemandApi - fix failed LINE_ITEM_CREATION handling",
       "files": [
-        "gateway/dk/DKOrder/src/main/java/com/surveysampling/rest/gateway/order/v2/service/messaging/ChannelLoggingInterceptor.java",
-        "gateway/dk/DKOrder/src/test/groovy/com/surveysampling/rest/gateway/order/v2/service/messaging/ChannelLoggingInterceptorTest.groovy"
+        "gateway/dk/DKOrder/src/main/java/com/surveysampling/rest/gateway/order/v2/service/feasibilitycheck/FeasibilityHandler.java",
+        "gateway/dk/DKOrder/src/test/groovy/com/surveysampling/rest/gateway/order/v2/service/feasibility/FeasibilityHandlerTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/ProjectHandler.java",
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/ProjectHandlerTest.groovy"
       ],
-      "deployedAt": "20260903T064714+0000"
+      "deployedAt": "20260904T100319+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "cb20728faa5c",
+      "username": "attila.sikora",
+      "comment": "[PAC-793] DemandApi quotaGroup updatelimit tests.",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ErrorHandlingTest.groovy"
+      ],
+      "deployedAt": "20260904T072518+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "275c74624e44",
+      "username": "attila.sikora",
+      "comment": "[PAC-793] DemandApi test fix.",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ErrorHandlingTest.groovy"
+      ],
+      "deployedAt": "20260904T072518+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "24dcc21588ac",
+      "username": "attila.sikora",
+      "comment": "[PAC-793] DemandApi test fix.",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ErrorHandlingTest.groovy"
+      ],
+      "deployedAt": "20260904T072518+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "ProjectAutomationApi",
+      "service": "SurveyRestJ21",
       "commits": 25,
       "latestTicket": "",
-      "latestComment": "[PAC-790] - Update Quota Group Type for New OTS Combinations to NORMAL (#5331)",
-      "deployedAt": "20260903T114550+0000"
+      "latestComment": "[ST-5001] (FeatureRest) containersupport and memory plus actuator healthcheck",
+      "deployedAt": "20260904T171330+0000"
     },
     {
-      "service": "SurveyRestJ21",
+      "service": "2",
       "commits": 1,
-      "latestTicket": "",
-      "latestComment": "[PAC-794] TargetEditor - save targeting if missing, different error, mirror issu",
-      "deployedAt": "20260903T111021+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "commits": 3,
-      "latestTicket": "",
-      "latestComment": "[PAC-745] - Cobalt - NexusApi - fullProjectSetup use new fields (#5293)",
-      "deployedAt": "20260903T084244+0000"
+      "latestTicket": "NXS-12214",
+      "latestComment": "[NXS-12214] Pact fix",
+      "deployedAt": "20260904T135003+0000"
     },
     {
       "service": "DKOrder",
-      "commits": 5,
+      "commits": 1,
       "latestTicket": "",
-      "latestComment": "Pac 792 fix message logging (#5334)",
-      "deployedAt": "20260903T064714+0000"
+      "latestComment": "[PAC-793] DemandApi - fix failed LINE_ITEM_CREATION handling",
+      "deployedAt": "20260904T100319+0000"
+    },
+    {
+      "service": "DemandApi",
+      "commits": 13,
+      "latestTicket": "",
+      "latestComment": "[PAC-793] DemandApi quotaGroup updatelimit tests.",
+      "deployedAt": "20260904T072518+0000"
     }
   ],
   "clusters": [],
@@ -410,12 +387,12 @@
     "bullets": [],
     "investigation": "No unmuted failures.",
     "detail": {
-      "investigation": "4 service(s) (34 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
+      "investigation": "4 service(s) (40 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
       "bullets": [
-        "[QA deploy: ProjectAutomationApi]  (25 commits) \u2014 [PAC-790] - Update Quota Group Type for New OTS Combinations to NORMAL (#5331)",
-        "[QA deploy: SurveyRestJ21]  (1 commit) \u2014 [PAC-794] TargetEditor - save targeting if missing, different error, mirror issu",
-        "[QA deploy: NexusApiJ21]  (3 commits) \u2014 [PAC-745] - Cobalt - NexusApi - fullProjectSetup use new fields (#5293)",
-        "[QA deploy: DKOrder]  (5 commits) \u2014 Pac 792 fix message logging (#5334)"
+        "[QA deploy: SurveyRestJ21]  (25 commits) \u2014 [ST-5001] (FeatureRest) containersupport and memory plus actuator healthcheck",
+        "[QA deploy: 2] NXS-12214 (1 commit) \u2014 [NXS-12214] Pact fix",
+        "[QA deploy: DKOrder]  (1 commit) \u2014 [PAC-793] DemandApi - fix failed LINE_ITEM_CREATION handling",
+        "[QA deploy: DemandApi]  (13 commits) \u2014 [PAC-793] DemandApi quotaGroup updatelimit tests."
       ],
       "newFailureAreas": [],
       "likelyCauses": []
@@ -423,139 +400,137 @@
     "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "ProjectAutomationApi",
-        "version": "44cac163d879",
-        "username": "66064023+szotaktamas",
-        "comment": "[PAC-790] - Update Quota Group Type for New OTS Combinations to NORMAL (#5331)",
-        "ticket": "",
-        "deployedAt": "20260903T114550+0000",
-        "files": [
-          "BrandLiftWorkflowTest.groovy",
-          "SampleServiceImpl.java",
-          "SampleServiceImplTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectAutomationApi",
-        "version": "8be74da84f22",
+        "service": "SurveyRestJ21",
+        "version": "7ead4a1034e6",
         "username": "gergo.hajnal",
-        "comment": "[ST-4984] (SubjectLibraryRest) container support and memory, actuator healthcheck",
+        "comment": "[ST-5001] (FeatureRest) containersupport and memory plus actuator healthcheck",
         "ticket": "",
-        "deployedAt": "20260903T114550+0000",
+        "deployedAt": "20260904T171330+0000",
         "files": [
           "qa.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectAutomationApi",
-        "version": "870f0a874682",
+        "service": "SurveyRestJ21",
+        "version": "2357e531eec7",
         "username": "gergo.hajnal",
-        "comment": "[ST-4983] (RexTRest) containersupport and memory for QA",
+        "comment": "[ST-4997] (DKNovaTranslatorRest) containersupport and memory plus actuator healthcheck",
         "ticket": "",
-        "deployedAt": "20260903T114550+0000",
+        "deployedAt": "20260904T171330+0000",
         "files": [
           "qa.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectAutomationApi",
-        "version": "171fd66f1808",
-        "username": "maomaofish",
-        "comment": "Reapply \"DQI-4490 change logging config file name for redemption-guard prod\"",
-        "ticket": "",
-        "deployedAt": "20260903T114550+0000",
+        "service": "SurveyRestJ21",
+        "version": "abfdbe8a6852",
+        "username": "zoltan.beke",
+        "comment": "[NXS-13837] MS - Internal page for CS to add Dynata+ survey hosts to the whitelist",
+        "ticket": "NXS-13837",
+        "deployedAt": "20260904T171330+0000",
         "files": [
-          "production.yml"
+          "DPlusWhitelistedBaseUrlCache.java"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectAutomationApi",
-        "version": "1323f147d687",
-        "username": "maomaofish",
-        "comment": "Revert \"DQI-4490 change logging config file name for redemption-guard prod\"",
+        "service": "SurveyRestJ21",
+        "version": "0b6b0b46d5df",
+        "username": "gergo.hajnal",
+        "comment": "[ST-4996] (MembershipStatusRest) containersupport and memory plus actuator healthcheck",
         "ticket": "",
-        "deployedAt": "20260903T114550+0000",
+        "deployedAt": "20260904T171330+0000",
         "files": [
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectAutomationApi",
-        "version": "60c5f32bc124",
-        "username": "maomaofish",
-        "comment": "DQI-4490 change logging config file name for redemption-guard prod",
-        "ticket": "",
-        "deployedAt": "20260903T114550+0000",
-        "files": [
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectAutomationApi",
-        "version": "c45cbd585dde",
-        "username": "matt.spencer",
-        "comment": "[DQI-4549] Reverting passphrase-api dns_alias_public_name for now. Will need to clean up later.",
-        "ticket": "",
-        "deployedAt": "20260903T114550+0000",
-        "files": [
-          "dev.yml",
           "qa.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectAutomationApi",
-        "version": "626a0dfe38f7",
-        "username": "matt.spencer",
-        "comment": "[DQI-4549] Updated passphrase-api dns_alias_public_name to new URL in dev and QA.",
+        "service": "SurveyRestJ21",
+        "version": "bc98f13e2ff2",
+        "username": "gergo.hajnal",
+        "comment": "[ST-4993] (CascadesRest) containersupport and memory plus actuator healthcheck",
         "ticket": "",
-        "deployedAt": "20260903T114550+0000",
+        "deployedAt": "20260904T171330+0000",
         "files": [
-          "dev.yml",
           "qa.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectAutomationApi",
-        "version": "1b6b1a0b48bc",
-        "username": "sajak.upadhyaya",
-        "comment": "[FAI-418] bug fixes with backfill script",
+        "service": "SurveyRestJ21",
+        "version": "ff960803a3ac",
+        "username": "gergo.hajnal",
+        "comment": "[ST-4991] (RewardCalculatorRest) slightly increase container based memory percentage",
         "ticket": "",
-        "deployedAt": "20260903T114550+0000",
+        "deployedAt": "20260904T171330+0000",
+        "files": [
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "SurveyRestJ21",
+        "version": "39ab66fc9a5e",
+        "username": "partlo2012",
+        "comment": "Reverting",
+        "ticket": "",
+        "deployedAt": "20260904T171330+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "SurveyRestJ21",
+        "version": "f7e883a5f350",
+        "username": "partlo2012",
+        "comment": "Correcting internal Route53",
+        "ticket": "",
+        "deployedAt": "20260904T171330+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "SurveyRestJ21",
+        "version": "9cf97211cbab",
+        "username": "partlo2012",
+        "comment": "Adding new Route53 records",
+        "ticket": "",
+        "deployedAt": "20260904T171330+0000",
         "files": [
           "cloud-formation.template.yml",
-          "root-policy.json",
-          "train-policy.json"
+          "dev.yml",
+          "production.yml",
+          "qa.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectAutomationApi",
-        "version": "1e1e684b7cc7",
-        "username": "maomaofish",
-        "comment": "DQI-4490 change logging config file name for redemption-guard dev and qa",
+        "service": "SurveyRestJ21",
+        "version": "ed3dc0a76259",
+        "username": "grace.chen",
+        "comment": "[FAI-431] update the decompress project to load json",
         "ticket": "",
-        "deployedAt": "20260903T114550+0000",
+        "deployedAt": "20260904T171330+0000",
         "files": [
-          "dev.yml",
-          "qa.yml"
+          "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       }
     ]
   },
   "contractDrift": {
-    "newCount": 0,
+    "newCount": 1,
     "baselineCount": 94,
-    "currentCount": 94,
-    "examples": []
+    "currentCount": 95,
+    "examples": [
+      "GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'."
+    ]
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."
 }
