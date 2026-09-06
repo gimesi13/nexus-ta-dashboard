@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-05T01:57Z",
+  "generatedAt": "2026-09-06T01:57Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-08-30",
-      "to": "2026-09-05",
+      "from": "2026-08-31",
+      "to": "2026-09-06",
       "featuresAdded": 0,
       "casesAdded": 0,
       "areasTouched": 0,
@@ -17,8 +17,8 @@
       "additions": []
     },
     "14d": {
-      "from": "2026-08-23",
-      "to": "2026-09-05",
+      "from": "2026-08-24",
+      "to": "2026-09-06",
       "featuresAdded": 0,
       "casesAdded": 0,
       "areasTouched": 0,
@@ -29,24 +29,24 @@
       "additions": []
     },
     "30d": {
-      "from": "2026-08-07",
-      "to": "2026-09-05",
-      "featuresAdded": 301,
-      "casesAdded": 500,
+      "from": "2026-08-08",
+      "to": "2026-09-06",
+      "featuresAdded": 298,
+      "casesAdded": 497,
       "areasTouched": 14,
       "ticketsTouched": 4,
       "byType": {
         "CRUD": 103,
-        "Validation": 61,
+        "Validation": 60,
         "Workflow": 66,
         "Query": 15,
-        "E2E": 3,
-        "Other": 53
+        "E2E": 2,
+        "Other": 52
       },
       "byArea": [
         {
           "area": "QuotaGroup",
-          "featuresAdded": 109
+          "featuresAdded": 108
         },
         {
           "area": "PES",
@@ -82,7 +82,7 @@
         },
         {
           "area": "BOS",
-          "featuresAdded": 5
+          "featuresAdded": 3
         },
         {
           "area": "AudienceGroup",
@@ -116,8 +116,8 @@
         },
         {
           "key": "NXS-13653",
-          "featuresAdded": 4,
-          "casesAdded": 4,
+          "featuresAdded": 1,
+          "casesAdded": 1,
           "latestDate": "2026-08-08"
         },
         {
@@ -6616,91 +6616,28 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=sample%20creation%20-%20CRM%20fields%20propagate%20across%20QUOTE%2C%20ORDER%20and%20PROJECT"
-        },
-        {
-          "name": "Switching tally mode to By Starts is rejected when totalStartQuota is not set",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-08-07",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13653 MS - Migrate tally 'ByStart without totalStartQuota' guard to tagged spec",
-          "commit": "33880b450d",
-          "tickets": [
-            "NXS-13653"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupBusinessRuleValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "TALLY",
-            "QUOTA_ON_START",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Switching%20tally%20mode%20to%20By%20Starts%20is%20rejected%20when%20totalStartQuota%20is%20not%20set"
-        },
-        {
-          "name": "sample creation - simple",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
-          "date": "2026-08-07",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13653 MS - Migrate BOS quote->order + MMR workflow into tagged tests/steps",
-          "commit": "fb4632760a",
-          "tickets": [
-            "NXS-13653"
-          ],
-          "area": "BOS",
-          "spec": "BosSampleCreationTestSteps",
-          "type": "E2E",
-          "cases": 1,
-          "tags": [
-            "CREATE_QUOTE",
-            "QUOTE_2_ORDER",
-            "PROJECT_ACCEPT"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=sample%20creation%20-%20simple"
-        },
-        {
-          "name": "sample creation - MMR",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/BOS/BosSampleCreationTestSteps.groovy",
-          "date": "2026-08-07",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13653 MS - Migrate BOS quote->order + MMR workflow into tagged tests/steps",
-          "commit": "fb4632760a",
-          "tickets": [
-            "NXS-13653"
-          ],
-          "area": "BOS",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=sample%20creation%20-%20MMR",
-          "gone": true
         }
       ]
     },
     "90d": {
-      "from": "2026-06-08",
-      "to": "2026-09-05",
-      "featuresAdded": 425,
-      "casesAdded": 643,
+      "from": "2026-06-09",
+      "to": "2026-09-06",
+      "featuresAdded": 422,
+      "casesAdded": 640,
       "areasTouched": 16,
-      "ticketsTouched": 14,
+      "ticketsTouched": 13,
       "byType": {
         "CRUD": 131,
         "Validation": 102,
-        "Workflow": 94,
+        "Workflow": 92,
         "Query": 22,
         "E2E": 3,
-        "Other": 73
+        "Other": 72
       },
       "byArea": [
         {
           "area": "QuotaGroup",
-          "featuresAdded": 148
+          "featuresAdded": 145
         },
         {
           "area": "Project",
@@ -6823,12 +6760,6 @@
           "featuresAdded": 4,
           "casesAdded": 4,
           "latestDate": "2026-08-08"
-        },
-        {
-          "key": "NXS-13094",
-          "featuresAdded": 3,
-          "casesAdded": 3,
-          "latestDate": "2026-06-08"
         },
         {
           "key": "NXS-13320",
@@ -15980,68 +15911,6 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Get%20project%20overview%20does%20not%20include%20numberOfOverQuotasForRace%20when%20race%20boost%20is%20disabled"
-        },
-        {
-          "name": "change order flow: two audiences request, evaluation, approve",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/ChangeOrderFlowTestSteps.groovy",
-          "date": "2026-06-08",
-          "author": "Norbert.Farkas",
-          "subject": "[ NXS-13094 ] new test coverage",
-          "commit": "371c7e5fea",
-          "tickets": [
-            "NXS-13094"
-          ],
-          "area": "QuotaGroup",
-          "spec": "ChangeOrderFlowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "BOS_SYNC",
-            "CHANGE_ORDER",
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=change%20order%20flow%3A%20two%20audiences%20request%2C%20evaluation%2C%20approve"
-        },
-        {
-          "name": "change order flow: request, evaluation, block traffic, revert",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/ChangeOrderFlowTestSteps.groovy",
-          "date": "2026-06-08",
-          "author": "Norbert.Farkas",
-          "subject": "[ NXS-13094 ] new test coverage",
-          "commit": "371c7e5fea",
-          "tickets": [
-            "NXS-13094"
-          ],
-          "area": "QuotaGroup",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=change%20order%20flow%3A%20request%2C%20evaluation%2C%20block%20traffic%2C%20revert",
-          "gone": true
-        },
-        {
-          "name": "change order flow: request, evaluation, block traffic, approve",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/ChangeOrderFlowTestSteps.groovy",
-          "date": "2026-06-08",
-          "author": "Norbert.Farkas",
-          "subject": "[ NXS-13094 ] new test coverage",
-          "commit": "371c7e5fea",
-          "tickets": [
-            "NXS-13094"
-          ],
-          "area": "QuotaGroup",
-          "spec": "ChangeOrderFlowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "BOS_SYNC",
-            "CHANGE_ORDER",
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=change%20order%20flow%3A%20request%2C%20evaluation%2C%20block%20traffic%2C%20approve"
         }
       ]
     }
@@ -16132,7 +16001,7 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-09-05",
+      "date": "2026-09-06",
       "features": 750,
       "cases": 1515,
       "specs": 108,
@@ -16152,7 +16021,7 @@
       "priorPercent": 78.0,
       "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-09-05",
+      "currentDate": "2026-09-06",
       "testedDelta": 56,
       "untestedDelta": -59
     }
