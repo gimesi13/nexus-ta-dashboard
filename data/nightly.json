@@ -1589,21 +1589,27 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "5 new failures \u2014 mainly Quota, Project",
+    "headline": "5 new failures in Quota/Project \u2014 the backend Feasibility calculation is returning HTTP 400 'unavailable'.",
     "tone": "bad",
     "severity": "high",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 4\u00d7 other (no dominant signature yet); 1\u00d7 assertion Condition not satisfied. Vs prior #3.0.2690: up 5 total fails.",
+    "cause": "code_change",
+    "causeText": "Four of five new failures come from the backend details-editor service returning HTTP 400 'Feasibility Calculation unavailable!' on soldQuota-lock/feasibility endpoints \u2014 a product-side functional break, not a QA network timeout/502/504 (the '30s timeout' is the test's own poll around repeated 400s). The fifth is a Project E2E Spock assertion where totalQuota did not increase by 100 (expected 1900, got 1800), consistent with the same quota/feasibility path. No product deploy commit was captured in this window (qaDeployChanges empty), so no specific commit or developer can be named.",
+    "investigation": "All 5 failures are new vs the green prior build #3.0.2690: 4 are backend HTTP 400 'Feasibility Calculation unavailable!' on Quota soldQuota/feasibility endpoints and 1 is a Project totalQuota assertion (1800 vs 1900). These are functional product-side errors (not 502/504/socket timeouts), but no deploy commit was captured to attribute them.",
     "bullets": [
-      "4\u00d7 other \u2014 Feasibility Calculation unavailable!",
-      "1\u00d7 assertion Condition not satisfied"
+      "4\u00d7 Quota \u2014 backend details-editor returns HTTP 400 'Feasibility Calculation unavailable!' on soldQuota-lock/feasibility calls",
+      "1\u00d7 Project E2E \u2014 Spock assertion: totalQuota 1800 \u2260 expected 1900 (+100)",
+      "Not infra (no 502/504/socket timeout); no QA deploy commit captured to name a cause"
     ],
     "detail": {
-      "investigation": "5 of 5 unmuted failures are new since the prior build (#3.0.2690, 0 fails). Failure types (new-first): (1) 4\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: Quota (4), Project (1). Example new failures: Quota: Adding parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility: c [other]; Quota: Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility [other]; Quota: Modifying totalQuota (when soldQuota is locked) prevents any updates: com.dynata.rest.gate [other]; Quota: Locking and unlocking sold quota while feasibility distribution is set validates lock func [other].",
+      "investigation": "All 5 unmuted failures are new since the prior build #3.0.2690 (green, 0 fails). (1) Four Quota failures share one root: the backend service dk-project-details-editor-rest.nexus-ms-qa returns HTTP 400 BAD_REQUEST 'Feasibility Calculation unavailable!' on the soldQuotaLocked and feasibilityDistributionMode endpoints; two of these are wrapped in a 30s poll ('Timeout after waiting 30 seconds: Giving up'), but the underlying error is the repeated 400 \u2014 not a socket/gateway timeout \u2014 so this is a functional backend break, not QA network infra (no 502/504/Read timed out). (2) The fifth failure, Project E2E, is a Spock assertion where totalQuota did not increment by 100 (expected 1900, actual 1800), plausibly the same quota/feasibility path failing to apply updates. (3) No commits were captured: both `changes` (test module) and `qaDeployChanges` (backend deploys) are empty, so despite a coherent non-infra cluster no specific commit or developer can be named \u2014 flagging the Feasibility/details-editor backend for investigation without inventing blame. Contract drift: none (0 new).",
       "bullets": [
-        "4\u00d7 other \u2014 Feasibility Calculation unavailable!",
-        "1\u00d7 assertion Condition not satisfied"
+        "4\u00d7 Quota (soldQuota lock/unlock + feasibility): backend dk-project-details-editor-rest returns HTTP 400 'Feasibility Calculation unavailable!'",
+        "The '30s timeout' in 2 of these is the test's own poll around repeated 400s \u2014 not a socket/502/504 gateway timeout",
+        "1\u00d7 Project E2E: Spock assertion totalQuota == originalTotalQuota+100 failed (1800 vs 1900)",
+        "Root pattern: Quota/feasibility functional break in the backend details-editor service in QA",
+        "No infra timeout signature (no SocketTimeout/Read timed out/502/504)",
+        "No commits captured: changes=[] and qaDeployChanges=[] \u2014 no commit/developer to attribute",
+        "Contract drift: none (0 new)"
       ],
       "newFailureAreas": [
         {
@@ -1638,8 +1644,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-09-07T01:58Z",
+    "source": "llm",
+    "generatedAt": "2026-09-07T01:59:00Z",
     "buildNumber": "3.0.2691",
     "buildId": "9510207",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9510207",
