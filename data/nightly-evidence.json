@@ -1,132 +1,575 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-07T01:58Z",
+  "generatedAt": "2026-09-08T01:58Z",
   "build": {
-    "number": "3.0.2691",
-    "buildId": "9510207",
-    "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9510207",
-    "durationSec": 1530.0
+    "number": "3.0.2692",
+    "buildId": "9512027",
+    "status": "SUCCESS",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9512027",
+    "durationSec": 1528.0
   },
   "summary": {
     "tests": 1479,
-    "passed": 1388,
-    "failures": 5,
+    "passed": 1393,
+    "failures": 0,
     "errors": 0,
     "skipped": 0,
     "muted": 86,
-    "newFailed": 5,
-    "passRate": 99.6,
-    "timeSec": 1530.0
+    "newFailed": 0,
+    "passRate": 100.0,
+    "timeSec": 1528.0
   },
   "prior": {
-    "buildId": "9510120",
-    "number": "3.0.2690",
-    "status": "SUCCESS",
-    "statusText": "Tests passed: 1393, muted: 86",
-    "startDate": "20260906T013235+0000",
-    "durationSec": 1471.0,
-    "failed": 0,
-    "passed": 1393,
-    "newFailed": 0
+    "buildId": "9510207",
+    "number": "3.0.2691",
+    "status": "FAILURE",
+    "statusText": "Tests failed: 5 (5 new), passed: 1388, muted: 86",
+    "startDate": "20260907T013247+0000",
+    "durationSec": 1530.0,
+    "failed": 5,
+    "passed": 1388,
+    "newFailed": 5
   },
   "changes": [],
-  "qaDeployChanges": [],
-  "qaDeployServices": [],
-  "clusters": [
+  "qaDeployChanges": [
     {
-      "label": "other",
-      "display": "other",
-      "count": 4,
-      "newCount": 4,
-      "sample": "Feasibility Calculation unavailable!",
-      "why": "no dominant signature yet \u2014 open TeamCity details"
+      "service": "NexusApiJ21",
+      "version": "16a1a0eb8718",
+      "username": "david.nagy",
+      "comment": "[NXS-13833] MS | NexusApi | populate common settings while new creating new audiences - fixes",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/quotaGroup/QuotaGroupRestFeignClient.java"
+      ],
+      "deployedAt": "20260907T201615+0000"
     },
     {
-      "label": "assert_fail",
-      "display": "assertion Condition not satisfied",
-      "count": 1,
-      "newCount": 1,
-      "sample": "",
-      "why": "Spock assertion failed (fixture or response shape)"
+      "service": "NexusApiJ21",
+      "version": "ca1a45d41e18",
+      "username": "david.nagy",
+      "comment": "[NXS-13833] MS | NexusApi | populate common settings while new creating new audiences - fixes",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/quotagroupsources/IQuotaGroupSourcesRestHelper.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/components/CommonSettingsPopulator.java"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "0dd6c558216f",
+      "username": "david.nagy",
+      "comment": "[NXS-13833] MS | NexusApi | populate common settings while new creating new audiences",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/quotaGroup/QuotaGroupRestFeignClient.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/quotaGroup/model/ComplexScheduling.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/quotaGroup/model/SimpleQuotaGroupScheduling.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/quotagroupsources/IQuotaGroupSourcesRestHelper.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/quotagroupsources/model/QuotaGroupBrandExclusionsOfProject.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/quotagroupsources/model/QuotaGroupSourcesTogglesOfProject.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/components/Cloner.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/components/CommonSettingsPopulator.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/quotagroupid/QuotaGroupPersistImpl.java",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UWholeAudienceGroupSetupImplTest.groovy",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/components/ClonerTest.groovy",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/components/CommonSettingsPopulatorTest.groovy"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "9d2a3b1f8428",
+      "username": "zoltan.redai",
+      "comment": "[AE-7824] Consume both definition streams and materialize definitions in Redis",
+      "files": [
+        "ae-pes-aggregator-redis/cloud-formation.template.yml",
+        "ae-pes-aggregator-redis/group_vars/all.yml",
+        "ae-pes-aggregator-redis/group_vars/dev.yml",
+        "ae-pes-aggregator-redis/group_vars/production.yml",
+        "ae-pes-aggregator-redis/group_vars/qa.yml",
+        "ae-pes-aggregator-redis/stack-policy.json",
+        "ae-pes-aggregator/cloud-formation.template.yml",
+        "ae-pes-aggregator/group_vars/all.yml",
+        "ae-pes-aggregator/group_vars/production.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "a9ca5efa0d99",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4999] (FeatureValueRest) adding containersupport, memory and healthcheck",
+      "files": [
+        "dk-respondent-feature-value-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "2c38a1827885",
+      "username": "partlo2012",
+      "comment": "Correcting health check",
+      "files": [
+        "passphrase-api/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "29af2594372d",
+      "username": "partlo2012",
+      "comment": "Correction",
+      "files": [
+        "passphrase-api/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "3e5696f077ea",
+      "username": "partlo2012",
+      "comment": "Adding internal target group",
+      "files": [
+        "passphrase-api/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "ceabf372ffbc",
+      "username": "partlo2012",
+      "comment": "Adding listener rule",
+      "files": [
+        "passphrase-api/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "09bfd1e25a5d",
+      "username": "partlo2012",
+      "comment": "Correcting passphrase domain",
+      "files": [
+        "passphrase-api/group_vars/dev.yml",
+        "passphrase-api/group_vars/production.yml",
+        "passphrase-api/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "7ead4a1034e6",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5001] (FeatureRest) containersupport and memory plus actuator healthcheck",
+      "files": [
+        "dk-management-feature-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "2357e531eec7",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4997] (DKNovaTranslatorRest) containersupport and memory plus actuator healthcheck",
+      "files": [
+        "dk-dk-nova-translator-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "0b6b0b46d5df",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4996] (MembershipStatusRest) containersupport and memory plus actuator healthcheck",
+      "files": [
+        "dk-management-membership-status-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "bc98f13e2ff2",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4993] (CascadesRest) containersupport and memory plus actuator healthcheck",
+      "files": [
+        "dk-project-cascades-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "ff960803a3ac",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4991] (RewardCalculatorRest) slightly increase container based memory percentage",
+      "files": [
+        "dk-management-reward-calculator-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "39ab66fc9a5e",
+      "username": "partlo2012",
+      "comment": "Reverting",
+      "files": [
+        "passphrase-api/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "f7e883a5f350",
+      "username": "partlo2012",
+      "comment": "Correcting internal Route53",
+      "files": [
+        "passphrase-api/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "9cf97211cbab",
+      "username": "partlo2012",
+      "comment": "Adding new Route53 records",
+      "files": [
+        "passphrase-api/cloud-formation.template.yml",
+        "passphrase-api/group_vars/dev.yml",
+        "passphrase-api/group_vars/production.yml",
+        "passphrase-api/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "ed3dc0a76259",
+      "username": "grace.chen",
+      "comment": "[FAI-431] update the decompress project to load json",
+      "files": [
+        "ml-data-capture-decompress/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "c67f0a3e1bba",
+      "username": "grace.chen",
+      "comment": "set enable_auto_scaling true for QA deployment",
+      "files": [
+        "ml-reconciliation-model/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "bc05d85ca0e5",
+      "username": "grace.chen",
+      "comment": "set enable_auto_scaling false for QA deployment",
+      "files": [
+        "ml-reconciliation-model/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "2e68e632384b",
+      "username": "grace.chen",
+      "comment": "mute insufficient data alarm for Dev and QA for all alarm metrics for ml-reconciliation-model",
+      "files": [
+        "ml-reconciliation-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "f831ab8bd5cf",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4990] (MessageContent) containersupport and memory plus healthcheck",
+      "files": [
+        "dk-management-message-content-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "9c9c59cddebe",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4989] (CategoryRest) containersupport and memory plus healthcheck",
+      "files": [
+        "dk-management-category-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "660dab97b45a",
+      "username": "akos.nagy",
+      "comment": "Trying to fix nxs-eco-partnerstatus missing LoadBalancerListerner and rules",
+      "files": [
+        "nxs-eco-partnerstatus/group_vars/production.yml"
+      ],
+      "deployedAt": "20260907T201615+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "72f54c932e12",
+      "username": "david.nagy",
+      "comment": "[NXS-13812] MS | QuotaGroupRest | new endpoint to retrieve aggregated schedulings of a given project - fix",
+      "files": [
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandler.java",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandlerTest.groovy"
+      ],
+      "deployedAt": "20260907T190254+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "55b9d5f7eafd",
+      "username": "david.nagy",
+      "comment": "[NXS-13812] MS | QuotaGroupRest | new endpoint to retrieve aggregated schedulings of a given project - CR",
+      "files": [
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandler.java"
+      ],
+      "deployedAt": "20260907T190254+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "797d3531b65e",
+      "username": "david.nagy",
+      "comment": "[NXS-13812] MS | QuotaGroupRest | new endpoint to retrieve aggregated schedulings of a given project",
+      "files": [
+        "project/QuotaGroupRest/serviceApi/src/main/java/com/surveysampling/rest/quota/u1/model/unified/ComplexScheduling.java",
+        "project/QuotaGroupRest/serviceApi/src/main/java/com/surveysampling/rest/quota/u1/model/unified/SimpleQuotaGroupScheduling.java",
+        "project/QuotaGroupRest/serviceFeign/src/main/java/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupSchedulingRestFeignClient.java",
+        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupSchedulingRestAcceptanceTest.groovy",
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/api/QuotaGroupSchedulingRest.java",
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandler.java",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandlerTest.groovy"
+      ],
+      "deployedAt": "20260907T190254+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "cf1e2067f381",
+      "username": "david.nagy",
+      "comment": "[NXS-13803] MS | QuotaGroupRest | CR",
+      "files": [
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/mongo/QuotaGroupMongoHelper.java"
+      ],
+      "deployedAt": "20260907T165043+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "d2ce0c0ec7a4",
+      "username": "david.nagy",
+      "comment": "[NXS-13803] MS | QuotaGroupRest | change quota group fetch endpoint to exclude deleted ones with optional queryparam",
+      "files": [
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/api/QuotaGroupRest.java",
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupRestImpl.java",
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/mongo/QuotaGroupMongoHelper.java",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/QuotaGroupRestImplTest.groovy",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/mongo/QuotaGroupMongoHelperTest.groovy"
+      ],
+      "deployedAt": "20260907T165043+0000"
     }
   ],
-  "failures": [
+  "qaDeployServices": [
     {
-      "name": "Adding parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaLockUnlockWorkflowTestSteps.Adding parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaLockUnlockWorkflowTestSteps",
-      "newFailure": true,
-      "area": "Quota",
-      "cluster": "other",
-      "message": "Feasibility Calculation unavailable!",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 30 seconds: Giving up. Last error: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118779228/conditions/segmentedConditions/feasibilityDistributionMode 400{ \"errors\" : [ { \"callChain\" : [ \"HTTP 400 POST http://dk-project-details-editor-rest.nexus-ms-qa.dynata.com:8080/api/DetailsEditor/u1/nexus/quotaGroups/118779228/feasibilityDi\u2026"
+      "service": "NexusApiJ21",
+      "commits": 25,
+      "latestTicket": "NXS-13833",
+      "latestComment": "[NXS-13833] MS | NexusApi | populate common settings while new creating new audi",
+      "deployedAt": "20260907T201615+0000"
     },
     {
-      "name": "Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaLockUnlockWorkflowTestSteps.Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaLockUnlockWorkflowTestSteps",
-      "newFailure": true,
-      "area": "Quota",
-      "cluster": "other",
-      "message": "Feasibility Calculation unavailable!",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118779228/soldQuotaLocked?soldQuotaLocked=true 400{ \"errors\" : [ { \"callChain\" : [ \"HTTP 400 PUT http://dk-project-details-editor-rest.nexus-ms-qa.dynata.com:8080/api/DetailsEditor/u1/nexus/quotaGroups/118779228/soldQuotaLocked?soldQuotaLocked=true\" ], \"status\" : \"BAD_REQUEST\", \"message\" : \"Feasibility C\u2026"
+      "service": "QuotaGroupRestJ21",
+      "commits": 6,
+      "latestTicket": "NXS-13812",
+      "latestComment": "[NXS-13812] MS | QuotaGroupRest | new endpoint to retrieve aggregated scheduling",
+      "deployedAt": "20260907T190254+0000"
     },
     {
-      "name": "Modifying totalQuota (when soldQuota is locked) prevents any updates: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaValidationTestSteps.Modifying totalQuota (when soldQuota is locked) prevents any updates",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaValidationTestSteps",
-      "newFailure": true,
-      "area": "Quota",
-      "cluster": "other",
-      "message": "Feasibility Calculation unavailable!",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 30 seconds: Giving up. Last error: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118779255/conditions/segmentedConditions/feasibilityDistributionMode 400{ \"errors\" : [ { \"callChain\" : [ \"HTTP 400 POST http://dk-project-details-editor-rest.nexus-ms-qa.dynata.com:8080/api/DetailsEditor/u1/nexus/quotaGroups/118779255/feasibilityDi\u2026"
+      "service": "ProjectRestJ16",
+      "commits": 2,
+      "latestTicket": "NXS-13689",
+      "latestComment": "[NXS-13689] - ProjectRest - propagation endpoint implementations (#5325)",
+      "deployedAt": "20260907T143510+0000"
     },
     {
-      "name": "Locking and unlocking sold quota while feasibility distribution is set validates lock functionality: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaValidationTestSteps.Locking and unlocking sold quota while feasibility distribution is set validates lock functionality",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaValidationTestSteps",
-      "newFailure": true,
-      "area": "Quota",
-      "cluster": "other",
-      "message": "Feasibility Calculation unavailable!",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118779255/soldQuotaLocked?soldQuotaLocked=true 400{ \"errors\" : [ { \"callChain\" : [ \"HTTP 400 PUT http://dk-project-details-editor-rest.nexus-ms-qa.dynata.com:8080/api/DetailsEditor/u1/nexus/quotaGroups/118779255/soldQuotaLocked?soldQuotaLocked=true\" ], \"status\" : \"BAD_REQUEST\", \"message\" : \"Feasibility C\u2026"
+      "service": "QuotaGroupSourcesRestJ21",
+      "commits": 4,
+      "latestTicket": "NXS-13804",
+      "latestComment": "[NXS-13804] MS | QuotaGroupSourcesRest | CR fixes",
+      "deployedAt": "20260907T094915+0000"
     },
     {
-      "name": "Project E2E - covers all project endpoints",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ProjectE2ETestSteps",
-      "newFailure": true,
-      "area": "Project",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: pHelper.getProjectCore(projectId()).totalQuota == originalTotalQuota + 100 | | | | | | | | | 2257895 1800 | 1800 1900 | | false | <com.dynata.nexus.api.model.project.ProjectCore@6f8281e6 dubProjectId=QN-1788745641339 proNumber=PRO_NUMBER_31416919 quoteNumber=null orderNumber=null projectName=Test Standard Project for QA test questFeatureId=null clientId=18560 orderStatus=\u2026"
+      "service": "DKOrder",
+      "commits": 3,
+      "latestTicket": "",
+      "latestComment": "[PAC-796] DKOrder - override proprietaryCompletes with quantity",
+      "deployedAt": "20260907T093304+0000"
+    },
+    {
+      "service": "DemandApi",
+      "commits": 1,
+      "latestTicket": "",
+      "latestComment": "[PAC-800] DemandApi - setop not work with new quota group under project update (",
+      "deployedAt": "20260907T091957+0000"
     }
   ],
+  "clusters": [],
+  "failures": [],
   "rulesNutshell": {
-    "headline": "5 new failures \u2014 mainly Quota, Project",
-    "tone": "bad",
-    "severity": "high",
-    "bullets": [
-      "4\u00d7 other \u2014 Feasibility Calculation unavailable!",
-      "1\u00d7 assertion Condition not satisfied"
-    ],
-    "investigation": "New fails: 4\u00d7 other (no dominant signature yet); 1\u00d7 assertion Condition not satisfied. Vs prior #3.0.2690: up 5 total fails.",
+    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "tone": "ok",
+    "severity": "none",
+    "bullets": [],
+    "investigation": "No unmuted failures.",
     "detail": {
-      "investigation": "5 of 5 unmuted failures are new since the prior build (#3.0.2690, 0 fails). Failure types (new-first): (1) 4\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: Quota (4), Project (1). Example new failures: Quota: Adding parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility: c [other]; Quota: Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility [other]; Quota: Modifying totalQuota (when soldQuota is locked) prevents any updates: com.dynata.rest.gate [other]; Quota: Locking and unlocking sold quota while feasibility distribution is set validates lock func [other].",
+      "investigation": "6 service(s) (41 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
       "bullets": [
-        "4\u00d7 other \u2014 Feasibility Calculation unavailable!",
-        "1\u00d7 assertion Condition not satisfied"
+        "[QA deploy: NexusApiJ21] NXS-13833 (25 commits) \u2014 [NXS-13833] MS | NexusApi | populate common settings while new creating new audi",
+        "[QA deploy: QuotaGroupRestJ21] NXS-13812 (6 commits) \u2014 [NXS-13812] MS | QuotaGroupRest | new endpoint to retrieve aggregated scheduling",
+        "[QA deploy: ProjectRestJ16] NXS-13689 (2 commits) \u2014 [NXS-13689] - ProjectRest - propagation endpoint implementations (#5325)",
+        "[QA deploy: QuotaGroupSourcesRestJ21] NXS-13804 (4 commits) \u2014 [NXS-13804] MS | QuotaGroupSourcesRest | CR fixes",
+        "[QA deploy: DKOrder]  (3 commits) \u2014 [PAC-796] DKOrder - override proprietaryCompletes with quantity",
+        "[QA deploy: DemandApi]  (1 commit) \u2014 [PAC-800] DemandApi - setop not work with new quota group under project update ("
       ],
-      "newFailureAreas": [
-        {
-          "area": "Quota",
-          "newCount": 4
-        },
-        {
-          "area": "Project",
-          "newCount": 1
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "suspectCommits": [],
-    "qaDeploySuspects": []
+    "qaDeploySuspects": [
+      {
+        "service": "NexusApiJ21",
+        "version": "16a1a0eb8718",
+        "username": "david.nagy",
+        "comment": "[NXS-13833] MS | NexusApi | populate common settings while new creating new audiences - fixes",
+        "ticket": "NXS-13833",
+        "deployedAt": "20260907T201615+0000",
+        "files": [
+          "QuotaGroupRestFeignClient.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "ca1a45d41e18",
+        "username": "david.nagy",
+        "comment": "[NXS-13833] MS | NexusApi | populate common settings while new creating new audiences - fixes",
+        "ticket": "NXS-13833",
+        "deployedAt": "20260907T201615+0000",
+        "files": [
+          "IQuotaGroupSourcesRestHelper.java",
+          "CommonSettingsPopulator.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "0dd6c558216f",
+        "username": "david.nagy",
+        "comment": "[NXS-13833] MS | NexusApi | populate common settings while new creating new audiences",
+        "ticket": "NXS-13833",
+        "deployedAt": "20260907T201615+0000",
+        "files": [
+          "QuotaGroupRestFeignClient.java",
+          "ComplexScheduling.java",
+          "SimpleQuotaGroupScheduling.java",
+          "IQuotaGroupSourcesRestHelper.java",
+          "QuotaGroupBrandExclusionsOfProject.java",
+          "QuotaGroupSourcesTogglesOfProject.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "9d2a3b1f8428",
+        "username": "zoltan.redai",
+        "comment": "[AE-7824] Consume both definition streams and materialize definitions in Redis",
+        "ticket": "",
+        "deployedAt": "20260907T201615+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml",
+          "dev.yml",
+          "production.yml",
+          "qa.yml",
+          "stack-policy.json"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "a9ca5efa0d99",
+        "username": "gergo.hajnal",
+        "comment": "[ST-4999] (FeatureValueRest) adding containersupport, memory and healthcheck",
+        "ticket": "",
+        "deployedAt": "20260907T201615+0000",
+        "files": [
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "2c38a1827885",
+        "username": "partlo2012",
+        "comment": "Correcting health check",
+        "ticket": "",
+        "deployedAt": "20260907T201615+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "29af2594372d",
+        "username": "partlo2012",
+        "comment": "Correction",
+        "ticket": "",
+        "deployedAt": "20260907T201615+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "3e5696f077ea",
+        "username": "partlo2012",
+        "comment": "Adding internal target group",
+        "ticket": "",
+        "deployedAt": "20260907T201615+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "ceabf372ffbc",
+        "username": "partlo2012",
+        "comment": "Adding listener rule",
+        "ticket": "",
+        "deployedAt": "20260907T201615+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "09bfd1e25a5d",
+        "username": "partlo2012",
+        "comment": "Correcting passphrase domain",
+        "ticket": "",
+        "deployedAt": "20260907T201615+0000",
+        "files": [
+          "dev.yml",
+          "production.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      }
+    ]
   },
   "contractDrift": {
     "newCount": 0,
