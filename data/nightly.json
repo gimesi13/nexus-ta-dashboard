@@ -1533,22 +1533,16 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "headline": "Nightly was green \u2014 1479 tests, no new or unmuted failures.",
     "tone": "ok",
     "severity": "none",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
+    "causeText": "No new or unmuted test failures. Separately (contract lane): 1 new OpenAPI drift \u2014 GET /u1/nexus/urlPools/{} now returns an undefined 500.",
+    "investigation": "",
     "bullets": [],
     "detail": {
-      "investigation": "5 service(s) (75 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
-      "bullets": [
-        "[QA deploy: QuotaGroupDefinitionRestJ21]  (25 commits) \u2014 (dk-management-enum-rest) increase DEV memory",
-        "[QA deploy: ProjectAutomationApi]  (25 commits) \u2014 [PAC-801] - ProjectAutomationApi - DyntaPlus - Use Cloudia useCustomerBlend flag",
-        "[QA deploy: DKOrder]  (23 commits) \u2014 PAC-806: Add channel logging (#5353)",
-        "[QA deploy: DemandApi]  (1 commit) \u2014 AlertMongoConfig - add profile annotation to nexusAlertsMongoTemplate for non-pr",
-        "[QA deploy: ProjectRestJ16] NXS-13687 (1 commit) \u2014 [NXS-13687] MS - New endpoint to return waves (#5323)"
-      ],
+      "investigation": "",
+      "bullets": [],
       "newFailureAreas": [],
       "likelyCauses": []
     },
@@ -1720,8 +1714,8 @@
         "deployedAt": "20260909T072924+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-09-10T01:57Z",
+    "source": "llm",
+    "generatedAt": "2026-09-10T01:57:00Z",
     "buildNumber": "3.0.2694",
     "buildId": "9518056",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9518056",
