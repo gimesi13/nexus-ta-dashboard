@@ -1,7 +1,7 @@
-**2 new failures in AudienceGroup**
+**2 new failures (AudienceGroup, Fieldwork) — assertions/timing, not infra**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: no test-module changes and QA-deployed commits don't touch these areas — test/data or read-after-write timing flakiness._
 
-- 1× other — java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=tr
+- AudienceGroup — undelete PUT succeeded but GET still isDeleted=true after 15s (read-after-write convergence)
 
 [Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9522717)

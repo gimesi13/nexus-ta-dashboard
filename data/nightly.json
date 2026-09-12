@@ -1556,22 +1556,22 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "2 new failures in AudienceGroup",
+    "headline": "2 new failures (AudienceGroup, Fieldwork) \u2014 assertions/timing, not infra",
     "tone": "warn",
     "severity": "low",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 1 service(s) were deployed to QA in this window (GeoConditionRestJ16) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet); 1\u00d7 assertion Condition not satisfied. Vs prior #3.0.2695: up 2 total fails.",
+    "causeText": "No test-module changes, and the 15 QA-deployed commits (GeoConditionRestJ16) touch only deploy config unrelated to AudienceGroup/Fieldwork, so these look like test/data or read-after-write timing flakiness rather than a code regression.",
+    "investigation": "Both new fails are assertions, not infra: AudienceGroup undelete didn't converge within 15s, and Fieldwork delivery mode returned BURST instead of UNLIMITED.",
     "bullets": [
-      "1\u00d7 other \u2014 java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=tr",
-      "1\u00d7 assertion Condition not satisfied"
+      "AudienceGroup \u2014 undelete PUT succeeded but GET still isDeleted=true after 15s (read-after-write convergence)",
+      "Fieldwork \u2014 Condition not satisfied: deliveryMode BURST vs expected UNLIMITED"
     ],
     "detail": {
-      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2695, 0 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: AudienceGroup (1), Fieldwork (1). 1 service(s) (15 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: AudienceGroup: Complete audience group management end-to-end workflow: com.dynata.rest.gateway.nexusapi.r [other]; Fieldwork: Configure all delivery mode variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps. [assertion Condition not satisfied].",
+      "investigation": "Both new failures are assertion/logic failures, not infra (no timeouts/502/504): AudienceGroup's undelete helper failed because GET still reported isDeleted=true 15s after a successful undelete PUT (read-after-write convergence), and Fieldwork's delivery-mode test asserted deliveryMode==UNLIMITED but got BURST. No test-module commits landed, and the 15 QA-deployed commits (GeoConditionRestJ16, NXS-13707) only touch deploy/infra config (cloud-formation, group_vars, build.gradle) with no path mapping to audience-group or fieldwork logic, so no code owner is implicated.",
       "bullets": [
-        "1\u00d7 other \u2014 java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=tr",
-        "1\u00d7 assertion Condition not satisfied",
-        "[QA deploy: GeoConditionRestJ16] NXS-13707 (15 commits) \u2014 [ NXS-13707 ] ECR j16"
+        "AudienceGroup \u2014 undelete PUT succeeded but GET still isDeleted=true after 15s; read-after-write convergence not complete (AudienceGroupHelper.undeleteAudienceGroup:98)",
+        "Fieldwork \u2014 Spock 'Condition not satisfied': delivery.deliveryMode BURST vs expected UNLIMITED",
+        "15 QA-deployed commits (GeoConditionRestJ16) touch only deploy config \u2014 none map to AudienceGroup/Fieldwork"
       ],
       "newFailureAreas": [
         {
@@ -1742,8 +1742,8 @@
         "deployedAt": "20260911T114921+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-09-12T01:59Z",
+    "source": "llm",
+    "generatedAt": "2026-09-12T02:00:00Z",
     "buildNumber": "3.0.2696",
     "buildId": "9522717",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9522717",
