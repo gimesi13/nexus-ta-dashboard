@@ -1,619 +1,399 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-11T01:59Z",
+  "generatedAt": "2026-09-12T01:59Z",
   "build": {
-    "number": "3.0.2695",
-    "buildId": "9520193",
-    "status": "SUCCESS",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9520193",
-    "durationSec": 1577.0
+    "number": "3.0.2696",
+    "buildId": "9522717",
+    "status": "FAILURE",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9522717",
+    "durationSec": 1595.0
   },
   "summary": {
     "tests": 1479,
-    "passed": 1394,
-    "failures": 0,
+    "passed": 1391,
+    "failures": 2,
     "errors": 0,
     "skipped": 0,
-    "muted": 85,
-    "newFailed": 0,
-    "passRate": 100.0,
-    "timeSec": 1577.0
+    "muted": 86,
+    "newFailed": 2,
+    "passRate": 99.9,
+    "timeSec": 1595.0
   },
   "prior": {
-    "buildId": "9518056",
-    "number": "3.0.2694",
+    "buildId": "9520193",
+    "number": "3.0.2695",
     "status": "SUCCESS",
-    "statusText": "Tests passed: 1393, muted: 86",
-    "startDate": "20260910T013023+0000",
-    "durationSec": 1562.0,
+    "statusText": "Tests passed: 1394, muted: 85",
+    "startDate": "20260911T013235+0000",
+    "durationSec": 1577.0,
     "failed": 0,
-    "passed": 1393,
+    "passed": 1394,
     "newFailed": 0
   },
   "changes": [],
   "qaDeployChanges": [
     {
-      "service": "ProjectMembershipRestJ21",
-      "version": "ac13f0c01dd2",
-      "username": "andras.banszki",
-      "comment": "[NXS-13524] MS - migrate ProjectMembershipRest to J21",
+      "service": "GeoConditionRestJ16",
+      "version": "8d73ad717304",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-13707 ] ECR j16",
       "files": [
-        "respondent/ProjectMembershipRest/gradle/wrapper/gradle-wrapper.jar",
-        "respondent/ProjectMembershipRest/gradlew",
-        "respondent/ProjectMembershipRest/gradlew.bat"
+        "project/GeoConditionRest/build.gradle"
       ],
-      "deployedAt": "20260910T142134+0000"
+      "deployedAt": "20260911T114921+0000"
     },
     {
-      "service": "RegionalSurveyRestJ21",
-      "version": "640abc1e1962",
-      "username": "andras.banszki",
-      "comment": "[NXS-13526] MS - migrate RegionalSurveyRest to J21",
-      "files": [
-        "respondent/RegionalSurveyRest/gradle/wrapper/gradle-wrapper.jar",
-        "respondent/RegionalSurveyRest/gradlew",
-        "respondent/RegionalSurveyRest/gradlew.bat"
-      ],
-      "deployedAt": "20260910T141321+0000"
-    },
-    {
-      "service": "SurveyRestJ21",
-      "version": "9978ab99f6e0",
-      "username": "zoltan.beke",
-      "comment": "[NXS-13837] MS - Drop 60s SurveyRest whitelist flush; CS page says 30 minutes",
-      "files": [
-        "project/SurveyRest/src/main/java/com/surveysampling/rest/survey/d1/components/caches/DPlusWhitelistedBaseUrlCache.java"
-      ],
-      "deployedAt": "20260910T135902+0000"
-    },
-    {
-      "service": "SurveyRestJ21",
-      "version": "93c5d2b50640",
+      "service": "GeoConditionRestJ16",
+      "version": "83fcb66f813b",
       "username": "gergo.hajnal",
-      "comment": "[ST-4979] (EnumRest) adding containersupport and memory plus healthcheck for PROD and QA",
+      "comment": "[ST-5011] (st-respondent-rest) change healthcheck to actuator",
       "files": [
-        "dk-management-enum-rest/group_vars/production.yml",
-        "dk-management-enum-rest/group_vars/qa.yml"
+        "st-respondent-rest/group_vars/prod.yml"
       ],
-      "deployedAt": "20260910T135902+0000"
+      "deployedAt": "20260911T114921+0000"
     },
     {
-      "service": "SurveyRestJ21",
-      "version": "1bf67a5f9b7d",
-      "username": "krisztian.erdei",
-      "comment": "ST-5014 Keep st-menu-service prod inventory out of the DEV/QA PR.",
-      "files": [
-        "st-menu-service/group_vars/prod.yml"
-      ],
-      "deployedAt": "20260910T135902+0000"
-    },
-    {
-      "service": "SurveyRestJ21",
-      "version": "ba131763dbd9",
-      "username": "krisztian.erdei",
-      "comment": "ST-5014 Restore st-menu-service OTEL env vars for the javaagent.",
-      "files": [
-        "st-menu-service/group_vars/all.yml",
-        "st-menu-service/group_vars/dev.yml",
-        "st-menu-service/group_vars/prod.yml",
-        "st-menu-service/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260910T135902+0000"
-    },
-    {
-      "service": "SurveyRestJ21",
-      "version": "5076e400eaaa",
-      "username": "krisztian.erdei",
-      "comment": "ST-5014 Point st-menu-service inventory at container JAVA_OPTS and actuator health.",
-      "files": [
-        "st-menu-service/group_vars/all.yml",
-        "st-menu-service/group_vars/dev.yml",
-        "st-menu-service/group_vars/prod.yml",
-        "st-menu-service/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260910T135902+0000"
-    },
-    {
-      "service": "SampleRestJ21",
-      "version": "0510a6edb572",
-      "username": "andras.banszki",
-      "comment": "[NXS-13527] MS - migrate SampleRest to J21",
-      "files": [
-        "system/SampleRest/gradle/wrapper/gradle-wrapper.jar",
-        "system/SampleRest/gradlew",
-        "system/SampleRest/gradlew.bat"
-      ],
-      "deployedAt": "20260910T132953+0000"
-    },
-    {
-      "service": "SampleRestJ21",
-      "version": "51e87a5bfe93",
-      "username": "andras.banszki",
-      "comment": "[NXS-13527] MS - migrate SampleRest to J21 (#5354)",
-      "files": [
-        "system/SampleRest/Dockerfile",
-        "system/SampleRest/build.gradle",
-        "system/SampleRest/gradle/wrapper/gradle-wrapper.properties",
-        "system/SampleRest/group_vars/all.yml",
-        "system/SampleRest/src/integTest/groovy/com/surveysampling/rest/sample/AcceptanceCoverageTest.groovy",
-        "system/SampleRest/src/integTest/groovy/com/surveysampling/rest/sample/v1/acceptance/ISampleRestHelper.java",
-        "system/SampleRest/src/integTest/groovy/com/surveysampling/rest/sample/v1/acceptance/SampleRestAcceptanceTest.groovy",
-        "system/SampleRest/src/integTest/groovy/com/surveysampling/rest/sample/v1/pacts/FeaturePact.groovy",
-        "system/SampleRest/src/integTest/groovy/com/surveysampling/rest/sample/v1/pacts/PactCoverageTest.groovy",
-        "system/SampleRest/src/integTest/groovy/com/surveysampling/rest/sample/v1/pacts/UserPact.groovy",
-        "system/SampleRest/src/integTest/groovy/com/surveysampling/rest/sample/v1/sql/DeleteProjectTestSamplesSqlTest.groovy",
-        "system/SampleRest/src/integTest/groovy/com/surveysampling/rest/sample/v1/sql/GetProjectTestSamplesSqlTest.groovy",
-        "system/SampleRest/src/integTest/groovy/com/surveysampling/rest/sample/v1/sql/InsertProjectTestSampleSqlTest.groovy",
-        "system/SampleRest/src/integTest/groovy/com/surveysampling/rest/sample/v1/sql/InsertSampleSqlTest.groovy",
-        "system/SampleRest/src/integTest/groovy/com/surveysampling/rest/sample/v1/sql/SampleVersionRepositorySqlTest.groovy",
-        "system/SampleRest/src/integTest/groovy/com/surveysampling/rest/sample/v2/acceptance/SampleAndSampleVersionRestAcceptanceTest.groovy",
-        "system/SampleRest/src/integTest/groovy/com/surveysampling/rest/sample/v2/acceptance/SampleAndSampleVersionRestTestFeignClient.java",
-        "system/SampleRest/src/integTest/groovy/com/surveysampling/rest/sample/v2/sql/SQLSampleVersionsSqlTest.groovy",
-        "system/SampleRest/src/integTest/groovy/com/surveysampling/rest/sample/v2/sql/SQLSamplesSqlTest.groovy",
-        "system/SampleRest/src/main/java/com/surveysampling/rest/sample/SampleRestApplication.java"
-      ],
-      "deployedAt": "20260910T132953+0000"
-    },
-    {
-      "service": "SampleRestJ21",
-      "version": "e2ba47261c10",
+      "service": "GeoConditionRestJ16",
+      "version": "9eeaebe7523b",
       "username": "gergo.hajnal",
-      "comment": "[ST-4994] (DKUserRest) containersupport and percentage based memory for all envs, healthcheck for PROD",
+      "comment": "(st-respondent-rest) removing temporary production.yml",
       "files": [
-        "dk-dk-user-rest/group_vars/dev.yml",
-        "dk-dk-user-rest/group_vars/production.yml",
-        "dk-dk-user-rest/group_vars/qa.yml"
+        "st-respondent-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260910T132953+0000"
+      "deployedAt": "20260911T114921+0000"
     },
     {
-      "service": "SampleRestJ21",
-      "version": "d7133633e154",
+      "service": "GeoConditionRestJ16",
+      "version": "fd9dd857838a",
+      "username": "47777290+koattila",
+      "comment": "Merge pull request #614 from dynata/DQI-4404",
+      "files": [],
+      "deployedAt": "20260911T114921+0000"
+    },
+    {
+      "service": "GeoConditionRestJ16",
+      "version": "cd87a8f583b8",
       "username": "gergo.hajnal",
-      "comment": "[ST-5001][ST-4992] (FeatureRest, SourcesRest) add container support and memory plus healthcheck for PROD",
+      "comment": "(st-respondent-rest) adding temporary production.yml to finish PROD deploy",
       "files": [
-        "dk-management-feature-rest/group_vars/production.yml",
-        "dk-management-sources-rest/group_vars/production.yml"
+        "st-respondent-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260910T132953+0000"
+      "deployedAt": "20260911T114921+0000"
     },
     {
-      "service": "SampleRestJ21",
-      "version": "8684a6f8d06e",
-      "username": "krisztian.kover",
-      "comment": "[ST-4998] - SystemUserRest - Changed health check url in PROD",
-      "files": [
-        "dk-system-user-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20260910T132953+0000"
-    },
-    {
-      "service": "SampleRestJ21",
-      "version": "ea11f5f1b19c",
-      "username": "partlo2012",
-      "comment": "Syntax correction",
-      "files": [
-        "passphrase-api/group_vars/dev.yml",
-        "passphrase-api/group_vars/production.yml",
-        "passphrase-api/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260910T132953+0000"
-    },
-    {
-      "service": "SampleRestJ21",
-      "version": "585a54f4ecde",
-      "username": "brian.connolly",
-      "comment": "add caps",
-      "files": [
-        "ae-scarcity-adapter/group_vars/all.yml"
-      ],
-      "deployedAt": "20260910T132953+0000"
-    },
-    {
-      "service": "SampleRestJ21",
-      "version": "b541d47fa306",
-      "username": "partlo2012",
-      "comment": "Adding security group",
-      "files": [
-        "passphrase-api/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260910T132953+0000"
-    },
-    {
-      "service": "SampleRestJ21",
-      "version": "2a27c46431cc",
-      "username": "brian.connolly",
-      "comment": "fix...",
-      "files": [
-        "ae-scarcity-adapter/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260910T132953+0000"
-    },
-    {
-      "service": "SampleRestJ21",
-      "version": "9fec66540517",
-      "username": "brian.connolly",
-      "comment": "add bucket config to qa.",
-      "files": [
-        "ae-scarcity-adapter/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260910T132953+0000"
-    },
-    {
-      "service": "SampleRestJ21",
-      "version": "56c533a9ebb9",
-      "username": "maomaofish",
-      "comment": "DQI-4343 Add sts:AssumeRole for Charon's task Role",
-      "files": [
-        "charon/cloud-formation.template.yml",
-        "charon/group_vars/dev.yml",
-        "charon/group_vars/production.yml",
-        "charon/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260910T132953+0000"
-    },
-    {
-      "service": "SampleRestJ21",
-      "version": "3a6e6d97f4ea",
-      "username": "weiqun.wang",
-      "comment": "update dq account role name in qa and prod",
-      "files": [
-        "ml-complete-optimization-model/group_vars/production.yml",
-        "ml-complete-optimization-model/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260910T132953+0000"
-    },
-    {
-      "service": "SampleRestJ21",
-      "version": "c8f2dc04850b",
+      "service": "GeoConditionRestJ16",
+      "version": "32179bf74fb4",
       "username": "grace.chen",
-      "comment": "testing VCS root, remove print line",
+      "comment": "[FAI-431] Added MLAlertTopicsKmsKey, Both topics now set KmsMasterKeyId: MLAlertTopicsKmsKey",
       "files": [
-        "ml-data-capture-decompress/cloud-formation.template.yml"
+        "ml-alert-topics/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260910T132953+0000"
+      "deployedAt": "20260911T114921+0000"
     },
     {
-      "service": "SampleRestJ21",
-      "version": "ff22fe221d68",
-      "username": "grace.chen",
-      "comment": "testing VCS root",
+      "service": "GeoConditionRestJ16",
+      "version": "89037992f490",
+      "username": "47777290+koattila",
+      "comment": "DQI-4404 remove dy models LB reference from redemption guard dev and QA as well",
       "files": [
-        "ml-data-capture-decompress/cloud-formation.template.yml"
+        "redemption-guard/group_vars/dev.yml",
+        "redemption-guard/group_vars/qa.yml"
       ],
-      "deployedAt": "20260910T132953+0000"
+      "deployedAt": "20260911T114921+0000"
     },
     {
-      "service": "SampleRestJ21",
-      "version": "af7aea948722",
-      "username": "grace.chen",
-      "comment": "Revert \"[FAI-431] update the decompress project to load json\"",
+      "service": "GeoConditionRestJ16",
+      "version": "6e2c608a5d64",
+      "username": "47777290+koattila",
+      "comment": "DQI-4404 remove dq models LB reference from redemption guard prod yml; remove client-manager-api from dep inventory",
       "files": [
-        "ml-data-capture-decompress/cloud-formation.template.yml"
+        "client-manager-api/cloud-formation.template.yml",
+        "client-manager-api/group_vars/all.yml",
+        "client-manager-api/group_vars/production.yml",
+        "client-manager-api/group_vars/qa.yml",
+        "client-manager-api/inventory.ini",
+        "redemption-guard/group_vars/production.yml"
       ],
-      "deployedAt": "20260910T132953+0000"
+      "deployedAt": "20260911T114921+0000"
     },
     {
-      "service": "SampleRestJ21",
-      "version": "04761a01e7ee",
-      "username": "andras.banszki",
-      "comment": "[NXS_13525] MS - migrate RefinementRest to J21",
+      "service": "GeoConditionRestJ16",
+      "version": "95a6f8abb768",
+      "username": "elodani10",
+      "comment": "Add Notification service task role for QuotaGroupChangedCounters SQS",
       "files": [
-        "dk-respondent-refinement-rest/group_vars/dev.yml",
-        "dk-respondent-refinement-rest/group_vars/production.yml"
+        "recs/cloud-formation.template.yml",
+        "recs/group_vars/dev.yml",
+        "recs/group_vars/production.yml",
+        "recs/group_vars/qa.yml"
       ],
-      "deployedAt": "20260910T132953+0000"
+      "deployedAt": "20260911T114921+0000"
     },
     {
-      "service": "SampleRestJ21",
-      "version": "86549d2459d3",
-      "username": "andras.banszki",
-      "comment": "[NXS_13524] MS - migrate ProjectMembershipRest to J21",
+      "service": "GeoConditionRestJ16",
+      "version": "100fc1c87d8c",
+      "username": "tamas.gyarmati",
+      "comment": "UnusedSQSCleaner - rename rule",
       "files": [
-        "dk-respondent-project-membership-rest/group_vars/dev.yml",
-        "dk-respondent-project-membership-rest/group_vars/production.yml"
+        "nexus-unused-sqs-cleaner-lambda/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260910T132953+0000"
+      "deployedAt": "20260911T114921+0000"
     },
     {
-      "service": "SampleRestJ21",
-      "version": "6797b5bbf908",
-      "username": "andras.banszki",
-      "comment": "[NXS_13526] MS - migrate RegionalSurveyRest to J21",
+      "service": "GeoConditionRestJ16",
+      "version": "b0139302566f",
+      "username": "tibor.olah",
+      "comment": "migrate fbr to ecr",
       "files": [
-        "dk-respondent-regional-survey-rest/group_vars/dev.yml",
-        "dk-respondent-regional-survey-rest/group_vars/production.yml"
+        "dk-project-feasibility-batch-rest/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260910T132953+0000"
+      "deployedAt": "20260911T114921+0000"
     },
     {
-      "service": "SampleRestJ21",
-      "version": "7a7cec5be029",
-      "username": "andras.banszki",
-      "comment": "[NXS_13527] MS - migrate SampleRest to J21",
+      "service": "GeoConditionRestJ16",
+      "version": "c3635767d1c0",
+      "username": "sajak.upadhyaya",
+      "comment": "test commit reversal",
       "files": [
-        "dk-system-sample-rest/group_vars/dev.yml",
-        "dk-system-sample-rest/group_vars/production.yml"
+        "ml-data-capture-bucket/group_vars/all.yml"
       ],
-      "deployedAt": "20260910T132953+0000"
+      "deployedAt": "20260911T114921+0000"
     },
     {
-      "service": "SampleRestJ21",
-      "version": "cf287b5570a7",
-      "username": "brian.connolly",
-      "comment": "convert ae-scarcity-adapter to use AE-DPR",
+      "service": "GeoConditionRestJ16",
+      "version": "3f90c24dc53c",
+      "username": "sajak.upadhyaya",
+      "comment": "TC connection to deployment inventory VCS test",
       "files": [
-        "ae-scarcity-adapter/cloud-formation.template.yml",
-        "ae-scarcity-adapter/group_vars/all.yml",
-        "ae-scarcity-adapter/group_vars/dev.yml",
-        "ae-scarcity-adapter/group_vars/qa.yml"
+        "ml-data-capture-bucket/group_vars/all.yml"
       ],
-      "deployedAt": "20260910T132953+0000"
+      "deployedAt": "20260911T114921+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "389f817da676",
-      "username": "60962201+gyarmatitamas",
-      "comment": "[NXS-13854] - QuotaGroupRest - quotaGroupPropagationId (#5361)",
+      "service": "GeoConditionRestJ16",
+      "version": "cc28c45b6527",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5050] Remove comment from supply-offer aws_db_version default",
       "files": [
-        "project/QuotaGroupRest/serviceApi/src/main/java/com/surveysampling/rest/quota/u1/model/UCloneQuotaGroupRequest.java",
-        "project/QuotaGroupRest/serviceApi/src/main/java/com/surveysampling/rest/quota/u1/model/unified/QuotaGroupCore.java",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupCoreService.java",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupRestImpl.java",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/model/unified/QuotaGroupPaths.java",
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/QuotaGroupCoreServiceTest.groovy",
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/QuotaGroupRestImplTest.groovy"
+        "supply-offer-service/group_vars/all.yml"
       ],
-      "deployedAt": "20260910T120541+0000"
+      "deployedAt": "20260911T114921+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "3e7abc53e64a",
-      "username": "gergo.hajnal",
-      "comment": "[ST-4982] (EncryptDecryptRest) adding containersupport and memory plus healthcheck",
+      "service": "GeoConditionRestJ16",
+      "version": "3b3cbd901658",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5050] Upgrade supply-offer Aurora PostgreSQL to 18.4 on DEV and QA",
       "files": [
-        "dk-system-encrypt-decrypt-rest/group_vars/qa.yml"
+        "supply-offer-service/cloud-formation.template.yml",
+        "supply-offer-service/group_vars/all.yml",
+        "supply-offer-service/group_vars/dev.yml",
+        "supply-offer-service/group_vars/qa.yml"
       ],
-      "deployedAt": "20260910T120541+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "4d9c232285f1",
-      "username": "andras.banszki",
-      "comment": "[NXS-13528] MS - migrate SettingRest to J21",
-      "files": [
-        "dk-system-setting-rest/group_vars/dev.yml"
-      ],
-      "deployedAt": "20260910T120541+0000"
+      "deployedAt": "20260911T114921+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "ProjectMembershipRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-13524",
-      "latestComment": "[NXS-13524] MS - migrate ProjectMembershipRest to J21",
-      "deployedAt": "20260910T142134+0000"
-    },
-    {
-      "service": "RegionalSurveyRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-13526",
-      "latestComment": "[NXS-13526] MS - migrate RegionalSurveyRest to J21",
-      "deployedAt": "20260910T141321+0000"
-    },
-    {
-      "service": "SurveyRestJ21",
-      "commits": 9,
-      "latestTicket": "NXS-13837",
-      "latestComment": "[NXS-13837] MS - Drop 60s SurveyRest whitelist flush; CS page says 30 minutes",
-      "deployedAt": "20260910T135902+0000"
-    },
-    {
-      "service": "SampleRestJ21",
-      "commits": 20,
-      "latestTicket": "NXS-13527",
-      "latestComment": "[NXS-13527] MS - migrate SampleRest to J21",
-      "deployedAt": "20260910T132953+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "commits": 4,
-      "latestTicket": "NXS-13854",
-      "latestComment": "[NXS-13854] - QuotaGroupRest - quotaGroupPropagationId (#5361)",
-      "deployedAt": "20260910T120541+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "commits": 1,
-      "latestTicket": "",
-      "latestComment": "[PAC-673] MS - Won Change Order values are not propagated downstream to Bid Valu",
-      "deployedAt": "20260910T115853+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "commits": 1,
-      "latestTicket": "",
-      "latestComment": "[PAC-743] Cobalt - ProjectAutomationApi - start create process programatic endpo",
-      "deployedAt": "20260910T114247+0000"
-    },
-    {
-      "service": "FeasibilityDataStoreJ16",
-      "commits": 2,
-      "latestTicket": "NXS-13772",
-      "latestComment": "[NXS-13772] EOS - MS - Feasibility Errors - Missing tier for RESPONDENT_ID with ",
-      "deployedAt": "20260910T084201+0000"
-    },
-    {
-      "service": "DedupeRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-13855",
-      "latestComment": "[NXS-13855] - DedupeRest - rename ruleGroupId to rulePropagationId (#5358)",
-      "deployedAt": "20260910T074831+0000"
+      "service": "GeoConditionRestJ16",
+      "commits": 15,
+      "latestTicket": "NXS-13707",
+      "latestComment": "[ NXS-13707 ] ECR j16",
+      "deployedAt": "20260911T114921+0000"
     }
   ],
-  "clusters": [],
-  "failures": [],
+  "clusters": [
+    {
+      "label": "other",
+      "display": "other",
+      "count": 1,
+      "newCount": 1,
+      "sample": "java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=tr",
+      "why": "no dominant signature yet \u2014 open TeamCity details"
+    },
+    {
+      "label": "assert_fail",
+      "display": "assertion Condition not satisfied",
+      "count": 1,
+      "newCount": 1,
+      "sample": "",
+      "why": "Spock assertion failed (fixture or response shape)"
+    }
+  ],
+  "failures": [
+    {
+      "name": "Complete audience group management end-to-end workflow: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupE2EPhaseManagementWorkflowTestSteps.Complete audience group management end-to-end workflow",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupE2EPhaseManagementWorkflowTestSteps",
+      "newFailure": true,
+      "area": "AudienceGroup",
+      "cluster": "other",
+      "message": "java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=true after 15 s \u2014 read-after-write convergence did \u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=1603327 but GET still reports isDeleted=true after 15 s \u2014 read-after-write convergence did not complete. at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.AudienceGroupHelper.undeleteAudienceGroup(AudienceGroupHelper.groovy:98) at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGr\u2026"
+    },
+    {
+      "name": "Configure all delivery mode variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkDeliveryTestSteps.Configure all delivery mode variations",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkDeliveryTestSteps",
+      "newFailure": true,
+      "area": "Fieldwork",
+      "cluster": "assert_fail",
+      "message": "Condition not satisfied:",
+      "detailsExcerpt": "Condition not satisfied: delivery.deliveryMode.toString() == deliveryMode | | | | | | BURST BURST | UNLIMITED | false | 8 differences (11% similarity) | (B)U(RS---)T(--) | (-)U(NLIMI)T(ED) <com.dynata.nexus.api.model.quotagroup.Delivery@53d15034 deliveryMode=BURST dailyQuota=150 clickRatePerUnit=null clickRateUnit=null prioritizationLevel=NONE prioritizationChangedAt=null deliveryVisibleOnUI=true\u2026"
+    }
+  ],
   "rulesNutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
-    "tone": "ok",
-    "severity": "none",
-    "bullets": [],
-    "investigation": "No unmuted failures.",
+    "headline": "2 new failures in AudienceGroup",
+    "tone": "warn",
+    "severity": "low",
+    "bullets": [
+      "1\u00d7 other \u2014 java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=tr",
+      "1\u00d7 assertion Condition not satisfied"
+    ],
+    "investigation": "New fails: 1\u00d7 other (no dominant signature yet); 1\u00d7 assertion Condition not satisfied. Vs prior #3.0.2695: up 2 total fails.",
     "detail": {
-      "investigation": "9 service(s) (40 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
+      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2695, 0 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: AudienceGroup (1), Fieldwork (1). 1 service(s) (15 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: AudienceGroup: Complete audience group management end-to-end workflow: com.dynata.rest.gateway.nexusapi.r [other]; Fieldwork: Configure all delivery mode variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps. [assertion Condition not satisfied].",
       "bullets": [
-        "[QA deploy: ProjectMembershipRestJ21] NXS-13524 (1 commit) \u2014 [NXS-13524] MS - migrate ProjectMembershipRest to J21",
-        "[QA deploy: RegionalSurveyRestJ21] NXS-13526 (1 commit) \u2014 [NXS-13526] MS - migrate RegionalSurveyRest to J21",
-        "[QA deploy: SurveyRestJ21] NXS-13837 (9 commits) \u2014 [NXS-13837] MS - Drop 60s SurveyRest whitelist flush; CS page says 30 minutes",
-        "[QA deploy: SampleRestJ21] NXS-13527 (20 commits) \u2014 [NXS-13527] MS - migrate SampleRest to J21",
-        "[QA deploy: QuotaGroupRestJ21] NXS-13854 (4 commits) \u2014 [NXS-13854] - QuotaGroupRest - quotaGroupPropagationId (#5361)",
-        "[QA deploy: NexusApiBosJ21]  (1 commit) \u2014 [PAC-673] MS - Won Change Order values are not propagated downstream to Bid Valu",
-        "[QA deploy: ProjectAutomationApi]  (1 commit) \u2014 [PAC-743] Cobalt - ProjectAutomationApi - start create process programatic endpo",
-        "[QA deploy: FeasibilityDataStoreJ16] NXS-13772 (2 commits) \u2014 [NXS-13772] EOS - MS - Feasibility Errors - Missing tier for RESPONDENT_ID with "
+        "1\u00d7 other \u2014 java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=tr",
+        "1\u00d7 assertion Condition not satisfied",
+        "[QA deploy: GeoConditionRestJ16] NXS-13707 (15 commits) \u2014 [ NXS-13707 ] ECR j16"
       ],
-      "newFailureAreas": [],
+      "newFailureAreas": [
+        {
+          "area": "AudienceGroup",
+          "newCount": 1
+        },
+        {
+          "area": "Fieldwork",
+          "newCount": 1
+        }
+      ],
       "likelyCauses": []
     },
     "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "ProjectMembershipRestJ21",
-        "version": "ac13f0c01dd2",
-        "username": "andras.banszki",
-        "comment": "[NXS-13524] MS - migrate ProjectMembershipRest to J21",
-        "ticket": "NXS-13524",
-        "deployedAt": "20260910T142134+0000",
+        "service": "GeoConditionRestJ16",
+        "version": "8d73ad717304",
+        "username": "norbert.farkas",
+        "comment": "[ NXS-13707 ] ECR j16",
+        "ticket": "NXS-13707",
+        "deployedAt": "20260911T114921+0000",
         "files": [
-          "gradle-wrapper.jar",
-          "gradlew",
-          "gradlew.bat"
+          "build.gradle"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "RegionalSurveyRestJ21",
-        "version": "640abc1e1962",
-        "username": "andras.banszki",
-        "comment": "[NXS-13526] MS - migrate RegionalSurveyRest to J21",
-        "ticket": "NXS-13526",
-        "deployedAt": "20260910T141321+0000",
-        "files": [
-          "gradle-wrapper.jar",
-          "gradlew",
-          "gradlew.bat"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "SurveyRestJ21",
-        "version": "9978ab99f6e0",
-        "username": "zoltan.beke",
-        "comment": "[NXS-13837] MS - Drop 60s SurveyRest whitelist flush; CS page says 30 minutes",
-        "ticket": "NXS-13837",
-        "deployedAt": "20260910T135902+0000",
-        "files": [
-          "DPlusWhitelistedBaseUrlCache.java"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "SurveyRestJ21",
-        "version": "93c5d2b50640",
+        "service": "GeoConditionRestJ16",
+        "version": "83fcb66f813b",
         "username": "gergo.hajnal",
-        "comment": "[ST-4979] (EnumRest) adding containersupport and memory plus healthcheck for PROD and QA",
+        "comment": "[ST-5011] (st-respondent-rest) change healthcheck to actuator",
         "ticket": "",
-        "deployedAt": "20260910T135902+0000",
-        "files": [
-          "production.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "SurveyRestJ21",
-        "version": "1bf67a5f9b7d",
-        "username": "krisztian.erdei",
-        "comment": "ST-5014 Keep st-menu-service prod inventory out of the DEV/QA PR.",
-        "ticket": "",
-        "deployedAt": "20260910T135902+0000",
+        "deployedAt": "20260911T114921+0000",
         "files": [
           "prod.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "SurveyRestJ21",
-        "version": "ba131763dbd9",
-        "username": "krisztian.erdei",
-        "comment": "ST-5014 Restore st-menu-service OTEL env vars for the javaagent.",
-        "ticket": "",
-        "deployedAt": "20260910T135902+0000",
-        "files": [
-          "all.yml",
-          "dev.yml",
-          "prod.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "SurveyRestJ21",
-        "version": "5076e400eaaa",
-        "username": "krisztian.erdei",
-        "comment": "ST-5014 Point st-menu-service inventory at container JAVA_OPTS and actuator health.",
-        "ticket": "",
-        "deployedAt": "20260910T135902+0000",
-        "files": [
-          "all.yml",
-          "dev.yml",
-          "prod.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "SampleRestJ21",
-        "version": "0510a6edb572",
-        "username": "andras.banszki",
-        "comment": "[NXS-13527] MS - migrate SampleRest to J21",
-        "ticket": "NXS-13527",
-        "deployedAt": "20260910T132953+0000",
-        "files": [
-          "gradle-wrapper.jar",
-          "gradlew",
-          "gradlew.bat"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "SampleRestJ21",
-        "version": "51e87a5bfe93",
-        "username": "andras.banszki",
-        "comment": "[NXS-13527] MS - migrate SampleRest to J21 (#5354)",
-        "ticket": "NXS-13527",
-        "deployedAt": "20260910T132953+0000",
-        "files": [
-          "Dockerfile",
-          "build.gradle",
-          "gradle-wrapper.properties",
-          "all.yml",
-          "AcceptanceCoverageTest.groovy",
-          "ISampleRestHelper.java"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "SampleRestJ21",
-        "version": "e2ba47261c10",
+        "service": "GeoConditionRestJ16",
+        "version": "9eeaebe7523b",
         "username": "gergo.hajnal",
-        "comment": "[ST-4994] (DKUserRest) containersupport and percentage based memory for all envs, healthcheck for PROD",
+        "comment": "(st-respondent-rest) removing temporary production.yml",
         "ticket": "",
-        "deployedAt": "20260910T132953+0000",
+        "deployedAt": "20260911T114921+0000",
         "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "GeoConditionRestJ16",
+        "version": "fd9dd857838a",
+        "username": "47777290+koattila",
+        "comment": "Merge pull request #614 from dynata/DQI-4404",
+        "ticket": "",
+        "deployedAt": "20260911T114921+0000",
+        "files": [],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "GeoConditionRestJ16",
+        "version": "cd87a8f583b8",
+        "username": "gergo.hajnal",
+        "comment": "(st-respondent-rest) adding temporary production.yml to finish PROD deploy",
+        "ticket": "",
+        "deployedAt": "20260911T114921+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "GeoConditionRestJ16",
+        "version": "32179bf74fb4",
+        "username": "grace.chen",
+        "comment": "[FAI-431] Added MLAlertTopicsKmsKey, Both topics now set KmsMasterKeyId: MLAlertTopicsKmsKey",
+        "ticket": "",
+        "deployedAt": "20260911T114921+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "GeoConditionRestJ16",
+        "version": "89037992f490",
+        "username": "47777290+koattila",
+        "comment": "DQI-4404 remove dy models LB reference from redemption guard dev and QA as well",
+        "ticket": "",
+        "deployedAt": "20260911T114921+0000",
+        "files": [
+          "dev.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "GeoConditionRestJ16",
+        "version": "6e2c608a5d64",
+        "username": "47777290+koattila",
+        "comment": "DQI-4404 remove dq models LB reference from redemption guard prod yml; remove client-manager-api from dep inventory",
+        "ticket": "",
+        "deployedAt": "20260911T114921+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml",
+          "production.yml",
+          "qa.yml",
+          "inventory.ini",
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "GeoConditionRestJ16",
+        "version": "95a6f8abb768",
+        "username": "elodani10",
+        "comment": "Add Notification service task role for QuotaGroupChangedCounters SQS",
+        "ticket": "",
+        "deployedAt": "20260911T114921+0000",
+        "files": [
+          "cloud-formation.template.yml",
           "dev.yml",
           "production.yml",
           "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "GeoConditionRestJ16",
+        "version": "100fc1c87d8c",
+        "username": "tamas.gyarmati",
+        "comment": "UnusedSQSCleaner - rename rule",
+        "ticket": "",
+        "deployedAt": "20260911T114921+0000",
+        "files": [
+          "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       }
