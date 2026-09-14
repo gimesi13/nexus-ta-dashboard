@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-12T01:59Z",
+  "generatedAt": "2026-09-14T01:59Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-09-06",
-      "to": "2026-09-12",
+      "from": "2026-09-08",
+      "to": "2026-09-14",
       "featuresAdded": 0,
       "casesAdded": 0,
       "areasTouched": 0,
@@ -17,8 +17,8 @@
       "additions": []
     },
     "14d": {
-      "from": "2026-08-30",
-      "to": "2026-09-12",
+      "from": "2026-09-01",
+      "to": "2026-09-14",
       "featuresAdded": 0,
       "casesAdded": 0,
       "areasTouched": 0,
@@ -29,24 +29,19 @@
       "additions": []
     },
     "30d": {
-      "from": "2026-08-14",
-      "to": "2026-09-12",
-      "featuresAdded": 39,
-      "casesAdded": 39,
-      "areasTouched": 6,
-      "ticketsTouched": 2,
+      "from": "2026-08-16",
+      "to": "2026-09-14",
+      "featuresAdded": 6,
+      "casesAdded": 6,
+      "areasTouched": 5,
+      "ticketsTouched": 1,
       "byType": {
-        "CRUD": 22,
+        "CRUD": 1,
         "Validation": 1,
-        "Workflow": 3,
         "E2E": 2,
-        "Other": 11
+        "Other": 2
       },
       "byArea": [
-        {
-          "area": "PES",
-          "featuresAdded": 33
-        },
         {
           "area": "BOS",
           "featuresAdded": 2
@@ -69,12 +64,6 @@
         }
       ],
       "tickets": [
-        {
-          "key": "NXS-13683",
-          "featuresAdded": 33,
-          "casesAdded": 33,
-          "latestDate": "2026-08-14"
-        },
         {
           "key": "NXS-13674",
           "featuresAdded": 6,
@@ -219,754 +208,28 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Clone%20audience%20group%20and%20verify%20cloned%20audience%20group%20name%20has%20Cloned-%20prefix%20and%20quota%20group%20names%20have%20Cloned%20suffix"
-        },
-        {
-          "name": "total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "QUOTA",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=total%20quota%20update%20publishes%20QUOTA_CHANGE%20on%20the%20QuotaGroup%20FIFO%20topic"
-        },
-        {
-          "name": "total auto-close toggle publishes quotaGroupDetailsUpdated notification",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "PesNotificationTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PES1",
-            "QUOTA",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=total%20auto-close%20toggle%20publishes%20quotaGroupDetailsUpdated%20notification"
-        },
-        {
-          "name": "survey url pattern update publishes URL_PATTERN_CHANGE on the UrlPool FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "URL_POOL",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=survey%20url%20pattern%20update%20publishes%20URL_PATTERN_CHANGE%20on%20the%20UrlPool%20FIFO%20topic"
-        },
-        {
-          "name": "survey rename publishes SURVEY_NAME_CHANGE on the UrlPool FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "URL_POOL",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=survey%20rename%20publishes%20SURVEY_NAME_CHANGE%20on%20the%20UrlPool%20FIFO%20topic"
-        },
-        {
-          "name": "survey length update publishes SURVEY_LENGTH_CHANGE on the UrlPool FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "URL_POOL",
-            "SURVEY",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=survey%20length%20update%20publishes%20SURVEY_LENGTH_CHANGE%20on%20the%20UrlPool%20FIFO%20topic"
-        },
-        {
-          "name": "survey deletion publishes DELETED on the UrlPool FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "URL_POOL",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=survey%20deletion%20publishes%20DELETED%20on%20the%20UrlPool%20FIFO%20topic"
-        },
-        {
-          "name": "survey creation publishes INSERTED on the UrlPool FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "URL_POOL",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=survey%20creation%20publishes%20INSERTED%20on%20the%20UrlPool%20FIFO%20topic"
-        },
-        {
-          "name": "sources sample-criteria toggle update publishes SOURCES_TOGGLES_UPDATED on the QuotaGroup FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "SOURCES",
-            "SAMPLE_RULES",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=sources%20sample-criteria%20toggle%20update%20publishes%20SOURCES_TOGGLES_UPDATED%20on%20the%20QuotaGroup%20FIFO%20topic"
-        },
-        {
-          "name": "sources brand exclusion update publishes SOURCES_BRAND_EX_UPDATED on the QuotaGroup FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "SOURCES",
-            "BRAND_EXCLUSION",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=sources%20brand%20exclusion%20update%20publishes%20SOURCES_BRAND_EX_UPDATED%20on%20the%20QuotaGroup%20FIFO%20topic"
-        },
-        {
-          "name": "soft launch settings update publishes SOFT_LAUNCH_CHANGE on the QuotaGroup FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "SOFT_LAUNCH",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=soft%20launch%20settings%20update%20publishes%20SOFT_LAUNCH_CHANGE%20on%20the%20QuotaGroup%20FIFO%20topic"
-        },
-        {
-          "name": "screener url pattern update publishes SCREENER_URL_PATTERN_CHANGE on the UrlPool FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "URL_POOL",
-            "PRESCREENER",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=screener%20url%20pattern%20update%20publishes%20SCREENER_URL_PATTERN_CHANGE%20on%20the%20UrlPool%20FIFO%20topic"
-        },
-        {
-          "name": "quota group rename publishes QG_NAME_CHANGE on the QuotaGroup FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=quota%20group%20rename%20publishes%20QG_NAME_CHANGE%20on%20the%20QuotaGroup%20FIFO%20topic"
-        },
-        {
-          "name": "quota group deletion publishes DELETED_CHANGE on the QuotaGroup FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=quota%20group%20deletion%20publishes%20DELETED_CHANGE%20on%20the%20QuotaGroup%20FIFO%20topic"
-        },
-        {
-          "name": "quota group creation publishes INSERTED on the QuotaGroup FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=quota%20group%20creation%20publishes%20INSERTED%20on%20the%20QuotaGroup%20FIFO%20topic"
-        },
-        {
-          "name": "quota group change publishes a PES2 QuotaGroup FIFO message",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/pes1/PesNotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 add PES2 FIFO reader + QuotaGroup smoke test (held until sink deploys)",
-          "commit": "7b02c083b7",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=quota%20group%20change%20publishes%20a%20PES2%20QuotaGroup%20FIFO%20message",
-          "gone": true
-        },
-        {
-          "name": "proposed end date update publishes quotaGroupPropertyUpdated notification",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "PesNotificationTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PES1",
-            "QUOTA_DATES",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=proposed%20end%20date%20update%20publishes%20quotaGroupPropertyUpdated%20notification"
-        },
-        {
-          "name": "proposed dates update publishes TARGET_DATES_CHANGE on the QuotaGroup FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "QUOTA_DATES",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=proposed%20dates%20update%20publishes%20TARGET_DATES_CHANGE%20on%20the%20QuotaGroup%20FIFO%20topic"
-        },
-        {
-          "name": "project rename publishes PROJECT_NAME_CHANGE on the Project FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "PROJECT_CORE",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=project%20rename%20publishes%20PROJECT_NAME_CHANGE%20on%20the%20Project%20FIFO%20topic"
-        },
-        {
-          "name": "project manager update publishes PROJECT_MANAGERS_CHANGE on the Project FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "MANAGERS",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=project%20manager%20update%20publishes%20PROJECT_MANAGERS_CHANGE%20on%20the%20Project%20FIFO%20topic"
-        },
-        {
-          "name": "project dates update publishes PROJECT_DATES_CHANGE on the Project FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "PROJECT_DATES",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=project%20dates%20update%20publishes%20PROJECT_DATES_CHANGE%20on%20the%20Project%20FIFO%20topic"
-        },
-        {
-          "name": "partner event creation publishes PARTNER_ALLOCATION_CHANGE on the QuotaGroup FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "PARTNER_EVENT",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=partner%20event%20creation%20publishes%20PARTNER_ALLOCATION_CHANGE%20on%20the%20QuotaGroup%20FIFO%20topic"
-        },
-        {
-          "name": "line item id update publishes LINE_ITEM_CHANGE on the QuotaGroup FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "CHANGE_ORDER",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=line%20item%20id%20update%20publishes%20LINE_ITEM_CHANGE%20on%20the%20QuotaGroup%20FIFO%20topic"
-        },
-        {
-          "name": "exclusion rule creation publishes EXCLUSION_CHANGE on the Project FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "EXCLUSION_RULES",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=exclusion%20rule%20creation%20publishes%20EXCLUSION_CHANGE%20on%20the%20Project%20FIFO%20topic"
-        },
-        {
-          "name": "end-link security change publishes SECURITY_CHANGE on the Project FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "END_LINK_SECURITY",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=end-link%20security%20change%20publishes%20SECURITY_CHANGE%20on%20the%20Project%20FIFO%20topic"
-        },
-        {
-          "name": "delivery mode update publishes DELIVERY_CHANGE on the QuotaGroup FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "DELIVERY",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=delivery%20mode%20update%20publishes%20DELIVERY_CHANGE%20on%20the%20QuotaGroup%20FIFO%20topic"
-        },
-        {
-          "name": "default survey length update publishes SURVEY_LENGTH_CHANGE on the QuotaGroup FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "SURVEY",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=default%20survey%20length%20update%20publishes%20SURVEY_LENGTH_CHANGE%20on%20the%20QuotaGroup%20FIFO%20topic"
-        },
-        {
-          "name": "bid incidence update publishes quotaGroupDetailsUpdated notification",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/PesNotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "PesNotificationTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PES1",
-            "PRICING",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=bid%20incidence%20update%20publishes%20quotaGroupDetailsUpdated%20notification"
-        },
-        {
-          "name": "bid incidence update publishes BID_INCIDENCE_CHANGE on the QuotaGroup FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "PRICING",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=bid%20incidence%20update%20publishes%20BID_INCIDENCE_CHANGE%20on%20the%20QuotaGroup%20FIFO%20topic"
-        },
-        {
-          "name": "audience price update publishes PRICE_CHANGE on the QuotaGroup FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "PRICING",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=audience%20price%20update%20publishes%20PRICE_CHANGE%20on%20the%20QuotaGroup%20FIFO%20topic"
-        },
-        {
-          "name": "audience group rename publishes AUDIENCE_GROUP_UPDATED on the Project FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "AUDIENCE_GROUP",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=audience%20group%20rename%20publishes%20AUDIENCE_GROUP_UPDATED%20on%20the%20Project%20FIFO%20topic"
-        },
-        {
-          "name": "audience group creation publishes AUDIENCE_GROUP_CREATED on the Project FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "AUDIENCE_GROUP",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=audience%20group%20creation%20publishes%20AUDIENCE_GROUP_CREATED%20on%20the%20Project%20FIFO%20topic"
-        },
-        {
-          "name": "allow-reopen toggle publishes ALLOW_REOPEN_PROJECT_CHANGE on the Project FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "PROJECT_CORE",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=allow-reopen%20toggle%20publishes%20ALLOW_REOPEN_PROJECT_CHANGE%20on%20the%20Project%20FIFO%20topic"
-        },
-        {
-          "name": "activity update publishes ACTIVITY_CHANGE on the QuotaGroup FIFO topic",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PES/Pes2NotificationTestSteps.groovy",
-          "date": "2026-08-14",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13683 MS - full PES1/PES2 notification coverage; fix shared-fixture poisoning",
-          "commit": "73440e8bf0",
-          "tickets": [
-            "NXS-13683"
-          ],
-          "area": "PES",
-          "spec": "Pes2NotificationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PES2",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=activity%20update%20publishes%20ACTIVITY_CHANGE%20on%20the%20QuotaGroup%20FIFO%20topic"
         }
       ]
     },
     "90d": {
-      "from": "2026-06-15",
-      "to": "2026-09-12",
-      "featuresAdded": 422,
-      "casesAdded": 640,
+      "from": "2026-06-17",
+      "to": "2026-09-14",
+      "featuresAdded": 413,
+      "casesAdded": 631,
       "areasTouched": 16,
-      "ticketsTouched": 13,
+      "ticketsTouched": 12,
       "byType": {
-        "CRUD": 131,
+        "CRUD": 129,
         "Validation": 102,
-        "Workflow": 92,
-        "Query": 22,
+        "Workflow": 91,
+        "Query": 20,
         "E2E": 3,
-        "Other": 72
+        "Other": 68
       },
       "byArea": [
         {
           "area": "QuotaGroup",
-          "featuresAdded": 145
-        },
-        {
-          "area": "Project",
-          "featuresAdded": 54
+          "featuresAdded": 140
         },
         {
           "area": "Segment",
@@ -977,12 +240,16 @@
           "featuresAdded": 52
         },
         {
-          "area": "PartnerEvent",
-          "featuresAdded": 32
+          "area": "Project",
+          "featuresAdded": 52
         },
         {
           "area": "Survey",
           "featuresAdded": 32
+        },
+        {
+          "area": "PartnerEvent",
+          "featuresAdded": 30
         },
         {
           "area": "SampleRules",
@@ -1055,12 +322,6 @@
           "featuresAdded": 10,
           "casesAdded": 10,
           "latestDate": "2026-08-03"
-        },
-        {
-          "key": "NXS-12492",
-          "featuresAdded": 9,
-          "casesAdded": 9,
-          "latestDate": "2026-06-16"
         },
         {
           "key": "NXS-13311",
@@ -10053,199 +9314,11 @@
           "ignored": false,
           "inventoryHref": "inventory.html?q=Shift-left%20probe%20marker%20references%20linked%20feature%20and%20TA%20keys",
           "gone": true
-        },
-        {
-          "name": "Updating a 3PP partner event cost re-validates against the separated quota group price source",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceControlWorkflowTestSteps.groovy",
-          "date": "2026-06-16",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression add Teams morning report + hooks",
-          "commit": "bdd5bc374d",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventPriceControlEdgeCasesTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT",
-            "PR_SMOKE",
-            "PRICING",
-            "E2E"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Updating%20a%203PP%20partner%20event%20cost%20re-validates%20against%20the%20separated%20quota%20group%20price%20source"
-        },
-        {
-          "name": "Active 3PP partner event is validated against the separated quota group price source",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventPriceControlWorkflowTestSteps.groovy",
-          "date": "2026-06-16",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression add Teams morning report + hooks",
-          "commit": "bdd5bc374d",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventPriceControlEdgeCasesTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT",
-            "PR_SMOKE",
-            "PRICING",
-            "E2E"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Active%203PP%20partner%20event%20is%20validated%20against%20the%20separated%20quota%20group%20price%20source"
-        },
-        {
-          "name": "GET delivery on a non-draft QG returns deliveryMode reflecting the most recent gateway write (NXS-13089 LegacyDeliveryFieldsHandler overlay)",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-06-15",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix regression tests for post-holiday API changes",
-          "commit": "4641868c50",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupDeliveryTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "DELIVERY",
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=GET%20delivery%20on%20a%20non-draft%20QG%20returns%20deliveryMode%20reflecting%20the%20most%20recent%20gateway%20write%20%28NXS-13089%20LegacyDeliveryFieldsHandler%20overlay%29"
-        },
-        {
-          "name": "Full QG PUT re-initializes delivery.race.eligibleForRaceBoost from project core regardless of payload value",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-06-15",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix regression tests for post-holiday API changes",
-          "commit": "4641868c50",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "QuotaGroup",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Full%20QG%20PUT%20re-initializes%20delivery.race.eligibleForRaceBoost%20from%20project%20core%20regardless%20of%20payload%20value",
-          "gone": true
-        },
-        {
-          "name": "First START transition forces deliveryMode=UNLIMITED when delivery.race.eligibleForRaceBoost is true",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-06-15",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix regression tests for post-holiday API changes",
-          "commit": "4641868c50",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "QuotaGroup",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=First%20START%20transition%20forces%20deliveryMode%3DUNLIMITED%20when%20delivery.race.eligibleForRaceBoost%20is%20true",
-          "gone": true
-        },
-        {
-          "name": "First START transition does NOT override deliveryMode when delivery.race.boostPermanentlyDisabled is true",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-06-15",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix regression tests for post-holiday API changes",
-          "commit": "4641868c50",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "QuotaGroup",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=First%20START%20transition%20does%20NOT%20override%20deliveryMode%20when%20delivery.race.boostPermanentlyDisabled%20is%20true",
-          "gone": true
-        },
-        {
-          "name": "Cloning a QG in PROJECT phase initializes delivery.race.eligibleForRaceBoost from project core",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-06-15",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix regression tests for post-holiday API changes",
-          "commit": "4641868c50",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCloneTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "CLONE_QUOTA_GROUP",
-            "DELIVERY",
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Cloning%20a%20QG%20in%20PROJECT%20phase%20initializes%20delivery.race.eligibleForRaceBoost%20from%20project%20core"
-        },
-        {
-          "name": "Get project overview returns numberOfOverQuotasForRace when race boost is enabled",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectOverviewTestSteps.groovy",
-          "date": "2026-06-15",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix regression tests for post-holiday API changes",
-          "commit": "4641868c50",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "Project",
-          "spec": "ProjectOverviewTestSteps",
-          "type": "Query",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Get%20project%20overview%20returns%20numberOfOverQuotasForRace%20when%20race%20boost%20is%20enabled"
-        },
-        {
-          "name": "Get project overview does not include numberOfOverQuotasForRace when race boost is disabled",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectOverviewTestSteps.groovy",
-          "date": "2026-06-15",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-12492-MS-autotests-regression fix regression tests for post-holiday API changes",
-          "commit": "4641868c50",
-          "tickets": [
-            "NXS-12492"
-          ],
-          "area": "Project",
-          "spec": "ProjectOverviewTestSteps",
-          "type": "Query",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Get%20project%20overview%20does%20not%20include%20numberOfOverQuotasForRace%20when%20race%20boost%20is%20disabled"
         }
       ]
     }
   },
   "weeks": [
-    {
-      "weekStart": "2026-06-22",
-      "featuresAdded": 0,
-      "casesAdded": 0
-    },
     {
       "weekStart": "2026-06-29",
       "featuresAdded": 24,
@@ -10300,6 +9373,11 @@
       "weekStart": "2026-09-07",
       "featuresAdded": 0,
       "casesAdded": 0
+    },
+    {
+      "weekStart": "2026-09-14",
+      "featuresAdded": 0,
+      "casesAdded": 0
     }
   ],
   "snapshots": [
@@ -10326,29 +9404,29 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-09-12",
+      "date": "2026-09-14",
       "features": 750,
       "cases": 1515,
       "specs": 108,
       "areas": 15,
-      "coveragePercent": 100.0,
+      "coveragePercent": 96.7,
       "tested": 265,
-      "untested": 0,
-      "nonDeprecated": 265
+      "untested": 9,
+      "nonDeprecated": 274
     }
   ],
   "coverage": {
-    "currentPercent": 100.0,
+    "currentPercent": 96.7,
     "tested": 265,
-    "untested": 0,
+    "untested": 9,
     "delta14d": {
-      "currentPercent": 100.0,
+      "currentPercent": 96.7,
       "priorPercent": 78.0,
-      "deltaPoints": 22.0,
+      "deltaPoints": 18.7,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-09-12",
+      "currentDate": "2026-09-14",
       "testedDelta": 56,
-      "untestedDelta": -59
+      "untestedDelta": -50
     }
   },
   "inventory": {

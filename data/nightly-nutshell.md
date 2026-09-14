@@ -1,7 +1,10 @@
-**2 new failures (AudienceGroup, Fieldwork) — assertions/timing, not infra**
+**1 new failure in Quota**
 
-_Likely cause: no test-module changes and QA-deployed commits don't touch these areas — test/data or read-after-write timing flakiness._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- AudienceGroup — undelete PUT succeeded but GET still isDeleted=true after 15s (read-after-write convergence)
+- 1× other — Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9522717)
+⚠️ Contract drift: 1 new response-schema violation(s) vs baseline.
+- GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9522779)

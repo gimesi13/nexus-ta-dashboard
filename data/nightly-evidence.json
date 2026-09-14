@@ -1,409 +1,90 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-12T01:59Z",
+  "generatedAt": "2026-09-14T01:59Z",
   "build": {
-    "number": "3.0.2696",
-    "buildId": "9522717",
+    "number": "3.0.2698",
+    "buildId": "9522779",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9522717",
-    "durationSec": 1595.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9522779",
+    "durationSec": 1603.0
   },
   "summary": {
     "tests": 1479,
-    "passed": 1391,
-    "failures": 2,
+    "passed": 1392,
+    "failures": 1,
     "errors": 0,
     "skipped": 0,
     "muted": 86,
-    "newFailed": 2,
+    "newFailed": 1,
     "passRate": 99.9,
-    "timeSec": 1595.0
+    "timeSec": 1603.0
   },
   "prior": {
-    "buildId": "9520193",
-    "number": "3.0.2695",
+    "buildId": "9522299",
+    "number": "3.0.2697",
     "status": "SUCCESS",
-    "statusText": "Tests passed: 1394, muted: 85",
-    "startDate": "20260911T013235+0000",
-    "durationSec": 1577.0,
+    "statusText": "Tests passed: 1393, muted: 86",
+    "startDate": "20260913T013220+0000",
+    "durationSec": 1575.0,
     "failed": 0,
-    "passed": 1394,
+    "passed": 1393,
     "newFailed": 0
   },
   "changes": [],
-  "qaDeployChanges": [
-    {
-      "service": "GeoConditionRestJ16",
-      "version": "8d73ad717304",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-13707 ] ECR j16",
-      "files": [
-        "project/GeoConditionRest/build.gradle"
-      ],
-      "deployedAt": "20260911T114921+0000"
-    },
-    {
-      "service": "GeoConditionRestJ16",
-      "version": "83fcb66f813b",
-      "username": "gergo.hajnal",
-      "comment": "[ST-5011] (st-respondent-rest) change healthcheck to actuator",
-      "files": [
-        "st-respondent-rest/group_vars/prod.yml"
-      ],
-      "deployedAt": "20260911T114921+0000"
-    },
-    {
-      "service": "GeoConditionRestJ16",
-      "version": "9eeaebe7523b",
-      "username": "gergo.hajnal",
-      "comment": "(st-respondent-rest) removing temporary production.yml",
-      "files": [
-        "st-respondent-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20260911T114921+0000"
-    },
-    {
-      "service": "GeoConditionRestJ16",
-      "version": "fd9dd857838a",
-      "username": "47777290+koattila",
-      "comment": "Merge pull request #614 from dynata/DQI-4404",
-      "files": [],
-      "deployedAt": "20260911T114921+0000"
-    },
-    {
-      "service": "GeoConditionRestJ16",
-      "version": "cd87a8f583b8",
-      "username": "gergo.hajnal",
-      "comment": "(st-respondent-rest) adding temporary production.yml to finish PROD deploy",
-      "files": [
-        "st-respondent-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20260911T114921+0000"
-    },
-    {
-      "service": "GeoConditionRestJ16",
-      "version": "32179bf74fb4",
-      "username": "grace.chen",
-      "comment": "[FAI-431] Added MLAlertTopicsKmsKey, Both topics now set KmsMasterKeyId: MLAlertTopicsKmsKey",
-      "files": [
-        "ml-alert-topics/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260911T114921+0000"
-    },
-    {
-      "service": "GeoConditionRestJ16",
-      "version": "89037992f490",
-      "username": "47777290+koattila",
-      "comment": "DQI-4404 remove dy models LB reference from redemption guard dev and QA as well",
-      "files": [
-        "redemption-guard/group_vars/dev.yml",
-        "redemption-guard/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260911T114921+0000"
-    },
-    {
-      "service": "GeoConditionRestJ16",
-      "version": "6e2c608a5d64",
-      "username": "47777290+koattila",
-      "comment": "DQI-4404 remove dq models LB reference from redemption guard prod yml; remove client-manager-api from dep inventory",
-      "files": [
-        "client-manager-api/cloud-formation.template.yml",
-        "client-manager-api/group_vars/all.yml",
-        "client-manager-api/group_vars/production.yml",
-        "client-manager-api/group_vars/qa.yml",
-        "client-manager-api/inventory.ini",
-        "redemption-guard/group_vars/production.yml"
-      ],
-      "deployedAt": "20260911T114921+0000"
-    },
-    {
-      "service": "GeoConditionRestJ16",
-      "version": "95a6f8abb768",
-      "username": "elodani10",
-      "comment": "Add Notification service task role for QuotaGroupChangedCounters SQS",
-      "files": [
-        "recs/cloud-formation.template.yml",
-        "recs/group_vars/dev.yml",
-        "recs/group_vars/production.yml",
-        "recs/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260911T114921+0000"
-    },
-    {
-      "service": "GeoConditionRestJ16",
-      "version": "100fc1c87d8c",
-      "username": "tamas.gyarmati",
-      "comment": "UnusedSQSCleaner - rename rule",
-      "files": [
-        "nexus-unused-sqs-cleaner-lambda/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260911T114921+0000"
-    },
-    {
-      "service": "GeoConditionRestJ16",
-      "version": "b0139302566f",
-      "username": "tibor.olah",
-      "comment": "migrate fbr to ecr",
-      "files": [
-        "dk-project-feasibility-batch-rest/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260911T114921+0000"
-    },
-    {
-      "service": "GeoConditionRestJ16",
-      "version": "c3635767d1c0",
-      "username": "sajak.upadhyaya",
-      "comment": "test commit reversal",
-      "files": [
-        "ml-data-capture-bucket/group_vars/all.yml"
-      ],
-      "deployedAt": "20260911T114921+0000"
-    },
-    {
-      "service": "GeoConditionRestJ16",
-      "version": "3f90c24dc53c",
-      "username": "sajak.upadhyaya",
-      "comment": "TC connection to deployment inventory VCS test",
-      "files": [
-        "ml-data-capture-bucket/group_vars/all.yml"
-      ],
-      "deployedAt": "20260911T114921+0000"
-    },
-    {
-      "service": "GeoConditionRestJ16",
-      "version": "cc28c45b6527",
-      "username": "krisztian.erdei",
-      "comment": "[ST-5050] Remove comment from supply-offer aws_db_version default",
-      "files": [
-        "supply-offer-service/group_vars/all.yml"
-      ],
-      "deployedAt": "20260911T114921+0000"
-    },
-    {
-      "service": "GeoConditionRestJ16",
-      "version": "3b3cbd901658",
-      "username": "krisztian.erdei",
-      "comment": "[ST-5050] Upgrade supply-offer Aurora PostgreSQL to 18.4 on DEV and QA",
-      "files": [
-        "supply-offer-service/cloud-formation.template.yml",
-        "supply-offer-service/group_vars/all.yml",
-        "supply-offer-service/group_vars/dev.yml",
-        "supply-offer-service/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260911T114921+0000"
-    }
-  ],
-  "qaDeployServices": [
-    {
-      "service": "GeoConditionRestJ16",
-      "commits": 15,
-      "latestTicket": "NXS-13707",
-      "latestComment": "[ NXS-13707 ] ECR j16",
-      "deployedAt": "20260911T114921+0000"
-    }
-  ],
+  "qaDeployChanges": [],
+  "qaDeployServices": [],
   "clusters": [
     {
       "label": "other",
       "display": "other",
       "count": 1,
       "newCount": 1,
-      "sample": "java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=tr",
+      "sample": "Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
       "why": "no dominant signature yet \u2014 open TeamCity details"
-    },
-    {
-      "label": "assert_fail",
-      "display": "assertion Condition not satisfied",
-      "count": 1,
-      "newCount": 1,
-      "sample": "",
-      "why": "Spock assertion failed (fixture or response shape)"
     }
   ],
   "failures": [
     {
-      "name": "Complete audience group management end-to-end workflow: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupE2EPhaseManagementWorkflowTestSteps.Complete audience group management end-to-end workflow",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupE2EPhaseManagementWorkflowTestSteps",
+      "name": "Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaLockUnlockWorkflowTestSteps.Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaLockUnlockWorkflowTestSteps",
       "newFailure": true,
-      "area": "AudienceGroup",
+      "area": "Quota",
       "cluster": "other",
-      "message": "java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=true after 15 s \u2014 read-after-write convergence did \u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=1603327 but GET still reports isDeleted=true after 15 s \u2014 read-after-write convergence did not complete. at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.AudienceGroupHelper.undeleteAudienceGroup(AudienceGroupHelper.groovy:98) at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGr\u2026"
-    },
-    {
-      "name": "Configure all delivery mode variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkDeliveryTestSteps.Configure all delivery mode variations",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkDeliveryTestSteps",
-      "newFailure": true,
-      "area": "Fieldwork",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: delivery.deliveryMode.toString() == deliveryMode | | | | | | BURST BURST | UNLIMITED | false | 8 differences (11% similarity) | (B)U(RS---)T(--) | (-)U(NLIMI)T(ED) <com.dynata.nexus.api.model.quotagroup.Delivery@53d15034 deliveryMode=BURST dailyQuota=150 clickRatePerUnit=null clickRateUnit=null prioritizationLevel=NONE prioritizationChangedAt=null deliveryVisibleOnUI=true\u2026"
+      "message": "Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped value!",
+      "detailsExcerpt": "java.lang.RuntimeException: Failed to lock sold quota for quotaGroupId=118786684 after 20s: DetailsEditor did not register at least one sold quota > quota capped value in time (cross-service propagation lag between QuotaDetails and DetailsEditor). at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupHelper.setSoldQuotaLocked(QuotaGroupHelper.groovy:729) at com.dynata\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "2 new failures in AudienceGroup",
+    "headline": "1 new failure in Quota",
     "tone": "warn",
     "severity": "low",
     "bullets": [
-      "1\u00d7 other \u2014 java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=tr",
-      "1\u00d7 assertion Condition not satisfied"
+      "1\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val"
     ],
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet); 1\u00d7 assertion Condition not satisfied. Vs prior #3.0.2695: up 2 total fails.",
+    "investigation": "New fails: 1\u00d7 other (no dominant signature yet). Vs prior #3.0.2697: up 1 total fails.",
     "detail": {
-      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2695, 0 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: AudienceGroup (1), Fieldwork (1). 1 service(s) (15 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: AudienceGroup: Complete audience group management end-to-end workflow: com.dynata.rest.gateway.nexusapi.r [other]; Fieldwork: Configure all delivery mode variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps. [assertion Condition not satisfied].",
+      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2697, 0 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Quota (1). Example new failures: Quota: Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility [other].",
       "bullets": [
-        "1\u00d7 other \u2014 java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=tr",
-        "1\u00d7 assertion Condition not satisfied",
-        "[QA deploy: GeoConditionRestJ16] NXS-13707 (15 commits) \u2014 [ NXS-13707 ] ECR j16"
+        "1\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val"
       ],
       "newFailureAreas": [
         {
-          "area": "AudienceGroup",
-          "newCount": 1
-        },
-        {
-          "area": "Fieldwork",
+          "area": "Quota",
           "newCount": 1
         }
       ],
       "likelyCauses": []
     },
     "suspectCommits": [],
-    "qaDeploySuspects": [
-      {
-        "service": "GeoConditionRestJ16",
-        "version": "8d73ad717304",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-13707 ] ECR j16",
-        "ticket": "NXS-13707",
-        "deployedAt": "20260911T114921+0000",
-        "files": [
-          "build.gradle"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "GeoConditionRestJ16",
-        "version": "83fcb66f813b",
-        "username": "gergo.hajnal",
-        "comment": "[ST-5011] (st-respondent-rest) change healthcheck to actuator",
-        "ticket": "",
-        "deployedAt": "20260911T114921+0000",
-        "files": [
-          "prod.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "GeoConditionRestJ16",
-        "version": "9eeaebe7523b",
-        "username": "gergo.hajnal",
-        "comment": "(st-respondent-rest) removing temporary production.yml",
-        "ticket": "",
-        "deployedAt": "20260911T114921+0000",
-        "files": [
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "GeoConditionRestJ16",
-        "version": "fd9dd857838a",
-        "username": "47777290+koattila",
-        "comment": "Merge pull request #614 from dynata/DQI-4404",
-        "ticket": "",
-        "deployedAt": "20260911T114921+0000",
-        "files": [],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "GeoConditionRestJ16",
-        "version": "cd87a8f583b8",
-        "username": "gergo.hajnal",
-        "comment": "(st-respondent-rest) adding temporary production.yml to finish PROD deploy",
-        "ticket": "",
-        "deployedAt": "20260911T114921+0000",
-        "files": [
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "GeoConditionRestJ16",
-        "version": "32179bf74fb4",
-        "username": "grace.chen",
-        "comment": "[FAI-431] Added MLAlertTopicsKmsKey, Both topics now set KmsMasterKeyId: MLAlertTopicsKmsKey",
-        "ticket": "",
-        "deployedAt": "20260911T114921+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "GeoConditionRestJ16",
-        "version": "89037992f490",
-        "username": "47777290+koattila",
-        "comment": "DQI-4404 remove dy models LB reference from redemption guard dev and QA as well",
-        "ticket": "",
-        "deployedAt": "20260911T114921+0000",
-        "files": [
-          "dev.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "GeoConditionRestJ16",
-        "version": "6e2c608a5d64",
-        "username": "47777290+koattila",
-        "comment": "DQI-4404 remove dq models LB reference from redemption guard prod yml; remove client-manager-api from dep inventory",
-        "ticket": "",
-        "deployedAt": "20260911T114921+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "production.yml",
-          "qa.yml",
-          "inventory.ini",
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "GeoConditionRestJ16",
-        "version": "95a6f8abb768",
-        "username": "elodani10",
-        "comment": "Add Notification service task role for QuotaGroupChangedCounters SQS",
-        "ticket": "",
-        "deployedAt": "20260911T114921+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "dev.yml",
-          "production.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "GeoConditionRestJ16",
-        "version": "100fc1c87d8c",
-        "username": "tamas.gyarmati",
-        "comment": "UnusedSQSCleaner - rename rule",
-        "ticket": "",
-        "deployedAt": "20260911T114921+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      }
-    ]
+    "qaDeploySuspects": []
   },
   "contractDrift": {
-    "newCount": 0,
+    "newCount": 1,
     "baselineCount": 94,
-    "currentCount": 94,
-    "examples": []
+    "currentCount": 95,
+    "examples": [
+      "GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'."
+    ]
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."
 }
