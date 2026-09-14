@@ -1,10 +1,7 @@
-**1 new failure in Quota**
+**1 new Quota failure — a 20s cross-service propagation timeout, with no code changes in the window.**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: environment/timing flakiness — a 20s cross-service propagation lag (QuotaDetails→DetailsEditor); no code changes in the window to blame._
 
-- 1× other — Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val
+- 1× Quota: sold-quota lock timed out after 20s on propagation lag — a wait-timeout, not an assertion
 
-⚠️ Contract drift: 1 new response-schema violation(s) vs baseline.
-- GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'.
-
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9522779)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9522779)

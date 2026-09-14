@@ -1545,19 +1545,22 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in Quota",
+    "headline": "1 new Quota failure \u2014 a 20s cross-service propagation timeout, with no code changes in the window.",
     "tone": "warn",
     "severity": "low",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet). Vs prior #3.0.2697: up 1 total fails.",
+    "causeText": "No changes shipped in the window (0 module commits, 0 QA-deploy commits), so nothing to blame for a code regression; the lone new Quota failure is a 20s wait-timeout on cross-service propagation lag (QuotaDetails\u2192DetailsEditor), i.e. environment/timing flakiness rather than an assertion or product regression.",
+    "investigation": "The single new failure is a Quota sold-quota-lock step that timed out after 20s on cross-service propagation lag \u2014 a wait-timeout, not a 'Condition not satisfied' assertion \u2014 and there are no changes to implicate.",
     "bullets": [
-      "1\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val"
+      "1\u00d7 Quota \u2014 sold-quota lock timed out after 20s on cross-service propagation lag (QuotaDetails\u2192DetailsEditor); a wait-timeout, not an assertion",
+      "No suspects: changes=[] and qaDeployChanges=[], so no commit or developer can be implicated"
     ],
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2697, 0 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Quota (1). Example new failures: Quota: Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility [other].",
+      "investigation": "The single new unmuted failure (Quota: 'Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility') is a RuntimeException from QuotaGroupHelper.setSoldQuotaLocked (QuotaGroupHelper.groovy:729) that gave up after 20s because DetailsEditor never registered a sold quota above its capped value \u2014 the trace itself names cross-service propagation lag between QuotaDetails and DetailsEditor, so this is a timing wait-timeout, not the coarse 'other' cluster label and not a real assertion. With no module changes and no QA-deploy commits in the window (changes=[], qaDeployChanges=[]), there is no commit or developer to blame; this reads as environment/timing flakiness against the prior green build #3.0.2697.",
       "bullets": [
-        "1\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val"
+        "1\u00d7 Quota \u2014 QuotaGroupHelper.setSoldQuotaLocked timed out after 20s on cross-service propagation lag (QuotaDetails\u2192DetailsEditor); a wait-timeout, not a 'Condition not satisfied' assertion",
+        "No suspects \u2014 changes=[] and qaDeployChanges=[], so no code change or developer can be implicated",
+        "Separate lane \u2014 contract drift +1 (95 vs 94 baseline): GET /u1/nexus/urlPools/{} returns 500 not defined in the OpenAPI contract; unrelated to the Quota failure"
       ],
       "newFailureAreas": [
         {
@@ -1580,8 +1583,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-09-14T01:59Z",
+    "source": "llm",
+    "generatedAt": "2026-09-14T02:00:00Z",
     "buildNumber": "3.0.2698",
     "buildId": "9522779",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9522779",
