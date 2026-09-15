@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-14T01:59Z",
+  "generatedAt": "2026-09-15T02:00Z",
   "build": {
-    "number": "3.0.2698",
-    "buildId": "9522779",
+    "number": "3.0.2699",
+    "buildId": "9525464",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9522779",
-    "durationSec": 1603.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9525464",
+    "durationSec": 1600.0
   },
   "summary": {
     "tests": 1479,
@@ -17,22 +17,403 @@
     "muted": 86,
     "newFailed": 1,
     "passRate": 99.9,
-    "timeSec": 1603.0
+    "timeSec": 1600.0
   },
   "prior": {
-    "buildId": "9522299",
-    "number": "3.0.2697",
-    "status": "SUCCESS",
-    "statusText": "Tests passed: 1393, muted: 86",
-    "startDate": "20260913T013220+0000",
-    "durationSec": 1575.0,
-    "failed": 0,
-    "passed": 1393,
-    "newFailed": 0
+    "buildId": "9522779",
+    "number": "3.0.2698",
+    "status": "FAILURE",
+    "statusText": "Tests failed: 1 (1 new), passed: 1392, muted: 86",
+    "startDate": "20260914T013231+0000",
+    "durationSec": 1603.0,
+    "failed": 1,
+    "passed": 1392,
+    "newFailed": 1
   },
   "changes": [],
-  "qaDeployChanges": [],
-  "qaDeployServices": [],
+  "qaDeployChanges": [
+    {
+      "service": "UnusedSqsCleaner",
+      "version": "cbc644d81384",
+      "username": "csaba.deak",
+      "comment": "NA-1847: added RECS/REDS/SLS/REDS_DATA_LOADER tags",
+      "files": [
+        "recs/group_vars/all.yml",
+        "recs/group_vars/dev.yml",
+        "recs/group_vars/production.yml",
+        "recs/group_vars/qa.yml",
+        "reds-core/group_vars/all.yml",
+        "reds-core/group_vars/dev.yml",
+        "reds-core/group_vars/production.yml",
+        "reds-core/group_vars/qa.yml",
+        "reds-data-loader/group_vars/all.yml",
+        "reds-data-loader/group_vars/dev.yml",
+        "reds-data-loader/group_vars/production.yml",
+        "reds-data-loader/group_vars/qa.yml",
+        "sls/group_vars/all.yml",
+        "sls/group_vars/dev.yml",
+        "sls/group_vars/production.yml",
+        "sls/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260914T141057+0000"
+    },
+    {
+      "service": "UnusedSqsCleaner",
+      "version": "285c63197bfe",
+      "username": "100129392+dynata-hu-robert-szepesi",
+      "comment": "[AE-7441] [RES-SNS] remove otel (#626)",
+      "files": [
+        "ae-respondent-event-stream-sns-bridge/cloud-formation.template.yml",
+        "ae-respondent-event-stream-sns-bridge/group_vars/all.yml",
+        "ae-respondent-event-stream-sns-bridge/group_vars/dev.yml",
+        "ae-respondent-event-stream-sns-bridge/group_vars/production.yml",
+        "ae-respondent-event-stream-sns-bridge/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260914T141057+0000"
+    },
+    {
+      "service": "UnusedSqsCleaner",
+      "version": "3d7c5baa88d0",
+      "username": "csaba.deak",
+      "comment": "NA-1847: AMS tags",
+      "files": [
+        "ams/group_vars/dev.yml",
+        "ams/group_vars/production.yml",
+        "ams/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260914T141057+0000"
+    },
+    {
+      "service": "UnusedSqsCleaner",
+      "version": "f5b7e9fd5fe3",
+      "username": "csaba.deak",
+      "comment": "NA-1847: AMS tags",
+      "files": [
+        "ams/cloud-formation.template.yml",
+        "ams/group_vars/all.yml",
+        "ams/group_vars/dev.yml",
+        "ams/group_vars/production.yml",
+        "ams/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260914T141057+0000"
+    },
+    {
+      "service": "UnusedSqsCleaner",
+      "version": "2d9798b50064",
+      "username": "gergo.hajnal",
+      "comment": "(export service) temporarily increase PROD memory",
+      "files": [
+        "export-service/group_vars/prod.yml",
+        "st-respondent-cache/group_vars/prod.yml"
+      ],
+      "deployedAt": "20260914T141057+0000"
+    },
+    {
+      "service": "UnusedSqsCleaner",
+      "version": "fe200b13bbf4",
+      "username": "david.nagy",
+      "comment": "Subnet change for prod deployment",
+      "files": [
+        "dk-project-quota-group-sources-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20260914T141057+0000"
+    },
+    {
+      "service": "UnusedSqsCleaner",
+      "version": "de189160da64",
+      "username": "david.nagy",
+      "comment": "Subnet change for prod deployment",
+      "files": [
+        "dk-project-quota-group-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20260914T141057+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "edb3889fb27b",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5016] (st-respondent-cache) adding otel confs to QA and PROD",
+      "files": [
+        "st-respondent-cache/group_vars/prod.yml",
+        "st-respondent-cache/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "06a6b3441858",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5013] (st-respondent-answer-cache) adding honeycomb needed config for all envs",
+      "files": [
+        "st-respondent-answer-cache/group_vars/all.yml",
+        "st-respondent-answer-cache/group_vars/dev.yml",
+        "st-respondent-answer-cache/group_vars/prod.yml",
+        "st-respondent-answer-cache/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "731a090cf0ac",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5016] (st-respondent-cache) adding honeycomb needed config",
+      "files": [
+        "st-respondent-cache/group_vars/all.yml",
+        "st-respondent-cache/group_vars/dev.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "18ecc722a617",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-13585 ] feign base packages",
+      "files": [
+        "project/ProjectSearchRest/mongo/createAppUsers.js",
+        "project/ProjectSearchRest/src/main/java/com/surveysampling/rest/projectsearch/ProjectSearchRestApplication.java"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "56ca1dcd3799",
+      "username": "krisztian.erdei",
+      "comment": "ST-5000 Point dk-dk-respondent-rest QA inventory at container JAVA_OPTS and actuator health.",
+      "files": [
+        "dk-dk-respondent-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "7db8b125dcef",
+      "username": "brian.connolly",
+      "comment": "Update production group_vars in preparation for release.",
+      "files": [
+        "ae-scarcity-adapter/group_vars/production.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "5caab78fe8a7",
+      "username": "zoltan.redai",
+      "comment": "[AE-7882] Publish the merged definition to the output topic on a quota group change",
+      "files": [
+        "ae-pes-aggregator/cloud-formation.template.yml",
+        "ae-pes-aggregator/group_vars/all.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "93c5d2b50640",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4979] (EnumRest) adding containersupport and memory plus healthcheck for PROD and QA",
+      "files": [
+        "dk-management-enum-rest/group_vars/production.yml",
+        "dk-management-enum-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "1bf67a5f9b7d",
+      "username": "krisztian.erdei",
+      "comment": "ST-5014 Keep st-menu-service prod inventory out of the DEV/QA PR.",
+      "files": [
+        "st-menu-service/group_vars/prod.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "ba131763dbd9",
+      "username": "krisztian.erdei",
+      "comment": "ST-5014 Restore st-menu-service OTEL env vars for the javaagent.",
+      "files": [
+        "st-menu-service/group_vars/all.yml",
+        "st-menu-service/group_vars/dev.yml",
+        "st-menu-service/group_vars/prod.yml",
+        "st-menu-service/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "5076e400eaaa",
+      "username": "krisztian.erdei",
+      "comment": "ST-5014 Point st-menu-service inventory at container JAVA_OPTS and actuator health.",
+      "files": [
+        "st-menu-service/group_vars/all.yml",
+        "st-menu-service/group_vars/dev.yml",
+        "st-menu-service/group_vars/prod.yml",
+        "st-menu-service/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "e2ba47261c10",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4994] (DKUserRest) containersupport and percentage based memory for all envs, healthcheck for PROD",
+      "files": [
+        "dk-dk-user-rest/group_vars/dev.yml",
+        "dk-dk-user-rest/group_vars/production.yml",
+        "dk-dk-user-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "d7133633e154",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5001][ST-4992] (FeatureRest, SourcesRest) add container support and memory plus healthcheck for PROD",
+      "files": [
+        "dk-management-feature-rest/group_vars/production.yml",
+        "dk-management-sources-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "8684a6f8d06e",
+      "username": "krisztian.kover",
+      "comment": "[ST-4998] - SystemUserRest - Changed health check url in PROD",
+      "files": [
+        "dk-system-user-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "ea11f5f1b19c",
+      "username": "partlo2012",
+      "comment": "Syntax correction",
+      "files": [
+        "passphrase-api/group_vars/dev.yml",
+        "passphrase-api/group_vars/production.yml",
+        "passphrase-api/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "585a54f4ecde",
+      "username": "brian.connolly",
+      "comment": "add caps",
+      "files": [
+        "ae-scarcity-adapter/group_vars/all.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "b541d47fa306",
+      "username": "partlo2012",
+      "comment": "Adding security group",
+      "files": [
+        "passphrase-api/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "2a27c46431cc",
+      "username": "brian.connolly",
+      "comment": "fix...",
+      "files": [
+        "ae-scarcity-adapter/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "9fec66540517",
+      "username": "brian.connolly",
+      "comment": "add bucket config to qa.",
+      "files": [
+        "ae-scarcity-adapter/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "56c533a9ebb9",
+      "username": "maomaofish",
+      "comment": "DQI-4343 Add sts:AssumeRole for Charon's task Role",
+      "files": [
+        "charon/cloud-formation.template.yml",
+        "charon/group_vars/dev.yml",
+        "charon/group_vars/production.yml",
+        "charon/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "3a6e6d97f4ea",
+      "username": "weiqun.wang",
+      "comment": "update dq account role name in qa and prod",
+      "files": [
+        "ml-complete-optimization-model/group_vars/production.yml",
+        "ml-complete-optimization-model/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "version": "c8f2dc04850b",
+      "username": "grace.chen",
+      "comment": "testing VCS root, remove print line",
+      "files": [
+        "ml-data-capture-decompress/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "RefinementRestJ21",
+      "version": "b83365c009ac",
+      "username": "andras.banszki",
+      "comment": "[NXS-13525] MS - migrate RefinementRest to J21 - update gradlew files",
+      "files": [
+        "respondent/RefinementRest/gradle/wrapper/gradle-wrapper.jar",
+        "respondent/RefinementRest/gradlew",
+        "respondent/RefinementRest/gradlew.bat"
+      ],
+      "deployedAt": "20260914T103500+0000"
+    }
+  ],
+  "qaDeployServices": [
+    {
+      "service": "UnusedSqsCleaner",
+      "commits": 7,
+      "latestTicket": "",
+      "latestComment": "NA-1847: added RECS/REDS/SLS/REDS_DATA_LOADER tags",
+      "deployedAt": "20260914T141057+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "commits": 22,
+      "latestTicket": "",
+      "latestComment": "[ST-5016] (st-respondent-cache) adding otel confs to QA and PROD",
+      "deployedAt": "20260914T131715+0000"
+    },
+    {
+      "service": "RefinementRestJ21",
+      "commits": 2,
+      "latestTicket": "NXS-13525",
+      "latestComment": "[NXS-13525] MS - migrate RefinementRest to J21 - update gradlew files",
+      "deployedAt": "20260914T103500+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "commits": 4,
+      "latestTicket": "NXS-13528",
+      "latestComment": "[NXS-13528] no change new build - pick JAVA OPTS change from deployment inv",
+      "deployedAt": "20260914T082205+0000"
+    }
+  ],
   "clusters": [
     {
       "label": "other",
@@ -45,13 +426,13 @@
   ],
   "failures": [
     {
-      "name": "Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaLockUnlockWorkflowTestSteps.Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility",
+      "name": "Adding parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaLockUnlockWorkflowTestSteps.Adding parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaLockUnlockWorkflowTestSteps",
       "newFailure": true,
       "area": "Quota",
       "cluster": "other",
       "message": "Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped value!",
-      "detailsExcerpt": "java.lang.RuntimeException: Failed to lock sold quota for quotaGroupId=118786684 after 20s: DetailsEditor did not register at least one sold quota > quota capped value in time (cross-service propagation lag between QuotaDetails and DetailsEditor). at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupHelper.setSoldQuotaLocked(QuotaGroupHelper.groovy:729) at com.dynata\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: Failed to lock sold quota for quotaGroupId=118789016 after 20s: DetailsEditor did not register at least one sold quota > quota capped value in time (cross-service propagation lag between QuotaDetails and DetailsEditor). at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupHelper.setSoldQuotaLocked(QuotaGroupHelper.groovy:729) at com.dynata\u2026"
     }
   ],
   "rulesNutshell": {
@@ -61,11 +442,15 @@
     "bullets": [
       "1\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val"
     ],
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet). Vs prior #3.0.2697: up 1 total fails.",
+    "investigation": "New fails: 1\u00d7 other (no dominant signature yet).",
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2697, 0 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Quota (1). Example new failures: Quota: Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility [other].",
+      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2698, 1 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Quota (1). 4 service(s) (35 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Quota: Adding parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility: c [other].",
       "bullets": [
-        "1\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val"
+        "1\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
+        "[QA deploy: UnusedSqsCleaner]  (7 commits) \u2014 NA-1847: added RECS/REDS/SLS/REDS_DATA_LOADER tags",
+        "[QA deploy: ProjectSearchRestJ21]  (22 commits) \u2014 [ST-5016] (st-respondent-cache) adding otel confs to QA and PROD",
+        "[QA deploy: RefinementRestJ21] NXS-13525 (2 commits) \u2014 [NXS-13525] MS - migrate RefinementRest to J21 - update gradlew files",
+        "[QA deploy: SettingRestJ21] NXS-13528 (4 commits) \u2014 [NXS-13528] no change new build - pick JAVA OPTS change from deployment inv"
       ],
       "newFailureAreas": [
         {
@@ -76,7 +461,149 @@
       "likelyCauses": []
     },
     "suspectCommits": [],
-    "qaDeploySuspects": []
+    "qaDeploySuspects": [
+      {
+        "service": "UnusedSqsCleaner",
+        "version": "cbc644d81384",
+        "username": "csaba.deak",
+        "comment": "NA-1847: added RECS/REDS/SLS/REDS_DATA_LOADER tags",
+        "ticket": "",
+        "deployedAt": "20260914T141057+0000",
+        "files": [
+          "all.yml",
+          "dev.yml",
+          "production.yml",
+          "qa.yml",
+          "all.yml",
+          "dev.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "UnusedSqsCleaner",
+        "version": "285c63197bfe",
+        "username": "100129392+dynata-hu-robert-szepesi",
+        "comment": "[AE-7441] [RES-SNS] remove otel (#626)",
+        "ticket": "",
+        "deployedAt": "20260914T141057+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml",
+          "dev.yml",
+          "production.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "UnusedSqsCleaner",
+        "version": "3d7c5baa88d0",
+        "username": "csaba.deak",
+        "comment": "NA-1847: AMS tags",
+        "ticket": "",
+        "deployedAt": "20260914T141057+0000",
+        "files": [
+          "dev.yml",
+          "production.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "UnusedSqsCleaner",
+        "version": "f5b7e9fd5fe3",
+        "username": "csaba.deak",
+        "comment": "NA-1847: AMS tags",
+        "ticket": "",
+        "deployedAt": "20260914T141057+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml",
+          "dev.yml",
+          "production.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "UnusedSqsCleaner",
+        "version": "2d9798b50064",
+        "username": "gergo.hajnal",
+        "comment": "(export service) temporarily increase PROD memory",
+        "ticket": "",
+        "deployedAt": "20260914T141057+0000",
+        "files": [
+          "prod.yml",
+          "prod.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "UnusedSqsCleaner",
+        "version": "fe200b13bbf4",
+        "username": "david.nagy",
+        "comment": "Subnet change for prod deployment",
+        "ticket": "",
+        "deployedAt": "20260914T141057+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "UnusedSqsCleaner",
+        "version": "de189160da64",
+        "username": "david.nagy",
+        "comment": "Subnet change for prod deployment",
+        "ticket": "",
+        "deployedAt": "20260914T141057+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ProjectSearchRestJ21",
+        "version": "edb3889fb27b",
+        "username": "gergo.hajnal",
+        "comment": "[ST-5016] (st-respondent-cache) adding otel confs to QA and PROD",
+        "ticket": "",
+        "deployedAt": "20260914T131715+0000",
+        "files": [
+          "prod.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ProjectSearchRestJ21",
+        "version": "06a6b3441858",
+        "username": "gergo.hajnal",
+        "comment": "[ST-5013] (st-respondent-answer-cache) adding honeycomb needed config for all envs",
+        "ticket": "",
+        "deployedAt": "20260914T131715+0000",
+        "files": [
+          "all.yml",
+          "dev.yml",
+          "prod.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ProjectSearchRestJ21",
+        "version": "731a090cf0ac",
+        "username": "gergo.hajnal",
+        "comment": "[ST-5016] (st-respondent-cache) adding honeycomb needed config",
+        "ticket": "",
+        "deployedAt": "20260914T131715+0000",
+        "files": [
+          "all.yml",
+          "dev.yml"
+        ],
+        "scope": "qa-deploy"
+      }
+    ]
   },
   "contractDrift": {
     "newCount": 1,
