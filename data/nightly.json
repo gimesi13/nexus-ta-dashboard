@@ -1545,23 +1545,21 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in Quota",
+    "headline": "1 new Quota failure: sold-quota lock timed out from cross-service propagation lag.",
     "tone": "warn",
     "severity": "low",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 4 service(s) were deployed to QA in this window (UnusedSqsCleaner, ProjectSearchRestJ21, RefinementRestJ21, SettingRestJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet).",
+    "causeText": "The lone new failure is a 20s timeout waiting for DetailsEditor to register a sold quota above its capped value (cross-service propagation lag with QuotaDetails) \u2014 test/environment timing, not an assertion or infra 502/504, and none of the 4 QA-deployed services touch Quota code.",
+    "investigation": "The single new fail is a 20s sold-quota lock timeout from QuotaDetails\u2192DetailsEditor propagation lag \u2014 timing flakiness, not an assertion or infra.",
     "bullets": [
-      "1\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val"
+      "Quota: sold-quota lock timed out after 20s (QuotaDetails\u2192DetailsEditor propagation lag)."
     ],
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2698, 1 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Quota (1). 4 service(s) (35 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Quota: Adding parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility: c [other].",
+      "investigation": "1 of 1 unmuted failures is new vs the prior build (#3.0.2698). The Quota test threw RuntimeException 'Failed to lock sold quota after 20s: DetailsEditor did not register at least one sold quota > quota capped value in time (cross-service propagation lag)' \u2014 a timing/data issue, not a 'Condition not satisfied' assertion or an infra 502/504/SocketTimeout. The 4 QA-deployed services (deploy-config/otel/subnet/gradlew changes only) do not touch Quota product code, so no code regression is implicated.",
       "bullets": [
-        "1\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
-        "[QA deploy: UnusedSqsCleaner]  (7 commits) \u2014 NA-1847: added RECS/REDS/SLS/REDS_DATA_LOADER tags",
-        "[QA deploy: ProjectSearchRestJ21]  (22 commits) \u2014 [ST-5016] (st-respondent-cache) adding otel confs to QA and PROD",
-        "[QA deploy: RefinementRestJ21] NXS-13525 (2 commits) \u2014 [NXS-13525] MS - migrate RefinementRest to J21 - update gradlew files",
-        "[QA deploy: SettingRestJ21] NXS-13528 (4 commits) \u2014 [NXS-13528] no change new build - pick JAVA OPTS change from deployment inv"
+        "Quota: RuntimeException locking sold quota (quotaGroupId=118789016) \u2014 20s timeout, cross-service propagation lag QuotaDetails\u2192DetailsEditor.",
+        "No test-module commits; 4 QA-deployed services touch only deploy config/otel/subnet/gradlew, none mapping to Quota \u2014 no code cause identified.",
+        "Separate lane: contract drift +1 (95 vs 94 baseline) \u2014 GET /u1/nexus/urlPools/{} returns undefined 500."
       ],
       "newFailureAreas": [
         {
@@ -1755,8 +1753,8 @@
         "deployedAt": "20260914T082205+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-09-15T02:00Z",
+    "source": "llm",
+    "generatedAt": "2026-09-15T02:00:00Z",
     "buildNumber": "3.0.2699",
     "buildId": "9525464",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9525464",
