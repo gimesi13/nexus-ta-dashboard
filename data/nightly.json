@@ -1548,19 +1548,19 @@
     "headline": "1 new failure in Quota",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 3 service(s) were deployed to QA in this window (TrafficDetailsRestJ21, QuotaGroupRestJ21, NexusApiJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet).",
+    "cause": "code_change",
+    "causeText": "The one new Quota fail is a 30s async wait-timeout (soldQuota feasibility never updated), not an infra socket/502 error; the likely suspect is QuotaGroupRest change NXS-13879 by david.nagy, which reworked quota Mongo collection names in the same QA window.",
+    "investigation": "Sole new fail is a soldQuota feasibility wait-timeout in Quota, matching the QuotaGroupRest collection-name change deployed to QA.",
     "bullets": [
-      "1\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 30 seconds: Condition never returned a non-null result"
+      "1\u00d7 Quota \u2014 soldQuota feasibility wait timed out after 30s (Condition never returned a non-null result), not a socket/502 infra timeout",
+      "Suspect: QuotaGroupRest NXS-13879 (david.nagy) reworked quota Mongo collection names in the QA window"
     ],
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2699, 1 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Quota (1). 3 service(s) (39 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Quota: Modifying totalQuota (when soldQuota is not locked) triggers feasibility and updates segme [other].",
+      "investigation": "The single new failure ('Modifying totalQuota triggers feasibility and updates segment soldQuotas') is a WaitUtil.until timeout \u2014 the test waited 30s for the segment soldQuota to update and got no result, a functional/async failure rather than an infra socket/502 timeout. QuotaGroupRest was deployed to QA in this window under NXS-13879 (david.nagy), replacing hardcoded Mongo collection names in QuotaGroupRestImpl.java / QuotaGroupMongoHelper.java \u2014 a change directly in the quota persistence path that plausibly explains a soldQuota update never landing.",
       "bullets": [
-        "1\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 30 seconds: Condition never returned a non-null result",
-        "[QA deploy: TrafficDetailsRestJ21] NXS-13784 (25 commits) \u2014 [NXS-13784] Migrate TrafficDetails to J21 - redeploy subned change in prod",
-        "[QA deploy: QuotaGroupRestJ21] NXS-13879 (3 commits) \u2014 [NXS-13879] MS | QuotaGroupRest | replace hardcoded collection names",
-        "[QA deploy: NexusApiJ21] NXS-13857 (11 commits) \u2014 [NXS-13857] MS | NexusApi | mock endpoints"
+        "1\u00d7 Quota \u2014 soldQuota feasibility wait timed out after 30s (WaitUtil.until, 'Condition never returned a non-null result') \u2014 functional/async, not socket/502 infra",
+        "Likely suspect: QuotaGroupRest NXS-13879 (david.nagy) \u2014 replaced hardcoded Mongo collection names in QuotaGroupRestImpl.java / QuotaGroupMongoHelper.java, directly in the quota persistence path",
+        "Other QA deploys (NexusApi NXS-13857, TrafficDetails NXS-13784) touch Communications/traffic config, not quota"
       ],
       "newFailureAreas": [
         {
@@ -1568,7 +1568,22 @@
           "newCount": 1
         }
       ],
-      "likelyCauses": []
+      "likelyCauses": [
+        {
+          "ticket": "NXS-13879",
+          "version": "711177975fec",
+          "username": "david.nagy",
+          "areas": [
+            "Quota"
+          ],
+          "hitNewFailures": 1,
+          "files": [
+            "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupRestImpl.java",
+            "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/mongo/QuotaGroupMongoHelper.java"
+          ],
+          "comment": "[NXS-13879] MS | QuotaGroupRest | replace hardcoded collection names"
+        }
+      ]
     },
     "clusters": [
       {
@@ -1737,8 +1752,8 @@
         "deployedAt": "20260915T081935+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-09-16T01:59Z",
+    "source": "llm",
+    "generatedAt": "2026-09-16T02:00:00Z",
     "buildNumber": "3.0.2700",
     "buildId": "9528284",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9528284",
