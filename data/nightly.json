@@ -1545,24 +1545,22 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in Fieldwork",
+    "headline": "1 new Fieldwork failure: delivery mode returned STANDARD instead of the expected ACCELERATED.",
     "tone": "warn",
     "severity": "low",
-    "cause": "mixed",
-    "causeText": "VCS changes present but none map onto the failing packages \u2014 likely test/data, correlate manually. NOTE: 3 service(s) were deployed to QA in this window (NexusApiJ21, ResourceBrowserRestJ21, DKOrder) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 assertion Condition not satisfied.",
+    "cause": "test",
+    "causeText": "Real Spock assertion (not infra) \u2014 delivery3.deliveryMode came back STANDARD instead of the expected ACCELERATED, and no changed file maps cleanly to delivery-mode logic, so a test/data or delivery-setup issue is the leading suspect (no blame assigned).",
+    "investigation": "The lone new failure is a Fieldwork assertion where delivery mode was STANDARD, not the expected ACCELERATED.",
     "bullets": [
-      "1\u00d7 assertion Condition not satisfied"
+      "Fieldwork: delivery3.deliveryMode STANDARD vs expected ACCELERATED (assertion, not infra)",
+      "No changed file (TA commits or QA deploys) maps cleanly to delivery-mode logic"
     ],
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2700, 1 fails). Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: Fieldwork (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 3 service(s) (27 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Fieldwork: Complete advanced fieldwork: tally mode switching, delivery modes, and soft launch user ma [assertion Condition not satisfied].",
+      "investigation": "The only new failure since #3.0.2700 is FieldworkEndToEndAdvancedTestSteps 'Complete advanced fieldwork...', where the assertion delivery3.deliveryMode == 'ACCELERATED' failed with an actual value of STANDARD \u2014 a genuine value mismatch, not a timeout/502/504, so infra is ruled out. The NXS-13848 TA-module commits (gergely.gimesi) touch quota-group helpers but concern totalQuota read-back waits, not delivery mode, and no QA-deploy change maps cleanly to delivery-mode logic, so no blame is assigned pending a rerun or manual check.",
       "bullets": [
-        "1\u00d7 assertion Condition not satisfied",
-        "NXS-13848: gergely.gimesi \u2014 [NXS-13848] MS - wait for quota-group totalQuota read-back",
-        "NXS-13848: gergely.gimesi \u2014 [NXS-13848] MS - harden sold-quota lock retries and totalQuota wait",
-        "[QA deploy: NexusApiJ21] NXS-13857 (25 commits) \u2014 [NXS-13857] MS | NexusApi | mock endpoints - controller fix",
-        "[QA deploy: ResourceBrowserRestJ21] NXS-12243 (1 commit) \u2014 [NXS-12243] MS - migrate ResourceBrowserRest to J21 (#5374)",
-        "[QA deploy: DKOrder] NXS-13856 (1 commit) \u2014 [NXS-13856] MS - DkOrder - Remove Rabbit message sending (#5371)"
+        "New failure: Fieldwork \u2014 delivery3.deliveryMode STANDARD, expected ACCELERATED (Spock 'Condition not satisfied')",
+        "Not infra: value mismatch with no timeout/502/504/SocketTimeout in the message",
+        "No clean mapping: NXS-13848 TA commits touch quota totalQuota waits (not delivery mode); QA deploys don't touch delivery-mode logic"
       ],
       "newFailureAreas": [
         {
@@ -1748,8 +1746,8 @@
         "deployedAt": "20260916T110753+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-09-17T02:00Z",
+    "source": "llm",
+    "generatedAt": "2026-09-17T02:00:00Z",
     "buildNumber": "3.0.2701",
     "buildId": "9530571",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9530571",
