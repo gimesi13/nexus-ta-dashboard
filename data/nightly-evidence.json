@@ -1,88 +1,121 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-17T02:00Z",
+  "generatedAt": "2026-09-18T02:00Z",
   "build": {
-    "number": "3.0.2701",
-    "buildId": "9530571",
-    "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9530571",
-    "durationSec": 1628.0
+    "number": "3.0.2702",
+    "buildId": "9532811",
+    "status": "SUCCESS",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9532811",
+    "durationSec": 1601.0
   },
   "summary": {
     "tests": 1479,
-    "passed": 1392,
-    "failures": 1,
+    "passed": 1395,
+    "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "muted": 86,
-    "newFailed": 1,
-    "passRate": 99.9,
-    "timeSec": 1628.0
+    "muted": 84,
+    "newFailed": 0,
+    "passRate": 100.0,
+    "timeSec": 1601.0
   },
   "prior": {
-    "buildId": "9528284",
-    "number": "3.0.2700",
+    "buildId": "9530571",
+    "number": "3.0.2701",
     "status": "FAILURE",
     "statusText": "Tests failed: 1 (1 new), passed: 1392, muted: 86",
-    "startDate": "20260916T013312+0000",
-    "durationSec": 1579.0,
+    "startDate": "20260917T013248+0000",
+    "durationSec": 1628.0,
     "failed": 1,
     "passed": 1392,
     "newFailed": 1
   },
-  "changes": [
-    {
-      "version": "b1cf9b5bb08c",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-13848] MS - wait for quota-group totalQuota read-back",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupHelper.groovy"
-      ],
-      "areas": [
-        "QuotaGroup"
-      ]
-    },
-    {
-      "version": "5940999ae9b8",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-13848] MS - harden sold-quota lock retries and totalQuota wait",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/ProjectHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/SegmentDetailsHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaValidationTestSteps.groovy"
-      ],
-      "areas": [
-        "Project",
-        "Quota",
-        "QuotaGroup",
-        "SegmentDetails"
-      ]
-    }
-  ],
+  "changes": [],
   "qaDeployChanges": [
     {
-      "service": "NexusApiJ21",
-      "version": "7aa0d588d704",
-      "username": "david.nagy",
-      "comment": "[NXS-13857] MS | NexusApi | mock endpoints - controller fix",
+      "service": "QuotaGroupRestJ21",
+      "version": "7662f404a7b9",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5019] (st-cloud-config) change environment_tags to environment_strings in new dynata tags",
       "files": [
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UCommunicationsApi.java"
+        "st-cloud-config/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "QuotaGroupRestJ21",
+      "version": "21e23e68bbb8",
+      "username": "40339600+tamasroma",
+      "comment": "[NXS-13780] MS - Survey stays Active (but disabled) when user removes\u2026 (#5372)",
+      "files": [
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupCoreService.java",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/QuotaGroupCoreServiceTest.groovy"
+      ],
+      "deployedAt": "20260917T130834+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "0e9d06e926bb",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5019] (st-cloud-config) remove access scope tag from non load balancers",
+      "files": [
+        "st-cloud-config/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260917T130834+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "89996c7b40be",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4992] (dk-management-sources-rest) correction in health check for QA and PROD",
+      "files": [
+        "dk-management-sources-rest/group_vars/production.yml",
+        "dk-management-sources-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260917T130834+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "bbd9f4029673",
+      "username": "weiqun.wang",
+      "comment": "increase auto_scaling capacity for prod",
+      "files": [
+        "ml-reconciliation-model-service/group_vars/production.yml"
+      ],
+      "deployedAt": "20260917T130834+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "743bf141468d",
+      "username": "weiqun.wang",
+      "comment": "put autoscaling back",
+      "files": [
+        "ml-reconciliation-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260917T130834+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "a09706e243a3",
+      "username": "richard.santos",
+      "comment": "[FAI-477] change hostedZoneId for prod.ml.dynata.com",
+      "files": [
+        "ml-reconciliation-model-service/group_vars/production.yml"
+      ],
+      "deployedAt": "20260917T130834+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
       "version": "4d75b1766dbe",
       "username": "brian.connolly",
       "comment": "Add bucket config.",
       "files": [
         "ae-quota-group-translator/group_vars/qa.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "6057adf0b74b",
       "username": "brian.connolly",
       "comment": "Convert to use AE-DPR.",
@@ -92,30 +125,30 @@
         "ae-quota-group-translator/group_vars/dev.yml",
         "ae-quota-group-translator/group_vars/qa.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "b45b75bec755",
       "username": "brian.connolly",
       "comment": "Update role permissions.",
       "files": [
         "ae-api-collection/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "7ade8f0b89ad",
       "username": "matt.spencer",
       "comment": "[DQI-4569] Removing Http Listener from dq-aws-internal-load-balancer.",
       "files": [
         "dq-aws-internal-load-balancer/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "1d857d61ef6d",
       "username": "brian.connolly",
       "comment": "Convert to AE-DPR.",
@@ -124,70 +157,70 @@
         "ae-api-collection/group_vars/all.yml",
         "ae-api-collection/group_vars/dev.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "7a427baca199",
       "username": "matt.spencer",
       "comment": "[DQI-4569] Removing HttpListenerRule for dq-identity-service.",
       "files": [
         "dq-identity-service/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "5bed9a95c1a3",
       "username": "brian.connolly",
       "comment": "Remove tags.",
       "files": [
         "ae-allocation-engine/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "3adfd0a068db",
       "username": "richard.santos",
       "comment": "Switch ml-offer-conversion-model variant name",
       "files": [
         "ml-offer-conversion-model/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "e49b202d67ca",
       "username": "brian.connolly",
       "comment": "Remove tags.",
       "files": [
         "ae-client-services-adapter/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "a75ffcf9bd88",
       "username": "brian.connolly",
       "comment": "Update stack in preparation for production release.",
       "files": [
         "ae-client-services-adapter/group_vars/production.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "bfb1c12933c5",
       "username": "matt.spencer",
       "comment": "[DQI-4569] Removing HttpListenerRule for dq-pdl-validation.",
       "files": [
         "dq-pdl-validation/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "1f45fff7938d",
       "username": "weiqun.wang",
       "comment": "remvoe auto scaling for testing",
@@ -195,20 +228,20 @@
         "ml-reconciliation-model/cloud-formation.template.yml",
         "ml-reconciliation-model/group_vars/qa.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "61045c06b2b8",
       "username": "gergo.hajnal",
       "comment": "[ST-5019] (st-cloud-config) prepare for QA deployment",
       "files": [
         "st-cloud-config/group_vars/qa.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "dd131d4f2a7c",
       "username": "gergo.hajnal",
       "comment": "[ST-5034] (supply-sample-config-service) prepare for PROD deploy",
@@ -217,20 +250,20 @@
         "supply-sample-config-service/group_vars/production.yml",
         "supply-sample-config-service/group_vars/qa.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "5904cc286679",
       "username": "andras.banszki",
       "comment": "[NXS-13784] Migrate TrafficDetails to J21 - update subnets",
       "files": [
         "dk-project-traffic-details-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "3ff4500ca676",
       "username": "andras.banszki",
       "comment": "[NXS_12234] MS - migrate PickerEventRest to J21",
@@ -239,10 +272,10 @@
         "dk-project-picker-event-rest/group_vars/production.yml",
         "dk-project-picker-event-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "UnusedSqsCleaner",
       "version": "00bb9750ee01",
       "username": "40339600+tamasroma",
       "comment": "[NXS_13841] EOS - MS - Create new CommunicationsService",
@@ -254,10 +287,10 @@
         "dk-project-comminication-rest/group_vars/qa.yml",
         "dk-project-comminication-rest/inventory.ini"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T113522+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "UnusedSqsCleaner",
       "version": "06dd4682ee9b",
       "username": "gergo.hajnal",
       "comment": "[ST-5010] (st-panel-brand-rest) prepare for PROD deploy",
@@ -266,20 +299,20 @@
         "st-panel-brand-rest/group_vars/prod.yml",
         "st-panel-brand-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T113522+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "UnusedSqsCleaner",
       "version": "72c8d2d93fa7",
       "username": "gergo.hajnal",
       "comment": "[ST-4992] (dk-management-sources-rest) prepare for PROD deploy",
       "files": [
         "dk-management-sources-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T113522+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "UnusedSqsCleaner",
       "version": "f95117ce6b7d",
       "username": "gergo.hajnal",
       "comment": "[ST-5000] (dk-dk-respondent-rest) prepare for PROD deploy",
@@ -287,201 +320,189 @@
         "dk-dk-respondent-rest/group_vars/production.yml",
         "st-menu-service/group_vars/qa.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T113522+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "UnusedSqsCleaner",
       "version": "e06594d2e1f3",
       "username": "gergo.hajnal",
       "comment": "[ST-5014] (st-menu-service) prepare for PROD deploy",
       "files": [
         "st-menu-service/group_vars/prod.yml"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T113522+0000"
     },
     {
-      "service": "NexusApiJ21",
-      "version": "46813b5070ad",
-      "username": "gergo.hajnal",
-      "comment": "(st-respondent-cache) rollback accidental config change",
+      "service": "DKSystemRestJ16",
+      "version": "10ea28849a69",
+      "username": "adamlaszlo.mohacsi",
+      "comment": "[NA-1932] - EOS - CS Tools - Update CS Tools",
       "files": [
-        "st-respondent-cache/group_vars/prod.yml"
+        "management/gateways/DKSystemRest/src/main/java/com/surveysampling/rest/gateway/system/v3/api/SystemGatewayCSToolsRestV3.java",
+        "management/gateways/DKSystemRest/src/main/java/com/surveysampling/rest/gateway/system/v3/impl/SystemGatewayCSToolsImplV3.java"
       ],
-      "deployedAt": "20260916T165831+0000"
+      "deployedAt": "20260917T094644+0000"
     },
     {
-      "service": "NexusApiJ21",
-      "version": "2235029b9c88",
-      "username": "47777290+koattila",
-      "comment": "DQI-4492 increasing alcatraz dev and QA memory size",
+      "service": "DKSystemRestJ16",
+      "version": "db6a8ef8d07b",
+      "username": "adamlaszlo.mohacsi",
+      "comment": "[NA-1932] - EOS - CS Tools - Update CS Tools",
       "files": [
-        "alcatraz/group_vars/dev.yml",
-        "alcatraz/group_vars/qa.yml"
+        "management/gateways/DKSystemRest/src/main/java/com/surveysampling/rest/gateway/system/v3/impl/SystemGatewayCSToolsImplV3.java",
+        "management/gateways/DKSystemRest/src/main/java/com/surveysampling/rest/gateway/system/v3/impl/fileprocessors/helpers/UploadedFileValidatorV3.java"
       ],
-      "deployedAt": "20260916T165831+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "f8f970607f9d",
-      "username": "47777290+koattila",
-      "comment": "DQI-4492 increasing alcatraz dev and QA cpu size",
-      "files": [
-        "alcatraz/group_vars/dev.yml",
-        "alcatraz/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260916T165831+0000"
-    },
-    {
-      "service": "ResourceBrowserRestJ21",
-      "version": "0f338c478971",
-      "username": "andras.banszki",
-      "comment": "[NXS-12243] MS - migrate ResourceBrowserRest to J21 (#5374)",
-      "files": [
-        "project/ResourceBrowserRest/Dockerfile",
-        "project/ResourceBrowserRest/build.gradle",
-        "project/ResourceBrowserRest/gradle/wrapper/gradle-wrapper.jar",
-        "project/ResourceBrowserRest/gradle/wrapper/gradle-wrapper.properties",
-        "project/ResourceBrowserRest/gradlew",
-        "project/ResourceBrowserRest/gradlew.bat",
-        "project/ResourceBrowserRest/group_vars/all.yml",
-        "project/ResourceBrowserRest/src/integTest/groovy/com/surveysampling/rest/resourcebrowser/acceptance/v1/ResourceBrowserRestAcceptanceTest.groovy",
-        "project/ResourceBrowserRest/src/main/java/com/surveysampling/rest/resourcebrowser/ResourceBrowserRestApplication.java",
-        "project/ResourceBrowserRest/src/main/java/com/surveysampling/rest/resourcebrowser/service/v1/model/GetFeaturesRequest.java"
-      ],
-      "deployedAt": "20260916T143332+0000"
-    },
-    {
-      "service": "DKOrder",
-      "version": "c5f0fc71f5ad",
-      "username": "40339600+tamasroma",
-      "comment": "[NXS-13856] MS - DkOrder - Remove Rabbit message sending (#5371)",
-      "files": [
-        "gateway/dk/DKOrder/src/main/java/com/surveysampling/rest/gateway/order/v2/service/notification/NotificationSender.java",
-        "gateway/dk/DKOrder/src/main/java/com/surveysampling/rest/gateway/order/v2/service/notification/messaging/NotificationChannels.java",
-        "gateway/dk/DKOrder/src/main/resources/bootstrap.yml",
-        "gateway/dk/DKOrder/src/test/groovy/com/surveysampling/rest/gateway/order/v2/service/notification/NotificationSenderTest.groovy"
-      ],
-      "deployedAt": "20260916T110753+0000"
+      "deployedAt": "20260917T094644+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "NexusApiJ21",
-      "commits": 25,
-      "latestTicket": "NXS-13857",
-      "latestComment": "[NXS-13857] MS | NexusApi | mock endpoints - controller fix",
-      "deployedAt": "20260916T165831+0000"
+      "service": "QuotaGroupRestJ21",
+      "commits": 23,
+      "latestTicket": "",
+      "latestComment": "[ST-5019] (st-cloud-config) change environment_tags to environment_strings in ne",
+      "deployedAt": "20260917T130834+0000"
     },
     {
-      "service": "ResourceBrowserRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-12243",
-      "latestComment": "[NXS-12243] MS - migrate ResourceBrowserRest to J21 (#5374)",
-      "deployedAt": "20260916T143332+0000"
+      "service": "UnusedSqsCleaner",
+      "commits": 5,
+      "latestTicket": "",
+      "latestComment": "[NXS_13841] EOS - MS - Create new CommunicationsService",
+      "deployedAt": "20260917T113522+0000"
     },
     {
-      "service": "DKOrder",
-      "commits": 1,
-      "latestTicket": "NXS-13856",
-      "latestComment": "[NXS-13856] MS - DkOrder - Remove Rabbit message sending (#5371)",
-      "deployedAt": "20260916T110753+0000"
+      "service": "DKSystemRestJ16",
+      "commits": 4,
+      "latestTicket": "",
+      "latestComment": "[NA-1932] - EOS - CS Tools - Update CS Tools",
+      "deployedAt": "20260917T094644+0000"
     }
   ],
-  "clusters": [
-    {
-      "label": "assert_fail",
-      "display": "assertion Condition not satisfied",
-      "count": 1,
-      "newCount": 1,
-      "sample": "",
-      "why": "Spock assertion failed (fixture or response shape)"
-    }
-  ],
-  "failures": [
-    {
-      "name": "Complete advanced fieldwork: tally mode switching, delivery modes, and soft launch user management: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkEndToEndAdvancedTestSteps.Complete advanced fieldwork: tally mode switching, delivery modes, and soft launch user management",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkEndToEndAdvancedTestSteps",
-      "newFailure": true,
-      "area": "Fieldwork",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: delivery3.deliveryMode.toString() == \"ACCELERATED\" | | | | | STANDARD STANDARD false | 9 differences (18% similarity) | (STANDA)R(---)D | (ACCELE)R(ATE)D <com.dynata.nexus.api.model.quotagroup.Delivery@3fda8dae deliveryMode=STANDARD dailyQuota=100 clickRatePerUnit=null clickRateUnit=null prioritizationLevel=NONE prioritizationChangedAt=null deliveryVisibleOnUI=true boostO\u2026"
-    }
-  ],
+  "clusters": [],
+  "failures": [],
   "rulesNutshell": {
-    "headline": "1 new failure in Fieldwork",
-    "tone": "warn",
-    "severity": "low",
-    "bullets": [
-      "1\u00d7 assertion Condition not satisfied"
-    ],
-    "investigation": "New fails: 1\u00d7 assertion Condition not satisfied.",
+    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "tone": "ok",
+    "severity": "none",
+    "bullets": [],
+    "investigation": "No unmuted failures.",
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2700, 1 fails). Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: Fieldwork (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 3 service(s) (27 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Fieldwork: Complete advanced fieldwork: tally mode switching, delivery modes, and soft launch user ma [assertion Condition not satisfied].",
+      "investigation": "3 service(s) (32 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
       "bullets": [
-        "1\u00d7 assertion Condition not satisfied",
-        "NXS-13848: gergely.gimesi \u2014 [NXS-13848] MS - wait for quota-group totalQuota read-back",
-        "NXS-13848: gergely.gimesi \u2014 [NXS-13848] MS - harden sold-quota lock retries and totalQuota wait",
-        "[QA deploy: NexusApiJ21] NXS-13857 (25 commits) \u2014 [NXS-13857] MS | NexusApi | mock endpoints - controller fix",
-        "[QA deploy: ResourceBrowserRestJ21] NXS-12243 (1 commit) \u2014 [NXS-12243] MS - migrate ResourceBrowserRest to J21 (#5374)",
-        "[QA deploy: DKOrder] NXS-13856 (1 commit) \u2014 [NXS-13856] MS - DkOrder - Remove Rabbit message sending (#5371)"
+        "[QA deploy: QuotaGroupRestJ21]  (23 commits) \u2014 [ST-5019] (st-cloud-config) change environment_tags to environment_strings in ne",
+        "[QA deploy: UnusedSqsCleaner]  (5 commits) \u2014 [NXS_13841] EOS - MS - Create new CommunicationsService",
+        "[QA deploy: DKSystemRestJ16]  (4 commits) \u2014 [NA-1932] - EOS - CS Tools - Update CS Tools"
       ],
-      "newFailureAreas": [
-        {
-          "area": "Fieldwork",
-          "newCount": 1
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
-    "suspectCommits": [
-      {
-        "version": "b1cf9b5bb08c",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13848] MS - wait for quota-group totalQuota read-back",
-        "ticket": "NXS-13848",
-        "areas": []
-      },
-      {
-        "version": "5940999ae9b8",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13848] MS - harden sold-quota lock retries and totalQuota wait",
-        "ticket": "NXS-13848",
-        "areas": []
-      }
-    ],
+    "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "NexusApiJ21",
-        "version": "7aa0d588d704",
-        "username": "david.nagy",
-        "comment": "[NXS-13857] MS | NexusApi | mock endpoints - controller fix",
-        "ticket": "NXS-13857",
-        "deployedAt": "20260916T165831+0000",
+        "service": "QuotaGroupRestJ21",
+        "version": "7662f404a7b9",
+        "username": "gergo.hajnal",
+        "comment": "[ST-5019] (st-cloud-config) change environment_tags to environment_strings in new dynata tags",
+        "ticket": "",
+        "deployedAt": "20260917T130834+0000",
         "files": [
-          "UCommunicationsApi.java"
+          "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiJ21",
+        "service": "QuotaGroupRestJ21",
+        "version": "21e23e68bbb8",
+        "username": "40339600+tamasroma",
+        "comment": "[NXS-13780] MS - Survey stays Active (but disabled) when user removes\u2026 (#5372)",
+        "ticket": "NXS-13780",
+        "deployedAt": "20260917T130834+0000",
+        "files": [
+          "QuotaGroupCoreService.java",
+          "QuotaGroupCoreServiceTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "0e9d06e926bb",
+        "username": "gergo.hajnal",
+        "comment": "[ST-5019] (st-cloud-config) remove access scope tag from non load balancers",
+        "ticket": "",
+        "deployedAt": "20260917T130834+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "89996c7b40be",
+        "username": "gergo.hajnal",
+        "comment": "[ST-4992] (dk-management-sources-rest) correction in health check for QA and PROD",
+        "ticket": "",
+        "deployedAt": "20260917T130834+0000",
+        "files": [
+          "production.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "bbd9f4029673",
+        "username": "weiqun.wang",
+        "comment": "increase auto_scaling capacity for prod",
+        "ticket": "",
+        "deployedAt": "20260917T130834+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "743bf141468d",
+        "username": "weiqun.wang",
+        "comment": "put autoscaling back",
+        "ticket": "",
+        "deployedAt": "20260917T130834+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "a09706e243a3",
+        "username": "richard.santos",
+        "comment": "[FAI-477] change hostedZoneId for prod.ml.dynata.com",
+        "ticket": "",
+        "deployedAt": "20260917T130834+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
         "version": "4d75b1766dbe",
         "username": "brian.connolly",
         "comment": "Add bucket config.",
         "ticket": "",
-        "deployedAt": "20260916T165831+0000",
+        "deployedAt": "20260917T130834+0000",
         "files": [
           "qa.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiJ21",
+        "service": "QuotaGroupRestJ21",
         "version": "6057adf0b74b",
         "username": "brian.connolly",
         "comment": "Convert to use AE-DPR.",
         "ticket": "",
-        "deployedAt": "20260916T165831+0000",
+        "deployedAt": "20260917T130834+0000",
         "files": [
           "cloud-formation.template.yml",
           "all.yml",
@@ -491,86 +512,12 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiJ21",
+        "service": "QuotaGroupRestJ21",
         "version": "b45b75bec755",
         "username": "brian.connolly",
         "comment": "Update role permissions.",
         "ticket": "",
-        "deployedAt": "20260916T165831+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiJ21",
-        "version": "7ade8f0b89ad",
-        "username": "matt.spencer",
-        "comment": "[DQI-4569] Removing Http Listener from dq-aws-internal-load-balancer.",
-        "ticket": "",
-        "deployedAt": "20260916T165831+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiJ21",
-        "version": "1d857d61ef6d",
-        "username": "brian.connolly",
-        "comment": "Convert to AE-DPR.",
-        "ticket": "",
-        "deployedAt": "20260916T165831+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "dev.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiJ21",
-        "version": "7a427baca199",
-        "username": "matt.spencer",
-        "comment": "[DQI-4569] Removing HttpListenerRule for dq-identity-service.",
-        "ticket": "",
-        "deployedAt": "20260916T165831+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiJ21",
-        "version": "5bed9a95c1a3",
-        "username": "brian.connolly",
-        "comment": "Remove tags.",
-        "ticket": "",
-        "deployedAt": "20260916T165831+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiJ21",
-        "version": "3adfd0a068db",
-        "username": "richard.santos",
-        "comment": "Switch ml-offer-conversion-model variant name",
-        "ticket": "",
-        "deployedAt": "20260916T165831+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiJ21",
-        "version": "e49b202d67ca",
-        "username": "brian.connolly",
-        "comment": "Remove tags.",
-        "ticket": "",
-        "deployedAt": "20260916T165831+0000",
+        "deployedAt": "20260917T130834+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
