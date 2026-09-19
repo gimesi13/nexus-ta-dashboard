@@ -1710,22 +1710,25 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "16 new failures \u2014 mainly PES, Quota",
+    "headline": "15 PES notification tests time out waiting for QuotaGroup FIFO events — points to QA deploy NXS-13893 (ProjectEventForwarder messaging).",
     "tone": "bad",
     "severity": "high",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 1 service(s) were deployed to QA in this window (ProjectEventForwarderJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 15\u00d7 PES soft-launch vs tally; 1\u00d7 other (no dominant signature yet). Vs prior #3.0.2702: up 16 total fails.",
+    "cause": "code_change",
+    "causeText": "All 15 PES failures are Pes2NotificationTestSteps timing out after 90s in waitForPes2Notification — a notification that never arrives on the QuotaGroup FIFO topic, i.e. a functional missing-message timeout, not a socket/502/504 infra timeout. This coincides with QA deploy NXS-13893 \"fix Instant type in headers\" by norbert.farkas (ProjectEventForwarderJ21, e55d42afa0d7), which changed v2/messaging/activemq/ActiveMqIntegrationConfig.java in the exact event-forwarding path that publishes these PES2 events. The single Quota failure is a separate cross-service feasibility/lock timing issue (test/data), unrelated to this change.",
+    "investigation": "15× PES Pes2NotificationTestSteps time out waiting for QuotaGroup FIFO notifications that never publish (functional, not infra), lining up with QA deploy NXS-13893 (norbert.farkas) touching ProjectEventForwarder ActiveMQ messaging config. The 1 Quota fail is a separate cross-service lock-timing flake; prior build #3.0.2702 was green.",
     "bullets": [
-      "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "1\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val"
+      "15× PES — 90s timeout in waitForPes2Notification; QuotaGroup FIFO event never published (missing message, not a socket/502)",
+      "Coincides with QA deploy NXS-13893 (norbert.farkas) editing ActiveMqIntegrationConfig.java in the v2 messaging/forwarding path",
+      "1× Quota — sold-quota lock fails on cross-service feasibility lag; separate, likely test/data"
     ],
     "detail": {
-      "investigation": "16 of 16 unmuted failures are new since the prior build (#3.0.2702, 0 fails). Failure types (new-first): (1) 15\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. (2) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: PES (15), Quota (1). 1 service(s) (25 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: PES: quota group rename publishes QG_NAME_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; Quota: Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility [other]; PES: delivery mode update publishes DELIVERY_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally].",
+      "investigation": "All 16 unmuted failures are new since the prior build (#3.0.2702, 0 fails). The dominant cluster is 15× PES in Pes2NotificationTestSteps, every one failing with a 90s timeout in waitForPes2Notification (PesMessagingHelper.waitForPes2Notification, WaitUtil.until) — the expected QuotaGroup FIFO notification (QG_NAME_CHANGE, QUOTA_CHANGE, DELIVERY_CHANGE, INSERTED, DELETED_CHANGE, etc.) never arrives. This is a functional missing-message timeout, not a SocketTimeout/Read timed out/502/504, so it is not QA infra flakiness. In this exact window one service, ProjectEventForwarderJ21 (25 commits), was deployed to QA; its latest commit NXS-13893 \"fix Instant type in headers\" by norbert.farkas (version e55d42afa0d7) changed project/ProjectEventForwarder/.../v2/messaging/activemq/ActiveMqIntegrationConfig.java — the event-forwarding/ActiveMQ messaging path that publishes these very PES2 events. A regression in header (Instant) serialization there would stop notifications from being forwarded to the FIFO topics, producing exactly these timeouts across all event types, which is why the failure fans out to 15 different change types at once. The remaining 1× Quota failure (SoldQuotaLockUnlockWorkflowTestSteps) is unrelated: it fails locking sold quota after 30s due to cross-service lag between QuotaDetails, FeasDataStore and DetailsEditor (feasibility-not-ready) — a test/data timing issue, not this deploy. Hot areas among new fails: PES (15), Quota (1).",
       "bullets": [
-        "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-        "1\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
-        "[QA deploy: ProjectEventForwarderJ21] NXS-13893 (25 commits) \u2014 [ NXS-13893 ] fix Instant type in headers"
+        "15× PES Pes2NotificationTestSteps — 90s timeout in waitForPes2Notification; the QuotaGroup FIFO notification is never published (missing message, not a socket/502/504)",
+        "Prime suspect: QA deploy NXS-13893 \"fix Instant type in headers\" by norbert.farkas (ProjectEventForwarderJ21, e55d42afa0d7) — edits v2/messaging/activemq/ActiveMqIntegrationConfig.java, the path that forwards/publishes these PES2 events",
+        "Failure fans across all event types (QG_NAME_CHANGE, QUOTA_CHANGE, DELIVERY_CHANGE, INSERTED, DELETED_CHANGE, PRICE_CHANGE, ...), consistent with a broken publisher rather than per-test flakiness",
+        "1× Quota SoldQuotaLockUnlockWorkflow — sold-quota lock fails after 30s on cross-service feasibility lag (QuotaDetails/FeasDataStore/DetailsEditor); separate, likely test/data",
+        "Prior build #3.0.2702 was green (0 fails); the other 24 ProjectEventForwarder commits touch only cloud-config/group_vars/CFN and don't map to this messaging path"
       ],
       "newFailureAreas": [
         {
@@ -1737,7 +1740,21 @@
           "newCount": 1
         }
       ],
-      "likelyCauses": []
+      "likelyCauses": [
+        {
+          "ticket": "NXS-13893",
+          "version": "e55d42afa0d7",
+          "username": "norbert.farkas",
+          "areas": [
+            "PES"
+          ],
+          "hitNewFailures": 15,
+          "files": [
+            "project/ProjectEventForwarder/src/main/java/com/surveysampling/rest/projecteventforwarder/v2/messaging/activemq/ActiveMqIntegrationConfig.java"
+          ],
+          "comment": "[ NXS-13893 ] fix Instant type in headers — QA-deployed to ProjectEventForwarderJ21 in this window; changes the ActiveMQ messaging/forwarding path that publishes the PES2 QuotaGroup FIFO notifications the 15 failing tests wait for."
+        }
+      ]
     },
     "clusters": [
       {
@@ -1893,8 +1910,8 @@
         "deployedAt": "20260918T094928+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-09-19T02:15Z",
+    "source": "llm",
+    "generatedAt": "2026-09-19T02:15:00Z",
     "buildNumber": "3.0.2703",
     "buildId": "9533976",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9533976",
