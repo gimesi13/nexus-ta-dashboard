@@ -1710,19 +1710,22 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in Project",
+    "headline": "1 new Project E2E failure \u2014 20s async quota-setup timeout, no code changes to blame.",
     "tone": "warn",
     "severity": "low",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet).",
+    "causeText": "No build or QA-deploy changes in the window, so the single new Project E2E failure (a 20s WaitUtil timeout in setProjectTotalQuota) is most likely async/environment flakiness rather than a code regression.",
+    "investigation": "Only new fail is Project E2E timing out (20s) waiting on setProjectTotalQuota; no commits to implicate.",
     "bullets": [
-      "1\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 20 seconds: Condition never returned a non-null result"
+      "1\u00d7 Project E2E \u2014 WaitUtil timeout (20s) at ProjectHelper.setProjectTotalQuota, condition never returned",
+      "No build/QA-deploy changes \u2014 no commit or developer to blame"
     ],
     "detail": {
-      "investigation": "1 of 16 unmuted failures are new since the prior build (#3.0.2703, 16 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Project (1). Example new failures: Project: Project E2E - covers all project endpoints [other].",
+      "investigation": "The only new failure since #3.0.2703 is Project E2E ('covers all project endpoints'), which threw a 20s WaitUtil timeout in ProjectHelper.setProjectTotalQuota \u2014 an async wait that never returned a result, not an HTTP/socket timeout or assertion. With `changes` and `qaDeployChanges` both empty there is no commit or developer to implicate; the remaining 15 failures are the carried-over PES soft-launch cluster (0 new).",
       "bullets": [
-        "1\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 20 seconds: Condition never returned a non-null result"
+        "1\u00d7 Project \u2014 'Project E2E - covers all project endpoints' [other]: RuntimeException Timeout after 20s at ProjectHelper.setProjectTotalQuota (WaitUtil.until)",
+        "15\u00d7 PES soft-launch cluster carried over from prior build (0 new)",
+        "No changes/qaDeployChanges in window \u2014 nothing to blame as a code regression"
       ],
       "newFailureAreas": [
         {
@@ -1753,8 +1756,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-09-20T02:16Z",
+    "source": "llm",
+    "generatedAt": "2026-09-20T02:16:00Z",
     "buildNumber": "3.0.2704",
     "buildId": "9534498",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9534498",
