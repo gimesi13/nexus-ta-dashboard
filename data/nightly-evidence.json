@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-19T02:15Z",
+  "generatedAt": "2026-09-20T02:16Z",
   "build": {
-    "number": "3.0.2703",
-    "buildId": "9533976",
+    "number": "3.0.2704",
+    "buildId": "9534498",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9533976",
-    "durationSec": 2524.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9534498",
+    "durationSec": 2598.0
   },
   "summary": {
     "tests": 1479,
@@ -15,306 +15,31 @@
     "errors": 0,
     "skipped": 0,
     "muted": 84,
-    "newFailed": 16,
+    "newFailed": 1,
     "passRate": 98.9,
-    "timeSec": 2524.0
+    "timeSec": 2598.0
   },
   "prior": {
-    "buildId": "9532811",
-    "number": "3.0.2702",
-    "status": "SUCCESS",
-    "statusText": "Tests passed: 1395, muted: 84",
-    "startDate": "20260918T013252+0000",
-    "durationSec": 1601.0,
-    "failed": 0,
-    "passed": 1395,
-    "newFailed": 0
+    "buildId": "9533976",
+    "number": "3.0.2703",
+    "status": "FAILURE",
+    "statusText": "Tests failed: 16 (16 new), passed: 1379, muted: 84",
+    "startDate": "20260919T013239+0000",
+    "durationSec": 2524.0,
+    "failed": 16,
+    "passed": 1379,
+    "newFailed": 16
   },
   "changes": [],
-  "qaDeployChanges": [
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "e55d42afa0d7",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-13893 ] fix Instant type in headers",
-      "files": [
-        "project/ProjectEventForwarder/src/main/java/com/surveysampling/rest/projecteventforwarder/v2/messaging/activemq/ActiveMqIntegrationConfig.java"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "9de1b2b09b83",
-      "username": "gergo.hajnal",
-      "comment": "[ST-5019] (st-cloud-config) change DNS hosted zone ID to SupplyTools QA, instead of DKMS QA",
-      "files": [
-        "st-cloud-config/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "7662f404a7b9",
-      "username": "gergo.hajnal",
-      "comment": "[ST-5019] (st-cloud-config) change environment_tags to environment_strings in new dynata tags",
-      "files": [
-        "st-cloud-config/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "0e9d06e926bb",
-      "username": "gergo.hajnal",
-      "comment": "[ST-5019] (st-cloud-config) remove access scope tag from non load balancers",
-      "files": [
-        "st-cloud-config/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "89996c7b40be",
-      "username": "gergo.hajnal",
-      "comment": "[ST-4992] (dk-management-sources-rest) correction in health check for QA and PROD",
-      "files": [
-        "dk-management-sources-rest/group_vars/production.yml",
-        "dk-management-sources-rest/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "bbd9f4029673",
-      "username": "weiqun.wang",
-      "comment": "increase auto_scaling capacity for prod",
-      "files": [
-        "ml-reconciliation-model-service/group_vars/production.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "743bf141468d",
-      "username": "weiqun.wang",
-      "comment": "put autoscaling back",
-      "files": [
-        "ml-reconciliation-model/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "a09706e243a3",
-      "username": "richard.santos",
-      "comment": "[FAI-477] change hostedZoneId for prod.ml.dynata.com",
-      "files": [
-        "ml-reconciliation-model-service/group_vars/production.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "4d75b1766dbe",
-      "username": "brian.connolly",
-      "comment": "Add bucket config.",
-      "files": [
-        "ae-quota-group-translator/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "6057adf0b74b",
-      "username": "brian.connolly",
-      "comment": "Convert to use AE-DPR.",
-      "files": [
-        "ae-quota-group-translator/cloud-formation.template.yml",
-        "ae-quota-group-translator/group_vars/all.yml",
-        "ae-quota-group-translator/group_vars/dev.yml",
-        "ae-quota-group-translator/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "b45b75bec755",
-      "username": "brian.connolly",
-      "comment": "Update role permissions.",
-      "files": [
-        "ae-api-collection/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "7ade8f0b89ad",
-      "username": "matt.spencer",
-      "comment": "[DQI-4569] Removing Http Listener from dq-aws-internal-load-balancer.",
-      "files": [
-        "dq-aws-internal-load-balancer/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "1d857d61ef6d",
-      "username": "brian.connolly",
-      "comment": "Convert to AE-DPR.",
-      "files": [
-        "ae-api-collection/cloud-formation.template.yml",
-        "ae-api-collection/group_vars/all.yml",
-        "ae-api-collection/group_vars/dev.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "7a427baca199",
-      "username": "matt.spencer",
-      "comment": "[DQI-4569] Removing HttpListenerRule for dq-identity-service.",
-      "files": [
-        "dq-identity-service/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "5bed9a95c1a3",
-      "username": "brian.connolly",
-      "comment": "Remove tags.",
-      "files": [
-        "ae-allocation-engine/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "3adfd0a068db",
-      "username": "richard.santos",
-      "comment": "Switch ml-offer-conversion-model variant name",
-      "files": [
-        "ml-offer-conversion-model/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "e49b202d67ca",
-      "username": "brian.connolly",
-      "comment": "Remove tags.",
-      "files": [
-        "ae-client-services-adapter/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "a75ffcf9bd88",
-      "username": "brian.connolly",
-      "comment": "Update stack in preparation for production release.",
-      "files": [
-        "ae-client-services-adapter/group_vars/production.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "bfb1c12933c5",
-      "username": "matt.spencer",
-      "comment": "[DQI-4569] Removing HttpListenerRule for dq-pdl-validation.",
-      "files": [
-        "dq-pdl-validation/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "1f45fff7938d",
-      "username": "weiqun.wang",
-      "comment": "remvoe auto scaling for testing",
-      "files": [
-        "ml-reconciliation-model/cloud-formation.template.yml",
-        "ml-reconciliation-model/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "61045c06b2b8",
-      "username": "gergo.hajnal",
-      "comment": "[ST-5019] (st-cloud-config) prepare for QA deployment",
-      "files": [
-        "st-cloud-config/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "dd131d4f2a7c",
-      "username": "gergo.hajnal",
-      "comment": "[ST-5034] (supply-sample-config-service) prepare for PROD deploy",
-      "files": [
-        "supply-sample-config-service/group_vars/dev.yml",
-        "supply-sample-config-service/group_vars/production.yml",
-        "supply-sample-config-service/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "5904cc286679",
-      "username": "andras.banszki",
-      "comment": "[NXS-13784] Migrate TrafficDetails to J21 - update subnets",
-      "files": [
-        "dk-project-traffic-details-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "3ff4500ca676",
-      "username": "andras.banszki",
-      "comment": "[NXS_12234] MS - migrate PickerEventRest to J21",
-      "files": [
-        "dk-project-picker-event-rest/group_vars/dev.yml",
-        "dk-project-picker-event-rest/group_vars/production.yml",
-        "dk-project-picker-event-rest/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    },
-    {
-      "service": "ProjectEventForwarderJ21",
-      "version": "00bb9750ee01",
-      "username": "40339600+tamasroma",
-      "comment": "[NXS_13841] EOS - MS - Create new CommunicationsService",
-      "files": [
-        "dk-project-comminication-rest/cloud-formation.template.yml",
-        "dk-project-comminication-rest/group_vars/all.yml",
-        "dk-project-comminication-rest/group_vars/dev.yml",
-        "dk-project-comminication-rest/group_vars/production.yml",
-        "dk-project-comminication-rest/group_vars/qa.yml",
-        "dk-project-comminication-rest/inventory.ini"
-      ],
-      "deployedAt": "20260918T094928+0000"
-    }
-  ],
-  "qaDeployServices": [
-    {
-      "service": "ProjectEventForwarderJ21",
-      "commits": 25,
-      "latestTicket": "NXS-13893",
-      "latestComment": "[ NXS-13893 ] fix Instant type in headers",
-      "deployedAt": "20260918T094928+0000"
-    }
-  ],
+  "qaDeployChanges": [],
+  "qaDeployServices": [],
   "clusters": [
     {
       "label": "test_setup_soft_launch",
       "display": "PES soft-launch vs tally",
       "count": 15,
-      "newCount": 15,
-      "sample": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
+      "newCount": 0,
+      "sample": "",
       "why": "PES soft-launch total vs tally on a shared fixture"
     },
     {
@@ -322,7 +47,7 @@
       "display": "other",
       "count": 1,
       "newCount": 1,
-      "sample": "Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
+      "sample": "java.lang.RuntimeException: Timeout after waiting 20 seconds: Condition never returned a non-null result",
       "why": "no dominant signature yet \u2014 open TeamCity details"
     }
   ],
@@ -330,7 +55,7 @@
     {
       "name": "quota group rename publishes QG_NAME_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -339,25 +64,16 @@
     {
       "name": "total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
       "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
     },
     {
-      "name": "Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaLockUnlockWorkflowTestSteps.Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaLockUnlockWorkflowTestSteps",
-      "newFailure": true,
-      "area": "Quota",
-      "cluster": "other",
-      "message": "Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped value!",
-      "detailsExcerpt": "java.lang.RuntimeException: Failed to lock sold quota for quotaGroupId=118793296 after 30s: DetailsEditor still returning feasibility-not-ready or no sold quota > quota capped value (cross-service lag between QuotaDetails, FeasDataStore, and DetailsEditor). at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupHelper.setSoldQuotaLocked(QuotaGroupHelper.groovy:732) at \u2026"
-    },
-    {
       "name": "delivery mode update publishes DELIVERY_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -366,7 +82,7 @@
     {
       "name": "soft launch settings update publishes SOFT_LAUNCH_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -375,7 +91,7 @@
     {
       "name": "sources brand exclusion update publishes SOURCES_BRAND_EX_UPDATED on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -384,7 +100,7 @@
     {
       "name": "sources sample-criteria toggle update publishes SOURCES_TOGGLES_UPDATED on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -393,7 +109,7 @@
     {
       "name": "partner event creation publishes PARTNER_ALLOCATION_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -402,7 +118,7 @@
     {
       "name": "proposed dates update publishes TARGET_DATES_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -411,7 +127,7 @@
     {
       "name": "audience price update publishes PRICE_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -420,7 +136,7 @@
     {
       "name": "bid incidence update publishes BID_INCIDENCE_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -429,7 +145,7 @@
     {
       "name": "default survey length update publishes SURVEY_LENGTH_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -438,7 +154,7 @@
     {
       "name": "activity update publishes ACTIVITY_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -447,7 +163,7 @@
     {
       "name": "line item id update publishes LINE_ITEM_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -456,7 +172,7 @@
     {
       "name": "quota group creation publishes INSERTED on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -465,176 +181,51 @@
     {
       "name": "quota group deletion publishes DELETED_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
       "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
+    },
+    {
+      "name": "Project E2E - covers all project endpoints",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ProjectE2ETestSteps",
+      "newFailure": true,
+      "area": "Project",
+      "cluster": "other",
+      "message": "java.lang.RuntimeException: Timeout after waiting 20 seconds: Condition never returned a non-null result",
+      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 20 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.ProjectHelper.setProjectTotalQuota(ProjectHelper.groovy:699) at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ProjectE2ETes\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "16 new failures \u2014 mainly PES, Quota",
-    "tone": "bad",
-    "severity": "high",
+    "headline": "1 new failure in Project",
+    "tone": "warn",
+    "severity": "low",
     "bullets": [
-      "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "1\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val"
+      "1\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 20 seconds: Condition never returned a non-null result"
     ],
-    "investigation": "New fails: 15\u00d7 PES soft-launch vs tally; 1\u00d7 other (no dominant signature yet). Vs prior #3.0.2702: up 16 total fails.",
+    "investigation": "New fails: 1\u00d7 other (no dominant signature yet).",
     "detail": {
-      "investigation": "16 of 16 unmuted failures are new since the prior build (#3.0.2702, 0 fails). Failure types (new-first): (1) 15\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. (2) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: PES (15), Quota (1). 1 service(s) (25 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: PES: quota group rename publishes QG_NAME_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; Quota: Unnesting parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility [other]; PES: delivery mode update publishes DELIVERY_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally].",
+      "investigation": "1 of 16 unmuted failures are new since the prior build (#3.0.2703, 16 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Project (1). Example new failures: Project: Project E2E - covers all project endpoints [other].",
       "bullets": [
-        "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-        "1\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
-        "[QA deploy: ProjectEventForwarderJ21] NXS-13893 (25 commits) \u2014 [ NXS-13893 ] fix Instant type in headers"
+        "1\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 20 seconds: Condition never returned a non-null result"
       ],
       "newFailureAreas": [
         {
-          "area": "PES",
-          "newCount": 15
-        },
-        {
-          "area": "Quota",
+          "area": "Project",
           "newCount": 1
         }
       ],
       "likelyCauses": []
     },
     "suspectCommits": [],
-    "qaDeploySuspects": [
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "e55d42afa0d7",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-13893 ] fix Instant type in headers",
-        "ticket": "NXS-13893",
-        "deployedAt": "20260918T094928+0000",
-        "files": [
-          "ActiveMqIntegrationConfig.java"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "9de1b2b09b83",
-        "username": "gergo.hajnal",
-        "comment": "[ST-5019] (st-cloud-config) change DNS hosted zone ID to SupplyTools QA, instead of DKMS QA",
-        "ticket": "",
-        "deployedAt": "20260918T094928+0000",
-        "files": [
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "7662f404a7b9",
-        "username": "gergo.hajnal",
-        "comment": "[ST-5019] (st-cloud-config) change environment_tags to environment_strings in new dynata tags",
-        "ticket": "",
-        "deployedAt": "20260918T094928+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "0e9d06e926bb",
-        "username": "gergo.hajnal",
-        "comment": "[ST-5019] (st-cloud-config) remove access scope tag from non load balancers",
-        "ticket": "",
-        "deployedAt": "20260918T094928+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "89996c7b40be",
-        "username": "gergo.hajnal",
-        "comment": "[ST-4992] (dk-management-sources-rest) correction in health check for QA and PROD",
-        "ticket": "",
-        "deployedAt": "20260918T094928+0000",
-        "files": [
-          "production.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "bbd9f4029673",
-        "username": "weiqun.wang",
-        "comment": "increase auto_scaling capacity for prod",
-        "ticket": "",
-        "deployedAt": "20260918T094928+0000",
-        "files": [
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "743bf141468d",
-        "username": "weiqun.wang",
-        "comment": "put autoscaling back",
-        "ticket": "",
-        "deployedAt": "20260918T094928+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "a09706e243a3",
-        "username": "richard.santos",
-        "comment": "[FAI-477] change hostedZoneId for prod.ml.dynata.com",
-        "ticket": "",
-        "deployedAt": "20260918T094928+0000",
-        "files": [
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "4d75b1766dbe",
-        "username": "brian.connolly",
-        "comment": "Add bucket config.",
-        "ticket": "",
-        "deployedAt": "20260918T094928+0000",
-        "files": [
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectEventForwarderJ21",
-        "version": "6057adf0b74b",
-        "username": "brian.connolly",
-        "comment": "Convert to use AE-DPR.",
-        "ticket": "",
-        "deployedAt": "20260918T094928+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "dev.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      }
-    ]
+    "qaDeploySuspects": []
   },
   "contractDrift": {
-    "newCount": 1,
+    "newCount": 0,
     "baselineCount": 94,
-    "currentCount": 95,
-    "examples": [
-      "GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'."
-    ]
+    "currentCount": 94,
+    "examples": []
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."
 }
