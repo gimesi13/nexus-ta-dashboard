@@ -1,34 +1,34 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-20T02:16Z",
+  "generatedAt": "2026-09-21T02:15Z",
   "build": {
-    "number": "3.0.2704",
-    "buildId": "9534498",
+    "number": "3.0.2705",
+    "buildId": "9535379",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9534498",
-    "durationSec": 2598.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9535379",
+    "durationSec": 2507.0
   },
   "summary": {
     "tests": 1479,
     "passed": 1379,
-    "failures": 16,
+    "failures": 15,
     "errors": 0,
     "skipped": 0,
-    "muted": 84,
-    "newFailed": 1,
+    "muted": 85,
+    "newFailed": 0,
     "passRate": 98.9,
-    "timeSec": 2598.0
+    "timeSec": 2507.0
   },
   "prior": {
-    "buildId": "9533976",
-    "number": "3.0.2703",
+    "buildId": "9534498",
+    "number": "3.0.2704",
     "status": "FAILURE",
-    "statusText": "Tests failed: 16 (16 new), passed: 1379, muted: 84",
-    "startDate": "20260919T013239+0000",
-    "durationSec": 2524.0,
+    "statusText": "Tests failed: 16 (1 new), passed: 1379, muted: 84",
+    "startDate": "20260920T013243+0000",
+    "durationSec": 2598.0,
     "failed": 16,
     "passed": 1379,
-    "newFailed": 16
+    "newFailed": 1
   },
   "changes": [],
   "qaDeployChanges": [],
@@ -38,17 +38,9 @@
       "label": "test_setup_soft_launch",
       "display": "PES soft-launch vs tally",
       "count": 15,
-      "newCount": 0,
-      "sample": "",
+      "newCount": 15,
+      "sample": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
       "why": "PES soft-launch total vs tally on a shared fixture"
-    },
-    {
-      "label": "other",
-      "display": "other",
-      "count": 1,
-      "newCount": 1,
-      "sample": "java.lang.RuntimeException: Timeout after waiting 20 seconds: Condition never returned a non-null result",
-      "why": "no dominant signature yet \u2014 open TeamCity details"
     }
   ],
   "failures": [
@@ -186,34 +178,25 @@
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
       "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "Project E2E - covers all project endpoints",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ProjectE2ETestSteps",
-      "newFailure": true,
-      "area": "Project",
-      "cluster": "other",
-      "message": "java.lang.RuntimeException: Timeout after waiting 20 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 20 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.ProjectHelper.setProjectTotalQuota(ProjectHelper.groovy:699) at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ProjectE2ETes\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "1 new failure in Project",
+    "headline": "15 continuing failure(s) \u2014 no new unmuted fails",
     "tone": "warn",
     "severity": "low",
     "bullets": [
-      "1\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 20 seconds: Condition never returned a non-null result"
+      "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result"
     ],
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet).",
+    "investigation": "Failures: 15\u00d7 PES soft-launch vs tally.",
     "detail": {
-      "investigation": "1 of 16 unmuted failures are new since the prior build (#3.0.2703, 16 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Project (1). Example new failures: Project: Project E2E - covers all project endpoints [other].",
+      "investigation": "No new unmuted failures; 15 continuing from prior runs. Failure types (new-first): (1) 15\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. Hot areas among new fails: PES (15). Example new failures: PES: quota group rename publishes QG_NAME_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: delivery mode update publishes DELIVERY_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: soft launch settings update publishes SOFT_LAUNCH_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally].",
       "bullets": [
-        "1\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 20 seconds: Condition never returned a non-null result"
+        "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result"
       ],
       "newFailureAreas": [
         {
-          "area": "Project",
-          "newCount": 1
+          "area": "PES",
+          "newCount": 15
         }
       ],
       "likelyCauses": []

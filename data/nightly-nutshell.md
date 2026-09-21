@@ -1,7 +1,7 @@
-**1 new Project E2E failure — 20s async quota-setup timeout, no code changes to blame.**
+**15 continuing failure(s) — no new unmuted fails**
 
-_Likely cause: No build or QA-deploy changes; a 20s WaitUtil timeout in setProjectTotalQuota, most likely async/environment flakiness._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- 1× Project E2E — WaitUtil timeout (20s) at ProjectHelper.setProjectTotalQuota, condition never returned
+- 15× PES soft-launch vs tally — java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9534498)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9535379)
