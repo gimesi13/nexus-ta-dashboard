@@ -1699,26 +1699,24 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "15 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "15 continuing PES2-notification timeouts \u2014 no new failures this run.",
     "tone": "warn",
     "severity": "low",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "Failures: 15\u00d7 PES soft-launch vs tally.",
+    "causeText": "No test-module or QA-deploy changes landed in the window, so the 15 PES2 FIFO-notification timeouts are all continuing (not new) failures that point to test/data or messaging-environment flakiness on the shared soft-launch fixture rather than any code regression.",
+    "investigation": "All 15 failures are PES2 QuotaGroup FIFO notification waits timing out at 90s; none are new.",
     "bullets": [
-      "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result"
+      "15\u00d7 PES2 QuotaGroup FIFO notification waits timed out at 90s (Condition never returned a non-null result) \u2014 all continuing, 0 new",
+      "No test-module or QA-deploy changes in the window \u2014 no commit to blame"
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 15 continuing from prior runs. Failure types (new-first): (1) 15\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. Hot areas among new fails: PES (15). Example new failures: PES: quota group rename publishes QG_NAME_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: delivery mode update publishes DELIVERY_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: soft launch settings update publishes SOFT_LAUNCH_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally].",
+      "investigation": "All 15 failures are in PES Pes2NotificationTestSteps, each timing out after 90s in WaitUtil.until while PesMessagingHelper.waitForPes2Notification waits for a QuotaGroup FIFO notification that never arrives \u2014 a wait-for-message timeout, not a socket/502/504 infra error nor a 'Condition not satisfied' assertion. With newFailed=0 and empty changes/qaDeployChanges, there is no commit to implicate; the pattern points to test/data or messaging-environment flakiness on the shared soft-launch fixture.",
       "bullets": [
-        "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result"
+        "15\u00d7 PES soft-launch vs tally \u2014 all in Pes2NotificationTestSteps, 90s timeout waiting for the QuotaGroup FIFO notification",
+        "0 new failures (newFailed=0); all 15 continued from prior build 3.0.2704",
+        "changes=[] and qaDeployChanges=[] \u2014 no code to blame; likely test/data or messaging-environment flakiness"
       ],
-      "newFailureAreas": [
-        {
-          "area": "PES",
-          "newCount": 15
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1734,8 +1732,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-09-21T02:15Z",
+    "source": "llm",
+    "generatedAt": "2026-09-21T02:15:00Z",
     "buildNumber": "3.0.2705",
     "buildId": "9535379",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9535379",
