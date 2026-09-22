@@ -1,38 +1,417 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-21T02:15Z",
+  "generatedAt": "2026-09-22T02:16Z",
   "build": {
-    "number": "3.0.2705",
-    "buildId": "9535379",
+    "number": "3.0.2706",
+    "buildId": "9536486",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9535379",
-    "durationSec": 2507.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9536486",
+    "durationSec": 2577.0
   },
   "summary": {
     "tests": 1479,
-    "passed": 1379,
+    "passed": 1378,
     "failures": 15,
     "errors": 0,
     "skipped": 0,
-    "muted": 85,
+    "muted": 86,
     "newFailed": 0,
     "passRate": 98.9,
-    "timeSec": 2507.0
+    "timeSec": 2577.0
   },
   "prior": {
-    "buildId": "9534498",
-    "number": "3.0.2704",
+    "buildId": "9535379",
+    "number": "3.0.2705",
     "status": "FAILURE",
-    "statusText": "Tests failed: 16 (1 new), passed: 1379, muted: 84",
-    "startDate": "20260920T013243+0000",
-    "durationSec": 2598.0,
-    "failed": 16,
+    "statusText": "Tests failed: 15, passed: 1379, muted: 85",
+    "startDate": "20260921T013236+0000",
+    "durationSec": 2507.0,
+    "failed": 15,
     "passed": 1379,
-    "newFailed": 1
+    "newFailed": 0
   },
   "changes": [],
-  "qaDeployChanges": [],
-  "qaDeployServices": [],
+  "qaDeployChanges": [
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "5f682e94b302",
+      "username": "andras.banszki",
+      "comment": "[NXS-12244] MS - migrate RestrictFilterRest",
+      "files": [
+        "project/RestrictFilterRest/README.md",
+        "project/RestrictFilterRest/build.gradle"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "c2defb556da7",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5003] (CountryLanguageRest) prepare for PROD deployment",
+      "files": [
+        "dk-project-country-language-rest/group_vars/production.yml",
+        "dk-project-country-language-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "d151f8d026f8",
+      "username": "brian.connolly",
+      "comment": "Remove tags.",
+      "files": [
+        "ae-quota-group-translator/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "19d0ed1c49c7",
+      "username": "brian.connolly",
+      "comment": "Update in preparation for production release.",
+      "files": [
+        "ae-quota-group-translator/group_vars/production.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "d525ad84fb35",
+      "username": "andras.banszki",
+      "comment": "[NXS-12244] MS - migrate RestrictFilterRest to J21",
+      "files": [
+        "project/RestrictFilterRest/build.gradle",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/AcceptanceCoverageTest.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/pacts/SCMProjectPacts.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/pacts/SCMQuotaGroupPacts.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/pacts/SCMSurveyPacts.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/pacts/SettingRestPacts.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/v1/acceptance/RestrictFilterRestAcceptanceTest.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/v2/acceptance/RestrictFilterCompatibilityTest.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/v2/acceptance/RestrictFilterRestAcceptanceTest.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/v2/sql/RestrictFilterServiceToSqlTest.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/v2/sql/SqlRestrictConditionsParametersSqlTest.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/v2/sql/SqlRestrictConditionsSqlTest.groovy",
+        "project/RestrictFilterRest/src/main/java/com/surveysampling/rest/restrictfilter/v2/RestrictFilterRest.java",
+        "project/RestrictFilterRest/src/main/java/com/surveysampling/rest/restrictfilter/v2/messaging/RestrictFilterMessageSender.java",
+        "project/RestrictFilterRest/src/main/java/com/surveysampling/rest/restrictfilter/v2/sql/SqlRestrictConditionParameters.java",
+        "project/RestrictFilterRest/src/main/java/com/surveysampling/rest/restrictfilter/v2/sql/SqlRestrictConditions.java",
+        "project/RestrictFilterRest/src/main/java/com/surveysampling/rest/restrictfilter/v2/sql/extractors/RestrictConditionExtractor.java",
+        "project/RestrictFilterRest/src/test/groovy/com/surveysampling/rest/restrictfilter/v2/service/RestrictFilterRestTest.groovy"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "b93fc5363628",
+      "username": "andras.banszki",
+      "comment": "[NXS_13533] MS - migrate ExternalEventRest to J21",
+      "files": [
+        "dk-project-external-event-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "88d06bd5eab2",
+      "username": "andras.banszki",
+      "comment": "[NXS_12229] MS - migrate MailEventRest to J21",
+      "files": [
+        "dk-project-mail-event-rest/group_vars/dev.yml",
+        "dk-project-mail-event-rest/group_vars/production.yml",
+        "dk-project-mail-event-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "4f0a27196d80",
+      "username": "andras.banszki",
+      "comment": "[NXS_12237] MS - migrate ProjectLogRest to J21",
+      "files": [
+        "dk-project-project-log-rest/group_vars/dev.yml",
+        "dk-project-project-log-rest/group_vars/production.yml",
+        "dk-project-project-log-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "e05b732dd1d2",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4981] (ParticipationStatusRest) prepare for PROD deploy",
+      "files": [
+        "st-participation-status-rest/group_vars/dev.yml",
+        "st-participation-status-rest/group_vars/prod.yml",
+        "st-participation-status-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "5ff6ed356099",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4983] (RexTRest) prepare for PROD deploy",
+      "files": [
+        "dk-management-rex-t-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "ad451c3be487",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4995] (MailTemplateRest) prepare for PROD deploy",
+      "files": [
+        "dk-project-mail-template-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "1d6116c9dc81",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4988] (MailRest) prepare for PROD deploy",
+      "files": [
+        "dk-management-mail-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "6e7503965e0b",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4978] (DefaultPagesRest) prepare for PROD deploy",
+      "files": [
+        "dk-management-default-pages-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "9de1b2b09b83",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5019] (st-cloud-config) change DNS hosted zone ID to SupplyTools QA, instead of DKMS QA",
+      "files": [
+        "st-cloud-config/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "7662f404a7b9",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5019] (st-cloud-config) change environment_tags to environment_strings in new dynata tags",
+      "files": [
+        "st-cloud-config/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "0e9d06e926bb",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5019] (st-cloud-config) remove access scope tag from non load balancers",
+      "files": [
+        "st-cloud-config/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "baf23759d9c2",
+      "username": "krisztian.erdei",
+      "comment": "Merge remote-tracking branch 'dynata/master' into ST-5050-postgres-upgrade-aurora-18-prod",
+      "files": [],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "89996c7b40be",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4992] (dk-management-sources-rest) correction in health check for QA and PROD",
+      "files": [
+        "dk-management-sources-rest/group_vars/production.yml",
+        "dk-management-sources-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "bbd9f4029673",
+      "username": "weiqun.wang",
+      "comment": "increase auto_scaling capacity for prod",
+      "files": [
+        "ml-reconciliation-model-service/group_vars/production.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "743bf141468d",
+      "username": "weiqun.wang",
+      "comment": "put autoscaling back",
+      "files": [
+        "ml-reconciliation-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "a09706e243a3",
+      "username": "richard.santos",
+      "comment": "[FAI-477] change hostedZoneId for prod.ml.dynata.com",
+      "files": [
+        "ml-reconciliation-model-service/group_vars/production.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "53eaf749ab6a",
+      "username": "andras.banszki",
+      "comment": "[NXS-12244] MS - migrate RestrictFilterRest to J21 (#5373)",
+      "files": [
+        "project/RestrictFilterRest/Dockerfile",
+        "project/RestrictFilterRest/README.md",
+        "project/RestrictFilterRest/build.gradle",
+        "project/RestrictFilterRest/gradle/wrapper/gradle-wrapper.properties",
+        "project/RestrictFilterRest/group_vars/all.yml",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/PactCoverageTest.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/pacts/FeaturePact.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/pacts/OperatorPact.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/pacts/QuotaGroupPact.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/pacts/SCMProjectPacts.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/pacts/SCMQuotaGroupPacts.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/pacts/SCMSurveyPacts.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/pacts/SettingRestPacts.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/v1/acceptance/RestrictFilterRestAcceptanceTest.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/v1/acceptance/RestrictFilterRestHelper.java",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/v1/service/RestrictConditionSaverSqlTest.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/v2/RestrictFilterSqlTestBase.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/v2/acceptance/RestrictFilterCompatibilityTest.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/v2/acceptance/RestrictFilterRestAcceptanceTest.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/v2/acceptance/RestrictFilterRestHelper.java"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "e6fa0c266626",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5050] Pin live PG18 parameter groups on offer prod Green",
+      "files": [
+        "supply-offer-service/group_vars/production.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "4d75b1766dbe",
+      "username": "brian.connolly",
+      "comment": "Add bucket config.",
+      "files": [
+        "ae-quota-group-translator/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "version": "6057adf0b74b",
+      "username": "brian.connolly",
+      "comment": "Convert to use AE-DPR.",
+      "files": [
+        "ae-quota-group-translator/cloud-formation.template.yml",
+        "ae-quota-group-translator/group_vars/all.yml",
+        "ae-quota-group-translator/group_vars/dev.yml",
+        "ae-quota-group-translator/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "d0e452bc5229",
+      "username": "61797769+kocskam",
+      "comment": "[PAC-800] DemandApi - setop not work with new quota group under project update 2 (#5368)",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/QuotaGroupUpdateHandler.java",
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/feas/FeasibilityHandler.java",
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/QuotaGroupUpdateHandlerTest.groovy"
+      ],
+      "deployedAt": "20260921T123651+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "2d9798b50064",
+      "username": "gergo.hajnal",
+      "comment": "(export service) temporarily increase PROD memory",
+      "files": [
+        "export-service/group_vars/prod.yml",
+        "st-respondent-cache/group_vars/prod.yml"
+      ],
+      "deployedAt": "20260921T123651+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "fe200b13bbf4",
+      "username": "david.nagy",
+      "comment": "Subnet change for prod deployment",
+      "files": [
+        "dk-project-quota-group-sources-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20260921T123651+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "58b5e2e2cfb6",
+      "username": "tamas.szotak",
+      "comment": "[PAC-748] - DemandApi - fix tests",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ErrorHandlingTest.groovy"
+      ],
+      "deployedAt": "20260921T123651+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "de189160da64",
+      "username": "david.nagy",
+      "comment": "Subnet change for prod deployment",
+      "files": [
+        "dk-project-quota-group-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20260921T123651+0000"
+    }
+  ],
+  "qaDeployServices": [
+    {
+      "service": "RestrictFilterRestJ21",
+      "commits": 25,
+      "latestTicket": "NXS-12244",
+      "latestComment": "[NXS-12244] MS - migrate RestrictFilterRest",
+      "deployedAt": "20260921T145056+0000"
+    },
+    {
+      "service": "DemandApi",
+      "commits": 19,
+      "latestTicket": "",
+      "latestComment": "[PAC-800] DemandApi - setop not work with new quota group under project update 2",
+      "deployedAt": "20260921T123651+0000"
+    },
+    {
+      "service": "ReconciliationRestJ21",
+      "commits": 4,
+      "latestTicket": "",
+      "latestComment": "[PAC-799] - EOS - Nexus - reconciliation process error NullPointerExc\u2026 (#5392)",
+      "deployedAt": "20260921T115724+0000"
+    },
+    {
+      "service": "QuotaGroupSourcesRestJ21",
+      "commits": 2,
+      "latestTicket": "",
+      "latestComment": "[PAC-822] QuotaGroupSource - refilter sometimes skip add accountId to panel filt",
+      "deployedAt": "20260921T093901+0000"
+    }
+  ],
   "clusters": [
     {
       "label": "test_setup_soft_launch",
@@ -189,9 +568,13 @@
     ],
     "investigation": "Failures: 15\u00d7 PES soft-launch vs tally.",
     "detail": {
-      "investigation": "No new unmuted failures; 15 continuing from prior runs. Failure types (new-first): (1) 15\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. Hot areas among new fails: PES (15). Example new failures: PES: quota group rename publishes QG_NAME_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: delivery mode update publishes DELIVERY_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: soft launch settings update publishes SOFT_LAUNCH_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally].",
+      "investigation": "No new unmuted failures; 15 continuing from prior runs. Failure types (new-first): (1) 15\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. Hot areas among new fails: PES (15). 4 service(s) (50 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: PES: quota group rename publishes QG_NAME_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: delivery mode update publishes DELIVERY_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: soft launch settings update publishes SOFT_LAUNCH_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally].",
       "bullets": [
-        "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result"
+        "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
+        "[QA deploy: RestrictFilterRestJ21] NXS-12244 (25 commits) \u2014 [NXS-12244] MS - migrate RestrictFilterRest",
+        "[QA deploy: DemandApi]  (19 commits) \u2014 [PAC-800] DemandApi - setop not work with new quota group under project update 2",
+        "[QA deploy: ReconciliationRestJ21]  (4 commits) \u2014 [PAC-799] - EOS - Nexus - reconciliation process error NullPointerExc\u2026 (#5392)",
+        "[QA deploy: QuotaGroupSourcesRestJ21]  (2 commits) \u2014 [PAC-822] QuotaGroupSource - refilter sometimes skip add accountId to panel filt"
       ],
       "newFailureAreas": [
         {
@@ -202,7 +585,141 @@
       "likelyCauses": []
     },
     "suspectCommits": [],
-    "qaDeploySuspects": []
+    "qaDeploySuspects": [
+      {
+        "service": "RestrictFilterRestJ21",
+        "version": "5f682e94b302",
+        "username": "andras.banszki",
+        "comment": "[NXS-12244] MS - migrate RestrictFilterRest",
+        "ticket": "NXS-12244",
+        "deployedAt": "20260921T145056+0000",
+        "files": [
+          "README.md",
+          "build.gradle"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "RestrictFilterRestJ21",
+        "version": "c2defb556da7",
+        "username": "gergo.hajnal",
+        "comment": "[ST-5003] (CountryLanguageRest) prepare for PROD deployment",
+        "ticket": "",
+        "deployedAt": "20260921T145056+0000",
+        "files": [
+          "production.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "RestrictFilterRestJ21",
+        "version": "d151f8d026f8",
+        "username": "brian.connolly",
+        "comment": "Remove tags.",
+        "ticket": "",
+        "deployedAt": "20260921T145056+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "RestrictFilterRestJ21",
+        "version": "19d0ed1c49c7",
+        "username": "brian.connolly",
+        "comment": "Update in preparation for production release.",
+        "ticket": "",
+        "deployedAt": "20260921T145056+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "RestrictFilterRestJ21",
+        "version": "d525ad84fb35",
+        "username": "andras.banszki",
+        "comment": "[NXS-12244] MS - migrate RestrictFilterRest to J21",
+        "ticket": "NXS-12244",
+        "deployedAt": "20260921T145056+0000",
+        "files": [
+          "build.gradle",
+          "AcceptanceCoverageTest.groovy",
+          "SCMProjectPacts.groovy",
+          "SCMQuotaGroupPacts.groovy",
+          "SCMSurveyPacts.groovy",
+          "SettingRestPacts.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "RestrictFilterRestJ21",
+        "version": "b93fc5363628",
+        "username": "andras.banszki",
+        "comment": "[NXS_13533] MS - migrate ExternalEventRest to J21",
+        "ticket": "",
+        "deployedAt": "20260921T145056+0000",
+        "files": [
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "RestrictFilterRestJ21",
+        "version": "88d06bd5eab2",
+        "username": "andras.banszki",
+        "comment": "[NXS_12229] MS - migrate MailEventRest to J21",
+        "ticket": "",
+        "deployedAt": "20260921T145056+0000",
+        "files": [
+          "dev.yml",
+          "production.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "RestrictFilterRestJ21",
+        "version": "4f0a27196d80",
+        "username": "andras.banszki",
+        "comment": "[NXS_12237] MS - migrate ProjectLogRest to J21",
+        "ticket": "",
+        "deployedAt": "20260921T145056+0000",
+        "files": [
+          "dev.yml",
+          "production.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "RestrictFilterRestJ21",
+        "version": "e05b732dd1d2",
+        "username": "gergo.hajnal",
+        "comment": "[ST-4981] (ParticipationStatusRest) prepare for PROD deploy",
+        "ticket": "",
+        "deployedAt": "20260921T145056+0000",
+        "files": [
+          "dev.yml",
+          "prod.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "RestrictFilterRestJ21",
+        "version": "5ff6ed356099",
+        "username": "gergo.hajnal",
+        "comment": "[ST-4983] (RexTRest) prepare for PROD deploy",
+        "ticket": "",
+        "deployedAt": "20260921T145056+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      }
+    ]
   },
   "contractDrift": {
     "newCount": 0,

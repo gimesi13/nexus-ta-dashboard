@@ -1,7 +1,7 @@
-**15 continuing PES2-notification timeouts — no new failures this run.**
+**15 continuing failure(s) — no new unmuted fails**
 
-_Likely cause: No test-module or QA-deploy changes in the window; the 15 PES2 FIFO-notification timeouts are all continuing failures pointing to test/data or messaging-environment flakiness._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- 15× PES2 QuotaGroup FIFO notification waits timed out at 90s — all continuing, 0 new
+- 15× PES soft-launch vs tally — java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9535379)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9536486)
