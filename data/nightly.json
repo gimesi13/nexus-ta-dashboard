@@ -1699,30 +1699,23 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "15 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "15 continuing PES soft-launch notification timeouts \u2014 no new failures this run.",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 4 service(s) were deployed to QA in this window (RestrictFilterRestJ21, DemandApi, ReconciliationRestJ21, QuotaGroupSourcesRestJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "Failures: 15\u00d7 PES soft-launch vs tally.",
+    "cause": "infra",
+    "causeText": "All 15 are pre-existing PES soft-launch timeouts (90s waits for QuotaGroup FIFO notifications that never arrive) \u2014 none are new and none map to a QA deploy in the window, so this reads as environmental, not a code regression.",
+    "investigation": "No new failures; the 15 PES2 notification timeouts continue unchanged from prior build 3.0.2705.",
     "bullets": [
-      "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result"
+      "15\u00d7 PES soft-launch vs tally \u2014 90s timeout waiting for QuotaGroup FIFO notifications (all continuing, none new)."
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 15 continuing from prior runs. Failure types (new-first): (1) 15\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. Hot areas among new fails: PES (15). 4 service(s) (50 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: PES: quota group rename publishes QG_NAME_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: delivery mode update publishes DELIVERY_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: soft launch settings update publishes SOFT_LAUNCH_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally].",
+      "investigation": "No new unmuted failures this run; all 15 are continuing PES2 soft-launch notification timeouts (90s waits on the QuotaGroup FIFO topic via PesMessagingHelper.waitForPes2Notification), matching prior build 3.0.2705 (also 15 failed, 0 new). No QA-deployed service in the window (RestrictFilterRestJ21, DemandApi, ReconciliationRestJ21, QuotaGroupSourcesRestJ21) touches the PES notification path, so this is an environmental/fixture timeout rather than a code regression.",
       "bullets": [
-        "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-        "[QA deploy: RestrictFilterRestJ21] NXS-12244 (25 commits) \u2014 [NXS-12244] MS - migrate RestrictFilterRest",
-        "[QA deploy: DemandApi]  (19 commits) \u2014 [PAC-800] DemandApi - setop not work with new quota group under project update 2",
-        "[QA deploy: ReconciliationRestJ21]  (4 commits) \u2014 [PAC-799] - EOS - Nexus - reconciliation process error NullPointerExc\u2026 (#5392)",
-        "[QA deploy: QuotaGroupSourcesRestJ21]  (2 commits) \u2014 [PAC-822] QuotaGroupSource - refilter sometimes skip add accountId to panel filt"
+        "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result (PesMessagingHelper.waitForPes2Notification).",
+        "All 15 flagged newFailure=false \u2014 continuing from prior build 3.0.2705 (15 failed, 0 new).",
+        "No QA deploy in the window maps to the PES FIFO notification path; not attributed to a code change."
       ],
-      "newFailureAreas": [
-        {
-          "area": "PES",
-          "newCount": 15
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1901,8 +1894,8 @@
         "deployedAt": "20260921T093901+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-09-22T02:16Z",
+    "source": "llm",
+    "generatedAt": "2026-09-22T02:17:00Z",
     "buildNumber": "3.0.2706",
     "buildId": "9536486",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9536486",
