@@ -1,11 +1,8 @@
-**4 new failures — mainly Project**
+**4 new Project failures from NXS-11782 project-dates validation change (david.nagy)**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: david.nagy's NXS-11782 reworked project-date validation (UProjectDatesImpl.java); PUT proposedStartDate/proposedEndDate now return 500 with jakarta.validation.ValidationException._
 
-- 3× API ValidationException — jakarta.validation.ValidationException:Update failed, proposedStartDate must be before proposedEndDate. [proje
-- 1× assertion Condition not satisfied
-
-⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
-- PUT /u1/nexus/projects/{}/dates/proposedEndDate :: Response status 500 not defined for path '/u1/nexus/projects/{projectId}/dates/proposedEndDate'.
+- 3× 500 ValidationException on PUT project date endpoints — NXS-11782 (david.nagy); contract drift flags both
+- 1× Project E2E totalQuota assertion (+100 update not applied)
 
 [Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9539705)

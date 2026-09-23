@@ -1743,25 +1743,27 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "4 new failures \u2014 mainly Project",
+    "headline": "4 new Project failures from NXS-11782 project-dates validation change (david.nagy)",
     "tone": "bad",
     "severity": "high",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 4 service(s) were deployed to QA in this window (NexusApiJ21, QuotaGroupRestJ21, DedupeRestJ21, NexusApiBosJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 3\u00d7 API ValidationException; 1\u00d7 assertion Condition not satisfied. Vs prior #3.0.2706: up 4 total fails.",
+    "cause": "code_change",
+    "causeText": "The 3 new Project date failures are HTTP 500s wrapping jakarta.validation.ValidationException on PUT /u1/nexus/projects/{id}/dates/proposedStartDate and .../proposedEndDate \u2014 the exact endpoints reworked by david.nagy under NXS-11782 (commit 1eeb73209769, UProjectDatesImpl.java, deployed to QA NexusApiJ21), 'Project dates APIs don't validate date values and relationships'. The new date validation fires but escapes as INTERNAL_SERVER_ERROR instead of a 4xx, which contract drift independently flags on both endpoints. The 4th new failure (Project E2E totalQuota) is likely a knock-on, possibly tied to david.nagy's QuotaGroupRest NXS-13899, but is unconfirmed.",
+    "investigation": "All 4 new fails are Project: 3 are 500/ValidationException on the proposedStartDate/proposedEndDate endpoints reworked by NXS-11782 (david.nagy), 1 is an E2E totalQuota assertion. The 15 non-new PES FIFO-notification timeouts are pre-existing and out of scope.",
     "bullets": [
-      "3\u00d7 API ValidationException \u2014 jakarta.validation.ValidationException:Update failed, proposedStartDate must be before proposedEndDate. [proje",
-      "1\u00d7 assertion Condition not satisfied"
+      "3\u00d7 500 + jakarta.validation.ValidationException on PUT /projects/{id}/dates/proposed{Start,End}Date \u2014 NXS-11782 (david.nagy, UProjectDatesImpl.java)",
+      "1\u00d7 Project E2E assertion: totalQuota 3500 \u2260 expected 3600 (+100 update not applied)",
+      "Contract drift confirms 500 now returned on both date endpoints (not in OpenAPI contract)"
     ],
     "detail": {
-      "investigation": "4 of 19 unmuted failures are new since the prior build (#3.0.2706, 15 fails). Failure types (new-first): (1) 3\u00d7 API ValidationException \u2014 API rejected the request (business validation). (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: Project (4). 4 service(s) (34 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Project: Update proposed start date: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.Proj [API ValidationException]; Project: Update proposed start date: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.Proj [API ValidationException]; Project: Update proposed end date: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.Projec [API ValidationException]; Project: Project E2E - covers all project endpoints [assertion Condition not satisfied].",
+      "investigation": "All 4 new failures are in Project. (1) 3\u00d7 the ProjectDates step 'Update proposed start/end date' now return HTTP 500 wrapping jakarta.validation.ValidationException ('proposedStartDate must be before proposedEndDate' / 'the request date is either null or is in the past') from PUT /u1/nexus/projects/2257892/dates/proposedStartDate and .../proposedEndDate. These endpoints are implemented by UProjectDatesImpl.java, which david.nagy changed under NXS-11782 (commit 1eeb73209769, deployed to QA NexusApiJ21 at 17:13) \u2014 'Project dates APIs don't validate date values and relationships'. The new validation is firing but escaping as INTERNAL_SERVER_ERROR rather than a 4xx, which contract drift flags independently (500 not defined for both date endpoints). These are assertion/validation messages, not timeouts/502/504, so this is a product regression, not infra. (2) 1\u00d7 'Project E2E - covers all project endpoints' fails a Spock assertion totalQuota==originalTotalQuota+100 (3500 vs expected 3600) \u2014 the +100 quota update did not take. This is plausibly a knock-on of the Project changes or of david.nagy's QuotaGroupRest NXS-13899 ('assign default audience group upon creating a new qg', SqlUpdateRepository.java), but is not confirmed. The 15 pre-existing PES Pes2Notification FIFO timeouts (Condition never returned a non-null result after 90s) are unchanged from the prior build and out of scope.",
       "bullets": [
-        "3\u00d7 API ValidationException \u2014 jakarta.validation.ValidationException:Update failed, proposedStartDate must be before proposedEndDate. [proje",
-        "1\u00d7 assertion Condition not satisfied",
-        "[QA deploy: NexusApiJ21] NXS-11782 (25 commits) \u2014 [NXS-11782] MS - Project dates APIs don't validate date values and relationships",
-        "[QA deploy: QuotaGroupRestJ21] NXS-13899 (5 commits) \u2014 [NXS-13899] MS | QuotaGroupRest | assign default audience group upon creating a ",
-        "[QA deploy: DedupeRestJ21] NXS-13888 (3 commits) \u2014 [NXS-13888] - DedupeRest - implement propagation (#5400)",
-        "[QA deploy: NexusApiBosJ21]  (1 commit) \u2014 [ PAC-673 ] Fix IR and LOI updates for WON Change order (#5417)"
+        "3\u00d7 HTTP 500 + jakarta.validation.ValidationException on PUT /u1/nexus/projects/{id}/dates/proposedStartDate & proposedEndDate (new)",
+        "Maps to NXS-11782 \u2014 david.nagy, commit 1eeb73209769, UProjectDatesImpl.java (added date value/relationship validation), deployed to QA NexusApiJ21",
+        "Validation should return 4xx but surfaces as INTERNAL_SERVER_ERROR \u2014 likely a missing exception mapping in the new code",
+        "Contract drift confirms: 500 now returned on both date endpoints, not defined in the OpenAPI contract",
+        "1\u00d7 Project E2E assertion: totalQuota 3500 \u2260 expected 3600 (+100 update not applied)",
+        "Project E2E possibly linked to QuotaGroupRest NXS-13899 (david.nagy, SqlUpdateRepository.java) \u2014 unconfirmed",
+        "15 PES Pes2Notification FIFO-timeout failures are pre-existing (not new) \u2014 out of scope"
       ],
       "newFailureAreas": [
         {
@@ -1769,7 +1771,35 @@
           "newCount": 4
         }
       ],
-      "likelyCauses": []
+      "likelyCauses": [
+        {
+          "ticket": "NXS-11782",
+          "version": "1eeb73209769",
+          "username": "david.nagy",
+          "areas": [
+            "Project"
+          ],
+          "hitNewFailures": 3,
+          "files": [
+            "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UProjectDatesImpl.java",
+            "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UProjectDatesImplTest.groovy"
+          ],
+          "comment": "NexusApiJ21 change 'Project dates APIs don't validate date values and relationships' reworked UProjectDatesImpl.java; PUT proposedStartDate/proposedEndDate now throw jakarta.validation.ValidationException that surfaces as HTTP 500 (also flagged by contract drift). Strong path+endpoint match to the 3 new date failures."
+        },
+        {
+          "ticket": "NXS-13899",
+          "version": "b1e68c7e4b6e",
+          "username": "david.nagy",
+          "areas": [
+            "Project"
+          ],
+          "hitNewFailures": 1,
+          "files": [
+            "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/sql/update/SqlUpdateRepository.java"
+          ],
+          "comment": "QuotaGroupRest change 'assign default audience group upon creating a new qg' touches quota update SQL; could explain the Project E2E totalQuota assertion (+100 update not applied), but this is a lower-confidence, unconfirmed link."
+        }
+      ]
     },
     "clusters": [
       {
@@ -1959,8 +1989,8 @@
         "deployedAt": "20260922T143434+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-09-23T02:17Z",
+    "source": "llm",
+    "generatedAt": "2026-09-23T02:17:00Z",
     "buildNumber": "3.0.2707",
     "buildId": "9539705",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9539705",
