@@ -1,7 +1,11 @@
-**15 continuing PES soft-launch notification timeouts — no new failures this run.**
+**4 new failures — mainly Project**
 
-_Likely cause: pre-existing PES soft-launch notification timeouts (environmental), not a code change._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- 15× PES soft-launch vs tally — 90s timeout waiting for QuotaGroup FIFO notifications (all continuing, none new).
+- 3× API ValidationException — jakarta.validation.ValidationException:Update failed, proposedStartDate must be before proposedEndDate. [proje
+- 1× assertion Condition not satisfied
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9536486)
+⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
+- PUT /u1/nexus/projects/{}/dates/proposedEndDate :: Response status 500 not defined for path '/u1/nexus/projects/{projectId}/dates/proposedEndDate'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9539705)
