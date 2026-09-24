@@ -63,7 +63,7 @@
     "AudienceGroup::AudienceGroupManagementQueryTestSteps::Get audience group IDs for project with isDeleted true": "passed",
     "AudienceGroup::AudienceTemplateTestSteps::Get audience template by valid ID": "passed",
     "AudienceGroup::AudienceTemplateTestSteps::Validate audience template for single country": "passed",
-    "AudienceGroup::AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder": "passed",
+    "AudienceGroup::AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E — quota, template, rename, clone, deleted list, undelete, reorder": "passed",
     "AudienceGroup::AudienceTemplateTestSteps::Validate audience template for multiple countries": "passed",
     "AudienceGroup::AudienceTemplateTestSteps::Search audience templates by country": "passed",
     "AudienceGroup::AudienceTemplateTestSteps::Search audience templates by multiple labels": "passed",
@@ -815,7 +815,7 @@
     "AudienceGroupManagementQueryTestSteps::Get audience group IDs for project with isDeleted true": "passed",
     "AudienceTemplateTestSteps::Get audience template by valid ID": "passed",
     "AudienceTemplateTestSteps::Validate audience template for single country": "passed",
-    "AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder": "passed",
+    "AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E — quota, template, rename, clone, deleted list, undelete, reorder": "passed",
     "AudienceTemplateTestSteps::Validate audience template for multiple countries": "passed",
     "AudienceTemplateTestSteps::Search audience templates by country": "passed",
     "AudienceTemplateTestSteps::Search audience templates by multiple labels": "passed",
@@ -1533,290 +1533,24 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "headline": "Nightly was green — 1479 tests, 0 new failures, nothing to investigate.",
     "tone": "ok",
     "severity": "none",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
-    "bullets": [
-      "Change NXS-13928: gergely.gimesi \u00b7 Project",
-      "Change NXS-13928: gergely.gimesi \u00b7 Project"
-    ],
+    "causeText": "Clean run with no unmuted failures and no contract drift.",
+    "investigation": "",
+    "bullets": [],
     "detail": {
-      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 8 service(s) (49 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
-      "bullets": [
-        "Change NXS-13928: gergely.gimesi \u00b7 Project",
-        "Change NXS-13928: gergely.gimesi \u00b7 Project",
-        "NXS-13928 18c0c7d44fc0 by gergely.gimesi \u2192 areas Project (0 new fails) \u00b7 ProjectHelper.groovy, ProjectDatesTestSteps.groovy, ProjectValidationTestSteps.groovy",
-        "NXS-13928 ed917686ca5f by gergely.gimesi \u2192 areas Project (0 new fails) \u00b7 ProjectHelper.groovy",
-        "[QA deploy: ProjectRestJ16] NXS-13934 (25 commits) \u2014 [NXS-13934] Failing accTests since missing clientId in draftProjects used for Ac",
-        "[QA deploy: NexusApiBosJ21]  (2 commits) \u2014 [PAC-837] NexusApiBos - New Origin handle PROGRAMMATIC_API (#5424)",
-        "[QA deploy: ProjectAutomationApi]  (3 commits) \u2014 [PAC-844] ProjectAutomationApi - New Origin handle PROGRAMMATIC_API (#5423)",
-        "[QA deploy: QuotaDetailsRestJ21]  (2 commits) \u2014 [PAC-832] QuotaDetailsRest - New Origin handle PROGRAMMATIC_API (#5410)",
-        "[QA deploy: FeasibilityDataStoreJ16]  (1 commit) \u2014 [PAC-835] FeasilibiltyDataStore - New Origin handle PROGRAMMATIC_API (#5414)",
-        "[QA deploy: NexusApiUI] NXS-13840 (1 commit) \u2014 [NXS-13840] EOS - MS - New attributes on page load (#5421)"
-      ],
+      "investigation": "",
+      "bullets": [],
       "newFailureAreas": [],
-      "likelyCauses": [
-        {
-          "version": "18c0c7d44fc0",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13928",
-          "comment": "[NXS-13928] MS - Fix nightly project dates fixture and totalQuota race",
-          "areas": [
-            "Project"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "ProjectHelper.groovy",
-            "ProjectDatesTestSteps.groovy",
-            "ProjectValidationTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "ed917686ca5f",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13928",
-          "comment": "[NXS-13928] MS - Start reset schedule 7 days out so derived dates stay in the future",
-          "areas": [
-            "Project"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "ProjectHelper.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
     "clusters": [],
-    "suspectCommits": [
-      {
-        "version": "ed917686ca5f",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13928] MS - Start reset schedule 7 days out so derived dates stay in the future",
-        "ticket": "NXS-13928",
-        "areas": [
-          "Project"
-        ]
-      },
-      {
-        "version": "18c0c7d44fc0",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13928] MS - Fix nightly project dates fixture and totalQuota race",
-        "ticket": "NXS-13928",
-        "areas": [
-          "Project"
-        ]
-      }
-    ],
-    "qaDeploySuspects": [
-      {
-        "service": "ProjectRestJ16",
-        "version": "b98924dea7c6",
-        "username": "andras.banszki",
-        "comment": "[NXS-13934] Failing accTests since missing clientId in draftProjects used for AcceptanceTests",
-        "ticket": "NXS-13934",
-        "deployedAt": "20260923T133837+0000",
-        "files": [
-          "build.gradle",
-          "UnifiedAcceptanceTestBase.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectRestJ16",
-        "version": "00f797a9e6bb",
-        "username": "gergo.hajnal",
-        "comment": "[ST-5015] (st-parameter-service) remove java.security.manager from PROD",
-        "ticket": "",
-        "deployedAt": "20260923T133837+0000",
-        "files": [
-          "prod.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectRestJ16",
-        "version": "383fac259e5c",
-        "username": "andras.banszki",
-        "comment": "[NXS-13921] EOS - MS - ProjectRest - persist CrmFields communicationSupported and projectTopicSupported (#5420)",
-        "ticket": "NXS-13921",
-        "deployedAt": "20260923T133837+0000",
-        "files": [
-          "README.md",
-          "UProjectCrmAcceptanceTest.groovy",
-          "CrmFields.java",
-          "ProjectCrmFieldsMongoHandlerTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectRestJ16",
-        "version": "ea0d9896ea2e",
-        "username": "61797769+kocskam",
-        "comment": "[PAC-828] ProjectRest - New Origin handle PROGRAMMATIC_API (#5407)",
-        "ticket": "",
-        "deployedAt": "20260923T133837+0000",
-        "files": [
-          "UProjectImpl.java",
-          "ProjectOrigin.java",
-          "UProjectImplTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectRestJ16",
-        "version": "06b9fefde16e",
-        "username": "gergo.hajnal",
-        "comment": "[ST-4990] (MessageContentRest) prepare to be PROD deployed",
-        "ticket": "",
-        "deployedAt": "20260923T133837+0000",
-        "files": [
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectRestJ16",
-        "version": "48052ce82d49",
-        "username": "gergo.hajnal",
-        "comment": "[ST-5003] (CountryLanguageRest) remove obsolete comment",
-        "ticket": "",
-        "deployedAt": "20260923T133837+0000",
-        "files": [
-          "dev.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectRestJ16",
-        "version": "1f588a96a2d7",
-        "username": "brian.connolly",
-        "comment": "update template locations to bypass ansible weirdness",
-        "ticket": "",
-        "deployedAt": "20260923T133837+0000",
-        "files": [
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectRestJ16",
-        "version": "cf58d7b5d095",
-        "username": "sajak.upadhyaya",
-        "comment": "\"[FAI-482] scaling down resources in production\"",
-        "ticket": "",
-        "deployedAt": "20260923T133837+0000",
-        "files": [
-          "production.yml",
-          "production.yml",
-          "production.yml",
-          "production.yml",
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectRestJ16",
-        "version": "34b4140de272",
-        "username": "sajak.upadhyaya",
-        "comment": "\"[FAI-482] scaling down resources in qa\"",
-        "ticket": "",
-        "deployedAt": "20260923T133837+0000",
-        "files": [
-          "qa.yml",
-          "qa.yml",
-          "qa.yml",
-          "qa.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectRestJ16",
-        "version": "2385b49c4712",
-        "username": "brian.connolly",
-        "comment": "update template locations",
-        "ticket": "",
-        "deployedAt": "20260923T133837+0000",
-        "files": [
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      }
-    ],
-    "qaDeployServices": [
-      {
-        "service": "ProjectRestJ16",
-        "commits": 25,
-        "latestTicket": "NXS-13934",
-        "latestComment": "[NXS-13934] Failing accTests since missing clientId in draftProjects used for Ac",
-        "deployedAt": "20260923T133837+0000"
-      },
-      {
-        "service": "NexusApiBosJ21",
-        "commits": 2,
-        "latestTicket": "",
-        "latestComment": "[PAC-837] NexusApiBos - New Origin handle PROGRAMMATIC_API (#5424)",
-        "deployedAt": "20260923T124150+0000"
-      },
-      {
-        "service": "ProjectAutomationApi",
-        "commits": 3,
-        "latestTicket": "",
-        "latestComment": "[PAC-844] ProjectAutomationApi - New Origin handle PROGRAMMATIC_API (#5423)",
-        "deployedAt": "20260923T124116+0000"
-      },
-      {
-        "service": "QuotaDetailsRestJ21",
-        "commits": 2,
-        "latestTicket": "",
-        "latestComment": "[PAC-832] QuotaDetailsRest - New Origin handle PROGRAMMATIC_API (#5410)",
-        "deployedAt": "20260923T121759+0000"
-      },
-      {
-        "service": "FeasibilityDataStoreJ16",
-        "commits": 1,
-        "latestTicket": "",
-        "latestComment": "[PAC-835] FeasilibiltyDataStore - New Origin handle PROGRAMMATIC_API (#5414)",
-        "deployedAt": "20260923T121513+0000"
-      },
-      {
-        "service": "NexusApiUI",
-        "commits": 1,
-        "latestTicket": "NXS-13840",
-        "latestComment": "[NXS-13840] EOS - MS - New attributes on page load (#5421)",
-        "deployedAt": "20260923T111132+0000"
-      },
-      {
-        "service": "NexusApiJ21",
-        "commits": 3,
-        "latestTicket": "NXS-11782",
-        "latestComment": "[NXS-11782] MS - Project dates APIs don't validate date values and relationships",
-        "deployedAt": "20260923T104003+0000"
-      },
-      {
-        "service": "SurveyRestJ21",
-        "commits": 12,
-        "latestTicket": "NXS-13887",
-        "latestComment": "[NXS-13887] - SurveyRest - handle propagation in clone (#5387)",
-        "deployedAt": "20260923T074611+0000"
-      }
-    ],
-    "source": "investigator",
-    "generatedAt": "2026-09-24T02:00Z",
+    "source": "llm",
+    "generatedAt": "2026-09-24T02:01:00Z",
     "buildNumber": "3.0.2708",
     "buildId": "9541843",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9541843",
-    "focus": "all_failures",
-    "newFailed": 0,
-    "failed": 0,
-    "contractDrift": {
-      "newCount": 0,
-      "baselineCount": 94,
-      "currentCount": 94,
-      "examples": []
-    }
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9541843"
   }
 }
