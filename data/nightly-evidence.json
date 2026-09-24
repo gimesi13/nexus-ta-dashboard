@@ -1,100 +1,140 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-23T02:17Z",
+  "generatedAt": "2026-09-24T02:00Z",
   "build": {
-    "number": "3.0.2707",
-    "buildId": "9539705",
-    "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9539705",
-    "durationSec": 2616.0
+    "number": "3.0.2708",
+    "buildId": "9541843",
+    "status": "SUCCESS",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9541843",
+    "durationSec": 1785.0
   },
   "summary": {
     "tests": 1479,
-    "passed": 1374,
-    "failures": 19,
+    "passed": 1399,
+    "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "muted": 86,
-    "newFailed": 4,
-    "passRate": 98.6,
-    "timeSec": 2616.0
+    "muted": 80,
+    "newFailed": 0,
+    "passRate": 100.0,
+    "timeSec": 1785.0
   },
   "prior": {
-    "buildId": "9536486",
-    "number": "3.0.2706",
+    "buildId": "9539705",
+    "number": "3.0.2707",
     "status": "FAILURE",
-    "statusText": "Tests failed: 15, passed: 1378, muted: 86",
-    "startDate": "20260922T013257+0000",
-    "durationSec": 2577.0,
-    "failed": 15,
-    "passed": 1378,
-    "newFailed": 0
+    "statusText": "Tests failed: 19 (4 new), passed: 1374, muted: 86",
+    "startDate": "20260923T013300+0000",
+    "durationSec": 2616.0,
+    "failed": 19,
+    "passed": 1374,
+    "newFailed": 4
   },
-  "changes": [],
+  "changes": [
+    {
+      "version": "ed917686ca5f",
+      "username": "gergely.gimesi",
+      "comment": "[NXS-13928] MS - Start reset schedule 7 days out so derived dates stay in the future",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/ProjectHelper.groovy"
+      ],
+      "areas": [
+        "Project"
+      ]
+    },
+    {
+      "version": "18c0c7d44fc0",
+      "username": "gergely.gimesi",
+      "comment": "[NXS-13928] MS - Fix nightly project dates fixture and totalQuota race",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/ProjectHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectDatesTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy"
+      ],
+      "areas": [
+        "Project"
+      ]
+    }
+  ],
   "qaDeployChanges": [
     {
-      "service": "NexusApiJ21",
-      "version": "9d1ddc6a79ff",
-      "username": "david.nagy",
-      "comment": "[NXS-11782] MS - Project dates APIs don't validate date values and relationships - integtest",
+      "service": "ProjectRestJ16",
+      "version": "b98924dea7c6",
+      "username": "andras.banszki",
+      "comment": "[NXS-13934] Failing accTests since missing clientId in draftProjects used for AcceptanceTests",
       "files": [
-        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/nexus/project/acceptance/UWholeProjectSetupApiAcceptanceTest.groovy"
+        "project/ProjectRest/build.gradle",
+        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/acceptance/u1/UnifiedAcceptanceTestBase.groovy"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
-      "version": "c858c61b2cc7",
-      "username": "david.nagy",
-      "comment": "[NXS-11782] MS - Project dates APIs don't validate date values and relationships - integtest",
+      "service": "ProjectRestJ16",
+      "version": "00f797a9e6bb",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5015] (st-parameter-service) remove java.security.manager from PROD",
       "files": [
-        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/nexus/project/acceptance/UProjectDatesApiAcceptanceTest.groovy"
+        "st-parameter-service/group_vars/prod.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
-      "version": "1eeb73209769",
-      "username": "david.nagy",
-      "comment": "[NXS-11782] MS - Project dates APIs don't validate date values and relationships",
+      "service": "ProjectRestJ16",
+      "version": "383fac259e5c",
+      "username": "andras.banszki",
+      "comment": "[NXS-13921] EOS - MS - ProjectRest - persist CrmFields communicationSupported and projectTopicSupported (#5420)",
       "files": [
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UProjectDatesImpl.java",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UProjectDatesImplTest.groovy"
+        "project/ProjectRest/README.md",
+        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/acceptance/u1/UProjectCrmAcceptanceTest.groovy",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/model/crm/CrmFields.java",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mongo/ProjectCrmFieldsMongoHandlerTest.groovy"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
+      "version": "ea0d9896ea2e",
+      "username": "61797769+kocskam",
+      "comment": "[PAC-828] ProjectRest - New Origin handle PROGRAMMATIC_API (#5407)",
+      "files": [
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/service/UProjectImpl.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/model/enums/ProjectOrigin.java",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/service/UProjectImplTest.groovy"
+      ],
+      "deployedAt": "20260923T133837+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
       "version": "06b9fefde16e",
       "username": "gergo.hajnal",
       "comment": "[ST-4990] (MessageContentRest) prepare to be PROD deployed",
       "files": [
         "dk-management-message-content-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "48052ce82d49",
       "username": "gergo.hajnal",
       "comment": "[ST-5003] (CountryLanguageRest) remove obsolete comment",
       "files": [
         "dk-project-country-language-rest/group_vars/dev.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "1f588a96a2d7",
       "username": "brian.connolly",
       "comment": "update template locations to bypass ansible weirdness",
       "files": [
         "ae-transaction-manager/group_vars/all.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "cf58d7b5d095",
       "username": "sajak.upadhyaya",
       "comment": "\"[FAI-482] scaling down resources in production\"",
@@ -105,10 +145,10 @@
         "ml-offers-model-service/group_vars/production.yml",
         "ml-valkey-cache-storage/group_vars/production.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "34b4140de272",
       "username": "sajak.upadhyaya",
       "comment": "\"[FAI-482] scaling down resources in qa\"",
@@ -119,30 +159,30 @@
         "ml-offers-model-service/group_vars/qa.yml",
         "ml-valkey-cache-storage/group_vars/qa.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "2385b49c4712",
       "username": "brian.connolly",
       "comment": "update template locations",
       "files": [
         "ae-transaction-manager/group_vars/all.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "537df7dc7489",
       "username": "brian.connolly",
       "comment": "add template",
       "files": [
         "ae-transaction-manager/group_vars/all.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "67cb1a4b489f",
       "username": "sajak.upadhyaya",
       "comment": "\"[FAI-482] scaling down resources in dev\"",
@@ -157,10 +197,10 @@
         "ml-valkey-cache-storage/group_vars/all.yml",
         "ml-valkey-cache-storage/group_vars/dev.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "655afc645db4",
       "username": "brian.connolly",
       "comment": "Convert to use AE-DPR.",
@@ -173,10 +213,10 @@
         "ae-transaction-manager/pre_tasks.yml",
         "ae-transaction-manager/publish.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "c2defb556da7",
       "username": "gergo.hajnal",
       "comment": "[ST-5003] (CountryLanguageRest) prepare for PROD deployment",
@@ -184,40 +224,40 @@
         "dk-project-country-language-rest/group_vars/production.yml",
         "dk-project-country-language-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "d151f8d026f8",
       "username": "brian.connolly",
       "comment": "Remove tags.",
       "files": [
         "ae-quota-group-translator/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "19d0ed1c49c7",
       "username": "brian.connolly",
       "comment": "Update in preparation for production release.",
       "files": [
         "ae-quota-group-translator/group_vars/production.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "b93fc5363628",
       "username": "andras.banszki",
       "comment": "[NXS_13533] MS - migrate ExternalEventRest to J21",
       "files": [
         "dk-project-external-event-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "88d06bd5eab2",
       "username": "andras.banszki",
       "comment": "[NXS_12229] MS - migrate MailEventRest to J21",
@@ -226,10 +266,10 @@
         "dk-project-mail-event-rest/group_vars/production.yml",
         "dk-project-mail-event-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "4f0a27196d80",
       "username": "andras.banszki",
       "comment": "[NXS_12237] MS - migrate ProjectLogRest to J21",
@@ -238,10 +278,10 @@
         "dk-project-project-log-rest/group_vars/production.yml",
         "dk-project-project-log-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "e05b732dd1d2",
       "username": "gergo.hajnal",
       "comment": "[ST-4981] (ParticipationStatusRest) prepare for PROD deploy",
@@ -250,460 +290,347 @@
         "st-participation-status-rest/group_vars/prod.yml",
         "st-participation-status-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "5ff6ed356099",
       "username": "gergo.hajnal",
       "comment": "[ST-4983] (RexTRest) prepare for PROD deploy",
       "files": [
         "dk-management-rex-t-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "ad451c3be487",
       "username": "gergo.hajnal",
       "comment": "[ST-4995] (MailTemplateRest) prepare for PROD deploy",
       "files": [
         "dk-project-mail-template-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "1d6116c9dc81",
       "username": "gergo.hajnal",
       "comment": "[ST-4988] (MailRest) prepare for PROD deploy",
       "files": [
         "dk-management-mail-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "6e7503965e0b",
       "username": "gergo.hajnal",
       "comment": "[ST-4978] (DefaultPagesRest) prepare for PROD deploy",
       "files": [
         "dk-management-default-pages-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "version": "9de1b2b09b83",
       "username": "gergo.hajnal",
       "comment": "[ST-5019] (st-cloud-config) change DNS hosted zone ID to SupplyTools QA, instead of DKMS QA",
       "files": [
         "st-cloud-config/group_vars/qa.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T133837+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "NexusApiBosJ21",
+      "version": "cc5e5b035cf2",
+      "username": "61797769+kocskam",
+      "comment": "[PAC-837] NexusApiBos - New Origin handle PROGRAMMATIC_API (#5424)",
+      "files": [
+        "gateway/unifiedApi/NexusApiBos/build.gradle"
+      ],
+      "deployedAt": "20260923T124150+0000"
+    },
+    {
+      "service": "ProjectAutomationApi",
+      "version": "129cc7dcfde2",
+      "username": "61797769+kocskam",
+      "comment": "[PAC-844] ProjectAutomationApi - New Origin handle PROGRAMMATIC_API (#5423)",
+      "files": [
+        "gateway/unifiedApi/ProjectAutomationApi/build.gradle",
+        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/service/ProgrammaticProjectAssembler.java",
+        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/service/SampleServiceImpl.java",
+        "gateway/unifiedApi/ProjectAutomationApi/src/test/groovy/u1/nexus/projects/service/SampleServiceImplTest.groovy"
+      ],
+      "deployedAt": "20260923T124116+0000"
+    },
+    {
+      "service": "ProjectAutomationApi",
       "version": "7662f404a7b9",
       "username": "gergo.hajnal",
       "comment": "[ST-5019] (st-cloud-config) change environment_tags to environment_strings in new dynata tags",
       "files": [
         "st-cloud-config/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260922T171309+0000"
+      "deployedAt": "20260923T124116+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "b1e68c7e4b6e",
-      "username": "david.nagy",
-      "comment": "[NXS-13899] MS | QuotaGroupRest | assign default audience group upon creating a new qg",
+      "service": "ProjectAutomationApi",
+      "version": "0e9d06e926bb",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5019] (st-cloud-config) remove access scope tag from non load balancers",
       "files": [
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/sql/update/SqlUpdateRepository.java",
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/sql/update/SqlUpdateRepositoryTest.groovy"
+        "st-cloud-config/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260922T153622+0000"
+      "deployedAt": "20260923T124116+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "baf23759d9c2",
-      "username": "krisztian.erdei",
-      "comment": "Merge remote-tracking branch 'dynata/master' into ST-5050-postgres-upgrade-aurora-18-prod",
-      "files": [],
-      "deployedAt": "20260922T153622+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "e6fa0c266626",
-      "username": "krisztian.erdei",
-      "comment": "[ST-5050] Pin live PG18 parameter groups on offer prod Green",
+      "service": "QuotaDetailsRestJ21",
+      "version": "34779dc459dc",
+      "username": "61797769+kocskam",
+      "comment": "[PAC-832] QuotaDetailsRest - New Origin handle PROGRAMMATIC_API (#5410)",
       "files": [
-        "supply-offer-service/group_vars/production.yml"
+        "project/QuotaDetailsRest/src/main/java/com/surveysampling/rest/quotadetails/service/v2/dependencies/project/ProjectOrigin.java",
+        "project/QuotaDetailsRest/src/main/java/com/surveysampling/rest/quotadetails/service/v2/messaging/QuotaGroupUnitsStatusChangeManager.java",
+        "project/QuotaDetailsRest/src/test/groovy/com/surveysampling/rest/quotadetails/service/v2/messaging/QuotaGroupUnitsStatusChangeManagerTest.groovy"
       ],
-      "deployedAt": "20260922T153622+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "862f3dd9e33a",
-      "username": "krisztian.erdei",
-      "comment": "[ST-5050] Emit offer parameter groups without jinja if",
-      "files": [
-        "supply-offer-service/cloud-formation.template.yml",
-        "supply-offer-service/group_vars/all.yml",
-        "supply-offer-service/group_vars/dev.yml",
-        "supply-offer-service/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260922T153622+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "c98d3b4c516e",
-      "username": "krisztian.erdei",
-      "comment": "[ST-5050] Attach Arnaud's PG18 parameter groups on offer prod Aurora",
-      "files": [
-        "supply-offer-service/cloud-formation.template.yml",
-        "supply-offer-service/group_vars/production.yml"
-      ],
-      "deployedAt": "20260922T153622+0000"
+      "deployedAt": "20260923T121759+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "NexusApiJ21",
+      "service": "ProjectRestJ16",
       "commits": 25,
-      "latestTicket": "NXS-11782",
-      "latestComment": "[NXS-11782] MS - Project dates APIs don't validate date values and relationships",
-      "deployedAt": "20260922T171309+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "commits": 5,
-      "latestTicket": "NXS-13899",
-      "latestComment": "[NXS-13899] MS | QuotaGroupRest | assign default audience group upon creating a ",
-      "deployedAt": "20260922T153622+0000"
-    },
-    {
-      "service": "DedupeRestJ21",
-      "commits": 3,
-      "latestTicket": "NXS-13888",
-      "latestComment": "[NXS-13888] - DedupeRest - implement propagation (#5400)",
-      "deployedAt": "20260922T142514+0000"
+      "latestTicket": "NXS-13934",
+      "latestComment": "[NXS-13934] Failing accTests since missing clientId in draftProjects used for Ac",
+      "deployedAt": "20260923T133837+0000"
     },
     {
       "service": "NexusApiBosJ21",
+      "commits": 2,
+      "latestTicket": "",
+      "latestComment": "[PAC-837] NexusApiBos - New Origin handle PROGRAMMATIC_API (#5424)",
+      "deployedAt": "20260923T124150+0000"
+    },
+    {
+      "service": "ProjectAutomationApi",
+      "commits": 3,
+      "latestTicket": "",
+      "latestComment": "[PAC-844] ProjectAutomationApi - New Origin handle PROGRAMMATIC_API (#5423)",
+      "deployedAt": "20260923T124116+0000"
+    },
+    {
+      "service": "QuotaDetailsRestJ21",
+      "commits": 2,
+      "latestTicket": "",
+      "latestComment": "[PAC-832] QuotaDetailsRest - New Origin handle PROGRAMMATIC_API (#5410)",
+      "deployedAt": "20260923T121759+0000"
+    },
+    {
+      "service": "FeasibilityDataStoreJ16",
       "commits": 1,
       "latestTicket": "",
-      "latestComment": "[ PAC-673 ] Fix IR and LOI updates for WON Change order (#5417)",
-      "deployedAt": "20260922T143434+0000"
+      "latestComment": "[PAC-835] FeasilibiltyDataStore - New Origin handle PROGRAMMATIC_API (#5414)",
+      "deployedAt": "20260923T121513+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "commits": 1,
+      "latestTicket": "NXS-13840",
+      "latestComment": "[NXS-13840] EOS - MS - New attributes on page load (#5421)",
+      "deployedAt": "20260923T111132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "commits": 3,
+      "latestTicket": "NXS-11782",
+      "latestComment": "[NXS-11782] MS - Project dates APIs don't validate date values and relationships",
+      "deployedAt": "20260923T104003+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "commits": 12,
+      "latestTicket": "NXS-13887",
+      "latestComment": "[NXS-13887] - SurveyRest - handle propagation in clone (#5387)",
+      "deployedAt": "20260923T074611+0000"
     }
   ],
-  "clusters": [
-    {
-      "label": "test_setup_soft_launch",
-      "display": "PES soft-launch vs tally",
-      "count": 15,
-      "newCount": 0,
-      "sample": "",
-      "why": "PES soft-launch total vs tally on a shared fixture"
-    },
-    {
-      "label": "validation_exception",
-      "display": "API ValidationException",
-      "count": 3,
-      "newCount": 3,
-      "sample": "jakarta.validation.ValidationException:Update failed, proposedStartDate must be before proposedEndDate. [proje",
-      "why": "API rejected the request (business validation)"
-    },
-    {
-      "label": "assert_fail",
-      "display": "assertion Condition not satisfied",
-      "count": 1,
-      "newCount": 1,
-      "sample": "",
-      "why": "Spock assertion failed (fixture or response shape)"
-    }
-  ],
-  "failures": [
-    {
-      "name": "Update proposed start date: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ProjectDatesTestSteps.Update proposed start date",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ProjectDatesTestSteps",
-      "newFailure": true,
-      "area": "Project",
-      "cluster": "validation_exception",
-      "message": "jakarta.validation.ValidationException:Update failed, proposedStartDate must be before proposedEndDate. [projectId=2257892, proposedStartDate=Tue Sep 29 21:44:\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2257892/dates/proposedStartDate 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"jakarta.validation.ValidationException:Update failed, proposedStartDate must be before proposedEndDate. [projectId=2257892, proposedStartDate=Tue Sep 29 21:44:17 EDT 2026, proposedEndDate=Thu Sep 03 06:18:35\u2026"
-    },
-    {
-      "name": "Update proposed start date: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ProjectDatesTestSteps.Update proposed start date",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ProjectDatesTestSteps",
-      "newFailure": true,
-      "area": "Project",
-      "cluster": "validation_exception",
-      "message": "jakarta.validation.ValidationException:Update failed, proposedStartDate must be before proposedEndDate. [projectId=2257892, proposedStartDate=Thu Oct 22 21:44:\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2257892/dates/proposedStartDate 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"jakarta.validation.ValidationException:Update failed, proposedStartDate must be before proposedEndDate. [projectId=2257892, proposedStartDate=Thu Oct 22 21:44:17 EDT 2026, proposedEndDate=Thu Sep 03 06:18:35\u2026"
-    },
-    {
-      "name": "Update proposed end date: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ProjectDatesTestSteps.Update proposed end date",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ProjectDatesTestSteps",
-      "newFailure": true,
-      "area": "Project",
-      "cluster": "validation_exception",
-      "message": "jakarta.validation.ValidationException:Update failed, the request date is either null or is in the past. [projectId=2257892, date=Thu Sep 03 06:18:35 EDT 2026]",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2257892/dates/proposedEndDate 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"jakarta.validation.ValidationException:Update failed, the request date is either null or is in the past. [projectId=2257892, date=Thu Sep 03 06:18:35 EDT 2026]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.tes\u2026"
-    },
-    {
-      "name": "quota group rename publishes QG_NAME_CHANGE on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": false,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": false,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "delivery mode update publishes DELIVERY_CHANGE on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": false,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "soft launch settings update publishes SOFT_LAUNCH_CHANGE on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": false,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "sources brand exclusion update publishes SOURCES_BRAND_EX_UPDATED on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": false,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "sources sample-criteria toggle update publishes SOURCES_TOGGLES_UPDATED on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": false,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "partner event creation publishes PARTNER_ALLOCATION_CHANGE on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": false,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "proposed dates update publishes TARGET_DATES_CHANGE on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": false,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "audience price update publishes PRICE_CHANGE on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": false,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "bid incidence update publishes BID_INCIDENCE_CHANGE on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": false,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "default survey length update publishes SURVEY_LENGTH_CHANGE on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": false,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "activity update publishes ACTIVITY_CHANGE on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": false,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "line item id update publishes LINE_ITEM_CHANGE on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": false,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "quota group creation publishes INSERTED on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": false,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "quota group deletion publishes DELETED_CHANGE on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": false,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "Project E2E - covers all project endpoints",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ProjectE2ETestSteps",
-      "newFailure": true,
-      "area": "Project",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: pHelper.getProjectCore(projectId()).totalQuota == originalTotalQuota + 100 | | | | | | | | | 2257895 3500 | 3500 3600 | | false | <com.dynata.nexus.api.model.project.ProjectCore@62b3871 dubProjectId=QN-1790129508152 proNumber=PRO_NUMBER_31416919 quoteNumber=null orderNumber=null projectName=Test Standard Project for QA test questFeatureId=null clientId=18560 orderStatus=P\u2026"
-    }
-  ],
+  "clusters": [],
+  "failures": [],
   "rulesNutshell": {
-    "headline": "4 new failures \u2014 mainly Project",
-    "tone": "bad",
-    "severity": "high",
+    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "tone": "ok",
+    "severity": "none",
     "bullets": [
-      "3\u00d7 API ValidationException \u2014 jakarta.validation.ValidationException:Update failed, proposedStartDate must be before proposedEndDate. [proje",
-      "1\u00d7 assertion Condition not satisfied"
+      "Change NXS-13928: gergely.gimesi \u00b7 Project",
+      "Change NXS-13928: gergely.gimesi \u00b7 Project"
     ],
-    "investigation": "New fails: 3\u00d7 API ValidationException; 1\u00d7 assertion Condition not satisfied. Vs prior #3.0.2706: up 4 total fails.",
+    "investigation": "No unmuted failures.",
     "detail": {
-      "investigation": "4 of 19 unmuted failures are new since the prior build (#3.0.2706, 15 fails). Failure types (new-first): (1) 3\u00d7 API ValidationException \u2014 API rejected the request (business validation). (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: Project (4). 4 service(s) (34 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Project: Update proposed start date: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.Proj [API ValidationException]; Project: Update proposed start date: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.Proj [API ValidationException]; Project: Update proposed end date: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.Projec [API ValidationException]; Project: Project E2E - covers all project endpoints [assertion Condition not satisfied].",
+      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 8 service(s) (49 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
       "bullets": [
-        "3\u00d7 API ValidationException \u2014 jakarta.validation.ValidationException:Update failed, proposedStartDate must be before proposedEndDate. [proje",
-        "1\u00d7 assertion Condition not satisfied",
-        "[QA deploy: NexusApiJ21] NXS-11782 (25 commits) \u2014 [NXS-11782] MS - Project dates APIs don't validate date values and relationships",
-        "[QA deploy: QuotaGroupRestJ21] NXS-13899 (5 commits) \u2014 [NXS-13899] MS | QuotaGroupRest | assign default audience group upon creating a ",
-        "[QA deploy: DedupeRestJ21] NXS-13888 (3 commits) \u2014 [NXS-13888] - DedupeRest - implement propagation (#5400)",
-        "[QA deploy: NexusApiBosJ21]  (1 commit) \u2014 [ PAC-673 ] Fix IR and LOI updates for WON Change order (#5417)"
+        "Change NXS-13928: gergely.gimesi \u00b7 Project",
+        "Change NXS-13928: gergely.gimesi \u00b7 Project",
+        "NXS-13928 18c0c7d44fc0 by gergely.gimesi \u2192 areas Project (0 new fails) \u00b7 ProjectHelper.groovy, ProjectDatesTestSteps.groovy, ProjectValidationTestSteps.groovy",
+        "NXS-13928 ed917686ca5f by gergely.gimesi \u2192 areas Project (0 new fails) \u00b7 ProjectHelper.groovy",
+        "[QA deploy: ProjectRestJ16] NXS-13934 (25 commits) \u2014 [NXS-13934] Failing accTests since missing clientId in draftProjects used for Ac",
+        "[QA deploy: NexusApiBosJ21]  (2 commits) \u2014 [PAC-837] NexusApiBos - New Origin handle PROGRAMMATIC_API (#5424)",
+        "[QA deploy: ProjectAutomationApi]  (3 commits) \u2014 [PAC-844] ProjectAutomationApi - New Origin handle PROGRAMMATIC_API (#5423)",
+        "[QA deploy: QuotaDetailsRestJ21]  (2 commits) \u2014 [PAC-832] QuotaDetailsRest - New Origin handle PROGRAMMATIC_API (#5410)",
+        "[QA deploy: FeasibilityDataStoreJ16]  (1 commit) \u2014 [PAC-835] FeasilibiltyDataStore - New Origin handle PROGRAMMATIC_API (#5414)",
+        "[QA deploy: NexusApiUI] NXS-13840 (1 commit) \u2014 [NXS-13840] EOS - MS - New attributes on page load (#5421)"
       ],
-      "newFailureAreas": [
+      "newFailureAreas": [],
+      "likelyCauses": [
         {
-          "area": "Project",
-          "newCount": 4
+          "version": "18c0c7d44fc0",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13928",
+          "comment": "[NXS-13928] MS - Fix nightly project dates fixture and totalQuota race",
+          "areas": [
+            "Project"
+          ],
+          "hitNewFailures": 0,
+          "files": [
+            "ProjectHelper.groovy",
+            "ProjectDatesTestSteps.groovy",
+            "ProjectValidationTestSteps.groovy"
+          ]
+        },
+        {
+          "version": "ed917686ca5f",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13928",
+          "comment": "[NXS-13928] MS - Start reset schedule 7 days out so derived dates stay in the future",
+          "areas": [
+            "Project"
+          ],
+          "hitNewFailures": 0,
+          "files": [
+            "ProjectHelper.groovy"
+          ]
         }
-      ],
-      "likelyCauses": []
+      ]
     },
-    "suspectCommits": [],
+    "suspectCommits": [
+      {
+        "version": "ed917686ca5f",
+        "username": "gergely.gimesi",
+        "comment": "[NXS-13928] MS - Start reset schedule 7 days out so derived dates stay in the future",
+        "ticket": "NXS-13928",
+        "areas": [
+          "Project"
+        ]
+      },
+      {
+        "version": "18c0c7d44fc0",
+        "username": "gergely.gimesi",
+        "comment": "[NXS-13928] MS - Fix nightly project dates fixture and totalQuota race",
+        "ticket": "NXS-13928",
+        "areas": [
+          "Project"
+        ]
+      }
+    ],
     "qaDeploySuspects": [
       {
-        "service": "NexusApiJ21",
-        "version": "9d1ddc6a79ff",
-        "username": "david.nagy",
-        "comment": "[NXS-11782] MS - Project dates APIs don't validate date values and relationships - integtest",
-        "ticket": "NXS-11782",
-        "deployedAt": "20260922T171309+0000",
+        "service": "ProjectRestJ16",
+        "version": "b98924dea7c6",
+        "username": "andras.banszki",
+        "comment": "[NXS-13934] Failing accTests since missing clientId in draftProjects used for AcceptanceTests",
+        "ticket": "NXS-13934",
+        "deployedAt": "20260923T133837+0000",
         "files": [
-          "UWholeProjectSetupApiAcceptanceTest.groovy"
+          "build.gradle",
+          "UnifiedAcceptanceTestBase.groovy"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiJ21",
-        "version": "c858c61b2cc7",
-        "username": "david.nagy",
-        "comment": "[NXS-11782] MS - Project dates APIs don't validate date values and relationships - integtest",
-        "ticket": "NXS-11782",
-        "deployedAt": "20260922T171309+0000",
+        "service": "ProjectRestJ16",
+        "version": "00f797a9e6bb",
+        "username": "gergo.hajnal",
+        "comment": "[ST-5015] (st-parameter-service) remove java.security.manager from PROD",
+        "ticket": "",
+        "deployedAt": "20260923T133837+0000",
         "files": [
-          "UProjectDatesApiAcceptanceTest.groovy"
+          "prod.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiJ21",
-        "version": "1eeb73209769",
-        "username": "david.nagy",
-        "comment": "[NXS-11782] MS - Project dates APIs don't validate date values and relationships",
-        "ticket": "NXS-11782",
-        "deployedAt": "20260922T171309+0000",
+        "service": "ProjectRestJ16",
+        "version": "383fac259e5c",
+        "username": "andras.banszki",
+        "comment": "[NXS-13921] EOS - MS - ProjectRest - persist CrmFields communicationSupported and projectTopicSupported (#5420)",
+        "ticket": "NXS-13921",
+        "deployedAt": "20260923T133837+0000",
         "files": [
-          "UProjectDatesImpl.java",
-          "UProjectDatesImplTest.groovy"
+          "README.md",
+          "UProjectCrmAcceptanceTest.groovy",
+          "CrmFields.java",
+          "ProjectCrmFieldsMongoHandlerTest.groovy"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiJ21",
+        "service": "ProjectRestJ16",
+        "version": "ea0d9896ea2e",
+        "username": "61797769+kocskam",
+        "comment": "[PAC-828] ProjectRest - New Origin handle PROGRAMMATIC_API (#5407)",
+        "ticket": "",
+        "deployedAt": "20260923T133837+0000",
+        "files": [
+          "UProjectImpl.java",
+          "ProjectOrigin.java",
+          "UProjectImplTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ProjectRestJ16",
         "version": "06b9fefde16e",
         "username": "gergo.hajnal",
         "comment": "[ST-4990] (MessageContentRest) prepare to be PROD deployed",
         "ticket": "",
-        "deployedAt": "20260922T171309+0000",
+        "deployedAt": "20260923T133837+0000",
         "files": [
           "production.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiJ21",
+        "service": "ProjectRestJ16",
         "version": "48052ce82d49",
         "username": "gergo.hajnal",
         "comment": "[ST-5003] (CountryLanguageRest) remove obsolete comment",
         "ticket": "",
-        "deployedAt": "20260922T171309+0000",
+        "deployedAt": "20260923T133837+0000",
         "files": [
           "dev.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiJ21",
+        "service": "ProjectRestJ16",
         "version": "1f588a96a2d7",
         "username": "brian.connolly",
         "comment": "update template locations to bypass ansible weirdness",
         "ticket": "",
-        "deployedAt": "20260922T171309+0000",
+        "deployedAt": "20260923T133837+0000",
         "files": [
           "all.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiJ21",
+        "service": "ProjectRestJ16",
         "version": "cf58d7b5d095",
         "username": "sajak.upadhyaya",
         "comment": "\"[FAI-482] scaling down resources in production\"",
         "ticket": "",
-        "deployedAt": "20260922T171309+0000",
+        "deployedAt": "20260923T133837+0000",
         "files": [
           "production.yml",
           "production.yml",
@@ -714,12 +641,12 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiJ21",
+        "service": "ProjectRestJ16",
         "version": "34b4140de272",
         "username": "sajak.upadhyaya",
         "comment": "\"[FAI-482] scaling down resources in qa\"",
         "ticket": "",
-        "deployedAt": "20260922T171309+0000",
+        "deployedAt": "20260923T133837+0000",
         "files": [
           "qa.yml",
           "qa.yml",
@@ -730,24 +657,12 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiJ21",
+        "service": "ProjectRestJ16",
         "version": "2385b49c4712",
         "username": "brian.connolly",
         "comment": "update template locations",
         "ticket": "",
-        "deployedAt": "20260922T171309+0000",
-        "files": [
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiJ21",
-        "version": "537df7dc7489",
-        "username": "brian.connolly",
-        "comment": "add template",
-        "ticket": "",
-        "deployedAt": "20260922T171309+0000",
+        "deployedAt": "20260923T133837+0000",
         "files": [
           "all.yml"
         ],
@@ -756,13 +671,10 @@
     ]
   },
   "contractDrift": {
-    "newCount": 2,
+    "newCount": 0,
     "baselineCount": 94,
-    "currentCount": 96,
-    "examples": [
-      "PUT /u1/nexus/projects/{}/dates/proposedEndDate :: Response status 500 not defined for path '/u1/nexus/projects/{projectId}/dates/proposedEndDate'.",
-      "PUT /u1/nexus/projects/{}/dates/proposedStartDate :: Response status 500 not defined for path '/u1/nexus/projects/{projectId}/dates/proposedStartDate'."
-    ]
+    "currentCount": 94,
+    "examples": []
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."
 }
