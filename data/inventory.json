@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-24",
+  "generatedAt": "2026-09-25",
   "source": "source",
-  "features": 750,
-  "cases": 1515,
-  "specs": 108,
+  "features": 783,
+  "cases": 1550,
+  "specs": 112,
   "areas": 15,
-  "featuresWithSteps": 750,
-  "steps": 3689,
+  "featuresWithSteps": 783,
+  "steps": 3840,
   "byType": {
     "CRUD": 249,
-    "Validation": 200,
-    "Workflow": 136,
+    "Validation": 211,
+    "Workflow": 145,
     "Query": 101,
-    "Other": 49,
+    "Other": 62,
     "E2E": 15
   },
   "rows": [
@@ -21632,6 +21632,1190 @@
         {
           "phase": "then",
           "label": "Both paths read the same Price object \u2014 Feasibility-Price separation reads agree"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingExecutionTestSteps",
+      "name": "A cleared traffic schedule does not run",
+      "type": "Other",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "FIELDWORK"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Execution",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingExecutionTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has an active linked survey and is paused"
+        },
+        {
+          "phase": "and",
+          "label": "A Start Traffic time is scheduled and then cleared"
+        },
+        {
+          "phase": "when",
+          "label": "The cleared Start Traffic time passes"
+        },
+        {
+          "phase": "then",
+          "label": "The audience is still paused"
+        },
+        {
+          "phase": "and",
+          "label": "No traffic schedule reappeared"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingExecutionTestSteps",
+      "name": "A scheduled Start fails with a reason when the audience has no active survey",
+      "type": "Other",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "FIELDWORK"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Execution",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingExecutionTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has a linked survey and is paused"
+        },
+        {
+          "phase": "and",
+          "label": "The linked survey is deactivated"
+        },
+        {
+          "phase": "when",
+          "label": "A Start Traffic time is scheduled"
+        },
+        {
+          "phase": "then",
+          "label": "The Start Traffic schedule fails explaining the survey is not active"
+        },
+        {
+          "phase": "and",
+          "label": "The audience stays paused"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingExecutionTestSteps",
+      "name": "A scheduled Start that is not allowed fails without blocking a later scheduled Stop",
+      "type": "Other",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "FIELDWORK"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Execution",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingExecutionTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has an active linked survey"
+        },
+        {
+          "phase": "and",
+          "label": "The audience is already fielding"
+        },
+        {
+          "phase": "when",
+          "label": "A Start Traffic time and a later Stop Traffic time are scheduled"
+        },
+        {
+          "phase": "then",
+          "label": "The Start Traffic schedule fails because a fielding audience cannot be started"
+        },
+        {
+          "phase": "and",
+          "label": "The Stop Traffic schedule still runs and pauses the audience"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingExecutionTestSteps",
+      "name": "A traffic schedule that already ran cannot be edited but a new one can be set",
+      "type": "Validation",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "FIELDWORK",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Execution",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingExecutionTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has an active linked survey and is paused"
+        },
+        {
+          "phase": "and",
+          "label": "A Start Traffic schedule has run"
+        },
+        {
+          "phase": "and",
+          "label": "A later Start Traffic time is chosen"
+        },
+        {
+          "phase": "when",
+          "label": "The schedule that already ran is moved to the later time"
+        },
+        {
+          "phase": "then",
+          "label": "The edit is rejected because only pending schedules can change"
+        },
+        {
+          "phase": "when",
+          "label": "A new Start Traffic schedule is set for the later time instead"
+        },
+        {
+          "phase": "then",
+          "label": "The audience has a new pending Start Traffic schedule"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingExecutionTestSteps",
+      "name": "Fieldwork dates and another schedule can be saved while a schedule that already ran is kept",
+      "type": "Other",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "FIELDWORK"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Execution",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingExecutionTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has an active linked survey and is paused"
+        },
+        {
+          "phase": "and",
+          "label": "A Start Traffic schedule has run"
+        },
+        {
+          "phase": "and",
+          "label": "New fieldwork dates and a Stop Traffic time are chosen"
+        },
+        {
+          "phase": "when",
+          "label": "The Field Plan saves the new dates with the executed Start unchanged and the new Stop"
+        },
+        {
+          "phase": "then",
+          "label": "The save is accepted"
+        },
+        {
+          "phase": "and",
+          "label": "The executed Start Traffic schedule is kept with its result"
+        },
+        {
+          "phase": "and",
+          "label": "The new Stop Traffic schedule and fieldwork dates are saved"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingExecutionTestSteps",
+      "name": "Scheduled #operation Traffic leaves a #audienceStatus audience unchanged",
+      "type": "Validation",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "FIELDWORK"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Execution",
+      "cases": 3,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingExecutionTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has an active linked survey"
+        },
+        {
+          "phase": "and",
+          "label": "The audience is in a status that traffic scheduling must not change"
+        },
+        {
+          "phase": "when",
+          "label": "A traffic change is scheduled"
+        },
+        {
+          "phase": "then",
+          "label": "After the scheduled time the audience keeps its status"
+        },
+        {
+          "phase": "and",
+          "label": "The schedule is reported as failed"
+        }
+      ],
+      "paramNote": "3 runs across audienceStatus"
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingExecutionTestSteps",
+      "name": "Scheduled Stop pauses a fielding audience and a later scheduled Start resumes it",
+      "type": "Other",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "FIELDWORK"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Execution",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingExecutionTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has an active linked survey"
+        },
+        {
+          "phase": "and",
+          "label": "The audience is fielding"
+        },
+        {
+          "phase": "when",
+          "label": "A Stop Traffic time and a later Start Traffic time are scheduled"
+        },
+        {
+          "phase": "then",
+          "label": "At the Stop Traffic time the audience is paused"
+        },
+        {
+          "phase": "and",
+          "label": "At the Start Traffic time the audience is fielding again"
+        },
+        {
+          "phase": "and",
+          "label": "The automatic status changes left start date, end date and days in field untouched"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingTestSteps",
+      "name": "A pending Start Traffic schedule can be moved to a new time",
+      "type": "Other",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has a pending Start Traffic schedule"
+        },
+        {
+          "phase": "and",
+          "label": "A later Start Traffic time is chosen"
+        },
+        {
+          "phase": "when",
+          "label": "The Start Traffic schedule is moved to the later time"
+        },
+        {
+          "phase": "then",
+          "label": "The same schedule is still pending, now at the later time"
+        },
+        {
+          "phase": "and",
+          "label": "No additional schedule was created"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingTestSteps",
+      "name": "A single #operation Traffic schedule can be set on its own",
+      "type": "Other",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has no traffic schedules"
+        },
+        {
+          "phase": "and",
+          "label": "A traffic time is chosen"
+        },
+        {
+          "phase": "when",
+          "label": "Only this traffic schedule is saved"
+        },
+        {
+          "phase": "then",
+          "label": "The audience has only this pending traffic schedule"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingTestSteps",
+      "name": "Changing traffic schedules does not change the fieldwork dates",
+      "type": "Other",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has known fieldwork dates and no traffic schedules"
+        },
+        {
+          "phase": "when",
+          "label": "Start and Stop Traffic schedules are saved"
+        },
+        {
+          "phase": "then",
+          "label": "Start date, end date and days in field are unchanged"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingTestSteps",
+      "name": "Clearing removes every traffic schedule",
+      "type": "Other",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has pending Start and Stop Traffic schedules"
+        },
+        {
+          "phase": "when",
+          "label": "The traffic schedules are cleared"
+        },
+        {
+          "phase": "then",
+          "label": "The audience has no traffic schedules"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingTestSteps",
+      "name": "Saving a Start Traffic time without the existing schedule replaces that schedule",
+      "type": "Other",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has a pending Start Traffic schedule"
+        },
+        {
+          "phase": "and",
+          "label": "A different Start Traffic time is chosen"
+        },
+        {
+          "phase": "when",
+          "label": "A new Start Traffic schedule is saved without referring to the existing one"
+        },
+        {
+          "phase": "then",
+          "label": "The previous schedule is gone and a new pending schedule exists at the new time"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingTestSteps",
+      "name": "Start Traffic schedule is saved together with new fieldwork dates",
+      "type": "Other",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has no traffic schedules"
+        },
+        {
+          "phase": "and",
+          "label": "New fieldwork dates and a Start Traffic time are chosen"
+        },
+        {
+          "phase": "when",
+          "label": "The fieldwork dates and the Start Traffic time are saved together"
+        },
+        {
+          "phase": "then",
+          "label": "The audience shows the new fieldwork dates"
+        },
+        {
+          "phase": "and",
+          "label": "The audience has exactly one pending Start Traffic schedule at the chosen time"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingTestSteps",
+      "name": "Start and Stop Traffic schedules are saved together",
+      "type": "Other",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has no traffic schedules"
+        },
+        {
+          "phase": "and",
+          "label": "A Start Traffic time and a later Stop Traffic time are chosen"
+        },
+        {
+          "phase": "when",
+          "label": "Both traffic schedules are saved"
+        },
+        {
+          "phase": "then",
+          "label": "The Start Traffic schedule is pending at its time"
+        },
+        {
+          "phase": "and",
+          "label": "The Stop Traffic schedule is pending at its own time with its own id"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingTestSteps",
+      "name": "Traffic schedules are visible on the whole quota group",
+      "type": "Other",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has no traffic schedules"
+        },
+        {
+          "phase": "when",
+          "label": "A Start Traffic schedule is saved"
+        },
+        {
+          "phase": "then",
+          "label": "The whole quota group carries the same schedule"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingValidationTestSteps",
+      "name": "Editing a traffic schedule the audience does not have is rejected",
+      "type": "Validation",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has a pending Start Traffic schedule"
+        },
+        {
+          "phase": "and",
+          "label": "An edit refers to a schedule that belongs to no audience"
+        },
+        {
+          "phase": "when",
+          "label": "The edit is saved"
+        },
+        {
+          "phase": "then",
+          "label": "The change is rejected because the schedule cannot be found on this audience"
+        },
+        {
+          "phase": "and",
+          "label": "The existing schedule is untouched"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingValidationTestSteps",
+      "name": "Misaligned fieldwork dates saved with traffic schedules are rejected as a bad request",
+      "type": "Validation",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has known fieldwork dates and a pending Start Traffic schedule"
+        },
+        {
+          "phase": "when",
+          "label": "Fieldwork dates whose days in field do not match start and end are saved with a Start Traffic time"
+        },
+        {
+          "phase": "then",
+          "label": "The change is rejected as invalid input explaining the date alignment rule"
+        },
+        {
+          "phase": "and",
+          "label": "Neither the fieldwork dates nor the existing schedule changed"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingValidationTestSteps",
+      "name": "More than two traffic schedules are rejected",
+      "type": "Validation",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has a pending Start Traffic schedule"
+        },
+        {
+          "phase": "when",
+          "label": "Three traffic schedules are saved at once"
+        },
+        {
+          "phase": "then",
+          "label": "The change is rejected because an audience has at most one Start and one Stop Traffic schedule"
+        },
+        {
+          "phase": "and",
+          "label": "The existing schedule is untouched"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingValidationTestSteps",
+      "name": "Rejected traffic schedule leaves the fieldwork dates unchanged",
+      "type": "Validation",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has known fieldwork dates and no traffic schedules"
+        },
+        {
+          "phase": "when",
+          "label": "Different fieldwork dates are saved together with a Start Traffic time in the past"
+        },
+        {
+          "phase": "then",
+          "label": "The change is rejected because traffic times must be in the future"
+        },
+        {
+          "phase": "and",
+          "label": "The rejected change did not alter the fieldwork dates"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingValidationTestSteps",
+      "name": "Saving traffic schedules without fieldwork dates is rejected as a bad request",
+      "type": "Validation",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has a pending Start Traffic schedule"
+        },
+        {
+          "phase": "when",
+          "label": "A Start Traffic time is saved together with missing fieldwork dates"
+        },
+        {
+          "phase": "then",
+          "label": "The change is rejected as invalid input, not as a server error"
+        },
+        {
+          "phase": "and",
+          "label": "The existing schedule is untouched"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingValidationTestSteps",
+      "name": "Traffic schedule in the past is rejected",
+      "type": "Validation",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has a pending Start Traffic schedule"
+        },
+        {
+          "phase": "when",
+          "label": "A Start Traffic time in the past is saved"
+        },
+        {
+          "phase": "then",
+          "label": "The change is rejected because traffic times must be in the future"
+        },
+        {
+          "phase": "and",
+          "label": "The existing schedule is untouched"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingValidationTestSteps",
+      "name": "Traffic schedule without Start or Stop is rejected",
+      "type": "Validation",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has a pending Start Traffic schedule"
+        },
+        {
+          "phase": "when",
+          "label": "A traffic schedule without Start or Stop is saved"
+        },
+        {
+          "phase": "then",
+          "label": "The change is rejected because the operation is required"
+        },
+        {
+          "phase": "and",
+          "label": "The existing schedule is untouched"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingValidationTestSteps",
+      "name": "Traffic schedule without a time is rejected",
+      "type": "Validation",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has a pending Start Traffic schedule"
+        },
+        {
+          "phase": "when",
+          "label": "A Start Traffic schedule without a time is saved"
+        },
+        {
+          "phase": "then",
+          "label": "The change is rejected because the time is required"
+        },
+        {
+          "phase": "and",
+          "label": "The existing schedule is untouched"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingValidationTestSteps",
+      "name": "Two Start Traffic schedules are rejected",
+      "type": "Validation",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The audience has a pending Start Traffic schedule"
+        },
+        {
+          "phase": "when",
+          "label": "Two Start Traffic schedules are saved at once"
+        },
+        {
+          "phase": "then",
+          "label": "The change is rejected because both schedules have the same operation"
+        },
+        {
+          "phase": "and",
+          "label": "The existing schedule is untouched"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingWorkflowTestSteps",
+      "name": "A cloned audience carries the traffic schedules shared by every audience",
+      "type": "Workflow",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "CLONE_QUOTA_GROUP"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Workflow",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The project has at least two audiences"
+        },
+        {
+          "phase": "and",
+          "label": "Every audience of the project has the same fieldwork dates and traffic schedules"
+        },
+        {
+          "phase": "when",
+          "label": "An audience is cloned"
+        },
+        {
+          "phase": "then",
+          "label": "The cloned audience has the shared traffic schedules"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingWorkflowTestSteps",
+      "name": "A new audience inherits the Apply to all traffic schedules even after one audience was changed",
+      "type": "Workflow",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Workflow",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The project has at least two audiences"
+        },
+        {
+          "phase": "and",
+          "label": "A Start Traffic schedule was applied to all audiences"
+        },
+        {
+          "phase": "and",
+          "label": "One audience's Start Traffic time was manually changed afterwards"
+        },
+        {
+          "phase": "when",
+          "label": "A new audience is added to the project"
+        },
+        {
+          "phase": "then",
+          "label": "The new audience inherits the traffic schedule that was applied to all audiences"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingWorkflowTestSteps",
+      "name": "A new audience inherits the traffic schedules shared by every audience",
+      "type": "Workflow",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Workflow",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The project has at least two audiences"
+        },
+        {
+          "phase": "and",
+          "label": "Every audience of the project has the same fieldwork dates and traffic schedules"
+        },
+        {
+          "phase": "when",
+          "label": "A new audience is added to the project"
+        },
+        {
+          "phase": "then",
+          "label": "The new audience has the shared traffic schedules"
+        },
+        {
+          "phase": "and",
+          "label": "The new audience has the shared fieldwork dates"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingWorkflowTestSteps",
+      "name": "Apply to all can copy only the fieldwork dates",
+      "type": "Workflow",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Workflow",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Another audience exists with its own pending Start Traffic schedule"
+        },
+        {
+          "phase": "and",
+          "label": "The source audience has different fieldwork dates and traffic schedules"
+        },
+        {
+          "phase": "when",
+          "label": "Only the fieldwork dates are applied to the other audience"
+        },
+        {
+          "phase": "then",
+          "label": "The other audience has the source's fieldwork dates"
+        },
+        {
+          "phase": "and",
+          "label": "The other audience keeps its own traffic schedule"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingWorkflowTestSteps",
+      "name": "Apply to all can copy only the traffic schedules",
+      "type": "Workflow",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Workflow",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Another audience exists with its own fieldwork dates"
+        },
+        {
+          "phase": "and",
+          "label": "The source audience has different fieldwork dates and Start and Stop Traffic schedules"
+        },
+        {
+          "phase": "when",
+          "label": "Only the traffic schedules are applied to the other audience"
+        },
+        {
+          "phase": "then",
+          "label": "The other audience has the source's traffic schedules"
+        },
+        {
+          "phase": "and",
+          "label": "The other audience keeps its own fieldwork dates"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingWorkflowTestSteps",
+      "name": "Apply to all copies the traffic schedules to every selected audience",
+      "type": "Workflow",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Workflow",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Two more audiences exist in the project"
+        },
+        {
+          "phase": "and",
+          "label": "The source audience has pending Start and Stop Traffic schedules"
+        },
+        {
+          "phase": "when",
+          "label": "The traffic schedules are applied to both audiences"
+        },
+        {
+          "phase": "then",
+          "label": "Both audiences have the same pending traffic schedules as the source"
+        },
+        {
+          "phase": "and",
+          "label": "The copies are separate schedules, not the source's"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingWorkflowTestSteps",
+      "name": "Apply to all with no selected audiences changes nothing",
+      "type": "Workflow",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Workflow",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Another audience exists with its own pending Start Traffic schedule"
+        },
+        {
+          "phase": "and",
+          "label": "The source audience has a different Start Traffic schedule"
+        },
+        {
+          "phase": "when",
+          "label": "Dates and schedules are applied without selecting any audience"
+        },
+        {
+          "phase": "then",
+          "label": "The other audience keeps its own traffic schedule"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingWorkflowTestSteps",
+      "name": "Apply to all with nothing chosen to copy changes nothing",
+      "type": "Workflow",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Workflow",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Another audience exists with its own pending Start Traffic schedule"
+        },
+        {
+          "phase": "and",
+          "label": "The source audience has a different Start Traffic schedule"
+        },
+        {
+          "phase": "when",
+          "label": "The other audience is selected but neither dates nor schedules are chosen"
+        },
+        {
+          "phase": "then",
+          "label": "The other audience keeps its own traffic schedule"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingWorkflowTestSteps",
+      "name": "Changing one audience after apply to all leaves the other audiences unchanged",
+      "type": "Workflow",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Workflow",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The source Start Traffic schedule was applied to two more audiences"
+        },
+        {
+          "phase": "and",
+          "label": "A later Start Traffic time is chosen for the first audience"
+        },
+        {
+          "phase": "when",
+          "label": "The first audience's Start Traffic schedule is moved"
+        },
+        {
+          "phase": "then",
+          "label": "The first audience has the new Start Traffic time"
+        },
+        {
+          "phase": "and",
+          "label": "The source and the second audience still have the applied schedule"
         }
       ]
     },

@@ -1,140 +1,193 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-24T02:00Z",
+  "generatedAt": "2026-09-25T02:10Z",
   "build": {
-    "number": "3.0.2708",
-    "buildId": "9541843",
-    "status": "SUCCESS",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9541843",
-    "durationSec": 1785.0
+    "number": "3.0.2709",
+    "buildId": "9543841",
+    "status": "FAILURE",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9543841",
+    "durationSec": 2370.0
   },
   "summary": {
-    "tests": 1479,
-    "passed": 1399,
-    "failures": 0,
+    "tests": 1515,
+    "passed": 1427,
+    "failures": 9,
     "errors": 0,
     "skipped": 0,
-    "muted": 80,
-    "newFailed": 0,
-    "passRate": 100.0,
-    "timeSec": 1785.0
+    "muted": 79,
+    "newFailed": 9,
+    "passRate": 99.4,
+    "timeSec": 2370.0
   },
   "prior": {
-    "buildId": "9539705",
-    "number": "3.0.2707",
-    "status": "FAILURE",
-    "statusText": "Tests failed: 19 (4 new), passed: 1374, muted: 86",
-    "startDate": "20260923T013300+0000",
-    "durationSec": 2616.0,
-    "failed": 19,
-    "passed": 1374,
-    "newFailed": 4
+    "buildId": "9541843",
+    "number": "3.0.2708",
+    "status": "SUCCESS",
+    "statusText": "Tests passed: 1399, muted: 80",
+    "startDate": "20260924T013022+0000",
+    "durationSec": 1785.0,
+    "failed": 0,
+    "passed": 1399,
+    "newFailed": 0
   },
   "changes": [
     {
-      "version": "ed917686ca5f",
+      "version": "b3542e489333",
       "username": "gergely.gimesi",
-      "comment": "[NXS-13928] MS - Start reset schedule 7 days out so derived dates stay in the future",
+      "comment": "NXS-13489 MS - autotests - align scheduling coverage with EOS-3712 (project phase only, Apply-to-All inheritance NXS-13\u2026",
       "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/ProjectHelper.groovy"
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingValidationTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingWorkflowTestSteps.groovy"
       ],
       "areas": [
-        "Project"
+        "QuotaGroup"
       ]
     },
     {
-      "version": "18c0c7d44fc0",
+      "version": "5825fa536595",
       "username": "gergely.gimesi",
-      "comment": "[NXS-13928] MS - Fix nightly project dates fixture and totalQuota race",
+      "comment": "NXS-13489 MS - autotests - saving while an executed schedule is kept (NXS-13943)",
       "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/ProjectHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectDatesTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy"
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingExecutionTestSteps.groovy"
       ],
       "areas": [
-        "Project"
+        "QuotaGroup"
+      ]
+    },
+    {
+      "version": "39b417d8302c",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13489 MS - autotests - apply-to-all, schedule inheritance and Start/Stop Traffic execution coverage",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/NEXUS_API_REGRESSION_TESTS.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/endpoints-overlay.json",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupSchedulingHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/config/TestKeys.java",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingExecutionTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingWorkflowTestSteps.groovy"
+      ],
+      "areas": [
+        "QuotaGroup",
+        "QuotaGroupScheduling"
+      ]
+    },
+    {
+      "version": "f6c7eff44b2d",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13489 MS - link expected-red scheduling validation features to bugs NXS-13937/13938/13939",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingValidationTestSteps.groovy"
+      ],
+      "areas": [
+        "QuotaGroup"
+      ]
+    },
+    {
+      "version": "181dd637f7a0",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13489 MS - autotests - Start/Stop Traffic schedule CRUD and validation coverage",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/NEXUS_API_REGRESSION_TESTS.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/contract_baseline.txt",
+        "gateway/unifiedApi/NexusApiRegressionTests/dashboard/data/endpoints-overlay.json",
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/openapi-nexus-unified-api-qa.json",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupSchedulingHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/config/TestKeys.java",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/config/TestTag.java",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingValidationTestSteps.groovy"
+      ],
+      "areas": [
+        "QuotaGroup",
+        "QuotaGroupScheduling"
       ]
     }
   ],
   "qaDeployChanges": [
     {
-      "service": "ProjectRestJ16",
-      "version": "b98924dea7c6",
-      "username": "andras.banszki",
-      "comment": "[NXS-13934] Failing accTests since missing clientId in draftProjects used for AcceptanceTests",
+      "service": "AlertTriggerRestJ21",
+      "version": "82b13327412a",
+      "username": "40339600+tamasroma",
+      "comment": "[Nxs-12210] j21 alert trigger rest, mongo test fix",
       "files": [
-        "project/ProjectRest/build.gradle",
-        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/acceptance/u1/UnifiedAcceptanceTestBase.groovy"
+        "project/AlertTriggerRest/src/integTest/groovy/com/surveysampling/rest/alerttrigger/v1/mongo/MongoTestBase.groovy"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T141249+0000"
     },
     {
-      "service": "ProjectRestJ16",
-      "version": "00f797a9e6bb",
-      "username": "gergo.hajnal",
-      "comment": "[ST-5015] (st-parameter-service) remove java.security.manager from PROD",
+      "service": "AlertTriggerRestJ21",
+      "version": "ac7f62862136",
+      "username": "40339600+tamasroma",
+      "comment": "[Nxs-12210] j21 alert trigger rest, mongo test fix",
       "files": [
-        "st-parameter-service/group_vars/prod.yml"
+        "project/AlertTriggerRest/src/integTest/groovy/com/surveysampling/rest/alerttrigger/v1/mongo/MongoTestBase.groovy"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T141249+0000"
     },
     {
-      "service": "ProjectRestJ16",
-      "version": "383fac259e5c",
-      "username": "andras.banszki",
-      "comment": "[NXS-13921] EOS - MS - ProjectRest - persist CrmFields communicationSupported and projectTopicSupported (#5420)",
-      "files": [
-        "project/ProjectRest/README.md",
-        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/acceptance/u1/UProjectCrmAcceptanceTest.groovy",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/model/crm/CrmFields.java",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mongo/ProjectCrmFieldsMongoHandlerTest.groovy"
-      ],
-      "deployedAt": "20260923T133837+0000"
+      "service": "AlertTriggerRestJ21",
+      "version": "88fb1ef1d154",
+      "username": "mitro.gyorgy",
+      "comment": "Merge pull request #631 from dynata/NA-1966",
+      "files": [],
+      "deployedAt": "20260924T141249+0000"
     },
     {
-      "service": "ProjectRestJ16",
-      "version": "ea0d9896ea2e",
+      "service": "AlertTriggerRestJ21",
+      "version": "45a66eb3f113",
+      "username": "gyorgykrisztian.mitro",
+      "comment": "[NA-1966] SLS - Upgrade lambdas to LTS python version + secrets layer upgrade | add temp table name to env variable",
+      "files": [
+        "sls-db/cloud-formation.template.yml",
+        "sls-db/group_vars/dev.yml",
+        "sls-db/group_vars/production.yml",
+        "sls-db/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260924T141249+0000"
+    },
+    {
+      "service": "CrmRestJ21",
+      "version": "81340d490659",
       "username": "61797769+kocskam",
-      "comment": "[PAC-828] ProjectRest - New Origin handle PROGRAMMATIC_API (#5407)",
+      "comment": "[PAC-836] CrmRest - New Origin handle PROGRAMMATIC_API (#5416)",
       "files": [
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/service/UProjectImpl.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/model/enums/ProjectOrigin.java",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/service/UProjectImplTest.groovy"
+        "project/Crm/CrmRest/build.gradle"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "06b9fefde16e",
       "username": "gergo.hajnal",
       "comment": "[ST-4990] (MessageContentRest) prepare to be PROD deployed",
       "files": [
         "dk-management-message-content-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "48052ce82d49",
       "username": "gergo.hajnal",
       "comment": "[ST-5003] (CountryLanguageRest) remove obsolete comment",
       "files": [
         "dk-project-country-language-rest/group_vars/dev.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "1f588a96a2d7",
       "username": "brian.connolly",
       "comment": "update template locations to bypass ansible weirdness",
       "files": [
         "ae-transaction-manager/group_vars/all.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "cf58d7b5d095",
       "username": "sajak.upadhyaya",
       "comment": "\"[FAI-482] scaling down resources in production\"",
@@ -145,10 +198,10 @@
         "ml-offers-model-service/group_vars/production.yml",
         "ml-valkey-cache-storage/group_vars/production.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "34b4140de272",
       "username": "sajak.upadhyaya",
       "comment": "\"[FAI-482] scaling down resources in qa\"",
@@ -159,30 +212,30 @@
         "ml-offers-model-service/group_vars/qa.yml",
         "ml-valkey-cache-storage/group_vars/qa.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "2385b49c4712",
       "username": "brian.connolly",
       "comment": "update template locations",
       "files": [
         "ae-transaction-manager/group_vars/all.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "537df7dc7489",
       "username": "brian.connolly",
       "comment": "add template",
       "files": [
         "ae-transaction-manager/group_vars/all.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "67cb1a4b489f",
       "username": "sajak.upadhyaya",
       "comment": "\"[FAI-482] scaling down resources in dev\"",
@@ -197,10 +250,10 @@
         "ml-valkey-cache-storage/group_vars/all.yml",
         "ml-valkey-cache-storage/group_vars/dev.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "655afc645db4",
       "username": "brian.connolly",
       "comment": "Convert to use AE-DPR.",
@@ -213,10 +266,10 @@
         "ae-transaction-manager/pre_tasks.yml",
         "ae-transaction-manager/publish.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "c2defb556da7",
       "username": "gergo.hajnal",
       "comment": "[ST-5003] (CountryLanguageRest) prepare for PROD deployment",
@@ -224,40 +277,40 @@
         "dk-project-country-language-rest/group_vars/production.yml",
         "dk-project-country-language-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "d151f8d026f8",
       "username": "brian.connolly",
       "comment": "Remove tags.",
       "files": [
         "ae-quota-group-translator/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "19d0ed1c49c7",
       "username": "brian.connolly",
       "comment": "Update in preparation for production release.",
       "files": [
         "ae-quota-group-translator/group_vars/production.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "b93fc5363628",
       "username": "andras.banszki",
       "comment": "[NXS_13533] MS - migrate ExternalEventRest to J21",
       "files": [
         "dk-project-external-event-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "88d06bd5eab2",
       "username": "andras.banszki",
       "comment": "[NXS_12229] MS - migrate MailEventRest to J21",
@@ -266,10 +319,10 @@
         "dk-project-mail-event-rest/group_vars/production.yml",
         "dk-project-mail-event-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "4f0a27196d80",
       "username": "andras.banszki",
       "comment": "[NXS_12237] MS - migrate ProjectLogRest to J21",
@@ -278,10 +331,10 @@
         "dk-project-project-log-rest/group_vars/production.yml",
         "dk-project-project-log-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "e05b732dd1d2",
       "username": "gergo.hajnal",
       "comment": "[ST-4981] (ParticipationStatusRest) prepare for PROD deploy",
@@ -290,347 +343,503 @@
         "st-participation-status-rest/group_vars/prod.yml",
         "st-participation-status-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "5ff6ed356099",
       "username": "gergo.hajnal",
       "comment": "[ST-4983] (RexTRest) prepare for PROD deploy",
       "files": [
         "dk-management-rex-t-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "ad451c3be487",
       "username": "gergo.hajnal",
       "comment": "[ST-4995] (MailTemplateRest) prepare for PROD deploy",
       "files": [
         "dk-project-mail-template-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "1d6116c9dc81",
       "username": "gergo.hajnal",
       "comment": "[ST-4988] (MailRest) prepare for PROD deploy",
       "files": [
         "dk-management-mail-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "6e7503965e0b",
       "username": "gergo.hajnal",
       "comment": "[ST-4978] (DefaultPagesRest) prepare for PROD deploy",
       "files": [
         "dk-management-default-pages-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "CrmRestJ21",
       "version": "9de1b2b09b83",
       "username": "gergo.hajnal",
       "comment": "[ST-5019] (st-cloud-config) change DNS hosted zone ID to SupplyTools QA, instead of DKMS QA",
       "files": [
         "st-cloud-config/group_vars/qa.yml"
       ],
-      "deployedAt": "20260923T133837+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "NexusApiBosJ21",
-      "version": "cc5e5b035cf2",
-      "username": "61797769+kocskam",
-      "comment": "[PAC-837] NexusApiBos - New Origin handle PROGRAMMATIC_API (#5424)",
-      "files": [
-        "gateway/unifiedApi/NexusApiBos/build.gradle"
-      ],
-      "deployedAt": "20260923T124150+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "129cc7dcfde2",
-      "username": "61797769+kocskam",
-      "comment": "[PAC-844] ProjectAutomationApi - New Origin handle PROGRAMMATIC_API (#5423)",
-      "files": [
-        "gateway/unifiedApi/ProjectAutomationApi/build.gradle",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/service/ProgrammaticProjectAssembler.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/service/SampleServiceImpl.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/test/groovy/u1/nexus/projects/service/SampleServiceImplTest.groovy"
-      ],
-      "deployedAt": "20260923T124116+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
+      "service": "CrmRestJ21",
       "version": "7662f404a7b9",
       "username": "gergo.hajnal",
       "comment": "[ST-5019] (st-cloud-config) change environment_tags to environment_strings in new dynata tags",
       "files": [
         "st-cloud-config/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260923T124116+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "CrmRestJ21",
       "version": "0e9d06e926bb",
       "username": "gergo.hajnal",
       "comment": "[ST-5019] (st-cloud-config) remove access scope tag from non load balancers",
       "files": [
         "st-cloud-config/cloud-formation.template.yml"
       ],
-      "deployedAt": "20260923T124116+0000"
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "QuotaDetailsRestJ21",
-      "version": "34779dc459dc",
-      "username": "61797769+kocskam",
-      "comment": "[PAC-832] QuotaDetailsRest - New Origin handle PROGRAMMATIC_API (#5410)",
+      "service": "CrmRestJ21",
+      "version": "baf23759d9c2",
+      "username": "krisztian.erdei",
+      "comment": "Merge remote-tracking branch 'dynata/master' into ST-5050-postgres-upgrade-aurora-18-prod",
+      "files": [],
+      "deployedAt": "20260924T104851+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "12bf8c97c854",
+      "username": "kocskam",
+      "comment": "[PAC-833] Test fix",
       "files": [
-        "project/QuotaDetailsRest/src/main/java/com/surveysampling/rest/quotadetails/service/v2/dependencies/project/ProjectOrigin.java",
-        "project/QuotaDetailsRest/src/main/java/com/surveysampling/rest/quotadetails/service/v2/messaging/QuotaGroupUnitsStatusChangeManager.java",
-        "project/QuotaDetailsRest/src/test/groovy/com/surveysampling/rest/quotadetails/service/v2/messaging/QuotaGroupUnitsStatusChangeManagerTest.groovy"
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/feas/AdhocFeasibilityRequestAssemblerTest.groovy"
       ],
-      "deployedAt": "20260923T121759+0000"
+      "deployedAt": "20260924T073735+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "ProjectRestJ16",
+      "service": "AlertTriggerRestJ21",
+      "commits": 4,
+      "latestTicket": "NXS-12210",
+      "latestComment": "[Nxs-12210] j21 alert trigger rest, mongo test fix",
+      "deployedAt": "20260924T141249+0000"
+    },
+    {
+      "service": "CrmRestJ21",
       "commits": 25,
-      "latestTicket": "NXS-13934",
-      "latestComment": "[NXS-13934] Failing accTests since missing clientId in draftProjects used for Ac",
-      "deployedAt": "20260923T133837+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "commits": 2,
       "latestTicket": "",
-      "latestComment": "[PAC-837] NexusApiBos - New Origin handle PROGRAMMATIC_API (#5424)",
-      "deployedAt": "20260923T124150+0000"
+      "latestComment": "[PAC-836] CrmRest - New Origin handle PROGRAMMATIC_API (#5416)",
+      "deployedAt": "20260924T104851+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "DemandApi",
       "commits": 3,
       "latestTicket": "",
-      "latestComment": "[PAC-844] ProjectAutomationApi - New Origin handle PROGRAMMATIC_API (#5423)",
-      "deployedAt": "20260923T124116+0000"
+      "latestComment": "[PAC-833] Test fix",
+      "deployedAt": "20260924T073735+0000"
     },
     {
-      "service": "QuotaDetailsRestJ21",
-      "commits": 2,
-      "latestTicket": "",
-      "latestComment": "[PAC-832] QuotaDetailsRest - New Origin handle PROGRAMMATIC_API (#5410)",
-      "deployedAt": "20260923T121759+0000"
-    },
-    {
-      "service": "FeasibilityDataStoreJ16",
+      "service": "DetailsEditorRestJ21",
       "commits": 1,
       "latestTicket": "",
-      "latestComment": "[PAC-835] FeasilibiltyDataStore - New Origin handle PROGRAMMATIC_API (#5414)",
-      "deployedAt": "20260923T121513+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "commits": 1,
-      "latestTicket": "NXS-13840",
-      "latestComment": "[NXS-13840] EOS - MS - New attributes on page load (#5421)",
-      "deployedAt": "20260923T111132+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "commits": 3,
-      "latestTicket": "NXS-11782",
-      "latestComment": "[NXS-11782] MS - Project dates APIs don't validate date values and relationships",
-      "deployedAt": "20260923T104003+0000"
-    },
-    {
-      "service": "SurveyRestJ21",
-      "commits": 12,
-      "latestTicket": "NXS-13887",
-      "latestComment": "[NXS-13887] - SurveyRest - handle propagation in clone (#5387)",
-      "deployedAt": "20260923T074611+0000"
+      "latestComment": "[PAC-831] DetailsEditorRest - New Origin handle PROGRAMMATIC_API (#5408)",
+      "deployedAt": "20260924T070718+0000"
     }
   ],
-  "clusters": [],
-  "failures": [],
+  "clusters": [
+    {
+      "label": "assert_fail",
+      "display": "assertion Condition not satisfied",
+      "count": 6,
+      "newCount": 6,
+      "sample": "",
+      "why": "Spock assertion failed (fixture or response shape)"
+    },
+    {
+      "label": "other",
+      "display": "other",
+      "count": 2,
+      "newCount": 2,
+      "sample": "Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
+      "why": "no dominant signature yet \u2014 open TeamCity details"
+    },
+    {
+      "label": "infra_504",
+      "display": "QA 504 timeout",
+      "count": 1,
+      "newCount": 1,
+      "sample": "jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate",
+      "why": "QA gateway timed out (504) \u2014 infra / overloaded dependency"
+    }
+  ],
+  "failures": [
+    {
+      "name": "Locking and unlocking sold quota while feasibility distribution is set validates lock functionality: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaValidationTestSteps.Locking and unlocking sold quota while feasibility distribution is set validates lock functionality",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaValidationTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "other",
+      "message": "Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped value!",
+      "detailsExcerpt": "java.lang.RuntimeException: Failed to lock sold quota for quotaGroupId=118800480 after 30s: DetailsEditor still returning feasibility-not-ready or no sold quota > quota capped value (cross-service lag between QuotaDetails, FeasDataStore, and DetailsEditor). at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupHelper.setSoldQuotaLocked(QuotaGroupHelper.groovy:732) at \u2026"
+    },
+    {
+      "name": "Rejected traffic schedule leaves the fieldwork dates unchanged",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingValidationTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "assert_fail",
+      "message": "Condition not satisfied:",
+      "detailsExcerpt": "Condition not satisfied: datesAfter.proposedStartDate == datesBefore.proposedStartDate | | | | | | | | | Wed Sep 30 01:00:00 UTC 2026 | | | <com.dynata.nexus.api.model.quotagroup.QuotaGroupDates@3d287f7c proposedStartDate=Wed Sep 30 01:00:00 UTC 2026 quotaActivationDate=null originalEndDate=null proposedEndDate=Sat Oct 03 01:00:00 UTC 2026 endDateAutoClose=false fieldworkMode=null fieldworkHours=\u2026"
+    },
+    {
+      "name": "Misaligned fieldwork dates saved with traffic schedules are rejected as a bad request",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingValidationTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "infra_504",
+      "message": "jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate + fieldworkHours should be equals to EndDate",
+      "detailsExcerpt": "Condition not satisfied: schedHelper.rejectionStatus(rejection) == 400 | | | | | 500 | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118799558/saveDatesAndSchedules | | 500{ | \"errors\" : [ { | \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups/118799558/dates\" ], | \"stat\u2026"
+    },
+    {
+      "name": "Saving traffic schedules without fieldwork dates is rejected as a bad request",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingValidationTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "assert_fail",
+      "message": "java.lang.IllegalArgumentException:Body parameter 1 was null",
+      "detailsExcerpt": "Condition not satisfied: schedHelper.rejectionStatus(rejection) == 400 | | | | | 500 | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118799558/saveDatesAndSchedules | | 500{ | \"errors\" : [ { | \"status\" : \"INTERNAL_SERVER_ERROR\", | \"message\" : \"java.lang.IllegalArgumentException:Body parameter 1 was null\" | } ], | \"version\" : \"1.0\" | } | | at\u2026"
+    },
+    {
+      "name": "Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps.Scheduled START Traffic leaves a CLOSED audience unchanged",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "assert_fail",
+      "message": "Condition not satisfied:",
+      "detailsExcerpt": "Condition not satisfied: qgHelper.getManualStatus() == audienceStatus | | | | | STARTED | CLOSED | false <com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupHelper@384cd83a nxs=com.dynata.nexusapi.feignclients.NexusApiFeigns@3119fcad bos=com.dynata.nexusapi.feignclients.NexusApiBosFeigns@6d7005e2 legacy=com.dynata.dkms.feignclients.LegacyNexusFeigns@33a39d7e testConte\u2026"
+    },
+    {
+      "name": "Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps.Scheduled START Traffic leaves a FIELDWORK_COMPLETE audience unchanged",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "assert_fail",
+      "message": "Condition not satisfied:",
+      "detailsExcerpt": "Condition not satisfied: qgHelper.getManualStatus() == audienceStatus | | | | | STARTED | FIELDWORK_COMPLETE | false <com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupHelper@4feea86f nxs=com.dynata.nexusapi.feignclients.NexusApiFeigns@3119fcad bos=com.dynata.nexusapi.feignclients.NexusApiBosFeigns@6d7005e2 legacy=com.dynata.dkms.feignclients.LegacyNexusFeigns@33a39d\u2026"
+    },
+    {
+      "name": "Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps.Scheduled STOP Traffic leaves a CLOSED audience unchanged",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "assert_fail",
+      "message": "Condition not satisfied:",
+      "detailsExcerpt": "Condition not satisfied: qgHelper.getManualStatus() == audienceStatus | | | | | PAUSED | CLOSED | false <com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupHelper@456beb8b nxs=com.dynata.nexusapi.feignclients.NexusApiFeigns@3119fcad bos=com.dynata.nexusapi.feignclients.NexusApiBosFeigns@6d7005e2 legacy=com.dynata.dkms.feignclients.LegacyNexusFeigns@33a39d7e testContex\u2026"
+    },
+    {
+      "name": "Fieldwork dates and another schedule can be saved while a schedule that already ran is kept",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "other",
+      "message": "Scheduled time cannot be in the past!",
+      "detailsExcerpt": "Expected no exception to be thrown, but got 'java.lang.RuntimeException' at app//spock.lang.Specification.noExceptionThrown(Specification.java:123) at com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps.Fieldwork dates and another schedule can be saved while a schedule that already ran is kept(QuotaGroupSchedulingExecutionTestSteps.groovy:203) Cause\u2026"
+    },
+    {
+      "name": "A new audience inherits the Apply to all traffic schedules even after one audience was changed",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingWorkflowTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "assert_fail",
+      "message": "Condition not satisfied:",
+      "detailsExcerpt": "Condition not satisfied: schedHelper.scheduleSlots(newAudience) == appliedSlots | | | | | | [] 118800727 | [[START, Tue Nov 24 02:05:00 UTC 2026, PENDING]] | false | 1 difference (0% similarity, 1 missing, 0 extra) | missing: [[START, Tue Nov 24 02:05:00 UTC 2026, PENDING]] | extra: [] <com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupSchedulingHelper@7cecd959 nxs=c\u2026"
+    }
+  ],
   "rulesNutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
-    "tone": "ok",
-    "severity": "none",
+    "headline": "9 new failures \u2014 mainly QuotaGroup, Quota",
+    "tone": "bad",
+    "severity": "high",
     "bullets": [
-      "Change NXS-13928: gergely.gimesi \u00b7 Project",
-      "Change NXS-13928: gergely.gimesi \u00b7 Project"
+      "6\u00d7 assertion Condition not satisfied",
+      "2\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
+      "1\u00d7 QA 504 timeout \u2014 jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate ",
+      "Change NXS-13489: gergely.gimesi \u00b7 QuotaGroup \u00b7 8 overlapping new fails"
     ],
-    "investigation": "No unmuted failures.",
+    "investigation": "New fails: 6\u00d7 assertion Condition not satisfied; 2\u00d7 other (no dominant signature yet). Likely related to NXS-13489 gergely.gimesi `181dd637f7a0` (QuotaGroup, 8 new fails in overlap).",
     "detail": {
-      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 8 service(s) (49 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
+      "investigation": "9 of 9 unmuted failures are new since the prior build (#3.0.2708, 0 fails). Failure types (new-first): (1) 6\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (2) 2\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (3) 1\u00d7 QA 504 timeout \u2014 QA gateway timed out (504) \u2014 infra / overloaded dependency. Hot areas among new fails: QuotaGroup (8), Quota (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 4 service(s) (33 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Quota: Locking and unlocking sold quota while feasibility distribution is set validates lock func [other]; QuotaGroup: Rejected traffic schedule leaves the fieldwork dates unchanged [assertion Condition not satisfied]; QuotaGroup: Misaligned fieldwork dates saved with traffic schedules are rejected as a bad request [QA 504 timeout]; QuotaGroup: Saving traffic schedules without fieldwork dates is rejected as a bad request [assertion Condition not satisfied].",
       "bullets": [
-        "Change NXS-13928: gergely.gimesi \u00b7 Project",
-        "Change NXS-13928: gergely.gimesi \u00b7 Project",
-        "NXS-13928 18c0c7d44fc0 by gergely.gimesi \u2192 areas Project (0 new fails) \u00b7 ProjectHelper.groovy, ProjectDatesTestSteps.groovy, ProjectValidationTestSteps.groovy",
-        "NXS-13928 ed917686ca5f by gergely.gimesi \u2192 areas Project (0 new fails) \u00b7 ProjectHelper.groovy",
-        "[QA deploy: ProjectRestJ16] NXS-13934 (25 commits) \u2014 [NXS-13934] Failing accTests since missing clientId in draftProjects used for Ac",
-        "[QA deploy: NexusApiBosJ21]  (2 commits) \u2014 [PAC-837] NexusApiBos - New Origin handle PROGRAMMATIC_API (#5424)",
-        "[QA deploy: ProjectAutomationApi]  (3 commits) \u2014 [PAC-844] ProjectAutomationApi - New Origin handle PROGRAMMATIC_API (#5423)",
-        "[QA deploy: QuotaDetailsRestJ21]  (2 commits) \u2014 [PAC-832] QuotaDetailsRest - New Origin handle PROGRAMMATIC_API (#5410)",
-        "[QA deploy: FeasibilityDataStoreJ16]  (1 commit) \u2014 [PAC-835] FeasilibiltyDataStore - New Origin handle PROGRAMMATIC_API (#5414)",
-        "[QA deploy: NexusApiUI] NXS-13840 (1 commit) \u2014 [NXS-13840] EOS - MS - New attributes on page load (#5421)"
+        "6\u00d7 assertion Condition not satisfied",
+        "2\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
+        "1\u00d7 QA 504 timeout \u2014 jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate ",
+        "Change NXS-13489: gergely.gimesi \u00b7 QuotaGroup \u00b7 8 overlapping new fails",
+        "Change NXS-13489: gergely.gimesi \u00b7 QuotaGroup \u00b7 8 overlapping new fails",
+        "NXS-13489 181dd637f7a0 by gergely.gimesi \u2192 areas QuotaGroup (8 new fails) \u00b7 NEXUS_API_REGRESSION_TESTS.md, contract_baseline.txt, endpoints-overlay.json, openapi-nexus-unified-api-qa.json, QuotaGroupSchedulingHelper.groovy, TestKeys.java",
+        "NXS-13489 39b417d8302c by gergely.gimesi \u2192 areas QuotaGroup (8 new fails) \u00b7 NEXUS_API_REGRESSION_TESTS.md, endpoints-overlay.json, QuotaGroupSchedulingHelper.groovy, TestKeys.java, QuotaGroupSchedulingExecutionTestSteps.groovy, QuotaGroupSchedulingWorkflowTestSteps.groovy",
+        "NXS-13489 5825fa536595 by gergely.gimesi \u2192 areas QuotaGroup (8 new fails) \u00b7 QuotaGroupSchedulingExecutionTestSteps.groovy",
+        "NXS-13489 b3542e489333 by gergely.gimesi \u2192 areas QuotaGroup (8 new fails) \u00b7 QuotaGroupSchedulingTestSteps.groovy, QuotaGroupSchedulingValidationTestSteps.groovy, QuotaGroupSchedulingWorkflowTestSteps.groovy",
+        "[QA deploy: AlertTriggerRestJ21] NXS-12210 (4 commits) \u2014 [Nxs-12210] j21 alert trigger rest, mongo test fix"
       ],
-      "newFailureAreas": [],
+      "newFailureAreas": [
+        {
+          "area": "QuotaGroup",
+          "newCount": 8
+        },
+        {
+          "area": "Quota",
+          "newCount": 1
+        }
+      ],
       "likelyCauses": [
         {
-          "version": "18c0c7d44fc0",
+          "version": "181dd637f7a0",
           "username": "gergely.gimesi",
-          "ticket": "NXS-13928",
-          "comment": "[NXS-13928] MS - Fix nightly project dates fixture and totalQuota race",
+          "ticket": "NXS-13489",
+          "comment": "NXS-13489 MS - autotests - Start/Stop Traffic schedule CRUD and validation coverage",
           "areas": [
-            "Project"
+            "QuotaGroup"
           ],
-          "hitNewFailures": 0,
+          "hitNewFailures": 8,
           "files": [
-            "ProjectHelper.groovy",
-            "ProjectDatesTestSteps.groovy",
-            "ProjectValidationTestSteps.groovy"
+            "NEXUS_API_REGRESSION_TESTS.md",
+            "contract_baseline.txt",
+            "endpoints-overlay.json",
+            "openapi-nexus-unified-api-qa.json",
+            "QuotaGroupSchedulingHelper.groovy",
+            "TestKeys.java"
           ]
         },
         {
-          "version": "ed917686ca5f",
+          "version": "39b417d8302c",
           "username": "gergely.gimesi",
-          "ticket": "NXS-13928",
-          "comment": "[NXS-13928] MS - Start reset schedule 7 days out so derived dates stay in the future",
+          "ticket": "NXS-13489",
+          "comment": "NXS-13489 MS - autotests - apply-to-all, schedule inheritance and Start/Stop Traffic execution coverage",
           "areas": [
-            "Project"
+            "QuotaGroup"
           ],
-          "hitNewFailures": 0,
+          "hitNewFailures": 8,
           "files": [
-            "ProjectHelper.groovy"
+            "NEXUS_API_REGRESSION_TESTS.md",
+            "endpoints-overlay.json",
+            "QuotaGroupSchedulingHelper.groovy",
+            "TestKeys.java",
+            "QuotaGroupSchedulingExecutionTestSteps.groovy",
+            "QuotaGroupSchedulingWorkflowTestSteps.groovy"
+          ]
+        },
+        {
+          "version": "5825fa536595",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13489",
+          "comment": "NXS-13489 MS - autotests - saving while an executed schedule is kept (NXS-13943)",
+          "areas": [
+            "QuotaGroup"
+          ],
+          "hitNewFailures": 8,
+          "files": [
+            "QuotaGroupSchedulingExecutionTestSteps.groovy"
+          ]
+        },
+        {
+          "version": "b3542e489333",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13489",
+          "comment": "NXS-13489 MS - autotests - align scheduling coverage with EOS-3712 (project phase only, Apply-to-All inheritance NXS-13946)",
+          "areas": [
+            "QuotaGroup"
+          ],
+          "hitNewFailures": 8,
+          "files": [
+            "QuotaGroupSchedulingTestSteps.groovy",
+            "QuotaGroupSchedulingValidationTestSteps.groovy",
+            "QuotaGroupSchedulingWorkflowTestSteps.groovy"
+          ]
+        },
+        {
+          "version": "f6c7eff44b2d",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13489",
+          "comment": "NXS-13489 MS - link expected-red scheduling validation features to bugs NXS-13937/13938/13939",
+          "areas": [
+            "QuotaGroup"
+          ],
+          "hitNewFailures": 8,
+          "files": [
+            "QuotaGroupSchedulingValidationTestSteps.groovy"
           ]
         }
       ]
     },
     "suspectCommits": [
       {
-        "version": "ed917686ca5f",
+        "version": "b3542e489333",
         "username": "gergely.gimesi",
-        "comment": "[NXS-13928] MS - Start reset schedule 7 days out so derived dates stay in the future",
-        "ticket": "NXS-13928",
+        "comment": "NXS-13489 MS - autotests - align scheduling coverage with EOS-3712 (project phase only, Apply-to-All inheritance NXS-13946)",
+        "ticket": "NXS-13489",
         "areas": [
-          "Project"
+          "QuotaGroup"
         ]
       },
       {
-        "version": "18c0c7d44fc0",
+        "version": "5825fa536595",
         "username": "gergely.gimesi",
-        "comment": "[NXS-13928] MS - Fix nightly project dates fixture and totalQuota race",
-        "ticket": "NXS-13928",
+        "comment": "NXS-13489 MS - autotests - saving while an executed schedule is kept (NXS-13943)",
+        "ticket": "NXS-13489",
         "areas": [
-          "Project"
+          "QuotaGroup"
+        ]
+      },
+      {
+        "version": "39b417d8302c",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13489 MS - autotests - apply-to-all, schedule inheritance and Start/Stop Traffic execution coverage",
+        "ticket": "NXS-13489",
+        "areas": [
+          "QuotaGroup"
+        ]
+      },
+      {
+        "version": "f6c7eff44b2d",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13489 MS - link expected-red scheduling validation features to bugs NXS-13937/13938/13939",
+        "ticket": "NXS-13489",
+        "areas": [
+          "QuotaGroup"
+        ]
+      },
+      {
+        "version": "181dd637f7a0",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13489 MS - autotests - Start/Stop Traffic schedule CRUD and validation coverage",
+        "ticket": "NXS-13489",
+        "areas": [
+          "QuotaGroup"
         ]
       }
     ],
     "qaDeploySuspects": [
       {
-        "service": "ProjectRestJ16",
-        "version": "b98924dea7c6",
-        "username": "andras.banszki",
-        "comment": "[NXS-13934] Failing accTests since missing clientId in draftProjects used for AcceptanceTests",
-        "ticket": "NXS-13934",
-        "deployedAt": "20260923T133837+0000",
+        "service": "AlertTriggerRestJ21",
+        "version": "82b13327412a",
+        "username": "40339600+tamasroma",
+        "comment": "[Nxs-12210] j21 alert trigger rest, mongo test fix",
+        "ticket": "NXS-12210",
+        "deployedAt": "20260924T141249+0000",
         "files": [
-          "build.gradle",
-          "UnifiedAcceptanceTestBase.groovy"
+          "MongoTestBase.groovy"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
-        "version": "00f797a9e6bb",
-        "username": "gergo.hajnal",
-        "comment": "[ST-5015] (st-parameter-service) remove java.security.manager from PROD",
+        "service": "AlertTriggerRestJ21",
+        "version": "ac7f62862136",
+        "username": "40339600+tamasroma",
+        "comment": "[Nxs-12210] j21 alert trigger rest, mongo test fix",
+        "ticket": "NXS-12210",
+        "deployedAt": "20260924T141249+0000",
+        "files": [
+          "MongoTestBase.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "AlertTriggerRestJ21",
+        "version": "88fb1ef1d154",
+        "username": "mitro.gyorgy",
+        "comment": "Merge pull request #631 from dynata/NA-1966",
         "ticket": "",
-        "deployedAt": "20260923T133837+0000",
+        "deployedAt": "20260924T141249+0000",
+        "files": [],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "AlertTriggerRestJ21",
+        "version": "45a66eb3f113",
+        "username": "gyorgykrisztian.mitro",
+        "comment": "[NA-1966] SLS - Upgrade lambdas to LTS python version + secrets layer upgrade | add temp table name to env variable",
+        "ticket": "",
+        "deployedAt": "20260924T141249+0000",
         "files": [
-          "prod.yml"
+          "cloud-formation.template.yml",
+          "dev.yml",
+          "production.yml",
+          "qa.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
-        "version": "383fac259e5c",
-        "username": "andras.banszki",
-        "comment": "[NXS-13921] EOS - MS - ProjectRest - persist CrmFields communicationSupported and projectTopicSupported (#5420)",
-        "ticket": "NXS-13921",
-        "deployedAt": "20260923T133837+0000",
-        "files": [
-          "README.md",
-          "UProjectCrmAcceptanceTest.groovy",
-          "CrmFields.java",
-          "ProjectCrmFieldsMongoHandlerTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectRestJ16",
-        "version": "ea0d9896ea2e",
+        "service": "CrmRestJ21",
+        "version": "81340d490659",
         "username": "61797769+kocskam",
-        "comment": "[PAC-828] ProjectRest - New Origin handle PROGRAMMATIC_API (#5407)",
+        "comment": "[PAC-836] CrmRest - New Origin handle PROGRAMMATIC_API (#5416)",
         "ticket": "",
-        "deployedAt": "20260923T133837+0000",
+        "deployedAt": "20260924T104851+0000",
         "files": [
-          "UProjectImpl.java",
-          "ProjectOrigin.java",
-          "UProjectImplTest.groovy"
+          "build.gradle"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "CrmRestJ21",
         "version": "06b9fefde16e",
         "username": "gergo.hajnal",
         "comment": "[ST-4990] (MessageContentRest) prepare to be PROD deployed",
         "ticket": "",
-        "deployedAt": "20260923T133837+0000",
+        "deployedAt": "20260924T104851+0000",
         "files": [
           "production.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "CrmRestJ21",
         "version": "48052ce82d49",
         "username": "gergo.hajnal",
         "comment": "[ST-5003] (CountryLanguageRest) remove obsolete comment",
         "ticket": "",
-        "deployedAt": "20260923T133837+0000",
+        "deployedAt": "20260924T104851+0000",
         "files": [
           "dev.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "CrmRestJ21",
         "version": "1f588a96a2d7",
         "username": "brian.connolly",
         "comment": "update template locations to bypass ansible weirdness",
         "ticket": "",
-        "deployedAt": "20260923T133837+0000",
+        "deployedAt": "20260924T104851+0000",
         "files": [
           "all.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "CrmRestJ21",
         "version": "cf58d7b5d095",
         "username": "sajak.upadhyaya",
         "comment": "\"[FAI-482] scaling down resources in production\"",
         "ticket": "",
-        "deployedAt": "20260923T133837+0000",
+        "deployedAt": "20260924T104851+0000",
         "files": [
           "production.yml",
           "production.yml",
@@ -641,12 +850,12 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "CrmRestJ21",
         "version": "34b4140de272",
         "username": "sajak.upadhyaya",
         "comment": "\"[FAI-482] scaling down resources in qa\"",
         "ticket": "",
-        "deployedAt": "20260923T133837+0000",
+        "deployedAt": "20260924T104851+0000",
         "files": [
           "qa.yml",
           "qa.yml",
@@ -655,25 +864,13 @@
           "qa.yml"
         ],
         "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectRestJ16",
-        "version": "2385b49c4712",
-        "username": "brian.connolly",
-        "comment": "update template locations",
-        "ticket": "",
-        "deployedAt": "20260923T133837+0000",
-        "files": [
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
       }
     ]
   },
   "contractDrift": {
     "newCount": 0,
-    "baselineCount": 94,
-    "currentCount": 94,
+    "baselineCount": 95,
+    "currentCount": 95,
     "examples": []
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."
