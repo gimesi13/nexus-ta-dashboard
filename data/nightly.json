@@ -1699,31 +1699,28 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "9 new failures \u2014 mainly QuotaGroup, Quota",
-    "tone": "bad",
+    "headline": "9 new failures \u2014 all newly-added QuotaGroup scheduling tests (NXS-13489, gergely.gimesi) plus one Quota lock timing flake; no product regression",
+    "tone": "warn",
     "severity": "high",
-    "cause": "code_change",
-    "causeText": "Possibly NXS-13489 by gergely.gimesi \u2014 touches QuotaGroup (8 overlapping new fails). Correlation only. NOTE: 4 service(s) were deployed to QA in this window (AlertTriggerRestJ21, CrmRestJ21, DemandApi, DetailsEditorRestJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 6\u00d7 assertion Condition not satisfied; 2\u00d7 other (no dominant signature yet). Likely related to NXS-13489 gergely.gimesi `181dd637f7a0` (QuotaGroup, 8 new fails in overlap).",
+    "cause": "test",
+    "causeText": "The 8 QuotaGroup fails are all in brand-new scheduling test files added by gergely.gimesi under NXS-13489 (commits b3542e489333, 5825fa536595, 39b417d8302c, f6c7eff44b2d, 181dd637f7a0), red on their first nightly \u2014 including validation tests expecting HTTP 400 but getting 500 from dk-project-quota-group-rest (commit f6c7eff44b2d links these to known bugs NXS-13937/13938/13939) and a 'Scheduled time cannot be in the past!' test-data bug. No product service owning these endpoints was deployed in the window (only AlertTriggerRest, CrmRest, DemandApi, DetailsEditorRest), so this is test authorship, not a product regression or infra. The 1 Quota 'lock sold quota' fail is a separate cross-service lag (feasibility not ready after 30s) and looks flaky.",
+    "investigation": "Reading the messages, the 'QA 504 timeout' and several 'assert_fail' labels are really HTTP 500s (test expected 400) and assertion mismatches inside gergely.gimesi's new QuotaGroup scheduling tests (NXS-13489), not infra. Only the Quota sold-quota lock fail is timing (30s cross-service lag) and it sits outside the changed area.",
     "bullets": [
-      "6\u00d7 assertion Condition not satisfied",
-      "2\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
-      "1\u00d7 QA 504 timeout \u2014 jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate ",
-      "Change NXS-13489: gergely.gimesi \u00b7 QuotaGroup \u00b7 8 overlapping new fails"
+      "8/9 new fails are in gergely.gimesi's newly-added QuotaGroupScheduling* tests (NXS-13489)",
+      "Labels mislead: 'QA 504 timeout' is really an HTTP 500 (expected 400) from quota-group-rest; some 'assert_fail' are expected-red vs known bugs NXS-13937/13938/13939",
+      "1 Quota lock fail = separate cross-service lag (30s) flake, outside the changed area"
     ],
     "detail": {
-      "investigation": "9 of 9 unmuted failures are new since the prior build (#3.0.2708, 0 fails). Failure types (new-first): (1) 6\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (2) 2\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (3) 1\u00d7 QA 504 timeout \u2014 QA gateway timed out (504) \u2014 infra / overloaded dependency. Hot areas among new fails: QuotaGroup (8), Quota (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 4 service(s) (33 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Quota: Locking and unlocking sold quota while feasibility distribution is set validates lock func [other]; QuotaGroup: Rejected traffic schedule leaves the fieldwork dates unchanged [assertion Condition not satisfied]; QuotaGroup: Misaligned fieldwork dates saved with traffic schedules are rejected as a bad request [QA 504 timeout]; QuotaGroup: Saving traffic schedules without fieldwork dates is rejected as a bad request [assertion Condition not satisfied].",
+      "investigation": "All 9 failures are new since the green prior build (#3.0.2708, 0 fails), and 8 of the 9 live in test files gergely.gimesi added in this same build under NXS-13489 (QuotaGroupSchedulingValidationTestSteps, QuotaGroupSchedulingExecutionTestSteps, QuotaGroupSchedulingWorkflowTestSteps) \u2014 so this is new coverage failing on its first nightly, not a fresh product regression. The cluster labels are misleading once you read the messages: 'Misaligned fieldwork dates...' is tagged QA 504 but is actually an HTTP 500 (test expected 400) from dk-project-quota-group-rest, and 'Saving traffic schedules without fieldwork dates...' likewise expected 400 but got a 500 'Body parameter 1 was null' \u2014 both are validation endpoints returning 500 instead of 400, and commit f6c7eff44b2d explicitly links these validation features to known product bugs NXS-13937/13938/13939 (expected-red). Three 'Scheduled START/STOP Traffic leaves a #audienceStatus audience unchanged' cases are genuine assertion mismatches (audience moved to STARTED/PAUSED instead of staying CLOSED/FIELDWORK_COMPLETE), one 'Fieldwork dates ... while a schedule that already ran is kept' fails with 'Scheduled time cannot be in the past!' (stale test-data date), and 'A new audience inherits the Apply to all traffic schedules...' is missing an expected schedule slot. Crucially, no QA deploy in the window touched the failing service \u2014 only AlertTriggerRest, CrmRest, DemandApi and DetailsEditorRest were deployed \u2014 so a backend regression on quota-group-rest is not supported by the change data. The remaining failure, Quota 'Locking and unlocking sold quota...', is unrelated to gimesi's changes and is a cross-service lag (QuotaDetails/FeasDataStore/DetailsEditor not ready after 30s) that reads as a flaky/timing issue.",
       "bullets": [
-        "6\u00d7 assertion Condition not satisfied",
-        "2\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
-        "1\u00d7 QA 504 timeout \u2014 jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate ",
-        "Change NXS-13489: gergely.gimesi \u00b7 QuotaGroup \u00b7 8 overlapping new fails",
-        "Change NXS-13489: gergely.gimesi \u00b7 QuotaGroup \u00b7 8 overlapping new fails",
-        "NXS-13489 181dd637f7a0 by gergely.gimesi \u2192 areas QuotaGroup (8 new fails) \u00b7 NEXUS_API_REGRESSION_TESTS.md, contract_baseline.txt, endpoints-overlay.json, openapi-nexus-unified-api-qa.json, QuotaGroupSchedulingHelper.groovy, TestKeys.java",
-        "NXS-13489 39b417d8302c by gergely.gimesi \u2192 areas QuotaGroup (8 new fails) \u00b7 NEXUS_API_REGRESSION_TESTS.md, endpoints-overlay.json, QuotaGroupSchedulingHelper.groovy, TestKeys.java, QuotaGroupSchedulingExecutionTestSteps.groovy, QuotaGroupSchedulingWorkflowTestSteps.groovy",
-        "NXS-13489 5825fa536595 by gergely.gimesi \u2192 areas QuotaGroup (8 new fails) \u00b7 QuotaGroupSchedulingExecutionTestSteps.groovy",
-        "NXS-13489 b3542e489333 by gergely.gimesi \u2192 areas QuotaGroup (8 new fails) \u00b7 QuotaGroupSchedulingTestSteps.groovy, QuotaGroupSchedulingValidationTestSteps.groovy, QuotaGroupSchedulingWorkflowTestSteps.groovy",
-        "[QA deploy: AlertTriggerRestJ21] NXS-12210 (4 commits) \u2014 [Nxs-12210] j21 alert trigger rest, mongo test fix"
+        "8 of 9 new fails are in gergely.gimesi's brand-new QuotaGroupScheduling* test files (NXS-13489), red on first nightly run",
+        "'Misaligned fieldwork dates...' is labelled QA 504 but is really an HTTP 500 (test expected 400) from dk-project-quota-group-rest",
+        "'Saving traffic schedules without fieldwork dates...' also expected 400, got 500 'Body parameter 1 was null'",
+        "Commit f6c7eff44b2d explicitly links these validation features to known product bugs NXS-13937/13938/13939 (expected-red)",
+        "3\u00d7 'Scheduled START/STOP Traffic leaves a #audienceStatus audience unchanged' \u2014 audience moved to STARTED/PAUSED instead of staying CLOSED/FIELDWORK_COMPLETE (new execution tests)",
+        "'Fieldwork dates ... while a schedule that already ran is kept' fails with 'Scheduled time cannot be in the past!' \u2014 stale test-data date",
+        "No QA deploy touched quota-group-rest (only AlertTriggerRest, CrmRest, DemandApi, DetailsEditorRest) \u2014 no product regression in the window",
+        "Separate: Quota 'lock sold quota' fails after 30s cross-service lag (QuotaDetails/FeasDataStore/DetailsEditor) \u2014 flaky, outside the changed area"
       ],
       "newFailureAreas": [
         {
@@ -2049,8 +2046,8 @@
         "deployedAt": "20260924T070718+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-09-25T02:10Z",
+    "source": "llm",
+    "generatedAt": "2026-09-25T02:10:00Z",
     "buildNumber": "3.0.2709",
     "buildId": "9543841",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9543841",
