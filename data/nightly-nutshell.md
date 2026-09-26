@@ -1,8 +1,11 @@
-**9 new failures — all newly-added QuotaGroup scheduling tests (NXS-13489, gergely.gimesi) plus one Quota lock timing flake; no product regression**
+**5 new failures — mainly QuotaGroup**
 
-_Likely cause: Newly-added NXS-13489 scheduling tests by gergely.gimesi are red on their first run (new coverage, some expected-red vs known bugs NXS-13937/13938/13939) — not infra, not a product regression._
+_Likely cause: Possibly NXS-13489 by gergely.gimesi — touches QuotaGroup (5 overlapping new fails)._
 
-- 8/9 new fails are in gimesi's new QuotaGroupScheduling* tests; labels mislead ('QA 504' is really an HTTP 500 expected-400 from quota-group-rest)
-- 1 Quota lock failure is a separate cross-service lag (30s) flake
+- 5× other — java.lang.IllegalStateException:Audience cannot be started due to missing lineItemGuid. [quotaGroupId=<id>]
+- Change NXS-13489: gergely.gimesi · QuotaGroup · 5 overlapping new fails
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9543841)
+⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
+- GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9545174)
