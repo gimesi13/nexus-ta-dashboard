@@ -1721,28 +1721,25 @@
     "SurveyCRUDTestSteps::Tagged base URL remains readable after survey re-validation": "passed"
   },
   "nutshell": {
-    "headline": "5 new failures \u2014 mainly QuotaGroup",
+    "headline": "5 new QuotaGroup scheduling fails \u2014 backend 500 (missing lineItemGuid) surfaced by TA test re-point NXS-13489, not infra",
     "tone": "bad",
     "severity": "high",
-    "cause": "code_change",
-    "causeText": "Possibly NXS-13489 by gergely.gimesi \u2014 touches QuotaGroup (5 overlapping new fails). Correlation only. NOTE: 6 service(s) were deployed to QA in this window (ProjectSearchRestJ21, MailEventRestJ21, ProjectLogRestJ21, PickerEventRestJ21, ProjectRestJ16\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 5\u00d7 other (no dominant signature yet). Likely related to NXS-13489 gergely.gimesi `799126fd586d` (QuotaGroup, 5 new fails in overlap).",
+    "cause": "test",
+    "causeText": "All 5 new fails are one signature \u2014 an HTTP 500 `java.lang.IllegalStateException: Audience cannot be started due to missing lineItemGuid` from backend dk-project-quota-group-rest on POST /quotaGroups/{}/core/changeStatus?statusTransitions=START \u2014 a genuine server error, not infra (no SocketTimeout/Read timed out/502/504 in any excerpt). The only QuotaGroup change in the window is TA test-module commit NXS-13489 (799126fd586d) by gergely.gimesi, which re-points these expected-red scheduling tests at the team's EOS-linked bug tickets \u2014 a test-side change that surfaced them as new failures; a test commit cannot itself return a 500. No QA-deployed product service maps to quota-group-rest, so the underlying 500 is a pre-existing/known bug (EOS-linked), not a regression introduced in this window.",
+    "investigation": "All 5 new fails share one signature \u2014 a backend 500 (missing lineItemGuid) on the QuotaGroup scheduled-START endpoint \u2014 surfaced by TA commit NXS-13489 (gergely.gimesi) re-pointing expected-red tests at known EOS bug tickets. Not infra, and no QA-deployed product service maps to quota-group-rest.",
     "bullets": [
-      "5\u00d7 other \u2014 java.lang.IllegalStateException:Audience cannot be started due to missing lineItemGuid. [quotaGroupId=<id>]",
-      "Change NXS-13489: gergely.gimesi \u00b7 QuotaGroup \u00b7 5 overlapping new fails"
+      "5\u00d7 new: backend 500 `IllegalStateException: missing lineItemGuid` on quotaGroups/{}/core/changeStatus?START \u2014 genuine server error, not infra",
+      "NXS-13489 (gergely.gimesi, test-module) re-points expected-red scheduling tests at EOS bug tickets \u2014 surfaced these as new fails; no QA product deploy maps to quota-group-rest"
     ],
     "detail": {
-      "investigation": "5 of 11 unmuted failures are new since the prior build (#3.0.2709, 9 fails). Failure types (new-first): (1) 5\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: QuotaGroup (5). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 6 service(s) (37 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: Scheduled Stop pauses a fielding audience and a later scheduled Start resumes it [other]; QuotaGroup: A scheduled Start that is not allowed fails without blocking a later scheduled Stop [other]; QuotaGroup: A scheduled Start fails with a reason when the audience has no active survey [other]; QuotaGroup: A cleared traffic schedule does not run [other].",
+      "investigation": "All 5 new failures are one signature: an HTTP 500 from the product backend dk-project-quota-group-rest \u2014 `java.lang.IllegalStateException: Audience cannot be started due to missing lineItemGuid` \u2014 returned from POST /u1/nexus/quotaGroups/{}/core/changeStatus?statusTransitions=START. This is a genuine server-side error, not infra: there is no SocketTimeout/Read timed out/502/504 anywhere in the excerpts. The failing area is QuotaGroup scheduling execution (QuotaGroupSchedulingExecutionTestSteps). The only change touching QuotaGroup in this window is TA test-module commit NXS-13489 (799126fd586d) by gergely.gimesi \u2014 'point two scheduling expected-red tests at the team's EOS-linked bug tickets' \u2014 a test-side change that re-pointed expected-red tests and thereby surfaced these as new failures; a test commit cannot itself make the backend return a 500. None of the 6 services deployed to QA in the window (ProjectSearchRestJ21, MailEventRestJ21, ProjectLogRestJ21, PickerEventRestJ21, ProjectRestJ16, DemandApi) map to dk-project-quota-group-rest, so the underlying 500 is a pre-existing/known bug (EOS-linked per the commit), not a regression from a windowed product deploy. The older assert_fail/validation_exception failures are NOT new (newCount 0) and are out of focus. Contract drift independently confirms the endpoint: POST /u1/nexus/quotaGroups/{}/core/changeStatus now returns an undocumented 500.",
       "bullets": [
-        "5\u00d7 other \u2014 java.lang.IllegalStateException:Audience cannot be started due to missing lineItemGuid. [quotaGroupId=<id>]",
-        "Change NXS-13489: gergely.gimesi \u00b7 QuotaGroup \u00b7 5 overlapping new fails",
-        "NXS-13489 799126fd586d by gergely.gimesi \u2192 areas QuotaGroup (5 new fails) \u00b7 QuotaGroupSchedulingExecutionTestSteps.groovy",
-        "[QA deploy: ProjectSearchRestJ21] NXS-13952 (25 commits) \u2014 [ NXS-13952 ] use secondary mongo for search",
-        "[QA deploy: MailEventRestJ21] NXS-12229 (1 commit) \u2014 [NXS-12229] MS - migrate MailEventRest to J21 (#5386)",
-        "[QA deploy: ProjectLogRestJ21] NXS-12237 (3 commits) \u2014 [NXS-12237] no change new build - dockerhub repository credentials removed from ",
-        "[QA deploy: PickerEventRestJ21] NXS-12234 (5 commits) \u2014 [NXS-12234] MS - migrate PickerEventRest to J21 (#5379)",
-        "[QA deploy: ProjectRestJ16]  (2 commits) \u2014 TC trigger",
-        "[QA deploy: DemandApi]  (1 commit) \u2014 [PAC-833] Change enum id"
+        "5\u00d7 new \u2014 HTTP 500 `IllegalStateException: Audience cannot be started due to missing lineItemGuid` on quotaGroups/{}/core/changeStatus?statusTransitions=START (backend dk-project-quota-group-rest)",
+        "Genuine server 500 \u2014 not infra (no SocketTimeout/Read timed out/502/504 in any excerpt)",
+        "NXS-13489 \u00b7 799126fd586d \u00b7 gergely.gimesi (TA test module) re-points expected-red scheduling tests at EOS-linked bug tickets \u2014 surfaced these as new failures; cannot itself cause a backend 500",
+        "No QA-deployed product service maps to dk-project-quota-group-rest \u2014 underlying 500 is a known/pre-existing bug, not a windowed regression",
+        "Older assert_fail / validation_exception fails are NOT new (newCount 0) \u2014 out of focus",
+        "Contract drift (separate lane): 2 new response-schema violations, incl. POST /u1/nexus/quotaGroups/{}/core/changeStatus returning an undocumented 500"
       ],
       "newFailureAreas": [
         {
@@ -1980,8 +1977,8 @@
         "deployedAt": "20260925T062919+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-09-26T02:01Z",
+    "source": "llm",
+    "generatedAt": "2026-09-26T02:04Z",
     "buildNumber": "3.0.2710",
     "buildId": "9545174",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9545174",
