@@ -1,8 +1,10 @@
-**5 new QuotaGroup scheduling fails — backend 500 (missing lineItemGuid) surfaced by TA test re-point NXS-13489, not infra**
+**11 continuing failure(s) — no new unmuted fails**
 
-_Likely cause: TA test-module commit NXS-13489 (gergely.gimesi) re-pointed expected-red scheduling tests at EOS-linked bug tickets, surfacing a known backend 500; not infra, and no QA product deploy maps to quota-group-rest._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- 5× new: HTTP 500 `IllegalStateException: missing lineItemGuid` on quotaGroups/{}/core/changeStatus?START — genuine server error, not infra
-- NXS-13489 (gergely.gimesi, test-only) surfaced these; no QA-deployed product service maps to dk-project-quota-group-rest
+- 6× other — java.lang.IllegalStateException:Audience cannot be started due to missing lineItemGuid. [quotaGroupId=<id>]
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9545174)
+⚠️ Contract drift: 1 new response-schema violation(s) vs baseline.
+- POST /u1/nexus/quotaGroups/{}/core/changeStatus :: Response status 500 not defined for path '/u1/nexus/quotaGroups/{quotaGroupId}/core/changeStatus'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9545381)
