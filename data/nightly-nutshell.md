@@ -1,10 +1,7 @@
-**11 continuing failure(s) — no new unmuted fails**
+**11 continuing QuotaGroup failures (0 new) — backend 500s and assertion mismatches, no commits to blame.**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: mixed — QuotaGroup backend HTTP 500s on changeStatus/saveDates plus genuine assertion mismatches; no commits landed in the window to implicate._
 
-- 6× other — java.lang.IllegalStateException:Audience cannot be started due to missing lineItemGuid. [quotaGroupId=<id>]
+- 6× changeStatus?START → HTTP 500 "missing lineItemGuid" (backend error, not a timeout)
 
-⚠️ Contract drift: 1 new response-schema violation(s) vs baseline.
-- POST /u1/nexus/quotaGroups/{}/core/changeStatus :: Response status 500 not defined for path '/u1/nexus/quotaGroups/{quotaGroupId}/core/changeStatus'.
-
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9545381)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9545381)

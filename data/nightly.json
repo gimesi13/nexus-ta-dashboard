@@ -1721,30 +1721,24 @@
     "SurveyCRUDTestSteps::Tagged base URL remains readable after survey re-validation": "passed"
   },
   "nutshell": {
-    "headline": "11 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "11 continuing QuotaGroup failures (0 new) \u2014 backend 500s plus assertion mismatches, no commits to blame.",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "Failures: 6\u00d7 other (no dominant signature yet); 4\u00d7 assertion Condition not satisfied.",
+    "cause": "mixed",
+    "causeText": "No commits landed in the window (changes and qaDeployChanges both empty), so no code change is implicated; the 11 continuing QuotaGroup failures mix backend HTTP 500s on changeStatus/saveDates with genuine Spock assertion mismatches.",
+    "investigation": "All 11 failures continue from prior runs (0 new); the QuotaGroup 'other' failures are backend HTTP 500 INTERNAL_SERVER_ERRORs on changeStatus?START, not QA timeouts, but no commits landed to implicate.",
     "bullets": [
-      "6\u00d7 other \u2014 java.lang.IllegalStateException:Audience cannot be started due to missing lineItemGuid. [quotaGroupId=<id>]",
-      "4\u00d7 assertion Condition not satisfied",
-      "1\u00d7 API ValidationException \u2014 jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate "
+      "6\u00d7 QuotaGroup changeStatus?START \u2192 HTTP 500 'missing lineItemGuid' (backend error, not a timeout)",
+      "No commits in window (changes & qaDeployChanges empty) \u2014 nothing to blame"
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 11 continuing from prior runs. Failure types (new-first): (1) 6\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 4\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (3) 1\u00d7 API ValidationException \u2014 API rejected the request (business validation). Hot areas among new fails: QuotaGroup (11). Example new failures: QuotaGroup: Scheduled Stop pauses a fielding audience and a later scheduled Start resumes it [other]; QuotaGroup: A scheduled Start that is not allowed fails without blocking a later scheduled Stop [other]; QuotaGroup: A scheduled Start fails with a reason when the audience has no active survey [other]; QuotaGroup: Rejected traffic schedule leaves the fieldwork dates unchanged [assertion Condition not satisfied].",
+      "investigation": "No new unmuted failures \u2014 all 11 continue from prior runs, entirely in QuotaGroup. The 'other' and several 'assertion' failures are really backend HTTP 500 INTERNAL_SERVER_ERRORs on quotaGroups/{id}/core/changeStatus?START and saveDatesAndSchedules ('missing lineItemGuid' / expected 400 but got 500 'Body parameter 1 was null'), while a couple are genuine state mismatches (expected CLOSED got PAUSED; missing schedule slot); with changes and qaDeployChanges both empty there is no commit to implicate.",
       "bullets": [
-        "6\u00d7 other \u2014 java.lang.IllegalStateException:Audience cannot be started due to missing lineItemGuid. [quotaGroupId=<id>]",
-        "4\u00d7 assertion Condition not satisfied",
-        "1\u00d7 API ValidationException \u2014 jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate "
+        "6\u00d7 other \u2192 HTTP 500 on quotaGroups/{id}/core/changeStatus?START: 'Audience cannot be started due to missing lineItemGuid'",
+        "3\u00d7 expected 400 but got 500 on saveDatesAndSchedules/dates ('Body parameter 1 was null'), plus genuine assertion mismatches (CLOSED vs PAUSED; missing schedule slot)",
+        "No commits landed (changes & qaDeployChanges empty); separately, contract drift: changeStatus 500 not defined in the OpenAPI contract"
       ],
-      "newFailureAreas": [
-        {
-          "area": "QuotaGroup",
-          "newCount": 11
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1776,8 +1770,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-09-27T02:02Z",
+    "source": "llm",
+    "generatedAt": "2026-09-27T02:02:00Z",
     "buildNumber": "3.0.2711",
     "buildId": "9545381",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9545381",
