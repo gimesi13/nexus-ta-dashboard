@@ -1,34 +1,34 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-27T02:02Z",
+  "generatedAt": "2026-09-28T02:03Z",
   "build": {
-    "number": "3.0.2711",
-    "buildId": "9545381",
+    "number": "3.0.2712",
+    "buildId": "9546121",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9545381",
-    "durationSec": 1678.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9546121",
+    "durationSec": 1679.0
   },
   "summary": {
-    "tests": 1515,
-    "passed": 1425,
-    "failures": 11,
+    "tests": 1507,
+    "passed": 1414,
+    "failures": 13,
     "errors": 0,
     "skipped": 0,
-    "muted": 79,
-    "newFailed": 0,
-    "passRate": 99.2,
-    "timeSec": 1678.0
+    "muted": 80,
+    "newFailed": 2,
+    "passRate": 99.1,
+    "timeSec": 1679.0
   },
   "prior": {
-    "buildId": "9545174",
-    "number": "3.0.2710",
+    "buildId": "9545381",
+    "number": "3.0.2711",
     "status": "FAILURE",
-    "statusText": "Tests failed: 11 (5 new), passed: 1424, muted: 80",
-    "startDate": "20260926T013256+0000",
-    "durationSec": 1650.0,
+    "statusText": "Tests failed: 11, passed: 1425, muted: 79",
+    "startDate": "20260927T013216+0000",
+    "durationSec": 1678.0,
     "failed": 11,
-    "passed": 1424,
-    "newFailed": 5
+    "passed": 1425,
+    "newFailed": 0
   },
   "changes": [],
   "qaDeployChanges": [],
@@ -38,28 +38,54 @@
       "label": "other",
       "display": "other",
       "count": 6,
-      "newCount": 6,
-      "sample": "java.lang.IllegalStateException:Audience cannot be started due to missing lineItemGuid. [quotaGroupId=<id>]",
+      "newCount": 0,
+      "sample": "",
       "why": "no dominant signature yet \u2014 open TeamCity details"
     },
     {
       "label": "assert_fail",
       "display": "assertion Condition not satisfied",
-      "count": 4,
-      "newCount": 4,
+      "count": 5,
+      "newCount": 1,
       "sample": "",
       "why": "Spock assertion failed (fixture or response shape)"
     },
     {
-      "label": "validation_exception",
-      "display": "API ValidationException",
+      "label": "infra_502",
+      "display": "QA 502 Bad Gateway",
       "count": 1,
       "newCount": 1,
-      "sample": "jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate",
-      "why": "API rejected the request (business validation)"
+      "sample": "502 Bad Gateway",
+      "why": "QA gateway returned HTML 502 \u2014 infra during the run, not a product regression"
+    },
+    {
+      "label": "infra_504",
+      "display": "QA 504 timeout",
+      "count": 1,
+      "newCount": 0,
+      "sample": "",
+      "why": "QA gateway timed out (504) \u2014 infra / overloaded dependency"
     }
   ],
   "failures": [
+    {
+      "name": "Undelete audience group with valid undelete: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupCRUDLifecycleTestSteps.Undelete audience group with valid undelete",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupCRUDLifecycleTestSteps",
+      "newFailure": true,
+      "area": "AudienceGroup",
+      "cluster": "assert_fail",
+      "message": "Condition not satisfied:",
+      "detailsExcerpt": "Condition not satisfied: !undeletedResponse.isDeleted || | || true |<com.dynata.nexus.api.model.project.AudienceGroup@266a47fd audienceGroupId=1618526 name=Default Test Audience Group description=null isDeleted=true clonedFromAudienceGroupId=null> false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupCRUDLifecycleTestSteps.Undelete audience group with valid undelet\u2026"
+    },
+    {
+      "name": "initializationError",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCommercialWorkflowTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups 502{ \"errors\" : [ { \"callChain\" : [ \"HTTP 502 POST http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups\", \"HTTP 502 POST http://dk-project-quota-group-sources-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroupSources/u1/sources/quotaGroups/118802332/saveDefaultSources\u2026"
+    },
     {
       "name": "Scheduled Stop pauses a fielding audience and a later scheduled Start resumes it",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps",
@@ -94,14 +120,14 @@
       "area": "QuotaGroup",
       "cluster": "assert_fail",
       "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: datesAfter.proposedStartDate == datesBefore.proposedStartDate | | | | | | | | | Fri Oct 02 01:00:00 UTC 2026 | | | <com.dynata.nexus.api.model.quotagroup.QuotaGroupDates@1c4335c8 proposedStartDate=Fri Oct 02 01:00:00 UTC 2026 quotaActivationDate=null originalEndDate=null proposedEndDate=Mon Oct 05 01:00:00 UTC 2026 endDateAutoClose=false fieldworkMode=null fieldworkHours=\u2026"
+      "detailsExcerpt": "Condition not satisfied: datesAfter.proposedStartDate == datesBefore.proposedStartDate | | | | | | | | | Sat Oct 03 01:00:00 UTC 2026 | | | <com.dynata.nexus.api.model.quotagroup.QuotaGroupDates@3d287f7c proposedStartDate=Sat Oct 03 01:00:00 UTC 2026 quotaActivationDate=null originalEndDate=null proposedEndDate=Tue Oct 06 01:00:00 UTC 2026 endDateAutoClose=false fieldworkMode=null fieldworkHours=\u2026"
     },
     {
       "name": "Misaligned fieldwork dates saved with traffic schedules are rejected as a bad request",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingValidationTestSteps",
       "newFailure": false,
       "area": "QuotaGroup",
-      "cluster": "validation_exception",
+      "cluster": "infra_504",
       "message": "jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate + fieldworkHours should be equals to EndDate",
       "detailsExcerpt": "Condition not satisfied: schedHelper.rejectionStatus(rejection) == 400 | | | | | 500 | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118799558/saveDatesAndSchedules | | 500{ | \"errors\" : [ { | \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups/118799558/dates\" ], | \"stat\u2026"
     },
@@ -121,7 +147,7 @@
       "area": "QuotaGroup",
       "cluster": "assert_fail",
       "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: qgHelper.getManualStatus() == audienceStatus | | | | | PAUSED | CLOSED | false <com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupHelper@7a5a26b7 nxs=com.dynata.nexusapi.feignclients.NexusApiFeigns@6bc1c8d0 bos=com.dynata.nexusapi.feignclients.NexusApiBosFeigns@7f93fce1 legacy=com.dynata.dkms.feignclients.LegacyNexusFeigns@5457123a testContex\u2026"
+      "detailsExcerpt": "Condition not satisfied: qgHelper.getManualStatus() == audienceStatus | | | | | PAUSED | CLOSED | false <com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupHelper@5367d46f nxs=com.dynata.nexusapi.feignclients.NexusApiFeigns@6c4eccd2 bos=com.dynata.nexusapi.feignclients.NexusApiBosFeigns@564e9c0b legacy=com.dynata.dkms.feignclients.LegacyNexusFeigns@4c7d19bf testContex\u2026"
     },
     {
       "name": "A cleared traffic schedule does not run",
@@ -157,30 +183,32 @@
       "area": "QuotaGroup",
       "cluster": "assert_fail",
       "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: schedHelper.scheduleSlots(newAudience) == appliedSlots | | | | | | [] 118801960 | [[START, Thu Nov 26 01:54:00 UTC 2026, PENDING]] | false | 1 difference (0% similarity, 1 missing, 0 extra) | missing: [[START, Thu Nov 26 01:54:00 UTC 2026, PENDING]] | extra: [] <com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupSchedulingHelper@73299197 nxs=c\u2026"
+      "detailsExcerpt": "Condition not satisfied: schedHelper.scheduleSlots(newAudience) == appliedSlots | | | | | | [] 118802491 | [[START, Fri Nov 27 01:55:00 UTC 2026, PENDING]] | false | 1 difference (0% similarity, 1 missing, 0 extra) | missing: [[START, Fri Nov 27 01:55:00 UTC 2026, PENDING]] | extra: [] <com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupSchedulingHelper@6f28a07e nxs=c\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "11 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "2 new failures in AudienceGroup",
     "tone": "warn",
     "severity": "low",
     "bullets": [
-      "6\u00d7 other \u2014 java.lang.IllegalStateException:Audience cannot be started due to missing lineItemGuid. [quotaGroupId=<id>]",
-      "4\u00d7 assertion Condition not satisfied",
-      "1\u00d7 API ValidationException \u2014 jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate "
+      "1\u00d7 assertion Condition not satisfied",
+      "1\u00d7 QA 502 Bad Gateway"
     ],
-    "investigation": "Failures: 6\u00d7 other (no dominant signature yet); 4\u00d7 assertion Condition not satisfied.",
+    "investigation": "New fails: 1\u00d7 assertion Condition not satisfied; 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Gateway hits: dk-project-quota-group-rest, dk-project-quota-group-sources-rest.",
     "detail": {
-      "investigation": "No new unmuted failures; 11 continuing from prior runs. Failure types (new-first): (1) 6\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 4\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (3) 1\u00d7 API ValidationException \u2014 API rejected the request (business validation). Hot areas among new fails: QuotaGroup (11). Example new failures: QuotaGroup: Scheduled Stop pauses a fielding audience and a later scheduled Start resumes it [other]; QuotaGroup: A scheduled Start that is not allowed fails without blocking a later scheduled Stop [other]; QuotaGroup: A scheduled Start fails with a reason when the audience has no active survey [other]; QuotaGroup: Rejected traffic schedule leaves the fieldwork dates unchanged [assertion Condition not satisfied].",
+      "investigation": "2 of 13 unmuted failures are new since the prior build (#3.0.2711, 11 fails). Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (2) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: AudienceGroup (1), QuotaGroup (1). Example new failures: AudienceGroup: Undelete audience group with valid undelete: com.dynata.rest.gateway.nexusapi.rest.tests.s [assertion Condition not satisfied]; QuotaGroup: initializationError [QA 502 Bad Gateway].",
       "bullets": [
-        "6\u00d7 other \u2014 java.lang.IllegalStateException:Audience cannot be started due to missing lineItemGuid. [quotaGroupId=<id>]",
-        "4\u00d7 assertion Condition not satisfied",
-        "1\u00d7 API ValidationException \u2014 jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate "
+        "1\u00d7 assertion Condition not satisfied",
+        "1\u00d7 QA 502 Bad Gateway"
       ],
       "newFailureAreas": [
         {
+          "area": "AudienceGroup",
+          "newCount": 1
+        },
+        {
           "area": "QuotaGroup",
-          "newCount": 11
+          "newCount": 1
         }
       ],
       "likelyCauses": []
@@ -189,10 +217,11 @@
     "qaDeploySuspects": []
   },
   "contractDrift": {
-    "newCount": 1,
+    "newCount": 2,
     "baselineCount": 95,
-    "currentCount": 96,
+    "currentCount": 97,
     "examples": [
+      "POST /u1/nexus/quotaGroups :: Response status 502 not defined for path '/u1/nexus/quotaGroups'.",
       "POST /u1/nexus/quotaGroups/{}/core/changeStatus :: Response status 500 not defined for path '/u1/nexus/quotaGroups/{quotaGroupId}/core/changeStatus'."
     ]
   },

@@ -1,7 +1,10 @@
-**11 continuing QuotaGroup failures (0 new) — backend 500s and assertion mismatches, no commits to blame.**
+**2 new failures in AudienceGroup**
 
-_Likely cause: mixed — QuotaGroup backend HTTP 500s on changeStatus/saveDates plus genuine assertion mismatches; no commits landed in the window to implicate._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- 6× changeStatus?START → HTTP 500 "missing lineItemGuid" (backend error, not a timeout)
+- 1× assertion Condition not satisfied
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9545381)
+⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
+- POST /u1/nexus/quotaGroups :: Response status 502 not defined for path '/u1/nexus/quotaGroups'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9546121)
