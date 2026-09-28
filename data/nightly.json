@@ -1724,21 +1724,22 @@
     "SurveyUrlPoolTestSteps::Get test links from S3": "passed"
   },
   "nutshell": {
-    "headline": "2 new failures in AudienceGroup",
+    "headline": "2 new nightly failures: an AudienceGroup undelete assertion and a QuotaGroup QA 502 \u2014 no build changes to blame.",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 1\u00d7 assertion Condition not satisfied; 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Gateway hits: dk-project-quota-group-rest, dk-project-quota-group-sources-rest.",
+    "cause": "mixed",
+    "causeText": "No build or QA-deploy changes in the window; the two new fails split into infra (QuotaGroup QA 502) and test/data (AudienceGroup undelete assertion).",
+    "investigation": "New: AudienceGroup undelete assertion (response still isDeleted=true) and a QA 502 on QuotaGroup init \u2014 infra + test/data, no code changes to blame.",
     "bullets": [
-      "1\u00d7 assertion Condition not satisfied",
-      "1\u00d7 QA 502 Bad Gateway"
+      "AudienceGroup undelete: assertion, undelete response still isDeleted=true (test/data)",
+      "QuotaGroup init: QA 502 Bad Gateway (infra)"
     ],
     "detail": {
-      "investigation": "2 of 13 unmuted failures are new since the prior build (#3.0.2711, 11 fails). Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (2) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: AudienceGroup (1), QuotaGroup (1). Example new failures: AudienceGroup: Undelete audience group with valid undelete: com.dynata.rest.gateway.nexusapi.rest.tests.s [assertion Condition not satisfied]; QuotaGroup: initializationError [QA 502 Bad Gateway].",
+      "investigation": "Of 13 unmuted failures, 2 are new since #3.0.2711 and are unrelated: AudienceGroup 'Undelete audience group with valid undelete' failed a Spock assertion (!undeletedResponse.isDeleted was false \u2014 the undelete response still reports isDeleted=true, i.e. response shape / test-data), while QuotaGroup initializationError hit a QA 502 Bad Gateway from the gateway (dk-project-quota-group-rest) \u2014 infra during the run, not a product regression. There are no build changes and no QA-deploy commits in the window, so no code change can be blamed.",
       "bullets": [
-        "1\u00d7 assertion Condition not satisfied",
-        "1\u00d7 QA 502 Bad Gateway"
+        "AudienceGroup 'Undelete audience group with valid undelete' \u2014 assertion !isDeleted false; undelete response still isDeleted=true (test/data or response shape)",
+        "QuotaGroup initializationError \u2014 QA 502 Bad Gateway from gateway (infra, not a product regression)",
+        "No build changes and no QA-deploy commits in the window \u2014 nothing to blame"
       ],
       "newFailureAreas": [
         {
@@ -1789,8 +1790,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-09-28T02:03Z",
+    "source": "llm",
+    "generatedAt": "2026-09-28T02:03:00Z",
     "buildNumber": "3.0.2712",
     "buildId": "9546121",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9546121",

@@ -1,10 +1,7 @@
-**2 new failures in AudienceGroup**
+**2 new nightly failures: an AudienceGroup undelete assertion and a QuotaGroup QA 502 — no build changes to blame.**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: no build or QA-deploy changes in the window; new fails split into infra (QuotaGroup QA 502) and test/data (AudienceGroup undelete assertion)._
 
-- 1× assertion Condition not satisfied
-
-⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
-- POST /u1/nexus/quotaGroups :: Response status 502 not defined for path '/u1/nexus/quotaGroups'.
+- AudienceGroup undelete assertion (test/data) + QuotaGroup QA 502 (infra)
 
 [Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9546121)
