@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-28T02:03Z",
+  "generatedAt": "2026-09-29T02:02Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-09-22",
-      "to": "2026-09-28",
+      "from": "2026-09-23",
+      "to": "2026-09-29",
       "featuresAdded": 59,
       "casesAdded": 61,
       "areasTouched": 1,
@@ -1252,8 +1252,8 @@
       ]
     },
     "14d": {
-      "from": "2026-09-15",
-      "to": "2026-09-28",
+      "from": "2026-09-16",
+      "to": "2026-09-29",
       "featuresAdded": 59,
       "casesAdded": 61,
       "areasTouched": 1,
@@ -2499,8 +2499,8 @@
       ]
     },
     "30d": {
-      "from": "2026-08-30",
-      "to": "2026-09-28",
+      "from": "2026-08-31",
+      "to": "2026-09-29",
       "featuresAdded": 59,
       "casesAdded": 61,
       "areasTouched": 1,
@@ -3746,28 +3746,24 @@
       ]
     },
     "90d": {
-      "from": "2026-07-01",
-      "to": "2026-09-28",
-      "featuresAdded": 472,
-      "casesAdded": 692,
-      "areasTouched": 16,
-      "ticketsTouched": 15,
+      "from": "2026-07-02",
+      "to": "2026-09-29",
+      "featuresAdded": 465,
+      "casesAdded": 685,
+      "areasTouched": 15,
+      "ticketsTouched": 13,
       "byType": {
-        "CRUD": 129,
+        "CRUD": 126,
         "Validation": 113,
         "Workflow": 100,
         "Query": 20,
         "E2E": 3,
-        "Other": 107
+        "Other": 103
       },
       "byArea": [
         {
           "area": "QuotaGroup",
           "featuresAdded": 199
-        },
-        {
-          "area": "Segment",
-          "featuresAdded": 54
         },
         {
           "area": "PES",
@@ -3776,6 +3772,10 @@
         {
           "area": "Project",
           "featuresAdded": 52
+        },
+        {
+          "area": "Segment",
+          "featuresAdded": 48
         },
         {
           "area": "Survey",
@@ -3812,10 +3812,6 @@
         {
           "area": "Parameter",
           "featuresAdded": 2
-        },
-        {
-          "area": "Infrastructure",
-          "featuresAdded": 1
         },
         {
           "area": "Lookup",
@@ -3870,12 +3866,6 @@
           "latestDate": "2026-08-03"
         },
         {
-          "key": "NXS-13311",
-          "featuresAdded": 6,
-          "casesAdded": 6,
-          "latestDate": "2026-07-01"
-        },
-        {
           "key": "NXS-13341",
           "featuresAdded": 5,
           "casesAdded": 5,
@@ -3898,12 +3888,6 @@
           "featuresAdded": 3,
           "casesAdded": 5,
           "latestDate": "2026-07-02"
-        },
-        {
-          "key": "NXS-13306",
-          "featuresAdded": 1,
-          "casesAdded": 1,
-          "latestDate": "2026-07-01"
         },
         {
           "key": "NXS-13673",
@@ -13937,141 +13921,6 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Create%20and%20delete%20exclusion%20rule%20lifecycle%3B%20rename%20endpoint%20is%20unimplemented"
-        },
-        {
-          "name": "Halting a segment keeps NexusApi segmentAttributes and DetailsEditor SQL detailsTable in sync",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentStatusClonePreservationTestSteps.groovy",
-          "date": "2026-07-01",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13311] MS - assert NexusApi/DetailsEditor SQL parity for halted-segment clones",
-          "commit": "894bc0dca4",
-          "tickets": [
-            "NXS-13311"
-          ],
-          "area": "Segment",
-          "spec": "SegmentStatusClonePreservationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "SEGMENTS",
-            "QUOTA"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Halting%20a%20segment%20keeps%20NexusApi%20segmentAttributes%20and%20DetailsEditor%20SQL%20detailsTable%20in%20sync"
-        },
-        {
-          "name": "Halted segment reads SUSPENDED on both NexusApi segmentAttributes and DetailsEditor SQL detailsTable",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentStatusClonePreservationTestSteps.groovy",
-          "date": "2026-07-01",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13311] MS - assert halted segment SUSPENDED survives clone on NexusApi + DetailsEditor SQL",
-          "commit": "1e339dba67",
-          "tickets": [
-            "NXS-13311"
-          ],
-          "area": "Segment",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Halted%20segment%20reads%20SUSPENDED%20on%20both%20NexusApi%20segmentAttributes%20and%20DetailsEditor%20SQL%20detailsTable",
-          "gone": true
-        },
-        {
-          "name": "Cloning the quota group keeps the halted segment SUSPENDED on both surfaces",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentStatusClonePreservationTestSteps.groovy",
-          "date": "2026-07-01",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13311] MS - assert halted segment SUSPENDED survives clone on NexusApi + DetailsEditor SQL",
-          "commit": "1e339dba67",
-          "tickets": [
-            "NXS-13311"
-          ],
-          "area": "Segment",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Cloning%20the%20quota%20group%20keeps%20the%20halted%20segment%20SUSPENDED%20on%20both%20surfaces",
-          "gone": true
-        },
-        {
-          "name": "Cloning the quota group keeps the halted segment SUSPENDED and SQL in sync with NexusApi",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentStatusClonePreservationTestSteps.groovy",
-          "date": "2026-07-01",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13311] MS - assert NexusApi/DetailsEditor SQL parity for halted-segment clones",
-          "commit": "894bc0dca4",
-          "tickets": [
-            "NXS-13311"
-          ],
-          "area": "Segment",
-          "spec": "SegmentStatusClonePreservationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "SEGMENTS",
-            "CLONE_QUOTA_GROUP"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Cloning%20the%20quota%20group%20keeps%20the%20halted%20segment%20SUSPENDED%20and%20SQL%20in%20sync%20with%20NexusApi"
-        },
-        {
-          "name": "Cloning the audience group keeps the halted segment SUSPENDED on both surfaces",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentStatusClonePreservationTestSteps.groovy",
-          "date": "2026-07-01",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13311] MS - assert halted segment SUSPENDED survives clone on NexusApi + DetailsEditor SQL",
-          "commit": "1e339dba67",
-          "tickets": [
-            "NXS-13311"
-          ],
-          "area": "Segment",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Cloning%20the%20audience%20group%20keeps%20the%20halted%20segment%20SUSPENDED%20on%20both%20surfaces",
-          "gone": true
-        },
-        {
-          "name": "Cloning the audience group keeps the halted segment SUSPENDED and SQL in sync with NexusApi",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentStatusClonePreservationTestSteps.groovy",
-          "date": "2026-07-01",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13311] MS - assert NexusApi/DetailsEditor SQL parity for halted-segment clones",
-          "commit": "894bc0dca4",
-          "tickets": [
-            "NXS-13311"
-          ],
-          "area": "Segment",
-          "spec": "SegmentStatusClonePreservationTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "SEGMENTS",
-            "CLONE_AUDIENCE_GROUP"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Cloning%20the%20audience%20group%20keeps%20the%20halted%20segment%20SUSPENDED%20and%20SQL%20in%20sync%20with%20NexusApi"
-        },
-        {
-          "name": "Shift-left probe marker references linked feature and TA keys",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Infrastructure/AuthorOnReviewProbeTestSteps.groovy",
-          "date": "2026-07-01",
-          "author": "github-actions[bot]",
-          "subject": "NXS-13306 Add ignored Spock probe for shift-left author-on-review E2E (#4943)",
-          "commit": "a0cf8b0ac2",
-          "tickets": [
-            "NXS-13306"
-          ],
-          "area": "Infrastructure",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Shift-left%20probe%20marker%20references%20linked%20feature%20and%20TA%20keys",
-          "gone": true
         }
       ]
     }
@@ -14162,29 +14011,29 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-09-28",
+      "date": "2026-09-29",
       "features": 783,
       "cases": 1550,
       "specs": 112,
       "areas": 15,
-      "coveragePercent": 95.1,
+      "coveragePercent": 100.0,
       "tested": 269,
-      "untested": 14,
-      "nonDeprecated": 283
+      "untested": 0,
+      "nonDeprecated": 269
     }
   ],
   "coverage": {
-    "currentPercent": 95.1,
+    "currentPercent": 100.0,
     "tested": 269,
-    "untested": 14,
+    "untested": 0,
     "delta14d": {
-      "currentPercent": 95.1,
+      "currentPercent": 100.0,
       "priorPercent": 78.0,
-      "deltaPoints": 17.1,
+      "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-09-28",
+      "currentDate": "2026-09-29",
       "testedDelta": 60,
-      "untestedDelta": -45
+      "untestedDelta": -59
     }
   },
   "inventory": {

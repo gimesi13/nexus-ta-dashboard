@@ -1,7 +1,10 @@
-**2 new nightly failures: an AudienceGroup undelete assertion and a QuotaGroup QA 502 — no build changes to blame.**
+**1 new failure in PartnerEvent**
 
-_Likely cause: no build or QA-deploy changes in the window; new fails split into infra (QuotaGroup QA 502) and test/data (AudienceGroup undelete assertion)._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- AudienceGroup undelete assertion (test/data) + QuotaGroup QA 502 (infra)
+- 1× NOT_FOUND / missing data — (no error message)
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9546121)
+⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
+- GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9572323)
