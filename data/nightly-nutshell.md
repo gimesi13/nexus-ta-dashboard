@@ -1,10 +1,7 @@
-**1 new failure in PartnerEvent**
+**1 new failure in PartnerEvent: a create-validation test got a 404 instead of the expected field-validation error.**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: assertion failure on POST /u1/nexus/partnerEvents (owned by ExternalEventRest, migrated to J21 this window — NXS-13533, andras.banszki); backend change or test/data._
 
-- 1× NOT_FOUND / missing data — (no error message)
+- PartnerEvent "Create partner event with invalid field values" — got HTTP 404, not an error naming the invalid field.
 
-⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
-- GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'.
-
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9572323)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9572323)

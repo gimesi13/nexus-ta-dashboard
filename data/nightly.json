@@ -1721,25 +1721,22 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in PartnerEvent",
+    "headline": "1 new failure in PartnerEvent: a create-validation test got a 404 instead of the expected field-validation error.",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 6 service(s) were deployed to QA in this window (QuotaGroupRestJ21, ExternalEventRestJ21, FeasibilityDataStoreJ16, SurveyRestJ21, SettingRestJ21\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 NOT_FOUND / missing data. Vs prior #3.0.2712: down 2 total fails.",
+    "cause": "mixed",
+    "causeText": "The one new failure is a Spock assertion - POST /u1/nexus/partnerEvents returned 404 instead of a field-validation error - on an endpoint owned by ExternalEventRest, which andras.banszki migrated to J21 this window (NXS-13533, commit 9b309a7792f4), so either that migration or a test/data change is the likely cause.",
+    "investigation": "Only 1 of 11 unmuted failures is new - a PartnerEvent validation assertion (404 vs the expected field error); totals fell to 11 from 13 and the QuotaGroup 500s are pre-existing.",
     "bullets": [
-      "1\u00d7 NOT_FOUND / missing data \u2014 (no error message)"
+      "New: PartnerEvent 'Create partner event with invalid field values' - POST /partnerEvents returned 404 instead of a field-validation error.",
+      "ExternalEventRest (owns /partnerEvents) was migrated to J21 this window - NXS-13533, andras.banszki; backend change or test/data both possible."
     ],
     "detail": {
-      "investigation": "1 of 11 unmuted failures are new since the prior build (#3.0.2712, 13 fails). Failure types (new-first): (1) 1\u00d7 NOT_FOUND / missing data \u2014 missing DB row / EmptyResult / NOT_FOUND. Hot areas among new fails: PartnerEvent (1). 6 service(s) (50 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: PartnerEvent: Create partner event with invalid field values: com.dynata.rest.gateway.nexusapi.rest.test [NOT_FOUND / missing data].",
+      "investigation": "The single new failure, 'Create partner event with invalid field values,' is a Spock 'Condition not satisfied' assertion - POST /u1/nexus/partnerEvents returned 404 instead of a validation error naming the invalid field - so the coarse 'NOT_FOUND / missing data' cluster label understates that this is an assertion, and /partnerEvents is owned by ExternalEventRest, which andras.banszki migrated to J21 this window (NXS-13533), making either that migration or a test/data change the likely cause. Total unmuted failures dropped to 11 from 13; the other 10 (QuotaGroup missing-lineItemGuid 500s, scheduling assertions, a validation-status assertion) all carried over from prior builds.",
       "bullets": [
-        "1\u00d7 NOT_FOUND / missing data \u2014 (no error message)",
-        "[QA deploy: QuotaGroupRestJ21] NXS-13936 (14 commits) \u2014 [NXS-13936] MS | QuotaGroupRest | backfill audience group id from sql",
-        "[QA deploy: ExternalEventRestJ21]  (24 commits) \u2014 mute test with invalid SQL setup",
-        "[QA deploy: FeasibilityDataStoreJ16]  (3 commits) \u2014 [PAC-853] Cobalt - FeasibilityDataStore - strip country from adhoc programmatic ",
-        "[QA deploy: SurveyRestJ21]  (3 commits) \u2014 Merge pull request #5427 from dynata/NXS-NA-1965_testfix",
-        "[QA deploy: SettingRestJ21] NXS-13896 (5 commits) \u2014 [NXS-13896] Create new system setting for SLS cutover date (#5401)",
-        "[QA deploy: QuotaGroupSourcesRestJ21]  (1 commit) \u2014 [PAC-822] QuotaGroupSource - refilter sometimes skip add accountId to panel filt"
+        "New: PartnerEvent 'Create partner event with invalid field values' - Spock assertion failed because POST /u1/nexus/partnerEvents returned 404 instead of an error naming the invalid field ('Required'/'negative'/'not found').",
+        "Endpoint owner ExternalEventRest was migrated to J21 in this window (NXS-13533, andras.banszki, commit 9b309a7792f4) - a backend response change cannot be ruled out and test/data is equally possible.",
+        "Contract drift (separate lane): 2 new response-schema violations vs baseline - 500s on GET /u1/nexus/urlPools/{} and POST /u1/nexus/quotaGroups/{}/core/changeStatus, tied to the pre-existing QuotaGroup 500s, not the new PartnerEvent failure."
       ],
       "newFailureAreas": [
         {
@@ -1747,7 +1744,23 @@
           "newCount": 1
         }
       ],
-      "likelyCauses": []
+      "likelyCauses": [
+        {
+          "ticket": "NXS-13533",
+          "version": "9b309a7792f4",
+          "username": "andras.banszki",
+          "areas": [
+            "PartnerEvent"
+          ],
+          "hitNewFailures": 1,
+          "files": [
+            "project/ExternalEventRest/build.gradle",
+            "project/ExternalEventRest/Dockerfile",
+            "project/ExternalEventRest/group_vars/all.yml"
+          ],
+          "comment": "[NXS-13533] MS - migrate ExternalEventRest to J21 (#5388) - possible cause: ExternalEventRest owns POST /u1/nexus/partnerEvents; migration may have changed the error response (404 vs validation). Not confirmed; test/data equally possible."
+        }
+      ]
     },
     "clusters": [
       {
@@ -1978,7 +1991,7 @@
         "deployedAt": "20260928T075603+0000"
       }
     ],
-    "source": "investigator",
+    "source": "llm",
     "generatedAt": "2026-09-29T02:02Z",
     "buildNumber": "3.0.2713",
     "buildId": "9572323",
