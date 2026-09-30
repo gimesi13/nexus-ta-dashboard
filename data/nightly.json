@@ -1786,31 +1786,28 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "6 new failures \u2014 mainly QuotaGroup, BOS",
+    "headline": "6 new failures \u2014 a QuotaGroup scheduling-wait regression (NXS-13972) plus 2 QA 502s.",
     "tone": "bad",
     "severity": "high",
-    "cause": "code_change",
-    "causeText": "Possibly NXS-13848 by gergely.gimesi \u2014 touches QuotaGroup (5 overlapping new fails). Correlation only. NOTE: 3 service(s) were deployed to QA in this window (QuotaGroupRestJ21, NexusApiJ21, ProjectRestJ16) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 3\u00d7 other (no dominant signature yet); 2\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Likely related to NXS-13848 gergely.gimesi `1d36d4fa45f5` (QuotaGroup, 5 new fails in overlap).",
+    "cause": "mixed",
+    "causeText": "4 of 6 new fails are WaitUtil timeouts (~187\u2013190s) in QuotaGroupSchedulingHelper.waitForScheduleToRun \u2014 the exact helper rewritten by NXS-13972 (gergely.gimesi: `9b5ea6babaca` 'wait for a traffic schedule only until its time plus the scheduler delay' + `6cd3fa9361a1'), so a too-short wait window in the TA module is the likely cause. The other 2 new fails (BOS initializationError, QuotaGroup 'Apply to all') are genuine QA 502 Bad Gateway from quota-group/throttling-setting-rest \u2014 infra, not product. Backend QA deploy NXS-13957 'Field Schedule' (ScheduledStatusChangeListener) is a possible alternate cause for schedules not running and is not fully ruled out.",
+    "investigation": "New QuotaGroup scheduling tests time out in waitForScheduleToRun (helper rewritten by NXS-13972 / gergely.gimesi); 2 further new fails are QA 502s (infra). The rules-engine's NXS-13848 blame is a mis-match \u2014 it touches sold-quota, not the scheduling helper.",
     "bullets": [
-      "3\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 187 seconds: Condition never returned a non-null result",
-      "2\u00d7 QA 502 Bad Gateway",
-      "1\u00d7 assertion Condition not satisfied",
-      "Change NXS-13848: gergely.gimesi \u00b7 QuotaGroup \u00b7 5 overlapping new fails"
+      "4\u00d7 new QuotaGroup: WaitUtil timeout ~187\u2013190s at QuotaGroupSchedulingHelper.waitForScheduleToRun(:141) \u2014 schedule never ran",
+      "2\u00d7 new QA 502 Bad Gateway (infra): BOS SalesOrder init; QuotaGroup 'Apply to all'",
+      "Likely cause NXS-13972 (gergely.gimesi) rewrote the scheduling wait logic; NXS-13848 blame is a mis-match"
     ],
     "detail": {
-      "investigation": "6 of 17 unmuted failures are new since the prior build (#3.0.2713, 11 fails). Failure types (new-first): (1) 3\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 2\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. (3) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: QuotaGroup (5), BOS (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 3 service(s) (31 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: BOS: initializationError [QA 502 Bad Gateway]; QuotaGroup: Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest. [other]; QuotaGroup: Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest. [other]; QuotaGroup: Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest. [other].",
+      "investigation": "6 of 17 unmuted failures are new since prior build #3.0.2713. Most actionable: 4 new QuotaGroup failures are test-side WaitUtil timeouts (~187\u2013190s, 'Condition never returned a non-null result') at QuotaGroupSchedulingHelper.waitForScheduleToRun(:141) \u2014 the scheduled START/STOP traffic never executed within the window. That helper and QuotaGroupSchedulingExecutionTestSteps were just rewritten by NXS-13972 (gergely.gimesi: `9b5ea6babaca` 'wait for a traffic schedule only until its time plus the scheduler delay', `6cd3fa9361a1` 'scheduled Start of a never-launched audience...'), and `6cd3fa9361a1`'s message names the exact test that now fails \u2014 so a too-short wait window in the TA module is the most likely cause. The rules-engine's NXS-13848 (`1d36d4fa45f5`, sold-quota lock retries) blame is a false match: it touches SoldQuotaValidationTestSteps / QuotaGroupHelper, none of which are the failing classes. The remaining 2 new fails are genuine QA 502 Bad Gateway (infra, not product): BOS initializationError (quota-group-rest / quota-group-sources-rest 502) and QuotaGroup 'Apply to all can copy only the fieldwork dates' (throttling-setting-rest softLaunch 502). Not fully ruled out: NexusApiJ21 backend deploy NXS-13957 'Field Schedule' (ScheduledStatusChangeListener) landed in QA this window and could also explain schedules not running \u2014 match the failing endpoints before closing as a TA-only fix. Separately (contract-drift lane, not a test failure): 3 new OpenAPI drifts (98 vs 95 baseline), e.g. 500 on /u1/nexus/quotaGroups/{}/core/changeStatus and 502 on POST /u1/nexus/quotaGroups.",
       "bullets": [
-        "3\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 187 seconds: Condition never returned a non-null result",
-        "2\u00d7 QA 502 Bad Gateway",
-        "1\u00d7 assertion Condition not satisfied",
-        "Change NXS-13848: gergely.gimesi \u00b7 QuotaGroup \u00b7 5 overlapping new fails",
-        "Change NXS-13972: gergely.gimesi \u00b7 QuotaGroup \u00b7 5 overlapping new fails",
-        "NXS-13848 1d36d4fa45f5 by gergely.gimesi \u2192 areas QuotaGroup (5 new fails) \u00b7 ProjectHelper.groovy, QuotaGroupHelper.groovy, SegmentDetailsHelper.groovy, SoldQuotaValidationTestSteps.groovy",
-        "NXS-13972 6cd3fa9361a1 by gergely.gimesi \u2192 areas QuotaGroup (5 new fails) \u00b7 QuotaGroupSchedulingHelper.groovy, QuotaGroupSchedulingExecutionTestSteps.groovy",
-        "NXS-13832 c4cd169fd57b by gergely.gimesi \u2192 areas QuotaGroup (5 new fails) \u00b7 ProjectHelper.groovy, QuotaGroupHelper.groovy, SegmentDetailsHelper.groovy, SoldQuotaValidationTestSteps.groovy",
-        "[QA deploy: QuotaGroupRestJ21]  (8 commits) \u2014 [ST-4989] (CategoryRest) Prepare for PROD deploy",
-        "[QA deploy: NexusApiJ21]  (18 commits) \u2014 [PAC-854] DynataPlus - project clone draft and failed too - fix accepto"
+        "4\u00d7 new QuotaGroup: WaitUtil timeout ~187\u2013190s at QuotaGroupSchedulingHelper.waitForScheduleToRun(:141) \u2014 schedule never ran",
+        "Affected: Scheduled START (CLOSED, FIELDWORK_COMPLETE) & STOP (CLOSED), and never-launched-audience fills-in dates",
+        "Likely cause NXS-13972 \u00b7 gergely.gimesi \u00b7 `9b5ea6babaca` + `6cd3fa9361a1` rewrote QuotaGroupSchedulingHelper.groovy wait window",
+        "`6cd3fa9361a1` message names the exact failing test ('scheduled Start of a never-launched audience fills in the fieldwork dates')",
+        "Rules-engine NXS-13848 blame is a mis-match: touches sold-quota, not the scheduling helper",
+        "2\u00d7 new QA 502 Bad Gateway (infra): BOS SalesOrder init; QuotaGroup 'Apply to all' (throttling-setting-rest softLaunch)",
+        "Not ruled out: backend QA deploy NXS-13957 'Field Schedule' (ScheduledStatusChangeListener) could also stop schedules running",
+        "Contract drift (separate lane): 3 new drifts incl. 500 on changeStatus, 502 on POST /u1/nexus/quotaGroups"
       ],
       "newFailureAreas": [
         {
@@ -1824,20 +1821,19 @@
       ],
       "likelyCauses": [
         {
-          "version": "1d36d4fa45f5",
+          "version": "9b5ea6babaca",
           "username": "gergely.gimesi",
-          "ticket": "NXS-13848",
-          "comment": "[NXS-13848] MS - harden sold-quota lock retries and totalQuota wait",
+          "ticket": "NXS-13972",
+          "comment": "NXS-13972 MS - autotests - wait for a traffic schedule only until its time plus the scheduler delay",
           "areas": [
-            "QuotaGroup"
+            "QuotaGroup",
+            "QuotaGroupScheduling"
           ],
-          "hitNewFailures": 5,
+          "hitNewFailures": 4,
           "files": [
-            "ProjectHelper.groovy",
-            "QuotaGroupHelper.groovy",
-            "SegmentDetailsHelper.groovy",
-            "SoldQuotaValidationTestSteps.groovy"
-          ]
+            "QuotaGroupSchedulingHelper.groovy"
+          ],
+          "comment2": "Rewrote the wait window in the exact helper (waitForScheduleToRun) where the 4 new timeouts occur."
         },
         {
           "version": "6cd3fa9361a1",
@@ -1845,29 +1841,15 @@
           "ticket": "NXS-13972",
           "comment": "NXS-13972 MS - autotests - scheduled Start of a never-launched audience fills in the fieldwork dates",
           "areas": [
-            "QuotaGroup"
+            "QuotaGroup",
+            "QuotaGroupScheduling"
           ],
-          "hitNewFailures": 5,
+          "hitNewFailures": 4,
           "files": [
             "QuotaGroupSchedulingHelper.groovy",
             "QuotaGroupSchedulingExecutionTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "c4cd169fd57b",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-13832",
-          "comment": "[NXS-13832] MS - move NXS-13848 TA changes to their own PR",
-          "areas": [
-            "QuotaGroup"
           ],
-          "hitNewFailures": 5,
-          "files": [
-            "ProjectHelper.groovy",
-            "QuotaGroupHelper.groovy",
-            "SegmentDetailsHelper.groovy",
-            "SoldQuotaValidationTestSteps.groovy"
-          ]
+          "comment2": "Commit message names the exact new failing test; touches both the helper and the failing test class."
         }
       ]
     },
@@ -2121,8 +2103,8 @@
         "deployedAt": "20260929T124319+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-09-30T02:07Z",
+    "source": "llm",
+    "generatedAt": "2026-09-30T02:07:00Z",
     "buildNumber": "3.0.2714",
     "buildId": "9578565",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9578565",

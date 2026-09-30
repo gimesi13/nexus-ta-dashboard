@@ -1,11 +1,8 @@
-**6 new failures — mainly QuotaGroup, BOS**
+**6 new failures — a QuotaGroup scheduling-wait regression (NXS-13972) plus 2 QA 502s.**
 
-_Likely cause: Possibly NXS-13848 by gergely.gimesi — touches QuotaGroup (5 overlapping new fails)._
+_Likely cause: NXS-13972 (gergely.gimesi) rewrote QuotaGroupSchedulingHelper's wait window — 4 new scheduling tests time out in waitForScheduleToRun; 2 further new fails are QA 502s (infra)._
 
-- 3× other — java.lang.RuntimeException: Timeout after waiting 187 seconds: Condition never returned a non-null result
-- 2× QA 502 Bad Gateway
-
-⚠️ Contract drift: 3 new response-schema violation(s) vs baseline.
-- GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'.
+- 4× new QuotaGroup: WaitUtil timeout ~187–190s in waitForScheduleToRun — schedule never ran
+- 2× new QA 502 Bad Gateway (infra): BOS SalesOrder init; QuotaGroup 'Apply to all'
 
 [Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9578565)
