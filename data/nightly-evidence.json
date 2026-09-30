@@ -1,49 +1,276 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-29T02:02Z",
+  "generatedAt": "2026-09-30T02:07Z",
   "build": {
-    "number": "3.0.2713",
-    "buildId": "9572323",
+    "number": "3.0.2714",
+    "buildId": "9578565",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9572323",
-    "durationSec": 1674.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9578565",
+    "durationSec": 2193.0
   },
   "summary": {
-    "tests": 1515,
-    "passed": 1424,
-    "failures": 11,
+    "tests": 1516,
+    "passed": 1419,
+    "failures": 17,
     "errors": 0,
     "skipped": 0,
     "muted": 80,
-    "newFailed": 1,
-    "passRate": 99.2,
-    "timeSec": 1674.0
+    "newFailed": 6,
+    "passRate": 98.8,
+    "timeSec": 2193.0
   },
   "prior": {
-    "buildId": "9546121",
-    "number": "3.0.2712",
+    "buildId": "9572323",
+    "number": "3.0.2713",
     "status": "FAILURE",
-    "statusText": "Tests failed: 13 (2 new), passed: 1414, muted: 80",
-    "startDate": "20260928T013310+0000",
-    "durationSec": 1679.0,
-    "failed": 13,
-    "passed": 1414,
-    "newFailed": 2
+    "statusText": "Tests failed: 11 (1 new), passed: 1424, muted: 80",
+    "startDate": "20260929T013251+0000",
+    "durationSec": 1674.0,
+    "failed": 11,
+    "passed": 1424,
+    "newFailed": 1
   },
-  "changes": [],
+  "changes": [
+    {
+      "version": "9b5ea6babaca",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13972 MS - autotests - wait for a traffic schedule only until its time plus the scheduler delay",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupSchedulingHelper.groovy"
+      ],
+      "areas": [
+        "QuotaGroupScheduling"
+      ]
+    },
+    {
+      "version": "6cd3fa9361a1",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13972 MS - autotests - scheduled Start of a never-launched audience fills in the fieldwork dates",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupSchedulingHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingExecutionTestSteps.groovy"
+      ],
+      "areas": [
+        "QuotaGroup",
+        "QuotaGroupScheduling"
+      ]
+    },
+    {
+      "version": "a2a2fceac700",
+      "username": "gergely.gimesi",
+      "comment": "[NXS-13832] MS - merge master into pact restore",
+      "files": [
+        "gateway/unifiedApi/DemandApi/build.gradle",
+        "gateway/unifiedApi/NexusApi/build.gradle",
+        "gateway/unifiedApi/NexusApiBos/build.gradle",
+        "gateway/unifiedApi/NexusApiUI/build.gradle",
+        "project/Crm/CrmRest/build.gradle",
+        "project/ProjectSearchRest/README.md"
+      ],
+      "areas": []
+    },
+    {
+      "version": "7e35c9635e32",
+      "username": "gergely.gimesi",
+      "comment": "[NXS-13832] MS - merge master into pact restore",
+      "files": [],
+      "areas": []
+    },
+    {
+      "version": "c4cd169fd57b",
+      "username": "gergely.gimesi",
+      "comment": "[NXS-13832] MS - move NXS-13848 TA changes to their own PR",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/ProjectHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/SegmentDetailsHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaValidationTestSteps.groovy"
+      ],
+      "areas": [
+        "Project",
+        "Quota",
+        "QuotaGroup",
+        "SegmentDetails"
+      ]
+    },
+    {
+      "version": "1d36d4fa45f5",
+      "username": "gergely.gimesi",
+      "comment": "[NXS-13848] MS - harden sold-quota lock retries and totalQuota wait",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/ProjectHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/SegmentDetailsHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaValidationTestSteps.groovy"
+      ],
+      "areas": [
+        "Project",
+        "Quota",
+        "QuotaGroup",
+        "SegmentDetails"
+      ]
+    }
+  ],
   "qaDeployChanges": [
     {
       "service": "QuotaGroupRestJ21",
-      "version": "c3ee9f81a78f",
-      "username": "david.nagy",
-      "comment": "[NXS-13936] MS | QuotaGroupRest | backfill audience group id from sql",
+      "version": "522bff5d067f",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4989] (CategoryRest) Prepare for PROD deploy",
       "files": [
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/mirroring/mongoHandlers/QuotaGroupMirroringMongoHandler.java"
+        "dk-management-category-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260928T203141+0000"
+      "deployedAt": "20260929T145850+0000"
     },
     {
       "service": "QuotaGroupRestJ21",
+      "version": "90f4bfa2b1d7",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4987] (ManualPaymentsRest) Prepare for PROD deploy",
+      "files": [
+        "dk-management-manual-payments-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20260929T145850+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "9e382b108fd9",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4984] (SubjectLibraryRest) Prepare for PROD deploy",
+      "files": [
+        "dk-project-subject-library-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20260929T145850+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "c1f6b14f42fe",
+      "username": "40339600+tamasroma",
+      "comment": "[Nxs-13958] Force new deploy",
+      "files": [
+        "project/QuotaGroupRest/build.gradle"
+      ],
+      "deployedAt": "20260929T130941+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "7c56bef2abc8",
+      "username": "gergely.gimesi",
+      "comment": "Merge remote-tracking branch 'origin/master' into NXS-13832-pact-follow-ups",
+      "files": [
+        "gateway/unifiedApi/NexusApi/build.gradle"
+      ],
+      "deployedAt": "20260929T130941+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "70d083900a18",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13832 SCM/ACM pact specs name NexusApi as provider",
+      "files": [
+        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v1/pact/SCMProjectPacts.groovy",
+        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v1/pact/SCMQuotaGroupPacts.groovy",
+        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v1/pact/SCMSurveyPacts.groovy",
+        "project/QuotaDetailsRest/src/integTest/groovy/com/surveysampling/rest/quotadetails/pacts/ACMProjectPacts.groovy",
+        "project/QuotaDetailsRest/src/integTest/groovy/com/surveysampling/rest/quotadetails/pacts/ACMQuotaGroupPacts.groovy",
+        "project/QuotaDetailsRest/src/integTest/groovy/com/surveysampling/rest/quotadetails/pacts/ACMSurveyPacts.groovy",
+        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/counters/service/v2/pacts/ACMProjectPacts.groovy",
+        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/counters/service/v2/pacts/ACMQuotaGroupPacts.groovy",
+        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/counters/service/v2/pacts/ACMSurveyPacts.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/pacts/SCMProjectPacts.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/pacts/SCMQuotaGroupPacts.groovy",
+        "project/RestrictFilterRest/src/integTest/groovy/com/surveysampling/rest/restrictfilter/pacts/SCMSurveyPacts.groovy",
+        "project/TargetEditorRest/src/integTest/groovy/com/surveysampling/rest/targeteditor/pacts/SCMProjectPacts.groovy",
+        "project/TargetEditorRest/src/integTest/groovy/com/surveysampling/rest/targeteditor/pacts/SCMQuotaGroupPacts.groovy",
+        "project/TargetEditorRest/src/integTest/groovy/com/surveysampling/rest/targeteditor/pacts/SCMSurveyPacts.groovy"
+      ],
+      "deployedAt": "20260929T130941+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "8763bc71de34",
+      "username": "gabor.fial",
+      "comment": "[PAC-854] DynataPlus - project clone draft and failed too - fix accepto",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/nexus/project/acceptance/UProjectApiAcceptanceTest.groovy"
+      ],
+      "deployedAt": "20260929T124749+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "f3ef0e953251",
+      "username": "40339600+tamasroma",
+      "comment": "[Nxs-13957] Force new deploy",
+      "files": [
+        "gateway/unifiedApi/NexusApi/build.gradle"
+      ],
+      "deployedAt": "20260929T124749+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "17f3d4ba0b88",
+      "username": "82085952+gaborfial",
+      "comment": "[PAC-854] DynataPlus - project clone draft and failed too (#5447)",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/components/ProjectMongoHandler.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UProjectImpl.java",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/components/ProjectMongoHandlerTest.groovy",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UProjectImplTest.groovy"
+      ],
+      "deployedAt": "20260929T124749+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "a3c927ffa767",
+      "username": "gergely.gimesi",
+      "comment": "NXS-13832 PactVerifyPlugin: publish verification results, skip external providers",
+      "files": [
+        "gateway/unifiedApi/NexusApi/build.gradle",
+        "project/TargetEditorRest/build.gradle",
+        "unified_utils/gradle-plugins/PactVerifyPlugin/src/main/groovy/com/surveysampling/pact/gradle/CollectConsumerVerifyTasks.groovy",
+        "unified_utils/gradle-plugins/PactVerifyPlugin/src/main/groovy/com/surveysampling/pact/gradle/NewPactVerifierTask.groovy",
+        "unified_utils/gradle-plugins/PactVerifyPlugin/src/main/groovy/com/surveysampling/pact/gradle/PactRestClient.groovy",
+        "unified_utils/gradle-plugins/PactVerifyPlugin/src/main/groovy/com/surveysampling/pact/gradle/VerificationResultsPublisher.groovy",
+        "unified_utils/gradle-plugins/PactVerifyPlugin/src/test/groovy/com/surveysampling/pact/gradle/CollectConsumerVerifyTasksTest.groovy",
+        "unified_utils/gradle-plugins/PactVerifyPlugin/src/test/groovy/com/surveysampling/pact/gradle/VerificationResultsPublisherTest.groovy"
+      ],
+      "deployedAt": "20260929T124749+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "fb2e0b36a72f",
+      "username": "66064023+szotaktamas",
+      "comment": "[PAC-834] - Update ProjectRest to save and show dcpMasterProjectId / \u2026 (#5446)",
+      "files": [
+        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/acceptance/u1/UProjectAcceptanceTest.groovy",
+        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/acceptance/u1/UProjectRestAccFeignClient.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/api/UProjectCoreRest.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/component/UProjectCloner.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/model/ProjectCore.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mongo/ProjectCoreHandler.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mongo/ProjectMongoPaths.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/service/UProjectCoreService.java",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/api/UProjectCoreRestTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/component/ProjectClonerTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mongo/ProjectCoreHandlerTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/service/UProjectCoreServiceTest.groovy"
+      ],
+      "deployedAt": "20260929T124319+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "b29b1ac8838e",
+      "username": "matt.spencer",
+      "comment": "[DQI-4584] Adding new load balancer certs to old load balancers in dev and QA for passphrase-api.",
+      "files": [
+        "passphrase-api/cloud-formation.template.yml",
+        "passphrase-api/group_vars/dev.yml",
+        "passphrase-api/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260929T124319+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
       "version": "7d6e72b6c424",
       "username": "andras.banszki",
       "comment": "[NXS_13533] MS - migrate ExternalEventRest to J21",
@@ -52,18 +279,88 @@
         "dk-project-mail-filter-rest/group_vars/production.yml",
         "dk-project-mail-filter-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260928T203141+0000"
+      "deployedAt": "20260929T124319+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "c25a966082f7",
-      "username": "105725861+gimesi13",
-      "comment": "Merge pull request #5381 from dynata/NXS-13832-restore-pact-contracts",
+      "service": "ProjectRestJ16",
+      "version": "59267d833ce1",
+      "username": "poliss",
+      "comment": "Merge pull request #632 from dynata/DQI-4583",
       "files": [],
-      "deployedAt": "20260928T203141+0000"
+      "deployedAt": "20260929T124319+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "ProjectRestJ16",
+      "version": "07250b59f84e",
+      "username": "scott.polis",
+      "comment": "[DQI-4583] Enable Create Offers Queue prod",
+      "files": [
+        "dq-offer-callback-resources/cloud-formation.template.yml",
+        "dq-offer-callback-resources/group_vars/dev.yml",
+        "dq-offer-callback-resources/group_vars/production.yml",
+        "dq-offer-callback-resources/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260929T124319+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "b846bb7683fd",
+      "username": "40339600+tamasroma",
+      "comment": "[Nxs-13957] MS - NexusApi - Field Schedule,test fix",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/components/QuotaGroupManualStatusHandlerTest.groovy"
+      ],
+      "deployedAt": "20260929T105716+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "1ba815663f68",
+      "username": "40339600+tamasroma",
+      "comment": "[Nxs-13957] MS - NexusApi - Field Schedule (#5448)",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/quotaGroup/QuotaGroupRestFeignClient.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/components/QuotaGroupManualStatusHandler.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/components/ScheduledStatusChangeListener.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/models/QuotaGroupSchedulingMessage.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/models/SchedulingOperation.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/quotagroupid/UQuotaGroupCoreImpl.java",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/components/QuotaGroupManualStatusHandlerTest.groovy",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/components/ScheduledStatusChangeListenerTest.groovy",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/quotaGroupId/UQuotaGroupCoreImplTest.groovy",
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/messaging/scheduling/model/QuotaGroupSchedulingMessage.java"
+      ],
+      "deployedAt": "20260929T105716+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "fb8a91f1234a",
+      "username": "bence.csepe",
+      "comment": "[NXS-13935] NexusApi bump UNexusModel",
+      "files": [
+        "gateway/unifiedApi/NexusApi/build.gradle"
+      ],
+      "deployedAt": "20260929T105716+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "a178c355c48f",
+      "username": "gergely.gimesi",
+      "comment": "[NXS-13832] MS - run the four pact specs Spock never picked up",
+      "files": [
+        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/UserPact.groovy",
+        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/UserPact.java",
+        "gateway/dk/DKOrder/src/main/java/com/surveysampling/rest/gateway/order/dependencies/user/IUserRestFeignClient.java",
+        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/AutomatedAlertMonitoringRestPact.groovy",
+        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/AutomatedAlertMonitoringRestPact.java",
+        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/AutomatedAlertServiceRestPacts.groovy",
+        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/AutomatedAlertServiceRestPacts.java",
+        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v1/pact/UserPact.groovy",
+        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v1/pact/UserPact.java"
+      ],
+      "deployedAt": "20260929T105716+0000"
+    },
+    {
+      "service": "NexusApiJ21",
       "version": "40ef781bebb1",
       "username": "gergely.gimesi",
       "comment": "[NXS-13832] MS - share one SpringPactConsumer version and fix new pact specs",
@@ -89,10 +386,10 @@
         "project/CountersRest/build.gradle",
         "project/Crm/CrmRest/build.gradle"
       ],
-      "deployedAt": "20260928T203141+0000"
+      "deployedAt": "20260929T105716+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "NexusApiJ21",
       "version": "a2a2fceac700",
       "username": "gergely.gimesi",
       "comment": "[NXS-13832] MS - merge master into pact restore",
@@ -105,10 +402,41 @@
         "project/Crm/CrmRest/build.gradle",
         "project/ProjectSearchRest/README.md"
       ],
-      "deployedAt": "20260928T203141+0000"
+      "deployedAt": "20260929T105716+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "NexusApiJ21",
+      "version": "24ce91bd260f",
+      "username": "grace.chen",
+      "comment": "[FAI-429] disable scheduler for wz-data-drift-dev to rule out failed login attempt to imperium_watson via password auth",
+      "files": [
+        "ml-data-drift-monitor/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20260929T105716+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "88fb1ef1d154",
+      "username": "mitro.gyorgy",
+      "comment": "Merge pull request #631 from dynata/NA-1966",
+      "files": [],
+      "deployedAt": "20260929T105716+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "45a66eb3f113",
+      "username": "gyorgykrisztian.mitro",
+      "comment": "[NA-1966] SLS - Upgrade lambdas to LTS python version + secrets layer upgrade | add temp table name to env variable",
+      "files": [
+        "sls-db/cloud-formation.template.yml",
+        "sls-db/group_vars/dev.yml",
+        "sls-db/group_vars/production.yml",
+        "sls-db/group_vars/qa.yml"
+      ],
+      "deployedAt": "20260929T105716+0000"
+    },
+    {
+      "service": "NexusApiJ21",
       "version": "3c810238c5ed",
       "username": "gergely.gimesi",
       "comment": "[NXS-13832] MS - sample generic pact values and stub composed mappings",
@@ -134,47 +462,18 @@
         "project/Crm/CrmRest/build.gradle",
         "project/DashboardRest/build.gradle"
       ],
-      "deployedAt": "20260928T203141+0000"
+      "deployedAt": "20260929T105716+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "4ea4272fdfba",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-13832] MS - pin new J21 services and keep pact-off from verifying",
-      "files": [
-        "gateway/dk/DKContentRest/build.gradle",
-        "gateway/dk/DKFeatureValueRest/build.gradle",
-        "gateway/dk/DKNovaTranslatorRest/build.gradle",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/SettingRestPacts.groovy",
-        "gateway/dk/DKRespondentRest/build.gradle",
-        "management/CategoryRest/build.gradle",
-        "management/ClaimOptionRest/build.gradle",
-        "management/DefaultPagesRest/build.gradle",
-        "management/EnumRest/build.gradle",
-        "management/ExternalProviderRest/build.gradle",
-        "management/FeatureRest/build.gradle",
-        "management/MailRest/build.gradle",
-        "management/ManualPaymentsRest/build.gradle",
-        "management/MembershipStatusRest/build.gradle",
-        "management/MessageContentRest/build.gradle",
-        "management/RewardCalculatorRest/build.gradle",
-        "management/RexTRest/build.gradle",
-        "management/SourcesRest/build.gradle",
-        "project/CascadesRest/build.gradle",
-        "project/CommunicationRest/build.gradle"
-      ],
-      "deployedAt": "20260928T203141+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
+      "service": "NexusApiJ21",
       "version": "7e35c9635e32",
       "username": "gergely.gimesi",
       "comment": "[NXS-13832] MS - merge master into pact restore",
       "files": [],
-      "deployedAt": "20260928T203141+0000"
+      "deployedAt": "20260929T105716+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "NexusApiJ21",
       "version": "11e030b63f6c",
       "username": "gergely.gimesi",
       "comment": "[NXS-13832] MS - sample numeric strings and skip unresolved pact generics",
@@ -200,10 +499,10 @@
         "project/DedupeRest/build.gradle",
         "project/DetailsEditorRest/build.gradle"
       ],
-      "deployedAt": "20260928T203141+0000"
+      "deployedAt": "20260929T105716+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "NexusApiJ21",
       "version": "8028dd52ac0c",
       "username": "gergely.gimesi",
       "comment": "[NXS-13832] MS - make J21 pact generation survive Pact 4.7 paths and bodies",
@@ -229,10 +528,10 @@
         "project/DedupeRest/build.gradle",
         "project/DetailsEditorRest/build.gradle"
       ],
-      "deployedAt": "20260928T203141+0000"
+      "deployedAt": "20260929T105716+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "NexusApiJ21",
       "version": "af1878432c5d",
       "username": "gergely.gimesi",
       "comment": "[NXS-13832] MS - point J21 services at published Pact 4.0.0 / 5.1.6",
@@ -258,317 +557,73 @@
         "project/DetailsEditorRest/build.gradle",
         "project/DetailsTableRest/build.gradle"
       ],
-      "deployedAt": "20260928T203141+0000"
+      "deployedAt": "20260929T105716+0000"
     },
     {
-      "service": "ExternalEventRestJ21",
-      "version": "ffcd1cc9ac0e",
-      "username": "andras.banszki",
-      "comment": "mute test with invalid SQL setup",
+      "service": "QuotaGroupRestJ21",
+      "version": "80f5d18946a3",
+      "username": "40339600+tamasroma",
+      "comment": "[Nxs-13958] test fix",
       "files": [
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v2/sql/UpdateUrlPoolAssignmentInQuotaGroupSqlTest.groovy"
+        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupSchedulingRestAcceptanceTest.groovy"
       ],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "723c5ff787d8",
-      "username": "andras.banszki",
-      "comment": "hopefully wont miss TESTCONFIG_DEV_MONGO_NEXUSAPITEST_PWD any more by running in IntegRation Tests pipeline",
-      "files": [
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/u1/mongo/PartnerEventMongoHandlerIntegrationTest.groovy"
-      ],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "a178c355c48f",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-13832] MS - run the four pact specs Spock never picked up",
-      "files": [
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/UserPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/UserPact.java",
-        "gateway/dk/DKOrder/src/main/java/com/surveysampling/rest/gateway/order/dependencies/user/IUserRestFeignClient.java",
-        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/AutomatedAlertMonitoringRestPact.groovy",
-        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/AutomatedAlertMonitoringRestPact.java",
-        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/AutomatedAlertServiceRestPacts.groovy",
-        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/AutomatedAlertServiceRestPacts.java",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v1/pact/UserPact.groovy",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v1/pact/UserPact.java"
-      ],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "59267d833ce1",
-      "username": "poliss",
-      "comment": "Merge pull request #632 from dynata/DQI-4583",
-      "files": [],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "07250b59f84e",
-      "username": "scott.polis",
-      "comment": "[DQI-4583] Enable Create Offers Queue prod",
-      "files": [
-        "dq-offer-callback-resources/cloud-formation.template.yml",
-        "dq-offer-callback-resources/group_vars/dev.yml",
-        "dq-offer-callback-resources/group_vars/production.yml",
-        "dq-offer-callback-resources/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "9b309a7792f4",
-      "username": "andras.banszki",
-      "comment": "[NXS-13533] MS - migrate ExternalEventRest to J21 (#5388)",
-      "files": [
-        "project/ExternalEventRest/Dockerfile",
-        "project/ExternalEventRest/build.gradle",
-        "project/ExternalEventRest/gradle/wrapper/gradle-wrapper.properties",
-        "project/ExternalEventRest/group_vars/all.yml",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/PactCoverageTest.groovy",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/u1/acceptance/ExternalEventRestApiAcceptanceTest.groovy",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/u1/feign/ExternalEventRestFeignClient.java",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/u1/mongo/MongoTestBase.groovy",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/u1/pact/PickerEventPact.groovy",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v1/acceptance/ExternalEventFeignClient.java",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v1/pact/EncryptDecryptPact.groovy",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v1/pact/QuotaDetailsPact.groovy",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v1/pact/QuotaGroupPact.groovy",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v1/pact/SCMProjectPacts.groovy",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v1/pact/SCMQuotaGroupPacts.groovy",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v1/pact/SCMSurveyPacts.groovy",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v1/pact/UserPact.java",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v1/sql/GetExternalEventIT.groovy",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v2/acceptance/ExternalEventFeignClient.java",
-        "project/ExternalEventRest/src/integTest/groovy/com/surveysampling/rest/externalevent/v2/pact/ProjectLogRestPact.groovy"
-      ],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "24ce91bd260f",
-      "username": "grace.chen",
-      "comment": "[FAI-429] disable scheduler for wz-data-drift-dev to rule out failed login attempt to imperium_watson via password auth",
-      "files": [
-        "ml-data-drift-monitor/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "88fb1ef1d154",
-      "username": "mitro.gyorgy",
-      "comment": "Merge pull request #631 from dynata/NA-1966",
-      "files": [],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "45a66eb3f113",
-      "username": "gyorgykrisztian.mitro",
-      "comment": "[NA-1966] SLS - Upgrade lambdas to LTS python version + secrets layer upgrade | add temp table name to env variable",
-      "files": [
-        "sls-db/cloud-formation.template.yml",
-        "sls-db/group_vars/dev.yml",
-        "sls-db/group_vars/production.yml",
-        "sls-db/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "00f797a9e6bb",
-      "username": "gergo.hajnal",
-      "comment": "[ST-5015] (st-parameter-service) remove java.security.manager from PROD",
-      "files": [
-        "st-parameter-service/group_vars/prod.yml"
-      ],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "06b9fefde16e",
-      "username": "gergo.hajnal",
-      "comment": "[ST-4990] (MessageContentRest) prepare to be PROD deployed",
-      "files": [
-        "dk-management-message-content-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "48052ce82d49",
-      "username": "gergo.hajnal",
-      "comment": "[ST-5003] (CountryLanguageRest) remove obsolete comment",
-      "files": [
-        "dk-project-country-language-rest/group_vars/dev.yml"
-      ],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "1f588a96a2d7",
-      "username": "brian.connolly",
-      "comment": "update template locations to bypass ansible weirdness",
-      "files": [
-        "ae-transaction-manager/group_vars/all.yml"
-      ],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "cf58d7b5d095",
-      "username": "sajak.upadhyaya",
-      "comment": "\"[FAI-482] scaling down resources in production\"",
-      "files": [
-        "ml-data-loader-service/group_vars/production.yml",
-        "ml-offer-conversion-model/group_vars/production.yml",
-        "ml-offer-metadata-queue/group_vars/production.yml",
-        "ml-offers-model-service/group_vars/production.yml",
-        "ml-valkey-cache-storage/group_vars/production.yml"
-      ],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "34b4140de272",
-      "username": "sajak.upadhyaya",
-      "comment": "\"[FAI-482] scaling down resources in qa\"",
-      "files": [
-        "ml-data-loader-service/group_vars/qa.yml",
-        "ml-offer-conversion-model/group_vars/qa.yml",
-        "ml-offer-metadata-queue/group_vars/qa.yml",
-        "ml-offers-model-service/group_vars/qa.yml",
-        "ml-valkey-cache-storage/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "2385b49c4712",
-      "username": "brian.connolly",
-      "comment": "update template locations",
-      "files": [
-        "ae-transaction-manager/group_vars/all.yml"
-      ],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "537df7dc7489",
-      "username": "brian.connolly",
-      "comment": "add template",
-      "files": [
-        "ae-transaction-manager/group_vars/all.yml"
-      ],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "67cb1a4b489f",
-      "username": "sajak.upadhyaya",
-      "comment": "\"[FAI-482] scaling down resources in dev\"",
-      "files": [
-        "ml-data-loader-service/group_vars/dev.yml",
-        "ml-offer-conversion-model/cloud-formation.template.yml",
-        "ml-offer-conversion-model/group_vars/all.yml",
-        "ml-offer-conversion-model/group_vars/dev.yml",
-        "ml-offer-metadata-queue/group_vars/dev.yml",
-        "ml-offers-model-service/group_vars/dev.yml",
-        "ml-valkey-cache-storage/cloud-formation.template.yml",
-        "ml-valkey-cache-storage/group_vars/all.yml",
-        "ml-valkey-cache-storage/group_vars/dev.yml"
-      ],
-      "deployedAt": "20260928T163155+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "version": "655afc645db4",
-      "username": "brian.connolly",
-      "comment": "Convert to use AE-DPR.",
-      "files": [
-        "ae-transaction-manager/cloud-formation.template.yml",
-        "ae-transaction-manager/group_vars/all.yml",
-        "ae-transaction-manager/group_vars/dev.yml",
-        "ae-transaction-manager/group_vars/production.yml",
-        "ae-transaction-manager/group_vars/qa.yml",
-        "ae-transaction-manager/pre_tasks.yml",
-        "ae-transaction-manager/publish.yml"
-      ],
-      "deployedAt": "20260928T163155+0000"
+      "deployedAt": "20260929T094930+0000"
     }
   ],
   "qaDeployServices": [
     {
       "service": "QuotaGroupRestJ21",
-      "commits": 14,
-      "latestTicket": "NXS-13936",
-      "latestComment": "[NXS-13936] MS | QuotaGroupRest | backfill audience group id from sql",
-      "deployedAt": "20260928T203141+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "commits": 24,
+      "commits": 8,
       "latestTicket": "",
-      "latestComment": "mute test with invalid SQL setup",
-      "deployedAt": "20260928T163155+0000"
+      "latestComment": "[ST-4989] (CategoryRest) Prepare for PROD deploy",
+      "deployedAt": "20260929T145850+0000"
     },
     {
-      "service": "FeasibilityDataStoreJ16",
-      "commits": 3,
+      "service": "NexusApiJ21",
+      "commits": 18,
       "latestTicket": "",
-      "latestComment": "[PAC-853] Cobalt - FeasibilityDataStore - strip country from adhoc programmatic ",
-      "deployedAt": "20260928T123352+0000"
+      "latestComment": "[PAC-854] DynataPlus - project clone draft and failed too - fix accepto",
+      "deployedAt": "20260929T124749+0000"
     },
     {
-      "service": "SurveyRestJ21",
-      "commits": 3,
-      "latestTicket": "",
-      "latestComment": "Merge pull request #5427 from dynata/NXS-NA-1965_testfix",
-      "deployedAt": "20260928T082918+0000"
-    },
-    {
-      "service": "SettingRestJ21",
+      "service": "ProjectRestJ16",
       "commits": 5,
-      "latestTicket": "NXS-13896",
-      "latestComment": "[NXS-13896] Create new system setting for SLS cutover date (#5401)",
-      "deployedAt": "20260928T080434+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "commits": 1,
       "latestTicket": "",
-      "latestComment": "[PAC-822] QuotaGroupSource - refilter sometimes skip add accountId to panel filt",
-      "deployedAt": "20260928T075603+0000"
+      "latestComment": "[PAC-834] - Update ProjectRest to save and show dcpMasterProjectId / \u2026 (#5446)",
+      "deployedAt": "20260929T124319+0000"
     }
   ],
   "clusters": [
     {
       "label": "other",
       "display": "other",
-      "count": 6,
-      "newCount": 0,
-      "sample": "",
+      "count": 9,
+      "newCount": 3,
+      "sample": "java.lang.RuntimeException: Timeout after waiting 187 seconds: Condition never returned a non-null result",
       "why": "no dominant signature yet \u2014 open TeamCity details"
     },
     {
       "label": "assert_fail",
       "display": "assertion Condition not satisfied",
-      "count": 3,
-      "newCount": 0,
+      "count": 4,
+      "newCount": 1,
       "sample": "",
       "why": "Spock assertion failed (fixture or response shape)"
+    },
+    {
+      "label": "infra_502",
+      "display": "QA 502 Bad Gateway",
+      "count": 2,
+      "newCount": 2,
+      "sample": "502 Bad Gateway",
+      "why": "QA gateway returned HTML 502 \u2014 infra during the run, not a product regression"
     },
     {
       "label": "product_data_not_found",
       "display": "NOT_FOUND / missing data",
       "count": 1,
-      "newCount": 1,
-      "sample": "(no error message)",
+      "newCount": 0,
+      "sample": "",
       "why": "missing DB row / EmptyResult / NOT_FOUND"
     },
     {
@@ -582,9 +637,18 @@
   ],
   "failures": [
     {
+      "name": "initializationError",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.BOS.SalesOrderTestSteps",
+      "newFailure": true,
+      "area": "BOS",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups 502{ \"errors\" : [ { \"callChain\" : [ \"HTTP 502 PUT http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups/118805499/createInProgress\", \"HTTP 502 POST http://dk-project-quota-group-sources-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroupSources/u1/sources/quotaGroups/11\u2026"
+    },
+    {
       "name": "Create partner event with invalid field values: com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventValidationTestSteps.Create partner event with invalid field values",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventValidationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PartnerEvent",
       "cluster": "product_data_not_found",
       "message": "(no error message)",
@@ -618,13 +682,22 @@
       "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118800787/core/changeStatus?statusTransitions=START 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups/118800787/changeStatus?statusTransitions=START\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang\u2026"
     },
     {
+      "name": "Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps.Scheduled START Traffic leaves a CLOSED audience unchanged",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "other",
+      "message": "java.lang.RuntimeException: Timeout after waiting 187 seconds: Condition never returned a non-null result",
+      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 187 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupSchedulingHelper.waitForScheduleToRun(QuotaGroupSchedulingHelper.groovy:141) at com.dynata.rest.gateway.nexusapi.rest.tests.\u2026"
+    },
+    {
       "name": "Rejected traffic schedule leaves the fieldwork dates unchanged",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingValidationTestSteps",
       "newFailure": false,
       "area": "QuotaGroup",
       "cluster": "assert_fail",
       "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: datesAfter.proposedStartDate == datesBefore.proposedStartDate | | | | | | | | | Sun Oct 04 01:00:00 UTC 2026 | | | <com.dynata.nexus.api.model.quotagroup.QuotaGroupDates@27115d45 proposedStartDate=Sun Oct 04 01:00:00 UTC 2026 quotaActivationDate=null originalEndDate=null proposedEndDate=Wed Oct 07 01:00:00 UTC 2026 endDateAutoClose=false fieldworkMode=null fieldworkHours=\u2026"
+      "detailsExcerpt": "Condition not satisfied: datesAfter.proposedStartDate == datesBefore.proposedStartDate | | | | | | | | | Mon Oct 05 01:00:00 UTC 2026 | | | <com.dynata.nexus.api.model.quotagroup.QuotaGroupDates@4af8ff3 proposedStartDate=Mon Oct 05 01:00:00 UTC 2026 quotaActivationDate=null originalEndDate=null proposedEndDate=Thu Oct 08 01:00:00 UTC 2026 endDateAutoClose=false fieldworkMode=null fieldworkHours=7\u2026"
     },
     {
       "name": "Misaligned fieldwork dates saved with traffic schedules are rejected as a bad request",
@@ -643,6 +716,24 @@
       "cluster": "assert_fail",
       "message": "java.lang.IllegalArgumentException:Body parameter 1 was null",
       "detailsExcerpt": "Condition not satisfied: schedHelper.rejectionStatus(rejection) == 400 | | | | | 500 | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118799558/saveDatesAndSchedules | | 500{ | \"errors\" : [ { | \"status\" : \"INTERNAL_SERVER_ERROR\", | \"message\" : \"java.lang.IllegalArgumentException:Body parameter 1 was null\" | } ], | \"version\" : \"1.0\" | } | | at\u2026"
+    },
+    {
+      "name": "Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps.Scheduled START Traffic leaves a FIELDWORK_COMPLETE audience unchanged",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "other",
+      "message": "java.lang.RuntimeException: Timeout after waiting 190 seconds: Condition never returned a non-null result",
+      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 190 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupSchedulingHelper.waitForScheduleToRun(QuotaGroupSchedulingHelper.groovy:141) at com.dynata.rest.gateway.nexusapi.rest.tests.\u2026"
+    },
+    {
+      "name": "Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps.Scheduled STOP Traffic leaves a CLOSED audience unchanged",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "other",
+      "message": "java.lang.RuntimeException: Timeout after waiting 190 seconds: Condition never returned a non-null result",
+      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 190 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupSchedulingHelper.waitForScheduleToRun(QuotaGroupSchedulingHelper.groovy:141) at com.dynata.rest.gateway.nexusapi.rest.tests.\u2026"
     },
     {
       "name": "A cleared traffic schedule does not run",
@@ -672,200 +763,310 @@
       "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118800787/core/changeStatus?statusTransitions=START 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups/118800787/changeStatus?statusTransitions=START\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang\u2026"
     },
     {
+      "name": "A scheduled Start of a never launched audience fills in its fieldwork dates like a manual start",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "assert_fail",
+      "message": "Condition failed with Exception:",
+      "detailsExcerpt": "Condition failed with Exception: schedHelper.waitForScheduleToRun(newAudience, START).status == SUCCESS | | | | | 118805838 | java.lang.RuntimeException: Timeout after waiting 190 seconds: Condition never returned a non-null result | at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) | at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.Quot\u2026"
+    },
+    {
+      "name": "Apply to all can copy only the fieldwork dates",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingWorkflowTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups 502{ \"errors\" : [ { \"callChain\" : [ \"QGSoftLaunch\", \"HTTP 502 PUT http://dk-project-throttling-setting-rest.nexus-ms-qa.dynata.com:8080/api/ThrottlingSetting/u1/quotaGroups/118805841/softLaunch\" ], \"status\" : \"BAD_GATEWAY\", \"message\" : \"<html>\\n<head><title>502 Bad Gateway</title></head>\\n<body>\\n<center\u2026"
+    },
+    {
       "name": "A new audience inherits the Apply to all traffic schedules even after one audience was changed",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingWorkflowTestSteps",
       "newFailure": false,
       "area": "QuotaGroup",
       "cluster": "assert_fail",
       "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: schedHelper.scheduleSlots(newAudience) == appliedSlots | | | | | | [] 118805013 | [[START, Sat Nov 28 01:56:00 UTC 2026, PENDING]] | false | 1 difference (0% similarity, 1 missing, 0 extra) | missing: [[START, Sat Nov 28 01:56:00 UTC 2026, PENDING]] | extra: [] <com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupSchedulingHelper@1611ce1c nxs=c\u2026"
+      "detailsExcerpt": "Condition not satisfied: schedHelper.scheduleSlots(newAudience) == appliedSlots | | | | | | [] 118805850 | [[START, Sun Nov 29 02:02:00 UTC 2026, PENDING]] | false | 1 difference (0% similarity, 1 missing, 0 extra) | missing: [[START, Sun Nov 29 02:02:00 UTC 2026, PENDING]] | extra: [] <com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupSchedulingHelper@136480b nxs=co\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "1 new failure in PartnerEvent",
-    "tone": "warn",
-    "severity": "low",
+    "headline": "6 new failures \u2014 mainly QuotaGroup, BOS",
+    "tone": "bad",
+    "severity": "high",
     "bullets": [
-      "1\u00d7 NOT_FOUND / missing data \u2014 (no error message)"
+      "3\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 187 seconds: Condition never returned a non-null result",
+      "2\u00d7 QA 502 Bad Gateway",
+      "1\u00d7 assertion Condition not satisfied",
+      "Change NXS-13848: gergely.gimesi \u00b7 QuotaGroup \u00b7 5 overlapping new fails"
     ],
-    "investigation": "New fails: 1\u00d7 NOT_FOUND / missing data. Vs prior #3.0.2712: down 2 total fails.",
+    "investigation": "New fails: 3\u00d7 other (no dominant signature yet); 2\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Likely related to NXS-13848 gergely.gimesi `1d36d4fa45f5` (QuotaGroup, 5 new fails in overlap).",
     "detail": {
-      "investigation": "1 of 11 unmuted failures are new since the prior build (#3.0.2712, 13 fails). Failure types (new-first): (1) 1\u00d7 NOT_FOUND / missing data \u2014 missing DB row / EmptyResult / NOT_FOUND. Hot areas among new fails: PartnerEvent (1). 6 service(s) (50 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: PartnerEvent: Create partner event with invalid field values: com.dynata.rest.gateway.nexusapi.rest.test [NOT_FOUND / missing data].",
+      "investigation": "6 of 17 unmuted failures are new since the prior build (#3.0.2713, 11 fails). Failure types (new-first): (1) 3\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 2\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. (3) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: QuotaGroup (5), BOS (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 3 service(s) (31 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: BOS: initializationError [QA 502 Bad Gateway]; QuotaGroup: Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest. [other]; QuotaGroup: Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest. [other]; QuotaGroup: Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest. [other].",
       "bullets": [
-        "1\u00d7 NOT_FOUND / missing data \u2014 (no error message)",
-        "[QA deploy: QuotaGroupRestJ21] NXS-13936 (14 commits) \u2014 [NXS-13936] MS | QuotaGroupRest | backfill audience group id from sql",
-        "[QA deploy: ExternalEventRestJ21]  (24 commits) \u2014 mute test with invalid SQL setup",
-        "[QA deploy: FeasibilityDataStoreJ16]  (3 commits) \u2014 [PAC-853] Cobalt - FeasibilityDataStore - strip country from adhoc programmatic ",
-        "[QA deploy: SurveyRestJ21]  (3 commits) \u2014 Merge pull request #5427 from dynata/NXS-NA-1965_testfix",
-        "[QA deploy: SettingRestJ21] NXS-13896 (5 commits) \u2014 [NXS-13896] Create new system setting for SLS cutover date (#5401)",
-        "[QA deploy: QuotaGroupSourcesRestJ21]  (1 commit) \u2014 [PAC-822] QuotaGroupSource - refilter sometimes skip add accountId to panel filt"
+        "3\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 187 seconds: Condition never returned a non-null result",
+        "2\u00d7 QA 502 Bad Gateway",
+        "1\u00d7 assertion Condition not satisfied",
+        "Change NXS-13848: gergely.gimesi \u00b7 QuotaGroup \u00b7 5 overlapping new fails",
+        "Change NXS-13972: gergely.gimesi \u00b7 QuotaGroup \u00b7 5 overlapping new fails",
+        "NXS-13848 1d36d4fa45f5 by gergely.gimesi \u2192 areas QuotaGroup (5 new fails) \u00b7 ProjectHelper.groovy, QuotaGroupHelper.groovy, SegmentDetailsHelper.groovy, SoldQuotaValidationTestSteps.groovy",
+        "NXS-13972 6cd3fa9361a1 by gergely.gimesi \u2192 areas QuotaGroup (5 new fails) \u00b7 QuotaGroupSchedulingHelper.groovy, QuotaGroupSchedulingExecutionTestSteps.groovy",
+        "NXS-13832 c4cd169fd57b by gergely.gimesi \u2192 areas QuotaGroup (5 new fails) \u00b7 ProjectHelper.groovy, QuotaGroupHelper.groovy, SegmentDetailsHelper.groovy, SoldQuotaValidationTestSteps.groovy",
+        "[QA deploy: QuotaGroupRestJ21]  (8 commits) \u2014 [ST-4989] (CategoryRest) Prepare for PROD deploy",
+        "[QA deploy: NexusApiJ21]  (18 commits) \u2014 [PAC-854] DynataPlus - project clone draft and failed too - fix accepto"
       ],
       "newFailureAreas": [
         {
-          "area": "PartnerEvent",
+          "area": "QuotaGroup",
+          "newCount": 5
+        },
+        {
+          "area": "BOS",
           "newCount": 1
         }
       ],
-      "likelyCauses": []
+      "likelyCauses": [
+        {
+          "version": "1d36d4fa45f5",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13848",
+          "comment": "[NXS-13848] MS - harden sold-quota lock retries and totalQuota wait",
+          "areas": [
+            "QuotaGroup"
+          ],
+          "hitNewFailures": 5,
+          "files": [
+            "ProjectHelper.groovy",
+            "QuotaGroupHelper.groovy",
+            "SegmentDetailsHelper.groovy",
+            "SoldQuotaValidationTestSteps.groovy"
+          ]
+        },
+        {
+          "version": "6cd3fa9361a1",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13972",
+          "comment": "NXS-13972 MS - autotests - scheduled Start of a never-launched audience fills in the fieldwork dates",
+          "areas": [
+            "QuotaGroup"
+          ],
+          "hitNewFailures": 5,
+          "files": [
+            "QuotaGroupSchedulingHelper.groovy",
+            "QuotaGroupSchedulingExecutionTestSteps.groovy"
+          ]
+        },
+        {
+          "version": "c4cd169fd57b",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-13832",
+          "comment": "[NXS-13832] MS - move NXS-13848 TA changes to their own PR",
+          "areas": [
+            "QuotaGroup"
+          ],
+          "hitNewFailures": 5,
+          "files": [
+            "ProjectHelper.groovy",
+            "QuotaGroupHelper.groovy",
+            "SegmentDetailsHelper.groovy",
+            "SoldQuotaValidationTestSteps.groovy"
+          ]
+        }
+      ]
     },
-    "suspectCommits": [],
-    "qaDeploySuspects": [
+    "suspectCommits": [
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "c3ee9f81a78f",
-        "username": "david.nagy",
-        "comment": "[NXS-13936] MS | QuotaGroupRest | backfill audience group id from sql",
-        "ticket": "NXS-13936",
-        "deployedAt": "20260928T203141+0000",
-        "files": [
-          "QuotaGroupMirroringMongoHandler.java"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupRestJ21",
-        "version": "7d6e72b6c424",
-        "username": "andras.banszki",
-        "comment": "[NXS_13533] MS - migrate ExternalEventRest to J21",
-        "ticket": "",
-        "deployedAt": "20260928T203141+0000",
-        "files": [
-          "dev.yml",
-          "production.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupRestJ21",
-        "version": "c25a966082f7",
-        "username": "105725861+gimesi13",
-        "comment": "Merge pull request #5381 from dynata/NXS-13832-restore-pact-contracts",
-        "ticket": "NXS-13832",
-        "deployedAt": "20260928T203141+0000",
-        "files": [],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupRestJ21",
-        "version": "40ef781bebb1",
+        "version": "9b5ea6babaca",
         "username": "gergely.gimesi",
-        "comment": "[NXS-13832] MS - share one SpringPactConsumer version and fix new pact specs",
-        "ticket": "NXS-13832",
-        "deployedAt": "20260928T203141+0000",
-        "files": [
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "AutomatedSystemGWPacts.groovy"
-        ],
-        "scope": "qa-deploy"
+        "comment": "NXS-13972 MS - autotests - wait for a traffic schedule only until its time plus the scheduler delay",
+        "ticket": "NXS-13972",
+        "areas": []
       },
       {
-        "service": "QuotaGroupRestJ21",
+        "version": "6cd3fa9361a1",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13972 MS - autotests - scheduled Start of a never-launched audience fills in the fieldwork dates",
+        "ticket": "NXS-13972",
+        "areas": [
+          "QuotaGroup"
+        ]
+      },
+      {
         "version": "a2a2fceac700",
         "username": "gergely.gimesi",
         "comment": "[NXS-13832] MS - merge master into pact restore",
         "ticket": "NXS-13832",
-        "deployedAt": "20260928T203141+0000",
-        "files": [
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle"
-        ],
-        "scope": "qa-deploy"
+        "areas": []
       },
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "3c810238c5ed",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13832] MS - sample generic pact values and stub composed mappings",
-        "ticket": "NXS-13832",
-        "deployedAt": "20260928T203141+0000",
-        "files": [
-          "build.gradle",
-          "build.gradle",
-          "README.md",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupRestJ21",
-        "version": "4ea4272fdfba",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13832] MS - pin new J21 services and keep pact-off from verifying",
-        "ticket": "NXS-13832",
-        "deployedAt": "20260928T203141+0000",
-        "files": [
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "SettingRestPacts.groovy",
-          "build.gradle",
-          "build.gradle"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupRestJ21",
         "version": "7e35c9635e32",
         "username": "gergely.gimesi",
         "comment": "[NXS-13832] MS - merge master into pact restore",
         "ticket": "NXS-13832",
-        "deployedAt": "20260928T203141+0000",
-        "files": [],
+        "areas": []
+      },
+      {
+        "version": "c4cd169fd57b",
+        "username": "gergely.gimesi",
+        "comment": "[NXS-13832] MS - move NXS-13848 TA changes to their own PR",
+        "ticket": "NXS-13832",
+        "areas": [
+          "QuotaGroup"
+        ]
+      },
+      {
+        "version": "1d36d4fa45f5",
+        "username": "gergely.gimesi",
+        "comment": "[NXS-13848] MS - harden sold-quota lock retries and totalQuota wait",
+        "ticket": "NXS-13848",
+        "areas": [
+          "QuotaGroup"
+        ]
+      }
+    ],
+    "qaDeploySuspects": [
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "522bff5d067f",
+        "username": "gergo.hajnal",
+        "comment": "[ST-4989] (CategoryRest) Prepare for PROD deploy",
+        "ticket": "",
+        "deployedAt": "20260929T145850+0000",
+        "files": [
+          "production.yml"
+        ],
         "scope": "qa-deploy"
       },
       {
         "service": "QuotaGroupRestJ21",
-        "version": "11e030b63f6c",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13832] MS - sample numeric strings and skip unresolved pact generics",
-        "ticket": "NXS-13832",
-        "deployedAt": "20260928T203141+0000",
+        "version": "90f4bfa2b1d7",
+        "username": "gergo.hajnal",
+        "comment": "[ST-4987] (ManualPaymentsRest) Prepare for PROD deploy",
+        "ticket": "",
+        "deployedAt": "20260929T145850+0000",
         "files": [
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "9e382b108fd9",
+        "username": "gergo.hajnal",
+        "comment": "[ST-4984] (SubjectLibraryRest) Prepare for PROD deploy",
+        "ticket": "",
+        "deployedAt": "20260929T145850+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "c1f6b14f42fe",
+        "username": "40339600+tamasroma",
+        "comment": "[Nxs-13958] Force new deploy",
+        "ticket": "NXS-13958",
+        "deployedAt": "20260929T130941+0000",
+        "files": [
           "build.gradle"
         ],
         "scope": "qa-deploy"
       },
       {
         "service": "QuotaGroupRestJ21",
-        "version": "8028dd52ac0c",
+        "version": "7c56bef2abc8",
         "username": "gergely.gimesi",
-        "comment": "[NXS-13832] MS - make J21 pact generation survive Pact 4.7 paths and bodies",
+        "comment": "Merge remote-tracking branch 'origin/master' into NXS-13832-pact-follow-ups",
         "ticket": "NXS-13832",
-        "deployedAt": "20260928T203141+0000",
+        "deployedAt": "20260929T130941+0000",
+        "files": [
+          "build.gradle"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "70d083900a18",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13832 SCM/ACM pact specs name NexusApi as provider",
+        "ticket": "NXS-13832",
+        "deployedAt": "20260929T130941+0000",
+        "files": [
+          "SCMProjectPacts.groovy",
+          "SCMQuotaGroupPacts.groovy",
+          "SCMSurveyPacts.groovy",
+          "ACMProjectPacts.groovy",
+          "ACMQuotaGroupPacts.groovy",
+          "ACMSurveyPacts.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "8763bc71de34",
+        "username": "gabor.fial",
+        "comment": "[PAC-854] DynataPlus - project clone draft and failed too - fix accepto",
+        "ticket": "",
+        "deployedAt": "20260929T124749+0000",
+        "files": [
+          "UProjectApiAcceptanceTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "f3ef0e953251",
+        "username": "40339600+tamasroma",
+        "comment": "[Nxs-13957] Force new deploy",
+        "ticket": "NXS-13957",
+        "deployedAt": "20260929T124749+0000",
+        "files": [
+          "build.gradle"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "17f3d4ba0b88",
+        "username": "82085952+gaborfial",
+        "comment": "[PAC-854] DynataPlus - project clone draft and failed too (#5447)",
+        "ticket": "",
+        "deployedAt": "20260929T124749+0000",
+        "files": [
+          "ProjectMongoHandler.java",
+          "UProjectImpl.java",
+          "ProjectMongoHandlerTest.groovy",
+          "UProjectImplTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "a3c927ffa767",
+        "username": "gergely.gimesi",
+        "comment": "NXS-13832 PactVerifyPlugin: publish verification results, skip external providers",
+        "ticket": "NXS-13832",
+        "deployedAt": "20260929T124749+0000",
         "files": [
           "build.gradle",
           "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle"
+          "CollectConsumerVerifyTasks.groovy",
+          "NewPactVerifierTask.groovy",
+          "PactRestClient.groovy",
+          "VerificationResultsPublisher.groovy"
         ],
         "scope": "qa-deploy"
       }
     ]
   },
   "contractDrift": {
-    "newCount": 2,
+    "newCount": 3,
     "baselineCount": 95,
-    "currentCount": 97,
+    "currentCount": 98,
     "examples": [
       "GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'.",
+      "POST /u1/nexus/quotaGroups :: Response status 502 not defined for path '/u1/nexus/quotaGroups'.",
       "POST /u1/nexus/quotaGroups/{}/core/changeStatus :: Response status 500 not defined for path '/u1/nexus/quotaGroups/{quotaGroupId}/core/changeStatus'."
     ]
   },

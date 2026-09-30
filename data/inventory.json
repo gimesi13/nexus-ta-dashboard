@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-29",
+  "generatedAt": "2026-09-30",
   "source": "source",
-  "features": 783,
-  "cases": 1550,
+  "features": 784,
+  "cases": 1551,
   "specs": 112,
   "areas": 15,
-  "featuresWithSteps": 783,
-  "steps": 3840,
+  "featuresWithSteps": 784,
+  "steps": 3845,
   "byType": {
     "CRUD": 249,
     "Validation": 211,
     "Workflow": 145,
     "Query": 101,
-    "Other": 62,
+    "Other": 63,
     "E2E": 15
   },
   "rows": [
@@ -21708,6 +21708,44 @@
         {
           "phase": "and",
           "label": "The audience stays paused"
+        }
+      ]
+    },
+    {
+      "area": "QuotaGroup",
+      "spec": "QuotaGroupSchedulingExecutionTestSteps",
+      "name": "A scheduled Start of a never launched audience fills in its fieldwork dates like a manual start",
+      "type": "Other",
+      "tags": [
+        "QUOTA",
+        "QUOTA_SCHEDULING",
+        "FIELDWORK"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Quota Groups - Traffic Scheduling Execution",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingExecutionTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A new audience that has never been launched"
+        },
+        {
+          "phase": "and",
+          "label": "The new audience has an active linked survey"
+        },
+        {
+          "phase": "when",
+          "label": "A Start Traffic time is scheduled for the new audience"
+        },
+        {
+          "phase": "then",
+          "label": "At the Start Traffic time the new audience starts fielding"
+        },
+        {
+          "phase": "and",
+          "label": "The fieldwork details show fieldwork starting at the activation and ending after the days in field"
         }
       ]
     },

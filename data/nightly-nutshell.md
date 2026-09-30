@@ -1,7 +1,11 @@
-**1 new failure in PartnerEvent: a create-validation test got a 404 instead of the expected field-validation error.**
+**6 new failures — mainly QuotaGroup, BOS**
 
-_Likely cause: assertion failure on POST /u1/nexus/partnerEvents (owned by ExternalEventRest, migrated to J21 this window — NXS-13533, andras.banszki); backend change or test/data._
+_Likely cause: Possibly NXS-13848 by gergely.gimesi — touches QuotaGroup (5 overlapping new fails)._
 
-- PartnerEvent "Create partner event with invalid field values" — got HTTP 404, not an error naming the invalid field.
+- 3× other — java.lang.RuntimeException: Timeout after waiting 187 seconds: Condition never returned a non-null result
+- 2× QA 502 Bad Gateway
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9572323)
+⚠️ Contract drift: 3 new response-schema violation(s) vs baseline.
+- GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9578565)
