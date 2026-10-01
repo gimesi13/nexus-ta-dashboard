@@ -1,11 +1,8 @@
-**4 new failures — mainly BOS, AudienceGroup**
+**4 new failures, all server-side errors: a QA 502 in AudienceGroup plus a 3-test BOS project-accept cluster (500/417) — no code change implicated.**
 
-_Likely cause: VCS changes present but none map onto the failing packages — likely test/data, correlate manually._
+_Likely cause: QA backend/infra instability in the deploy window — a 502 and backend 500/417 on project-accept, with no TA-module or deployed-service change mapping to the failing path._
 
-- 3× other — Project accept status is FINISHED. [projectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d]
-- 1× QA 502 Bad Gateway
-
-⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
-- POST /u1/nexus/projects/{}/accept :: Response status 417 not defined for path '/u1/nexus/projects/{projectId}/accept'.
+- 3× BOS sample creation — POST /projects/{id}/accept returns 500/417 for one salesOrderGuid (DkmsError, cloneQuotaGroup ParallelError)
+- AudienceGroup E2E — QA 502 Bad Gateway on fullAudienceGroupSetup = infra
 
 [Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9581994)

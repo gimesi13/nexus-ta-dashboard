@@ -1699,26 +1699,28 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "4 new failures \u2014 mainly BOS, AudienceGroup",
+    "headline": "4 new failures, all server-side errors: a QA 502 in AudienceGroup plus a 3-test BOS project-accept cluster (500/417) \u2014 no code change implicated.",
     "tone": "bad",
     "severity": "high",
     "cause": "mixed",
-    "causeText": "VCS changes present but none map onto the failing packages \u2014 likely test/data, correlate manually. NOTE: 3 service(s) were deployed to QA in this window (SandboxServiceRestJ21, ProjectAutomationApi, NexusApiJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 3\u00d7 other (no dominant signature yet); 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Gateway hits: dk-project-project-rest, dk-project-quota-group-rest.",
+    "causeText": "Every new failure is a server-returned HTTP error, not a test assertion: AudienceGroup is a clean QA 502 Bad Gateway (infra), and the three BOS 'sample creation' tests all fail on POST /projects/{id}/accept for the same salesOrderGuid with backend 500s (DkmsError / cloneQuotaGroup ParallelError) plus one 417 'status is FINISHED'. The only TA-module commits (NXS-13972, gergely.gimesi) touch QuotaGroup scheduling test code and cannot cause BOS product failures, and no QA-deployed service maps cleanly to project-accept, so no code change is blamed. This reads as QA backend/infra instability in the deploy window rather than a pinpointed regression.",
+    "investigation": "All 4 new failures are server-side HTTP errors \u2014 one QA 502 (AudienceGroup) and three BOS project-accept 500/417 for a single salesOrderGuid \u2014 not test assertions. No TA-module or QA-deploy change maps to the BOS accept path, so this looks like QA backend/infra instability, not a pinned code regression.",
     "bullets": [
-      "3\u00d7 other \u2014 Project accept status is FINISHED. [projectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d]",
-      "1\u00d7 QA 502 Bad Gateway"
+      "AudienceGroup E2E \u2014 QA 502 Bad Gateway on fullAudienceGroupSetup (callChain 502 \u2192 throttling-setting / quota-details) = infra",
+      "3\u00d7 BOS sample creation \u2014 POST /projects/{id}/accept returns 500/417 for one salesOrderGuid (DkmsError, cloneQuotaGroup ParallelError, 'status is FINISHED')",
+      "No code blame: NXS-13972 is QuotaGroup test code only; no QA-deployed service maps to project-accept"
     ],
     "detail": {
-      "investigation": "4 of 9 unmuted failures are new since the prior build (#3.0.2714, 17 fails). Failure types (new-first): (1) 3\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: BOS (3), AudienceGroup (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 3 service(s) (43 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: AudienceGroup: Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder [QA 502 Bad Gateway]; BOS: sample creation - simple [other]; BOS: sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT [other]; BOS: sample creation - sales-order linkage stays resolvable across ORDER and accepted PROJECT [other].",
+      "investigation": "4 of 9 unmuted failures are new (prior build #3.0.2714 had 17 fails / 6 new, so the count fell). Critically, every new failure is a server-returned HTTP status, not a Spock assertion \u2014 so the coarse 'other' cluster label is misleading. (1) BOS 'sample creation' (3 new): all three \u2014 simple, CRM-fields-propagate, and sales-order-linkage \u2014 fail on POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/{id}/accept for the SAME salesOrderGuid abad79b4-4a6d-ef11-94bd-1253f55c3e9d; one returns 417 EXPECTATION_FAILED 'Project accept status is FINISHED' (already-accepted state), the other two return 500 INTERNAL_SERVER_ERROR 'Project accept failed' with backend callChains (DkmsError HTTP 500 PUT; ParallelError runnableName='cloneQuotaGroup'). The shared sales order plus server 500s point to QA backend instability or stuck test data on that order, not a test-logic bug. (2) AudienceGroup E2E (1 new): a clean QA 502 Bad Gateway on /fullAudienceGroupSetup whose callChain shows 502 PUT throttling-setting-rest and 502 GET quota-details-rest \u2014 unambiguous infra. Blame: the only TA-module commits are NXS-13972 (gergely.gimesi), which touch QuotaGroupScheduling* test/helper code \u2014 a different area and test-only, so they cannot cause these BOS product failures. Three services were deployed to QA in the window (SandboxServiceRestJ21 \u2014 mostly build.gradle/pact + infra group_vars yml; ProjectAutomationApi \u2014 PAC-839 master project create; NexusApiJ21 \u2014 PAC-854 clone), but none map cleanly to the NexusApi project-accept path, so no commit is blamed. Contract drift (separate lane): 2 new response-schema violations vs baseline \u2014 417 on /projects/{id}/accept and 502 on /fullAudienceGroupSetup \u2014 which simply mirror the above error statuses, not independent product regressions.",
       "bullets": [
-        "3\u00d7 other \u2014 Project accept status is FINISHED. [projectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d]",
-        "1\u00d7 QA 502 Bad Gateway",
-        "NXS-13972: gergely.gimesi \u2014 NXS-13972 Size scheduling waits to the 60 s scheduler precision and drop the rejected inheritance te",
-        "NXS-13972: gergely.gimesi \u2014 NXS-13972 Give scheduling execution audiences a line item so they can start",
-        "[QA deploy: SandboxServiceRestJ21] NXS-13832 (25 commits) \u2014 [NXS-13832] MS - share one SpringPactConsumer version and fix new pact specs",
-        "[QA deploy: ProjectAutomationApi]  (13 commits) \u2014 [PAC-839] master project create (#5454)",
-        "[QA deploy: NexusApiJ21]  (5 commits) \u2014 [PAC-854] DynataPlus - project clone draft and failed too - fix name"
+        "3\u00d7 BOS sample creation fail on POST /projects/{id}/accept for one salesOrderGuid (abad79b4-...): 417 'status is FINISHED' + 2\u00d7 500 'Project accept failed'",
+        "500 callChains show backend errors: DkmsError HTTP 500 PUT, and ParallelError runnableName='cloneQuotaGroup' \u2014 server-side, not test assertions",
+        "AudienceGroup E2E: QA 502 Bad Gateway on /fullAudienceGroupSetup (502 \u2192 throttling-setting-rest, quota-details-rest) = infra",
+        "All 4 new failures are server-returned HTTP errors \u2014 the 'other' cluster label is not an assertion",
+        "NXS-13972 (gergely.gimesi) is QuotaGroup scheduling TEST code only \u2014 cannot cause BOS product failures, different area",
+        "QA deploys in window (SandboxServiceRestJ21 build.gradle/yml, ProjectAutomationApi PAC-839, NexusApiJ21 PAC-854) don't map to project-accept \u2014 no blame",
+        "Failures down vs prior (#3.0.2714: 17 fails / 6 new \u2192 9 fails / 4 new)",
+        "Contract drift (separate lane): 2 new \u2014 417 on /accept, 502 on /fullAudienceGroupSetup \u2014 mirror the error statuses above"
       ],
       "newFailureAreas": [
         {
@@ -1952,8 +1954,8 @@
         "deployedAt": "20260930T084852+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-10-01T02:05Z",
+    "source": "llm",
+    "generatedAt": "2026-10-01T02:05:00Z",
     "buildNumber": "3.0.2715",
     "buildId": "9581994",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9581994",
