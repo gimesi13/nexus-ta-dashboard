@@ -1,8 +1,11 @@
-**6 new failures — a QuotaGroup scheduling-wait regression (NXS-13972) plus 2 QA 502s.**
+**4 new failures — mainly BOS, AudienceGroup**
 
-_Likely cause: NXS-13972 (gergely.gimesi) rewrote QuotaGroupSchedulingHelper's wait window — 4 new scheduling tests time out in waitForScheduleToRun; 2 further new fails are QA 502s (infra)._
+_Likely cause: VCS changes present but none map onto the failing packages — likely test/data, correlate manually._
 
-- 4× new QuotaGroup: WaitUtil timeout ~187–190s in waitForScheduleToRun — schedule never ran
-- 2× new QA 502 Bad Gateway (infra): BOS SalesOrder init; QuotaGroup 'Apply to all'
+- 3× other — Project accept status is FINISHED. [projectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d]
+- 1× QA 502 Bad Gateway
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9578565)
+⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
+- POST /u1/nexus/projects/{}/accept :: Response status 417 not defined for path '/u1/nexus/projects/{projectId}/accept'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9581994)

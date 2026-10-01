@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-30",
+  "generatedAt": "2026-10-01",
   "source": "source",
-  "features": 784,
-  "cases": 1551,
+  "features": 783,
+  "cases": 1550,
   "specs": 112,
   "areas": 15,
-  "featuresWithSteps": 784,
-  "steps": 3845,
+  "featuresWithSteps": 783,
+  "steps": 3839,
   "byType": {
     "CRUD": 249,
-    "Validation": 211,
-    "Workflow": 145,
+    "Validation": 210,
+    "Workflow": 144,
     "Query": 101,
-    "Other": 63,
+    "Other": 64,
     "E2E": 15
   },
   "rows": [
@@ -21733,6 +21733,10 @@
         },
         {
           "phase": "and",
+          "label": "The new audience is linked to a sales order line"
+        },
+        {
+          "phase": "and",
           "label": "The new audience has an active linked survey"
         },
         {
@@ -21790,13 +21794,12 @@
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupSchedulingExecutionTestSteps",
-      "name": "A traffic schedule that already ran cannot be edited but a new one can be set",
-      "type": "Validation",
+      "name": "A traffic schedule that already ran can be moved to a later time",
+      "type": "Other",
       "tags": [
         "QUOTA",
         "QUOTA_SCHEDULING",
-        "FIELDWORK",
-        "VALIDATION"
+        "FIELDWORK"
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Traffic Scheduling Execution",
@@ -21822,15 +21825,7 @@
         },
         {
           "phase": "then",
-          "label": "The edit is rejected because only pending schedules can change"
-        },
-        {
-          "phase": "when",
-          "label": "A new Start Traffic schedule is set for the later time instead"
-        },
-        {
-          "phase": "then",
-          "label": "The audience has a new pending Start Traffic schedule"
+          "label": "The same Start Traffic schedule is pending again at the later time"
         }
       ]
     },
@@ -22566,43 +22561,6 @@
         {
           "phase": "then",
           "label": "The cloned audience has the shared traffic schedules"
-        }
-      ]
-    },
-    {
-      "area": "QuotaGroup",
-      "spec": "QuotaGroupSchedulingWorkflowTestSteps",
-      "name": "A new audience inherits the Apply to all traffic schedules even after one audience was changed",
-      "type": "Workflow",
-      "tags": [
-        "QUOTA",
-        "QUOTA_SCHEDULING"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Quota Groups - Traffic Scheduling Workflow",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingWorkflowTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "The project has at least two audiences"
-        },
-        {
-          "phase": "and",
-          "label": "A Start Traffic schedule was applied to all audiences"
-        },
-        {
-          "phase": "and",
-          "label": "One audience's Start Traffic time was manually changed afterwards"
-        },
-        {
-          "phase": "when",
-          "label": "A new audience is added to the project"
-        },
-        {
-          "phase": "then",
-          "label": "The new audience inherits the traffic schedule that was applied to all audiences"
         }
       ]
     },
