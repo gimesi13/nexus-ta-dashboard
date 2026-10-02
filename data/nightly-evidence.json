@@ -1,533 +1,365 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-01T02:05Z",
+  "generatedAt": "2026-10-02T02:04Z",
   "build": {
-    "number": "3.0.2715",
-    "buildId": "9581994",
+    "number": "3.0.2716",
+    "buildId": "9587614",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9581994",
-    "durationSec": 1955.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9587614",
+    "durationSec": 1999.0
   },
   "summary": {
-    "tests": 1515,
-    "passed": 1428,
-    "failures": 9,
+    "tests": 1492,
+    "passed": 1409,
+    "failures": 7,
     "errors": 0,
     "skipped": 0,
-    "muted": 78,
-    "newFailed": 4,
-    "passRate": 99.4,
-    "timeSec": 1955.0
+    "muted": 76,
+    "newFailed": 1,
+    "passRate": 99.5,
+    "timeSec": 1999.0
   },
   "prior": {
-    "buildId": "9578565",
-    "number": "3.0.2714",
+    "buildId": "9581994",
+    "number": "3.0.2715",
     "status": "FAILURE",
-    "statusText": "Tests failed: 17 (6 new), passed: 1419, muted: 80",
-    "startDate": "20260930T013003+0000",
-    "durationSec": 2193.0,
-    "failed": 17,
-    "passed": 1419,
-    "newFailed": 6
+    "statusText": "Tests failed: 9 (4 new), passed: 1428, muted: 78",
+    "startDate": "20261001T013004+0000",
+    "durationSec": 1955.0,
+    "failed": 9,
+    "passed": 1428,
+    "newFailed": 4
   },
-  "changes": [
-    {
-      "version": "ac61f0a124a1",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13972 Size scheduling waits to the 60 s scheduler precision and drop the rejected inheritance test",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupSchedulingHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingExecutionTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingWorkflowTestSteps.groovy"
-      ],
-      "areas": [
-        "QuotaGroup",
-        "QuotaGroupScheduling"
-      ]
-    },
-    {
-      "version": "db1db668bfe0",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13972 Give scheduling execution audiences a line item so they can start",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingExecutionTestSteps.groovy"
-      ],
-      "areas": [
-        "QuotaGroup"
-      ]
-    }
-  ],
+  "changes": [],
   "qaDeployChanges": [
     {
-      "service": "SandboxServiceRestJ21",
-      "version": "40ef781bebb1",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-13832] MS - share one SpringPactConsumer version and fix new pact specs",
+      "service": "NexusApiJ21",
+      "version": "e32c5de5085d",
+      "username": "david.nagy",
+      "comment": "[NXS-13937] MS - saveDatesAndSchedules changes fieldwork dates even when the traffic schedules are rejected",
       "files": [
-        "gateway/dk/DKOrder/build.gradle",
-        "gateway/dk/DKProjectCountersRest/build.gradle",
-        "gateway/external/DynataExternalApiGW/build.gradle",
-        "gateway/unifiedApi/DemandApi/build.gradle",
-        "gateway/unifiedApi/NexusApi/build.gradle",
-        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/AutomatedSystemGWPacts.groovy",
-        "gateway/unifiedApi/NexusApiBos/build.gradle",
-        "gateway/unifiedApi/NexusApiMeta/build.gradle",
-        "gateway/unifiedApi/NexusApiUI/build.gradle",
-        "gateway/unifiedApi/ProjectApiGateway/build.gradle",
-        "gateway/unifiedApi/ProjectAutomationApi/build.gradle",
-        "management/ClientRest/build.gradle",
-        "management/NotificationHandlerRest/build.gradle",
-        "management/SetOperationRest/build.gradle",
-        "project/AlertTriggerRest/build.gradle",
-        "project/ArchiveRest/build.gradle",
-        "project/CommunicationRest/build.gradle",
-        "project/ConditionEditorRest/build.gradle",
-        "project/CountersRest/build.gradle",
-        "project/Crm/CrmRest/build.gradle"
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/quotagroupid/UQuotaGroupSchedulesImpl.java",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/quotaGroupId/UQuotaGroupSchedulesImplTest.groovy"
       ],
-      "deployedAt": "20260930T154333+0000"
+      "deployedAt": "20261001T175156+0000"
     },
     {
-      "service": "SandboxServiceRestJ21",
-      "version": "59267d833ce1",
-      "username": "poliss",
-      "comment": "Merge pull request #632 from dynata/DQI-4583",
-      "files": [],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "07250b59f84e",
-      "username": "scott.polis",
-      "comment": "[DQI-4583] Enable Create Offers Queue prod",
-      "files": [
-        "dq-offer-callback-resources/cloud-formation.template.yml",
-        "dq-offer-callback-resources/group_vars/dev.yml",
-        "dq-offer-callback-resources/group_vars/production.yml",
-        "dq-offer-callback-resources/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "24ce91bd260f",
-      "username": "grace.chen",
-      "comment": "[FAI-429] disable scheduler for wz-data-drift-dev to rule out failed login attempt to imperium_watson via password auth",
-      "files": [
-        "ml-data-drift-monitor/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "88fb1ef1d154",
-      "username": "mitro.gyorgy",
-      "comment": "Merge pull request #631 from dynata/NA-1966",
-      "files": [],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "45a66eb3f113",
-      "username": "gyorgykrisztian.mitro",
-      "comment": "[NA-1966] SLS - Upgrade lambdas to LTS python version + secrets layer upgrade | add temp table name to env variable",
-      "files": [
-        "sls-db/cloud-formation.template.yml",
-        "sls-db/group_vars/dev.yml",
-        "sls-db/group_vars/production.yml",
-        "sls-db/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "3c810238c5ed",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-13832] MS - sample generic pact values and stub composed mappings",
-      "files": [
-        "gateway/dk/DKOrder/build.gradle",
-        "gateway/dk/DKProjectCountersRest/build.gradle",
-        "gateway/external/DynataExternalApiGW/README.md",
-        "gateway/external/DynataExternalApiGW/build.gradle",
-        "gateway/unifiedApi/DemandApi/build.gradle",
-        "gateway/unifiedApi/NexusApi/build.gradle",
-        "gateway/unifiedApi/NexusApiBos/build.gradle",
-        "gateway/unifiedApi/NexusApiMeta/build.gradle",
-        "gateway/unifiedApi/NexusApiUI/build.gradle",
-        "gateway/unifiedApi/ProjectApiGateway/build.gradle",
-        "gateway/unifiedApi/ProjectAutomationApi/build.gradle",
-        "management/ClientRest/build.gradle",
-        "management/NotificationHandlerRest/build.gradle",
-        "management/SetOperationRest/build.gradle",
-        "project/ArchiveRest/build.gradle",
-        "project/CommunicationRest/build.gradle",
-        "project/ConditionEditorRest/build.gradle",
-        "project/CountersRest/build.gradle",
-        "project/Crm/CrmRest/build.gradle",
-        "project/DashboardRest/build.gradle"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "00f797a9e6bb",
+      "service": "NexusApiJ21",
+      "version": "564885446781",
       "username": "gergo.hajnal",
-      "comment": "[ST-5015] (st-parameter-service) remove java.security.manager from PROD",
+      "comment": "[ST-4999] (FeatureValueRest) Prepare for PROD deploy",
       "files": [
-        "st-parameter-service/group_vars/prod.yml"
+        "dk-respondent-feature-value-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260930T154333+0000"
+      "deployedAt": "20261001T175156+0000"
     },
     {
-      "service": "SandboxServiceRestJ21",
-      "version": "11e030b63f6c",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-13832] MS - sample numeric strings and skip unresolved pact generics",
-      "files": [
-        "gateway/dk/DKOrder/build.gradle",
-        "gateway/dk/DKProjectCountersRest/build.gradle",
-        "gateway/external/DynataExternalApiGW/build.gradle",
-        "gateway/unifiedApi/DemandApi/build.gradle",
-        "gateway/unifiedApi/NexusApi/build.gradle",
-        "gateway/unifiedApi/NexusApiBos/build.gradle",
-        "gateway/unifiedApi/NexusApiMeta/build.gradle",
-        "gateway/unifiedApi/NexusApiUI/build.gradle",
-        "gateway/unifiedApi/ProjectApiGateway/build.gradle",
-        "gateway/unifiedApi/ProjectAutomationApi/build.gradle",
-        "management/ClientRest/build.gradle",
-        "management/NotificationHandlerRest/build.gradle",
-        "management/SetOperationRest/build.gradle",
-        "project/ArchiveRest/build.gradle",
-        "project/ConditionEditorRest/build.gradle",
-        "project/CountersRest/build.gradle",
-        "project/Crm/CrmRest/build.gradle",
-        "project/DashboardRest/build.gradle",
-        "project/DedupeRest/build.gradle",
-        "project/DetailsEditorRest/build.gradle"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "06b9fefde16e",
+      "service": "NexusApiJ21",
+      "version": "7cfbb1317516",
       "username": "gergo.hajnal",
-      "comment": "[ST-4990] (MessageContentRest) prepare to be PROD deployed",
+      "comment": "[ST-4985] (ExternalProviderRest) Prepare for PROD deploy",
       "files": [
-        "dk-management-message-content-rest/group_vars/production.yml"
+        "dk-management-external-provider-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260930T154333+0000"
+      "deployedAt": "20261001T175156+0000"
     },
     {
-      "service": "SandboxServiceRestJ21",
-      "version": "8028dd52ac0c",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-13832] MS - make J21 pact generation survive Pact 4.7 paths and bodies",
-      "files": [
-        "gateway/dk/DKOrder/build.gradle",
-        "gateway/dk/DKProjectCountersRest/build.gradle",
-        "gateway/external/DynataExternalApiGW/build.gradle",
-        "gateway/unifiedApi/DemandApi/build.gradle",
-        "gateway/unifiedApi/NexusApi/build.gradle",
-        "gateway/unifiedApi/NexusApiBos/build.gradle",
-        "gateway/unifiedApi/NexusApiMeta/build.gradle",
-        "gateway/unifiedApi/NexusApiUI/build.gradle",
-        "gateway/unifiedApi/ProjectApiGateway/build.gradle",
-        "gateway/unifiedApi/ProjectAutomationApi/build.gradle",
-        "management/ClientRest/build.gradle",
-        "management/NotificationHandlerRest/build.gradle",
-        "management/SetOperationRest/build.gradle",
-        "project/ArchiveRest/build.gradle",
-        "project/ConditionEditorRest/build.gradle",
-        "project/CountersRest/build.gradle",
-        "project/Crm/CrmRest/build.gradle",
-        "project/DashboardRest/build.gradle",
-        "project/DedupeRest/build.gradle",
-        "project/DetailsEditorRest/build.gradle"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "48052ce82d49",
+      "service": "NexusApiJ21",
+      "version": "4afa912f2d9f",
       "username": "gergo.hajnal",
-      "comment": "[ST-5003] (CountryLanguageRest) remove obsolete comment",
+      "comment": "[ST-5019] (st-cloud-config) Prepare for PROD deploy",
       "files": [
-        "dk-project-country-language-rest/group_vars/dev.yml"
+        "st-cloud-config/group_vars/prod.yml"
       ],
-      "deployedAt": "20260930T154333+0000"
+      "deployedAt": "20261001T175156+0000"
     },
     {
-      "service": "SandboxServiceRestJ21",
-      "version": "1f588a96a2d7",
-      "username": "brian.connolly",
-      "comment": "update template locations to bypass ansible weirdness",
-      "files": [
-        "ae-transaction-manager/group_vars/all.yml"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "cf58d7b5d095",
-      "username": "sajak.upadhyaya",
-      "comment": "\"[FAI-482] scaling down resources in production\"",
-      "files": [
-        "ml-data-loader-service/group_vars/production.yml",
-        "ml-offer-conversion-model/group_vars/production.yml",
-        "ml-offer-metadata-queue/group_vars/production.yml",
-        "ml-offers-model-service/group_vars/production.yml",
-        "ml-valkey-cache-storage/group_vars/production.yml"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "34b4140de272",
-      "username": "sajak.upadhyaya",
-      "comment": "\"[FAI-482] scaling down resources in qa\"",
-      "files": [
-        "ml-data-loader-service/group_vars/qa.yml",
-        "ml-offer-conversion-model/group_vars/qa.yml",
-        "ml-offer-metadata-queue/group_vars/qa.yml",
-        "ml-offers-model-service/group_vars/qa.yml",
-        "ml-valkey-cache-storage/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "2385b49c4712",
-      "username": "brian.connolly",
-      "comment": "update template locations",
-      "files": [
-        "ae-transaction-manager/group_vars/all.yml"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "537df7dc7489",
-      "username": "brian.connolly",
-      "comment": "add template",
-      "files": [
-        "ae-transaction-manager/group_vars/all.yml"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "67cb1a4b489f",
-      "username": "sajak.upadhyaya",
-      "comment": "\"[FAI-482] scaling down resources in dev\"",
-      "files": [
-        "ml-data-loader-service/group_vars/dev.yml",
-        "ml-offer-conversion-model/cloud-formation.template.yml",
-        "ml-offer-conversion-model/group_vars/all.yml",
-        "ml-offer-conversion-model/group_vars/dev.yml",
-        "ml-offer-metadata-queue/group_vars/dev.yml",
-        "ml-offers-model-service/group_vars/dev.yml",
-        "ml-valkey-cache-storage/cloud-formation.template.yml",
-        "ml-valkey-cache-storage/group_vars/all.yml",
-        "ml-valkey-cache-storage/group_vars/dev.yml"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "655afc645db4",
-      "username": "brian.connolly",
-      "comment": "Convert to use AE-DPR.",
-      "files": [
-        "ae-transaction-manager/cloud-formation.template.yml",
-        "ae-transaction-manager/group_vars/all.yml",
-        "ae-transaction-manager/group_vars/dev.yml",
-        "ae-transaction-manager/group_vars/production.yml",
-        "ae-transaction-manager/group_vars/qa.yml",
-        "ae-transaction-manager/pre_tasks.yml",
-        "ae-transaction-manager/publish.yml"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "c2defb556da7",
+      "service": "NexusApiJ21",
+      "version": "bc96fa7add43",
       "username": "gergo.hajnal",
-      "comment": "[ST-5003] (CountryLanguageRest) prepare for PROD deployment",
+      "comment": "[ST-5005] (DKContentRest) Prepare for PROD deploy",
       "files": [
-        "dk-project-country-language-rest/group_vars/production.yml",
-        "dk-project-country-language-rest/group_vars/qa.yml"
+        "dk-dk-content-rest/group_vars/production.yml",
+        "dk-dk-content-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20260930T154333+0000"
+      "deployedAt": "20261001T175156+0000"
     },
     {
-      "service": "SandboxServiceRestJ21",
-      "version": "d151f8d026f8",
-      "username": "brian.connolly",
-      "comment": "Remove tags.",
+      "service": "NexusApiJ21",
+      "version": "2336d2a7e41b",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5002] (DKFeatureValueRest) prepare for PROD deploy",
       "files": [
-        "ae-quota-group-translator/cloud-formation.template.yml"
+        "dk-dk-feature-value-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260930T154333+0000"
+      "deployedAt": "20261001T175156+0000"
     },
     {
-      "service": "SandboxServiceRestJ21",
-      "version": "19d0ed1c49c7",
-      "username": "brian.connolly",
-      "comment": "Update in preparation for production release.",
-      "files": [
-        "ae-quota-group-translator/group_vars/production.yml"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "b93fc5363628",
-      "username": "andras.banszki",
-      "comment": "[NXS_13533] MS - migrate ExternalEventRest to J21",
-      "files": [
-        "dk-project-external-event-rest/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "88d06bd5eab2",
-      "username": "andras.banszki",
-      "comment": "[NXS_12229] MS - migrate MailEventRest to J21",
-      "files": [
-        "dk-project-mail-event-rest/group_vars/dev.yml",
-        "dk-project-mail-event-rest/group_vars/production.yml",
-        "dk-project-mail-event-rest/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "4f0a27196d80",
-      "username": "andras.banszki",
-      "comment": "[NXS_12237] MS - migrate ProjectLogRest to J21",
-      "files": [
-        "dk-project-project-log-rest/group_vars/dev.yml",
-        "dk-project-project-log-rest/group_vars/production.yml",
-        "dk-project-project-log-rest/group_vars/qa.yml"
-      ],
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "2e2118503330",
-      "username": "44774205+ssi-hu-viktor-tassi",
-      "comment": "[PAC-839] master project create (#5454)",
-      "files": [
-        "gateway/unifiedApi/ProjectAutomationApi/build.gradle",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/dependencies/dcp/CentralizedProjectFeignClient.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/dependencies/dcp/model/CentralizedProject.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/dependencies/dcp/model/ProjectView.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/dependencies/iam/IAMFeignClient.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/dependencies/iam/IAMFeignClientConfig.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/dependencies/iam/MaskingFeignLogging.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/dependencies/project/ProjectFeignClient.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/service/LockService.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/sampleapi/masterproject/MasterProjectApi.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/sampleapi/masterproject/MasterProjectImpl.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/sampleapi/masterproject/model/MasterProjectCreateRequest.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/sampleapi/masterproject/model/SampleApiProject.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/sampleapi/masterproject/service/MasterProjectService.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/sampleapi/masterproject/service/MasterProjectServiceImpl.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/test/groovy/com/dynata/rest/gateway/projectautomationapi/dependencies/dcp/model/CentralizedProjectPayloadTest.groovy",
-        "gateway/unifiedApi/ProjectAutomationApi/src/test/groovy/com/dynata/rest/gateway/projectautomationapi/dependencies/iam/MaskingFeignLoggingTest.groovy",
-        "gateway/unifiedApi/ProjectAutomationApi/src/test/groovy/com/dynata/rest/gateway/projectautomationapi/u1/sampleapi/masterproject/service/MasterProjectServiceImplTest.groovy"
-      ],
-      "deployedAt": "20260930T124602+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
+      "service": "NexusApiJ21",
       "version": "49e6559bbfea",
       "username": "gergo.hajnal",
       "comment": "[ST-4997] (DKNovaTranslatorRest) prepare for PROD deploy",
       "files": [
         "dk-dk-nova-translator-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260930T124602+0000"
+      "deployedAt": "20261001T175156+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "NexusApiJ21",
       "version": "e63efcefc019",
       "username": "gergo.hajnal",
       "comment": "[ST-4982] (EncryptDecryptRest) prepare for PROD deploy",
       "files": [
         "dk-system-encrypt-decrypt-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260930T124602+0000"
+      "deployedAt": "20261001T175156+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "NexusApiJ21",
       "version": "428578df8b0d",
       "username": "gergo.hajnal",
       "comment": "[ST-4996] (MembershipStatusRest) prepare for PROD deploy",
       "files": [
         "dk-management-membership-status-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260930T124602+0000"
+      "deployedAt": "20261001T175156+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "NexusApiJ21",
       "version": "0fffcd22f7c5",
       "username": "gergo.hajnal",
       "comment": "[ST-4993] (CascadesRest) prepare for PROD deploy",
       "files": [
         "dk-project-cascades-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20260930T124602+0000"
+      "deployedAt": "20261001T175156+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "bf6eea11219f",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4991] (RewardCalculatorRest) prepare for PROD deploy",
+      "files": [
+        "dk-management-reward-calculator-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261001T175156+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "3f1b941eaa18",
+      "username": "david.nagy",
+      "comment": "[NXS-13975] MS | Field Schedule | Can't save Stop traffic when the Start traffic reached - some changes",
+      "files": [
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandler.java"
+      ],
+      "deployedAt": "20261001T172918+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "ea69ee4cf169",
+      "username": "david.nagy",
+      "comment": "[NXS-13975] MS | Field Schedule | Can't save Stop traffic when the Start traffic reached - some changes",
+      "files": [
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandler.java"
+      ],
+      "deployedAt": "20261001T172918+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "df5b85bf3adb",
+      "username": "david.nagy",
+      "comment": "[NXS-13975] MS | Field Schedule | Can't save Stop traffic when the Start traffic reached - some changes",
+      "files": [
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandler.java"
+      ],
+      "deployedAt": "20261001T172918+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "33d9975c50ea",
+      "username": "david.nagy",
+      "comment": "[NXS-13975] MS | Field Schedule | Can't save Stop traffic when the Start traffic reached - some changes",
+      "files": [
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandler.java",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandlerTest.groovy"
+      ],
+      "deployedAt": "20261001T172918+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "ecdafc84d731",
+      "username": "david.nagy",
+      "comment": "[NXS-13975] MS | Field Schedule | Can't save Stop traffic when the Start traffic reached",
+      "files": [
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandler.java",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandlerTest.groovy"
+      ],
+      "deployedAt": "20261001T172918+0000"
+    },
+    {
+      "service": "SandboxServiceRestJ21",
+      "version": "b0ebb2989611",
+      "username": "norbert.farkas",
+      "comment": "prev versions",
+      "files": [
+        "sandbox/SandboxServiceRest/build.gradle"
+      ],
+      "deployedAt": "20261001T161147+0000"
+    },
+    {
+      "service": "SandboxServiceRestJ21",
+      "version": "82e9c1fea415",
+      "username": "norbert.farkas",
+      "comment": "prev versions",
+      "files": [
+        "sandbox/SandboxServiceRest/build.gradle",
+        "sandbox/SandboxServiceRest/src/main/java/com/surveysampling/rest/alertmonitoring/v2/pes1/ExamplePayload.java",
+        "sandbox/SandboxServiceRest/src/main/java/com/surveysampling/rest/alertmonitoring/v2/pes1/PesSnsMessageSender.java",
+        "sandbox/SandboxServiceRest/src/main/java/com/surveysampling/rest/alertmonitoring/v2/pes1/SandboxPes1Controller.java"
+      ],
+      "deployedAt": "20261001T161147+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "2b86877ce8e9",
+      "username": "43554565+kokusz19",
+      "comment": "[ PAC-823 ] DemandApi - demand project search for u1 (#5451)",
+      "files": [
+        "project/ProjectRest/README.md",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/api/UProjectRest.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mongo/ProjectHandler.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/service/UProjectImpl.java",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/api/UProjectRestTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mongo/ProjectHandlerTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/service/UProjectImplTest.groovy"
+      ],
+      "deployedAt": "20261001T111419+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "522bff5d067f",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4989] (CategoryRest) Prepare for PROD deploy",
+      "files": [
+        "dk-management-category-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261001T111419+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "90f4bfa2b1d7",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4987] (ManualPaymentsRest) Prepare for PROD deploy",
+      "files": [
+        "dk-management-manual-payments-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261001T111419+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "9e382b108fd9",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4984] (SubjectLibraryRest) Prepare for PROD deploy",
+      "files": [
+        "dk-project-subject-library-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261001T111419+0000"
+    },
+    {
+      "service": "SandboxServiceRestJ21",
+      "version": "bc2b2f1004a7",
+      "username": "norbert.farkas",
+      "comment": "prev versions",
+      "files": [
+        "sandbox/SandboxServiceRest/docker-compose.yml"
+      ],
+      "deployedAt": "20261001T090446+0000"
+    },
+    {
+      "service": "SandboxServiceRestJ21",
+      "version": "0095299d7be1",
+      "username": "norbert.farkas",
+      "comment": "prev versions",
+      "files": [
+        "sandbox/SandboxServiceRest/build.gradle"
+      ],
+      "deployedAt": "20261001T090446+0000"
+    },
+    {
+      "service": "SandboxServiceRestJ21",
+      "version": "d8641d65110f",
+      "username": "norbert.farkas",
+      "comment": "add PES1 example sending",
+      "files": [
+        "sandbox/SandboxServiceRest/build.gradle",
+        "sandbox/SandboxServiceRest/docker-compose.yml",
+        "sandbox/SandboxServiceRest/src/main/java/com/surveysampling/rest/alertmonitoring/v2/pes1/PesSnsMessageSender.java"
+      ],
+      "deployedAt": "20261001T090446+0000"
+    },
+    {
+      "service": "SandboxServiceRestJ21",
+      "version": "b29b1ac8838e",
+      "username": "matt.spencer",
+      "comment": "[DQI-4584] Adding new load balancer certs to old load balancers in dev and QA for passphrase-api.",
+      "files": [
+        "passphrase-api/cloud-formation.template.yml",
+        "passphrase-api/group_vars/dev.yml",
+        "passphrase-api/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261001T090446+0000"
+    },
+    {
+      "service": "SandboxServiceRestJ21",
+      "version": "7d6e72b6c424",
+      "username": "andras.banszki",
+      "comment": "[NXS_13533] MS - migrate ExternalEventRest to J21",
+      "files": [
+        "dk-project-mail-filter-rest/group_vars/dev.yml",
+        "dk-project-mail-filter-rest/group_vars/production.yml",
+        "dk-project-mail-filter-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261001T090446+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "SandboxServiceRestJ21",
-      "commits": 25,
-      "latestTicket": "NXS-13832",
-      "latestComment": "[NXS-13832] MS - share one SpringPactConsumer version and fix new pact specs",
-      "deployedAt": "20260930T154333+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "commits": 13,
-      "latestTicket": "",
-      "latestComment": "[PAC-839] master project create (#5454)",
-      "deployedAt": "20260930T124602+0000"
-    },
-    {
       "service": "NexusApiJ21",
+      "commits": 11,
+      "latestTicket": "NXS-13937",
+      "latestComment": "[NXS-13937] MS - saveDatesAndSchedules changes fieldwork dates even when the tra",
+      "deployedAt": "20261001T175156+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
       "commits": 5,
+      "latestTicket": "NXS-13975",
+      "latestComment": "[NXS-13975] MS | Field Schedule | Can't save Stop traffic when the Start traffic",
+      "deployedAt": "20261001T172918+0000"
+    },
+    {
+      "service": "SandboxServiceRestJ21",
+      "commits": 7,
       "latestTicket": "",
-      "latestComment": "[PAC-854] DynataPlus - project clone draft and failed too - fix name",
-      "deployedAt": "20260930T084852+0000"
+      "latestComment": "prev versions",
+      "deployedAt": "20261001T161147+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "commits": 4,
+      "latestTicket": "",
+      "latestComment": "[ PAC-823 ] DemandApi - demand project search for u1 (#5451)",
+      "deployedAt": "20261001T111419+0000"
     }
   ],
   "clusters": [
     {
       "label": "other",
       "display": "other",
-      "count": 4,
-      "newCount": 3,
-      "sample": "Project accept status is FINISHED. [projectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d]",
-      "why": "no dominant signature yet \u2014 open TeamCity details"
-    },
-    {
-      "label": "assert_fail",
-      "display": "assertion Condition not satisfied",
-      "count": 2,
+      "count": 3,
       "newCount": 0,
       "sample": "",
-      "why": "Spock assertion failed (fixture or response shape)"
-    },
-    {
-      "label": "infra_502",
-      "display": "QA 502 Bad Gateway",
-      "count": 1,
-      "newCount": 1,
-      "sample": "502 Bad Gateway",
-      "why": "QA gateway returned HTML 502 \u2014 infra during the run, not a product regression"
+      "why": "no dominant signature yet \u2014 open TeamCity details"
     },
     {
       "label": "product_data_not_found",
@@ -544,44 +376,51 @@
       "newCount": 0,
       "sample": "",
       "why": "API rejected the request (business validation)"
+    },
+    {
+      "label": "assert_fail",
+      "display": "assertion Condition not satisfied",
+      "count": 1,
+      "newCount": 0,
+      "sample": "",
+      "why": "Spock assertion failed (fixture or response shape)"
+    },
+    {
+      "label": "infra_502",
+      "display": "QA 502 Bad Gateway",
+      "count": 1,
+      "newCount": 1,
+      "sample": "502 Bad Gateway",
+      "why": "QA gateway returned HTML 502 \u2014 infra during the run, not a product regression"
     }
   ],
   "failures": [
     {
-      "name": "Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupE2ECloneRestoreReorderTestSteps",
-      "newFailure": true,
-      "area": "AudienceGroup",
-      "cluster": "infra_502",
-      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2257769/fullAudienceGroupSetup 502{ \"errors\" : [ { \"callChain\" : [ \"QGSoftLaunch\", \"HTTP 502 PUT http://dk-project-throttling-setting-rest.nexus-ms-qa.dynata.com:8080/api/ThrottlingSetting/u1/quotaGroups/118807276/softLaunch\", \"HTTP 502 GET http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/ap\u2026"
-    },
-    {
       "name": "sample creation - simple",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.BOS.BosSampleCreationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "BOS",
       "cluster": "other",
-      "message": "Project accept status is FINISHED. [projectId=2273085] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d]",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2273085/accept?projectManagerId=7404&projectAssociateId=7404 417{ \"errors\" : [ { \"status\" : \"EXPECTATION_FAILED\", \"message\" : \"Project accept status is FINISHED. [projectId=2273085] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErr\u2026"
+      "message": "java.lang.RuntimeException:Project accept failed [sourceProjectId=2274203] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[H\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2274203/accept?projectManagerId=7404&projectAssociateId=7404 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.RuntimeException:Project accept failed [sourceProjectId=2274203] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[HTTP 500 GET https:/\u2026"
     },
     {
       "name": "sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.BOS.BosSampleCreationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "BOS",
       "cluster": "other",
-      "message": "java.lang.RuntimeException:Project accept failed [sourceProjectId=2273789] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[H\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2273789/accept?projectManagerId=7404&projectAssociateId=7404 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.RuntimeException:Project accept failed [sourceProjectId=2273789] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[HTTP 500 PUT https:/\u2026"
+      "message": "java.lang.RuntimeException:Project accept failed [sourceProjectId=2274205] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[H\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2274205/accept?projectManagerId=7404&projectAssociateId=7404 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.RuntimeException:Project accept failed [sourceProjectId=2274205] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[HTTP 500 GET https:/\u2026"
     },
     {
       "name": "sample creation - sales-order linkage stays resolvable across ORDER and accepted PROJECT",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.BOS.BosSampleCreationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "BOS",
       "cluster": "other",
-      "message": "java.lang.RuntimeException:Project accept failed [sourceProjectId=2273792] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=[ParallelError{runnable\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2273792/accept?projectManagerId=7404&projectAssociateId=7404 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.RuntimeException:Project accept failed [sourceProjectId=2273792] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=[ParallelError{runnableName='cloneQuotaGro\u2026"
+      "message": "java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException Caused by: java.lang.reflect.InvocationTargetException:java.lang.\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/bos/salesOrders/extended?salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d&projectId=2274207&draft=false 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException \\nCaused by: java.lang.reflect.InvocationTargetExcept\u2026"
     },
     {
       "name": "Create partner event with invalid field values: com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventValidationTestSteps.Create partner event with invalid field values",
@@ -591,15 +430,6 @@
       "cluster": "product_data_not_found",
       "message": "(no error message)",
       "detailsExcerpt": "Condition not satisfied: ex.message.contains(\"Required\") || ex.message.contains(\"negative\") || ex.message.contains(\"not found\") || ex.message.contains(field) | | | | | | | | | | | | | | | | | | false | | | false | | | false | | | false integrationId | | | | | | | | | | https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents | | | | | | | | | | | | | | | | | | | | 404{ | | | | | | | | \u2026"
-    },
-    {
-      "name": "Rejected traffic schedule leaves the fieldwork dates unchanged",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingValidationTestSteps",
-      "newFailure": false,
-      "area": "QuotaGroup",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: datesAfter.proposedStartDate == datesBefore.proposedStartDate | | | | | | | | | Tue Oct 06 01:00:00 UTC 2026 | | | <com.dynata.nexus.api.model.quotagroup.QuotaGroupDates@67b5da40 proposedStartDate=Tue Oct 06 01:00:00 UTC 2026 quotaActivationDate=null originalEndDate=null proposedEndDate=Fri Oct 09 01:00:00 UTC 2026 endDateAutoClose=false fieldworkMode=null fieldworkHours=\u2026"
     },
     {
       "name": "Misaligned fieldwork dates saved with traffic schedules are rejected as a bad request",
@@ -620,196 +450,159 @@
       "detailsExcerpt": "Condition not satisfied: schedHelper.rejectionStatus(rejection) == 400 | | | | | 500 | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118799558/saveDatesAndSchedules | | 500{ | \"errors\" : [ { | \"status\" : \"INTERNAL_SERVER_ERROR\", | \"message\" : \"java.lang.IllegalArgumentException:Body parameter 1 was null\" | } ], | \"version\" : \"1.0\" | } | | at\u2026"
     },
     {
-      "name": "Fieldwork dates and another schedule can be saved while a schedule that already ran is kept",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps",
-      "newFailure": false,
-      "area": "QuotaGroup",
-      "cluster": "other",
-      "message": "Scheduled time cannot be in the past!",
-      "detailsExcerpt": "Expected no exception to be thrown, but got 'java.lang.RuntimeException' at app//spock.lang.Specification.noExceptionThrown(Specification.java:123) at com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps.Fieldwork dates and another schedule can be saved while a schedule that already ran is kept(QuotaGroupSchedulingExecutionTestSteps.groovy:206) Cause\u2026"
+      "name": "initializationError",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsValidationTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "infra_502",
+      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups 502{ \"errors\" : [ { \"callChain\" : [ \"HTTP 502 PUT http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups/118808477/createInProgress\", \"HTTP 502 POST http://dk-project-quota-group-sources-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroupSources/u1/sources/quotaGroups/11\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "4 new failures \u2014 mainly BOS, AudienceGroup",
-    "tone": "bad",
-    "severity": "high",
+    "headline": "1 new failure in Segment",
+    "tone": "warn",
+    "severity": "low",
     "bullets": [
-      "3\u00d7 other \u2014 Project accept status is FINISHED. [projectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d]",
       "1\u00d7 QA 502 Bad Gateway"
     ],
-    "investigation": "New fails: 3\u00d7 other (no dominant signature yet); 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Gateway hits: dk-project-project-rest, dk-project-quota-group-rest.",
+    "investigation": "New fails: 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Gateway hits: dk-project-quota-group-rest, dk-project-quota-group-sources-rest.",
     "detail": {
-      "investigation": "4 of 9 unmuted failures are new since the prior build (#3.0.2714, 17 fails). Failure types (new-first): (1) 3\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: BOS (3), AudienceGroup (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 3 service(s) (43 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: AudienceGroup: Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder [QA 502 Bad Gateway]; BOS: sample creation - simple [other]; BOS: sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT [other]; BOS: sample creation - sales-order linkage stays resolvable across ORDER and accepted PROJECT [other].",
+      "investigation": "1 of 7 unmuted failures are new since the prior build (#3.0.2715, 9 fails). Failure types (new-first): (1) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: Segment (1). 4 service(s) (27 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Segment: initializationError [QA 502 Bad Gateway].",
       "bullets": [
-        "3\u00d7 other \u2014 Project accept status is FINISHED. [projectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d]",
         "1\u00d7 QA 502 Bad Gateway",
-        "NXS-13972: gergely.gimesi \u2014 NXS-13972 Size scheduling waits to the 60 s scheduler precision and drop the rejected inheritance te",
-        "NXS-13972: gergely.gimesi \u2014 NXS-13972 Give scheduling execution audiences a line item so they can start",
-        "[QA deploy: SandboxServiceRestJ21] NXS-13832 (25 commits) \u2014 [NXS-13832] MS - share one SpringPactConsumer version and fix new pact specs",
-        "[QA deploy: ProjectAutomationApi]  (13 commits) \u2014 [PAC-839] master project create (#5454)",
-        "[QA deploy: NexusApiJ21]  (5 commits) \u2014 [PAC-854] DynataPlus - project clone draft and failed too - fix name"
+        "[QA deploy: NexusApiJ21] NXS-13937 (11 commits) \u2014 [NXS-13937] MS - saveDatesAndSchedules changes fieldwork dates even when the tra",
+        "[QA deploy: QuotaGroupRestJ21] NXS-13975 (5 commits) \u2014 [NXS-13975] MS | Field Schedule | Can't save Stop traffic when the Start traffic",
+        "[QA deploy: SandboxServiceRestJ21]  (7 commits) \u2014 prev versions",
+        "[QA deploy: ProjectRestJ16]  (4 commits) \u2014 [ PAC-823 ] DemandApi - demand project search for u1 (#5451)"
       ],
       "newFailureAreas": [
         {
-          "area": "BOS",
-          "newCount": 3
-        },
-        {
-          "area": "AudienceGroup",
+          "area": "Segment",
           "newCount": 1
         }
       ],
       "likelyCauses": []
     },
-    "suspectCommits": [
-      {
-        "version": "ac61f0a124a1",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13972 Size scheduling waits to the 60 s scheduler precision and drop the rejected inheritance test",
-        "ticket": "NXS-13972",
-        "areas": []
-      },
-      {
-        "version": "db1db668bfe0",
-        "username": "gergely.gimesi",
-        "comment": "NXS-13972 Give scheduling execution audiences a line item so they can start",
-        "ticket": "NXS-13972",
-        "areas": []
-      }
-    ],
+    "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "SandboxServiceRestJ21",
-        "version": "40ef781bebb1",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13832] MS - share one SpringPactConsumer version and fix new pact specs",
-        "ticket": "NXS-13832",
-        "deployedAt": "20260930T154333+0000",
+        "service": "NexusApiJ21",
+        "version": "e32c5de5085d",
+        "username": "david.nagy",
+        "comment": "[NXS-13937] MS - saveDatesAndSchedules changes fieldwork dates even when the traffic schedules are rejected",
+        "ticket": "NXS-13937",
+        "deployedAt": "20261001T175156+0000",
         "files": [
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "AutomatedSystemGWPacts.groovy"
+          "UQuotaGroupSchedulesImpl.java",
+          "UQuotaGroupSchedulesImplTest.groovy"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "SandboxServiceRestJ21",
-        "version": "59267d833ce1",
-        "username": "poliss",
-        "comment": "Merge pull request #632 from dynata/DQI-4583",
-        "ticket": "",
-        "deployedAt": "20260930T154333+0000",
-        "files": [],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "SandboxServiceRestJ21",
-        "version": "07250b59f84e",
-        "username": "scott.polis",
-        "comment": "[DQI-4583] Enable Create Offers Queue prod",
-        "ticket": "",
-        "deployedAt": "20260930T154333+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "dev.yml",
-          "production.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "SandboxServiceRestJ21",
-        "version": "24ce91bd260f",
-        "username": "grace.chen",
-        "comment": "[FAI-429] disable scheduler for wz-data-drift-dev to rule out failed login attempt to imperium_watson via password auth",
-        "ticket": "",
-        "deployedAt": "20260930T154333+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "SandboxServiceRestJ21",
-        "version": "88fb1ef1d154",
-        "username": "mitro.gyorgy",
-        "comment": "Merge pull request #631 from dynata/NA-1966",
-        "ticket": "",
-        "deployedAt": "20260930T154333+0000",
-        "files": [],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "SandboxServiceRestJ21",
-        "version": "45a66eb3f113",
-        "username": "gyorgykrisztian.mitro",
-        "comment": "[NA-1966] SLS - Upgrade lambdas to LTS python version + secrets layer upgrade | add temp table name to env variable",
-        "ticket": "",
-        "deployedAt": "20260930T154333+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "dev.yml",
-          "production.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "SandboxServiceRestJ21",
-        "version": "3c810238c5ed",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13832] MS - sample generic pact values and stub composed mappings",
-        "ticket": "NXS-13832",
-        "deployedAt": "20260930T154333+0000",
-        "files": [
-          "build.gradle",
-          "build.gradle",
-          "README.md",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "SandboxServiceRestJ21",
-        "version": "00f797a9e6bb",
+        "service": "NexusApiJ21",
+        "version": "564885446781",
         "username": "gergo.hajnal",
-        "comment": "[ST-5015] (st-parameter-service) remove java.security.manager from PROD",
+        "comment": "[ST-4999] (FeatureValueRest) Prepare for PROD deploy",
         "ticket": "",
-        "deployedAt": "20260930T154333+0000",
+        "deployedAt": "20261001T175156+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "7cfbb1317516",
+        "username": "gergo.hajnal",
+        "comment": "[ST-4985] (ExternalProviderRest) Prepare for PROD deploy",
+        "ticket": "",
+        "deployedAt": "20261001T175156+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "4afa912f2d9f",
+        "username": "gergo.hajnal",
+        "comment": "[ST-5019] (st-cloud-config) Prepare for PROD deploy",
+        "ticket": "",
+        "deployedAt": "20261001T175156+0000",
         "files": [
           "prod.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "SandboxServiceRestJ21",
-        "version": "11e030b63f6c",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-13832] MS - sample numeric strings and skip unresolved pact generics",
-        "ticket": "NXS-13832",
-        "deployedAt": "20260930T154333+0000",
+        "service": "NexusApiJ21",
+        "version": "bc96fa7add43",
+        "username": "gergo.hajnal",
+        "comment": "[ST-5005] (DKContentRest) Prepare for PROD deploy",
+        "ticket": "",
+        "deployedAt": "20261001T175156+0000",
         "files": [
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle",
-          "build.gradle"
+          "production.yml",
+          "qa.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "SandboxServiceRestJ21",
-        "version": "06b9fefde16e",
+        "service": "NexusApiJ21",
+        "version": "2336d2a7e41b",
         "username": "gergo.hajnal",
-        "comment": "[ST-4990] (MessageContentRest) prepare to be PROD deployed",
+        "comment": "[ST-5002] (DKFeatureValueRest) prepare for PROD deploy",
         "ticket": "",
-        "deployedAt": "20260930T154333+0000",
+        "deployedAt": "20261001T175156+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "49e6559bbfea",
+        "username": "gergo.hajnal",
+        "comment": "[ST-4997] (DKNovaTranslatorRest) prepare for PROD deploy",
+        "ticket": "",
+        "deployedAt": "20261001T175156+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "e63efcefc019",
+        "username": "gergo.hajnal",
+        "comment": "[ST-4982] (EncryptDecryptRest) prepare for PROD deploy",
+        "ticket": "",
+        "deployedAt": "20261001T175156+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "428578df8b0d",
+        "username": "gergo.hajnal",
+        "comment": "[ST-4996] (MembershipStatusRest) prepare for PROD deploy",
+        "ticket": "",
+        "deployedAt": "20261001T175156+0000",
+        "files": [
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "0fffcd22f7c5",
+        "username": "gergo.hajnal",
+        "comment": "[ST-4993] (CascadesRest) prepare for PROD deploy",
+        "ticket": "",
+        "deployedAt": "20261001T175156+0000",
         "files": [
           "production.yml"
         ],
@@ -820,10 +613,10 @@
   "contractDrift": {
     "newCount": 2,
     "baselineCount": 95,
-    "currentCount": 97,
+    "currentCount": 96,
     "examples": [
-      "POST /u1/nexus/projects/{}/accept :: Response status 417 not defined for path '/u1/nexus/projects/{projectId}/accept'.",
-      "POST /u1/nexus/projects/{}/fullAudienceGroupSetup :: Response status 502 not defined for path '/u1/nexus/projects/{projectId}/fullAudienceGroupSetup'."
+      "GET /u1/bos/salesOrders/extended :: Response status 500 not defined for path '/u1/bos/salesOrders/extended'.",
+      "POST /u1/nexus/quotaGroups :: Response status 502 not defined for path '/u1/nexus/quotaGroups'."
     ]
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."
