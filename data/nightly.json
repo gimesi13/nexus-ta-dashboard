@@ -1656,23 +1656,22 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in Segment",
+    "headline": "1 new failure in Segment \u2014 a transient QA 502 Bad Gateway (infra).",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 4 service(s) were deployed to QA in this window (NexusApiJ21, QuotaGroupRestJ21, SandboxServiceRestJ21, ProjectRestJ16) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Gateway hits: dk-project-quota-group-rest, dk-project-quota-group-sources-rest.",
+    "cause": "infra",
+    "causeText": "The one new failure (Segment initializationError) is a QA 502 Bad Gateway on PUT /u1/nexus/quotaGroups from the gateway fronting dk-project-quota-group-rest \u2014 transient infra during the run, not a product regression.",
+    "investigation": "The single new fail returned an HTML 502 Bad Gateway (gateway \u2192 dk-project-quota-group-rest / -sources-rest), i.e. a gateway hiccup rather than an assertion or validation error.",
     "bullets": [
-      "1\u00d7 QA 502 Bad Gateway"
+      "1\u00d7 QA 502 Bad Gateway \u2014 Segment initializationError (new, infra)",
+      "Contract drift (separate lane): +2 vs baseline \u2014 500 on /u1/bos/salesOrders/extended, 502 on /u1/nexus/quotaGroups"
     ],
     "detail": {
-      "investigation": "1 of 7 unmuted failures are new since the prior build (#3.0.2715, 9 fails). Failure types (new-first): (1) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: Segment (1). 4 service(s) (27 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Segment: initializationError [QA 502 Bad Gateway].",
+      "investigation": "1 of 7 unmuted failures is new since prior build #3.0.2715: Segment initializationError, which returned an HTML 502 Bad Gateway on PUT /u1/nexus/quotaGroups (gateway \u2192 dk-project-quota-group-rest / dk-project-quota-group-sources-rest) \u2014 a transient gateway failure, not a product regression. Although 4 services were deployed to QA in the window (incl. NexusApiJ21/QuotaGroupRestJ21 touching quota-group code), a 502 is a gateway/infra signal rather than the assertion or validation error a code regression would produce, so no commit is blamed.",
       "bullets": [
-        "1\u00d7 QA 502 Bad Gateway",
-        "[QA deploy: NexusApiJ21] NXS-13937 (11 commits) \u2014 [NXS-13937] MS - saveDatesAndSchedules changes fieldwork dates even when the tra",
-        "[QA deploy: QuotaGroupRestJ21] NXS-13975 (5 commits) \u2014 [NXS-13975] MS | Field Schedule | Can't save Stop traffic when the Start traffic",
-        "[QA deploy: SandboxServiceRestJ21]  (7 commits) \u2014 prev versions",
-        "[QA deploy: ProjectRestJ16]  (4 commits) \u2014 [ PAC-823 ] DemandApi - demand project search for u1 (#5451)"
+        "New: Segment initializationError \u2014 QA 502 Bad Gateway on PUT /u1/nexus/quotaGroups (infra).",
+        "6 pre-existing (non-new) failures unchanged: BOS 500s, PartnerEvent validation, QuotaGroup scheduling.",
+        "Contract drift (separate lane): +2 vs baseline \u2014 500 on /u1/bos/salesOrders/extended, 502 on /u1/nexus/quotaGroups."
       ],
       "newFailureAreas": [
         {
@@ -1879,8 +1878,8 @@
         "deployedAt": "20261001T111419+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-10-02T02:04Z",
+    "source": "llm",
+    "generatedAt": "2026-10-02T02:04:00Z",
     "buildNumber": "3.0.2716",
     "buildId": "9587614",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9587614",
