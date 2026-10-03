@@ -1688,23 +1688,22 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "2 new failures in AudienceGroup",
+    "headline": "2 new non-infra failures (AudienceGroup undelete assertion, Quota lock cross-service lag) \u2014 no deployed backend change maps to either area.",
     "tone": "warn",
     "severity": "low",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 2 service(s) were deployed to QA in this window (SandboxServiceRestJ21, ClientRestJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 assertion Condition not satisfied; 1\u00d7 other (no dominant signature yet). Vs prior #3.0.2716: up 1 total fails.",
+    "causeText": "Both new failures point to test/data or QA environment flakiness \u2014 an AudienceGroup undelete assertion (isDeleted still true) and a Quota sold-quota lock timing out after 30s cross-service lag \u2014 and none of the 27 QA-deployed commits touch those areas, so no backend regression is implicated.",
+    "investigation": "The two new fails are non-infra (assertion + 30s cross-service-lag timeout), and no deployed QA commit maps to AudienceGroup or Quota.",
     "bullets": [
-      "1\u00d7 assertion Condition not satisfied",
-      "1\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val"
+      "AudienceGroup undelete \u2014 assertion failed: isDeleted still true after undelete",
+      "Quota sold-quota lock \u2014 RuntimeException after 30s cross-service lag (QuotaDetails/FeasDataStore/DetailsEditor)"
     ],
     "detail": {
-      "investigation": "2 of 8 unmuted failures are new since the prior build (#3.0.2716, 7 fails). Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (2) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: AudienceGroup (1), Quota (1). 2 service(s) (27 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: AudienceGroup: Undelete audience group with valid undelete: com.dynata.rest.gateway.nexusapi.rest.tests.s [assertion Condition not satisfied]; Quota: Locking and unlocking sold quota while feasibility distribution is set validates lock func [other].",
+      "investigation": "2 of 8 unmuted failures are new vs prior #3.0.2716 (7 fails); both are non-infra: the AudienceGroup undelete is a Spock assertion (undeletedResponse.isDeleted still true) and the Quota sold-quota lock throws a RuntimeException after a 30s wait due to cross-service lag between QuotaDetails, FeasDataStore and DetailsEditor. None of the 27 QA-deployed commits (SandboxServiceRestJ21, ClientRestJ21 \u2014 Sandbox code, build.gradle/pact specs, and group_vars/cloud-formation deploy configs) touch AudienceGroup or Quota product code, so no backend regression is implicated and cause is test/data or environment flakiness.",
       "bullets": [
-        "1\u00d7 assertion Condition not satisfied",
-        "1\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val",
-        "[QA deploy: SandboxServiceRestJ21]  (2 commits) \u2014 prev versions",
-        "[QA deploy: ClientRestJ21]  (25 commits) \u2014 [PAC-869] ClientRest - cache never evict"
+        "AudienceGroup 'Undelete audience group with valid undelete' \u2014 assertion failed: isDeleted still true after undelete (fixture/response-shape or product state)",
+        "Quota 'Locking and unlocking sold quota' \u2014 RuntimeException after 30s: cross-service lag (QuotaDetails/FeasDataStore/DetailsEditor), environment flakiness",
+        "Contract drift (separate lane, 1 new): GET /u1/bos/salesOrders/extended returned 500 not defined in the OpenAPI contract"
       ],
       "newFailureAreas": [
         {
@@ -1901,8 +1900,8 @@
         "deployedAt": "20261002T065527+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-10-03T02:08Z",
+    "source": "llm",
+    "generatedAt": "2026-10-03T02:09Z",
     "buildNumber": "3.0.2717",
     "buildId": "9590056",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9590056",
