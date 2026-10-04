@@ -1,10 +1,7 @@
-**6 continuing failure(s) — no new unmuted fails**
+**6 continuing failures (0 new) — QA backend 500s in BOS and QuotaGroup, no code changes in the window.**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: QA backend 500s (BOS project-accept, QuotaGroup saveDatesAndSchedules) plus a PartnerEvent 404 — all continuing, no commits in the window to blame._
 
-- 3× other — java.lang.RuntimeException:Project accept failed [sourceProjectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94b
+- BOS 3× & QuotaGroup 2×: QA backend returns 500 where a normal response / 400 was expected.
 
-⚠️ Contract drift: 1 new response-schema violation(s) vs baseline.
-- GET /u1/bos/salesOrders/extended :: Response status 500 not defined for path '/u1/bos/salesOrders/extended'.
-
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9590350)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9590350)

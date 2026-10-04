@@ -1666,38 +1666,24 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "6 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "6 continuing failures (0 new) \u2014 QA backend 500s in BOS and QuotaGroup, no code changes in the window.",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "Failures: 3\u00d7 other (no dominant signature yet); 1\u00d7 NOT_FOUND / missing data.",
+    "cause": "mixed",
+    "causeText": "QA backend 500s (BOS project-accept, QuotaGroup saveDatesAndSchedules) plus a PartnerEvent 404 \u2014 all continuing, with no module or QA-deploy commits in the window to implicate.",
+    "investigation": "No new failures; all 6 are continuing QA backend 500s/404 with no changes in the window.",
     "bullets": [
-      "3\u00d7 other \u2014 java.lang.RuntimeException:Project accept failed [sourceProjectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94b",
-      "1\u00d7 NOT_FOUND / missing data \u2014 (no error message)",
-      "1\u00d7 API ValidationException \u2014 jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate "
+      "BOS 3\u00d7 \u2014 QA backend 500 on project accept (server error, not an assertion)",
+      "QuotaGroup 2\u00d7 \u2014 expected 400 but QA returned 500 on saveDatesAndSchedules"
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 6 continuing from prior runs. Failure types (new-first): (1) 3\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 NOT_FOUND / missing data \u2014 missing DB row / EmptyResult / NOT_FOUND. (3) 1\u00d7 API ValidationException \u2014 API rejected the request (business validation). (4) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: BOS (3), QuotaGroup (2), PartnerEvent (1). Example new failures: BOS: sample creation - simple [other]; BOS: sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT [other]; BOS: sample creation - sales-order linkage stays resolvable across ORDER and accepted PROJECT [other]; PartnerEvent: Create partner event with invalid field values: com.dynata.rest.gateway.nexusapi.rest.test [NOT_FOUND / missing data].",
+      "investigation": "All 6 failures are continuing (0 new): the cluster labels are misleading \u2014 BOS (3\u00d7) and QuotaGroup (2\u00d7) fail because the QA backend returns 500 INTERNAL_SERVER_ERROR (project accept / salesOrders/extended; saveDatesAndSchedules where a 400 was expected), and PartnerEvent (1\u00d7) gets a 404 where a validation message was expected, so the \"Condition not satisfied\" lines are just assertions observing those server responses. No module commits (changes) and no QA-deploy commits (qaDeployChanges) are in the window, so no code change can be implicated.",
       "bullets": [
-        "3\u00d7 other \u2014 java.lang.RuntimeException:Project accept failed [sourceProjectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94b",
-        "1\u00d7 NOT_FOUND / missing data \u2014 (no error message)",
-        "1\u00d7 API ValidationException \u2014 jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate "
+        "BOS 3\u00d7 \u2014 microservices-qa .../projects/<id>/accept and /bos/salesOrders/extended return 500 INTERNAL_SERVER_ERROR (Project accept failed); server-side, not test code",
+        "QuotaGroup 2\u00d7 \u2014 saveDatesAndSchedules returns 500 instead of 400; PartnerEvent 1\u00d7 \u2014 partnerEvents returns 404 where a validation message was expected",
+        "Contract drift (separate lane): GET /u1/bos/salesOrders/extended returned 500, not defined in the OpenAPI contract (1 new)"
       ],
-      "newFailureAreas": [
-        {
-          "area": "BOS",
-          "newCount": 3
-        },
-        {
-          "area": "QuotaGroup",
-          "newCount": 2
-        },
-        {
-          "area": "PartnerEvent",
-          "newCount": 1
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1737,8 +1723,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-10-04T02:10Z",
+    "source": "llm",
+    "generatedAt": "2026-10-04T02:10:00Z",
     "buildNumber": "3.0.2718",
     "buildId": "9590350",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9590350",
