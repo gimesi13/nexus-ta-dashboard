@@ -1,10 +1,7 @@
-**2 new failures in Project**
+**2 new Project failures are a test-code bug — ProjectHelper manager-update methods called with a null id.**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: test-code defect — ManagersTestSteps passes a null manager id into ProjectHelper.updateAccountManager()/updateClientDeliveryConsultant(); no product or infra change._
 
-- 2× other — groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helper
+- 2× Project/ManagersTestSteps — MissingMethodException: method called with (Integer, null), no matching overload.
 
-⚠️ Contract drift: 1 new response-schema violation(s) vs baseline.
-- GET /u1/bos/salesOrders/extended :: Response status 500 not defined for path '/u1/bos/salesOrders/extended'.
-
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9590724)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9590724)

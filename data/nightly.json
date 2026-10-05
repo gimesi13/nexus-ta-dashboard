@@ -1688,19 +1688,22 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "2 new failures in Project",
+    "headline": "2 new Project failures are a test-code bug \u2014 ProjectHelper manager-update methods called with a null id.",
     "tone": "warn",
     "severity": "low",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 2\u00d7 other (no dominant signature yet). Vs prior #3.0.2718: up 2 total fails.",
+    "causeText": "Both new Project failures are groovy.lang.MissingMethodException from calling ProjectHelper.updateAccountManager()/updateClientDeliveryConsultant() with (Integer, null) \u2014 a test-code defect (null manager id), not product or infra; no build or QA-deploy changes in the window.",
+    "investigation": "The 2 new Project fails (ManagersTestSteps) pass a null manager id into ProjectHelper, which has no overload accepting null; the other 6 failures are pre-existing QA 500/504 and validation issues.",
     "bullets": [
-      "2\u00d7 other \u2014 groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helper"
+      "2\u00d7 Project/ManagersTestSteps (NEW) \u2014 MissingMethodException: updateAccountManager()/updateClientDeliveryConsultant() called with (Integer, null); only int and (int,int) overloads exist.",
+      "No commits in changes or qaDeployChanges this window; contract drift (separate lane): GET /u1/bos/salesOrders/extended returned an undocumented 500."
     ],
     "detail": {
-      "investigation": "2 of 8 unmuted failures are new since the prior build (#3.0.2718, 6 fails). Failure types (new-first): (1) 2\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Project (2). Example new failures: Project: Update account manager [other]; Project: Update client delivery consultant [other].",
+      "investigation": "2 of 8 unmuted failures are new vs prior #3.0.2718 (6 fails), both in Project/ManagersTestSteps: updateAccountManager and updateClientDeliveryConsultant throw groovy.lang.MissingMethodException because they are invoked with (Integer, null) while only updateAccountManager(int)/(int,int) overloads exist \u2014 a test-code defect (null manager id), with no commits in changes or qaDeployChanges to implicate product code. The remaining 6 failures are pre-existing and not new: BOS project-accept/salesOrder 500s on QA, a PartnerEvent 404, and two QuotaGroup scheduling 500s.",
       "bullets": [
-        "2\u00d7 other \u2014 groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helper"
+        "2\u00d7 Project/ManagersTestSteps (NEW) \u2014 MissingMethodException: ProjectHelper.updateAccountManager()/updateClientDeliveryConsultant() called with (Integer, null); no overload accepts null.",
+        "No build or QA-deploy commits in the window \u2014 cannot attribute to a product/test commit; root is a null manager id in the test fixture.",
+        "Contract drift (separate lane): GET /u1/bos/salesOrders/extended returned a 500 not defined in the OpenAPI contract."
       ],
       "newFailureAreas": [
         {
@@ -1755,8 +1758,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-10-05T02:03Z",
+    "source": "llm",
+    "generatedAt": "2026-10-05T02:03:00Z",
     "buildNumber": "3.0.2719",
     "buildId": "9590724",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9590724",
