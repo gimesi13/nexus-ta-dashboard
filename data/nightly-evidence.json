@@ -1,34 +1,34 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-04T02:10Z",
+  "generatedAt": "2026-10-05T02:03Z",
   "build": {
-    "number": "3.0.2718",
-    "buildId": "9590350",
+    "number": "3.0.2719",
+    "buildId": "9590724",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9590350",
-    "durationSec": 2203.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9590724",
+    "durationSec": 1796.0
   },
   "summary": {
     "tests": 1515,
-    "passed": 1429,
-    "failures": 6,
+    "passed": 1427,
+    "failures": 8,
     "errors": 0,
     "skipped": 0,
     "muted": 80,
-    "newFailed": 0,
-    "passRate": 99.6,
-    "timeSec": 2203.0
+    "newFailed": 2,
+    "passRate": 99.4,
+    "timeSec": 1796.0
   },
   "prior": {
-    "buildId": "9590056",
-    "number": "3.0.2717",
+    "buildId": "9590350",
+    "number": "3.0.2718",
     "status": "FAILURE",
-    "statusText": "Tests failed: 8 (2 new), passed: 1428, muted: 79",
-    "startDate": "20261003T013234+0000",
-    "durationSec": 2109.0,
-    "failed": 8,
-    "passed": 1428,
-    "newFailed": 2
+    "statusText": "Tests failed: 6, passed: 1429, muted: 80",
+    "startDate": "20261004T013248+0000",
+    "durationSec": 2203.0,
+    "failed": 6,
+    "passed": 1429,
+    "newFailed": 0
   },
   "changes": [],
   "qaDeployChanges": [],
@@ -37,33 +37,41 @@
     {
       "label": "other",
       "display": "other",
-      "count": 3,
-      "newCount": 3,
-      "sample": "java.lang.RuntimeException:Project accept failed [sourceProjectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94b",
+      "count": 4,
+      "newCount": 2,
+      "sample": "groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helper",
       "why": "no dominant signature yet \u2014 open TeamCity details"
+    },
+    {
+      "label": "infra_504",
+      "display": "QA 504 timeout",
+      "count": 1,
+      "newCount": 0,
+      "sample": "",
+      "why": "QA gateway timed out (504) \u2014 infra / overloaded dependency"
     },
     {
       "label": "product_data_not_found",
       "display": "NOT_FOUND / missing data",
       "count": 1,
-      "newCount": 1,
-      "sample": "(no error message)",
+      "newCount": 0,
+      "sample": "",
       "why": "missing DB row / EmptyResult / NOT_FOUND"
     },
     {
       "label": "validation_exception",
       "display": "API ValidationException",
       "count": 1,
-      "newCount": 1,
-      "sample": "jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate",
+      "newCount": 0,
+      "sample": "",
       "why": "API rejected the request (business validation)"
     },
     {
       "label": "assert_fail",
       "display": "assertion Condition not satisfied",
       "count": 1,
-      "newCount": 1,
-      "sample": "java.lang.IllegalArgumentException:Body parameter 1 was null",
+      "newCount": 0,
+      "sample": "",
       "why": "Spock assertion failed (fixture or response shape)"
     }
   ],
@@ -73,9 +81,9 @@
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.BOS.BosSampleCreationTestSteps",
       "newFailure": false,
       "area": "BOS",
-      "cluster": "other",
-      "message": "java.lang.RuntimeException:Project accept failed [sourceProjectId=2275053] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[H\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2275053/accept?projectManagerId=7404&projectAssociateId=7404 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.RuntimeException:Project accept failed [sourceProjectId=2275053] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[HTTP 500 GET https:/\u2026"
+      "cluster": "infra_504",
+      "message": "java.lang.RuntimeException:Project accept failed [sourceProjectId=2275505] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[H\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2275505/accept?projectManagerId=7404&projectAssociateId=7404 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.RuntimeException:Project accept failed [sourceProjectId=2275505] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[HTTP 500 GET https:/\u2026"
     },
     {
       "name": "sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT",
@@ -83,8 +91,8 @@
       "newFailure": false,
       "area": "BOS",
       "cluster": "other",
-      "message": "java.lang.RuntimeException:Project accept failed [sourceProjectId=2275055] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[H\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2275055/accept?projectManagerId=7404&projectAssociateId=7404 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.RuntimeException:Project accept failed [sourceProjectId=2275055] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[HTTP 500 GET https:/\u2026"
+      "message": "java.lang.RuntimeException:Project accept failed [sourceProjectId=2275507] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[H\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2275507/accept?projectManagerId=7404&projectAssociateId=7404 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.RuntimeException:Project accept failed [sourceProjectId=2275507] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[HTTP 500 GET https:/\u2026"
     },
     {
       "name": "sample creation - sales-order linkage stays resolvable across ORDER and accepted PROJECT",
@@ -93,7 +101,7 @@
       "area": "BOS",
       "cluster": "other",
       "message": "java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException Caused by: java.lang.reflect.InvocationTargetException:java.lang.\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/bos/salesOrders/extended?salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d&projectId=2275057&draft=false 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException \\nCaused by: java.lang.reflect.InvocationTargetExcept\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/bos/salesOrders/extended?salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d&projectId=2275509&draft=false 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException \\nCaused by: java.lang.reflect.InvocationTargetExcept\u2026"
     },
     {
       "name": "Create partner event with invalid field values: com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventValidationTestSteps.Create partner event with invalid field values",
@@ -105,13 +113,31 @@
       "detailsExcerpt": "Condition not satisfied: ex.message.contains(\"Required\") || ex.message.contains(\"negative\") || ex.message.contains(\"not found\") || ex.message.contains(field) | | | | | | | | | | | | | | | | | | false | | | false | | | false | | | false integrationId | | | | | | | | | | https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents | | | | | | | | | | | | | | | | | | | | 404{ | | | | | | | | \u2026"
     },
     {
+      "name": "Update account manager",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ManagersTestSteps",
+      "newFailure": true,
+      "area": "Project",
+      "cluster": "other",
+      "message": "groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.ProjectHelper.updateAccountMa\u2026",
+      "detailsExcerpt": "groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.ProjectHelper.updateAccountManager() is applicable for argument types: (Integer, null) values: [2275225, null] Possible solutions: updateAccountManager(int), updateAccountManager(int, int) at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ManagersTestSteps.U\u2026"
+    },
+    {
+      "name": "Update client delivery consultant",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ManagersTestSteps",
+      "newFailure": true,
+      "area": "Project",
+      "cluster": "other",
+      "message": "groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.ProjectHelper.updateClientDel\u2026",
+      "detailsExcerpt": "groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.ProjectHelper.updateClientDeliveryConsultant() is applicable for argument types: (Integer, null) values: [2275225, null] Possible solutions: updateClientDeliveryConsultant(int), updateClientDeliveryConsultant(int, int) at com.dynata.rest.gateway.nexusapi.rest.tests.ste\u2026"
+    },
+    {
       "name": "Misaligned fieldwork dates saved with traffic schedules are rejected as a bad request",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingValidationTestSteps",
       "newFailure": false,
       "area": "QuotaGroup",
       "cluster": "validation_exception",
       "message": "jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate + fieldworkHours should be equals to EndDate",
-      "detailsExcerpt": "Condition not satisfied: schedHelper.rejectionStatus(rejection) == 400 | | | | | 500 | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118799558/saveDatesAndSchedules | | 500{ | \"errors\" : [ { | \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups/118799558/dates\" ], | \"stat\u2026"
+      "detailsExcerpt": "Condition not satisfied: schedHelper.rejectionStatus(rejection) == 400 | | | | | 500 | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118810511/saveDatesAndSchedules | | 500{ | \"errors\" : [ { | \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups/118810511/dates\" ], | \"stat\u2026"
     },
     {
       "name": "Saving traffic schedules without fieldwork dates is rejected as a bad request",
@@ -120,38 +146,26 @@
       "area": "QuotaGroup",
       "cluster": "assert_fail",
       "message": "java.lang.IllegalArgumentException:Body parameter 1 was null",
-      "detailsExcerpt": "Condition not satisfied: schedHelper.rejectionStatus(rejection) == 400 | | | | | 500 | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118799558/saveDatesAndSchedules | | 500{ | \"errors\" : [ { | \"status\" : \"INTERNAL_SERVER_ERROR\", | \"message\" : \"java.lang.IllegalArgumentException:Body parameter 1 was null\" | } ], | \"version\" : \"1.0\" | } | | at\u2026"
+      "detailsExcerpt": "Condition not satisfied: schedHelper.rejectionStatus(rejection) == 400 | | | | | 500 | false | java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118810511/saveDatesAndSchedules | | 500{ | \"errors\" : [ { | \"status\" : \"INTERNAL_SERVER_ERROR\", | \"message\" : \"java.lang.IllegalArgumentException:Body parameter 1 was null\" | } ], | \"version\" : \"1.0\" | } | | at\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "6 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "2 new failures in Project",
     "tone": "warn",
     "severity": "low",
     "bullets": [
-      "3\u00d7 other \u2014 java.lang.RuntimeException:Project accept failed [sourceProjectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94b",
-      "1\u00d7 NOT_FOUND / missing data \u2014 (no error message)",
-      "1\u00d7 API ValidationException \u2014 jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate "
+      "2\u00d7 other \u2014 groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helper"
     ],
-    "investigation": "Failures: 3\u00d7 other (no dominant signature yet); 1\u00d7 NOT_FOUND / missing data.",
+    "investigation": "New fails: 2\u00d7 other (no dominant signature yet). Vs prior #3.0.2718: up 2 total fails.",
     "detail": {
-      "investigation": "No new unmuted failures; 6 continuing from prior runs. Failure types (new-first): (1) 3\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 NOT_FOUND / missing data \u2014 missing DB row / EmptyResult / NOT_FOUND. (3) 1\u00d7 API ValidationException \u2014 API rejected the request (business validation). (4) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: BOS (3), QuotaGroup (2), PartnerEvent (1). Example new failures: BOS: sample creation - simple [other]; BOS: sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT [other]; BOS: sample creation - sales-order linkage stays resolvable across ORDER and accepted PROJECT [other]; PartnerEvent: Create partner event with invalid field values: com.dynata.rest.gateway.nexusapi.rest.test [NOT_FOUND / missing data].",
+      "investigation": "2 of 8 unmuted failures are new since the prior build (#3.0.2718, 6 fails). Failure types (new-first): (1) 2\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Project (2). Example new failures: Project: Update account manager [other]; Project: Update client delivery consultant [other].",
       "bullets": [
-        "3\u00d7 other \u2014 java.lang.RuntimeException:Project accept failed [sourceProjectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94b",
-        "1\u00d7 NOT_FOUND / missing data \u2014 (no error message)",
-        "1\u00d7 API ValidationException \u2014 jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate "
+        "2\u00d7 other \u2014 groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helper"
       ],
       "newFailureAreas": [
         {
-          "area": "BOS",
-          "newCount": 3
-        },
-        {
-          "area": "QuotaGroup",
+          "area": "Project",
           "newCount": 2
-        },
-        {
-          "area": "PartnerEvent",
-          "newCount": 1
         }
       ],
       "likelyCauses": []
