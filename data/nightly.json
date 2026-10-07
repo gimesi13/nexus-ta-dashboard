@@ -1668,21 +1668,22 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in QuotaGroup",
+    "headline": "1 new QuotaGroup failure \u2014 a transient backend 500 (ConcurrentModificationException), not attributable to any QA deploy.",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 2 service(s) were deployed to QA in this window (ProjectAutomationApi, DemandApi) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet).",
+    "cause": "infra",
+    "causeText": "The lone new failure is a transient backend 500 (java.util.ConcurrentModificationException) on POST /u1/nexus/quotaGroups \u2014 a server-side race, not a QA timeout and not mapped to any change deployed in the window.",
+    "investigation": "One new QuotaGroup failure: a 500 race inside dk-project-quota-group-rest, not a test or assertion bug.",
     "bullets": [
-      "1\u00d7 other \u2014 java.util.ConcurrentModificationException:java.util.ConcurrentModificationException"
+      "QuotaGroup initializationError \u2014 HTTP 500 ConcurrentModificationException on POST /u1/nexus/quotaGroups (quota-group-rest createInProgress)",
+      "No deployed QA change maps to the quota-group service, so there is no code regression to blame."
     ],
     "detail": {
-      "investigation": "1 of 7 unmuted failures are new since the prior build (#3.0.2720, 7 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: QuotaGroup (1). 2 service(s) (29 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: initializationError [other].",
+      "investigation": "The only new failure (QuotaGroup initializationError) is a backend HTTP 500 (java.util.ConcurrentModificationException) from dk-project-quota-group-rest on createInProgress during POST /u1/nexus/quotaGroups \u2014 a server-side concurrency race, not a QA timeout/502/504 and not a test assertion. None of the 29 commits deployed to QA in this window map to the quota-group service (the DN-4172 'quota group conditions' commits only touch plus-api-gateway cloudformation/authorizer tests, a different gateway and the conditions GET route, not create), so the 500 is unattributed and likely transient.",
       "bullets": [
-        "1\u00d7 other \u2014 java.util.ConcurrentModificationException:java.util.ConcurrentModificationException",
-        "[QA deploy: ProjectAutomationApi]  (20 commits) \u2014 [PAC-743] Cobalt - ProjectAutomationApi - start create process programmatic endp",
-        "[QA deploy: DemandApi]  (9 commits) \u2014 [PAC-855] DemandApi - addhocFeasibilityCalc issues  - missing inclusion answer"
+        "QuotaGroup: initializationError \u2014 HTTP 500 java.util.ConcurrentModificationException on POST /u1/nexus/quotaGroups \u2192 quota-group-rest createInProgress",
+        "No QA-deploy change maps to dk-project-quota-group-rest; DN-4172 commits only touch plus-api-gateway cloudformation/authorizer tests (conditions route, not create) \u2014 no code blame",
+        "Contract drift (separate lane): 2 new drifted endpoints vs OpenAPI \u2014 500 on GET /u1/bos/salesOrders/extended and POST /u1/nexus/quotaGroups"
       ],
       "newFailureAreas": [
         {
@@ -1866,8 +1867,8 @@
         "deployedAt": "20261006T143906+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-10-07T02:00Z",
+    "source": "llm",
+    "generatedAt": "2026-10-07T02:01Z",
     "buildNumber": "3.0.2721",
     "buildId": "9601454",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9601454",
