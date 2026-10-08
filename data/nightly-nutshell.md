@@ -1,7 +1,10 @@
-**1 new QuotaGroup failure — a transient backend 500 (ConcurrentModificationException), not attributable to any QA deploy.**
+**6 continuing failure(s) — no new unmuted fails**
 
-_Likely cause: transient backend 500 (ConcurrentModificationException) on POST /u1/nexus/quotaGroups; no QA-deploy change maps to the quota-group service._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- QuotaGroup initializationError — HTTP 500 ConcurrentModificationException on quota-group-rest createInProgress.
+- 3× other — java.lang.RuntimeException:Project accept failed [sourceProjectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94b
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9601454)
+⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
+- GET /u1/bos/salesOrders/extended :: Response status 500 not defined for path '/u1/bos/salesOrders/extended'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9606062)

@@ -1,69 +1,80 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-07T02:00Z",
+  "generatedAt": "2026-10-08T01:58Z",
   "build": {
-    "number": "3.0.2721",
-    "buildId": "9601454",
+    "number": "3.0.2722",
+    "buildId": "9606062",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9601454",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9606062",
     "durationSec": 1656.0
   },
   "summary": {
-    "tests": 1508,
-    "passed": 1421,
-    "failures": 7,
+    "tests": 1515,
+    "passed": 1429,
+    "failures": 6,
     "errors": 0,
     "skipped": 0,
     "muted": 80,
-    "newFailed": 1,
-    "passRate": 99.5,
+    "newFailed": 0,
+    "passRate": 99.6,
     "timeSec": 1656.0
   },
   "prior": {
-    "buildId": "9598471",
-    "number": "3.0.2720",
+    "buildId": "9601454",
+    "number": "3.0.2721",
     "status": "FAILURE",
-    "statusText": "Tests failed: 7 (1 new), passed: 1428, muted: 80",
-    "startDate": "20261006T013246+0000",
-    "durationSec": 1671.0,
+    "statusText": "Tests failed: 7 (1 new), passed: 1421, muted: 80",
+    "startDate": "20261007T013235+0000",
+    "durationSec": 1656.0,
     "failed": 7,
-    "passed": 1428,
+    "passed": 1421,
     "newFailed": 1
   },
   "changes": [],
   "qaDeployChanges": [
     {
-      "service": "ProjectAutomationApi",
-      "version": "6204c7036c62",
-      "username": "gabor.fial",
-      "comment": "[PAC-743] Cobalt - ProjectAutomationApi - start create process programmatic endpoint (#5337) - fix category",
+      "service": "FeasibilityDataStoreJ16",
+      "version": "e6a27c1f3eed",
+      "username": "tamas.gyarmati",
+      "comment": "[NXS-13889] - fix tests",
       "files": [
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/model/programmatic/ProjectCore.java"
+        "project/FeasibilityDataStore/src/integTest/groovy/com/surveysampling/rest/feasibilitydatastore/v1/mongo/MongoTestBase.groovy"
       ],
-      "deployedAt": "20261006T155341+0000"
+      "deployedAt": "20261007T131938+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "FeasibilityDataStoreJ16",
+      "version": "bba0ffa36bfe",
+      "username": "60962201+gyarmatitamas",
+      "comment": "[NXS-13889] - FeasibilityDataStore - ignore exclusion enabled flag (#5496)",
+      "files": [
+        "project/FeasibilityDataStore/src/main/java/com/surveysampling/rest/feasibilitydatastore/v1/components/ProjectDedupeCollector.java",
+        "project/FeasibilityDataStore/src/test/groovy/com/surveysampling/rest/feasibilitydatastore/v1/components/ProjectDedupeCollectorTest.groovy"
+      ],
+      "deployedAt": "20261007T131938+0000"
+    },
+    {
+      "service": "FeasibilityDataStoreJ16",
       "version": "28c14e2e537f",
       "username": "zoltan.redai",
       "comment": "[AE-7988] Add automatic DLQ redrive",
       "files": [
         "ae-pes-aggregator/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261006T155341+0000"
+      "deployedAt": "20261007T131938+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "FeasibilityDataStoreJ16",
       "version": "9539f70a4e88",
       "username": "weiqun.wang",
       "comment": "switch dev to g4dn for testing",
       "files": [
         "ml-reconciliation-model/group_vars/dev.yml"
       ],
-      "deployedAt": "20261006T155341+0000"
+      "deployedAt": "20261007T131938+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "FeasibilityDataStoreJ16",
       "version": "9edf9e45fd86",
       "username": "szabolcs.fekete",
       "comment": "[AE] adding back accidentally removed lines",
@@ -72,28 +83,28 @@
         "ae-legacy-ssi-verify/cloud-formation.template.yml",
         "ae-legacy-survey-flow-controller/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261006T155341+0000"
+      "deployedAt": "20261007T131938+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "FeasibilityDataStoreJ16",
       "version": "67dfedf5b199",
       "username": "szabolcs.fekete",
       "comment": "[AE] use readonly root filesystem part 9 (legacy-sfc)",
       "files": [
         "ae-legacy-sfc-experimental/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261006T155341+0000"
+      "deployedAt": "20261007T131938+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "FeasibilityDataStoreJ16",
       "version": "4e31d1d414da",
       "username": "gandriys",
       "comment": "Merge pull request #658 from dynata/DN-4172-update-gateway-cloudformation-for-conditions-pipeline-fix",
       "files": [],
-      "deployedAt": "20261006T155341+0000"
+      "deployedAt": "20261007T131938+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "FeasibilityDataStoreJ16",
       "version": "ea63f1971dfc",
       "username": "andrii.gorbatiuk",
       "comment": "[DN-4172] Use audienceId for the quota group conditions route",
@@ -101,18 +112,18 @@
         "project-backend-plus-api-gateway/authorizer/tests/test_route_coverage.py",
         "project-backend-plus-api-gateway/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261006T155341+0000"
+      "deployedAt": "20261007T131938+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "FeasibilityDataStoreJ16",
       "version": "1c830b77c31f",
       "username": "gandriys",
       "comment": "Merge pull request #657 from dynata/DN-4172-update-gateway-cloudformation-for-conditions-2",
       "files": [],
-      "deployedAt": "20261006T155341+0000"
+      "deployedAt": "20261007T131938+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "FeasibilityDataStoreJ16",
       "version": "5e32221fd40b",
       "username": "andrii.gorbatiuk",
       "comment": "[DN-4172] Point quota group conditions at the NexusApiUI route",
@@ -120,10 +131,10 @@
         "project-backend-plus-api-gateway/authorizer/tests/test_route_coverage.py",
         "project-backend-plus-api-gateway/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261006T155341+0000"
+      "deployedAt": "20261007T131938+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "FeasibilityDataStoreJ16",
       "version": "3b9bb46cad6a",
       "username": "szabolcs.fekete",
       "comment": "[AE] use readonly root filesystem part 8 (legacy-sfc)",
@@ -131,20 +142,20 @@
         "ae-legacy-ssi-verify/cloud-formation.template.yml",
         "ae-legacy-survey-flow-controller/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261006T155341+0000"
+      "deployedAt": "20261007T131938+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "FeasibilityDataStoreJ16",
       "version": "369b2e0e967f",
       "username": "gergo.hajnal",
       "comment": "[ST-4986] (ClaimOptionRest) prepare for PROD deploy",
       "files": [
         "dk-management-claim-option-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20261006T155341+0000"
+      "deployedAt": "20261007T131938+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "FeasibilityDataStoreJ16",
       "version": "cc314c91a972",
       "username": "andrii.gorbatiuk",
       "comment": "[DN-4172] Expose GET quota group conditions on the Dynata Plus API gateway",
@@ -152,228 +163,40 @@
         "project-backend-plus-api-gateway/authorizer/tests/test_route_coverage.py",
         "project-backend-plus-api-gateway/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261006T155341+0000"
+      "deployedAt": "20261007T131938+0000"
     },
     {
-      "service": "DemandApi",
-      "version": "a9c357202b84",
-      "username": "gabor.fial",
-      "comment": "[PAC-855] DemandApi - addhocFeasibilityCalc issues - missing inclusion answer",
-      "files": [
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/feas/AdhocFeasibilityRequestAssembler.java",
-        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/feas/AdhocFeasibilityRequestAssemblerTest.groovy"
-      ],
-      "deployedAt": "20261006T143906+0000"
-    },
-    {
-      "service": "DemandApi",
-      "version": "ee6f2c6b45e0",
-      "username": "gabor.fial",
-      "comment": "[PAC-795] DemandApi - call u1 instead of v1/2/3 for updates - little fix",
-      "files": [
-        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/ProjectHandlerTest.groovy"
-      ],
-      "deployedAt": "20261006T133250+0000"
-    },
-    {
-      "service": "DemandApi",
-      "version": "4606ebc910c6",
-      "username": "gabor.fial",
-      "comment": "[PAC-795] DemandApi - call u1 instead of v1/2/3 for updates - little fix",
-      "files": [
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/DemandUtil.groovy",
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/dependency/dkproject/DKProjectRestFeignClient.java",
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/dependency/nexusapi/NexusApiU1FeignClient.java",
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/NexusUpdateGateway.java",
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/ProjectHandler.java",
-        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/ProjectHandlerTest.groovy"
-      ],
-      "deployedAt": "20261006T133250+0000"
-    },
-    {
-      "service": "DemandApi",
-      "version": "319e0b6e16c1",
-      "username": "61797769+kocskam",
-      "comment": "[PAC-855] DemandApi - addhocFeasibilityCalc issues (#5472)",
-      "files": [
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/NestedSegmentDetails.java",
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/SegmentHandler.java",
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/feas/AdhocFeasibilityRequestAssembler.java",
-        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/SegmentHandlerTest.groovy",
-        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/feas/AdhocFeasibilityRequestAssemblerTest.groovy"
-      ],
-      "deployedAt": "20261006T133250+0000"
-    },
-    {
-      "service": "DemandApi",
-      "version": "406e79b37c61",
-      "username": "gabor.fial",
-      "comment": "Merge remote-tracking branch 'origin/master'",
-      "files": [
-        "project/ManualCreditRest/build.gradle",
-        "project/ReconciliationRest/README.md",
-        "project/ReconciliationRest/build.gradle"
-      ],
-      "deployedAt": "20261006T133250+0000"
-    },
-    {
-      "service": "DemandApi",
-      "version": "399902be173a",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13832 generate pacts from the Feign clients: no pact specs (447 deleted), pactCoverage removed; PactVerifyPlugin 4.\u2026",
-      "files": [
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/CategoryPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/CountersGWPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/CrmPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DKExportPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DKProjectPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DKSurveyPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DKSystemRestPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DKTrafficPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DashboardPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DedupePact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DkDashboardPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/EnumPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ExtendedAttributesPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/FeasibilityBatchPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/FeasibilityRestPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/FeaturePact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ProjectPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/QuotaDetailsPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/QuotaGroupDefinitionPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/QuotaGroupPact.groovy"
-      ],
-      "deployedAt": "20261006T133250+0000"
-    },
-    {
-      "service": "DemandApi",
-      "version": "53b2e7d8efce",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13832 PactVerifyPlugin 4.0.12: pactCoverage skips clients that call the service itself; drop DemandApi specs for cl\u2026",
-      "files": [
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/dksurveyrest/pacts/DKSurveyRestFeignClientPact.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/novaadminrest/pacts/NovaAdminRestFeignClientPact.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/throttlingsettingrest/pacts/ThrottlingSettingRestFeignClientPact.groovy",
-        "unified_utils/gradle-plugins/PactVerifyPlugin/build.gradle",
-        "unified_utils/gradle-plugins/PactVerifyPlugin/src/main/groovy/com/surveysampling/pact/gradle/PactCoverage.groovy",
-        "unified_utils/gradle-plugins/PactVerifyPlugin/src/main/groovy/com/surveysampling/pact/gradle/PactCoverageTask.groovy",
-        "unified_utils/gradle-plugins/PactVerifyPlugin/src/test/groovy/com/dynata/fixture/coverage/service/Clients.groovy",
-        "unified_utils/gradle-plugins/PactVerifyPlugin/src/test/groovy/com/dynata/fixture/coverage/service/Service.groovy",
-        "unified_utils/gradle-plugins/PactVerifyPlugin/src/test/groovy/com/surveysampling/pact/gradle/PactCoverageTest.groovy",
-        "unified_utils/gradle-plugins/nxs_plugins_j21.gradle",
-        "unified_utils/gradle-plugins/nxs_plugins_j21_boot35.gradle"
-      ],
-      "deployedAt": "20261006T133250+0000"
-    },
-    {
-      "service": "DemandApi",
-      "version": "0a3df1507d8a",
-      "username": "105725861+gimesi13",
-      "comment": "Merge pull request #5476 from dynata/NXS-13832-pact-coverage-guard",
-      "files": [],
-      "deployedAt": "20261006T133250+0000"
-    },
-    {
-      "service": "DemandApi",
-      "version": "b71014e1b06b",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13832 pactCoverage guard (PactVerifyPlugin 4.0.11) and a pact spec for every Feign client J21 services use; SpringP\u2026",
-      "files": [
-        "gateway/dk/DKOrder/build.gradle",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/IBosApiClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/IKeyCloakClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ISamplifyClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ISamplifyCloserClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ISamplifySwitchCompanyClientPact.groovy",
-        "gateway/dk/DKProjectCountersRest/build.gradle",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/ActualRecsFeignClientPact.groovy",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/NexusApiFeignClientPact.groovy",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/ParticipationStatusRestFeignClientPact.groovy",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/RecsHistoryFeignClientPact.groovy",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/RecsWeightedMedianApiFeignClientPact.groovy",
-        "gateway/external/DynataExternalApiGW/src/integTest/groovy/com/surveysampling/rest/dynataexternalapigw/v1/pacts/IReconciliationFeignClientPact.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/categoryrest/pacts/CategoryRestFeignClientPact.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/clientrest/feignclient/pacts/ClientRestFeignClientPact.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/crmrest/pacts/CrmRestFeignClientPact.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/deduperest/pacts/DedupeRestFeignClientPact.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/dkorder/pacts/DKOrderFeignClientPact.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/dkproject/pacts/DKProjectRestFeignClientPact.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/dkprojectcountersrest/pacts/DKProjectCountersRestFeignClientPact.groovy"
-      ],
-      "deployedAt": "20261006T133250+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "9fb94fcd63a1",
-      "username": "44774205+ssi-hu-viktor-tassi",
-      "comment": "Add Acceptance test for master project create (#5485)",
-      "files": [
-        "gateway/unifiedApi/ProjectAutomationApi/src/integTest/groovy/com/dynata/rest/gateway/projectautomationapi/feigns/DynataApiTestClient.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/integTest/groovy/com/dynata/rest/gateway/projectautomationapi/workflow/WorkflowTest.groovy"
-      ],
-      "deployedAt": "20261006T062239+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "version": "0ffa8021667b",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13832 simplify contract testing: no specs for providers outside the repo (externalProviders removed), legacy PactCo\u2026",
-      "files": [
-        "gateway/dk/DKOrder/build.gradle",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/IBosApiClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/IKeyCloakClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ISamplifyClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ISamplifyCloserClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ISamplifySwitchCompanyClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/PactCoverageTest.groovy",
-        "gateway/dk/DKProjectCountersRest/build.gradle",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/ActualRecsFeignClientPact.groovy",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/PactCoverageTest.groovy",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/ParticipationStatusRestFeignClientPact.groovy",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/RecsHistoryFeignClientPact.groovy",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/RecsWeightedMedianApiFeignClientPact.groovy",
-        "gateway/unifiedApi/NexusApi/build.gradle",
-        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/AutomatedTrafficControlPactTests.groovy",
-        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/PanelBrandRestFeignClientPact.groovy",
-        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/ParameterEquivalenciesServiceFeignClientPact.groovy",
-        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/STParameterServiceFeignClientPact.groovy",
-        "gateway/unifiedApi/NexusApiBos/build.gradle",
-        "gateway/unifiedApi/NexusApiBos/src/integTest/groovy/com/dynata/rest/gateway/nexusapibos/dependencies/bos/pacts/BosFeignClientPact.groovy"
-      ],
-      "deployedAt": "20261006T062239+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
+      "service": "FeasibilityDataStoreJ16",
       "version": "564885446781",
       "username": "gergo.hajnal",
       "comment": "[ST-4999] (FeatureValueRest) Prepare for PROD deploy",
       "files": [
         "dk-respondent-feature-value-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20261006T062239+0000"
+      "deployedAt": "20261007T131938+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "FeasibilityDataStoreJ16",
       "version": "7cfbb1317516",
       "username": "gergo.hajnal",
       "comment": "[ST-4985] (ExternalProviderRest) Prepare for PROD deploy",
       "files": [
         "dk-management-external-provider-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20261006T062239+0000"
+      "deployedAt": "20261007T131938+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "FeasibilityDataStoreJ16",
       "version": "4afa912f2d9f",
       "username": "gergo.hajnal",
       "comment": "[ST-5019] (st-cloud-config) Prepare for PROD deploy",
       "files": [
         "st-cloud-config/group_vars/prod.yml"
       ],
-      "deployedAt": "20261006T062239+0000"
+      "deployedAt": "20261007T131938+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "FeasibilityDataStoreJ16",
       "version": "bc96fa7add43",
       "username": "gergo.hajnal",
       "comment": "[ST-5005] (DKContentRest) Prepare for PROD deploy",
@@ -381,76 +204,212 @@
         "dk-dk-content-rest/group_vars/production.yml",
         "dk-dk-content-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20261006T062239+0000"
+      "deployedAt": "20261007T131938+0000"
     },
     {
-      "service": "ProjectAutomationApi",
+      "service": "FeasibilityDataStoreJ16",
       "version": "2336d2a7e41b",
       "username": "gergo.hajnal",
       "comment": "[ST-5002] (DKFeatureValueRest) prepare for PROD deploy",
       "files": [
         "dk-dk-feature-value-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20261006T062239+0000"
+      "deployedAt": "20261007T131938+0000"
+    },
+    {
+      "service": "FeasibilityDataStoreJ16",
+      "version": "49e6559bbfea",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4997] (DKNovaTranslatorRest) prepare for PROD deploy",
+      "files": [
+        "dk-dk-nova-translator-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261007T131938+0000"
+    },
+    {
+      "service": "FeasibilityDataStoreJ16",
+      "version": "e63efcefc019",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4982] (EncryptDecryptRest) prepare for PROD deploy",
+      "files": [
+        "dk-system-encrypt-decrypt-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261007T131938+0000"
+    },
+    {
+      "service": "FeasibilityDataStoreJ16",
+      "version": "428578df8b0d",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4996] (MembershipStatusRest) prepare for PROD deploy",
+      "files": [
+        "dk-management-membership-status-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261007T131938+0000"
+    },
+    {
+      "service": "FeasibilityDataStoreJ16",
+      "version": "0fffcd22f7c5",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4993] (CascadesRest) prepare for PROD deploy",
+      "files": [
+        "dk-project-cascades-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261007T131938+0000"
+    },
+    {
+      "service": "FeasibilityDataStoreJ16",
+      "version": "bf6eea11219f",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4991] (RewardCalculatorRest) prepare for PROD deploy",
+      "files": [
+        "dk-management-reward-calculator-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261007T131938+0000"
+    },
+    {
+      "service": "FeasibilityDataStoreJ16",
+      "version": "522bff5d067f",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4989] (CategoryRest) Prepare for PROD deploy",
+      "files": [
+        "dk-management-category-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261007T131938+0000"
+    },
+    {
+      "service": "FeasibilityDataStoreJ16",
+      "version": "90f4bfa2b1d7",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4987] (ManualPaymentsRest) Prepare for PROD deploy",
+      "files": [
+        "dk-management-manual-payments-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261007T131938+0000"
     },
     {
       "service": "ProjectAutomationApi",
-      "version": "5ee15320ca82",
-      "username": "erik.paulsen",
-      "comment": "Reduce Actuals PES DLQ threshold from >1 to >0",
+      "version": "29b1a4df29ed",
+      "username": "gabor.fial",
+      "comment": "[PAC-743] Cobalt - ProjectAutomationApi - start create process programmatic endpoint (#5337) - fix contactEmail",
       "files": [
-        "feasibility-actuals-project-event-queue/cloud-formation.template.yml"
+        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/DynataPlusApi.java",
+        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/DynataPlusImpl.java",
+        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/model/programmatic/ProjectClient.java",
+        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/service/SampleService.java",
+        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/service/SampleServiceImpl.java",
+        "gateway/unifiedApi/ProjectAutomationApi/src/test/groovy/u1/nexus/projects/DynataPlusImplTest.groovy",
+        "gateway/unifiedApi/ProjectAutomationApi/src/test/groovy/u1/nexus/projects/service/SampleServiceImplTest.groovy"
       ],
-      "deployedAt": "20261006T062239+0000"
+      "deployedAt": "20261007T103656+0000"
+    },
+    {
+      "service": "ProjectAutomationApi",
+      "version": "f2979b954b43",
+      "username": "gabor.fial",
+      "comment": "[PAC-743] Cobalt - ProjectAutomationApi - start create process programmatic endpoint (#5337) - fix userId userDataHolde\u2026",
+      "files": [
+        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/service/SampleServiceImpl.java",
+        "gateway/unifiedApi/ProjectAutomationApi/src/test/groovy/u1/nexus/projects/service/SampleServiceImplTest.groovy"
+      ],
+      "deployedAt": "20261007T103656+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "6618e9707d34",
+      "username": "gabor.fial",
+      "comment": "[PAC-749] Cobalt - DemandApi - use ProjectAutomationApi create programmatic project endpoint (#5350) - fix contactEmail\u2026",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/dependency/projectautomationapi/ProjectAutomationApiFeignClient.java",
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/ProjectHandler.java",
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/ProjectMessageHandler.java",
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/ProjectHandlerTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/ProjectMessageHandlerTest.groovy"
+      ],
+      "deployedAt": "20261007T102350+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "e09d7a7f4c80",
+      "username": "gabor.fial",
+      "comment": "[PAC-749] Cobalt - DemandApi - use ProjectAutomationApi create programmatic project endpoint (#5350) - fix exception ha\u2026",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/ProjectHandler.java",
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/ProjectHandlerTest.groovy"
+      ],
+      "deployedAt": "20261007T102350+0000"
+    },
+    {
+      "service": "UnusedSqsCleaner",
+      "version": "9e382b108fd9",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4984] (SubjectLibraryRest) Prepare for PROD deploy",
+      "files": [
+        "dk-project-subject-library-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261007T081456+0000"
     }
   ],
   "qaDeployServices": [
     {
+      "service": "FeasibilityDataStoreJ16",
+      "commits": 25,
+      "latestTicket": "NXS-13889",
+      "latestComment": "[NXS-13889] - fix tests",
+      "deployedAt": "20261007T131938+0000"
+    },
+    {
       "service": "ProjectAutomationApi",
-      "commits": 20,
+      "commits": 2,
       "latestTicket": "",
       "latestComment": "[PAC-743] Cobalt - ProjectAutomationApi - start create process programmatic endp",
-      "deployedAt": "20261006T155341+0000"
+      "deployedAt": "20261007T103656+0000"
     },
     {
       "service": "DemandApi",
-      "commits": 9,
+      "commits": 2,
       "latestTicket": "",
-      "latestComment": "[PAC-855] DemandApi - addhocFeasibilityCalc issues  - missing inclusion answer",
-      "deployedAt": "20261006T143906+0000"
+      "latestComment": "[PAC-749] Cobalt - DemandApi - use ProjectAutomationApi create programmatic proj",
+      "deployedAt": "20261007T102350+0000"
+    },
+    {
+      "service": "UnusedSqsCleaner",
+      "commits": 2,
+      "latestTicket": "",
+      "latestComment": "[ST-4984] (SubjectLibraryRest) Prepare for PROD deploy",
+      "deployedAt": "20261007T081456+0000"
     }
   ],
   "clusters": [
     {
       "label": "other",
       "display": "other",
-      "count": 4,
-      "newCount": 1,
-      "sample": "java.util.ConcurrentModificationException:java.util.ConcurrentModificationException",
+      "count": 3,
+      "newCount": 3,
+      "sample": "java.lang.RuntimeException:Project accept failed [sourceProjectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94b",
       "why": "no dominant signature yet \u2014 open TeamCity details"
     },
     {
       "label": "product_data_not_found",
       "display": "NOT_FOUND / missing data",
       "count": 1,
-      "newCount": 0,
-      "sample": "",
+      "newCount": 1,
+      "sample": "(no error message)",
       "why": "missing DB row / EmptyResult / NOT_FOUND"
     },
     {
       "label": "validation_exception",
       "display": "API ValidationException",
       "count": 1,
-      "newCount": 0,
-      "sample": "",
+      "newCount": 1,
+      "sample": "jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate",
       "why": "API rejected the request (business validation)"
     },
     {
       "label": "assert_fail",
       "display": "assertion Condition not satisfied",
       "count": 1,
-      "newCount": 0,
-      "sample": "",
+      "newCount": 1,
+      "sample": "java.lang.IllegalArgumentException:Body parameter 1 was null",
       "why": "Spock assertion failed (fixture or response shape)"
     }
   ],
@@ -461,8 +420,8 @@
       "newFailure": false,
       "area": "BOS",
       "cluster": "other",
-      "message": "java.lang.RuntimeException:Project accept failed [sourceProjectId=2277674] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[H\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2277674/accept?projectManagerId=7404&projectAssociateId=7404 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.RuntimeException:Project accept failed [sourceProjectId=2277674] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[HTTP 500 GET https:/\u2026"
+      "message": "java.lang.RuntimeException:Project accept failed [sourceProjectId=2278048] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[H\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2278048/accept?projectManagerId=7404&projectAssociateId=7404 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.RuntimeException:Project accept failed [sourceProjectId=2278048] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[HTTP 500 GET https:/\u2026"
     },
     {
       "name": "sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT",
@@ -470,8 +429,8 @@
       "newFailure": false,
       "area": "BOS",
       "cluster": "other",
-      "message": "java.lang.RuntimeException:Project accept failed [sourceProjectId=2277676] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[H\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2277676/accept?projectManagerId=7404&projectAssociateId=7404 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.RuntimeException:Project accept failed [sourceProjectId=2277676] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[HTTP 500 GET https:/\u2026"
+      "message": "java.lang.RuntimeException:Project accept failed [sourceProjectId=2278050] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[H\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2278050/accept?projectManagerId=7404&projectAssociateId=7404 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.RuntimeException:Project accept failed [sourceProjectId=2278050] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[HTTP 500 GET https:/\u2026"
     },
     {
       "name": "sample creation - sales-order linkage stays resolvable across ORDER and accepted PROJECT",
@@ -480,7 +439,7 @@
       "area": "BOS",
       "cluster": "other",
       "message": "java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException Caused by: java.lang.reflect.InvocationTargetException:java.lang.\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/bos/salesOrders/extended?salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d&projectId=2277678&draft=false 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException \\nCaused by: java.lang.reflect.InvocationTargetExcept\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/bos/salesOrders/extended?salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d&projectId=2278052&draft=false 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException \\nCaused by: java.lang.reflect.InvocationTargetExcept\u2026"
     },
     {
       "name": "Create partner event with invalid field values: com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventValidationTestSteps.Create partner event with invalid field values",
@@ -490,15 +449,6 @@
       "cluster": "product_data_not_found",
       "message": "(no error message)",
       "detailsExcerpt": "Condition not satisfied: ex.message.contains(\"Required\") || ex.message.contains(\"negative\") || ex.message.contains(\"not found\") || ex.message.contains(field) | | | | | | | | | | | | | | | | | | false | | | false | | | false | | | false integrationId | | | | | | | | | | https://microservices-qa.dynata.com/NexusApi/u1/nexus/partnerEvents | | | | | | | | | | | | | | | | | | | | 404{ | | | | | | | | \u2026"
-    },
-    {
-      "name": "initializationError",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCoreUpdateWorkflowTestSteps",
-      "newFailure": true,
-      "area": "QuotaGroup",
-      "cluster": "other",
-      "message": "java.util.ConcurrentModificationException:java.util.ConcurrentModificationException",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-quota-group-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroup/u1/quotaGroups/118815143/createInProgress\", \"HTTP 500 POST http://dk-project-quota-group-sources-rest.nexus-ms-qa.dynata.com:8080/api/QuotaGroupSources/u1/sources/quotaGroups/11\u2026"
     },
     {
       "name": "Misaligned fieldwork dates saved with traffic schedules are rejected as a bad request",
@@ -520,23 +470,37 @@
     }
   ],
   "rulesNutshell": {
-    "headline": "1 new failure in QuotaGroup",
+    "headline": "6 continuing failure(s) \u2014 no new unmuted fails",
     "tone": "warn",
     "severity": "low",
     "bullets": [
-      "1\u00d7 other \u2014 java.util.ConcurrentModificationException:java.util.ConcurrentModificationException"
+      "3\u00d7 other \u2014 java.lang.RuntimeException:Project accept failed [sourceProjectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94b",
+      "1\u00d7 NOT_FOUND / missing data \u2014 (no error message)",
+      "1\u00d7 API ValidationException \u2014 jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate "
     ],
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet).",
+    "investigation": "Failures: 3\u00d7 other (no dominant signature yet); 1\u00d7 NOT_FOUND / missing data.",
     "detail": {
-      "investigation": "1 of 7 unmuted failures are new since the prior build (#3.0.2720, 7 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: QuotaGroup (1). 2 service(s) (29 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: initializationError [other].",
+      "investigation": "No new unmuted failures; 6 continuing from prior runs. Failure types (new-first): (1) 3\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 NOT_FOUND / missing data \u2014 missing DB row / EmptyResult / NOT_FOUND. (3) 1\u00d7 API ValidationException \u2014 API rejected the request (business validation). (4) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: BOS (3), QuotaGroup (2), PartnerEvent (1). 4 service(s) (31 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: BOS: sample creation - simple [other]; BOS: sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT [other]; BOS: sample creation - sales-order linkage stays resolvable across ORDER and accepted PROJECT [other]; PartnerEvent: Create partner event with invalid field values: com.dynata.rest.gateway.nexusapi.rest.test [NOT_FOUND / missing data].",
       "bullets": [
-        "1\u00d7 other \u2014 java.util.ConcurrentModificationException:java.util.ConcurrentModificationException",
-        "[QA deploy: ProjectAutomationApi]  (20 commits) \u2014 [PAC-743] Cobalt - ProjectAutomationApi - start create process programmatic endp",
-        "[QA deploy: DemandApi]  (9 commits) \u2014 [PAC-855] DemandApi - addhocFeasibilityCalc issues  - missing inclusion answer"
+        "3\u00d7 other \u2014 java.lang.RuntimeException:Project accept failed [sourceProjectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94b",
+        "1\u00d7 NOT_FOUND / missing data \u2014 (no error message)",
+        "1\u00d7 API ValidationException \u2014 jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate ",
+        "[QA deploy: FeasibilityDataStoreJ16] NXS-13889 (25 commits) \u2014 [NXS-13889] - fix tests",
+        "[QA deploy: ProjectAutomationApi]  (2 commits) \u2014 [PAC-743] Cobalt - ProjectAutomationApi - start create process programmatic endp",
+        "[QA deploy: DemandApi]  (2 commits) \u2014 [PAC-749] Cobalt - DemandApi - use ProjectAutomationApi create programmatic proj",
+        "[QA deploy: UnusedSqsCleaner]  (2 commits) \u2014 [ST-4984] (SubjectLibraryRest) Prepare for PROD deploy"
       ],
       "newFailureAreas": [
         {
+          "area": "BOS",
+          "newCount": 3
+        },
+        {
           "area": "QuotaGroup",
+          "newCount": 2
+        },
+        {
+          "area": "PartnerEvent",
           "newCount": 1
         }
       ],
@@ -545,48 +509,61 @@
     "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "ProjectAutomationApi",
-        "version": "6204c7036c62",
-        "username": "gabor.fial",
-        "comment": "[PAC-743] Cobalt - ProjectAutomationApi - start create process programmatic endpoint (#5337) - fix category",
-        "ticket": "",
-        "deployedAt": "20261006T155341+0000",
+        "service": "FeasibilityDataStoreJ16",
+        "version": "e6a27c1f3eed",
+        "username": "tamas.gyarmati",
+        "comment": "[NXS-13889] - fix tests",
+        "ticket": "NXS-13889",
+        "deployedAt": "20261007T131938+0000",
         "files": [
-          "ProjectCore.java"
+          "MongoTestBase.groovy"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectAutomationApi",
+        "service": "FeasibilityDataStoreJ16",
+        "version": "bba0ffa36bfe",
+        "username": "60962201+gyarmatitamas",
+        "comment": "[NXS-13889] - FeasibilityDataStore - ignore exclusion enabled flag (#5496)",
+        "ticket": "NXS-13889",
+        "deployedAt": "20261007T131938+0000",
+        "files": [
+          "ProjectDedupeCollector.java",
+          "ProjectDedupeCollectorTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "FeasibilityDataStoreJ16",
         "version": "28c14e2e537f",
         "username": "zoltan.redai",
         "comment": "[AE-7988] Add automatic DLQ redrive",
         "ticket": "",
-        "deployedAt": "20261006T155341+0000",
+        "deployedAt": "20261007T131938+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectAutomationApi",
+        "service": "FeasibilityDataStoreJ16",
         "version": "9539f70a4e88",
         "username": "weiqun.wang",
         "comment": "switch dev to g4dn for testing",
         "ticket": "",
-        "deployedAt": "20261006T155341+0000",
+        "deployedAt": "20261007T131938+0000",
         "files": [
           "dev.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectAutomationApi",
+        "service": "FeasibilityDataStoreJ16",
         "version": "9edf9e45fd86",
         "username": "szabolcs.fekete",
         "comment": "[AE] adding back accidentally removed lines",
         "ticket": "",
-        "deployedAt": "20261006T155341+0000",
+        "deployedAt": "20261007T131938+0000",
         "files": [
           "cloud-formation.template.yml",
           "cloud-formation.template.yml",
@@ -595,34 +572,34 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectAutomationApi",
+        "service": "FeasibilityDataStoreJ16",
         "version": "67dfedf5b199",
         "username": "szabolcs.fekete",
         "comment": "[AE] use readonly root filesystem part 9 (legacy-sfc)",
         "ticket": "",
-        "deployedAt": "20261006T155341+0000",
+        "deployedAt": "20261007T131938+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectAutomationApi",
+        "service": "FeasibilityDataStoreJ16",
         "version": "4e31d1d414da",
         "username": "gandriys",
         "comment": "Merge pull request #658 from dynata/DN-4172-update-gateway-cloudformation-for-conditions-pipeline-fix",
         "ticket": "",
-        "deployedAt": "20261006T155341+0000",
+        "deployedAt": "20261007T131938+0000",
         "files": [],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectAutomationApi",
+        "service": "FeasibilityDataStoreJ16",
         "version": "ea63f1971dfc",
         "username": "andrii.gorbatiuk",
         "comment": "[DN-4172] Use audienceId for the quota group conditions route",
         "ticket": "",
-        "deployedAt": "20261006T155341+0000",
+        "deployedAt": "20261007T131938+0000",
         "files": [
           "test_route_coverage.py",
           "cloud-formation.template.yml"
@@ -630,37 +607,24 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectAutomationApi",
+        "service": "FeasibilityDataStoreJ16",
         "version": "1c830b77c31f",
         "username": "gandriys",
         "comment": "Merge pull request #657 from dynata/DN-4172-update-gateway-cloudformation-for-conditions-2",
         "ticket": "",
-        "deployedAt": "20261006T155341+0000",
+        "deployedAt": "20261007T131938+0000",
         "files": [],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectAutomationApi",
+        "service": "FeasibilityDataStoreJ16",
         "version": "5e32221fd40b",
         "username": "andrii.gorbatiuk",
         "comment": "[DN-4172] Point quota group conditions at the NexusApiUI route",
         "ticket": "",
-        "deployedAt": "20261006T155341+0000",
+        "deployedAt": "20261007T131938+0000",
         "files": [
           "test_route_coverage.py",
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectAutomationApi",
-        "version": "3b9bb46cad6a",
-        "username": "szabolcs.fekete",
-        "comment": "[AE] use readonly root filesystem part 8 (legacy-sfc)",
-        "ticket": "",
-        "deployedAt": "20261006T155341+0000",
-        "files": [
-          "cloud-formation.template.yml",
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
@@ -673,7 +637,7 @@
     "currentCount": 97,
     "examples": [
       "GET /u1/bos/salesOrders/extended :: Response status 500 not defined for path '/u1/bos/salesOrders/extended'.",
-      "POST /u1/nexus/quotaGroups :: Response status 500 not defined for path '/u1/nexus/quotaGroups'."
+      "GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'."
     ]
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."
