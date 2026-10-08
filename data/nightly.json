@@ -1666,42 +1666,24 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "6 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "No new failures \u2014 6 continuing QA backend 500s (BOS project-accept, QuotaGroup save-dates).",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 4 service(s) were deployed to QA in this window (FeasibilityDataStoreJ16, ProjectAutomationApi, DemandApi, UnusedSqsCleaner) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "Failures: 3\u00d7 other (no dominant signature yet); 1\u00d7 NOT_FOUND / missing data.",
+    "cause": "mixed",
+    "causeText": "All 6 are continuing (zero new) QA backend HTTP 500s on BOS project-accept and QuotaGroup save-dates plus a PartnerEvent assertion mismatch; none are timeouts/502/504 and no service deployed this window touches these endpoints, so no commit or author is blamed.",
+    "investigation": "No new failures \u2014 6 carried over, dominated by backend 500s on BOS accept and QuotaGroup save-dates with no matching QA deploy.",
     "bullets": [
-      "3\u00d7 other \u2014 java.lang.RuntimeException:Project accept failed [sourceProjectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94b",
-      "1\u00d7 NOT_FOUND / missing data \u2014 (no error message)",
-      "1\u00d7 API ValidationException \u2014 jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate "
+      "3\u00d7 BOS sample creation \u2014 HTTP 500 on /u1/nexus/projects/{id}/accept & /u1/bos/salesOrders/extended (DkmsError 500)",
+      "2\u00d7 QuotaGroup save-dates expected 400 but got 500; 1\u00d7 PartnerEvent expected validation message, got 404"
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 6 continuing from prior runs. Failure types (new-first): (1) 3\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 NOT_FOUND / missing data \u2014 missing DB row / EmptyResult / NOT_FOUND. (3) 1\u00d7 API ValidationException \u2014 API rejected the request (business validation). (4) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: BOS (3), QuotaGroup (2), PartnerEvent (1). 4 service(s) (31 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: BOS: sample creation - simple [other]; BOS: sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT [other]; BOS: sample creation - sales-order linkage stays resolvable across ORDER and accepted PROJECT [other]; PartnerEvent: Create partner event with invalid field values: com.dynata.rest.gateway.nexusapi.rest.test [NOT_FOUND / missing data].",
+      "investigation": "All 6 failures are continuing (newFailure=false, newFailed=0): 3\u00d7 BOS sample-creation hit HTTP 500 INTERNAL_SERVER_ERROR on /u1/nexus/projects/{id}/accept and /u1/bos/salesOrders/extended (downstream DkmsError 500), while 2\u00d7 QuotaGroup save-dates Spock assertions expected rejectionStatus==400 but got 500 and 1\u00d7 PartnerEvent expected a validation message but the endpoint returned 404. None are QA timeouts/502/504, and no service deployed in this window (FeasibilityDataStoreJ16, ProjectAutomationApi, DemandApi, UnusedSqsCleaner) touches these endpoints, so no commit or author is blamed.",
       "bullets": [
-        "3\u00d7 other \u2014 java.lang.RuntimeException:Project accept failed [sourceProjectId=<id>] [salesOrderGuid=abad79b4-4a6d-ef11-94b",
-        "1\u00d7 NOT_FOUND / missing data \u2014 (no error message)",
-        "1\u00d7 API ValidationException \u2014 jakarta.validation.ValidationException:The fieldworkHours must be align with the start and endDate. StartDate ",
-        "[QA deploy: FeasibilityDataStoreJ16] NXS-13889 (25 commits) \u2014 [NXS-13889] - fix tests",
-        "[QA deploy: ProjectAutomationApi]  (2 commits) \u2014 [PAC-743] Cobalt - ProjectAutomationApi - start create process programmatic endp",
-        "[QA deploy: DemandApi]  (2 commits) \u2014 [PAC-749] Cobalt - DemandApi - use ProjectAutomationApi create programmatic proj",
-        "[QA deploy: UnusedSqsCleaner]  (2 commits) \u2014 [ST-4984] (SubjectLibraryRest) Prepare for PROD deploy"
+        "3\u00d7 BOS sample creation \u2014 500 INTERNAL_SERVER_ERROR on /u1/nexus/projects/{id}/accept and /u1/bos/salesOrders/extended (DkmsError callChain HTTP 500)",
+        "2\u00d7 QuotaGroup save-dates \u2014 Spock expected rejectionStatus==400 but backend returned 500 (incl. 'IllegalArgumentException: Body parameter 1 was null')",
+        "1\u00d7 PartnerEvent invalid-field validation \u2014 expected 'Required/negative/not found' message but endpoint returned 404"
       ],
-      "newFailureAreas": [
-        {
-          "area": "BOS",
-          "newCount": 3
-        },
-        {
-          "area": "QuotaGroup",
-          "newCount": 2
-        },
-        {
-          "area": "PartnerEvent",
-          "newCount": 1
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1892,8 +1874,8 @@
         "deployedAt": "20261007T081456+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-10-08T01:58Z",
+    "source": "llm",
+    "generatedAt": "2026-10-08T01:58:00Z",
     "buildNumber": "3.0.2722",
     "buildId": "9606062",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9606062",
