@@ -1842,23 +1842,27 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "failed"
   },
   "nutshell": {
-    "headline": "16 new failures \u2014 mainly Survey",
+    "headline": "16 new Survey failures — all HTTP 500 from the allocation-engine url-service (/v1/urlPatterns/test/resolve) during survey test-link generation.",
     "tone": "bad",
     "severity": "high",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 4 service(s) were deployed to QA in this window (DemandApi, NexusApiBosJ21, ProjectAutomationApi, CommunicationRestJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 16\u00d7 other (no dominant signature yet). Vs prior #3.0.2723: up 16 total fails.",
+    "cause": "code_change",
+    "causeText": "All 16 new failures share one signature: a deterministic HTTP 500 from the allocation-engine url-service (POST /v1/urlPatterns/test/resolve), surfaced through dk-project-survey-rest and the NexusApi /u1/nexus/surveys/{}/tests endpoint — a backend regression, not a QA timeout/502/504 flake. The broken code is a backend/product service (url-service), not this test module or its data. None of the 45 QA-deployed commits in this window touch url-service, so the regression cannot be pinned to a specific commit or developer and no blame is assigned.",
+    "investigation": "Every new Survey failure resolves to the same downstream call — url-service POST /v1/urlPatterns/test/resolve returning 500 — so all survey test-link operations fail identically. The coarse 'other' cluster hides a single allocation-engine url-service regression.",
     "bullets": [
-      "16\u00d7 other \u2014 (no error message)"
+      "16× new Survey fails, one signature: HTTP 500 from url-service /v1/urlPatterns/test/resolve",
+      "Deterministic 500 (not timeout/502/504) → backend regression, not a QA flake",
+      "No QA-deploy commit touches url-service → unattributed; url-service is the broken component"
     ],
     "detail": {
-      "investigation": "16 of 22 unmuted failures are new since the prior build (#3.0.2723, 6 fails). Failure types (new-first): (1) 16\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Survey (16). 4 service(s) (45 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Survey: End-link testing: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyEndLinkSe [other]; Survey: Generate test links with different configurations: com.dynata.rest.gateway.nexusapi.rest.t [other]; Survey: Generate test links with different configurations: com.dynata.rest.gateway.nexusapi.rest.t [other]; Survey: Generate test links with different configurations: com.dynata.rest.gateway.nexusapi.rest.t [other].",
+      "investigation": "All 16 new failures (16 of 22 unmuted; prior build #3.0.2723 had 6 fails, 0 new) are in Survey and resolve to one root cause: the NexusApi /u1/nexus/surveys/{}/tests endpoint returns 500 because dk-project-survey-rest's downstream call POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve returns HTTP 500. The failure is deterministic and identical across surveys 3255145–3255184 — not a SocketTimeout/502/504 — so this is a backend regression in the allocation-engine url-service, not QA network flakiness, and not caused by this TA test module. The affected tests are SurveyEndLinkSecurityTestSteps, SurveyUrlPoolTestSteps and SurveyE2ETestSteps, all of which exercise survey test-link generation. 4 services (45 commits) were deployed to QA in this window, but none touch url-service; the only allocation-engine (AE) changes are cloud-formation template edits on other components (AE-7988 DLQ redrive; AE readonly-root-filesystem on legacy-sfc/ssi-verify/survey-flow-controller), which do not map to url-service, so no commit or developer is blamed. The remaining 6 non-new failures (BOS sample-creation 500s, PartnerEvent/QuotaGroup validation/assert) are carried over from prior and are not the focus.",
       "bullets": [
-        "16\u00d7 other \u2014 (no error message)",
-        "[QA deploy: DemandApi]  (4 commits) \u2014 [PAC-855] DemandApi - addhocFeasibilityCalc issues (#5472) - fix missing conditi",
-        "[QA deploy: NexusApiBosJ21]  (25 commits) \u2014 [PAC-877] Cobalt - NexusApiBos - assemble OnlineSamples from quotaGroup/feasibil",
-        "[QA deploy: ProjectAutomationApi]  (1 commit) \u2014 [PAC-743] Cobalt - ProjectAutomationApi - start create process programmatic endp",
-        "[QA deploy: CommunicationRestJ21] NXS-13875 (15 commits) \u2014 [NXS-13875] EOS - MS - New CommunicationRest endpoints (#5436)"
+        "All 16 new fails are Survey, one root cause: url-service POST /v1/urlPatterns/test/resolve → HTTP 500, propagated via dk-project-survey-rest → NexusApi /u1/nexus/surveys/{}/tests",
+        "Deterministic 500 across surveys 3255145–3255184 (not timeout/SocketTimeout/502/504) → backend regression, not QA network flakiness",
+        "Affected tests: SurveyEndLinkSecurityTestSteps, SurveyUrlPoolTestSteps, SurveyE2ETestSteps — all exercise survey test-link generation",
+        "Prior #3.0.2723: 6 fails / 0 new; this build: 22 fails / 16 new — the +16 are entirely this Survey/url-service signature",
+        "No QA-deploy commit touches url-service; AE cloud-formation changes (AE-7988 DLQ redrive, AE readonly-root-filesystem) touch other AE components → no file maps to the failing area, no developer blamed",
+        "6 pre-existing (non-new) fails — BOS sample-creation 500s, PartnerEvent/QuotaGroup validation/assert — unchanged from prior, not the focus",
+        "Contract drift (separate lane): POST /u1/nexus/surveys/{}/tests now returns 500 (undefined in OpenAPI contract), matching the url-service regression; GET /u1/bos/salesOrders/extended 500 aligns with the pre-existing BOS fails"
       ],
       "newFailureAreas": [
         {
@@ -2061,8 +2065,8 @@
         "deployedAt": "20261009T132041+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-10-10T02:03Z",
+    "source": "llm",
+    "generatedAt": "2026-10-10T02:03:00Z",
     "buildNumber": "3.0.2724",
     "buildId": "9608929",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9608929",
