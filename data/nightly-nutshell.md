@@ -1,7 +1,10 @@
-**No new failures — 6 continuing QA backend 500s (BOS project-accept, QuotaGroup save-dates).**
+**16 new failures — mainly Survey**
 
-_Likely cause: continuing QA backend HTTP 500s on BOS accept & QuotaGroup save-dates — not infra timeouts/502/504 and not traced to any service deployed this window._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- 3× BOS sample creation — 500 on project-accept / salesOrders (DkmsError); 2× QuotaGroup save-dates returned 500 where 400 expected
+- 16× other — (no error message)
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9606062)
+⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
+- GET /u1/bos/salesOrders/extended :: Response status 500 not defined for path '/u1/bos/salesOrders/extended'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9608929)
