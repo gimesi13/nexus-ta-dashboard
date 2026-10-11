@@ -1,8 +1,10 @@
-**16 new Survey failures — all HTTP 500 from the allocation-engine url-service (/v1/urlPatterns/test/resolve) during survey test-link generation.**
+**11 new failures — mainly Fieldwork**
 
-_Likely cause: backend regression in the allocation-engine url-service (POST /v1/urlPatterns/test/resolve returns 500) — not a QA timeout/502/504 flake; no QA-deploy commit touches url-service, so no developer is blamed._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- 16 new Survey fails share one signature: url-service → HTTP 500 via dk-project-survey-rest → NexusApi /u1/nexus/surveys/{}/tests
-- Deterministic 500 (not timeout/502/504) → backend regression, not this test module
+- 11× other — Update failed. softLaunchStartDate must not be in the past. [value=Fri Oct 31 20:00:00 EDT 2025]
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9608929)
+⚠️ Contract drift: 3 new response-schema violation(s) vs baseline.
+- GET /u1/bos/salesOrders/extended :: Response status 500 not defined for path '/u1/bos/salesOrders/extended'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9609001)
