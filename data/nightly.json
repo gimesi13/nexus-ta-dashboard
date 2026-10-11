@@ -1963,21 +1963,28 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "failed"
   },
   "nutshell": {
-    "headline": "11 new failures \u2014 mainly Fieldwork",
+    "headline": "11 new Fieldwork soft-launch failures \u2014 newly deployed date validation is rejecting the tests' stale 2025 dates.",
     "tone": "bad",
     "severity": "high",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 2 service(s) were deployed to QA in this window (QuotaGroupDefinitionRestJ21, NexusApiJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 11\u00d7 other (no dominant signature yet). Vs prior #3.0.2724: up 11 total fails.",
+    "cause": "mixed",
+    "causeText": "All 11 new failures are Fieldwork soft-launch tests getting HTTP 400 'softLaunchStartDate must not be in the past' at /softLaunch/softLaunchDatesWithInterval, with rejected values all in 2025 (now in the past vs this Oct 2026 run). NXS-11709 'MS - Soft launch APIs don't validate input parameters' (david.nagy, NexusApiJ21) was deployed in this window and touches UQuotaGroupSoftLaunchImpl.java \u2014 the exact endpoint now returning 400 \u2014 so the validation is working as intended and is surfacing hardcoded past dates in the tests. Mixed: real code change plus stale test data; fix is to bump the Fieldwork soft-launch test dates to the future (or confirm the new rule).",
+    "investigation": "All 11 new fails are Fieldwork soft-launch tests hitting 400 'softLaunchStartDate must not be in the past' with 2025 (past) dates \u2014 an assertion/validation rejection, not infra. New validation from NXS-11709 (david.nagy, NexusApiJ21, UQuotaGroupSoftLaunchImpl.java) is rejecting the tests' stale dates.",
     "bullets": [
-      "11\u00d7 other \u2014 Update failed. softLaunchStartDate must not be in the past. [value=Fri Oct 31 20:00:00 EDT 2025]"
+      "11\u00d7 Fieldwork soft-launch: 400 'softLaunchStartDate must not be in the past' at /softLaunch/softLaunchDatesWithInterval (dates in 2025)",
+      "NXS-11709 (david.nagy, NexusApiJ21) added soft-launch input validation \u2014 UQuotaGroupSoftLaunchImpl.java maps to the failing endpoint",
+      "Contract drift (separate lane, 3 new): 500s on /salesOrders/extended, /urlPools/{}, /surveys/{}/tests"
     ],
     "detail": {
-      "investigation": "11 of 33 unmuted failures are new since the prior build (#3.0.2724, 22 fails). Failure types (new-first): (1) 11\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Fieldwork (11). 2 service(s) (33 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Fieldwork: Complete fieldwork workflow: URL pool, partners, delivery, soft launch, and tally mode: co [other]; Fieldwork: Configure soft launch using individual endpoint updates: com.dynata.rest.gateway.nexusapi. [other]; Fieldwork: Verify soft launch dates with intervals control quota release schedule: com.dynata.rest.ga [other]; Fieldwork: Verify exclusion list persists when updating other soft launch settings: com.dynata.rest.g [other].",
+      "investigation": "All 11 new failures are in Fieldwork and share one signature: HTTP 400 BAD_REQUEST 'Update failed. softLaunchStartDate must not be in the past.' at POST /NexusApi/u1/nexus/quotaGroups/{id}/softLaunch/softLaunchDatesWithInterval, spread across FieldworkSoftLaunchTestSteps, FieldworkWorkflowTestSteps and FieldworkEndToEndPartnerTestSteps. The rejected values are all 2025 dates (Oct 09/14/31, Nov 30 2025), i.e. in the past relative to this Oct 11 2026 run \u2014 this is a business-validation rejection, not infra; there are no timeouts/502/504/SocketTimeout in the new set. NXS-11709 'MS - Soft launch APIs don't validate input parameters' (david.nagy) was deployed to NexusApiJ21 in this window and touches gateway/unifiedApi/NexusApi/.../UQuotaGroupSoftLaunchImpl.java, the soft-launch endpoint now returning 400; the ticket's explicit purpose was to add input validation, so the new rejection is expected product behaviour that exposes hardcoded past dates in the Fieldwork tests. Notably one of his commits already fixed dates in the acceptance test (UQuotaGroupSoftLaunchApiAcceptanceTest.groovy), but the Fieldwork regression steps still send stale dates. Net: mixed \u2014 a real code change plus stale test data; remediation is to bump the test soft-launch dates into the future (or confirm the validation rule is correct). Separately, in the contract-drift lane (not these failures): 3 new OpenAPI drifts \u2014 500s on /u1/bos/salesOrders/extended, /u1/nexus/urlPools/{}, /u1/nexus/surveys/{}/tests \u2014 which line up with the older, non-new BOS/Survey 500s and should be tracked independently.",
       "bullets": [
-        "11\u00d7 other \u2014 Update failed. softLaunchStartDate must not be in the past. [value=Fri Oct 31 20:00:00 EDT 2025]",
-        "[QA deploy: QuotaGroupDefinitionRestJ21] NXS-13908 (25 commits) \u2014 [NXS-13908] EOS - MS - Send product/topics to PES1 (#5457)",
-        "[QA deploy: NexusApiJ21] NXS-11709 (8 commits) \u2014 [NXS-11709] MS - Soft launch APIs don't validate input parameters - acc test dat"
+        "11\u00d7 Fieldwork \u2014 400 'softLaunchStartDate must not be in the past' at /softLaunch/softLaunchDatesWithInterval; rejected values are 2025 dates (now past)",
+        "Spread across FieldworkSoftLaunchTestSteps, FieldworkWorkflowTestSteps, FieldworkEndToEndPartnerTestSteps",
+        "Likely cause: NXS-11709 (david.nagy, NexusApiJ21) added soft-launch input validation \u2014 UQuotaGroupSoftLaunchImpl.java maps to the failing endpoint",
+        "Validation is the ticket's intended behaviour; the failures are stale hardcoded 2025 test dates \u2192 mixed (code change + test data)",
+        "No infra signatures (no timeouts/502/504) in the new set \u2014 not a QA outage",
+        "Fix: bump Fieldwork soft-launch test dates to the future (david.nagy already fixed the acceptance-test dates)",
+        "Pre-existing (not new): BOS accept 500s and Survey /tests 500s (url-service allocation-engine) carried over from prior build",
+        "Contract drift (separate lane, 3 new): 500s on /salesOrders/extended, /urlPools/{}, /surveys/{}/tests"
       ],
       "newFailureAreas": [
         {
@@ -1985,7 +1992,22 @@
           "newCount": 11
         }
       ],
-      "likelyCauses": []
+      "likelyCauses": [
+        {
+          "ticket": "NXS-11709",
+          "version": "2783bbc142f3",
+          "username": "david.nagy",
+          "areas": [
+            "Fieldwork"
+          ],
+          "hitNewFailures": 11,
+          "files": [
+            "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/quotagroupid/UQuotaGroupSoftLaunchImpl.java",
+            "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/nexus/quotaGroups/UQuotaGroupSoftLaunchApiAcceptanceTest.groovy"
+          ],
+          "comment": "[NXS-11709] MS - Soft launch APIs don't validate input parameters \u2014 added soft-launch input validation that now rejects the tests' past dates (intended behaviour; test data is stale)"
+        }
+      ]
     },
     "clusters": [
       {
@@ -2169,7 +2191,7 @@
         "deployedAt": "20261010T201134+0000"
       }
     ],
-    "source": "investigator",
+    "source": "llm",
     "generatedAt": "2026-10-11T02:03Z",
     "buildNumber": "3.0.2725",
     "buildId": "9609001",
