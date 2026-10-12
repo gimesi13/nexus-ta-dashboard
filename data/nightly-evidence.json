@@ -1,435 +1,54 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-11T02:03Z",
+  "generatedAt": "2026-10-12T02:04Z",
   "build": {
-    "number": "3.0.2725",
-    "buildId": "9609001",
+    "number": "3.0.2726",
+    "buildId": "9609977",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9609001",
-    "durationSec": 1712.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9609977",
+    "durationSec": 1843.0
   },
   "summary": {
     "tests": 1515,
-    "passed": 1415,
-    "failures": 33,
+    "passed": 1414,
+    "failures": 34,
     "errors": 0,
     "skipped": 0,
     "muted": 67,
-    "newFailed": 11,
+    "newFailed": 1,
     "passRate": 97.7,
-    "timeSec": 1712.0
+    "timeSec": 1843.0
   },
   "prior": {
-    "buildId": "9608929",
-    "number": "3.0.2724",
+    "buildId": "9609001",
+    "number": "3.0.2725",
     "status": "FAILURE",
-    "statusText": "Tests failed: 22 (16 new), passed: 1413, muted: 80",
-    "startDate": "20261010T013233+0000",
-    "durationSec": 1832.0,
-    "failed": 22,
-    "passed": 1413,
-    "newFailed": 16
+    "statusText": "Tests failed: 33 (11 new), passed: 1415, muted: 67",
+    "startDate": "20261011T013247+0000",
+    "durationSec": 1712.0,
+    "failed": 33,
+    "passed": 1415,
+    "newFailed": 11
   },
   "changes": [],
-  "qaDeployChanges": [
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "a8f52fd118f0",
-      "username": "david.nagy",
-      "comment": "[NXS-13908] EOS - MS - Send product/topics to PES1 (#5457)",
-      "files": [
-        "project/QuotaGroupDefinitionRest/build.gradle",
-        "project/QuotaGroupDefinitionRest/src/main/java/com/surveysampling/rest/quotagroupdefinition/api/v1/dependencies/communications/CommunicationsRestFeignClient.java",
-        "project/QuotaGroupDefinitionRest/src/main/java/com/surveysampling/rest/quotagroupdefinition/api/v1/dependencies/communications/model/CommunicationTopic.java",
-        "project/QuotaGroupDefinitionRest/src/main/java/com/surveysampling/rest/quotagroupdefinition/api/v1/dependencies/communications/model/Topic.java",
-        "project/QuotaGroupDefinitionRest/src/main/java/com/surveysampling/rest/quotagroupdefinition/api/v1/impl/assembler/project/ProjectAttributeChangeWrapper.java",
-        "project/QuotaGroupDefinitionRest/src/main/java/com/surveysampling/rest/quotagroupdefinition/api/v1/impl/assembler/project/sections/ProjectAttributesHandler.java",
-        "project/QuotaGroupDefinitionRest/src/main/java/com/surveysampling/rest/quotagroupdefinition/api/v1/impl/assembler/project/sections/ProjectAttributesLoader.java",
-        "project/QuotaGroupDefinitionRest/src/main/java/com/surveysampling/rest/quotagroupdefinition/api/v1/model/project/CrmFields.java",
-        "project/QuotaGroupDefinitionRest/src/main/java/com/surveysampling/rest/quotagroupdefinition/api/v1/model/project/ProjectAttributes.java",
-        "project/QuotaGroupDefinitionRest/src/test/groovy/com/surveysampling/rest/quotagroupdefinition/api/v1/impl/assembler/project/ProjectAttributesLoaderTest.groovy",
-        "project/QuotaGroupDefinitionRest/src/test/groovy/com/surveysampling/rest/quotagroupdefinition/api/v1/impl/prdifftests/ProjectDefinitionDiffHandlerNew.groovy"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "cead45b867a9",
-      "username": "erik.paulsen",
-      "comment": "Revert. Error was Role arn:aws:iam::256094742173:role/DeploymentAutomation is invalid or cannot be assumed. I could not\u2026",
-      "files": [
-        "feasibility-open-telemetry-vpc-endpoint/group_vars/all.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "a1f54386683e",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7780] [DKJS] New AE-DPR - dkjs-automated-sourcing-jobs - S3 config",
-      "files": [
-        "dkjs-automated-sourcing-jobs/cloud-formation.template.yml",
-        "dkjs-automated-sourcing-jobs/group_vars/all.yml",
-        "dkjs-automated-sourcing-jobs/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "1148e2c73005",
-      "username": "erik.paulsen",
-      "comment": "Specify CF role as correct new role, instead of blank. Tibor already tried this, but I want to see the error message.",
-      "files": [
-        "feasibility-open-telemetry-vpc-endpoint/group_vars/all.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "817981a950a0",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14042 ] use latest messaging FW",
-      "files": [
-        "project/QuotaGroupDefinitionRest/build.gradle",
-        "project/QuotaGroupDefinitionRest/mongo_scripts/commands/maintanence/resend_query.txt",
-        "project/QuotaGroupDefinitionRest/mongo_scripts/commands/maintanence/resend_qutagroups.js"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "28c14e2e537f",
-      "username": "zoltan.redai",
-      "comment": "[AE-7988] Add automatic DLQ redrive",
-      "files": [
-        "ae-pes-aggregator/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "9539f70a4e88",
-      "username": "weiqun.wang",
-      "comment": "switch dev to g4dn for testing",
-      "files": [
-        "ml-reconciliation-model/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "9edf9e45fd86",
-      "username": "szabolcs.fekete",
-      "comment": "[AE] adding back accidentally removed lines",
-      "files": [
-        "ae-legacy-sfc-experimental/cloud-formation.template.yml",
-        "ae-legacy-ssi-verify/cloud-formation.template.yml",
-        "ae-legacy-survey-flow-controller/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "67dfedf5b199",
-      "username": "szabolcs.fekete",
-      "comment": "[AE] use readonly root filesystem part 9 (legacy-sfc)",
-      "files": [
-        "ae-legacy-sfc-experimental/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "4e31d1d414da",
-      "username": "gandriys",
-      "comment": "Merge pull request #658 from dynata/DN-4172-update-gateway-cloudformation-for-conditions-pipeline-fix",
-      "files": [],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "ea63f1971dfc",
-      "username": "andrii.gorbatiuk",
-      "comment": "[DN-4172] Use audienceId for the quota group conditions route",
-      "files": [
-        "project-backend-plus-api-gateway/authorizer/tests/test_route_coverage.py",
-        "project-backend-plus-api-gateway/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "1c830b77c31f",
-      "username": "gandriys",
-      "comment": "Merge pull request #657 from dynata/DN-4172-update-gateway-cloudformation-for-conditions-2",
-      "files": [],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "5e32221fd40b",
-      "username": "andrii.gorbatiuk",
-      "comment": "[DN-4172] Point quota group conditions at the NexusApiUI route",
-      "files": [
-        "project-backend-plus-api-gateway/authorizer/tests/test_route_coverage.py",
-        "project-backend-plus-api-gateway/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "3b9bb46cad6a",
-      "username": "szabolcs.fekete",
-      "comment": "[AE] use readonly root filesystem part 8 (legacy-sfc)",
-      "files": [
-        "ae-legacy-ssi-verify/cloud-formation.template.yml",
-        "ae-legacy-survey-flow-controller/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "369b2e0e967f",
-      "username": "gergo.hajnal",
-      "comment": "[ST-4986] (ClaimOptionRest) prepare for PROD deploy",
-      "files": [
-        "dk-management-claim-option-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "cc314c91a972",
-      "username": "andrii.gorbatiuk",
-      "comment": "[DN-4172] Expose GET quota group conditions on the Dynata Plus API gateway",
-      "files": [
-        "project-backend-plus-api-gateway/authorizer/tests/test_route_coverage.py",
-        "project-backend-plus-api-gateway/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "399902be173a",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13832 generate pacts from the Feign clients: no pact specs (447 deleted), pactCoverage removed; PactVerifyPlugin 4.\u2026",
-      "files": [
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/CategoryPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/CountersGWPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/CrmPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DKExportPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DKProjectPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DKSurveyPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DKSystemRestPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DKTrafficPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DashboardPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DedupePact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DkDashboardPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/EnumPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ExtendedAttributesPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/FeasibilityBatchPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/FeasibilityRestPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/FeaturePact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ProjectPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/QuotaDetailsPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/QuotaGroupDefinitionPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/QuotaGroupPact.groovy"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "0ffa8021667b",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13832 simplify contract testing: no specs for providers outside the repo (externalProviders removed), legacy PactCo\u2026",
-      "files": [
-        "gateway/dk/DKOrder/build.gradle",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/IBosApiClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/IKeyCloakClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ISamplifyClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ISamplifyCloserClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ISamplifySwitchCompanyClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/PactCoverageTest.groovy",
-        "gateway/dk/DKProjectCountersRest/build.gradle",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/ActualRecsFeignClientPact.groovy",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/PactCoverageTest.groovy",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/ParticipationStatusRestFeignClientPact.groovy",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/RecsHistoryFeignClientPact.groovy",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/RecsWeightedMedianApiFeignClientPact.groovy",
-        "gateway/unifiedApi/NexusApi/build.gradle",
-        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/AutomatedTrafficControlPactTests.groovy",
-        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/PanelBrandRestFeignClientPact.groovy",
-        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/ParameterEquivalenciesServiceFeignClientPact.groovy",
-        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/pacts/STParameterServiceFeignClientPact.groovy",
-        "gateway/unifiedApi/NexusApiBos/build.gradle",
-        "gateway/unifiedApi/NexusApiBos/src/integTest/groovy/com/dynata/rest/gateway/nexusapibos/dependencies/bos/pacts/BosFeignClientPact.groovy"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "b71014e1b06b",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13832 pactCoverage guard (PactVerifyPlugin 4.0.11) and a pact spec for every Feign client J21 services use; SpringP\u2026",
-      "files": [
-        "gateway/dk/DKOrder/build.gradle",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/IBosApiClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/IKeyCloakClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ISamplifyClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ISamplifyCloserClientPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ISamplifySwitchCompanyClientPact.groovy",
-        "gateway/dk/DKProjectCountersRest/build.gradle",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/ActualRecsFeignClientPact.groovy",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/NexusApiFeignClientPact.groovy",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/ParticipationStatusRestFeignClientPact.groovy",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/RecsHistoryFeignClientPact.groovy",
-        "gateway/dk/DKProjectCountersRest/src/integTest/groovy/com/surveysampling/rest/projectcounters/pacts/RecsWeightedMedianApiFeignClientPact.groovy",
-        "gateway/external/DynataExternalApiGW/src/integTest/groovy/com/surveysampling/rest/dynataexternalapigw/v1/pacts/IReconciliationFeignClientPact.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/categoryrest/pacts/CategoryRestFeignClientPact.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/clientrest/feignclient/pacts/ClientRestFeignClientPact.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/crmrest/pacts/CrmRestFeignClientPact.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/deduperest/pacts/DedupeRestFeignClientPact.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/dkorder/pacts/DKOrderFeignClientPact.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/dkproject/pacts/DKProjectRestFeignClientPact.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/dependency/dkprojectcountersrest/pacts/DKProjectCountersRestFeignClientPact.groovy"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "564885446781",
-      "username": "gergo.hajnal",
-      "comment": "[ST-4999] (FeatureValueRest) Prepare for PROD deploy",
-      "files": [
-        "dk-respondent-feature-value-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "7cfbb1317516",
-      "username": "gergo.hajnal",
-      "comment": "[ST-4985] (ExternalProviderRest) Prepare for PROD deploy",
-      "files": [
-        "dk-management-external-provider-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "4afa912f2d9f",
-      "username": "gergo.hajnal",
-      "comment": "[ST-5019] (st-cloud-config) Prepare for PROD deploy",
-      "files": [
-        "st-cloud-config/group_vars/prod.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "bc96fa7add43",
-      "username": "gergo.hajnal",
-      "comment": "[ST-5005] (DKContentRest) Prepare for PROD deploy",
-      "files": [
-        "dk-dk-content-rest/group_vars/production.yml",
-        "dk-dk-content-rest/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "2336d2a7e41b",
-      "username": "gergo.hajnal",
-      "comment": "[ST-5002] (DKFeatureValueRest) prepare for PROD deploy",
-      "files": [
-        "dk-dk-feature-value-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "49e6559bbfea",
-      "username": "gergo.hajnal",
-      "comment": "[ST-4997] (DKNovaTranslatorRest) prepare for PROD deploy",
-      "files": [
-        "dk-dk-nova-translator-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "92b5cce22670",
-      "username": "david.nagy",
-      "comment": "[NXS-11709] MS - Soft launch APIs don't validate input parameters - acc test dates fix",
-      "files": [
-        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/nexus/quotaGroups/UQuotaGroupSoftLaunchApiAcceptanceTest.groovy"
-      ],
-      "deployedAt": "20261010T201134+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "2783bbc142f3",
-      "username": "david.nagy",
-      "comment": "[NXS-11709] MS - Soft launch APIs don't validate input parameters",
-      "files": [
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/quotagroupid/UQuotaGroupSoftLaunchImpl.java"
-      ],
-      "deployedAt": "20261010T201134+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "90ae5350bb6d",
-      "username": "david.nagy",
-      "comment": "[NXS-11709] MS - Soft launch APIs don't validate input parameters",
-      "files": [
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/quotagroupid/UQuotaGroupSoftLaunchImpl.java"
-      ],
-      "deployedAt": "20261010T201134+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "f549431a7d8c",
-      "username": "david.nagy",
-      "comment": "[NXS-11709] MS - Soft launch APIs don't validate input parameters",
-      "files": [
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/quotagroupid/UQuotaGroupSoftLaunchImpl.java",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/quotaGroupId/UQuotaGroupSoftLaunchImplTest.groovy"
-      ],
-      "deployedAt": "20261010T201134+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "0a3df1507d8a",
-      "username": "105725861+gimesi13",
-      "comment": "Merge pull request #5476 from dynata/NXS-13832-pact-coverage-guard",
-      "files": [],
-      "deployedAt": "20261010T201134+0000"
-    }
-  ],
-  "qaDeployServices": [
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "commits": 25,
-      "latestTicket": "NXS-13908",
-      "latestComment": "[NXS-13908] EOS - MS - Send product/topics to PES1 (#5457)",
-      "deployedAt": "20261010T211115+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "commits": 8,
-      "latestTicket": "NXS-11709",
-      "latestComment": "[NXS-11709] MS - Soft launch APIs don't validate input parameters - acc test dat",
-      "deployedAt": "20261010T201134+0000"
-    }
-  ],
+  "qaDeployChanges": [],
+  "qaDeployServices": [],
   "clusters": [
     {
       "label": "other",
       "display": "other",
       "count": 30,
-      "newCount": 11,
-      "sample": "Update failed. softLaunchStartDate must not be in the past. [value=Fri Oct 31 20:00:00 EDT 2025]",
+      "newCount": 1,
+      "sample": "java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=tr",
       "why": "no dominant signature yet \u2014 open TeamCity details"
+    },
+    {
+      "label": "infra_504",
+      "display": "QA 504 timeout",
+      "count": 1,
+      "newCount": 0,
+      "sample": "",
+      "why": "QA gateway timed out (504) \u2014 infra / overloaded dependency"
     },
     {
       "label": "product_data_not_found",
@@ -458,13 +77,22 @@
   ],
   "failures": [
     {
+      "name": "Undelete audience group with valid undelete: com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupCRUDLifecycleTestSteps.Undelete audience group with valid undelete",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupCRUDLifecycleTestSteps",
+      "newFailure": true,
+      "area": "AudienceGroup",
+      "cluster": "other",
+      "message": "java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=true after 15 s \u2014 read-after-write convergence did \u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=1637962 but GET still reports isDeleted=true after 15 s \u2014 read-after-write convergence did not complete. at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.AudienceGroupHelper.undeleteAudienceGroup(AudienceGroupHelper.groovy:98) at com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGr\u2026"
+    },
+    {
       "name": "sample creation - simple",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.BOS.BosSampleCreationTestSteps",
       "newFailure": false,
       "area": "BOS",
       "cluster": "other",
-      "message": "java.lang.RuntimeException:Project accept failed [sourceProjectId=2278811] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[H\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2278811/accept?projectManagerId=7404&projectAssociateId=7404 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.RuntimeException:Project accept failed [sourceProjectId=2278811] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[HTTP 500 GET https:/\u2026"
+      "message": "java.lang.RuntimeException:Project accept failed [sourceProjectId=2278928] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[H\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2278928/accept?projectManagerId=7404&projectAssociateId=7404 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.RuntimeException:Project accept failed [sourceProjectId=2278928] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[HTTP 500 GET https:/\u2026"
     },
     {
       "name": "sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT",
@@ -472,8 +100,8 @@
       "newFailure": false,
       "area": "BOS",
       "cluster": "other",
-      "message": "java.lang.RuntimeException:Project accept failed [sourceProjectId=2278813] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[H\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2278813/accept?projectManagerId=7404&projectAssociateId=7404 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.RuntimeException:Project accept failed [sourceProjectId=2278813] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[HTTP 500 GET https:/\u2026"
+      "message": "java.lang.RuntimeException:Project accept failed [sourceProjectId=2278930] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[H\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/2278930/accept?projectManagerId=7404&projectAssociateId=7404 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.RuntimeException:Project accept failed [sourceProjectId=2278930] [salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d] [error=DkmsError{ callChain=[HTTP 500 GET https:/\u2026"
     },
     {
       "name": "sample creation - sales-order linkage stays resolvable across ORDER and accepted PROJECT",
@@ -482,106 +110,106 @@
       "area": "BOS",
       "cluster": "other",
       "message": "java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException Caused by: java.lang.reflect.InvocationTargetException:java.lang.\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/bos/salesOrders/extended?salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d&projectId=2278815&draft=false 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException \\nCaused by: java.lang.reflect.InvocationTargetExcept\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/bos/salesOrders/extended?salesOrderGuid=abad79b4-4a6d-ef11-94bd-1253f55c3e9d&projectId=2278932&draft=false 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.reflect.UndeclaredThrowableException:java.lang.reflect.UndeclaredThrowableException \\nCaused by: java.lang.reflect.InvocationTargetExcept\u2026"
     },
     {
       "name": "Complete fieldwork workflow: URL pool, partners, delivery, soft launch, and tally mode: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkEndToEndPartnerTestSteps.Complete fieldwork workflow: URL pool, partners, delivery, soft launch, and tally mode",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkEndToEndPartnerTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Fieldwork",
-      "cluster": "other",
+      "cluster": "infra_504",
       "message": "Update failed. softLaunchStartDate must not be in the past. [value=Fri Oct 31 20:00:00 EDT 2025]",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118818647/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Fri Oct 31 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118819145/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Fri Oct 31 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
     },
     {
       "name": "Configure soft launch using individual endpoint updates: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowTestSteps.Configure soft launch using individual endpoint updates",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Fieldwork",
       "cluster": "other",
       "message": "Update failed. softLaunchStartDate must not be in the past. [value=Tue Oct 14 20:00:00 EDT 2025]",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118818645/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Tue Oct 14 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118819144/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Tue Oct 14 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
     },
     {
       "name": "Verify soft launch dates with intervals control quota release schedule: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowTestSteps.Verify soft launch dates with intervals control quota release schedule",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Fieldwork",
       "cluster": "other",
       "message": "Update failed. softLaunchStartDate must not be in the past. [value=Tue Oct 14 20:00:00 EDT 2025]",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118818645/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Tue Oct 14 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118819144/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Tue Oct 14 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
     },
     {
       "name": "Verify exclusion list persists when updating other soft launch settings: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowTestSteps.Verify exclusion list persists when updating other soft launch settings",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Fieldwork",
       "cluster": "other",
       "message": "Update failed. softLaunchStartDate must not be in the past. [value=Tue Oct 14 20:00:00 EDT 2025]",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118818645/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Tue Oct 14 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118819144/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Tue Oct 14 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
     },
     {
       "name": "Update soft launch dates multiple times and verify latest configuration: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowTestSteps.Update soft launch dates multiple times and verify latest configuration",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Fieldwork",
       "cluster": "other",
       "message": "Update failed. softLaunchStartDate must not be in the past. [value=Thu Oct 09 20:00:00 EDT 2025]",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118818645/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Thu Oct 09 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118819144/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Thu Oct 09 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
     },
     {
       "name": "Configure complete fieldwork with granular soft launch settings: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowTestSteps.Configure complete fieldwork with granular soft launch settings",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Fieldwork",
       "cluster": "other",
       "message": "Update failed. softLaunchStartDate must not be in the past. [value=Tue Oct 14 20:00:00 EDT 2025]",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118818645/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Tue Oct 14 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118819144/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Tue Oct 14 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
     },
     {
       "name": "Configure soft launch with start and end dates: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkSoftLaunchTestSteps.Configure soft launch with start and end dates",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkSoftLaunchTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Fieldwork",
       "cluster": "other",
       "message": "Update failed. softLaunchStartDate must not be in the past. [value=Thu Oct 09 20:00:00 EDT 2025]",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118818653/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Thu Oct 09 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118819151/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Thu Oct 09 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
     },
     {
       "name": "Configure soft launch with start and end dates: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkSoftLaunchTestSteps.Configure soft launch with start and end dates",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkSoftLaunchTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Fieldwork",
       "cluster": "other",
       "message": "Update failed. softLaunchStartDate must not be in the past. [value=Fri Oct 31 20:00:00 EDT 2025]",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118818653/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Fri Oct 31 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118819151/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Fri Oct 31 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
     },
     {
       "name": "Configure soft launch with start and end dates: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkSoftLaunchTestSteps.Configure soft launch with start and end dates",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkSoftLaunchTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Fieldwork",
       "cluster": "other",
       "message": "Update failed. softLaunchStartDate must not be in the past. [value=Sun Nov 30 19:00:00 EST 2025]",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118818653/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Sun Nov 30 19:00:00 EST 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118819151/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Sun Nov 30 19:00:00 EST 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
     },
     {
       "name": "Update soft launch dates without affecting other settings: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkSoftLaunchTestSteps.Update soft launch dates without affecting other settings",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkSoftLaunchTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Fieldwork",
       "cluster": "other",
       "message": "Update failed. softLaunchStartDate must not be in the past. [value=Tue Oct 14 20:00:00 EDT 2025]",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118818653/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Tue Oct 14 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118819151/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Tue Oct 14 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
     },
     {
       "name": "Update soft launch dates without affecting other settings: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkSoftLaunchTestSteps.Update soft launch dates without affecting other settings",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkSoftLaunchTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Fieldwork",
       "cluster": "other",
       "message": "Update failed. softLaunchStartDate must not be in the past. [value=Fri Oct 31 20:00:00 EDT 2025]",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118818653/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Fri Oct 31 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118819151/softLaunch/softLaunchDatesWithInterval 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Update failed. softLaunchStartDate must not be in the past. [value=Fri Oct 31 20:00:00 EDT 2025]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignEr\u2026"
     },
     {
       "name": "Create partner event with invalid field values: com.dynata.rest.gateway.nexusapi.rest.tests.steps.PartnerEvent.PartnerEventValidationTestSteps.Create partner event with invalid field values",
@@ -617,7 +245,7 @@
       "area": "Survey",
       "cluster": "other",
       "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255360/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255360/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255545/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255545/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
     },
     {
       "name": "Generate test links with different configurations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyEndLinkSecurityTestSteps.Generate test links with different configurations",
@@ -626,7 +254,7 @@
       "area": "Survey",
       "cluster": "other",
       "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255361/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255361/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255546/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255546/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
     },
     {
       "name": "Generate test links with different configurations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyEndLinkSecurityTestSteps.Generate test links with different configurations",
@@ -635,7 +263,7 @@
       "area": "Survey",
       "cluster": "other",
       "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255362/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255362/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255547/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255547/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
     },
     {
       "name": "Generate test links with different configurations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyEndLinkSecurityTestSteps.Generate test links with different configurations",
@@ -644,7 +272,7 @@
       "area": "Survey",
       "cluster": "other",
       "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255363/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255363/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255548/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255548/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
     },
     {
       "name": "Generate test links with different configurations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyEndLinkSecurityTestSteps.Generate test links with different configurations",
@@ -653,7 +281,7 @@
       "area": "Survey",
       "cluster": "other",
       "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255364/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255364/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255549/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255549/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
     },
     {
       "name": "Generate test links with different configurations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyEndLinkSecurityTestSteps.Generate test links with different configurations",
@@ -662,7 +290,7 @@
       "area": "Survey",
       "cluster": "other",
       "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255365/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255365/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255550/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255550/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
     },
     {
       "name": "Generate test links with different configurations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyEndLinkSecurityTestSteps.Generate test links with different configurations",
@@ -671,7 +299,7 @@
       "area": "Survey",
       "cluster": "other",
       "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255366/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255366/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255551/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255551/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
     },
     {
       "name": "Generate test links with different configurations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyEndLinkSecurityTestSteps.Generate test links with different configurations",
@@ -680,7 +308,7 @@
       "area": "Survey",
       "cluster": "other",
       "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255367/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255367/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255552/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255552/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
     },
     {
       "name": "Generate test links for survey",
@@ -689,7 +317,7 @@
       "area": "Survey",
       "cluster": "other",
       "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255368/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255368/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255553/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255553/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
     },
     {
       "name": "Get survey testing records",
@@ -698,7 +326,7 @@
       "area": "Survey",
       "cluster": "other",
       "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255389/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255389/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255602/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255602/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
     },
     {
       "name": "Export survey test results by URL pool IDs",
@@ -707,7 +335,7 @@
       "area": "Survey",
       "cluster": "other",
       "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255390/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255390/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255603/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255603/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
     },
     {
       "name": "Export survey URL pool values: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyUrlPoolTestSteps.Export survey URL pool values",
@@ -716,7 +344,7 @@
       "area": "Survey",
       "cluster": "other",
       "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255392/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255392/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255605/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255605/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
     },
     {
       "name": "Export survey URL pool values: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyUrlPoolTestSteps.Export survey URL pool values",
@@ -725,7 +353,7 @@
       "area": "Survey",
       "cluster": "other",
       "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255393/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255393/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255606/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255606/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
     },
     {
       "name": "Get list of test links",
@@ -734,7 +362,7 @@
       "area": "Survey",
       "cluster": "other",
       "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255394/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255394/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255607/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255607/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
     },
     {
       "name": "Get test links from S3",
@@ -743,7 +371,7 @@
       "area": "Survey",
       "cluster": "other",
       "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255395/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255395/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255608/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255608/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
     },
     {
       "name": "Survey E2E - fieldwork prep: create through activation, QG link, security and clone",
@@ -752,172 +380,39 @@
       "area": "Survey",
       "cluster": "other",
       "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255399/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255399/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/surveys/3255612/tests 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 POST http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/surveys/3255612/tests\", \"HTTP 500 POST https://url-service.allocation-engine-qa.dynata.com/v1/urlPatterns/test/resolve\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "11 new failures \u2014 mainly Fieldwork",
-    "tone": "bad",
-    "severity": "high",
+    "headline": "1 new failure in AudienceGroup",
+    "tone": "warn",
+    "severity": "low",
     "bullets": [
-      "11\u00d7 other \u2014 Update failed. softLaunchStartDate must not be in the past. [value=Fri Oct 31 20:00:00 EDT 2025]"
+      "1\u00d7 other \u2014 java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=tr"
     ],
-    "investigation": "New fails: 11\u00d7 other (no dominant signature yet). Vs prior #3.0.2724: up 11 total fails.",
+    "investigation": "New fails: 1\u00d7 other (no dominant signature yet). Vs prior #3.0.2725: up 1 total fails.",
     "detail": {
-      "investigation": "11 of 33 unmuted failures are new since the prior build (#3.0.2724, 22 fails). Failure types (new-first): (1) 11\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Fieldwork (11). 2 service(s) (33 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Fieldwork: Complete fieldwork workflow: URL pool, partners, delivery, soft launch, and tally mode: co [other]; Fieldwork: Configure soft launch using individual endpoint updates: com.dynata.rest.gateway.nexusapi. [other]; Fieldwork: Verify soft launch dates with intervals control quota release schedule: com.dynata.rest.ga [other]; Fieldwork: Verify exclusion list persists when updating other soft launch settings: com.dynata.rest.g [other].",
+      "investigation": "1 of 34 unmuted failures are new since the prior build (#3.0.2725, 33 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: AudienceGroup (1). Example new failures: AudienceGroup: Undelete audience group with valid undelete: com.dynata.rest.gateway.nexusapi.rest.tests.s [other].",
       "bullets": [
-        "11\u00d7 other \u2014 Update failed. softLaunchStartDate must not be in the past. [value=Fri Oct 31 20:00:00 EDT 2025]",
-        "[QA deploy: QuotaGroupDefinitionRestJ21] NXS-13908 (25 commits) \u2014 [NXS-13908] EOS - MS - Send product/topics to PES1 (#5457)",
-        "[QA deploy: NexusApiJ21] NXS-11709 (8 commits) \u2014 [NXS-11709] MS - Soft launch APIs don't validate input parameters - acc test dat"
+        "1\u00d7 other \u2014 java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=tr"
       ],
       "newFailureAreas": [
         {
-          "area": "Fieldwork",
-          "newCount": 11
+          "area": "AudienceGroup",
+          "newCount": 1
         }
       ],
       "likelyCauses": []
     },
     "suspectCommits": [],
-    "qaDeploySuspects": [
-      {
-        "service": "QuotaGroupDefinitionRestJ21",
-        "version": "a8f52fd118f0",
-        "username": "david.nagy",
-        "comment": "[NXS-13908] EOS - MS - Send product/topics to PES1 (#5457)",
-        "ticket": "NXS-13908",
-        "deployedAt": "20261010T211115+0000",
-        "files": [
-          "build.gradle",
-          "CommunicationsRestFeignClient.java",
-          "CommunicationTopic.java",
-          "Topic.java",
-          "ProjectAttributeChangeWrapper.java",
-          "ProjectAttributesHandler.java"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupDefinitionRestJ21",
-        "version": "cead45b867a9",
-        "username": "erik.paulsen",
-        "comment": "Revert.  Error was Role arn:aws:iam::256094742173:role/DeploymentAutomation is invalid or cannot be assumed.  I could not fix this with any obvious trust policy",
-        "ticket": "",
-        "deployedAt": "20261010T211115+0000",
-        "files": [
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupDefinitionRestJ21",
-        "version": "a1f54386683e",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7780] [DKJS] New AE-DPR - dkjs-automated-sourcing-jobs - S3 config",
-        "ticket": "",
-        "deployedAt": "20261010T211115+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupDefinitionRestJ21",
-        "version": "1148e2c73005",
-        "username": "erik.paulsen",
-        "comment": "Specify CF role as correct new role, instead of blank.  Tibor already tried this, but I want to see the error message.",
-        "ticket": "",
-        "deployedAt": "20261010T211115+0000",
-        "files": [
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupDefinitionRestJ21",
-        "version": "817981a950a0",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14042 ] use latest messaging FW",
-        "ticket": "NXS-14042",
-        "deployedAt": "20261010T211115+0000",
-        "files": [
-          "build.gradle",
-          "resend_query.txt",
-          "resend_qutagroups.js"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupDefinitionRestJ21",
-        "version": "28c14e2e537f",
-        "username": "zoltan.redai",
-        "comment": "[AE-7988] Add automatic DLQ redrive",
-        "ticket": "",
-        "deployedAt": "20261010T211115+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupDefinitionRestJ21",
-        "version": "9539f70a4e88",
-        "username": "weiqun.wang",
-        "comment": "switch dev to g4dn for testing",
-        "ticket": "",
-        "deployedAt": "20261010T211115+0000",
-        "files": [
-          "dev.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupDefinitionRestJ21",
-        "version": "9edf9e45fd86",
-        "username": "szabolcs.fekete",
-        "comment": "[AE] adding back accidentally removed lines",
-        "ticket": "",
-        "deployedAt": "20261010T211115+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "cloud-formation.template.yml",
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupDefinitionRestJ21",
-        "version": "67dfedf5b199",
-        "username": "szabolcs.fekete",
-        "comment": "[AE] use readonly root filesystem part 9 (legacy-sfc)",
-        "ticket": "",
-        "deployedAt": "20261010T211115+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupDefinitionRestJ21",
-        "version": "4e31d1d414da",
-        "username": "gandriys",
-        "comment": "Merge pull request #658 from dynata/DN-4172-update-gateway-cloudformation-for-conditions-pipeline-fix",
-        "ticket": "",
-        "deployedAt": "20261010T211115+0000",
-        "files": [],
-        "scope": "qa-deploy"
-      }
-    ]
+    "qaDeploySuspects": []
   },
   "contractDrift": {
-    "newCount": 3,
+    "newCount": 2,
     "baselineCount": 95,
-    "currentCount": 97,
+    "currentCount": 96,
     "examples": [
       "GET /u1/bos/salesOrders/extended :: Response status 500 not defined for path '/u1/bos/salesOrders/extended'.",
-      "GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'.",
       "POST /u1/nexus/surveys/{}/tests :: Response status 500 not defined for path '/u1/nexus/surveys/{urlPoolId}/tests'."
     ]
   },
