@@ -1,10 +1,7 @@
-**1 new failure in AudienceGroup**
+**1 new failure: an AudienceGroup undelete that wrote OK but didn't converge on read-back in QA; no code changes in the window.**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: read-after-write convergence timeout on AudienceGroup undelete (PUT succeeded, GET still isDeleted=true after 15s) with no commits in the window — most likely test/environment timing flakiness._
 
-- 1× other — java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=tr
-
-⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
-- GET /u1/bos/salesOrders/extended :: Response status 500 not defined for path '/u1/bos/salesOrders/extended'.
+- New (1×): AudienceGroup "Undelete audience group with valid undelete" — PUT succeeded but GET still isDeleted=true after 15s (read-after-write convergence lag).
 
 [Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9609977)

@@ -1974,19 +1974,22 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "failed"
   },
   "nutshell": {
-    "headline": "1 new failure in AudienceGroup",
+    "headline": "1 new failure: an AudienceGroup undelete that wrote OK but didn't converge on read-back in QA; no code changes in the window.",
     "tone": "warn",
     "severity": "low",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet). Vs prior #3.0.2725: up 1 total fails.",
+    "causeText": "The single new failure is a read-after-write convergence timeout on AudienceGroup undelete (PUT succeeded, GET still isDeleted=true after 15s), with no commits in the build or QA-deploy window \u2014 most likely test/environment timing flakiness, not a product regression.",
+    "investigation": "Only 1 of 34 unmuted failures is new (AudienceGroup undelete convergence timeout); changes[] and qaDeployChanges[] are both empty, so no commit is implicated.",
     "bullets": [
-      "1\u00d7 other \u2014 java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=tr"
+      "New (1\u00d7): AudienceGroup 'Undelete audience group with valid undelete' \u2014 PUT succeeded but GET still isDeleted=true after 15s (read-after-write convergence lag).",
+      "No suspect commits \u2014 test-module and QA-deploy change lists are both empty; the other 33 failures are pre-existing."
     ],
     "detail": {
-      "investigation": "1 of 34 unmuted failures are new since the prior build (#3.0.2725, 33 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: AudienceGroup (1). Example new failures: AudienceGroup: Undelete audience group with valid undelete: com.dynata.rest.gateway.nexusapi.rest.tests.s [other].",
+      "investigation": "1 of 34 unmuted failures is new since prior build #3.0.2725: AudienceGroup 'Undelete audience group with valid undelete', where the undelete PUT succeeded but the follow-up GET still reported isDeleted=true after a 15s read-after-write poll \u2014 a convergence/timing issue, not an assertion or product error, and with no commits in changes[] or qaDeployChanges[] there is no developer or ticket to implicate. Separately, contract drift added 2 drifted endpoints (GET /u1/bos/salesOrders/extended 500, POST /u1/nexus/surveys/{}/tests 500), tracked apart from this test failure.",
       "bullets": [
-        "1\u00d7 other \u2014 java.lang.RuntimeException: Undelete PUT succeeded for audienceGroupId=<id> but GET still reports isDeleted=tr"
+        "New (1\u00d7): AudienceGroup undelete \u2014 PUT ok, GET still isDeleted=true after 15s; read-after-write convergence lag (environment/test timing).",
+        "No commits to blame: changes[] (test module) and qaDeployChanges[] (QA deploy) are both empty, so no author/ticket is named.",
+        "Contract drift (separate lane, 2 new): GET /u1/bos/salesOrders/extended 500, POST /u1/nexus/surveys/{}/tests 500."
       ],
       "newFailureAreas": [
         {
@@ -2041,8 +2044,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-10-12T02:04Z",
+    "source": "llm",
+    "generatedAt": "2026-10-12T02:04:00Z",
     "buildNumber": "3.0.2726",
     "buildId": "9609977",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9609977",
