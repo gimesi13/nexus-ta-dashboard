@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-12T02:04Z",
+  "generatedAt": "2026-10-13T02:05Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-10-06",
-      "to": "2026-10-12",
+      "from": "2026-10-07",
+      "to": "2026-10-13",
       "featuresAdded": 0,
       "casesAdded": 0,
       "areasTouched": 0,
@@ -17,26 +17,26 @@
       "additions": []
     },
     "14d": {
-      "from": "2026-09-29",
-      "to": "2026-10-12",
-      "featuresAdded": 2,
-      "casesAdded": 2,
+      "from": "2026-09-30",
+      "to": "2026-10-13",
+      "featuresAdded": 1,
+      "casesAdded": 1,
       "areasTouched": 1,
       "ticketsTouched": 1,
       "byType": {
-        "Other": 2
+        "Other": 1
       },
       "byArea": [
         {
           "area": "QuotaGroup",
-          "featuresAdded": 2
+          "featuresAdded": 1
         }
       ],
       "tickets": [
         {
           "key": "NXS-13972",
-          "featuresAdded": 2,
-          "casesAdded": 2,
+          "featuresAdded": 1,
+          "casesAdded": 1,
           "latestDate": "2026-09-30"
         }
       ],
@@ -62,34 +62,12 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=A%20traffic%20schedule%20that%20already%20ran%20can%20be%20moved%20to%20a%20later%20time"
-        },
-        {
-          "name": "A scheduled Start of a never launched audience fills in its fieldwork dates like a manual start",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingExecutionTestSteps.groovy",
-          "date": "2026-09-29",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13972 MS - autotests - scheduled Start of a never-launched audience fills in the fieldwork dates",
-          "commit": "6cd3fa9361",
-          "tickets": [
-            "NXS-13972"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupSchedulingExecutionTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "QUOTA_SCHEDULING",
-            "FIELDWORK"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=A%20scheduled%20Start%20of%20a%20never%20launched%20audience%20fills%20in%20its%20fieldwork%20dates%20like%20a%20manual%20start"
         }
       ]
     },
     "30d": {
-      "from": "2026-09-13",
-      "to": "2026-10-12",
+      "from": "2026-09-14",
+      "to": "2026-10-13",
       "featuresAdded": 61,
       "casesAdded": 63,
       "areasTouched": 1,
@@ -1377,16 +1355,16 @@
       ]
     },
     "90d": {
-      "from": "2026-07-15",
-      "to": "2026-10-12",
-      "featuresAdded": 450,
-      "casesAdded": 657,
+      "from": "2026-07-16",
+      "to": "2026-10-13",
+      "featuresAdded": 445,
+      "casesAdded": 652,
       "areasTouched": 15,
-      "ticketsTouched": 11,
+      "ticketsTouched": 10,
       "byType": {
         "CRUD": 123,
         "Validation": 102,
-        "Workflow": 95,
+        "Workflow": 90,
         "Query": 20,
         "E2E": 3,
         "Other": 107
@@ -1397,12 +1375,12 @@
           "featuresAdded": 198
         },
         {
-          "area": "PES",
-          "featuresAdded": 52
-        },
-        {
           "area": "Segment",
           "featuresAdded": 48
+        },
+        {
+          "area": "PES",
+          "featuresAdded": 47
         },
         {
           "area": "Project",
@@ -1489,12 +1467,6 @@
           "featuresAdded": 10,
           "casesAdded": 10,
           "latestDate": "2026-08-03"
-        },
-        {
-          "key": "NXS-13341",
-          "featuresAdded": 5,
-          "casesAdded": 5,
-          "latestDate": "2026-07-15"
         },
         {
           "key": "NXS-13653",
@@ -11100,116 +11072,6 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Delete%20a%20draft%20clone%20removes%20the%20project"
-        },
-        {
-          "name": "total quota update publishes quotaGroupDetailsUpdated notification",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/pes/pes2/PesNotificationTestSteps.groovy",
-          "date": "2026-07-15",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13341] MS - credential-free PES notification regression tests",
-          "commit": "04f6a042ff",
-          "tickets": [
-            "NXS-13341"
-          ],
-          "area": "PES",
-          "spec": "PesNotificationTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PES1",
-            "QUOTA",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=total%20quota%20update%20publishes%20quotaGroupDetailsUpdated%20notification"
-        },
-        {
-          "name": "tally mode update publishes quotaGroupDetailsUpdated notification",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/pes/pes2/PesNotificationTestSteps.groovy",
-          "date": "2026-07-15",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13341] MS - credential-free PES notification regression tests",
-          "commit": "04f6a042ff",
-          "tickets": [
-            "NXS-13341"
-          ],
-          "area": "PES",
-          "spec": "PesNotificationTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PES1",
-            "TALLY",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=tally%20mode%20update%20publishes%20quotaGroupDetailsUpdated%20notification"
-        },
-        {
-          "name": "soft launch quota update publishes quotaGroupPropertyUpdated notification",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/pes/pes2/PesNotificationTestSteps.groovy",
-          "date": "2026-07-15",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13341] MS - credential-free PES notification regression tests",
-          "commit": "04f6a042ff",
-          "tickets": [
-            "NXS-13341"
-          ],
-          "area": "PES",
-          "spec": "PesNotificationTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PES1",
-            "SOFT_LAUNCH",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=soft%20launch%20quota%20update%20publishes%20quotaGroupPropertyUpdated%20notification"
-        },
-        {
-          "name": "partner event creation publishes externalEventUpdated notification",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/pes/pes2/PesNotificationTestSteps.groovy",
-          "date": "2026-07-15",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13341] MS - credential-free PES notification regression tests",
-          "commit": "04f6a042ff",
-          "tickets": [
-            "NXS-13341"
-          ],
-          "area": "PES",
-          "spec": "PesNotificationTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PES1",
-            "PARTNER_EVENT",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=partner%20event%20creation%20publishes%20externalEventUpdated%20notification"
-        },
-        {
-          "name": "partner allocation update publishes externalQuota notification",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/pes/pes2/PesNotificationTestSteps.groovy",
-          "date": "2026-07-15",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13341] MS - credential-free PES notification regression tests",
-          "commit": "04f6a042ff",
-          "tickets": [
-            "NXS-13341"
-          ],
-          "area": "PES",
-          "spec": "PesNotificationTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PES1",
-            "PARTNER_EVENT",
-            "PES"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=partner%20allocation%20update%20publishes%20externalQuota%20notification"
         }
       ]
     }
@@ -11300,29 +11162,29 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-10-12",
+      "date": "2026-10-13",
       "features": 783,
       "cases": 1550,
       "specs": 112,
       "areas": 15,
-      "coveragePercent": 95.1,
+      "coveragePercent": 100.0,
       "tested": 269,
-      "untested": 14,
-      "nonDeprecated": 283
+      "untested": 0,
+      "nonDeprecated": 269
     }
   ],
   "coverage": {
-    "currentPercent": 95.1,
+    "currentPercent": 100.0,
     "tested": 269,
-    "untested": 14,
+    "untested": 0,
     "delta14d": {
-      "currentPercent": 95.1,
+      "currentPercent": 100.0,
       "priorPercent": 78.0,
-      "deltaPoints": 17.1,
+      "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-10-12",
+      "currentDate": "2026-10-13",
       "testedDelta": 60,
-      "untestedDelta": -45
+      "untestedDelta": -59
     }
   },
   "inventory": {
