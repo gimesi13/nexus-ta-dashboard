@@ -1599,244 +1599,25 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "headline": "Nightly was green \u2014 1,445 passed, 0 unmuted failures, no new failures.",
     "tone": "ok",
     "severity": "none",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
-    "bullets": [
-      "Change NXS-14054: gergely.gimesi \u00b7 Fieldwork, QuotaGroup",
-      "Change NXS-14056: gergely.gimesi \u00b7 PartnerEvent"
-    ],
+    "causeText": "Clean run with no unmuted test failures to attribute.",
+    "investigation": "",
+    "bullets": [],
     "detail": {
-      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 2 service(s) (27 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
-      "bullets": [
-        "Change NXS-14054: gergely.gimesi \u00b7 Fieldwork, QuotaGroup",
-        "Change NXS-14056: gergely.gimesi \u00b7 PartnerEvent",
-        "NXS-14054 686abc9f28ef by gergely.gimesi \u2192 areas Fieldwork, QuotaGroup (0 new fails) \u00b7 QuotaGroupHelper.groovy, FieldworkEndToEndPartnerTestSteps.groovy, FieldworkSoftLaunchTestSteps.groovy, FieldworkValidationTestSteps.groovy, FieldworkWorkflowTestSteps.groovy",
-        "NXS-14056 cc46c040aa3f by gergely.gimesi \u2192 areas PartnerEvent (0 new fails) \u00b7 PartnerEventValidationTestSteps.groovy",
-        "[QA deploy: NexusApiUI] NXS-14048 (26 commits) \u2014 [NXS-14048] EOS - MS - NexusApiUI - Add schedules to quotaGroups/search/overview",
-        "[QA deploy: NexusApiJ21] NXS-14047 (1 commit) \u2014 [NXS-14047] - MS - NexusApi - Add schedules to quotaGroups/search/ove\u2026 (#5512)"
-      ],
+      "investigation": "",
+      "bullets": [],
       "newFailureAreas": [],
-      "likelyCauses": [
-        {
-          "version": "686abc9f28ef",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-14054",
-          "comment": "NXS-14054 Use future soft launch dates so the past-date check stays valid",
-          "areas": [
-            "Fieldwork",
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "QuotaGroupHelper.groovy",
-            "FieldworkEndToEndPartnerTestSteps.groovy",
-            "FieldworkSoftLaunchTestSteps.groovy",
-            "FieldworkValidationTestSteps.groovy",
-            "FieldworkWorkflowTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "cc46c040aa3f",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-14056",
-          "comment": "NXS-14056 Accept 404 for an invalid partner-event integration id",
-          "areas": [
-            "PartnerEvent"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "PartnerEventValidationTestSteps.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
     "clusters": [],
-    "suspectCommits": [
-      {
-        "version": "cc46c040aa3f",
-        "username": "gergely.gimesi",
-        "comment": "NXS-14056 Accept 404 for an invalid partner-event integration id",
-        "ticket": "NXS-14056",
-        "areas": [
-          "PartnerEvent"
-        ]
-      },
-      {
-        "version": "38d713e9dafc",
-        "username": "gergely.gimesi",
-        "comment": "NXS-14055 Detach leftover projects from the shared BOS sales order",
-        "ticket": "NXS-14055",
-        "areas": []
-      },
-      {
-        "version": "686abc9f28ef",
-        "username": "gergely.gimesi",
-        "comment": "NXS-14054 Use future soft launch dates so the past-date check stays valid",
-        "ticket": "NXS-14054",
-        "areas": [
-          "Fieldwork",
-          "QuotaGroup"
-        ]
-      }
-    ],
-    "qaDeploySuspects": [
-      {
-        "service": "NexusApiUI",
-        "version": "adff753f00cf",
-        "username": "40339600+tamasroma",
-        "comment": "[NXS-14048] EOS - MS - NexusApiUI - Add schedules to quotaGroups/search/overview (#5513)",
-        "ticket": "NXS-14048",
-        "deployedAt": "20261012T122423+0000",
-        "files": [
-          "build.gradle"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiJ21",
-        "version": "1c522c926129",
-        "username": "40339600+tamasroma",
-        "comment": "[NXS-14047] - MS - NexusApi - Add schedules to quotaGroups/search/ove\u2026 (#5512)",
-        "ticket": "NXS-14047",
-        "deployedAt": "20261012T121503+0000",
-        "files": [
-          "UQuotaGroupConvertImpl.java",
-          "TestData.groovy",
-          "UQuotaGroupConverterTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "572a890c447f",
-        "username": "40339600+tamasroma",
-        "comment": "[NXS-13949] Test fix",
-        "ticket": "NXS-13949",
-        "deployedAt": "20261012T091242+0000",
-        "files": [
-          "QuotaGroupLockChangedBroadcastListenerTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "cead45b867a9",
-        "username": "erik.paulsen",
-        "comment": "Revert.  Error was Role arn:aws:iam::256094742173:role/DeploymentAutomation is invalid or cannot be assumed.  I could not fix this with any obvious trust policy",
-        "ticket": "",
-        "deployedAt": "20261012T091242+0000",
-        "files": [
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "a1f54386683e",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7780] [DKJS] New AE-DPR - dkjs-automated-sourcing-jobs - S3 config",
-        "ticket": "",
-        "deployedAt": "20261012T091242+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "1148e2c73005",
-        "username": "erik.paulsen",
-        "comment": "Specify CF role as correct new role, instead of blank.  Tibor already tried this, but I want to see the error message.",
-        "ticket": "",
-        "deployedAt": "20261012T091242+0000",
-        "files": [
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "d6f86633a88a",
-        "username": "40339600+tamasroma",
-        "comment": "[NXS-13949] EOS - MS - Field Schedule | Create SSE for dates and sched\u2026 (#5480)",
-        "ticket": "NXS-13949",
-        "deployedAt": "20261012T091242+0000",
-        "files": [
-          "QuotaGroupPropertyChangedBroadcastListener.java",
-          "SSEMessageType.java",
-          "QuotaGroupLockChangedBroadcastListenerTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "28c14e2e537f",
-        "username": "zoltan.redai",
-        "comment": "[AE-7988] Add automatic DLQ redrive",
-        "ticket": "",
-        "deployedAt": "20261012T091242+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "9539f70a4e88",
-        "username": "weiqun.wang",
-        "comment": "switch dev to g4dn for testing",
-        "ticket": "",
-        "deployedAt": "20261012T091242+0000",
-        "files": [
-          "dev.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "9edf9e45fd86",
-        "username": "szabolcs.fekete",
-        "comment": "[AE] adding back accidentally removed lines",
-        "ticket": "",
-        "deployedAt": "20261012T091242+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "cloud-formation.template.yml",
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      }
-    ],
-    "qaDeployServices": [
-      {
-        "service": "NexusApiUI",
-        "commits": 26,
-        "latestTicket": "NXS-14048",
-        "latestComment": "[NXS-14048] EOS - MS - NexusApiUI - Add schedules to quotaGroups/search/overview",
-        "deployedAt": "20261012T122423+0000"
-      },
-      {
-        "service": "NexusApiJ21",
-        "commits": 1,
-        "latestTicket": "NXS-14047",
-        "latestComment": "[NXS-14047] - MS - NexusApi - Add schedules to quotaGroups/search/ove\u2026 (#5512)",
-        "deployedAt": "20261012T121503+0000"
-      }
-    ],
-    "source": "investigator",
+    "source": "llm",
     "generatedAt": "2026-10-13T02:05Z",
     "buildNumber": "3.0.2727",
     "buildId": "9612026",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9612026",
-    "focus": "all_failures",
-    "newFailed": 0,
-    "failed": 0,
     "contractDrift": {
       "newCount": 1,
       "baselineCount": 95,
