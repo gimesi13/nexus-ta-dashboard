@@ -1622,24 +1622,22 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "2 new failures in Fieldwork",
+    "headline": "2 new product-behavior assertion failures in Fieldwork and QuotaGroup scheduling (not infra)",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 5 service(s) were deployed to QA in this window (QuotaGroupSourcesRestJ21, DemandApi, ProjectSearchRestJ21, QuotaGroupRestJ21, ProjectAutomationApi) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 2\u00d7 assertion Condition not satisfied. Vs prior #3.0.2727: up 2 total fails.",
+    "cause": "code_change",
+    "causeText": "Both new failures are product-behavior assertions (Fieldwork delivery mode stayed SLOWEST instead of ACCELERATED; a QuotaGroup scheduled Start never executed), not QA infra, and the scheduling timeout lines up with the QA-deployed QuotaGroupRest Field-Schedule SSE work (NXS-13987) \u2014 the leading suspect, though that deploy's author/files aren't in the evidence, so it is not confirmed blame.",
+    "investigation": "2 new assertion failures vs a clean prior build (#3.0.2727): Fieldwork delivery mode stayed SLOWEST and a QuotaGroup scheduled Start timed out after 84s.",
     "bullets": [
-      "2\u00d7 assertion Condition not satisfied"
+      "Fieldwork: delivery mode expected ACCELERATED but stayed SLOWEST (assertion, not infra)",
+      "QuotaGroup: scheduled Start never ran \u2014 timeout after 84s"
     ],
     "detail": {
-      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2727, 0 fails). Failure types (new-first): (1) 2\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: Fieldwork (1), QuotaGroup (1). 5 service(s) (36 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Fieldwork: Change delivery mode and verify daily quota behavior: com.dynata.rest.gateway.nexusapi.res [assertion Condition not satisfied]; QuotaGroup: Scheduled Stop pauses a fielding audience and a later scheduled Start resumes it [assertion Condition not satisfied].",
+      "investigation": "Both unmuted failures are new since the clean prior build (#3.0.2727): a Fieldwork assertion where delivery mode stayed SLOWEST instead of ACCELERATED, and a QuotaGroup scheduling test where the scheduled Start never reached SUCCESS (RuntimeException timeout after 84s) \u2014 product-behavior failures, not QA network/5xx infra. The QA-deployed QuotaGroupRest 'Field Schedule' SSE change (NXS-13987) is the leading suspect for the scheduling timeout, but its author/files aren't in the evidence so it stays unconfirmed; contract drift is unchanged (0 new, 93 vs 95 baseline) and is a separate lane.",
       "bullets": [
-        "2\u00d7 assertion Condition not satisfied",
-        "[QA deploy: QuotaGroupSourcesRestJ21]  (25 commits) \u2014 Nxs 13897 bump spring aws messaging 5.1.7 (#5523)",
-        "[QA deploy: DemandApi]  (5 commits) \u2014 DemandApi - survey url update",
-        "[QA deploy: ProjectSearchRestJ21]  (1 commit) \u2014 [ PAC-858 ] Updated project search to allow filter on multiple origins (#5499)",
-        "[QA deploy: QuotaGroupRestJ21] NXS-13987 (3 commits) \u2014 [NXS-13987] MS - QuotaGrouRest - Field Schedule | Create SSE for dates and sched",
-        "[QA deploy: ProjectAutomationApi]  (2 commits) \u2014 [PAC-743] Cobalt - ProjectAutomationApi - start create process programmatic endp"
+        "Fieldwork \u2014 'Change delivery mode and verify daily quota behavior': expected ACCELERATED, got SLOWEST (Spock assertion, not infra)",
+        "QuotaGroup \u2014 'Scheduled Stop/Start': waitForScheduleToRun(START) timed out after 84s, schedule never executed",
+        "Leading suspect: QA-deployed QuotaGroupRest Field-Schedule SSE (NXS-13987); author/files not in evidence, so not confirmed"
       ],
       "newFailureAreas": [
         {
@@ -1828,8 +1826,8 @@
         "deployedAt": "20261013T094706+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-10-14T02:06Z",
+    "source": "llm",
+    "generatedAt": "2026-10-14T02:06:00Z",
     "buildNumber": "3.0.2728",
     "buildId": "9614812",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9614812",
