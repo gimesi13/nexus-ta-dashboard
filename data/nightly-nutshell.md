@@ -1,10 +1,7 @@
-**1 new failure in SampleRules**
+**1 new failure in SampleRules — a QA 502 Bad Gateway (infra)**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: QA 502 Bad Gateway from dk-project-throttling-setting-rest — infra flakiness, not a product regression._
 
-- 1× QA 502 Bad Gateway
-
-⚠️ Contract drift: 1 new response-schema violation(s) vs baseline.
-- POST /u1/nexus/quotaGroups :: Response status 502 not defined for path '/u1/nexus/quotaGroups'.
+- 1× QA 502 Bad Gateway (SampleRules — quotaGroups delivery)
 
 [Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9617673)
