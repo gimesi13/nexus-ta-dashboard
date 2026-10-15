@@ -1,7 +1,10 @@
-**2 new product-behavior assertion failures in Fieldwork and QuotaGroup scheduling (not infra)**
+**1 new failure in SampleRules**
 
-_Likely cause: QuotaGroup scheduled Start never ran and Fieldwork delivery mode stayed SLOWEST; leading suspect is the QA-deployed QuotaGroupRest Field-Schedule SSE change (NXS-13987), unconfirmed._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- QuotaGroup scheduled Start timed out after 84s; Fieldwork delivery mode expected ACCELERATED, got SLOWEST
+- 1× QA 502 Bad Gateway
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9614812)
+⚠️ Contract drift: 1 new response-schema violation(s) vs baseline.
+- POST /u1/nexus/quotaGroups :: Response status 502 not defined for path '/u1/nexus/quotaGroups'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9617673)
