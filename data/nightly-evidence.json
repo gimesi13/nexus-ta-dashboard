@@ -1,305 +1,568 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-15T02:02Z",
+  "generatedAt": "2026-10-16T02:01Z",
   "build": {
-    "number": "3.0.2729",
-    "buildId": "9617673",
-    "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9617673",
-    "durationSec": 1878.0
+    "number": "3.0.2730",
+    "buildId": "9619546",
+    "status": "SUCCESS",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9619546",
+    "durationSec": 1822.0
   },
   "summary": {
     "tests": 1514,
-    "passed": 1444,
-    "failures": 1,
+    "passed": 1446,
+    "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "muted": 69,
-    "newFailed": 1,
-    "passRate": 99.9,
-    "timeSec": 1878.0
+    "muted": 68,
+    "newFailed": 0,
+    "passRate": 100.0,
+    "timeSec": 1822.0
   },
   "prior": {
-    "buildId": "9614812",
-    "number": "3.0.2728",
+    "buildId": "9617673",
+    "number": "3.0.2729",
     "status": "FAILURE",
-    "statusText": "Tests failed: 2 (2 new), passed: 1443, muted: 69",
-    "startDate": "20261014T013240+0000",
-    "durationSec": 1949.0,
-    "failed": 2,
-    "passed": 1443,
-    "newFailed": 2
+    "statusText": "Tests failed: 1 (1 new), passed: 1444, muted: 69",
+    "startDate": "20261015T013019+0000",
+    "durationSec": 1878.0,
+    "failed": 1,
+    "passed": 1444,
+    "newFailed": 1
   },
   "changes": [],
   "qaDeployChanges": [
     {
-      "service": "NexusApiJ21",
-      "version": "2e60c9712ae7",
+      "service": "SurveyRestJ21",
+      "version": "fb5824465781",
+      "username": "bence.csepe",
+      "comment": "[NXS-14076] send empty map instead of null value in request when preassignedValueId is null",
+      "files": [
+        "project/SurveyRest/src/main/java/com/surveysampling/rest/survey/u1/components/SurveyTestingHelper.java",
+        "project/SurveyRest/src/test/groovy/com/surveysampling/rest/survey/u1/components/SurveyTestingHelperTest.groovy"
+      ],
+      "deployedAt": "20261015T160339+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "67e986c0af06",
+      "username": "grace.chen",
+      "comment": "[FAI-474-487] update alarm for ml-survey-guard-model",
+      "files": [
+        "ml-survey-guard-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261015T160339+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "72873c8e500a",
+      "username": "grace.chen",
+      "comment": "[FAI-474-487] update alarm for ml-screenout-model",
+      "files": [
+        "ml-screenout-model/cloud-formation.template.yml",
+        "ml-screenout-model/group_vars/all.yml",
+        "ml-screenout-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20261015T160339+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "e907d50749f1",
+      "username": "grace.chen",
+      "comment": "[FAI-474-487] update alarm for ml-complete-optimization-model",
+      "files": [
+        "ml-complete-optimization-model/cloud-formation.template.yml",
+        "ml-complete-optimization-model/group_vars/all.yml",
+        "ml-complete-optimization-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20261015T160339+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "3d433e9bbb21",
+      "username": "61739584+richardsebok",
+      "comment": "Merge pull request #627 from dynata/ST-4726",
+      "files": [],
+      "deployedAt": "20261015T160339+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "2e61fe1ae67b",
+      "username": "lambert.lesko",
+      "comment": "Merge pull request #666 from dynata/ae-7782-migrate-rewards-apps-to-ae-dpr",
+      "files": [],
+      "deployedAt": "20261015T160339+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "1cd379e5a318",
+      "username": "lambert.lesko",
+      "comment": "Enable SQS managed encryption for missing-rewards-queue",
+      "files": [
+        "ae-missing-rewards-queue/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261015T160339+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "628f1db4a44c",
       "username": "bresalio.nagy",
-      "comment": "[AE-7780] [dkjs-automated-sourcing] fix?",
+      "comment": "[AE-8062] Migrate to new AE-DPR: S3 macro stack - fix1",
       "files": [
-        "dkjs-automated-sourcing-jobs/group_vars/production.yml"
+        "ae-aws-s3-objects-macro/group_vars/all.yml",
+        "ae-aws-s3-objects-macro/group_vars/qa.yml"
       ],
-      "deployedAt": "20261014T121400+0000"
+      "deployedAt": "20261015T160339+0000"
     },
     {
-      "service": "NexusApiJ21",
-      "version": "f8c952dc551b",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-13690] - fix v2",
+      "service": "SurveyRestJ21",
+      "version": "d768fe2ad278",
+      "username": "lambert.lesko",
+      "comment": "Migrating rewards apps to ae-dpr",
       "files": [
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/StartPropagationListenerTest.groovy",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/ExclusionRulePropagatorTest.groovy",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/UrlPoolPropagatorTest.groovy"
+        "ae-missing-rewards-queue/cloud-formation.template.yml",
+        "ae-missing-rewards-queue/group_vars/all.yml",
+        "ae-missing-rewards-queue/group_vars/qa.yml",
+        "award-jobs/cloud-formation.template.yml",
+        "award-jobs/group_vars/all.yml",
+        "award-jobs/group_vars/qa.yml",
+        "offer-service/cloud-formation.template.yml",
+        "offer-service/group_vars/all.yml",
+        "offer-service/group_vars/qa.yml",
+        "reward-communication-service/cloud-formation.template.yml",
+        "reward-communication-service/group_vars/all.yml",
+        "reward-communication-service/group_vars/qa.yml",
+        "sitecore-reward-service/cloud-formation.template.yml",
+        "sitecore-reward-service/group_vars/all.yml",
+        "sitecore-reward-service/group_vars/qa.yml"
       ],
-      "deployedAt": "20261014T121400+0000"
+      "deployedAt": "20261015T160339+0000"
     },
     {
-      "service": "NexusApiJ21",
-      "version": "32372e2eb5d0",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-13690] - fix v1",
+      "service": "SurveyRestJ21",
+      "version": "d15e9a7173fc",
+      "username": "richardlaszlo.sebok",
+      "comment": "[ST-4976] (ReplicationService) - Added dev CAMS SNS topic arn + fixed tags.",
       "files": [
-        "gateway/unifiedApi/NexusApi/build.gradle"
+        "st-replication-service/cloud-formation.template.yml",
+        "st-replication-service/group_vars/dev.yml"
       ],
-      "deployedAt": "20261014T121400+0000"
+      "deployedAt": "20261015T160339+0000"
     },
     {
-      "service": "NexusApiJ21",
-      "version": "10ae3df36333",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-13690] - merge",
+      "service": "SurveyRestJ21",
+      "version": "c75bba366fd1",
+      "username": "richardlaszlo.sebok",
+      "comment": "[ST-4976] (ReplicationService) - Added SQS implementation for CAMS SNS topic.",
       "files": [
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UProjectImpl.java"
+        "st-replication-service/cloud-formation.template.yml",
+        "st-replication-service/group_vars/prod.yml",
+        "st-replication-service/group_vars/qa.yml"
       ],
-      "deployedAt": "20261014T121400+0000"
+      "deployedAt": "20261015T160339+0000"
     },
     {
-      "service": "NexusApiJ21",
-      "version": "cf7c6062bc30",
-      "username": "60962201+gyarmatitamas",
-      "comment": "Nxs 13690 nexus api implement propagation (#5478)",
-      "files": [
-        "gateway/unifiedApi/NexusApi/build.gradle",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/dedupe/DedupeRestProjectFeignClient.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/dedupe/UCloneDedupeRequest.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/project/ProjectFeignClient.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/survey/ISurveyRestFeignClient.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/survey/model/UCloneProjectRequest.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/survey/model/UCloneSurveyRequest.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UProjectImpl.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/PropagationMapper.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/StartPropagationListener.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/UTrackerApi.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/UTrackerImpl.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/ExclusionRulePropagator.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/PropagationHelper.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/PropagationPreviewBuilder.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/PropagationProgressReporter.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/QuotaGroupPropagator.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/UrlPoolPropagator.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/WavePropagationItemsLoader.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/model/PropagationIdStructure.java"
-      ],
-      "deployedAt": "20261014T121400+0000"
+      "service": "ProjectEventForwarderJ21",
+      "version": "59267d833ce1",
+      "username": "poliss",
+      "comment": "Merge pull request #632 from dynata/DQI-4583",
+      "files": [],
+      "deployedAt": "20261015T120749+0000"
     },
     {
-      "service": "ProjectAutomationApi",
-      "version": "a3d856590398",
-      "username": "gabor.fial",
-      "comment": "ProjectAutomationApi - fix cloneToDraft - dont required category",
+      "service": "ProjectEventForwarderJ21",
+      "version": "07250b59f84e",
+      "username": "scott.polis",
+      "comment": "[DQI-4583] Enable Create Offers Queue prod",
       "files": [
-        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/service/SampleServiceImpl.java",
-        "gateway/unifiedApi/ProjectAutomationApi/src/test/groovy/u1/nexus/projects/service/SampleServiceImplTest.groovy"
+        "dq-offer-callback-resources/cloud-formation.template.yml",
+        "dq-offer-callback-resources/group_vars/dev.yml",
+        "dq-offer-callback-resources/group_vars/production.yml",
+        "dq-offer-callback-resources/group_vars/qa.yml"
       ],
-      "deployedAt": "20261014T091315+0000"
+      "deployedAt": "20261015T120749+0000"
     },
     {
-      "service": "NexusApiUI",
-      "version": "2e345dc79004",
-      "username": "60962201+gyarmatitamas",
-      "comment": "[NXS-14005] - NexusApiUI - PROPAGATION_COMPLETE SSE (#5502)",
+      "service": "ProjectEventForwarderJ21",
+      "version": "24ce91bd260f",
+      "username": "grace.chen",
+      "comment": "[FAI-429] disable scheduler for wz-data-drift-dev to rule out failed login attempt to imperium_watson via password auth",
       "files": [
-        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/u1/sse/components/ProjectPropertyChangedBroadcastListener.java",
-        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/u1/sse/components/SSEMessageType.java",
-        "gateway/unifiedApi/NexusApiUI/src/test/groovy/com/dynata/rest/gateway/nexusuiapi/u1/sse/components/ProjectPropertyChangedBroadcastListenerTest.groovy"
+        "ml-data-drift-monitor/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261014T090729+0000"
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "88fb1ef1d154",
+      "username": "mitro.gyorgy",
+      "comment": "Merge pull request #631 from dynata/NA-1966",
+      "files": [],
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "45a66eb3f113",
+      "username": "gyorgykrisztian.mitro",
+      "comment": "[NA-1966] SLS - Upgrade lambdas to LTS python version + secrets layer upgrade | add temp table name to env variable",
+      "files": [
+        "sls-db/cloud-formation.template.yml",
+        "sls-db/group_vars/dev.yml",
+        "sls-db/group_vars/production.yml",
+        "sls-db/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "00f797a9e6bb",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5015] (st-parameter-service) remove java.security.manager from PROD",
+      "files": [
+        "st-parameter-service/group_vars/prod.yml"
+      ],
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "06b9fefde16e",
+      "username": "gergo.hajnal",
+      "comment": "[ST-4990] (MessageContentRest) prepare to be PROD deployed",
+      "files": [
+        "dk-management-message-content-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "48052ce82d49",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5003] (CountryLanguageRest) remove obsolete comment",
+      "files": [
+        "dk-project-country-language-rest/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "1f588a96a2d7",
+      "username": "brian.connolly",
+      "comment": "update template locations to bypass ansible weirdness",
+      "files": [
+        "ae-transaction-manager/group_vars/all.yml"
+      ],
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "cf58d7b5d095",
+      "username": "sajak.upadhyaya",
+      "comment": "\"[FAI-482] scaling down resources in production\"",
+      "files": [
+        "ml-data-loader-service/group_vars/production.yml",
+        "ml-offer-conversion-model/group_vars/production.yml",
+        "ml-offer-metadata-queue/group_vars/production.yml",
+        "ml-offers-model-service/group_vars/production.yml",
+        "ml-valkey-cache-storage/group_vars/production.yml"
+      ],
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "34b4140de272",
+      "username": "sajak.upadhyaya",
+      "comment": "\"[FAI-482] scaling down resources in qa\"",
+      "files": [
+        "ml-data-loader-service/group_vars/qa.yml",
+        "ml-offer-conversion-model/group_vars/qa.yml",
+        "ml-offer-metadata-queue/group_vars/qa.yml",
+        "ml-offers-model-service/group_vars/qa.yml",
+        "ml-valkey-cache-storage/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "2385b49c4712",
+      "username": "brian.connolly",
+      "comment": "update template locations",
+      "files": [
+        "ae-transaction-manager/group_vars/all.yml"
+      ],
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "537df7dc7489",
+      "username": "brian.connolly",
+      "comment": "add template",
+      "files": [
+        "ae-transaction-manager/group_vars/all.yml"
+      ],
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "67cb1a4b489f",
+      "username": "sajak.upadhyaya",
+      "comment": "\"[FAI-482] scaling down resources in dev\"",
+      "files": [
+        "ml-data-loader-service/group_vars/dev.yml",
+        "ml-offer-conversion-model/cloud-formation.template.yml",
+        "ml-offer-conversion-model/group_vars/all.yml",
+        "ml-offer-conversion-model/group_vars/dev.yml",
+        "ml-offer-metadata-queue/group_vars/dev.yml",
+        "ml-offers-model-service/group_vars/dev.yml",
+        "ml-valkey-cache-storage/cloud-formation.template.yml",
+        "ml-valkey-cache-storage/group_vars/all.yml",
+        "ml-valkey-cache-storage/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "655afc645db4",
+      "username": "brian.connolly",
+      "comment": "Convert to use AE-DPR.",
+      "files": [
+        "ae-transaction-manager/cloud-formation.template.yml",
+        "ae-transaction-manager/group_vars/all.yml",
+        "ae-transaction-manager/group_vars/dev.yml",
+        "ae-transaction-manager/group_vars/production.yml",
+        "ae-transaction-manager/group_vars/qa.yml",
+        "ae-transaction-manager/pre_tasks.yml",
+        "ae-transaction-manager/publish.yml"
+      ],
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "c2defb556da7",
+      "username": "gergo.hajnal",
+      "comment": "[ST-5003] (CountryLanguageRest) prepare for PROD deployment",
+      "files": [
+        "dk-project-country-language-rest/group_vars/production.yml",
+        "dk-project-country-language-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "d151f8d026f8",
+      "username": "brian.connolly",
+      "comment": "Remove tags.",
+      "files": [
+        "ae-quota-group-translator/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "19d0ed1c49c7",
+      "username": "brian.connolly",
+      "comment": "Update in preparation for production release.",
+      "files": [
+        "ae-quota-group-translator/group_vars/production.yml"
+      ],
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "918f4d3c1319",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-13893 ] fix Instant type in headers",
+      "files": [
+        "project/ProjectEventForwarder/src/main/java/com/surveysampling/rest/projecteventforwarder/v2/messaging/activemq/ActiveMqIntegrationConfig.java"
+      ],
+      "deployedAt": "20261015T120749+0000"
     }
   ],
   "qaDeployServices": [
     {
+      "service": "SurveyRestJ21",
+      "commits": 25,
+      "latestTicket": "NXS-14076",
+      "latestComment": "[NXS-14076] send empty map instead of null value in request when preassignedValu",
+      "deployedAt": "20261015T160339+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "commits": 25,
+      "latestTicket": "",
+      "latestComment": "Merge pull request #632 from dynata/DQI-4583",
+      "deployedAt": "20261015T120749+0000"
+    },
+    {
+      "service": "DemandApi",
+      "commits": 12,
+      "latestTicket": "",
+      "latestComment": "[PAC-848] DemandApi - INCLUSIONS update via u1 inclusion/conditions (#5533)",
+      "deployedAt": "20261015T095016+0000"
+    },
+    {
       "service": "NexusApiJ21",
-      "commits": 5,
-      "latestTicket": "",
-      "latestComment": "[AE-7780] [dkjs-automated-sourcing] fix?",
-      "deployedAt": "20261014T121400+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
       "commits": 1,
-      "latestTicket": "",
-      "latestComment": "ProjectAutomationApi - fix cloneToDraft - dont required category",
-      "deployedAt": "20261014T091315+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "commits": 1,
-      "latestTicket": "NXS-14005",
-      "latestComment": "[NXS-14005] - NexusApiUI - PROPAGATION_COMPLETE SSE (#5502)",
-      "deployedAt": "20261014T090729+0000"
+      "latestTicket": "NXS-14066",
+      "latestComment": "[NXS-14066] MS - NexusApi - ManualSurveyTesting (#5528)",
+      "deployedAt": "20261015T072843+0000"
     }
   ],
-  "clusters": [
-    {
-      "label": "infra_502",
-      "display": "QA 502 Bad Gateway",
-      "count": 1,
-      "newCount": 1,
-      "sample": "502 Bad Gateway",
-      "why": "QA gateway returned HTML 502 \u2014 infra during the run, not a product regression"
-    }
-  ],
-  "failures": [
-    {
-      "name": "Configure brand exclusion with copying: com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesBrandExclusionTestSteps.Configure brand exclusion with copying",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.SampleRules.SourcesBrandExclusionTestSteps",
-      "newFailure": true,
-      "area": "SampleRules",
-      "cluster": "infra_502",
-      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups 502{ \"errors\" : [ { \"callChain\" : [ \"QGDelivery\", \"HTTP 502 PUT http://dk-project-throttling-setting-rest.nexus-ms-qa.dynata.com:8080/api/ThrottlingSetting/u1/quotaGroups/118824897/delivery\" ], \"status\" : \"BAD_GATEWAY\", \"message\" : \"<html>\\n<head><title>502 Bad Gateway</title></head>\\n<body>\\n<center><h1\u2026"
-    }
-  ],
+  "clusters": [],
+  "failures": [],
   "rulesNutshell": {
-    "headline": "1 new failure in SampleRules",
-    "tone": "warn",
-    "severity": "low",
-    "bullets": [
-      "1\u00d7 QA 502 Bad Gateway"
-    ],
-    "investigation": "New fails: 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Gateway hits: dk-project-throttling-setting-rest.",
+    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "tone": "ok",
+    "severity": "none",
+    "bullets": [],
+    "investigation": "No unmuted failures.",
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2728, 2 fails). Failure types (new-first): (1) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: SampleRules (1). 3 service(s) (7 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: SampleRules: Configure brand exclusion with copying: com.dynata.rest.gateway.nexusapi.rest.tests.steps. [QA 502 Bad Gateway].",
+      "investigation": "4 service(s) (63 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
       "bullets": [
-        "1\u00d7 QA 502 Bad Gateway",
-        "[QA deploy: NexusApiJ21]  (5 commits) \u2014 [AE-7780] [dkjs-automated-sourcing] fix?",
-        "[QA deploy: ProjectAutomationApi]  (1 commit) \u2014 ProjectAutomationApi - fix cloneToDraft - dont required category",
-        "[QA deploy: NexusApiUI] NXS-14005 (1 commit) \u2014 [NXS-14005] - NexusApiUI - PROPAGATION_COMPLETE SSE (#5502)"
+        "[QA deploy: SurveyRestJ21] NXS-14076 (25 commits) \u2014 [NXS-14076] send empty map instead of null value in request when preassignedValu",
+        "[QA deploy: ProjectEventForwarderJ21]  (25 commits) \u2014 Merge pull request #632 from dynata/DQI-4583",
+        "[QA deploy: DemandApi]  (12 commits) \u2014 [PAC-848] DemandApi - INCLUSIONS update via u1 inclusion/conditions (#5533)",
+        "[QA deploy: NexusApiJ21] NXS-14066 (1 commit) \u2014 [NXS-14066] MS - NexusApi - ManualSurveyTesting (#5528)"
       ],
-      "newFailureAreas": [
-        {
-          "area": "SampleRules",
-          "newCount": 1
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "NexusApiJ21",
-        "version": "2e60c9712ae7",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7780] [dkjs-automated-sourcing] fix?",
-        "ticket": "",
-        "deployedAt": "20261014T121400+0000",
+        "service": "SurveyRestJ21",
+        "version": "fb5824465781",
+        "username": "bence.csepe",
+        "comment": "[NXS-14076] send empty map instead of null value in request when preassignedValueId is null",
+        "ticket": "NXS-14076",
+        "deployedAt": "20261015T160339+0000",
         "files": [
+          "SurveyTestingHelper.java",
+          "SurveyTestingHelperTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "SurveyRestJ21",
+        "version": "67e986c0af06",
+        "username": "grace.chen",
+        "comment": "[FAI-474-487] update alarm for ml-survey-guard-model",
+        "ticket": "",
+        "deployedAt": "20261015T160339+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "SurveyRestJ21",
+        "version": "72873c8e500a",
+        "username": "grace.chen",
+        "comment": "[FAI-474-487] update alarm for ml-screenout-model",
+        "ticket": "",
+        "deployedAt": "20261015T160339+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml",
           "production.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiJ21",
-        "version": "f8c952dc551b",
-        "username": "tamas.gyarmati",
-        "comment": "[NXS-13690] - fix v2",
-        "ticket": "NXS-13690",
-        "deployedAt": "20261014T121400+0000",
-        "files": [
-          "StartPropagationListenerTest.groovy",
-          "ExclusionRulePropagatorTest.groovy",
-          "UrlPoolPropagatorTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiJ21",
-        "version": "32372e2eb5d0",
-        "username": "tamas.gyarmati",
-        "comment": "[NXS-13690] - fix v1",
-        "ticket": "NXS-13690",
-        "deployedAt": "20261014T121400+0000",
-        "files": [
-          "build.gradle"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiJ21",
-        "version": "10ae3df36333",
-        "username": "tamas.gyarmati",
-        "comment": "[NXS-13690] - merge",
-        "ticket": "NXS-13690",
-        "deployedAt": "20261014T121400+0000",
-        "files": [
-          "UProjectImpl.java"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiJ21",
-        "version": "cf7c6062bc30",
-        "username": "60962201+gyarmatitamas",
-        "comment": "Nxs 13690 nexus api implement propagation (#5478)",
+        "service": "SurveyRestJ21",
+        "version": "e907d50749f1",
+        "username": "grace.chen",
+        "comment": "[FAI-474-487] update alarm for ml-complete-optimization-model",
         "ticket": "",
-        "deployedAt": "20261014T121400+0000",
+        "deployedAt": "20261015T160339+0000",
         "files": [
-          "build.gradle",
-          "DedupeRestProjectFeignClient.java",
-          "UCloneDedupeRequest.java",
-          "ProjectFeignClient.java",
-          "ISurveyRestFeignClient.java",
-          "UCloneProjectRequest.java"
+          "cloud-formation.template.yml",
+          "all.yml",
+          "production.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectAutomationApi",
-        "version": "a3d856590398",
-        "username": "gabor.fial",
-        "comment": "ProjectAutomationApi - fix cloneToDraft - dont required category",
+        "service": "SurveyRestJ21",
+        "version": "3d433e9bbb21",
+        "username": "61739584+richardsebok",
+        "comment": "Merge pull request #627 from dynata/ST-4726",
         "ticket": "",
-        "deployedAt": "20261014T091315+0000",
+        "deployedAt": "20261015T160339+0000",
+        "files": [],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "SurveyRestJ21",
+        "version": "2e61fe1ae67b",
+        "username": "lambert.lesko",
+        "comment": "Merge pull request #666 from dynata/ae-7782-migrate-rewards-apps-to-ae-dpr",
+        "ticket": "",
+        "deployedAt": "20261015T160339+0000",
+        "files": [],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "SurveyRestJ21",
+        "version": "1cd379e5a318",
+        "username": "lambert.lesko",
+        "comment": "Enable SQS managed encryption for missing-rewards-queue",
+        "ticket": "",
+        "deployedAt": "20261015T160339+0000",
         "files": [
-          "SampleServiceImpl.java",
-          "SampleServiceImplTest.groovy"
+          "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiUI",
-        "version": "2e345dc79004",
-        "username": "60962201+gyarmatitamas",
-        "comment": "[NXS-14005] - NexusApiUI - PROPAGATION_COMPLETE SSE (#5502)",
-        "ticket": "NXS-14005",
-        "deployedAt": "20261014T090729+0000",
+        "service": "SurveyRestJ21",
+        "version": "628f1db4a44c",
+        "username": "bresalio.nagy",
+        "comment": "[AE-8062] Migrate to new AE-DPR: S3 macro stack - fix1",
+        "ticket": "",
+        "deployedAt": "20261015T160339+0000",
         "files": [
-          "ProjectPropertyChangedBroadcastListener.java",
-          "SSEMessageType.java",
-          "ProjectPropertyChangedBroadcastListenerTest.groovy"
+          "all.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "SurveyRestJ21",
+        "version": "d768fe2ad278",
+        "username": "lambert.lesko",
+        "comment": "Migrating rewards apps to ae-dpr",
+        "ticket": "",
+        "deployedAt": "20261015T160339+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml",
+          "qa.yml",
+          "cloud-formation.template.yml",
+          "all.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "SurveyRestJ21",
+        "version": "d15e9a7173fc",
+        "username": "richardlaszlo.sebok",
+        "comment": "[ST-4976] (ReplicationService) - Added dev CAMS SNS topic arn + fixed tags.",
+        "ticket": "",
+        "deployedAt": "20261015T160339+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "dev.yml"
         ],
         "scope": "qa-deploy"
       }
     ]
   },
   "contractDrift": {
-    "newCount": 1,
+    "newCount": 0,
     "baselineCount": 95,
-    "currentCount": 94,
-    "examples": [
-      "POST /u1/nexus/quotaGroups :: Response status 502 not defined for path '/u1/nexus/quotaGroups'."
-    ]
+    "currentCount": 93,
+    "examples": []
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."
 }
