@@ -1,11 +1,8 @@
-**17 new failures — mainly Parameter, Segment**
+**17 new failures in Parameter/Segment — downstream parameter-service returning HTTP 500, plus a test-assertion bug**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: mixed — downstream parameter-service 500s (not infra) plus a broken test assertion; no in-window QA deploy touches parameter-service._
 
-- 9× other — (no error message)
-- 8× assertion Condition not satisfied — (no error message)
+- 11× HTTP 500 from downstream parameter-service (`/parameters/search`, `/search/categories`) — backend error, not infra
+- 6× test-assertion bug (`query.contains('!@#')` at ParameterSearchFiltersAndConditionsTestSteps.groovy:47); contract drift: POST /parameters/search 500 not in contract
 
-⚠️ Contract drift: 1 new response-schema violation(s) vs baseline.
-- POST /u1/nexus/parameters/search :: Response status 500 not defined for path '/u1/nexus/parameters/search'.
-
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9619919)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9619919)

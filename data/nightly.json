@@ -1787,23 +1787,28 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "17 new failures \u2014 mainly Parameter, Segment",
+    "headline": "17 new failures in Parameter/Segment \u2014 downstream parameter-service returning HTTP 500, plus a test-assertion bug",
     "tone": "bad",
     "severity": "high",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 2 service(s) were deployed to QA in this window (CommunicationRestJ21, NexusApiJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 9\u00d7 other (no dominant signature yet); 8\u00d7 assertion Condition not satisfied. Vs prior #3.0.2730: up 17 total fails.",
+    "cause": "mixed",
+    "causeText": "Most new fails (11) are HTTP 500 responses from the downstream parameter-service (/parameters/search and /search/categories) surfaced by the NexusApi gateway \u2014 a backend application error (error callChain body), not an infra timeout/502/504. The other 6 are a genuine Spock assertion bug: query.contains('!@#') is false for the test's own query values at ParameterSearchFiltersAndConditionsTestSteps.groovy:47. The two in-window QA deploys \u2014 CommunicationRestJ21 (NXS-13843, andras.banszki) and NexusApiJ21 (NXS-14153, tamas.gyarmati, tracker/propagation only) \u2014 touch neither parameter-service nor the parameters endpoints, and parameter-service was not deployed in this window, so no commit can be blamed.",
+    "investigation": "11 of 17 new fails are HTTP 500s from the downstream parameter-service (search/categories); the other 6 are a test-assertion bug at ParameterSearchFiltersAndConditionsTestSteps.groovy:47. No in-window QA deploy touches parameter-service, so the 500 is not tied to a named commit.",
     "bullets": [
-      "9\u00d7 other \u2014 (no error message)",
-      "8\u00d7 assertion Condition not satisfied \u2014 (no error message)"
+      "11\u00d7 HTTP 500 from downstream parameter-service (/parameters/search, /search/categories) \u2014 backend error, not infra",
+      "6\u00d7 test-assertion bug \u2014 query.contains('!@#') false at ParameterSearchFiltersAndConditionsTestSteps.groovy:47",
+      "No QA-deployed commit maps to parameter-service; parameter-service not in the deploy window"
     ],
     "detail": {
-      "investigation": "17 of 17 unmuted failures are new since the prior build (#3.0.2730, 0 fails). Failure types (new-first): (1) 9\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 8\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: Parameter (15), Segment (2). 2 service(s) (24 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Parameter: Search parameters with pagination boundary values: com.dynata.rest.gateway.nexusapi.rest.t [assertion Condition not satisfied]; Parameter: Search parameters with pagination boundary values: com.dynata.rest.gateway.nexusapi.rest.t [assertion Condition not satisfied]; Parameter: Parameter category search: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.Par [other]; Parameter: Parameter category search: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.Par [other].",
+      "investigation": "All 17 unmuted failures are new vs the prior green build (#3.0.2730, 0 fails), concentrated in Parameter (15) and Segment (2). (1) The dominant signature \u2014 11 failures (parameter/category search, search/categories filter combinations, large result sets, pagination boundary values, the E2E workflow, and both 'Add segment parameter' cases) \u2014 is an HTTP 500 returned by the downstream parameter-service (parameter-service.st-qa.dynata.com/parameterService/v2/parameters/search and /parameters/search/categories), surfaced by the NexusApi gateway as 500. This is a backend application error with an error callChain body, not an infra timeout/502/504, so it is not QA flakiness; the 'pagination boundary values' assert_fail cases fail only because result contains that error object (a 500 symptom, not an independent assertion). (2) The remaining 6 failures ('Search parameters with text query variations') are a genuine Spock assertion bug: query.contains('!@#') is false for the test's own query values ('', 'a') at ParameterSearchFiltersAndConditionsTestSteps.groovy:47 \u2014 a test/data defect independent of the 500s. (3) Attribution: two services deployed to QA in-window \u2014 CommunicationRestJ21 (NXS-13843, andras.banszki, new CommunicationsService endpoints) and NexusApiJ21 (NXS-14153, tamas.gyarmati, fix propagation statuses, merged by norbert.farkas). Neither touches parameter-service or the parameters search/categories endpoints (the NexusApi change is tracker/propagation only), so no deployed commit plausibly maps to the failing area and none can be blamed; parameter-service itself was not deployed in this window, so the 500 source is unattributed from this evidence. Separately, contract drift (1 new): POST /u1/nexus/parameters/search returns 500, a status not defined in the OpenAPI contract \u2014 the same 500 surfacing at the contract layer.",
       "bullets": [
-        "9\u00d7 other \u2014 (no error message)",
-        "8\u00d7 assertion Condition not satisfied \u2014 (no error message)",
-        "[QA deploy: CommunicationRestJ21] NXS-13843 (20 commits) \u2014 [NXS-13843] New CommunicationsService endpoints (#5536)",
-        "[QA deploy: NexusApiJ21] NXS-14153 (4 commits) \u2014 Merge pull request #5543 from dynata/NXS-14153-NexusApi-fix-propagation-statuses"
+        "Parameter (15) and Segment (2) \u2014 17/17 new vs prior green build #3.0.2730",
+        "11\u00d7 HTTP 500 from downstream parameter-service \u2014 /parameterService/v2/parameters/search and /search/categories",
+        "500 is a backend application error (error callChain body), NOT an infra timeout/502/504",
+        "'Pagination boundary values' assert fails are a 500 symptom (result contains error), not independent assertions",
+        "6\u00d7 genuine test-assertion bug \u2014 query.contains('!@#') false at ParameterSearchFiltersAndConditionsTestSteps.groovy:47",
+        "QA deploy CommunicationRestJ21 NXS-13843 (andras.banszki) \u2014 communications endpoints, no map to parameters",
+        "QA deploy NexusApiJ21 NXS-14153 (tamas.gyarmati) \u2014 tracker/propagation only, no map to parameters/search",
+        "Contract drift (1): POST /u1/nexus/parameters/search 500 not defined in contract (same 500)"
       ],
       "newFailureAreas": [
         {
@@ -1982,8 +1987,8 @@
         "deployedAt": "20261016T095657+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-10-17T02:04Z",
+    "source": "llm",
+    "generatedAt": "2026-10-17T02:05Z",
     "buildNumber": "3.0.2731",
     "buildId": "9619919",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9619919",
