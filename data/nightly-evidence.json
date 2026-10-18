@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-17T02:04Z",
+  "generatedAt": "2026-10-18T02:05Z",
   "build": {
-    "number": "3.0.2731",
-    "buildId": "9619919",
+    "number": "3.0.2732",
+    "buildId": "9621141",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9619919",
-    "durationSec": 1862.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9621141",
+    "durationSec": 1921.0
   },
   "summary": {
     "tests": 1514,
@@ -15,350 +15,24 @@
     "errors": 0,
     "skipped": 0,
     "muted": 68,
-    "newFailed": 17,
+    "newFailed": 0,
     "passRate": 98.8,
-    "timeSec": 1862.0
+    "timeSec": 1921.0
   },
   "prior": {
-    "buildId": "9619546",
-    "number": "3.0.2730",
-    "status": "SUCCESS",
-    "statusText": "Tests passed: 1446, muted: 68",
-    "startDate": "20261016T013009+0000",
-    "durationSec": 1822.0,
-    "failed": 0,
-    "passed": 1446,
-    "newFailed": 0
+    "buildId": "9619919",
+    "number": "3.0.2731",
+    "status": "FAILURE",
+    "statusText": "Tests failed: 17 (17 new), passed: 1429, muted: 68",
+    "startDate": "20261017T013308+0000",
+    "durationSec": 1862.0,
+    "failed": 17,
+    "passed": 1429,
+    "newFailed": 17
   },
   "changes": [],
-  "qaDeployChanges": [
-    {
-      "service": "CommunicationRestJ21",
-      "version": "03486d7dbd31",
-      "username": "andras.banszki",
-      "comment": "[NXS-13843] New CommunicationsService endpoints (#5536)",
-      "files": [
-        "project/CommunicationRest/build.gradle",
-        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/ProjectCrmFieldsAcceptanceFeignClient.java",
-        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/UProjectCommunicationsApiAcceptanceTest.groovy",
-        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/UProjectCommunicationsApiFeignClient.java",
-        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/u1/mongo/ProjectCommunicationsMongoHandlerTest.groovy",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/CommunicationRestApplication.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/api/projectCommunication/UProjectCommunicationsApi.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/api/projectCommunication/UProjectCommunicationsApiImpl.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/components/CommunicationEditor.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/components/CommunicationValidations.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/dependencies/project/ProjectRestFeignClient.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/dependencies/project/model/CrmFields.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/model/projectCommunication/Communication.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/model/projectCommunication/CommunicationCreateRequest.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/model/projectCommunication/CommunicationStatus.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/model/projectCommunication/CommunicationUpdateRequest.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/model/projectCommunication/Content.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/model/projectCommunication/QuotaGroupCommunication.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/model/projectCommunication/QuotaGroupCommunicationCreateRequest.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/model/projectCommunication/QuotaGroupCommunicationUpdateRequest.java"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "67e986c0af06",
-      "username": "grace.chen",
-      "comment": "[FAI-474-487] update alarm for ml-survey-guard-model",
-      "files": [
-        "ml-survey-guard-model/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "72873c8e500a",
-      "username": "grace.chen",
-      "comment": "[FAI-474-487] update alarm for ml-screenout-model",
-      "files": [
-        "ml-screenout-model/cloud-formation.template.yml",
-        "ml-screenout-model/group_vars/all.yml",
-        "ml-screenout-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "e907d50749f1",
-      "username": "grace.chen",
-      "comment": "[FAI-474-487] update alarm for ml-complete-optimization-model",
-      "files": [
-        "ml-complete-optimization-model/cloud-formation.template.yml",
-        "ml-complete-optimization-model/group_vars/all.yml",
-        "ml-complete-optimization-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "3d433e9bbb21",
-      "username": "61739584+richardsebok",
-      "comment": "Merge pull request #627 from dynata/ST-4726",
-      "files": [],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "2e61fe1ae67b",
-      "username": "lambert.lesko",
-      "comment": "Merge pull request #666 from dynata/ae-7782-migrate-rewards-apps-to-ae-dpr",
-      "files": [],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "1cd379e5a318",
-      "username": "lambert.lesko",
-      "comment": "Enable SQS managed encryption for missing-rewards-queue",
-      "files": [
-        "ae-missing-rewards-queue/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "628f1db4a44c",
-      "username": "bresalio.nagy",
-      "comment": "[AE-8062] Migrate to new AE-DPR: S3 macro stack - fix1",
-      "files": [
-        "ae-aws-s3-objects-macro/group_vars/all.yml",
-        "ae-aws-s3-objects-macro/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "fe883bf9811f",
-      "username": "grace.chen",
-      "comment": "[FAI-474-487] update alarm for ml-reconciliation-model",
-      "files": [
-        "ml-reconciliation-model/cloud-formation.template.yml",
-        "ml-reconciliation-model/group_vars/all.yml",
-        "ml-reconciliation-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "dc30d638e1ae",
-      "username": "grace.chen",
-      "comment": "[FAI-474-487] update alarm for ml-quality-score-model",
-      "files": [
-        "ml-quality-score-model/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "c67359b6d37e",
-      "username": "grace.chen",
-      "comment": "[FAI-474-487] update alarm for ml-fraud-risk-model",
-      "files": [
-        "ml-fraud-risk-model/cloud-formation.template.yml",
-        "ml-fraud-risk-model/group_vars/all.yml",
-        "ml-fraud-risk-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "a5aaf6a2b632",
-      "username": "grace.chen",
-      "comment": "[FAI-474-487] update alarm for ml-redemption-guard-model",
-      "files": [
-        "ml-redemption-guard-model/cloud-formation.template.yml",
-        "ml-redemption-guard-model/group_vars/all.yml",
-        "ml-redemption-guard-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "6ea2bf05015e",
-      "username": "sajak.upadhyaya",
-      "comment": "FAI-407 flag for honeycomb forwarder",
-      "files": [
-        "ml-reconciliation-model-service/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "9845a24b04d2",
-      "username": "grace.chen",
-      "comment": "[FAI-474-487] update alarm for ml-ibzp-redemption-guard-model",
-      "files": [
-        "ml-ibzp-redemption-guard-model/cloud-formation.template.yml",
-        "ml-ibzp-redemption-guard-model/group_vars/all.yml",
-        "ml-ibzp-redemption-guard-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "5ae0f1ab18ce",
-      "username": "adam.veres",
-      "comment": "Fix feas-global-cache arn",
-      "files": [
-        "feasibility-actuals-aggregator/group_vars/dev.yml",
-        "feasibility-cache-manager/group_vars/dev.yml",
-        "feasibility-calculator/group_vars/dev.yml",
-        "feasibility-cost-calculator-ecs/group_vars/dev.yml",
-        "feasibility-plan-mapper/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "0efa94e898e0",
-      "username": "lambert.lesko",
-      "comment": "Merge pull request #665 from dynata/ae-7782-migrate-legacy-router-apps-to-ae-dpr",
-      "files": [],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "d768fe2ad278",
-      "username": "lambert.lesko",
-      "comment": "Migrating rewards apps to ae-dpr",
-      "files": [
-        "ae-missing-rewards-queue/cloud-formation.template.yml",
-        "ae-missing-rewards-queue/group_vars/all.yml",
-        "ae-missing-rewards-queue/group_vars/qa.yml",
-        "award-jobs/cloud-formation.template.yml",
-        "award-jobs/group_vars/all.yml",
-        "award-jobs/group_vars/qa.yml",
-        "offer-service/cloud-formation.template.yml",
-        "offer-service/group_vars/all.yml",
-        "offer-service/group_vars/qa.yml",
-        "reward-communication-service/cloud-formation.template.yml",
-        "reward-communication-service/group_vars/all.yml",
-        "reward-communication-service/group_vars/qa.yml",
-        "sitecore-reward-service/cloud-formation.template.yml",
-        "sitecore-reward-service/group_vars/all.yml",
-        "sitecore-reward-service/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "6d7ca8a23787",
-      "username": "laszlo.szalkai",
-      "comment": "[AE-8061] [ae-verify-service] drop launch type when using a capacity provider",
-      "files": [
-        "ae-verify-service/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "b7ec76977d8d",
-      "username": "lambert.lesko",
-      "comment": "Migrating legacy router apps to ae-dpr",
-      "files": [
-        "ae-legacy-hazelcast-sfc/cloud-formation.template.yml",
-        "ae-legacy-hazelcast-sfc/group_vars/all.yml",
-        "ae-legacy-hazelcast-sfc/group_vars/qa.yml",
-        "ae-legacy-sfc-experimental/cloud-formation.template.yml",
-        "ae-legacy-sfc-experimental/group_vars/all.yml",
-        "ae-legacy-sfc-experimental/group_vars/qa.yml",
-        "fmas-svc/cloud-formation.template.yml",
-        "fmas-svc/group_vars/all.yml",
-        "fmas-svc/group_vars/qa.yml",
-        "router-static-resources/cloud-formation.template.yml",
-        "router-static-resources/group_vars/all.yml",
-        "router-static-resources/group_vars/qa.yml",
-        "rsm-status-app/cloud-formation.template.yml",
-        "rsm-status-app/group_vars/all.yml",
-        "rsm-status-app/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "2e60c9712ae7",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7780] [dkjs-automated-sourcing] fix?",
-      "files": [
-        "dkjs-automated-sourcing-jobs/group_vars/production.yml"
-      ],
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "0db3a8ec2f3a",
-      "username": "norbert.farkas",
-      "comment": "Merge pull request #5543 from dynata/NXS-14153-NexusApi-fix-propagation-statuses",
-      "files": [],
-      "deployedAt": "20261016T095657+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "8e8253cc5bd5",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-14153] - NexusApi - fix propagation statuses",
-      "files": [
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/StartPropagationListener.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/UTrackerImpl.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/ExclusionRulePropagator.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/QuotaGroupPropagator.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/UrlPoolPropagator.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/model/StartPropagationRequestWithSourceItems.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/model/WavePropagationItems.java",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/StartPropagationListenerTest.groovy",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/UTrackerImplTest.groovy",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/ExclusionRulePropagatorTest.groovy",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/QuotaGroupPropagatorTest.groovy",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/UrlPoolPropagatorTest.groovy"
-      ],
-      "deployedAt": "20261016T095657+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "d15e9a7173fc",
-      "username": "richardlaszlo.sebok",
-      "comment": "[ST-4976] (ReplicationService) - Added dev CAMS SNS topic arn + fixed tags.",
-      "files": [
-        "st-replication-service/cloud-formation.template.yml",
-        "st-replication-service/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261016T095657+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "c75bba366fd1",
-      "username": "richardlaszlo.sebok",
-      "comment": "[ST-4976] (ReplicationService) - Added SQS implementation for CAMS SNS topic.",
-      "files": [
-        "st-replication-service/cloud-formation.template.yml",
-        "st-replication-service/group_vars/prod.yml",
-        "st-replication-service/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261016T095657+0000"
-    }
-  ],
-  "qaDeployServices": [
-    {
-      "service": "CommunicationRestJ21",
-      "commits": 20,
-      "latestTicket": "NXS-13843",
-      "latestComment": "[NXS-13843] New CommunicationsService endpoints (#5536)",
-      "deployedAt": "20261016T131118+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "commits": 4,
-      "latestTicket": "NXS-14153",
-      "latestComment": "Merge pull request #5543 from dynata/NXS-14153-NexusApi-fix-propagation-statuses",
-      "deployedAt": "20261016T095657+0000"
-    }
-  ],
+  "qaDeployChanges": [],
+  "qaDeployServices": [],
   "clusters": [
     {
       "label": "other",
@@ -381,7 +55,7 @@
     {
       "name": "Search parameters with pagination boundary values: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterValidationTestSteps.Search parameters with pagination boundary values",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterValidationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Parameter",
       "cluster": "assert_fail",
       "message": "(no error message)",
@@ -390,7 +64,7 @@
     {
       "name": "Search parameters with pagination boundary values: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterValidationTestSteps.Search parameters with pagination boundary values",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterValidationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Parameter",
       "cluster": "assert_fail",
       "message": "(no error message)",
@@ -399,7 +73,7 @@
     {
       "name": "Parameter category search: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchCatalogTestSteps.Parameter category search",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchCatalogTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Parameter",
       "cluster": "other",
       "message": "(no error message)",
@@ -408,7 +82,7 @@
     {
       "name": "Parameter category search: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchCatalogTestSteps.Parameter category search",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchCatalogTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Parameter",
       "cluster": "other",
       "message": "(no error message)",
@@ -417,7 +91,7 @@
     {
       "name": "Search parameter categories with various filter combinations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchCatalogTestSteps.Search parameter categories with various filter combinations",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchCatalogTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Parameter",
       "cluster": "other",
       "message": "(no error message)",
@@ -426,7 +100,7 @@
     {
       "name": "Search parameter categories with various filter combinations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchCatalogTestSteps.Search parameter categories with various filter combinations",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchCatalogTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Parameter",
       "cluster": "other",
       "message": "(no error message)",
@@ -435,7 +109,7 @@
     {
       "name": "Complete parameter search, validation, and universe definition workflow: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterE2ETestSteps.Complete parameter search, validation, and universe definition workflow",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterE2ETestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Parameter",
       "cluster": "other",
       "message": "(no error message)",
@@ -444,61 +118,61 @@
     {
       "name": "Search parameters with text query variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Parameter",
       "cluster": "assert_fail",
       "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | \"\" false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:27 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2275177, audienceGroupId=164\u2026"
+      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | \"\" false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:44 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2275177, audienceGroupId=164\u2026"
     },
     {
       "name": "Search parameters with text query variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Parameter",
       "cluster": "assert_fail",
       "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:27 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2275177, audienceGroupId=164543\u2026"
+      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:44 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2275177, audienceGroupId=164590\u2026"
     },
     {
       "name": "Search parameters with text query variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Parameter",
       "cluster": "assert_fail",
       "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | a false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:27 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2275177, audienceGroupId=1645\u2026"
+      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | a false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:44 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2275177, audienceGroupId=1645\u2026"
     },
     {
       "name": "Search parameters with text query variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Parameter",
       "cluster": "assert_fail",
       "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | \"\" false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:31 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2275179, audienceGroupId=1\u2026"
+      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | \"\" false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:47 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2275179, audienceGroupId=1\u2026"
     },
     {
       "name": "Search parameters with text query variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Parameter",
       "cluster": "assert_fail",
       "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:31 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2275179, audienceGroupId=1645\u2026"
+      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:47 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2275179, audienceGroupId=1645\u2026"
     },
     {
       "name": "Search parameters with text query variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Parameter",
       "cluster": "assert_fail",
       "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | a false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:31 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2275179, audienceGroupId=16\u2026"
+      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | a false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:48 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2275179, audienceGroupId=16\u2026"
     },
     {
       "name": "Search parameters with large result sets: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with large result sets",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Parameter",
       "cluster": "other",
       "message": "(no error message)",
@@ -507,7 +181,7 @@
     {
       "name": "Search parameters with large result sets: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with large result sets",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Parameter",
       "cluster": "other",
       "message": "(no error message)",
@@ -516,7 +190,7 @@
     {
       "name": "Add segment parameter: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps.Add segment parameter",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Segment",
       "cluster": "other",
       "message": "(no error message)",
@@ -525,7 +199,7 @@
     {
       "name": "Add segment parameter: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps.Add segment parameter",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Segment",
       "cluster": "other",
       "message": "(no error message)",
@@ -533,21 +207,19 @@
     }
   ],
   "rulesNutshell": {
-    "headline": "17 new failures \u2014 mainly Parameter, Segment",
-    "tone": "bad",
-    "severity": "high",
+    "headline": "17 continuing failure(s) \u2014 no new unmuted fails",
+    "tone": "warn",
+    "severity": "low",
     "bullets": [
       "9\u00d7 other \u2014 (no error message)",
       "8\u00d7 assertion Condition not satisfied \u2014 (no error message)"
     ],
-    "investigation": "New fails: 9\u00d7 other (no dominant signature yet); 8\u00d7 assertion Condition not satisfied. Vs prior #3.0.2730: up 17 total fails.",
+    "investigation": "Failures: 9\u00d7 other (no dominant signature yet); 8\u00d7 assertion Condition not satisfied.",
     "detail": {
-      "investigation": "17 of 17 unmuted failures are new since the prior build (#3.0.2730, 0 fails). Failure types (new-first): (1) 9\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 8\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: Parameter (15), Segment (2). 2 service(s) (24 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Parameter: Search parameters with pagination boundary values: com.dynata.rest.gateway.nexusapi.rest.t [assertion Condition not satisfied]; Parameter: Search parameters with pagination boundary values: com.dynata.rest.gateway.nexusapi.rest.t [assertion Condition not satisfied]; Parameter: Parameter category search: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.Par [other]; Parameter: Parameter category search: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.Par [other].",
+      "investigation": "No new unmuted failures; 17 continuing from prior runs. Failure types (new-first): (1) 9\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 8\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: Parameter (15), Segment (2). Example new failures: Parameter: Search parameters with pagination boundary values: com.dynata.rest.gateway.nexusapi.rest.t [assertion Condition not satisfied]; Parameter: Search parameters with pagination boundary values: com.dynata.rest.gateway.nexusapi.rest.t [assertion Condition not satisfied]; Parameter: Parameter category search: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.Par [other]; Parameter: Parameter category search: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.Par [other].",
       "bullets": [
         "9\u00d7 other \u2014 (no error message)",
-        "8\u00d7 assertion Condition not satisfied \u2014 (no error message)",
-        "[QA deploy: CommunicationRestJ21] NXS-13843 (20 commits) \u2014 [NXS-13843] New CommunicationsService endpoints (#5536)",
-        "[QA deploy: NexusApiJ21] NXS-14153 (4 commits) \u2014 Merge pull request #5543 from dynata/NXS-14153-NexusApi-fix-propagation-statuses"
+        "8\u00d7 assertion Condition not satisfied \u2014 (no error message)"
       ],
       "newFailureAreas": [
         {
@@ -562,142 +234,14 @@
       "likelyCauses": []
     },
     "suspectCommits": [],
-    "qaDeploySuspects": [
-      {
-        "service": "CommunicationRestJ21",
-        "version": "03486d7dbd31",
-        "username": "andras.banszki",
-        "comment": "[NXS-13843] New CommunicationsService endpoints (#5536)",
-        "ticket": "NXS-13843",
-        "deployedAt": "20261016T131118+0000",
-        "files": [
-          "build.gradle",
-          "ProjectCrmFieldsAcceptanceFeignClient.java",
-          "UProjectCommunicationsApiAcceptanceTest.groovy",
-          "UProjectCommunicationsApiFeignClient.java",
-          "ProjectCommunicationsMongoHandlerTest.groovy",
-          "CommunicationRestApplication.java"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "CommunicationRestJ21",
-        "version": "67e986c0af06",
-        "username": "grace.chen",
-        "comment": "[FAI-474-487] update alarm for ml-survey-guard-model",
-        "ticket": "",
-        "deployedAt": "20261016T131118+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "CommunicationRestJ21",
-        "version": "72873c8e500a",
-        "username": "grace.chen",
-        "comment": "[FAI-474-487] update alarm for ml-screenout-model",
-        "ticket": "",
-        "deployedAt": "20261016T131118+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "CommunicationRestJ21",
-        "version": "e907d50749f1",
-        "username": "grace.chen",
-        "comment": "[FAI-474-487] update alarm for ml-complete-optimization-model",
-        "ticket": "",
-        "deployedAt": "20261016T131118+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "CommunicationRestJ21",
-        "version": "3d433e9bbb21",
-        "username": "61739584+richardsebok",
-        "comment": "Merge pull request #627 from dynata/ST-4726",
-        "ticket": "",
-        "deployedAt": "20261016T131118+0000",
-        "files": [],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "CommunicationRestJ21",
-        "version": "2e61fe1ae67b",
-        "username": "lambert.lesko",
-        "comment": "Merge pull request #666 from dynata/ae-7782-migrate-rewards-apps-to-ae-dpr",
-        "ticket": "",
-        "deployedAt": "20261016T131118+0000",
-        "files": [],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "CommunicationRestJ21",
-        "version": "1cd379e5a318",
-        "username": "lambert.lesko",
-        "comment": "Enable SQS managed encryption for missing-rewards-queue",
-        "ticket": "",
-        "deployedAt": "20261016T131118+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "CommunicationRestJ21",
-        "version": "628f1db4a44c",
-        "username": "bresalio.nagy",
-        "comment": "[AE-8062] Migrate to new AE-DPR: S3 macro stack - fix1",
-        "ticket": "",
-        "deployedAt": "20261016T131118+0000",
-        "files": [
-          "all.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "CommunicationRestJ21",
-        "version": "fe883bf9811f",
-        "username": "grace.chen",
-        "comment": "[FAI-474-487] update alarm for ml-reconciliation-model",
-        "ticket": "",
-        "deployedAt": "20261016T131118+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "CommunicationRestJ21",
-        "version": "dc30d638e1ae",
-        "username": "grace.chen",
-        "comment": "[FAI-474-487] update alarm for ml-quality-score-model",
-        "ticket": "",
-        "deployedAt": "20261016T131118+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      }
-    ]
+    "qaDeploySuspects": []
   },
   "contractDrift": {
-    "newCount": 1,
+    "newCount": 2,
     "baselineCount": 95,
-    "currentCount": 94,
+    "currentCount": 95,
     "examples": [
+      "GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'.",
       "POST /u1/nexus/parameters/search :: Response status 500 not defined for path '/u1/nexus/parameters/search'."
     ]
   },
