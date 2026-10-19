@@ -1,34 +1,34 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-18T02:05Z",
+  "generatedAt": "2026-10-19T02:02Z",
   "build": {
-    "number": "3.0.2732",
-    "buildId": "9621141",
+    "number": "3.0.2733",
+    "buildId": "9621648",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9621141",
-    "durationSec": 1921.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9621648",
+    "durationSec": 1738.0
   },
   "summary": {
     "tests": 1514,
-    "passed": 1429,
-    "failures": 17,
+    "passed": 1443,
+    "failures": 2,
     "errors": 0,
     "skipped": 0,
-    "muted": 68,
-    "newFailed": 0,
-    "passRate": 98.8,
-    "timeSec": 1921.0
+    "muted": 69,
+    "newFailed": 2,
+    "passRate": 99.9,
+    "timeSec": 1738.0
   },
   "prior": {
-    "buildId": "9619919",
-    "number": "3.0.2731",
+    "buildId": "9621141",
+    "number": "3.0.2732",
     "status": "FAILURE",
-    "statusText": "Tests failed: 17 (17 new), passed: 1429, muted: 68",
-    "startDate": "20261017T013308+0000",
-    "durationSec": 1862.0,
+    "statusText": "Tests failed: 17, passed: 1429, muted: 68",
+    "startDate": "20261018T013236+0000",
+    "durationSec": 1921.0,
     "failed": 17,
     "passed": 1429,
-    "newFailed": 17
+    "newFailed": 0
   },
   "changes": [],
   "qaDeployChanges": [],
@@ -37,197 +37,48 @@
     {
       "label": "other",
       "display": "other",
-      "count": 9,
-      "newCount": 9,
-      "sample": "(no error message)",
+      "count": 2,
+      "newCount": 2,
+      "sample": "groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helper",
       "why": "no dominant signature yet \u2014 open TeamCity details"
-    },
-    {
-      "label": "assert_fail",
-      "display": "assertion Condition not satisfied",
-      "count": 8,
-      "newCount": 8,
-      "sample": "(no error message)",
-      "why": "Spock assertion failed (fixture or response shape)"
     }
   ],
   "failures": [
     {
-      "name": "Search parameters with pagination boundary values: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterValidationTestSteps.Search parameters with pagination boundary values",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterValidationTestSteps",
-      "newFailure": false,
-      "area": "Parameter",
-      "cluster": "assert_fail",
-      "message": "(no error message)",
-      "detailsExcerpt": "Condition not satisfied: !(result instanceof Map && result.containsKey('error')) | | | | | | | | | true | | | true | | | | [error:java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/parameters/search | | | | | | | | 500{ | | | | \"errors\" : [ { | | | | \"callChain\" : [ \"HTTP 500 GET https://parameter-service.st-qa.dynata.com/parameterService/v2/parameters/search?active\u2026"
-    },
-    {
-      "name": "Search parameters with pagination boundary values: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterValidationTestSteps.Search parameters with pagination boundary values",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterValidationTestSteps",
-      "newFailure": false,
-      "area": "Parameter",
-      "cluster": "assert_fail",
-      "message": "(no error message)",
-      "detailsExcerpt": "Condition not satisfied: !(result instanceof Map && result.containsKey('error')) | | | | | | | | | true | | | true | | | | [error:java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/parameters/search | | | | | | | | 500{ | | | | \"errors\" : [ { | | | | \"callChain\" : [ \"HTTP 500 GET https://parameter-service.st-qa.dynata.com/parameterService/v2/parameters/search?active\u2026"
-    },
-    {
-      "name": "Parameter category search: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchCatalogTestSteps.Parameter category search",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchCatalogTestSteps",
-      "newFailure": false,
-      "area": "Parameter",
+      "name": "Update account manager",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ManagersTestSteps",
+      "newFailure": true,
+      "area": "Project",
       "cluster": "other",
-      "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/parameters/categories 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 GET https://parameter-service.st-qa.dynata.com/parameterService/v2/parameters/search/categories?dubProjectId=QUO_1645cad6&clientGuid=648b1db4-df5e-e811-9452-005056a17e2b&includeAudienceTypes=B2B&includeAudienceTypes=B2C&includeAudienceTypes=Healthca\u2026"
+      "message": "groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.ProjectHelper.updateAccountMa\u2026",
+      "detailsExcerpt": "groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.ProjectHelper.updateAccountManager() is applicable for argument types: (Integer, null) values: [2283486, null] Possible solutions: updateAccountManager(int), updateAccountManager(int, int) at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ManagersTestSteps.U\u2026"
     },
     {
-      "name": "Parameter category search: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchCatalogTestSteps.Parameter category search",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchCatalogTestSteps",
-      "newFailure": false,
-      "area": "Parameter",
+      "name": "Update client delivery consultant",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ManagersTestSteps",
+      "newFailure": true,
+      "area": "Project",
       "cluster": "other",
-      "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/parameters/categories 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 GET https://parameter-service.st-qa.dynata.com/parameterService/v2/parameters/search/categories?dubProjectId=ORD_TEST_1c6e70c5&clientGuid=648b1db4-df5e-e811-9452-005056a17e2b&includeAudienceTypes=B2B&includeAudienceTypes=B2C&includeAudienceTypes=Hea\u2026"
-    },
-    {
-      "name": "Search parameter categories with various filter combinations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchCatalogTestSteps.Search parameter categories with various filter combinations",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchCatalogTestSteps",
-      "newFailure": false,
-      "area": "Parameter",
-      "cluster": "other",
-      "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/parameters/categories 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 GET https://parameter-service.st-qa.dynata.com/parameterService/v2/parameters/search/categories?dubProjectId=QUO_1645cad6&clientGuid=648b1db4-df5e-e811-9452-005056a17e2b&qualificationEligible=true&includeAudienceTypes=B2B&includeAudienceTypes=B2C&in\u2026"
-    },
-    {
-      "name": "Search parameter categories with various filter combinations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchCatalogTestSteps.Search parameter categories with various filter combinations",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchCatalogTestSteps",
-      "newFailure": false,
-      "area": "Parameter",
-      "cluster": "other",
-      "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/parameters/categories 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 GET https://parameter-service.st-qa.dynata.com/parameterService/v2/parameters/search/categories?dubProjectId=ORD_TEST_1c6e70c5&clientGuid=648b1db4-df5e-e811-9452-005056a17e2b&qualificationEligible=true&includeAudienceTypes=B2B&includeAudienceTypes=B\u2026"
-    },
-    {
-      "name": "Complete parameter search, validation, and universe definition workflow: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterE2ETestSteps.Complete parameter search, validation, and universe definition workflow",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterE2ETestSteps",
-      "newFailure": false,
-      "area": "Parameter",
-      "cluster": "other",
-      "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/parameters/categories 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 GET https://parameter-service.st-qa.dynata.com/parameterService/v2/parameters/search/categories?dubProjectId=ORD_TEST_0c0f8934&clientGuid=648b1db4-df5e-e811-9452-005056a17e2b&includeAudienceTypes=B2B&includeAudienceTypes=B2C&includeAudienceTypes=Hea\u2026"
-    },
-    {
-      "name": "Search parameters with text query variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps",
-      "newFailure": false,
-      "area": "Parameter",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | \"\" false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:44 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2275177, audienceGroupId=164\u2026"
-    },
-    {
-      "name": "Search parameters with text query variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps",
-      "newFailure": false,
-      "area": "Parameter",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:44 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2275177, audienceGroupId=164590\u2026"
-    },
-    {
-      "name": "Search parameters with text query variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps",
-      "newFailure": false,
-      "area": "Parameter",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | a false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:44 INFO : BaseContextAccess - Set active phase to QUOTE, with projectId=2275177, audienceGroupId=1645\u2026"
-    },
-    {
-      "name": "Search parameters with text query variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps",
-      "newFailure": false,
-      "area": "Parameter",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | \"\" false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:47 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2275179, audienceGroupId=1\u2026"
-    },
-    {
-      "name": "Search parameters with text query variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps",
-      "newFailure": false,
-      "area": "Parameter",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:47 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2275179, audienceGroupId=1645\u2026"
-    },
-    {
-      "name": "Search parameters with text query variations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps",
-      "newFailure": false,
-      "area": "Parameter",
-      "cluster": "assert_fail",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: query.contains('!@#') | | a false at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with text query variations(ParameterSearchFiltersAndConditionsTestSteps.groovy:47) ------- Stdout: ------- 01:44:48 INFO : BaseContextAccess - Set active phase to PROJECT, with projectId=2275179, audienceGroupId=16\u2026"
-    },
-    {
-      "name": "Search parameters with large result sets: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with large result sets",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps",
-      "newFailure": false,
-      "area": "Parameter",
-      "cluster": "other",
-      "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/parameters/search 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 GET https://parameter-service.st-qa.dynata.com/parameterService/v2/parameters/search?active=true&dubProjectId=QUO_462c91df&search&clientGuid=648b1db4-df5e-e811-9452-005056a17e2b&pageSize=500&page=0&includeAudienceTypes=B2B&includeAudienceTypes=B2C&inclu\u2026"
-    },
-    {
-      "name": "Search parameters with large result sets: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps.Search parameters with large result sets",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.ParameterSearchFiltersAndConditionsTestSteps",
-      "newFailure": false,
-      "area": "Parameter",
-      "cluster": "other",
-      "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/parameters/search 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 GET https://parameter-service.st-qa.dynata.com/parameterService/v2/parameters/search?active=true&dubProjectId=ORD_TEST_b5c7f2a1&search&clientGuid=648b1db4-df5e-e811-9452-005056a17e2b&pageSize=500&page=0&includeAudienceTypes=B2B&includeAudienceTypes=B2C&\u2026"
-    },
-    {
-      "name": "Add segment parameter: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps.Add segment parameter",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps",
-      "newFailure": false,
-      "area": "Segment",
-      "cluster": "other",
-      "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/parameters/categories 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 GET https://parameter-service.st-qa.dynata.com/parameterService/v2/parameters/search/categories?dubProjectId=QUO_a2276a92&clientGuid=648b1db4-df5e-e811-9452-005056a17e2b&includeAudienceTypes=B2B&includeAudienceTypes=B2C&includeAudienceTypes=Healthca\u2026"
-    },
-    {
-      "name": "Add segment parameter: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps.Add segment parameter",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentsCRUDTestSteps",
-      "newFailure": false,
-      "area": "Segment",
-      "cluster": "other",
-      "message": "(no error message)",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/parameters/categories 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 GET https://parameter-service.st-qa.dynata.com/parameterService/v2/parameters/search/categories?dubProjectId=ORD_TEST_e4941b29&clientGuid=648b1db4-df5e-e811-9452-005056a17e2b&includeAudienceTypes=B2B&includeAudienceTypes=B2C&includeAudienceTypes=Hea\u2026"
+      "message": "groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.ProjectHelper.updateClientDel\u2026",
+      "detailsExcerpt": "groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.ProjectHelper.updateClientDeliveryConsultant() is applicable for argument types: (Integer, null) values: [2283486, null] Possible solutions: updateClientDeliveryConsultant(int), updateClientDeliveryConsultant(int, int) at com.dynata.rest.gateway.nexusapi.rest.tests.ste\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "17 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "2 new failures in Project",
     "tone": "warn",
     "severity": "low",
     "bullets": [
-      "9\u00d7 other \u2014 (no error message)",
-      "8\u00d7 assertion Condition not satisfied \u2014 (no error message)"
+      "2\u00d7 other \u2014 groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helper"
     ],
-    "investigation": "Failures: 9\u00d7 other (no dominant signature yet); 8\u00d7 assertion Condition not satisfied.",
+    "investigation": "New fails: 2\u00d7 other (no dominant signature yet). Vs prior #3.0.2732: down 15 total fails.",
     "detail": {
-      "investigation": "No new unmuted failures; 17 continuing from prior runs. Failure types (new-first): (1) 9\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 8\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: Parameter (15), Segment (2). Example new failures: Parameter: Search parameters with pagination boundary values: com.dynata.rest.gateway.nexusapi.rest.t [assertion Condition not satisfied]; Parameter: Search parameters with pagination boundary values: com.dynata.rest.gateway.nexusapi.rest.t [assertion Condition not satisfied]; Parameter: Parameter category search: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.Par [other]; Parameter: Parameter category search: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Parameter.Par [other].",
+      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2732, 17 fails). Failure types (new-first): (1) 2\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Project (2). Example new failures: Project: Update account manager [other]; Project: Update client delivery consultant [other].",
       "bullets": [
-        "9\u00d7 other \u2014 (no error message)",
-        "8\u00d7 assertion Condition not satisfied \u2014 (no error message)"
+        "2\u00d7 other \u2014 groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helper"
       ],
       "newFailureAreas": [
         {
-          "area": "Parameter",
-          "newCount": 15
-        },
-        {
-          "area": "Segment",
+          "area": "Project",
           "newCount": 2
         }
       ],
@@ -237,13 +88,10 @@
     "qaDeploySuspects": []
   },
   "contractDrift": {
-    "newCount": 2,
+    "newCount": 0,
     "baselineCount": 95,
-    "currentCount": 95,
-    "examples": [
-      "GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'.",
-      "POST /u1/nexus/parameters/search :: Response status 500 not defined for path '/u1/nexus/parameters/search'."
-    ]
+    "currentCount": 93,
+    "examples": []
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."
 }

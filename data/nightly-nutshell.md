@@ -1,7 +1,7 @@
-**17 continuing failures, 0 new — QA parameter-service HTTP 500s plus 6 query-filter test assertions.**
+**2 new failures in Project**
 
-_Likely cause: QA parameter-service.st-qa returning HTTP 500 on parameter search/categories (11 fails) plus 6 query-filter test assertions; no code or QA-deploy changes in the window to blame._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- 11× HTTP 500 from QA parameter-service (/parameters/search + /categories)
+- 2× other — groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helper
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9621141)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9621648)
