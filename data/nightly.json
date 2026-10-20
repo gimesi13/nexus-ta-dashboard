@@ -1622,25 +1622,22 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "2 new failures in QuotaGroup",
+    "headline": "2 new QuotaGroup failures from unsupported country-language combinations, not infra.",
     "tone": "warn",
     "severity": "low",
-    "cause": "mixed",
-    "causeText": "VCS changes present but none map onto the failing packages \u2014 likely test/data, correlate manually. NOTE: 5 service(s) were deployed to QA in this window (NexusApiUI, DKTrafficRestJ16, NexusApiJ21, NexusApiMetaJ21, DKQuotaRestJ16) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 2\u00d7 GB + fr unsupported.",
+    "cause": "test",
+    "causeText": "Both new failures are QuotaGroup country-language assertions on /quotaGroups/addMoreCountries (MA+[ar,en] expected to clone, BY+[de] expecting the old \"Unsupported country!\" wording) \u2014 no test-module or QA-deployed change maps to this area, so it reads as test/data drift rather than infra or an attributable code regression.",
+    "investigation": "Both new fails are QuotaGroup country-language validation assertions (400 BAD_REQUEST), not infra, and no changed file maps to the area.",
     "bullets": [
-      "2\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:MA] [languageIsos:[ar, en]]"
+      "QuotaGroup clone MA+[ar,en]: API 400 \"Unsupported country-language combinations!\" where a successful clone was expected.",
+      "QuotaGroup clone BY+[de]: assertion expected \"Unsupported country!\" but got \"Unsupported country-language combinations!\"."
     ],
     "detail": {
-      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2733, 2 fails). Failure types (new-first): (1) 2\u00d7 GB + fr unsupported \u2014 unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang). Hot areas among new fails: QuotaGroup (2). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 5 service(s) (62 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: Clone quota group for enabled country and supported language persists correct country-lang [GB + fr unsupported]; QuotaGroup: Clone quota group for panel-disabled country rejects request: com.dynata.rest.gateway.nexu [GB + fr unsupported].",
+      "investigation": "Both new failures hit NexusApiUI /u1/nexus/quotaGroups/addMoreCountries returning 400 \"Unsupported country-language combinations!\" \u2014 MA+[ar,en] expected a persisted clone (RuntimeException), while BY+[de] is a Spock assertion still expecting the older \"Unsupported country! [countryIso:BY]\" wording. Neither is infra (no timeout/502/504); the only test-module commit (NXS-14164, gergely.gimesi) touches Project helpers and the QA-deployed services touch Communications/feign/infra, none of which map to quotaGroup country-language validation, so this points to test/data drift.",
       "bullets": [
-        "2\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:MA] [languageIsos:[ar, en]]",
-        "NXS-14164: gergely.gimesi \u2014 NXS-14164 Skip manager restore when the fixture id is null",
-        "[QA deploy: NexusApiUI] NXS-14162 (25 commits) \u2014 [NXS-14162] MS - NexusApiUI - create new CommunicationOverview endpoint",
-        "[QA deploy: DKTrafficRestJ16] NXS-13992 (9 commits) \u2014 [NXS-13992] MS | replace properties in feign clients in the dk-microservice repo",
-        "[QA deploy: NexusApiJ21] NXS-14173 (2 commits) \u2014 [NXS-14173] MS - NexusApi import Communication request POJO-s from UNexusModel",
-        "[QA deploy: NexusApiMetaJ21] NXS-14047 (25 commits) \u2014 [NXS-14047] MS - Handle preferred languges (#5544)",
-        "[QA deploy: DKQuotaRestJ16] NXS-13992 (1 commit) \u2014 [NXS-13992] MS | replace properties in feign clients in the dk-microservice repo"
+        "QuotaGroup MA+[ar,en]: RuntimeException, API 400 \"Unsupported country-language combinations!\" where a persisted clone was expected.",
+        "QuotaGroup BY+[de]: Condition not satisfied \u2014 expected \"Unsupported country! [countryIso:BY]\", got \"Unsupported country-language combinations! [countryIso:BY] [languageIsos:[de]]\".",
+        "No mapped change: NXS-14164 (gergely.gimesi) touches Project helpers only; QA-deployed NexusApiUI commits don't touch quotaGroup country-language logic."
       ],
       "newFailureAreas": [
         {
@@ -1843,8 +1840,8 @@
         "deployedAt": "20261019T085026+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-10-20T02:00Z",
+    "source": "llm",
+    "generatedAt": "2026-10-20T02:01:00Z",
     "buildNumber": "3.0.2734",
     "buildId": "9624661",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9624661",
