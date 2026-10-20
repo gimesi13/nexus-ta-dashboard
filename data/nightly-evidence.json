@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-19T02:02Z",
+  "generatedAt": "2026-10-20T02:00Z",
   "build": {
-    "number": "3.0.2733",
-    "buildId": "9621648",
+    "number": "3.0.2734",
+    "buildId": "9624661",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9621648",
-    "durationSec": 1738.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9624661",
+    "durationSec": 1667.0
   },
   "summary": {
     "tests": 1514,
@@ -17,75 +17,631 @@
     "muted": 69,
     "newFailed": 2,
     "passRate": 99.9,
-    "timeSec": 1738.0
+    "timeSec": 1667.0
   },
   "prior": {
-    "buildId": "9621141",
-    "number": "3.0.2732",
+    "buildId": "9621648",
+    "number": "3.0.2733",
     "status": "FAILURE",
-    "statusText": "Tests failed: 17, passed: 1429, muted: 68",
-    "startDate": "20261018T013236+0000",
-    "durationSec": 1921.0,
-    "failed": 17,
-    "passed": 1429,
-    "newFailed": 0
+    "statusText": "Tests failed: 2 (2 new), passed: 1443, muted: 69",
+    "startDate": "20261019T013225+0000",
+    "durationSec": 1738.0,
+    "failed": 2,
+    "passed": 1443,
+    "newFailed": 2
   },
-  "changes": [],
-  "qaDeployChanges": [],
-  "qaDeployServices": [],
+  "changes": [
+    {
+      "version": "95156ff2881e",
+      "username": "gergely.gimesi",
+      "comment": "NXS-14164 Skip manager restore when the fixture id is null",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/ProjectHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ManagersTestSteps.groovy"
+      ],
+      "areas": [
+        "Project"
+      ]
+    }
+  ],
+  "qaDeployChanges": [
+    {
+      "service": "NexusApiUI",
+      "version": "57bcb4325aa7",
+      "username": "andras.banszki",
+      "comment": "[NXS-14162] MS - NexusApiUI - create new CommunicationOverview endpoint",
+      "files": [
+        "gateway/unifiedApi/NexusApiUI/src/test/groovy/u1/nexus/communications/CommunicationOverviewAssemblerTest.groovy"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "7ad903c5d6a9",
+      "username": "andras.banszki",
+      "comment": "NXS-14162 MS - NexusApiUI - create new CommunicationOverview endpoint (#5550)",
+      "files": [
+        "gateway/unifiedApi/NexusApiUI/README.md",
+        "gateway/unifiedApi/NexusApiUI/build.gradle",
+        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/dependencies/nexusApi/NexusApi.java",
+        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/u1/nexus/communications/CommunicationOverviewAssembler.java",
+        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/u1/nexus/communications/UCommunicationsController.java",
+        "gateway/unifiedApi/NexusApiUI/src/test/groovy/u1/nexus/communications/CommunicationOverviewAssemblerTest.groovy"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "939632d8e3f0",
+      "username": "andras.banszki",
+      "comment": "[NXS-14173] MS - NexusApi import Communication request POJO-s from UNexusModel",
+      "files": [
+        "gateway/unifiedApi/NexusApiUI/src/test/groovy/com/dynata/rest/gateway/nexusuiapi/u1/nexus/communications/UCommunicationsControllerTest.groovy"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "675d2a80442a",
+      "username": "krisztian.kover",
+      "comment": "[ST-4362] - supplytools-export-s3 - Removed ArtifactServiceEcsTaskRole from S3 bucket policy",
+      "files": [
+        "supplytools-export-s3/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "ea22d21d3f7d",
+      "username": "134395908+dynata-hu-krisztian-kover",
+      "comment": "Merge pull request #663 from dynata/ST-4362",
+      "files": [],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "10856dd031a8",
+      "username": "bresalio.nagy",
+      "comment": "[AE-8063] ae-ecs-container-pull-error-alarm - temporarily create alarm in dev",
+      "files": [
+        "ae-ecs-container-pull-error-alarm/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "01d8d1ea4e41",
+      "username": "bresalio.nagy",
+      "comment": "[AE-8063] ae-ecs-container-pull-error-alarm",
+      "files": [
+        "ae-ecs-container-pull-error-alarm/cloud-formation.template.yml",
+        "ae-ecs-container-pull-error-alarm/group_vars/all.yml",
+        "ae-ecs-container-pull-error-alarm/group_vars/dev.yml",
+        "ae-ecs-container-pull-error-alarm/group_vars/production.yml",
+        "ae-ecs-container-pull-error-alarm/group_vars/qa.yml",
+        "ae-ecs-container-pull-error-alarm/sample-notification-container-pull-error.json"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "9150598dc9ea",
+      "username": "krisztian.kover",
+      "comment": "[ST-4362] - ST - Added HTTP request blocking for supplytools-export S3 bucket",
+      "files": [
+        "supplytools-export-s3/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "3145a2637a0b",
+      "username": "bresalio.nagy",
+      "comment": "[AE-8063] Migrate to new AE-DPR: ae-ecs-task-stopped-alarm",
+      "files": [
+        "ae-ecs-task-stopped-alarm/cloud-formation.template.yml",
+        "ae-ecs-task-stopped-alarm/group_vars/all.yml",
+        "ae-ecs-task-stopped-alarm/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "8a69ea889954",
+      "username": "david.nagy",
+      "comment": "[NXS-13992] MS | replace properties in feign clients in the dk-microservice repository",
+      "files": [
+        "gateway/dk/DKQuotaRest/src/main/java/com/surveysampling/dependencies/offerservice/IOfferServiceRestHelper.java",
+        "gateway/dk/DKQuotaRest/src/main/java/com/surveysampling/dependencies/scarcity/ScarcityAdapterFeignClient.java",
+        "gateway/dk/DKTrafficRest/src/main/java/com/surveysampling/rest/trafficgateway/dependencies/overview/AllocationEngineRestHelper.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/router/TrafficControlFeignClient.java",
+        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/dependencies/scarcity/ScarcityAdapterFeignClient.java",
+        "management/gateways/DKSystemRest/src/main/java/com/surveysampling/rest/gateway/system/helpers/transactionmanager/TransactionManagerFeignClient.java",
+        "project/ManualCreditRest/src/main/java/com/surveysampling/rest/manualcredit/dependencies/rewards/SiteCoreRewardServicesFeignClient.java",
+        "respondent/FeatureValueRest/src/main/java/com/surveysampling/rest/featurevalue/dependencies/IRespondentStatusManagerFeignClient.java"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "67e986c0af06",
+      "username": "grace.chen",
+      "comment": "[FAI-474-487] update alarm for ml-survey-guard-model",
+      "files": [
+        "ml-survey-guard-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "72873c8e500a",
+      "username": "grace.chen",
+      "comment": "[FAI-474-487] update alarm for ml-screenout-model",
+      "files": [
+        "ml-screenout-model/cloud-formation.template.yml",
+        "ml-screenout-model/group_vars/all.yml",
+        "ml-screenout-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "e907d50749f1",
+      "username": "grace.chen",
+      "comment": "[FAI-474-487] update alarm for ml-complete-optimization-model",
+      "files": [
+        "ml-complete-optimization-model/cloud-formation.template.yml",
+        "ml-complete-optimization-model/group_vars/all.yml",
+        "ml-complete-optimization-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "3cdba8f9d3c6",
+      "username": "krisztian.kover",
+      "comment": "[ST-4362] - ST - Added mandatory tags to the new S3 bucket",
+      "files": [
+        "supplytools-export-s3/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "3d433e9bbb21",
+      "username": "61739584+richardsebok",
+      "comment": "Merge pull request #627 from dynata/ST-4726",
+      "files": [],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "2e61fe1ae67b",
+      "username": "lambert.lesko",
+      "comment": "Merge pull request #666 from dynata/ae-7782-migrate-rewards-apps-to-ae-dpr",
+      "files": [],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "1cd379e5a318",
+      "username": "lambert.lesko",
+      "comment": "Enable SQS managed encryption for missing-rewards-queue",
+      "files": [
+        "ae-missing-rewards-queue/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "628f1db4a44c",
+      "username": "bresalio.nagy",
+      "comment": "[AE-8062] Migrate to new AE-DPR: S3 macro stack - fix1",
+      "files": [
+        "ae-aws-s3-objects-macro/group_vars/all.yml",
+        "ae-aws-s3-objects-macro/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "fe883bf9811f",
+      "username": "grace.chen",
+      "comment": "[FAI-474-487] update alarm for ml-reconciliation-model",
+      "files": [
+        "ml-reconciliation-model/cloud-formation.template.yml",
+        "ml-reconciliation-model/group_vars/all.yml",
+        "ml-reconciliation-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "dc30d638e1ae",
+      "username": "grace.chen",
+      "comment": "[FAI-474-487] update alarm for ml-quality-score-model",
+      "files": [
+        "ml-quality-score-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "c67359b6d37e",
+      "username": "grace.chen",
+      "comment": "[FAI-474-487] update alarm for ml-fraud-risk-model",
+      "files": [
+        "ml-fraud-risk-model/cloud-formation.template.yml",
+        "ml-fraud-risk-model/group_vars/all.yml",
+        "ml-fraud-risk-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "a5aaf6a2b632",
+      "username": "grace.chen",
+      "comment": "[FAI-474-487] update alarm for ml-redemption-guard-model",
+      "files": [
+        "ml-redemption-guard-model/cloud-formation.template.yml",
+        "ml-redemption-guard-model/group_vars/all.yml",
+        "ml-redemption-guard-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "6ea2bf05015e",
+      "username": "sajak.upadhyaya",
+      "comment": "FAI-407 flag for honeycomb forwarder",
+      "files": [
+        "ml-reconciliation-model-service/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "9845a24b04d2",
+      "username": "grace.chen",
+      "comment": "[FAI-474-487] update alarm for ml-ibzp-redemption-guard-model",
+      "files": [
+        "ml-ibzp-redemption-guard-model/cloud-formation.template.yml",
+        "ml-ibzp-redemption-guard-model/group_vars/all.yml",
+        "ml-ibzp-redemption-guard-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "5ae0f1ab18ce",
+      "username": "adam.veres",
+      "comment": "Fix feas-global-cache arn",
+      "files": [
+        "feasibility-actuals-aggregator/group_vars/dev.yml",
+        "feasibility-cache-manager/group_vars/dev.yml",
+        "feasibility-calculator/group_vars/dev.yml",
+        "feasibility-cost-calculator-ecs/group_vars/dev.yml",
+        "feasibility-plan-mapper/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "DKTrafficRestJ16",
+      "version": "b7c4488fc586",
+      "username": "david.nagy",
+      "comment": "[NXS-13992] MS | replace properties in feign clients in the dk-microservice repository - DKTraffic acc test",
+      "files": [
+        "gateway/dk/DKTrafficRest/src/integTest/groovy/com/surveysampling/rest/trafficgateway/service/v1/acceptance/TrafficGatewayRestrictFilterCompatibilityTest.groovy"
+      ],
+      "deployedAt": "20261019T151051+0000"
+    },
+    {
+      "service": "DKTrafficRestJ16",
+      "version": "0efa94e898e0",
+      "username": "lambert.lesko",
+      "comment": "Merge pull request #665 from dynata/ae-7782-migrate-legacy-router-apps-to-ae-dpr",
+      "files": [],
+      "deployedAt": "20261019T151051+0000"
+    },
+    {
+      "service": "DKTrafficRestJ16",
+      "version": "d768fe2ad278",
+      "username": "lambert.lesko",
+      "comment": "Migrating rewards apps to ae-dpr",
+      "files": [
+        "ae-missing-rewards-queue/cloud-formation.template.yml",
+        "ae-missing-rewards-queue/group_vars/all.yml",
+        "ae-missing-rewards-queue/group_vars/qa.yml",
+        "award-jobs/cloud-formation.template.yml",
+        "award-jobs/group_vars/all.yml",
+        "award-jobs/group_vars/qa.yml",
+        "offer-service/cloud-formation.template.yml",
+        "offer-service/group_vars/all.yml",
+        "offer-service/group_vars/qa.yml",
+        "reward-communication-service/cloud-formation.template.yml",
+        "reward-communication-service/group_vars/all.yml",
+        "reward-communication-service/group_vars/qa.yml",
+        "sitecore-reward-service/cloud-formation.template.yml",
+        "sitecore-reward-service/group_vars/all.yml",
+        "sitecore-reward-service/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261019T151051+0000"
+    },
+    {
+      "service": "DKTrafficRestJ16",
+      "version": "6d7ca8a23787",
+      "username": "laszlo.szalkai",
+      "comment": "[AE-8061] [ae-verify-service] drop launch type when using a capacity provider",
+      "files": [
+        "ae-verify-service/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261019T151051+0000"
+    },
+    {
+      "service": "DKTrafficRestJ16",
+      "version": "b7ec76977d8d",
+      "username": "lambert.lesko",
+      "comment": "Migrating legacy router apps to ae-dpr",
+      "files": [
+        "ae-legacy-hazelcast-sfc/cloud-formation.template.yml",
+        "ae-legacy-hazelcast-sfc/group_vars/all.yml",
+        "ae-legacy-hazelcast-sfc/group_vars/qa.yml",
+        "ae-legacy-sfc-experimental/cloud-formation.template.yml",
+        "ae-legacy-sfc-experimental/group_vars/all.yml",
+        "ae-legacy-sfc-experimental/group_vars/qa.yml",
+        "fmas-svc/cloud-formation.template.yml",
+        "fmas-svc/group_vars/all.yml",
+        "fmas-svc/group_vars/qa.yml",
+        "router-static-resources/cloud-formation.template.yml",
+        "router-static-resources/group_vars/all.yml",
+        "router-static-resources/group_vars/qa.yml",
+        "rsm-status-app/cloud-formation.template.yml",
+        "rsm-status-app/group_vars/all.yml",
+        "rsm-status-app/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261019T151051+0000"
+    }
+  ],
+  "qaDeployServices": [
+    {
+      "service": "NexusApiUI",
+      "commits": 25,
+      "latestTicket": "NXS-14162",
+      "latestComment": "[NXS-14162] MS - NexusApiUI - create new CommunicationOverview endpoint",
+      "deployedAt": "20261019T155021+0000"
+    },
+    {
+      "service": "DKTrafficRestJ16",
+      "commits": 9,
+      "latestTicket": "NXS-13992",
+      "latestComment": "[NXS-13992] MS | replace properties in feign clients in the dk-microservice repo",
+      "deployedAt": "20261019T151051+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "commits": 2,
+      "latestTicket": "NXS-14173",
+      "latestComment": "[NXS-14173] MS - NexusApi import Communication request POJO-s from UNexusModel",
+      "deployedAt": "20261019T145408+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "commits": 25,
+      "latestTicket": "NXS-14047",
+      "latestComment": "[NXS-14047] MS - Handle preferred languges (#5544)",
+      "deployedAt": "20261019T120411+0000"
+    },
+    {
+      "service": "DKQuotaRestJ16",
+      "commits": 1,
+      "latestTicket": "NXS-13992",
+      "latestComment": "[NXS-13992] MS | replace properties in feign clients in the dk-microservice repo",
+      "deployedAt": "20261019T085026+0000"
+    }
+  ],
   "clusters": [
     {
-      "label": "other",
-      "display": "other",
+      "label": "product_data_country_lang",
+      "display": "GB + fr unsupported",
       "count": 2,
       "newCount": 2,
-      "sample": "groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helper",
-      "why": "no dominant signature yet \u2014 open TeamCity details"
+      "sample": "Unsupported country-language combinations! [countryIso:MA] [languageIsos:[ar, en]]",
+      "why": "unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang)"
     }
   ],
   "failures": [
     {
-      "name": "Update account manager",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ManagersTestSteps",
+      "name": "Clone quota group for enabled country and supported language persists correct country-language: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCloneTestSteps.Clone quota group for enabled country and supported language persists correct country-language [countryIso: MA, languageIsos: [ar, en], #2]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCloneTestSteps",
       "newFailure": true,
-      "area": "Project",
-      "cluster": "other",
-      "message": "groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.ProjectHelper.updateAccountMa\u2026",
-      "detailsExcerpt": "groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.ProjectHelper.updateAccountManager() is applicable for argument types: (Integer, null) values: [2283486, null] Possible solutions: updateAccountManager(int), updateAccountManager(int, int) at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ManagersTestSteps.U\u2026"
+      "area": "QuotaGroup",
+      "cluster": "product_data_country_lang",
+      "message": "Unsupported country-language combinations! [countryIso:MA] [languageIsos:[ar, en]]",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"Unsupported country-language combinations! [countryIso:MA] [languageIsos:[ar, en]]\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) at com.dynata.rest.gatew\u2026"
     },
     {
-      "name": "Update client delivery consultant",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.ManagersTestSteps",
+      "name": "Clone quota group for panel-disabled country rejects request: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCloneValidationTestSteps.Clone quota group for panel-disabled country rejects request [countryIso: BY, languageIsos: [de], #5]",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCloneValidationTestSteps",
       "newFailure": true,
-      "area": "Project",
-      "cluster": "other",
-      "message": "groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.ProjectHelper.updateClientDel\u2026",
-      "detailsExcerpt": "groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.ProjectHelper.updateClientDeliveryConsultant() is applicable for argument types: (Integer, null) values: [2283486, null] Possible solutions: updateClientDeliveryConsultant(int), updateClientDeliveryConsultant(int, int) at com.dynata.rest.gateway.nexusapi.rest.tests.ste\u2026"
+      "area": "QuotaGroup",
+      "cluster": "product_data_country_lang",
+      "message": "Unsupported country-language combinations! [countryIso:BY] [languageIsos:[de]]",
+      "detailsExcerpt": "Condition not satisfied: exception.message.contains(\"Unsupported country! [countryIso:${countryIso}]\") | | | | | | false BY | https://microservices-qa.dynata.com/NexusApiUI/u1/nexus/quotaGroups/addMoreCountries | | 400{ | \"errors\" : [ { | \"status\" : \"BAD_REQUEST\", | \"message\" : \"Unsupported country-language combinations! [countryIso:BY] [languageIsos:[de]]\" | } ], | \"version\" : \"1.0\" | } java.lan\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "2 new failures in Project",
+    "headline": "2 new failures in QuotaGroup",
     "tone": "warn",
     "severity": "low",
     "bullets": [
-      "2\u00d7 other \u2014 groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helper"
+      "2\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:MA] [languageIsos:[ar, en]]"
     ],
-    "investigation": "New fails: 2\u00d7 other (no dominant signature yet). Vs prior #3.0.2732: down 15 total fails.",
+    "investigation": "New fails: 2\u00d7 GB + fr unsupported.",
     "detail": {
-      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2732, 17 fails). Failure types (new-first): (1) 2\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Project (2). Example new failures: Project: Update account manager [other]; Project: Update client delivery consultant [other].",
+      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2733, 2 fails). Failure types (new-first): (1) 2\u00d7 GB + fr unsupported \u2014 unsupported country-language combo (often GB+[en,fr]; use CA for multi-lang). Hot areas among new fails: QuotaGroup (2). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 5 service(s) (62 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: Clone quota group for enabled country and supported language persists correct country-lang [GB + fr unsupported]; QuotaGroup: Clone quota group for panel-disabled country rejects request: com.dynata.rest.gateway.nexu [GB + fr unsupported].",
       "bullets": [
-        "2\u00d7 other \u2014 groovy.lang.MissingMethodException: No signature of method: com.dynata.rest.gateway.nexusapi.rest.tests.helper"
+        "2\u00d7 GB + fr unsupported \u2014 Unsupported country-language combinations! [countryIso:MA] [languageIsos:[ar, en]]",
+        "NXS-14164: gergely.gimesi \u2014 NXS-14164 Skip manager restore when the fixture id is null",
+        "[QA deploy: NexusApiUI] NXS-14162 (25 commits) \u2014 [NXS-14162] MS - NexusApiUI - create new CommunicationOverview endpoint",
+        "[QA deploy: DKTrafficRestJ16] NXS-13992 (9 commits) \u2014 [NXS-13992] MS | replace properties in feign clients in the dk-microservice repo",
+        "[QA deploy: NexusApiJ21] NXS-14173 (2 commits) \u2014 [NXS-14173] MS - NexusApi import Communication request POJO-s from UNexusModel",
+        "[QA deploy: NexusApiMetaJ21] NXS-14047 (25 commits) \u2014 [NXS-14047] MS - Handle preferred languges (#5544)",
+        "[QA deploy: DKQuotaRestJ16] NXS-13992 (1 commit) \u2014 [NXS-13992] MS | replace properties in feign clients in the dk-microservice repo"
       ],
       "newFailureAreas": [
         {
-          "area": "Project",
+          "area": "QuotaGroup",
           "newCount": 2
         }
       ],
       "likelyCauses": []
     },
-    "suspectCommits": [],
-    "qaDeploySuspects": []
+    "suspectCommits": [
+      {
+        "version": "95156ff2881e",
+        "username": "gergely.gimesi",
+        "comment": "NXS-14164 Skip manager restore when the fixture id is null",
+        "ticket": "NXS-14164",
+        "areas": []
+      }
+    ],
+    "qaDeploySuspects": [
+      {
+        "service": "NexusApiUI",
+        "version": "57bcb4325aa7",
+        "username": "andras.banszki",
+        "comment": "[NXS-14162] MS - NexusApiUI - create new CommunicationOverview endpoint",
+        "ticket": "NXS-14162",
+        "deployedAt": "20261019T155021+0000",
+        "files": [
+          "CommunicationOverviewAssemblerTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiUI",
+        "version": "7ad903c5d6a9",
+        "username": "andras.banszki",
+        "comment": "NXS-14162   MS - NexusApiUI - create new CommunicationOverview endpoint (#5550)",
+        "ticket": "NXS-14162",
+        "deployedAt": "20261019T155021+0000",
+        "files": [
+          "README.md",
+          "build.gradle",
+          "NexusApi.java",
+          "CommunicationOverviewAssembler.java",
+          "UCommunicationsController.java",
+          "CommunicationOverviewAssemblerTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiUI",
+        "version": "939632d8e3f0",
+        "username": "andras.banszki",
+        "comment": "[NXS-14173] MS - NexusApi import Communication request POJO-s from UNexusModel",
+        "ticket": "NXS-14173",
+        "deployedAt": "20261019T155021+0000",
+        "files": [
+          "UCommunicationsControllerTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiUI",
+        "version": "675d2a80442a",
+        "username": "krisztian.kover",
+        "comment": "[ST-4362] - supplytools-export-s3 - Removed ArtifactServiceEcsTaskRole from S3 bucket policy",
+        "ticket": "",
+        "deployedAt": "20261019T155021+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiUI",
+        "version": "ea22d21d3f7d",
+        "username": "134395908+dynata-hu-krisztian-kover",
+        "comment": "Merge pull request #663 from dynata/ST-4362",
+        "ticket": "",
+        "deployedAt": "20261019T155021+0000",
+        "files": [],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiUI",
+        "version": "10856dd031a8",
+        "username": "bresalio.nagy",
+        "comment": "[AE-8063] ae-ecs-container-pull-error-alarm - temporarily create alarm in dev",
+        "ticket": "",
+        "deployedAt": "20261019T155021+0000",
+        "files": [
+          "dev.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiUI",
+        "version": "01d8d1ea4e41",
+        "username": "bresalio.nagy",
+        "comment": "[AE-8063] ae-ecs-container-pull-error-alarm",
+        "ticket": "",
+        "deployedAt": "20261019T155021+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml",
+          "dev.yml",
+          "production.yml",
+          "qa.yml",
+          "sample-notification-container-pull-error.json"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiUI",
+        "version": "9150598dc9ea",
+        "username": "krisztian.kover",
+        "comment": "[ST-4362] - ST - Added HTTP request blocking for supplytools-export S3 bucket",
+        "ticket": "",
+        "deployedAt": "20261019T155021+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiUI",
+        "version": "3145a2637a0b",
+        "username": "bresalio.nagy",
+        "comment": "[AE-8063] Migrate to new AE-DPR: ae-ecs-task-stopped-alarm",
+        "ticket": "",
+        "deployedAt": "20261019T155021+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiUI",
+        "version": "8a69ea889954",
+        "username": "david.nagy",
+        "comment": "[NXS-13992] MS | replace properties in feign clients in the dk-microservice repository",
+        "ticket": "NXS-13992",
+        "deployedAt": "20261019T155021+0000",
+        "files": [
+          "IOfferServiceRestHelper.java",
+          "ScarcityAdapterFeignClient.java",
+          "AllocationEngineRestHelper.java",
+          "TrafficControlFeignClient.java",
+          "ScarcityAdapterFeignClient.java",
+          "TransactionManagerFeignClient.java"
+        ],
+        "scope": "qa-deploy"
+      }
+    ]
   },
   "contractDrift": {
     "newCount": 0,
