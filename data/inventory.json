@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-10-20",
+  "generatedAt": "2026-10-21",
   "source": "source",
-  "features": 783,
-  "cases": 1550,
-  "specs": 112,
-  "areas": 15,
-  "featuresWithSteps": 783,
-  "steps": 3839,
+  "features": 804,
+  "cases": 1545,
+  "specs": 115,
+  "areas": 16,
+  "featuresWithSteps": 804,
+  "steps": 3906,
   "byType": {
-    "CRUD": 249,
-    "Validation": 210,
+    "CRUD": 253,
+    "Validation": 224,
     "Workflow": 144,
-    "Query": 101,
+    "Query": 104,
     "Other": 64,
     "E2E": 15
   },
@@ -2399,6 +2399,623 @@
         {
           "phase": "then",
           "label": "The extended sales order is returned (guid may be uppercase from API)"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationCRUDTestSteps",
+      "name": "Cancelling one quota group leaves the other quota group active",
+      "type": "CRUD",
+      "tags": [
+        "COMMUNICATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A saved communication covering two quota groups"
+        },
+        {
+          "phase": "when",
+          "label": "The first quota group is cancelled"
+        },
+        {
+          "phase": "then",
+          "label": "Only the first quota group is cancelled"
+        },
+        {
+          "phase": "and",
+          "label": "Both copies and the scheduled status remain"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationCRUDTestSteps",
+      "name": "Clearing the cancel flag restores the quota group",
+      "type": "CRUD",
+      "tags": [
+        "COMMUNICATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A saved communication whose quota group is cancelled"
+        },
+        {
+          "phase": "when",
+          "label": "The cancel flag is cleared"
+        },
+        {
+          "phase": "then",
+          "label": "The quota group is active again and its copy remains"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationCRUDTestSteps",
+      "name": "Communication without a schedule receives a near-future schedule",
+      "type": "CRUD",
+      "tags": [
+        "COMMUNICATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A communication that does not name a schedule"
+        },
+        {
+          "phase": "when",
+          "label": "The communication is saved"
+        },
+        {
+          "phase": "then",
+          "label": "A schedule a few minutes ahead is stored"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationCRUDTestSteps",
+      "name": "Project topic list is replaced with the saved languages",
+      "type": "Query",
+      "tags": [
+        "COMMUNICATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "English and Hungarian topics"
+        },
+        {
+          "phase": "when",
+          "label": "The project topic list is replaced"
+        },
+        {
+          "phase": "then",
+          "label": "Both languages and translations are stored"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationCRUDTestSteps",
+      "name": "Replacing topics with an empty list clears the project topics",
+      "type": "Validation",
+      "tags": [
+        "COMMUNICATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A project that already has a topic"
+        },
+        {
+          "phase": "when",
+          "label": "The topic list is replaced with an empty list"
+        },
+        {
+          "phase": "then",
+          "label": "The project has no topics"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationCRUDTestSteps",
+      "name": "Saved communication is listed with its quota group and copy",
+      "type": "Query",
+      "tags": [
+        "COMMUNICATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A future schedule and copy for the project quota group"
+        },
+        {
+          "phase": "when",
+          "label": "The communication is saved"
+        },
+        {
+          "phase": "then",
+          "label": "The saved communication matches the request"
+        },
+        {
+          "phase": "and",
+          "label": "The schedule, quota group, and copy are stored"
+        },
+        {
+          "phase": "and",
+          "label": "The quota group is scheduled and the project list includes the communication"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationCRUDTestSteps",
+      "name": "Updated communication keeps the new name, template, schedule, and copy",
+      "type": "CRUD",
+      "tags": [
+        "COMMUNICATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A saved communication"
+        },
+        {
+          "phase": "when",
+          "label": "The communication is updated"
+        },
+        {
+          "phase": "then",
+          "label": "The new name, template, schedule, and copy are stored"
+        },
+        {
+          "phase": "and",
+          "label": "The quota group stays on the communication with the new copy"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationCRUDTestSteps",
+      "name": "Updating copy on a cancelled quota group keeps the cancel flag",
+      "type": "CRUD",
+      "tags": [
+        "COMMUNICATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A saved communication whose quota group is cancelled"
+        },
+        {
+          "phase": "when",
+          "label": "The copy is updated while the quota group stays cancelled"
+        },
+        {
+          "phase": "then",
+          "label": "The new copy is stored and the quota group stays cancelled"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationRuleValidationTestSteps",
+      "name": "Cancel is rejected for a quota group that is not on the communication",
+      "type": "Validation",
+      "tags": [
+        "COMMUNICATION",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications - Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A saved communication"
+        },
+        {
+          "phase": "when",
+          "label": "A quota group that is not on the communication is cancelled"
+        },
+        {
+          "phase": "then",
+          "label": "The quota group is not found on the communication"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationRuleValidationTestSteps",
+      "name": "Communication is rejected when the audience is not available",
+      "type": "Validation",
+      "tags": [
+        "COMMUNICATION",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications - Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The project quota group is not an available audience"
+        },
+        {
+          "phase": "when",
+          "label": "The communication is saved"
+        },
+        {
+          "phase": "then",
+          "label": "The unavailable audience is rejected"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationRuleValidationTestSteps",
+      "name": "Communication is rejected when the project has no topics",
+      "type": "Validation",
+      "tags": [
+        "COMMUNICATION",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications - Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The project topic list is empty"
+        },
+        {
+          "phase": "when",
+          "label": "The communication is saved"
+        },
+        {
+          "phase": "then",
+          "label": "The empty topic list is rejected"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationRuleValidationTestSteps",
+      "name": "Communication is rejected when the schedule is in the past",
+      "type": "Validation",
+      "tags": [
+        "COMMUNICATION",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications - Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The schedule is already past"
+        },
+        {
+          "phase": "when",
+          "label": "The communication is saved"
+        },
+        {
+          "phase": "then",
+          "label": "The past schedule is rejected"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationRuleValidationTestSteps",
+      "name": "Update is rejected when the new schedule is in the past",
+      "type": "Validation",
+      "tags": [
+        "COMMUNICATION",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications - Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A saved communication and a schedule that is already past"
+        },
+        {
+          "phase": "when",
+          "label": "The communication is updated onto that schedule"
+        },
+        {
+          "phase": "then",
+          "label": "The past schedule is rejected"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationValidationTestSteps",
+      "name": "Communication is rejected when a quota group has no copy",
+      "type": "Validation",
+      "tags": [
+        "COMMUNICATION",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications - Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A quota group has no copy"
+        },
+        {
+          "phase": "when",
+          "label": "The communication is saved"
+        },
+        {
+          "phase": "then",
+          "label": "The empty copy list is rejected"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationValidationTestSteps",
+      "name": "Communication is rejected when no quota group is included",
+      "type": "Validation",
+      "tags": [
+        "COMMUNICATION",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications - Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The communication has no quota groups"
+        },
+        {
+          "phase": "when",
+          "label": "The communication is saved"
+        },
+        {
+          "phase": "then",
+          "label": "The empty quota group list is rejected"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationValidationTestSteps",
+      "name": "Communication is rejected when the name is blank",
+      "type": "Validation",
+      "tags": [
+        "COMMUNICATION",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications - Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The name is blank"
+        },
+        {
+          "phase": "when",
+          "label": "The communication is saved"
+        },
+        {
+          "phase": "then",
+          "label": "The blank name is rejected"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationValidationTestSteps",
+      "name": "Communication is rejected when the project does not support communications",
+      "type": "Validation",
+      "tags": [
+        "COMMUNICATION",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications - Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The request is otherwise valid"
+        },
+        {
+          "phase": "when",
+          "label": "The communication is saved"
+        },
+        {
+          "phase": "then",
+          "label": "The project is told communications are not supported"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationValidationTestSteps",
+      "name": "Communication is rejected when the template is missing",
+      "type": "Validation",
+      "tags": [
+        "COMMUNICATION",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications - Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "The template id is below 1"
+        },
+        {
+          "phase": "when",
+          "label": "The communication is saved"
+        },
+        {
+          "phase": "then",
+          "label": "The template id is rejected"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationValidationTestSteps",
+      "name": "Listing communications rejects a non-positive project id",
+      "type": "Validation",
+      "tags": [
+        "COMMUNICATION",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications - Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A project id below 1"
+        },
+        {
+          "phase": "when",
+          "label": "Communications are listed for that project"
+        },
+        {
+          "phase": "then",
+          "label": "The project id is rejected"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationValidationTestSteps",
+      "name": "Reading topics rejects a non-positive project id",
+      "type": "Validation",
+      "tags": [
+        "COMMUNICATION",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications - Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A project id below 1"
+        },
+        {
+          "phase": "when",
+          "label": "Topics are read for that project"
+        },
+        {
+          "phase": "then",
+          "label": "The project id is rejected"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationValidationTestSteps",
+      "name": "Unknown communication cannot be read",
+      "type": "Validation",
+      "tags": [
+        "COMMUNICATION",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications - Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A communication id that does not exist"
+        },
+        {
+          "phase": "when",
+          "label": "That communication is read"
+        },
+        {
+          "phase": "then",
+          "label": "The communication is not found"
         }
       ]
     },
@@ -18022,7 +18639,7 @@
         },
         {
           "phase": "when",
-          "label": "Cloning the QG (UCloneQuotaGroupRequest defaults keepDates=false)"
+          "label": "The quota group is cloned for a catalog country"
         },
         {
           "phase": "then",
@@ -18046,17 +18663,17 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Clone",
-      "cases": 4,
+      "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCloneTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
           "phase": "given",
-          "label": "Set active phase"
+          "label": "A catalog country and the languages it supports"
         },
         {
           "phase": "when",
-          "label": "The user clones quota group for an enabled country with its supported languages"
+          "label": "The quota group is cloned for that country and its languages"
         },
         {
           "phase": "then",
@@ -18066,8 +18683,7 @@
           "phase": "and",
           "label": "The persisted country and languages match the requested values"
         }
-      ],
-      "paramNote": "4 runs across countryIso"
+      ]
     },
     {
       "area": "QuotaGroup",
@@ -18081,24 +18697,23 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Clone",
-      "cases": 4,
+      "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCloneTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
           "phase": "given",
-          "label": "Set active phase"
+          "label": "A catalog country and one language it supports"
         },
         {
           "phase": "when",
-          "label": "The user clones quota group for a panel-enabled country with its supported language"
+          "label": "The quota group is cloned for that country and language"
         },
         {
           "phase": "then",
           "label": "The quota group is successfully created"
         }
-      ],
-      "paramNote": "4 runs across countryIso"
+      ]
     },
     {
       "area": "QuotaGroup",
@@ -18117,15 +18732,15 @@
       "steps": [
         {
           "phase": "given",
-          "label": "Set active phase"
+          "label": "A catalog country and the languages it supports"
         },
         {
           "phase": "when",
-          "label": "Clone quota group with custom configuration"
+          "label": "The quota group is cloned for that country and its languages"
         },
         {
           "phase": "then",
-          "label": "Cloned quota group is created with proper configuration"
+          "label": "The cloned quota group keeps that country and those languages"
         }
       ]
     },
@@ -18141,30 +18756,29 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Clone",
-      "cases": 2,
+      "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCloneTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
           "phase": "given",
-          "label": "Set active phase"
+          "label": "A catalog country that supports more than one language"
         },
         {
           "phase": "when",
-          "label": "The user clones quota group with multiple languages for a country"
+          "label": "The quota group is cloned for that country and its languages"
         },
         {
           "phase": "then",
           "label": "The quota group is successfully created with multiple languages"
         }
-      ],
-      "paramNote": "2 runs across phase"
+      ]
     },
     {
       "area": "QuotaGroup",
       "spec": "QuotaGroupCloneTestSteps",
       "name": "Cloning a QG in PROJECT phase initializes delivery.race.eligibleForRaceBoost from project core",
-      "type": "CRUD",
+      "type": "Query",
       "tags": [
         "CLONE_QUOTA_GROUP",
         "DELIVERY",
@@ -18182,7 +18796,7 @@
         },
         {
           "phase": "when",
-          "label": "Cloning the QG"
+          "label": "The quota group is cloned for a catalog country"
         },
         {
           "phase": "then",
@@ -18217,7 +18831,7 @@
         },
         {
           "phase": "and",
-          "label": "User clones the renamed quota group for a new country"
+          "label": "User clones the renamed quota group for a catalog country"
         },
         {
           "phase": "then",
@@ -18238,13 +18852,13 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Clone Validation",
-      "cases": 4,
+      "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCloneValidationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
           "phase": "given",
-          "label": "Set active phase"
+          "label": "A catalog country"
         },
         {
           "phase": "when",
@@ -18254,8 +18868,7 @@
           "phase": "then",
           "label": "The system rejects the invalid quota group ID"
         }
-      ],
-      "paramNote": "4 runs across exception.message.contains(\"NotFoundInDb\")"
+      ]
     },
     {
       "area": "QuotaGroup",
@@ -18270,13 +18883,13 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Clone Validation",
-      "cases": 4,
+      "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCloneValidationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
           "phase": "given",
-          "label": "Set active phase"
+          "label": "A catalog country and a language it does not support"
         },
         {
           "phase": "when",
@@ -18286,8 +18899,7 @@
           "phase": "then",
           "label": "The system rejects the combination naming the country and the requested languages"
         }
-      ],
-      "paramNote": "4 runs across countryIso"
+      ]
     },
     {
       "area": "QuotaGroup",
@@ -18302,24 +18914,23 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Clone Validation",
-      "cases": 6,
+      "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCloneValidationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
           "phase": "given",
-          "label": "Set active phase"
+          "label": "A country ISO that is not in the catalog"
         },
         {
           "phase": "when",
-          "label": "The user attempts to clone quota group for a panel-disabled country"
+          "label": "The user attempts to clone quota group for that country"
         },
         {
           "phase": "then",
           "label": "The system rejects the request naming the unsupported country"
         }
-      ],
-      "paramNote": "6 runs across countryIso"
+      ]
     },
     {
       "area": "QuotaGroup",
@@ -18366,13 +18977,13 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Clone Validation",
-      "cases": 6,
+      "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCloneValidationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
           "phase": "given",
-          "label": "Set active phase"
+          "label": "A catalog country"
         },
         {
           "phase": "when",
@@ -18382,8 +18993,7 @@
           "phase": "then",
           "label": "The system rejects the invalid language ISO codes"
         }
-      ],
-      "paramNote": "6 runs across exception.message.contains(\"Unsupported country\")"
+      ]
     },
     {
       "area": "QuotaGroup",
@@ -18398,24 +19008,23 @@
       ],
       "owner": "Gergely Gimesi",
       "feature": "Quota Groups - Clone Validation",
-      "cases": 4,
+      "cases": 1,
       "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCloneValidationTestSteps.groovy",
       "ignored": false,
       "steps": [
         {
           "phase": "given",
-          "label": "Set active phase"
+          "label": "A catalog country and a language it does not support"
         },
         {
           "phase": "when",
-          "label": "The user attempts to clone quota group with unsupported country-language combination"
+          "label": "The user attempts to clone quota group with that unsupported combination"
         },
         {
           "phase": "then",
           "label": "The system rejects the unsupported country-language combination"
         }
-      ],
-      "paramNote": "4 runs across exception.message.contains(\"Unsupported value\")"
+      ]
     },
     {
       "area": "QuotaGroup",

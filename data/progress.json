@@ -1,49 +1,993 @@
 {
-  "generatedAt": "2026-10-20T02:00Z",
+  "generatedAt": "2026-10-21T02:01Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-10-14",
-      "to": "2026-10-20",
-      "featuresAdded": 0,
-      "casesAdded": 0,
-      "areasTouched": 0,
-      "ticketsTouched": 0,
-      "byType": {},
-      "byArea": [],
-      "tickets": [],
-      "additions": []
+      "from": "2026-10-15",
+      "to": "2026-10-21",
+      "featuresAdded": 22,
+      "casesAdded": 22,
+      "areasTouched": 1,
+      "ticketsTouched": 1,
+      "byType": {
+        "CRUD": 5,
+        "Validation": 14,
+        "Query": 2,
+        "Other": 1
+      },
+      "byArea": [
+        {
+          "area": "Communication",
+          "featuresAdded": 22
+        }
+      ],
+      "tickets": [
+        {
+          "key": "NXS-14188",
+          "featuresAdded": 22,
+          "casesAdded": 22,
+          "latestDate": "2026-10-20"
+        }
+      ],
+      "additions": [
+        {
+          "name": "Updating copy on a cancelled quota group keeps the cancel flag",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Updating%20copy%20on%20a%20cancelled%20quota%20group%20keeps%20the%20cancel%20flag"
+        },
+        {
+          "name": "Updated communication keeps the new name, template, schedule, and copy",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Updated%20communication%20keeps%20the%20new%20name%2C%20template%2C%20schedule%2C%20and%20copy"
+        },
+        {
+          "name": "Update is rejected when the new schedule is in the past",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Update%20is%20rejected%20when%20the%20new%20schedule%20is%20in%20the%20past"
+        },
+        {
+          "name": "Unknown communication cannot be read",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Unknown%20communication%20cannot%20be%20read"
+        },
+        {
+          "name": "Saved communication is listed with its quota group and copy",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Query",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Saved%20communication%20is%20listed%20with%20its%20quota%20group%20and%20copy"
+        },
+        {
+          "name": "Replacing topics with an empty list clears the project topics",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Replacing%20topics%20with%20an%20empty%20list%20clears%20the%20project%20topics"
+        },
+        {
+          "name": "Reading topics rejects a non-positive project id",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Reading%20topics%20rejects%20a%20non-positive%20project%20id"
+        },
+        {
+          "name": "Project topic list is replaced with the saved languages",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Query",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Project%20topic%20list%20is%20replaced%20with%20the%20saved%20languages"
+        },
+        {
+          "name": "Listing communications rejects a non-positive project id",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Listing%20communications%20rejects%20a%20non-positive%20project%20id"
+        },
+        {
+          "name": "Communication without a schedule receives a near-future schedule",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20without%20a%20schedule%20receives%20a%20near-future%20schedule"
+        },
+        {
+          "name": "Communication is rejected when the template is missing",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20template%20is%20missing"
+        },
+        {
+          "name": "Communication is rejected when the schedule is in the past",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20schedule%20is%20in%20the%20past"
+        },
+        {
+          "name": "Communication is rejected when the quota group is not on the project",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20quota%20group%20is%20not%20on%20the%20project",
+          "gone": true
+        },
+        {
+          "name": "Communication is rejected when the project has no topics",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20project%20has%20no%20topics"
+        },
+        {
+          "name": "Communication is rejected when the project does not support communications",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20project%20does%20not%20support%20communications"
+        },
+        {
+          "name": "Communication is rejected when the name is blank",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20name%20is%20blank"
+        },
+        {
+          "name": "Communication is rejected when the audience is not available",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20audience%20is%20not%20available"
+        },
+        {
+          "name": "Communication is rejected when no quota group is included",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20no%20quota%20group%20is%20included"
+        },
+        {
+          "name": "Communication is rejected when a quota group has no copy",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20a%20quota%20group%20has%20no%20copy"
+        },
+        {
+          "name": "Clearing the cancel flag restores the quota group",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Clearing%20the%20cancel%20flag%20restores%20the%20quota%20group"
+        },
+        {
+          "name": "Cancelling one quota group leaves the other quota group active",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Cancelling%20one%20quota%20group%20leaves%20the%20other%20quota%20group%20active"
+        },
+        {
+          "name": "Cancel is rejected for a quota group that is not on the communication",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Cancel%20is%20rejected%20for%20a%20quota%20group%20that%20is%20not%20on%20the%20communication"
+        }
+      ]
     },
     "14d": {
-      "from": "2026-10-07",
-      "to": "2026-10-20",
-      "featuresAdded": 0,
-      "casesAdded": 0,
-      "areasTouched": 0,
-      "ticketsTouched": 0,
-      "byType": {},
-      "byArea": [],
-      "tickets": [],
-      "additions": []
+      "from": "2026-10-08",
+      "to": "2026-10-21",
+      "featuresAdded": 22,
+      "casesAdded": 22,
+      "areasTouched": 1,
+      "ticketsTouched": 1,
+      "byType": {
+        "CRUD": 5,
+        "Validation": 14,
+        "Query": 2,
+        "Other": 1
+      },
+      "byArea": [
+        {
+          "area": "Communication",
+          "featuresAdded": 22
+        }
+      ],
+      "tickets": [
+        {
+          "key": "NXS-14188",
+          "featuresAdded": 22,
+          "casesAdded": 22,
+          "latestDate": "2026-10-20"
+        }
+      ],
+      "additions": [
+        {
+          "name": "Updating copy on a cancelled quota group keeps the cancel flag",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Updating%20copy%20on%20a%20cancelled%20quota%20group%20keeps%20the%20cancel%20flag"
+        },
+        {
+          "name": "Updated communication keeps the new name, template, schedule, and copy",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Updated%20communication%20keeps%20the%20new%20name%2C%20template%2C%20schedule%2C%20and%20copy"
+        },
+        {
+          "name": "Update is rejected when the new schedule is in the past",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Update%20is%20rejected%20when%20the%20new%20schedule%20is%20in%20the%20past"
+        },
+        {
+          "name": "Unknown communication cannot be read",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Unknown%20communication%20cannot%20be%20read"
+        },
+        {
+          "name": "Saved communication is listed with its quota group and copy",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Query",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Saved%20communication%20is%20listed%20with%20its%20quota%20group%20and%20copy"
+        },
+        {
+          "name": "Replacing topics with an empty list clears the project topics",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Replacing%20topics%20with%20an%20empty%20list%20clears%20the%20project%20topics"
+        },
+        {
+          "name": "Reading topics rejects a non-positive project id",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Reading%20topics%20rejects%20a%20non-positive%20project%20id"
+        },
+        {
+          "name": "Project topic list is replaced with the saved languages",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Query",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Project%20topic%20list%20is%20replaced%20with%20the%20saved%20languages"
+        },
+        {
+          "name": "Listing communications rejects a non-positive project id",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Listing%20communications%20rejects%20a%20non-positive%20project%20id"
+        },
+        {
+          "name": "Communication without a schedule receives a near-future schedule",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20without%20a%20schedule%20receives%20a%20near-future%20schedule"
+        },
+        {
+          "name": "Communication is rejected when the template is missing",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20template%20is%20missing"
+        },
+        {
+          "name": "Communication is rejected when the schedule is in the past",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20schedule%20is%20in%20the%20past"
+        },
+        {
+          "name": "Communication is rejected when the quota group is not on the project",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20quota%20group%20is%20not%20on%20the%20project",
+          "gone": true
+        },
+        {
+          "name": "Communication is rejected when the project has no topics",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20project%20has%20no%20topics"
+        },
+        {
+          "name": "Communication is rejected when the project does not support communications",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20project%20does%20not%20support%20communications"
+        },
+        {
+          "name": "Communication is rejected when the name is blank",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20name%20is%20blank"
+        },
+        {
+          "name": "Communication is rejected when the audience is not available",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20audience%20is%20not%20available"
+        },
+        {
+          "name": "Communication is rejected when no quota group is included",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20no%20quota%20group%20is%20included"
+        },
+        {
+          "name": "Communication is rejected when a quota group has no copy",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20a%20quota%20group%20has%20no%20copy"
+        },
+        {
+          "name": "Clearing the cancel flag restores the quota group",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Clearing%20the%20cancel%20flag%20restores%20the%20quota%20group"
+        },
+        {
+          "name": "Cancelling one quota group leaves the other quota group active",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Cancelling%20one%20quota%20group%20leaves%20the%20other%20quota%20group%20active"
+        },
+        {
+          "name": "Cancel is rejected for a quota group that is not on the communication",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Cancel%20is%20rejected%20for%20a%20quota%20group%20that%20is%20not%20on%20the%20communication"
+        }
+      ]
     },
     "30d": {
-      "from": "2026-09-21",
-      "to": "2026-10-20",
-      "featuresAdded": 61,
-      "casesAdded": 63,
-      "areasTouched": 1,
-      "ticketsTouched": 4,
+      "from": "2026-09-22",
+      "to": "2026-10-21",
+      "featuresAdded": 83,
+      "casesAdded": 85,
+      "areasTouched": 2,
+      "ticketsTouched": 5,
       "byType": {
-        "Validation": 10,
+        "CRUD": 5,
+        "Validation": 24,
         "Workflow": 8,
-        "Other": 43
+        "Query": 2,
+        "Other": 44
       },
       "byArea": [
         {
           "area": "QuotaGroup",
           "featuresAdded": 61
+        },
+        {
+          "area": "Communication",
+          "featuresAdded": 22
         }
       ],
       "tickets": [
@@ -60,6 +1004,12 @@
           "latestDate": "2026-09-24"
         },
         {
+          "key": "NXS-14188",
+          "featuresAdded": 22,
+          "casesAdded": 22,
+          "latestDate": "2026-10-20"
+        },
+        {
           "key": "NXS-13972",
           "featuresAdded": 2,
           "casesAdded": 2,
@@ -73,6 +1023,457 @@
         }
       ],
       "additions": [
+        {
+          "name": "Updating copy on a cancelled quota group keeps the cancel flag",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Updating%20copy%20on%20a%20cancelled%20quota%20group%20keeps%20the%20cancel%20flag"
+        },
+        {
+          "name": "Updated communication keeps the new name, template, schedule, and copy",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Updated%20communication%20keeps%20the%20new%20name%2C%20template%2C%20schedule%2C%20and%20copy"
+        },
+        {
+          "name": "Update is rejected when the new schedule is in the past",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Update%20is%20rejected%20when%20the%20new%20schedule%20is%20in%20the%20past"
+        },
+        {
+          "name": "Unknown communication cannot be read",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Unknown%20communication%20cannot%20be%20read"
+        },
+        {
+          "name": "Saved communication is listed with its quota group and copy",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Query",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Saved%20communication%20is%20listed%20with%20its%20quota%20group%20and%20copy"
+        },
+        {
+          "name": "Replacing topics with an empty list clears the project topics",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Replacing%20topics%20with%20an%20empty%20list%20clears%20the%20project%20topics"
+        },
+        {
+          "name": "Reading topics rejects a non-positive project id",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Reading%20topics%20rejects%20a%20non-positive%20project%20id"
+        },
+        {
+          "name": "Project topic list is replaced with the saved languages",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Query",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Project%20topic%20list%20is%20replaced%20with%20the%20saved%20languages"
+        },
+        {
+          "name": "Listing communications rejects a non-positive project id",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Listing%20communications%20rejects%20a%20non-positive%20project%20id"
+        },
+        {
+          "name": "Communication without a schedule receives a near-future schedule",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20without%20a%20schedule%20receives%20a%20near-future%20schedule"
+        },
+        {
+          "name": "Communication is rejected when the template is missing",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20template%20is%20missing"
+        },
+        {
+          "name": "Communication is rejected when the schedule is in the past",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20schedule%20is%20in%20the%20past"
+        },
+        {
+          "name": "Communication is rejected when the quota group is not on the project",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20quota%20group%20is%20not%20on%20the%20project",
+          "gone": true
+        },
+        {
+          "name": "Communication is rejected when the project has no topics",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20project%20has%20no%20topics"
+        },
+        {
+          "name": "Communication is rejected when the project does not support communications",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20project%20does%20not%20support%20communications"
+        },
+        {
+          "name": "Communication is rejected when the name is blank",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20name%20is%20blank"
+        },
+        {
+          "name": "Communication is rejected when the audience is not available",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20audience%20is%20not%20available"
+        },
+        {
+          "name": "Communication is rejected when no quota group is included",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20no%20quota%20group%20is%20included"
+        },
+        {
+          "name": "Communication is rejected when a quota group has no copy",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20a%20quota%20group%20has%20no%20copy"
+        },
+        {
+          "name": "Clearing the cancel flag restores the quota group",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Clearing%20the%20cancel%20flag%20restores%20the%20quota%20group"
+        },
+        {
+          "name": "Cancelling one quota group leaves the other quota group active",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Cancelling%20one%20quota%20group%20leaves%20the%20other%20quota%20group%20active"
+        },
+        {
+          "name": "Cancel is rejected for a quota group that is not on the communication",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Cancel%20is%20rejected%20for%20a%20quota%20group%20that%20is%20not%20on%20the%20communication"
+        },
         {
           "name": "A traffic schedule that already ran can be moved to a later time",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingExecutionTestSteps.groovy",
@@ -1318,24 +2719,24 @@
       ]
     },
     "90d": {
-      "from": "2026-07-23",
-      "to": "2026-10-20",
-      "featuresAdded": 397,
-      "casesAdded": 598,
-      "areasTouched": 14,
+      "from": "2026-07-24",
+      "to": "2026-10-21",
+      "featuresAdded": 394,
+      "casesAdded": 569,
+      "areasTouched": 15,
       "ticketsTouched": 10,
       "byType": {
-        "CRUD": 109,
-        "Validation": 87,
-        "Workflow": 80,
-        "Query": 18,
+        "CRUD": 108,
+        "Validation": 90,
+        "Workflow": 75,
+        "Query": 19,
         "E2E": 3,
-        "Other": 100
+        "Other": 99
       },
       "byArea": [
         {
           "area": "QuotaGroup",
-          "featuresAdded": 175
+          "featuresAdded": 172
         },
         {
           "area": "PES",
@@ -1347,14 +2748,14 @@
         },
         {
           "area": "PartnerEvent",
-          "featuresAdded": 30
-        },
-        {
-          "area": "Survey",
           "featuresAdded": 27
         },
         {
-          "area": "Project",
+          "area": "Survey",
+          "featuresAdded": 23
+        },
+        {
+          "area": "Communication",
           "featuresAdded": 22
         },
         {
@@ -1368,6 +2769,10 @@
         {
           "area": "Fieldwork",
           "featuresAdded": 10
+        },
+        {
+          "area": "Project",
+          "featuresAdded": 7
         },
         {
           "area": "BOS",
@@ -1394,7 +2799,7 @@
         {
           "key": "NXS-13674",
           "featuresAdded": 249,
-          "casesAdded": 448,
+          "casesAdded": 422,
           "latestDate": "2026-08-18"
         },
         {
@@ -1416,10 +2821,10 @@
           "latestDate": "2026-09-24"
         },
         {
-          "key": "NXS-13454",
-          "featuresAdded": 25,
-          "casesAdded": 25,
-          "latestDate": "2026-07-23"
+          "key": "NXS-14188",
+          "featuresAdded": 22,
+          "casesAdded": 22,
+          "latestDate": "2026-10-20"
         },
         {
           "key": "NXS-13561",
@@ -1453,6 +2858,457 @@
         }
       ],
       "additions": [
+        {
+          "name": "Updating copy on a cancelled quota group keeps the cancel flag",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Updating%20copy%20on%20a%20cancelled%20quota%20group%20keeps%20the%20cancel%20flag"
+        },
+        {
+          "name": "Updated communication keeps the new name, template, schedule, and copy",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Updated%20communication%20keeps%20the%20new%20name%2C%20template%2C%20schedule%2C%20and%20copy"
+        },
+        {
+          "name": "Update is rejected when the new schedule is in the past",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Update%20is%20rejected%20when%20the%20new%20schedule%20is%20in%20the%20past"
+        },
+        {
+          "name": "Unknown communication cannot be read",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Unknown%20communication%20cannot%20be%20read"
+        },
+        {
+          "name": "Saved communication is listed with its quota group and copy",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Query",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Saved%20communication%20is%20listed%20with%20its%20quota%20group%20and%20copy"
+        },
+        {
+          "name": "Replacing topics with an empty list clears the project topics",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Replacing%20topics%20with%20an%20empty%20list%20clears%20the%20project%20topics"
+        },
+        {
+          "name": "Reading topics rejects a non-positive project id",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Reading%20topics%20rejects%20a%20non-positive%20project%20id"
+        },
+        {
+          "name": "Project topic list is replaced with the saved languages",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Query",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Project%20topic%20list%20is%20replaced%20with%20the%20saved%20languages"
+        },
+        {
+          "name": "Listing communications rejects a non-positive project id",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Listing%20communications%20rejects%20a%20non-positive%20project%20id"
+        },
+        {
+          "name": "Communication without a schedule receives a near-future schedule",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20without%20a%20schedule%20receives%20a%20near-future%20schedule"
+        },
+        {
+          "name": "Communication is rejected when the template is missing",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20template%20is%20missing"
+        },
+        {
+          "name": "Communication is rejected when the schedule is in the past",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20schedule%20is%20in%20the%20past"
+        },
+        {
+          "name": "Communication is rejected when the quota group is not on the project",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20quota%20group%20is%20not%20on%20the%20project",
+          "gone": true
+        },
+        {
+          "name": "Communication is rejected when the project has no topics",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20project%20has%20no%20topics"
+        },
+        {
+          "name": "Communication is rejected when the project does not support communications",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20project%20does%20not%20support%20communications"
+        },
+        {
+          "name": "Communication is rejected when the name is blank",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20name%20is%20blank"
+        },
+        {
+          "name": "Communication is rejected when the audience is not available",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20audience%20is%20not%20available"
+        },
+        {
+          "name": "Communication is rejected when no quota group is included",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20no%20quota%20group%20is%20included"
+        },
+        {
+          "name": "Communication is rejected when a quota group has no copy",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20a%20quota%20group%20has%20no%20copy"
+        },
+        {
+          "name": "Clearing the cancel flag restores the quota group",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Clearing%20the%20cancel%20flag%20restores%20the%20quota%20group"
+        },
+        {
+          "name": "Cancelling one quota group leaves the other quota group active",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Cancelling%20one%20quota%20group%20leaves%20the%20other%20quota%20group%20active"
+        },
+        {
+          "name": "Cancel is rejected for a quota group that is not on the communication",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-10-20",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14188 Add NexusApi communication regression coverage",
+          "commit": "81db9a93bb",
+          "tickets": [
+            "NXS-14188"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Cancel%20is%20rejected%20for%20a%20quota%20group%20that%20is%20not%20on%20the%20communication"
+        },
         {
           "name": "A traffic schedule that already ran can be moved to a later time",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupSchedulingExecutionTestSteps.groovy",
@@ -7100,7 +8956,7 @@
           ],
           "area": "QuotaGroup",
           "spec": "QuotaGroupCloneTestSteps",
-          "type": "CRUD",
+          "type": "Query",
           "cases": 1,
           "tags": [
             "CLONE_QUOTA_GROUP",
@@ -7148,7 +9004,7 @@
           "area": "QuotaGroup",
           "spec": "QuotaGroupCloneValidationTestSteps",
           "type": "Validation",
-          "cases": 4,
+          "cases": 1,
           "tags": [
             "CLONE_QUOTA_GROUP",
             "QUOTA",
@@ -7171,7 +9027,7 @@
           "area": "QuotaGroup",
           "spec": "QuotaGroupCloneTestSteps",
           "type": "CRUD",
-          "cases": 2,
+          "cases": 1,
           "tags": [
             "CLONE_QUOTA_GROUP",
             "COUNTRY_LANGUAGES",
@@ -7193,7 +9049,7 @@
           "area": "QuotaGroup",
           "spec": "QuotaGroupCloneValidationTestSteps",
           "type": "Validation",
-          "cases": 6,
+          "cases": 1,
           "tags": [
             "CLONE_QUOTA_GROUP",
             "QUOTA",
@@ -7260,7 +9116,7 @@
           "area": "QuotaGroup",
           "spec": "QuotaGroupCloneTestSteps",
           "type": "CRUD",
-          "cases": 4,
+          "cases": 1,
           "tags": [
             "CLONE_QUOTA_GROUP",
             "COUNTRY_LANGUAGES",
@@ -7282,7 +9138,7 @@
           "area": "QuotaGroup",
           "spec": "QuotaGroupCloneValidationTestSteps",
           "type": "Validation",
-          "cases": 6,
+          "cases": 1,
           "tags": [
             "CLONE_QUOTA_GROUP",
             "COUNTRY_LANGUAGES",
@@ -7305,7 +9161,7 @@
           "area": "QuotaGroup",
           "spec": "QuotaGroupCloneValidationTestSteps",
           "type": "Validation",
-          "cases": 4,
+          "cases": 1,
           "tags": [
             "CLONE_QUOTA_GROUP",
             "COUNTRY_LANGUAGES",
@@ -7328,7 +9184,7 @@
           "area": "QuotaGroup",
           "spec": "QuotaGroupCloneTestSteps",
           "type": "CRUD",
-          "cases": 4,
+          "cases": 1,
           "tags": [
             "CLONE_QUOTA_GROUP",
             "COUNTRY_LANGUAGES",
@@ -7350,7 +9206,7 @@
           "area": "QuotaGroup",
           "spec": "QuotaGroupCloneValidationTestSteps",
           "type": "Validation",
-          "cases": 4,
+          "cases": 1,
           "tags": [
             "CLONE_QUOTA_GROUP",
             "QUOTA",
@@ -9461,554 +11317,6 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Partner%20event%20metrics%20embed%20URL%20is%20returned%20for%20an%20existing%20partner%20event"
-        },
-        {
-          "name": "Uploaded survey URL file can be processed and sample values read",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyUrlPoolTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "SURVEY",
-            "UPLOAD_URLS",
-            "URL_POOL"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Uploaded%20survey%20URL%20file%20can%20be%20processed%20and%20sample%20values%20read"
-        },
-        {
-          "name": "Survey project id lookup for an unknown survey is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "SURVEY",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Survey%20project%20id%20lookup%20for%20an%20unknown%20survey%20is%20rejected"
-        },
-        {
-          "name": "Survey project id leaf matches the active project",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "SURVEY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Survey%20project%20id%20leaf%20matches%20the%20active%20project"
-        },
-        {
-          "name": "Processing an unknown uploaded survey file is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Survey/SurveyValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Survey",
-          "spec": "SurveyValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "SURVEY",
-            "UPLOAD_URLS",
-            "URL_POOL",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Processing%20an%20unknown%20uploaded%20survey%20file%20is%20rejected"
-        },
-        {
-          "name": "Adhoc feasibility with too many channels is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupBusinessRuleValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "CHANNEL",
-            "FEASIBILITY",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20with%20too%20many%20channels%20is%20rejected"
-        },
-        {
-          "name": "Adhoc feasibility calculation returns a feasibility result",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupPricingTestSteps",
-          "type": "Other",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "FEASIBILITY"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20calculation%20returns%20a%20feasibility%20result"
-        },
-        {
-          "name": "Adhoc feasibility and live feasibility job can both be calculated",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupWorkflowTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "QuotaGroup",
-          "spec": "QuotaGroupCommercialWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "QUOTA",
-            "PR_SMOKE",
-            "FEASIBILITY",
-            "E2E"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Adhoc%20feasibility%20and%20live%20feasibility%20job%20can%20both%20be%20calculated"
-        },
-        {
-          "name": "D365 linkage update persists quote guid and number",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC",
-            "D365"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=D365%20linkage%20update%20persists%20quote%20guid%20and%20number"
-        },
-        {
-          "name": "Creating a project without core details is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Creating%20a%20project%20without%20core%20details%20is%20rejected"
-        },
-        {
-          "name": "Created draft project can be renamed and then removed",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "PR_SMOKE",
-            "E2E"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Created%20draft%20project%20can%20be%20renamed%20and%20then%20removed"
-        },
-        {
-          "name": "Converting a quote without an order guid is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Converting%20a%20quote%20without%20an%20order%20guid%20is%20rejected"
-        },
-        {
-          "name": "Converting a live project to an order is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Converting%20a%20live%20project%20to%20an%20order%20is%20rejected"
-        },
-        {
-          "name": "Cloned quote converted to order can be found by the new sales order guid",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "CLONE_PROJECT",
-            "BOS_SYNC",
-            "PR_SMOKE",
-            "E2E"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Cloned%20quote%20converted%20to%20order%20can%20be%20found%20by%20the%20new%20sales%20order%20guid"
-        },
-        {
-          "name": "Cloned quote can receive a new BOS linkage and be found by that guid",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectWorkflowTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "CLONE_PROJECT",
-            "BOS_SYNC",
-            "PR_SMOKE",
-            "E2E"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Cloned%20quote%20can%20receive%20a%20new%20BOS%20linkage%20and%20be%20found%20by%20that%20guid"
-        },
-        {
-          "name": "Cloned quote can be converted to an order with persisted linkage",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "CLONE_PROJECT",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Cloned%20quote%20can%20be%20converted%20to%20an%20order%20with%20persisted%20linkage"
-        },
-        {
-          "name": "Change-order logs for an unknown project return no rows",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "CHANGE_ORDER",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Change-order%20logs%20for%20an%20unknown%20project%20return%20no%20rows"
-        },
-        {
-          "name": "Change-order logs and export are available for the active quote",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "Query",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "CHANGE_ORDER"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Change-order%20logs%20and%20export%20are%20available%20for%20the%20active%20quote"
-        },
-        {
-          "name": "Brand-new draft project can be created and read back",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Brand-new%20draft%20project%20can%20be%20created%20and%20read%20back"
-        },
-        {
-          "name": "BOS linkage without an option guid is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=BOS%20linkage%20without%20an%20option%20guid%20is%20rejected"
-        },
-        {
-          "name": "BOS linkage update persists on project core read-back",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectCRUDTestSteps",
-          "type": "CRUD",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=BOS%20linkage%20update%20persists%20on%20project%20core%20read-back"
-        },
-        {
-          "name": "BOS accept is rejected for a D365 quote",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC",
-            "PROJECT_ACCEPT",
-            "D365",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=BOS%20accept%20is%20rejected%20for%20a%20D365%20quote"
-        },
-        {
-          "name": "Accepting a new project without a sales order guid is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Project/ProjectValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "Project",
-          "spec": "ProjectValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PROJECT_CORE",
-            "BOS_SYNC",
-            "PROJECT_ACCEPT",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Accepting%20a%20new%20project%20without%20a%20sales%20order%20guid%20is%20rejected"
-        },
-        {
-          "name": "Valid currencies lookup for an unknown audience is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventValidationTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Valid%20currencies%20lookup%20for%20an%20unknown%20audience%20is%20rejected"
-        },
-        {
-          "name": "Valid currencies for an available supplier brand are returned",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventCRUDTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventCRUDTestSteps",
-          "type": "Query",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Valid%20currencies%20for%20an%20available%20supplier%20brand%20are%20returned"
-        },
-        {
-          "name": "Valid currencies for a supplier brand support partner event creation",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/PartnerEvent/PartnerEventWorkflowTestSteps.groovy",
-          "date": "2026-07-23",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-13454] MS - autotests - lifecycle, adhoc feas, processFile, and create coverage depth",
-          "commit": "920eba60ac",
-          "tickets": [
-            "NXS-13454"
-          ],
-          "area": "PartnerEvent",
-          "spec": "PartnerEventWorkflowTestSteps",
-          "type": "Workflow",
-          "cases": 1,
-          "tags": [
-            "PARTNER_EVENT",
-            "PR_SMOKE",
-            "E2E"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Valid%20currencies%20for%20a%20supplier%20brand%20support%20partner%20event%20creation"
         }
       ]
     }
@@ -10022,7 +11330,7 @@
     {
       "weekStart": "2026-08-10",
       "featuresAdded": 291,
-      "casesAdded": 490
+      "casesAdded": 464
     },
     {
       "weekStart": "2026-08-17",
@@ -10071,8 +11379,8 @@
     },
     {
       "weekStart": "2026-10-19",
-      "featuresAdded": 0,
-      "casesAdded": 0
+      "featuresAdded": 22,
+      "casesAdded": 22
     }
   ],
   "snapshots": [
@@ -10099,11 +11407,11 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-10-20",
-      "features": 783,
-      "cases": 1550,
-      "specs": 112,
-      "areas": 15,
+      "date": "2026-10-21",
+      "features": 804,
+      "cases": 1545,
+      "specs": 115,
+      "areas": 16,
       "coveragePercent": 100.0,
       "tested": 269,
       "untested": 0,
@@ -10119,15 +11427,15 @@
       "priorPercent": 78.0,
       "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-10-20",
+      "currentDate": "2026-10-21",
       "testedDelta": 60,
       "untestedDelta": -59
     }
   },
   "inventory": {
-    "features": 783,
-    "cases": 1550,
-    "specs": 112,
-    "areas": 15
+    "features": 804,
+    "cases": 1545,
+    "specs": 115,
+    "areas": 16
   }
 }
