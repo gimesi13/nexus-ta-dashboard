@@ -1675,31 +1675,22 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "3 new failures in Communication",
+    "headline": "3 new failures: 2 Communication negative-validation tests (NXS-14188 test change) plus 1 QuotaGroup QA 502.",
     "tone": "warn",
     "severity": "low",
-    "cause": "code_change",
-    "causeText": "Possibly NXS-14188 by gergely.gimesi \u2014 touches Communication (2 overlapping new fails). Correlation only. NOTE: 7 service(s) were deployed to QA in this window (QuotaGroupDefinitionRestJ21, ProjectEventForwarderJ21, ProjectRestJ16, CrmRestJ21, DetailsEditorRestJ21\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 2\u00d7 stale negative validation; 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Likely related to NXS-14188 gergely.gimesi `3229aeda436c` (Communication, 2 new fails in overlap).",
+    "cause": "mixed",
+    "causeText": "Mixed: the 2 Communication fails are a test-coverage change \u2014 NXS-14188 by gergely.gimesi edited the exact failing spec CommunicationRuleValidationTestSteps, so these negative tests now expect an exception the QA API never throws \u2014 while the 1 QuotaGroup fail is a QA 502 Bad Gateway (infra, not a product regression).",
+    "investigation": "The 2 Communication fails expect an exception that was never thrown in CommunicationRuleValidationTestSteps (the spec NXS-14188 by gergely.gimesi just edited), and the QuotaGroup fail is an HTTP 502 from the QA gateway.",
     "bullets": [
-      "2\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown",
-      "1\u00d7 QA 502 Bad Gateway",
-      "Change NXS-14188: gergely.gimesi \u00b7 Communication \u00b7 2 overlapping new fails",
-      "Change NXS-14188: gergely.gimesi \u00b7 Communication \u00b7 2 overlapping new fails"
+      "2\u00d7 Communication negative-validation 'expected exception not thrown' in CommunicationRuleValidationTestSteps \u2014 touched by NXS-14188 (gergely.gimesi)",
+      "1\u00d7 QuotaGroup QA 502 Bad Gateway \u2014 infra, not a product regression"
     ],
     "detail": {
-      "investigation": "3 of 3 unmuted failures are new since the prior build (#3.0.2734, 2 fails). Failure types (new-first): (1) 2\u00d7 stale negative validation \u2014 negative test expected an exception that was not thrown. (2) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: Communication (2), QuotaGroup (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 7 service(s) (45 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Communication is rejected when the project has no topics [stale negative validation]; Communication: Communication is rejected when the audience is not available [stale negative validation]; QuotaGroup: Configure quota group settings: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGro [QA 502 Bad Gateway].",
+      "investigation": "All 3 failures are new vs the prior build (#3.0.2734, 2 fails). The two Communication failures throw 'Expected exception of type java.lang.Exception, but no exception was thrown' inside CommunicationRuleValidationTestSteps \u2014 the exact spec edited by NXS-14188 (gergely.gimesi: 3229aeda436c 'Drop checks that are not product defects' and 81db9a93bb40 'Add NexusApi communication regression coverage'), so these read as a test-coverage change rather than a product regression; the QuotaGroup 'Configure quota group settings' failure is a QA 502 Bad Gateway (HTTP 502 PUT to dk-project-quota-details-rest), i.e. transient infra during the run.",
       "bullets": [
-        "2\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown",
-        "1\u00d7 QA 502 Bad Gateway",
-        "Change NXS-14188: gergely.gimesi \u00b7 Communication \u00b7 2 overlapping new fails",
-        "Change NXS-14188: gergely.gimesi \u00b7 Communication \u00b7 2 overlapping new fails",
-        "NXS-14188 3229aeda436c by gergely.gimesi \u2192 areas Communication (2 new fails) \u00b7 CommunicationRuleValidationTestSteps.groovy",
-        "NXS-14188 81db9a93bb40 by gergely.gimesi \u2192 areas Communication (2 new fails) \u00b7 CommunicationHelper.groovy, TestKeys.java, TestTag.java, CommunicationCRUDTestSteps.groovy, CommunicationRuleValidationTestSteps.groovy, CommunicationValidationTestSteps.groovy",
-        "NXS-14182 1f5207f0c60f by gergely.gimesi \u2192 areas QuotaGroup (1 new fails) \u00b7 CountryCatalogHelper.groovy, CatalogCountry.java, CountryCatalogFeignClient.java, TestFeigns.java, QuotaGroupCloneTestSteps.groovy, QuotaGroupCloneValidationTestSteps.groovy",
-        "NXS-14182 23c73199b600 by gergely.gimesi \u2192 areas QuotaGroup (1 new fails) \u00b7 QuotaGroupCloneTestSteps.groovy",
-        "[QA deploy: QuotaGroupDefinitionRestJ21] NXS-14187 (25 commits) \u2014 [ NXS-14187 ] PES1 dashboard metric",
-        "[QA deploy: ProjectEventForwarderJ21] NXS-14193 (2 commits) \u2014 [ NXS-14193 ] add latest logging FW"
+        "Communication (2 new): 'expected exception not thrown' in CommunicationRuleValidationTestSteps \u2014 NXS-14188 (gergely.gimesi) edited this exact spec, so likely a test-coverage change, not a product defect",
+        "QuotaGroup (1 new): HTTP 502 Bad Gateway on PUT /u1/nexus/quotaGroups/118834280/quotas/totalQuota \u2014 QA gateway/infra; the 7 backend services deployed to QA this window were not matched to this endpoint, but the 502 reads as transient",
+        "Contract drift (separate lane, 2 new): GET /u1/meta/countries has no matching API path; PUT \u2026/quotas/totalQuota returned 502 not defined in the contract"
       ],
       "newFailureAreas": [
         {
@@ -1713,66 +1704,35 @@
       ],
       "likelyCauses": [
         {
+          "ticket": "NXS-14188",
           "version": "3229aeda436c",
           "username": "gergely.gimesi",
-          "ticket": "NXS-14188",
-          "comment": "NXS-14188 Drop checks that are not product defects",
           "areas": [
             "Communication"
           ],
           "hitNewFailures": 2,
           "files": [
             "CommunicationRuleValidationTestSteps.groovy"
-          ]
+          ],
+          "comment": "NXS-14188 Drop checks that are not product defects \u2014 test-module change to the exact failing spec"
         },
         {
+          "ticket": "NXS-14188",
           "version": "81db9a93bb40",
           "username": "gergely.gimesi",
-          "ticket": "NXS-14188",
-          "comment": "NXS-14188 Add NexusApi communication regression coverage",
           "areas": [
             "Communication"
           ],
           "hitNewFailures": 2,
           "files": [
-            "CommunicationHelper.groovy",
-            "TestKeys.java",
-            "TestTag.java",
-            "CommunicationCRUDTestSteps.groovy",
             "CommunicationRuleValidationTestSteps.groovy",
-            "CommunicationValidationTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "1f5207f0c60f",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-14182",
-          "comment": "NXS-14182 Drive quota group clone countries from the live catalog",
-          "areas": [
-            "QuotaGroup"
+            "CommunicationHelper.groovy",
+            "CommunicationCRUDTestSteps.groovy",
+            "CommunicationValidationTestSteps.groovy",
+            "TestKeys.java",
+            "TestTag.java"
           ],
-          "hitNewFailures": 1,
-          "files": [
-            "CountryCatalogHelper.groovy",
-            "CatalogCountry.java",
-            "CountryCatalogFeignClient.java",
-            "TestFeigns.java",
-            "QuotaGroupCloneTestSteps.groovy",
-            "QuotaGroupCloneValidationTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "23c73199b600",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-14182",
-          "comment": "NXS-14182 Assert the cloned language set matches the catalog exactly",
-          "areas": [
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 1,
-          "files": [
-            "QuotaGroupCloneTestSteps.groovy"
-          ]
+          "comment": "NXS-14188 Add NexusApi communication regression coverage \u2014 added the failing negative tests"
         }
       ]
     },
@@ -2006,8 +1966,8 @@
         "deployedAt": "20261020T073333+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-10-21T02:01Z",
+    "source": "llm",
+    "generatedAt": "2026-10-21T02:01:00Z",
     "buildNumber": "3.0.2735",
     "buildId": "9628628",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9628628",
