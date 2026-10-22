@@ -1,182 +1,127 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-21T02:01Z",
+  "generatedAt": "2026-10-22T02:02Z",
   "build": {
-    "number": "3.0.2735",
-    "buildId": "9628628",
+    "number": "3.0.2736",
+    "buildId": "9631958",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9628628",
-    "durationSec": 1704.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9631958",
+    "durationSec": 1793.0
   },
   "summary": {
     "tests": 1518,
-    "passed": 1446,
-    "failures": 3,
+    "passed": 1447,
+    "failures": 2,
     "errors": 0,
     "skipped": 0,
     "muted": 69,
-    "newFailed": 3,
-    "passRate": 99.8,
-    "timeSec": 1704.0
+    "newFailed": 0,
+    "passRate": 99.9,
+    "timeSec": 1793.0
   },
   "prior": {
-    "buildId": "9624661",
-    "number": "3.0.2734",
+    "buildId": "9628628",
+    "number": "3.0.2735",
     "status": "FAILURE",
-    "statusText": "Tests failed: 2 (2 new), passed: 1443, muted: 69",
-    "startDate": "20261020T013246+0000",
-    "durationSec": 1667.0,
-    "failed": 2,
-    "passed": 1443,
-    "newFailed": 2
+    "statusText": "Tests failed: 3 (3 new), passed: 1446, muted: 69",
+    "startDate": "20261021T013236+0000",
+    "durationSec": 1704.0,
+    "failed": 3,
+    "passed": 1446,
+    "newFailed": 3
   },
-  "changes": [
-    {
-      "version": "3229aeda436c",
-      "username": "gergely.gimesi",
-      "comment": "NXS-14188 Drop checks that are not product defects",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy"
-      ],
-      "areas": [
-        "Communication"
-      ]
-    },
-    {
-      "version": "81db9a93bb40",
-      "username": "gergely.gimesi",
-      "comment": "NXS-14188 Add NexusApi communication regression coverage",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/CommunicationHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/config/TestKeys.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/config/TestTag.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy"
-      ],
-      "areas": [
-        "Communication"
-      ]
-    },
-    {
-      "version": "23c73199b600",
-      "username": "gergely.gimesi",
-      "comment": "NXS-14182 Assert the cloned language set matches the catalog exactly",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCloneTestSteps.groovy"
-      ],
-      "areas": [
-        "QuotaGroup"
-      ]
-    },
-    {
-      "version": "1f5207f0c60f",
-      "username": "gergely.gimesi",
-      "comment": "NXS-14182 Drive quota group clone countries from the live catalog",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/specializedhelpers/CountryCatalogHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/config/CatalogCountry.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/CountryCatalogFeignClient.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/java/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/feign/TestFeigns.java",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCloneTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/QuotaGroup/QuotaGroupCloneValidationTestSteps.groovy"
-      ],
-      "areas": [
-        "QuotaGroup"
-      ]
-    }
-  ],
+  "changes": [],
   "qaDeployChanges": [
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "bc0c0fd880a4",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "c2570561f36e",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14042 ] add latest logging FW",
+      "service": "QuotaGroupRestJ21",
+      "version": "e0a1624b38a9",
+      "username": "tamas.gyarmati",
+      "comment": "NXS-14104 QuotaGroupRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
       "files": [
-        "project/QuotaGroupDefinitionRest/build.gradle"
+        "project/QuotaGroupRest/build.gradle"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "567fa0108c1e",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "45cef1c85862",
       "username": "lambert.lesko",
       "comment": "Merge pull request #668 from dynata/ae-7782-migrate-rewards-apps-to-ae-dpr",
       "files": [],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "fb670fc0c7df",
       "username": "lambert.lesko",
       "comment": "adding s3 bucket name to production vars",
       "files": [
         "ae-missing-rewards-queue/group_vars/production.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "d38e04f0570a",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "15bb6a83cca5",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "973cbb55dfb7",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "c25426d14af9",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "0a8e67a0f5d4",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
@@ -186,10 +131,10 @@
         "nxs-pes1-dashboard/group_vars/production.yml",
         "nxs-pes1-dashboard/group_vars/qa.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "92844c01dea3",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
@@ -200,38 +145,38 @@
         "nxs-pes1-dashboard/group_vars/production.yml",
         "nxs-pes1-dashboard/group_vars/qa.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "675d2a80442a",
       "username": "krisztian.kover",
       "comment": "[ST-4362] - supplytools-export-s3 - Removed ArtifactServiceEcsTaskRole from S3 bucket policy",
       "files": [
         "supplytools-export-s3/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "ea22d21d3f7d",
       "username": "134395908+dynata-hu-krisztian-kover",
       "comment": "Merge pull request #663 from dynata/ST-4362",
       "files": [],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "10856dd031a8",
       "username": "bresalio.nagy",
       "comment": "[AE-8063] ae-ecs-container-pull-error-alarm - temporarily create alarm in dev",
       "files": [
         "ae-ecs-container-pull-error-alarm/group_vars/dev.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "01d8d1ea4e41",
       "username": "bresalio.nagy",
       "comment": "[AE-8063] ae-ecs-container-pull-error-alarm",
@@ -243,20 +188,20 @@
         "ae-ecs-container-pull-error-alarm/group_vars/qa.yml",
         "ae-ecs-container-pull-error-alarm/sample-notification-container-pull-error.json"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "9150598dc9ea",
       "username": "krisztian.kover",
       "comment": "[ST-4362] - ST - Added HTTP request blocking for supplytools-export S3 bucket",
       "files": [
         "supplytools-export-s3/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "3145a2637a0b",
       "username": "bresalio.nagy",
       "comment": "[AE-8063] Migrate to new AE-DPR: ae-ecs-task-stopped-alarm",
@@ -265,20 +210,20 @@
         "ae-ecs-task-stopped-alarm/group_vars/all.yml",
         "ae-ecs-task-stopped-alarm/group_vars/qa.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "67e986c0af06",
       "username": "grace.chen",
       "comment": "[FAI-474-487] update alarm for ml-survey-guard-model",
       "files": [
         "ml-survey-guard-model/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "72873c8e500a",
       "username": "grace.chen",
       "comment": "[FAI-474-487] update alarm for ml-screenout-model",
@@ -287,10 +232,10 @@
         "ml-screenout-model/group_vars/all.yml",
         "ml-screenout-model/group_vars/production.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "e907d50749f1",
       "username": "grace.chen",
       "comment": "[FAI-474-487] update alarm for ml-complete-optimization-model",
@@ -299,46 +244,46 @@
         "ml-complete-optimization-model/group_vars/all.yml",
         "ml-complete-optimization-model/group_vars/production.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "3cdba8f9d3c6",
       "username": "krisztian.kover",
       "comment": "[ST-4362] - ST - Added mandatory tags to the new S3 bucket",
       "files": [
         "supplytools-export-s3/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "3d433e9bbb21",
       "username": "61739584+richardsebok",
       "comment": "Merge pull request #627 from dynata/ST-4726",
       "files": [],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "2e61fe1ae67b",
       "username": "lambert.lesko",
       "comment": "Merge pull request #666 from dynata/ae-7782-migrate-rewards-apps-to-ae-dpr",
       "files": [],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "1cd379e5a318",
       "username": "lambert.lesko",
       "comment": "Enable SQS managed encryption for missing-rewards-queue",
       "files": [
         "ae-missing-rewards-queue/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "628f1db4a44c",
       "username": "bresalio.nagy",
       "comment": "[AE-8062] Migrate to new AE-DPR: S3 macro stack - fix1",
@@ -346,51 +291,20 @@
         "ae-aws-s3-objects-macro/group_vars/all.yml",
         "ae-aws-s3-objects-macro/group_vars/qa.yml"
       ],
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "ProjectEventForwarderJ21",
-      "version": "6475b858225e",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14193 ] add latest logging FW",
+      "service": "ClientRestJ21",
+      "version": "c3345ee82237",
+      "username": "tamas.gyarmati",
+      "comment": "NXS-14080 ClientRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
       "files": [
-        "project/ProjectEventForwarder/build.gradle"
+        "management/ClientRest/build.gradle"
       ],
-      "deployedAt": "20261020T142059+0000"
+      "deployedAt": "20261021T144911+0000"
     },
     {
-      "service": "ProjectEventForwarderJ21",
-      "version": "f3a3da2baddd",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-13893 ] add latest logging FW",
-      "files": [
-        "project/ProjectEventForwarder/build.gradle"
-      ],
-      "deployedAt": "20261020T142059+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "6efef818a709",
-      "username": "82085952+gaborfial",
-      "comment": "[PAC-891] ProjectRest - persist orderNumber + SalesOrder mapping (#5547)",
-      "files": [
-        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/acceptance/v1/ProjectRestAcceptanceTest.groovy",
-        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/service/v2/sql/SqlProjectPropertiesHandlerTest.groovy",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/model/project/ProjectProperties.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/model/salesOrder/SalesOrder.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/sql/SqlGetProjectProperties.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/sql/SqlUpdateProjectProperties.java",
-        "project/ProjectRest/src/main/resources/Update_scripts/PanelProject/create_columns.sql",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/helper/ProjectPropertiesHelper.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mongo/ProjectHandlerTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mongo/ProjectPropertiesMongoHandlerTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/service/UTrackerImplTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/v1/impl/ProjectStatusUpdaterTest.groovy"
-      ],
-      "deployedAt": "20261020T122511+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
+      "service": "ClientRestJ21",
       "version": "fe883bf9811f",
       "username": "grace.chen",
       "comment": "[FAI-474-487] update alarm for ml-reconciliation-model",
@@ -399,68 +313,221 @@
         "ml-reconciliation-model/group_vars/all.yml",
         "ml-reconciliation-model/group_vars/production.yml"
       ],
-      "deployedAt": "20261020T122511+0000"
+      "deployedAt": "20261021T144911+0000"
     },
     {
-      "service": "ProjectRestJ16",
-      "version": "dc30d638e1ae",
-      "username": "grace.chen",
-      "comment": "[FAI-474-487] update alarm for ml-quality-score-model",
+      "service": "CommunicationRestJ21",
+      "version": "df76288c82c9",
+      "username": "tamas.gyarmati",
+      "comment": "NXS-14089 CommunicationRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
       "files": [
-        "ml-quality-score-model/cloud-formation.template.yml"
+        "project/CommunicationRest/build.gradle"
       ],
-      "deployedAt": "20261020T122511+0000"
+      "deployedAt": "20261021T144539+0000"
+    },
+    {
+      "service": "AlertTriggerRestJ21",
+      "version": "1641856226ca",
+      "username": "tamas.gyarmati",
+      "comment": "NXS-14088 AlertTriggerRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "files": [
+        "project/AlertTriggerRest/build.gradle"
+      ],
+      "deployedAt": "20261021T144126+0000"
+    },
+    {
+      "service": "2",
+      "version": "7678585b968b",
+      "username": "tamas.gyarmati",
+      "comment": "NXS-14090 CountersRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "files": [
+        "project/CountersRest/build.gradle"
+      ],
+      "deployedAt": "20261021T144326+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "QuotaGroupRestJ21",
       "commits": 25,
       "latestTicket": "NXS-14187",
       "latestComment": "[ NXS-14187 ] PES1 dashboard metric",
-      "deployedAt": "20261020T142518+0000"
+      "deployedAt": "20261021T144929+0000"
     },
     {
-      "service": "ProjectEventForwarderJ21",
+      "service": "ClientRestJ21",
       "commits": 2,
-      "latestTicket": "NXS-14193",
-      "latestComment": "[ NXS-14193 ] add latest logging FW",
-      "deployedAt": "20261020T142059+0000"
+      "latestTicket": "NXS-14080",
+      "latestComment": "NXS-14080 ClientRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T144911+0000"
     },
     {
-      "service": "ProjectRestJ16",
-      "commits": 3,
-      "latestTicket": "",
-      "latestComment": "[PAC-891] ProjectRest - persist orderNumber + SalesOrder mapping (#5547)",
-      "deployedAt": "20261020T122511+0000"
+      "service": "CommunicationRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14089",
+      "latestComment": "NXS-14089 CommunicationRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T144539+0000"
     },
     {
-      "service": "CrmRestJ21",
-      "commits": 3,
-      "latestTicket": "",
-      "latestComment": "[PAC-890] CrmRest - add orderNumber to ProjectProperties (#5546)",
-      "deployedAt": "20261020T115145+0000"
+      "service": "AlertTriggerRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14088",
+      "latestComment": "NXS-14088 AlertTriggerRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T144126+0000"
+    },
+    {
+      "service": "2",
+      "commits": 1,
+      "latestTicket": "NXS-14090",
+      "latestComment": "NXS-14090 CountersRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T144326+0000"
     },
     {
       "service": "DetailsEditorRestJ21",
-      "commits": 7,
-      "latestTicket": "NXS-14068",
-      "latestComment": "[NXS-14068] EOS MS DetailsEditorRest - new updateSegmentQuotas endpoint (#5564)",
-      "deployedAt": "20261020T101813+0000"
+      "commits": 1,
+      "latestTicket": "NXS-14095",
+      "latestComment": "NXS-14095 DetailsEditorRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T144419+0000"
+    },
+    {
+      "service": "DashboardRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14093",
+      "latestComment": "NXS-14093 DashboardRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T144245+0000"
+    },
+    {
+      "service": "ExternalEventRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14096",
+      "latestComment": "NXS-14096 ExternalEventRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T144135+0000"
+    },
+    {
+      "service": "ExtendedAttributesRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14116",
+      "latestComment": "NXS-14116 ExtendedAttributesRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T143921+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "commits": 2,
+      "latestTicket": "NXS-14107",
+      "latestComment": "NXS-14107 SurveyRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T143305+0000"
+    },
+    {
+      "service": "ThrottlingSettingRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14111",
+      "latestComment": "NXS-14111 ThrottlingSettingRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T143212+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "commits": 1,
+      "latestTicket": "",
+      "latestComment": "[PAC-887] ProjectRest - fix dubProjectId 20 char limitation, create sql update a",
+      "deployedAt": "20261021T135625+0000"
+    },
+    {
+      "service": "MailEventRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14097",
+      "latestComment": "NXS-14097 MailEventRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T130421+0000"
+    },
+    {
+      "service": "NotificationHandlerRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14085",
+      "latestComment": "NXS-14085 NotificationHandlerRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T130554+0000"
+    },
+    {
+      "service": "ProjectSearchRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14101",
+      "latestComment": "NXS-14101 ProjectSearchRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T130353+0000"
+    },
+    {
+      "service": "QuotaDetailsRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14102",
+      "latestComment": "NXS-14102 QuotaDetailsRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T130323+0000"
+    },
+    {
+      "service": "PickerEventRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14098",
+      "latestComment": "NXS-14098 PickerEventRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T130141+0000"
+    },
+    {
+      "service": "ProjectLogRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14100",
+      "latestComment": "NXS-14100 ProjectLogRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T130245+0000"
+    },
+    {
+      "service": "RestrictFilterRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14106",
+      "latestComment": "NXS-14106 RestrictFilterRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T130006+0000"
+    },
+    {
+      "service": "TrafficDetailsRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14112",
+      "latestComment": "NXS-14112 TrafficDetailsRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T125607+0000"
+    },
+    {
+      "service": "DedupeRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14094",
+      "latestComment": "NXS-14094 DedupeRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T094456+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "commits": 2,
+      "latestTicket": "NXS-14153",
+      "latestComment": "[NXS-14153] - NexusApi - log propagation start",
+      "deployedAt": "20261021T094601+0000"
+    },
+    {
+      "service": "NexusApiBosJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14197",
+      "latestComment": "NXS-14197 NexusApiBos - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T082859+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14200",
+      "latestComment": "NXS-14200 SettingRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T082538+0000"
+    },
+    {
+      "service": "EligibilityService",
+      "commits": 1,
+      "latestTicket": "NXS-14198",
+      "latestComment": "NXS-14198 EligibilityService - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "deployedAt": "20261021T082509+0000"
     },
     {
       "service": "NexusApiUI",
       "commits": 1,
-      "latestTicket": "NXS-14045",
-      "latestComment": "[NXS-14045] - NexusApiUI - limit segmented conditions answers list (#5563)",
-      "deployedAt": "20261020T101650+0000"
-    },
-    {
-      "service": "DKQuotaRestJ21",
-      "commits": 4,
-      "latestTicket": "",
-      "latestComment": "[12261] - acc test fixes",
-      "deployedAt": "20261020T073333+0000"
+      "latestTicket": "NXS-14203",
+      "latestComment": "[NXS-14203] - NexusApiUI - enrich first 100 segmented condition answer, keep all",
+      "deployedAt": "20261021T074712+0000"
     }
   ],
   "clusters": [
@@ -471,21 +538,13 @@
       "newCount": 2,
       "sample": "Expected exception of type 'java.lang.Exception', but no exception was thrown",
       "why": "negative test expected an exception that was not thrown"
-    },
-    {
-      "label": "infra_502",
-      "display": "QA 502 Bad Gateway",
-      "count": 1,
-      "newCount": 1,
-      "sample": "502 Bad Gateway",
-      "why": "QA gateway returned HTML 502 \u2014 infra during the run, not a product regression"
     }
   ],
   "failures": [
     {
       "name": "Communication is rejected when the project has no topics",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Communication.CommunicationRuleValidationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Communication",
       "cluster": "stale_validation",
       "message": "Expected exception of type 'java.lang.Exception', but no exception was thrown",
@@ -494,274 +553,157 @@
     {
       "name": "Communication is rejected when the audience is not available",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Communication.CommunicationRuleValidationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Communication",
       "cluster": "stale_validation",
       "message": "Expected exception of type 'java.lang.Exception', but no exception was thrown",
       "detailsExcerpt": "Expected exception of type 'java.lang.Exception', but no exception was thrown at app//org.spockframework.lang.SpecInternals.checkExceptionThrown(SpecInternals.java:95) at app//org.spockframework.lang.SpecInternals.thrownImpl(SpecInternals.java:78) at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Communication.CommunicationRuleValidationTestSteps.Communication is rejected when the audience is \u2026"
-    },
-    {
-      "name": "Configure quota group settings: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSettingsTestSteps.Configure quota group settings",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSettingsTestSteps",
-      "newFailure": true,
-      "area": "QuotaGroup",
-      "cluster": "infra_502",
-      "message": "<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> </body> </html>",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118834280/quotas/totalQuota 502{ \"errors\" : [ { \"callChain\" : [ \"HTTP 502 PUT http://dk-project-quota-details-rest.nexus-ms-qa.dynata.com:8080/api/QuotaDetails/u1/quotaGroups/118834280/quotas/totalQuota?totalQuota=1000&checkSoldLock=true\", \"HTTP 502 GET http://dk-project-details-editor-rest.nexus-ms-qa.d\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "3 new failures in Communication",
+    "headline": "2 continuing failure(s) \u2014 no new unmuted fails",
     "tone": "warn",
     "severity": "low",
     "bullets": [
-      "2\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown",
-      "1\u00d7 QA 502 Bad Gateway",
-      "Change NXS-14188: gergely.gimesi \u00b7 Communication \u00b7 2 overlapping new fails",
-      "Change NXS-14188: gergely.gimesi \u00b7 Communication \u00b7 2 overlapping new fails"
+      "2\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown"
     ],
-    "investigation": "New fails: 2\u00d7 stale negative validation; 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Likely related to NXS-14188 gergely.gimesi `3229aeda436c` (Communication, 2 new fails in overlap).",
+    "investigation": "Failures: 2\u00d7 stale negative validation.",
     "detail": {
-      "investigation": "3 of 3 unmuted failures are new since the prior build (#3.0.2734, 2 fails). Failure types (new-first): (1) 2\u00d7 stale negative validation \u2014 negative test expected an exception that was not thrown. (2) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: Communication (2), QuotaGroup (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 7 service(s) (45 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Communication is rejected when the project has no topics [stale negative validation]; Communication: Communication is rejected when the audience is not available [stale negative validation]; QuotaGroup: Configure quota group settings: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGro [QA 502 Bad Gateway].",
+      "investigation": "No new unmuted failures; 2 continuing from prior runs. Failure types (new-first): (1) 2\u00d7 stale negative validation \u2014 negative test expected an exception that was not thrown. Hot areas among new fails: Communication (2). 26 service(s) (53 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Communication is rejected when the project has no topics [stale negative validation]; Communication: Communication is rejected when the audience is not available [stale negative validation].",
       "bullets": [
         "2\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown",
-        "1\u00d7 QA 502 Bad Gateway",
-        "Change NXS-14188: gergely.gimesi \u00b7 Communication \u00b7 2 overlapping new fails",
-        "Change NXS-14188: gergely.gimesi \u00b7 Communication \u00b7 2 overlapping new fails",
-        "NXS-14188 3229aeda436c by gergely.gimesi \u2192 areas Communication (2 new fails) \u00b7 CommunicationRuleValidationTestSteps.groovy",
-        "NXS-14188 81db9a93bb40 by gergely.gimesi \u2192 areas Communication (2 new fails) \u00b7 CommunicationHelper.groovy, TestKeys.java, TestTag.java, CommunicationCRUDTestSteps.groovy, CommunicationRuleValidationTestSteps.groovy, CommunicationValidationTestSteps.groovy",
-        "NXS-14182 1f5207f0c60f by gergely.gimesi \u2192 areas QuotaGroup (1 new fails) \u00b7 CountryCatalogHelper.groovy, CatalogCountry.java, CountryCatalogFeignClient.java, TestFeigns.java, QuotaGroupCloneTestSteps.groovy, QuotaGroupCloneValidationTestSteps.groovy",
-        "NXS-14182 23c73199b600 by gergely.gimesi \u2192 areas QuotaGroup (1 new fails) \u00b7 QuotaGroupCloneTestSteps.groovy",
-        "[QA deploy: QuotaGroupDefinitionRestJ21] NXS-14187 (25 commits) \u2014 [ NXS-14187 ] PES1 dashboard metric",
-        "[QA deploy: ProjectEventForwarderJ21] NXS-14193 (2 commits) \u2014 [ NXS-14193 ] add latest logging FW"
+        "[QA deploy: QuotaGroupRestJ21] NXS-14187 (25 commits) \u2014 [ NXS-14187 ] PES1 dashboard metric",
+        "[QA deploy: ClientRestJ21] NXS-14080 (2 commits) \u2014 NXS-14080 ClientRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+        "[QA deploy: CommunicationRestJ21] NXS-14089 (1 commit) \u2014 NXS-14089 CommunicationRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+        "[QA deploy: AlertTriggerRestJ21] NXS-14088 (1 commit) \u2014 NXS-14088 AlertTriggerRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+        "[QA deploy: 2] NXS-14090 (1 commit) \u2014 NXS-14090 CountersRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+        "[QA deploy: DetailsEditorRestJ21] NXS-14095 (1 commit) \u2014 NXS-14095 DetailsEditorRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+        "[QA deploy: DashboardRestJ21] NXS-14093 (1 commit) \u2014 NXS-14093 DashboardRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+        "[QA deploy: ExternalEventRestJ21] NXS-14096 (1 commit) \u2014 NXS-14096 ExternalEventRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7"
       ],
       "newFailureAreas": [
         {
           "area": "Communication",
           "newCount": 2
-        },
-        {
-          "area": "QuotaGroup",
-          "newCount": 1
         }
       ],
-      "likelyCauses": [
-        {
-          "version": "3229aeda436c",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-14188",
-          "comment": "NXS-14188 Drop checks that are not product defects",
-          "areas": [
-            "Communication"
-          ],
-          "hitNewFailures": 2,
-          "files": [
-            "CommunicationRuleValidationTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "81db9a93bb40",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-14188",
-          "comment": "NXS-14188 Add NexusApi communication regression coverage",
-          "areas": [
-            "Communication"
-          ],
-          "hitNewFailures": 2,
-          "files": [
-            "CommunicationHelper.groovy",
-            "TestKeys.java",
-            "TestTag.java",
-            "CommunicationCRUDTestSteps.groovy",
-            "CommunicationRuleValidationTestSteps.groovy",
-            "CommunicationValidationTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "1f5207f0c60f",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-14182",
-          "comment": "NXS-14182 Drive quota group clone countries from the live catalog",
-          "areas": [
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 1,
-          "files": [
-            "CountryCatalogHelper.groovy",
-            "CatalogCountry.java",
-            "CountryCatalogFeignClient.java",
-            "TestFeigns.java",
-            "QuotaGroupCloneTestSteps.groovy",
-            "QuotaGroupCloneValidationTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "23c73199b600",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-14182",
-          "comment": "NXS-14182 Assert the cloned language set matches the catalog exactly",
-          "areas": [
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 1,
-          "files": [
-            "QuotaGroupCloneTestSteps.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
-    "suspectCommits": [
-      {
-        "version": "3229aeda436c",
-        "username": "gergely.gimesi",
-        "comment": "NXS-14188 Drop checks that are not product defects",
-        "ticket": "NXS-14188",
-        "areas": [
-          "Communication"
-        ]
-      },
-      {
-        "version": "81db9a93bb40",
-        "username": "gergely.gimesi",
-        "comment": "NXS-14188 Add NexusApi communication regression coverage",
-        "ticket": "NXS-14188",
-        "areas": [
-          "Communication"
-        ]
-      },
-      {
-        "version": "23c73199b600",
-        "username": "gergely.gimesi",
-        "comment": "NXS-14182 Assert the cloned language set matches the catalog exactly",
-        "ticket": "NXS-14182",
-        "areas": [
-          "QuotaGroup"
-        ]
-      },
-      {
-        "version": "1f5207f0c60f",
-        "username": "gergely.gimesi",
-        "comment": "NXS-14182 Drive quota group clone countries from the live catalog",
-        "ticket": "NXS-14182",
-        "areas": [
-          "QuotaGroup"
-        ]
-      }
-    ],
+    "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "QuotaGroupDefinitionRestJ21",
+        "service": "QuotaGroupRestJ21",
         "version": "bc0c0fd880a4",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard metric",
         "ticket": "NXS-14187",
-        "deployedAt": "20261020T142518+0000",
+        "deployedAt": "20261021T144929+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupDefinitionRestJ21",
-        "version": "c2570561f36e",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14042 ] add latest logging FW",
-        "ticket": "NXS-14042",
-        "deployedAt": "20261020T142518+0000",
+        "service": "QuotaGroupRestJ21",
+        "version": "e0a1624b38a9",
+        "username": "tamas.gyarmati",
+        "comment": "NXS-14104 QuotaGroupRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+        "ticket": "NXS-14104",
+        "deployedAt": "20261021T144929+0000",
         "files": [
           "build.gradle"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupDefinitionRestJ21",
+        "service": "QuotaGroupRestJ21",
         "version": "567fa0108c1e",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard metric",
         "ticket": "NXS-14187",
-        "deployedAt": "20261020T142518+0000",
+        "deployedAt": "20261021T144929+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupDefinitionRestJ21",
+        "service": "QuotaGroupRestJ21",
         "version": "45cef1c85862",
         "username": "lambert.lesko",
         "comment": "Merge pull request #668 from dynata/ae-7782-migrate-rewards-apps-to-ae-dpr",
         "ticket": "",
-        "deployedAt": "20261020T142518+0000",
+        "deployedAt": "20261021T144929+0000",
         "files": [],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupDefinitionRestJ21",
+        "service": "QuotaGroupRestJ21",
         "version": "fb670fc0c7df",
         "username": "lambert.lesko",
         "comment": "adding s3 bucket name to production vars",
         "ticket": "",
-        "deployedAt": "20261020T142518+0000",
+        "deployedAt": "20261021T144929+0000",
         "files": [
           "production.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupDefinitionRestJ21",
+        "service": "QuotaGroupRestJ21",
         "version": "d38e04f0570a",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard metric",
         "ticket": "NXS-14187",
-        "deployedAt": "20261020T142518+0000",
+        "deployedAt": "20261021T144929+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupDefinitionRestJ21",
+        "service": "QuotaGroupRestJ21",
         "version": "15bb6a83cca5",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard metric",
         "ticket": "NXS-14187",
-        "deployedAt": "20261020T142518+0000",
+        "deployedAt": "20261021T144929+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupDefinitionRestJ21",
+        "service": "QuotaGroupRestJ21",
         "version": "973cbb55dfb7",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard metric",
         "ticket": "NXS-14187",
-        "deployedAt": "20261020T142518+0000",
+        "deployedAt": "20261021T144929+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupDefinitionRestJ21",
+        "service": "QuotaGroupRestJ21",
         "version": "c25426d14af9",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard metric",
         "ticket": "NXS-14187",
-        "deployedAt": "20261020T142518+0000",
+        "deployedAt": "20261021T144929+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupDefinitionRestJ21",
+        "service": "QuotaGroupRestJ21",
         "version": "0a8e67a0f5d4",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard metric",
         "ticket": "NXS-14187",
-        "deployedAt": "20261020T142518+0000",
+        "deployedAt": "20261021T144929+0000",
         "files": [
           "cloud-formation.template.yml",
           "dev.yml",
@@ -778,7 +720,7 @@
     "currentCount": 95,
     "examples": [
       "GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.",
-      "PUT /u1/nexus/quotaGroups/{}/quotas/totalQuota :: Response status 502 not defined for path '/u1/nexus/quotaGroups/{quotaGroupId}/quotas/totalQuota'."
+      "GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'."
     ]
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."

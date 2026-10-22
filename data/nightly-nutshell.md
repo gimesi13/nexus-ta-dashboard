@@ -1,7 +1,10 @@
-**3 new failures: 2 Communication negative-validation tests + 1 QuotaGroup QA 502**
+**2 continuing failure(s) — no new unmuted fails**
 
-_Likely cause: mixed — the 2 Communication fails are a test-coverage change in CommunicationRuleValidationTestSteps (NXS-14188, gergely.gimesi); the QuotaGroup fail is a QA 502 (infra)._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- 2× Communication "expected exception not thrown" (NXS-14188 test change) · 1× QuotaGroup 502 (infra)
+- 2× stale negative validation — Expected exception of type 'java.lang.Exception', but no exception was thrown
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9628628)
+⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
+- GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9631958)
