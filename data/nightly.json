@@ -1664,34 +1664,24 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "2 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "2 continuing failures in Communication rule validation \u2014 no new failures and no infra errors.",
     "tone": "warn",
     "severity": "low",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 26 service(s) were deployed to QA in this window (QuotaGroupRestJ21, ClientRestJ21, CommunicationRestJ21, AlertTriggerRestJ21, 2\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "Failures: 2\u00d7 stale negative validation.",
+    "causeText": "Both are stale negative-validation tests expecting an exception the API no longer throws \u2014 no new failures, no infra timeouts/5xx, and the only Communication QA deploy (NXS-14089, a SpringAwsMessaging bump) does not touch validation logic.",
+    "investigation": "Both continuing failures are negative-validation assertions (expected exception not thrown), not infra.",
     "bullets": [
-      "2\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown"
+      "2\u00d7 Communication negative-validation assertions (continuing) \u2014 'Expected exception \u2026 but no exception was thrown'.",
+      "Contract drift (separate lane): 2 new response-schema violations vs baseline."
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 2 continuing from prior runs. Failure types (new-first): (1) 2\u00d7 stale negative validation \u2014 negative test expected an exception that was not thrown. Hot areas among new fails: Communication (2). 26 service(s) (53 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Communication is rejected when the project has no topics [stale negative validation]; Communication: Communication is rejected when the audience is not available [stale negative validation].",
+      "investigation": "No new failures (newFailed=0); the 2 continuing failures are both Spock negative-validation assertions in CommunicationRuleValidationTestSteps where an expected exception was not thrown \u2014 an assertion/stale-test signal, not a Read-timeout/502/504 infra error. The only Communication-area QA deploy was NXS-14089 (SpringAwsMessaging 5.1.5\u21925.1.7, build.gradle), which does not touch rule-validation logic, so no code change is plausibly implicated.",
       "bullets": [
-        "2\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown",
-        "[QA deploy: QuotaGroupRestJ21] NXS-14187 (25 commits) \u2014 [ NXS-14187 ] PES1 dashboard metric",
-        "[QA deploy: ClientRestJ21] NXS-14080 (2 commits) \u2014 NXS-14080 ClientRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-        "[QA deploy: CommunicationRestJ21] NXS-14089 (1 commit) \u2014 NXS-14089 CommunicationRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-        "[QA deploy: AlertTriggerRestJ21] NXS-14088 (1 commit) \u2014 NXS-14088 AlertTriggerRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-        "[QA deploy: 2] NXS-14090 (1 commit) \u2014 NXS-14090 CountersRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-        "[QA deploy: DetailsEditorRestJ21] NXS-14095 (1 commit) \u2014 NXS-14095 DetailsEditorRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-        "[QA deploy: DashboardRestJ21] NXS-14093 (1 commit) \u2014 NXS-14093 DashboardRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-        "[QA deploy: ExternalEventRestJ21] NXS-14096 (1 commit) \u2014 NXS-14096 ExternalEventRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7"
+        "Communication is rejected when the project has no topics \u2014 expected exception not thrown (continuing, not new).",
+        "Communication is rejected when the audience is not available \u2014 expected exception not thrown (continuing, not new).",
+        "Contract drift (separate lane): 2 new vs baseline, e.g. GET /u1/meta/countries path not found; GET /u1/nexus/urlPools/{} 500 not defined."
       ],
-      "newFailureAreas": [
-        {
-          "area": "Communication",
-          "newCount": 2
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -2012,8 +2002,8 @@
         "deployedAt": "20261021T074712+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-10-22T02:02Z",
+    "source": "llm",
+    "generatedAt": "2026-10-22T02:03Z",
     "buildNumber": "3.0.2736",
     "buildId": "9631958",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9631958",

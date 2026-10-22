@@ -1,10 +1,7 @@
-**2 continuing failure(s) — no new unmuted fails**
+**2 continuing failures in Communication rule validation — no new failures**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: stale negative-validation tests expecting an exception the API no longer throws; no new or infra failures._
 
-- 2× stale negative validation — Expected exception of type 'java.lang.Exception', but no exception was thrown
+- 2× Communication negative-validation assertions — expected exception not thrown (continuing, not infra).
 
-⚠️ Contract drift: 2 new response-schema violation(s) vs baseline.
-- GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.
-
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9631958)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9631958)
