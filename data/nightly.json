@@ -1664,30 +1664,24 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "2 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "Stable night: 2 continuing Communication negative-validation failures, no new failures.",
     "tone": "warn",
     "severity": "low",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 4 service(s) were deployed to QA in this window (DKProjectRestJ16, DKDashboardRestJ16, NexusApiBosJ21, NexusApiJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "Failures: 2\u00d7 stale negative validation.",
+    "causeText": "Both failures are stale negative-validation specs in Communication expecting an exception that is no longer thrown \u2014 a test/data issue, not infra, with no new failures and no QA-deploy commit implicated.",
+    "investigation": "No new failures; the 2 continuing Communication failures are assertion-based (expected exception not thrown), not infra.",
     "bullets": [
-      "2\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown"
+      "2\u00d7 stale negative validation in Communication \u2014 'Expected exception... but no exception was thrown' (assertion, not infra)",
+      "0 new failures; both continuing from prior build 3.0.2736"
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 2 continuing from prior runs. Failure types (new-first): (1) 2\u00d7 stale negative validation \u2014 negative test expected an exception that was not thrown. Hot areas among new fails: Communication (2). 4 service(s) (30 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Communication is rejected when the project has no topics [stale negative validation]; Communication: Communication is rejected when the audience is not available [stale negative validation].",
+      "investigation": "Both failures are negative-validation specs in CommunicationRuleValidationTestSteps asserting an exception that is no longer thrown \u2014 an assertion/test-data issue, not a timeout/502/504, so not infra. They carried over from prior build 3.0.2736 (also 2 failed) with no new unmuted failures, so none of the 4 QA-deployed services is implicated.",
       "bullets": [
-        "2\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown",
-        "[QA deploy: DKProjectRestJ16]  (25 commits) \u2014 [PAC-892] DKProjectRest - fix dubProjectId 20 char limitation in models (#5555)",
-        "[QA deploy: DKDashboardRestJ16]  (1 commit) \u2014 [PAC-893] DKDashboardRest - fix dubProjectId 20 char limitation in models (#5556",
-        "[QA deploy: NexusApiBosJ21]  (3 commits) \u2014 [PAC-883] Cobalt - NexusApiBos - ProjectCreateRequest: externalId + onlineSample",
-        "[QA deploy: NexusApiJ21]  (1 commit) \u2014 [PAC-888] NexusApi - fix dubProjectId 20 char limitation in models (#5548)"
+        "2\u00d7 stale negative validation (Communication) \u2014 'Expected exception of type java.lang.Exception, but no exception was thrown'",
+        "0 new failures \u2014 both continuing from prior build 3.0.2736; no QA-deploy commit maps to Communication",
+        "Contract drift (separate lane): 1 new \u2014 GET /u1/meta/countries no longer matches the OpenAPI contract"
       ],
-      "newFailureAreas": [
-        {
-          "area": "Communication",
-          "newCount": 2
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1858,8 +1852,8 @@
         "deployedAt": "20261022T082931+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-10-23T02:02Z",
+    "source": "llm",
+    "generatedAt": "2026-10-23T02:03Z",
     "buildNumber": "3.0.2737",
     "buildId": "9634075",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9634075",
