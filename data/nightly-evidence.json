@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-22T02:02Z",
+  "generatedAt": "2026-10-23T02:02Z",
   "build": {
-    "number": "3.0.2736",
-    "buildId": "9631958",
+    "number": "3.0.2737",
+    "buildId": "9634075",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9631958",
-    "durationSec": 1793.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9634075",
+    "durationSec": 1810.0
   },
   "summary": {
     "tests": 1518,
@@ -17,111 +17,115 @@
     "muted": 69,
     "newFailed": 0,
     "passRate": 99.9,
-    "timeSec": 1793.0
+    "timeSec": 1810.0
   },
   "prior": {
-    "buildId": "9628628",
-    "number": "3.0.2735",
+    "buildId": "9631958",
+    "number": "3.0.2736",
     "status": "FAILURE",
-    "statusText": "Tests failed: 3 (3 new), passed: 1446, muted: 69",
-    "startDate": "20261021T013236+0000",
-    "durationSec": 1704.0,
-    "failed": 3,
-    "passed": 1446,
-    "newFailed": 3
+    "statusText": "Tests failed: 2, passed: 1447, muted: 69",
+    "startDate": "20261022T013236+0000",
+    "durationSec": 1793.0,
+    "failed": 2,
+    "passed": 1447,
+    "newFailed": 0
   },
   "changes": [],
   "qaDeployChanges": [
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
+      "version": "bbcd6aed3d2b",
+      "username": "160534729+szabovirag",
+      "comment": "[PAC-892] DKProjectRest - fix dubProjectId 20 char limitation in models (#5555)",
+      "files": [
+        "gateway/dk/DKProjectRest/src/main/java/com/surveysampling/rest/gateway/project/dependencies/project/v2/CreateProjectRequest.java",
+        "gateway/dk/DKProjectRest/src/main/java/com/surveysampling/rest/gateway/project/dependencies/project/v2/Project.java",
+        "gateway/dk/DKProjectRest/src/main/java/com/surveysampling/rest/gateway/project/model/CreateProjectGWRequest.java",
+        "gateway/dk/DKProjectRest/src/main/java/com/surveysampling/rest/gateway/project/model/CreateShadowProjectRequest.java",
+        "gateway/dk/DKProjectRest/src/main/java/com/surveysampling/rest/gateway/project/model/ProjectSummary.java"
+      ],
+      "deployedAt": "20261022T105359+0000"
+    },
+    {
+      "service": "DKProjectRestJ16",
       "version": "bc0c0fd880a4",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "e0a1624b38a9",
-      "username": "tamas.gyarmati",
-      "comment": "NXS-14104 QuotaGroupRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "files": [
-        "project/QuotaGroupRest/build.gradle"
-      ],
-      "deployedAt": "20261021T144929+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "567fa0108c1e",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "45cef1c85862",
       "username": "lambert.lesko",
       "comment": "Merge pull request #668 from dynata/ae-7782-migrate-rewards-apps-to-ae-dpr",
       "files": [],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "fb670fc0c7df",
       "username": "lambert.lesko",
       "comment": "adding s3 bucket name to production vars",
       "files": [
         "ae-missing-rewards-queue/group_vars/production.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "d38e04f0570a",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "15bb6a83cca5",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "973cbb55dfb7",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "c25426d14af9",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "0a8e67a0f5d4",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
@@ -131,10 +135,10 @@
         "nxs-pes1-dashboard/group_vars/production.yml",
         "nxs-pes1-dashboard/group_vars/qa.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "92844c01dea3",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
@@ -145,38 +149,38 @@
         "nxs-pes1-dashboard/group_vars/production.yml",
         "nxs-pes1-dashboard/group_vars/qa.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "675d2a80442a",
       "username": "krisztian.kover",
       "comment": "[ST-4362] - supplytools-export-s3 - Removed ArtifactServiceEcsTaskRole from S3 bucket policy",
       "files": [
         "supplytools-export-s3/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "ea22d21d3f7d",
       "username": "134395908+dynata-hu-krisztian-kover",
       "comment": "Merge pull request #663 from dynata/ST-4362",
       "files": [],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "10856dd031a8",
       "username": "bresalio.nagy",
       "comment": "[AE-8063] ae-ecs-container-pull-error-alarm - temporarily create alarm in dev",
       "files": [
         "ae-ecs-container-pull-error-alarm/group_vars/dev.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "01d8d1ea4e41",
       "username": "bresalio.nagy",
       "comment": "[AE-8063] ae-ecs-container-pull-error-alarm",
@@ -188,20 +192,20 @@
         "ae-ecs-container-pull-error-alarm/group_vars/qa.yml",
         "ae-ecs-container-pull-error-alarm/sample-notification-container-pull-error.json"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "9150598dc9ea",
       "username": "krisztian.kover",
       "comment": "[ST-4362] - ST - Added HTTP request blocking for supplytools-export S3 bucket",
       "files": [
         "supplytools-export-s3/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "3145a2637a0b",
       "username": "bresalio.nagy",
       "comment": "[AE-8063] Migrate to new AE-DPR: ae-ecs-task-stopped-alarm",
@@ -210,20 +214,20 @@
         "ae-ecs-task-stopped-alarm/group_vars/all.yml",
         "ae-ecs-task-stopped-alarm/group_vars/qa.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "67e986c0af06",
       "username": "grace.chen",
       "comment": "[FAI-474-487] update alarm for ml-survey-guard-model",
       "files": [
         "ml-survey-guard-model/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "72873c8e500a",
       "username": "grace.chen",
       "comment": "[FAI-474-487] update alarm for ml-screenout-model",
@@ -232,10 +236,10 @@
         "ml-screenout-model/group_vars/all.yml",
         "ml-screenout-model/group_vars/production.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "e907d50749f1",
       "username": "grace.chen",
       "comment": "[FAI-474-487] update alarm for ml-complete-optimization-model",
@@ -244,46 +248,46 @@
         "ml-complete-optimization-model/group_vars/all.yml",
         "ml-complete-optimization-model/group_vars/production.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "3cdba8f9d3c6",
       "username": "krisztian.kover",
       "comment": "[ST-4362] - ST - Added mandatory tags to the new S3 bucket",
       "files": [
         "supplytools-export-s3/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "3d433e9bbb21",
       "username": "61739584+richardsebok",
       "comment": "Merge pull request #627 from dynata/ST-4726",
       "files": [],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "2e61fe1ae67b",
       "username": "lambert.lesko",
       "comment": "Merge pull request #666 from dynata/ae-7782-migrate-rewards-apps-to-ae-dpr",
       "files": [],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "1cd379e5a318",
       "username": "lambert.lesko",
       "comment": "Enable SQS managed encryption for missing-rewards-queue",
       "files": [
         "ae-missing-rewards-queue/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "version": "628f1db4a44c",
       "username": "bresalio.nagy",
       "comment": "[AE-8062] Migrate to new AE-DPR: S3 macro stack - fix1",
@@ -291,243 +295,100 @@
         "ae-aws-s3-objects-macro/group_vars/all.yml",
         "ae-aws-s3-objects-macro/group_vars/qa.yml"
       ],
-      "deployedAt": "20261021T144929+0000"
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "ClientRestJ21",
-      "version": "c3345ee82237",
-      "username": "tamas.gyarmati",
-      "comment": "NXS-14080 ClientRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "service": "DKDashboardRestJ16",
+      "version": "5dd4a5617a22",
+      "username": "160534729+szabovirag",
+      "comment": "[PAC-893] DKDashboardRest - fix dubProjectId 20 char limitation in models (#5556)",
       "files": [
-        "management/ClientRest/build.gradle"
+        "gateway/dk/DKDashboardRest/src/main/java/com/surveysampling/rest/gateway/dashboard/dependencies/project/model/CreateProjectRequest.java"
       ],
-      "deployedAt": "20261021T144911+0000"
+      "deployedAt": "20261022T093148+0000"
     },
     {
-      "service": "ClientRestJ21",
-      "version": "fe883bf9811f",
-      "username": "grace.chen",
-      "comment": "[FAI-474-487] update alarm for ml-reconciliation-model",
+      "service": "NexusApiBosJ21",
+      "version": "35f1cb03f891",
+      "username": "82085952+gaborfial",
+      "comment": "[PAC-883] Cobalt - NexusApiBos - ProjectCreateRequest: externalId + onlineSamples.unitPriceOverride (#5539)",
       "files": [
-        "ml-reconciliation-model/cloud-formation.template.yml",
-        "ml-reconciliation-model/group_vars/all.yml",
-        "ml-reconciliation-model/group_vars/production.yml"
+        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/dependencies/d365bos/model/OnlineSampleForCreateProject.java",
+        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/dependencies/d365bos/model/ProjectCreateRequest.java",
+        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/dependencies/feasibilitydatastore/FeasibilityDataStoreFeignClient.java",
+        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/v1/api/D365ApiImpl.java",
+        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/v1/model/PriceRequest.java",
+        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/v1/service/OnlineSampleService.java",
+        "gateway/unifiedApi/NexusApiBos/src/test/groovy/com/dynata/rest/gateway/nexusapibos/v1/api/D365ApiTest.groovy",
+        "gateway/unifiedApi/NexusApiBos/src/test/groovy/com/dynata/rest/gateway/nexusapibos/v1/service/OnlineSampleServiceTest.groovy",
+        "gateway/unifiedApi/NexusApiBos/src/test/groovy/com/dynata/rest/gateway/nexusapibos/v1/service/ProductServiceTest.groovy"
       ],
-      "deployedAt": "20261021T144911+0000"
+      "deployedAt": "20261022T083225+0000"
     },
     {
-      "service": "CommunicationRestJ21",
-      "version": "df76288c82c9",
-      "username": "tamas.gyarmati",
-      "comment": "NXS-14089 CommunicationRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "service": "NexusApiBosJ21",
+      "version": "c4c33d8779a0",
+      "username": "adamlaszlo.mohacsi",
+      "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
       "files": [
-        "project/CommunicationRest/build.gradle"
+        "sls-db/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261021T144539+0000"
+      "deployedAt": "20261022T083225+0000"
     },
     {
-      "service": "AlertTriggerRestJ21",
-      "version": "1641856226ca",
-      "username": "tamas.gyarmati",
-      "comment": "NXS-14088 AlertTriggerRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "service": "NexusApiBosJ21",
+      "version": "0178093fb27b",
+      "username": "adamlaszlo.mohacsi",
+      "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
       "files": [
-        "project/AlertTriggerRest/build.gradle"
+        "sls-db/cloud-formation.template.yml",
+        "sls-db/group_vars/dev.yml",
+        "sls-db/group_vars/production.yml",
+        "sls-db/group_vars/qa.yml"
       ],
-      "deployedAt": "20261021T144126+0000"
+      "deployedAt": "20261022T083225+0000"
     },
     {
-      "service": "2",
-      "version": "7678585b968b",
-      "username": "tamas.gyarmati",
-      "comment": "NXS-14090 CountersRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
+      "service": "NexusApiJ21",
+      "version": "83acbd127b35",
+      "username": "160534729+szabovirag",
+      "comment": "[PAC-888] NexusApi - fix dubProjectId 20 char limitation in models (#5548)",
       "files": [
-        "project/CountersRest/build.gradle"
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/project/model/CreateProjectRequest.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/project/model/Project.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/v1/nexus/dependencies/project/model/dkproject/ProjectSummary.java"
       ],
-      "deployedAt": "20261021T144326+0000"
+      "deployedAt": "20261022T082931+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "DKProjectRestJ16",
       "commits": 25,
-      "latestTicket": "NXS-14187",
-      "latestComment": "[ NXS-14187 ] PES1 dashboard metric",
-      "deployedAt": "20261021T144929+0000"
+      "latestTicket": "",
+      "latestComment": "[PAC-892] DKProjectRest - fix dubProjectId 20 char limitation in models (#5555)",
+      "deployedAt": "20261022T105359+0000"
     },
     {
-      "service": "ClientRestJ21",
-      "commits": 2,
-      "latestTicket": "NXS-14080",
-      "latestComment": "NXS-14080 ClientRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T144911+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14089",
-      "latestComment": "NXS-14089 CommunicationRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T144539+0000"
-    },
-    {
-      "service": "AlertTriggerRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14088",
-      "latestComment": "NXS-14088 AlertTriggerRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T144126+0000"
-    },
-    {
-      "service": "2",
-      "commits": 1,
-      "latestTicket": "NXS-14090",
-      "latestComment": "NXS-14090 CountersRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T144326+0000"
-    },
-    {
-      "service": "DetailsEditorRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14095",
-      "latestComment": "NXS-14095 DetailsEditorRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T144419+0000"
-    },
-    {
-      "service": "DashboardRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14093",
-      "latestComment": "NXS-14093 DashboardRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T144245+0000"
-    },
-    {
-      "service": "ExternalEventRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14096",
-      "latestComment": "NXS-14096 ExternalEventRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T144135+0000"
-    },
-    {
-      "service": "ExtendedAttributesRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14116",
-      "latestComment": "NXS-14116 ExtendedAttributesRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T143921+0000"
-    },
-    {
-      "service": "SurveyRestJ21",
-      "commits": 2,
-      "latestTicket": "NXS-14107",
-      "latestComment": "NXS-14107 SurveyRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T143305+0000"
-    },
-    {
-      "service": "ThrottlingSettingRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14111",
-      "latestComment": "NXS-14111 ThrottlingSettingRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T143212+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
+      "service": "DKDashboardRestJ16",
       "commits": 1,
       "latestTicket": "",
-      "latestComment": "[PAC-887] ProjectRest - fix dubProjectId 20 char limitation, create sql update a",
-      "deployedAt": "20261021T135625+0000"
-    },
-    {
-      "service": "MailEventRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14097",
-      "latestComment": "NXS-14097 MailEventRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T130421+0000"
-    },
-    {
-      "service": "NotificationHandlerRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14085",
-      "latestComment": "NXS-14085 NotificationHandlerRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T130554+0000"
-    },
-    {
-      "service": "ProjectSearchRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14101",
-      "latestComment": "NXS-14101 ProjectSearchRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T130353+0000"
-    },
-    {
-      "service": "QuotaDetailsRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14102",
-      "latestComment": "NXS-14102 QuotaDetailsRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T130323+0000"
-    },
-    {
-      "service": "PickerEventRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14098",
-      "latestComment": "NXS-14098 PickerEventRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T130141+0000"
-    },
-    {
-      "service": "ProjectLogRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14100",
-      "latestComment": "NXS-14100 ProjectLogRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T130245+0000"
-    },
-    {
-      "service": "RestrictFilterRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14106",
-      "latestComment": "NXS-14106 RestrictFilterRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T130006+0000"
-    },
-    {
-      "service": "TrafficDetailsRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14112",
-      "latestComment": "NXS-14112 TrafficDetailsRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T125607+0000"
-    },
-    {
-      "service": "DedupeRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14094",
-      "latestComment": "NXS-14094 DedupeRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T094456+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "commits": 2,
-      "latestTicket": "NXS-14153",
-      "latestComment": "[NXS-14153] - NexusApi - log propagation start",
-      "deployedAt": "20261021T094601+0000"
+      "latestComment": "[PAC-893] DKDashboardRest - fix dubProjectId 20 char limitation in models (#5556",
+      "deployedAt": "20261022T093148+0000"
     },
     {
       "service": "NexusApiBosJ21",
-      "commits": 1,
-      "latestTicket": "NXS-14197",
-      "latestComment": "NXS-14197 NexusApiBos - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T082859+0000"
+      "commits": 3,
+      "latestTicket": "",
+      "latestComment": "[PAC-883] Cobalt - NexusApiBos - ProjectCreateRequest: externalId + onlineSample",
+      "deployedAt": "20261022T083225+0000"
     },
     {
-      "service": "SettingRestJ21",
+      "service": "NexusApiJ21",
       "commits": 1,
-      "latestTicket": "NXS-14200",
-      "latestComment": "NXS-14200 SettingRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T082538+0000"
-    },
-    {
-      "service": "EligibilityService",
-      "commits": 1,
-      "latestTicket": "NXS-14198",
-      "latestComment": "NXS-14198 EligibilityService - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-      "deployedAt": "20261021T082509+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "commits": 1,
-      "latestTicket": "NXS-14203",
-      "latestComment": "[NXS-14203] - NexusApiUI - enrich first 100 segmented condition answer, keep all",
-      "deployedAt": "20261021T074712+0000"
+      "latestTicket": "",
+      "latestComment": "[PAC-888] NexusApi - fix dubProjectId 20 char limitation in models (#5548)",
+      "deployedAt": "20261022T082931+0000"
     }
   ],
   "clusters": [
@@ -569,17 +430,13 @@
     ],
     "investigation": "Failures: 2\u00d7 stale negative validation.",
     "detail": {
-      "investigation": "No new unmuted failures; 2 continuing from prior runs. Failure types (new-first): (1) 2\u00d7 stale negative validation \u2014 negative test expected an exception that was not thrown. Hot areas among new fails: Communication (2). 26 service(s) (53 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Communication is rejected when the project has no topics [stale negative validation]; Communication: Communication is rejected when the audience is not available [stale negative validation].",
+      "investigation": "No new unmuted failures; 2 continuing from prior runs. Failure types (new-first): (1) 2\u00d7 stale negative validation \u2014 negative test expected an exception that was not thrown. Hot areas among new fails: Communication (2). 4 service(s) (30 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Communication is rejected when the project has no topics [stale negative validation]; Communication: Communication is rejected when the audience is not available [stale negative validation].",
       "bullets": [
         "2\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown",
-        "[QA deploy: QuotaGroupRestJ21] NXS-14187 (25 commits) \u2014 [ NXS-14187 ] PES1 dashboard metric",
-        "[QA deploy: ClientRestJ21] NXS-14080 (2 commits) \u2014 NXS-14080 ClientRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-        "[QA deploy: CommunicationRestJ21] NXS-14089 (1 commit) \u2014 NXS-14089 CommunicationRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-        "[QA deploy: AlertTriggerRestJ21] NXS-14088 (1 commit) \u2014 NXS-14088 AlertTriggerRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-        "[QA deploy: 2] NXS-14090 (1 commit) \u2014 NXS-14090 CountersRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-        "[QA deploy: DetailsEditorRestJ21] NXS-14095 (1 commit) \u2014 NXS-14095 DetailsEditorRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-        "[QA deploy: DashboardRestJ21] NXS-14093 (1 commit) \u2014 NXS-14093 DashboardRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-        "[QA deploy: ExternalEventRestJ21] NXS-14096 (1 commit) \u2014 NXS-14096 ExternalEventRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7"
+        "[QA deploy: DKProjectRestJ16]  (25 commits) \u2014 [PAC-892] DKProjectRest - fix dubProjectId 20 char limitation in models (#5555)",
+        "[QA deploy: DKDashboardRestJ16]  (1 commit) \u2014 [PAC-893] DKDashboardRest - fix dubProjectId 20 char limitation in models (#5556",
+        "[QA deploy: NexusApiBosJ21]  (3 commits) \u2014 [PAC-883] Cobalt - NexusApiBos - ProjectCreateRequest: externalId + onlineSample",
+        "[QA deploy: NexusApiJ21]  (1 commit) \u2014 [PAC-888] NexusApi - fix dubProjectId 20 char limitation in models (#5548)"
       ],
       "newFailureAreas": [
         {
@@ -592,118 +449,122 @@
     "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "QuotaGroupRestJ21",
+        "service": "DKProjectRestJ16",
+        "version": "bbcd6aed3d2b",
+        "username": "160534729+szabovirag",
+        "comment": "[PAC-892] DKProjectRest - fix dubProjectId 20 char limitation in models (#5555)",
+        "ticket": "",
+        "deployedAt": "20261022T105359+0000",
+        "files": [
+          "CreateProjectRequest.java",
+          "Project.java",
+          "CreateProjectGWRequest.java",
+          "CreateShadowProjectRequest.java",
+          "ProjectSummary.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DKProjectRestJ16",
         "version": "bc0c0fd880a4",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard metric",
         "ticket": "NXS-14187",
-        "deployedAt": "20261021T144929+0000",
+        "deployedAt": "20261022T105359+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "e0a1624b38a9",
-        "username": "tamas.gyarmati",
-        "comment": "NXS-14104 QuotaGroupRest - bump SpringAwsMessaging 5.1.5 -> 5.1.7",
-        "ticket": "NXS-14104",
-        "deployedAt": "20261021T144929+0000",
-        "files": [
-          "build.gradle"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupRestJ21",
+        "service": "DKProjectRestJ16",
         "version": "567fa0108c1e",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard metric",
         "ticket": "NXS-14187",
-        "deployedAt": "20261021T144929+0000",
+        "deployedAt": "20261022T105359+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
+        "service": "DKProjectRestJ16",
         "version": "45cef1c85862",
         "username": "lambert.lesko",
         "comment": "Merge pull request #668 from dynata/ae-7782-migrate-rewards-apps-to-ae-dpr",
         "ticket": "",
-        "deployedAt": "20261021T144929+0000",
+        "deployedAt": "20261022T105359+0000",
         "files": [],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
+        "service": "DKProjectRestJ16",
         "version": "fb670fc0c7df",
         "username": "lambert.lesko",
         "comment": "adding s3 bucket name to production vars",
         "ticket": "",
-        "deployedAt": "20261021T144929+0000",
+        "deployedAt": "20261022T105359+0000",
         "files": [
           "production.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
+        "service": "DKProjectRestJ16",
         "version": "d38e04f0570a",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard metric",
         "ticket": "NXS-14187",
-        "deployedAt": "20261021T144929+0000",
+        "deployedAt": "20261022T105359+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
+        "service": "DKProjectRestJ16",
         "version": "15bb6a83cca5",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard metric",
         "ticket": "NXS-14187",
-        "deployedAt": "20261021T144929+0000",
+        "deployedAt": "20261022T105359+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
+        "service": "DKProjectRestJ16",
         "version": "973cbb55dfb7",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard metric",
         "ticket": "NXS-14187",
-        "deployedAt": "20261021T144929+0000",
+        "deployedAt": "20261022T105359+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
+        "service": "DKProjectRestJ16",
         "version": "c25426d14af9",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard metric",
         "ticket": "NXS-14187",
-        "deployedAt": "20261021T144929+0000",
+        "deployedAt": "20261022T105359+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
+        "service": "DKProjectRestJ16",
         "version": "0a8e67a0f5d4",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard metric",
         "ticket": "NXS-14187",
-        "deployedAt": "20261021T144929+0000",
+        "deployedAt": "20261022T105359+0000",
         "files": [
           "cloud-formation.template.yml",
           "dev.yml",
@@ -715,12 +576,11 @@
     ]
   },
   "contractDrift": {
-    "newCount": 2,
+    "newCount": 1,
     "baselineCount": 95,
-    "currentCount": 95,
+    "currentCount": 94,
     "examples": [
-      "GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.",
-      "GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'."
+      "GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'."
     ]
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."
