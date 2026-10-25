@@ -1,404 +1,54 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-23T02:02Z",
+  "generatedAt": "2026-10-25T03:04Z",
   "build": {
-    "number": "3.0.2737",
-    "buildId": "9634075",
+    "number": "3.0.2739",
+    "buildId": "9634803",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9634075",
-    "durationSec": 1810.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9634803",
+    "durationSec": 1858.0
   },
   "summary": {
     "tests": 1518,
-    "passed": 1447,
-    "failures": 2,
+    "passed": 1446,
+    "failures": 3,
     "errors": 0,
     "skipped": 0,
     "muted": 69,
-    "newFailed": 0,
-    "passRate": 99.9,
-    "timeSec": 1810.0
+    "newFailed": 1,
+    "passRate": 99.8,
+    "timeSec": 1858.0
   },
   "prior": {
-    "buildId": "9631958",
-    "number": "3.0.2736",
+    "buildId": "9632250",
+    "number": "3.0.2738",
     "status": "FAILURE",
-    "statusText": "Tests failed: 2, passed: 1447, muted: 69",
-    "startDate": "20261022T013236+0000",
-    "durationSec": 1793.0,
-    "failed": 2,
-    "passed": 1447,
-    "newFailed": 0
+    "statusText": "Tests failed: 3 (1 new), passed: 1446, muted: 69",
+    "startDate": "20261024T013016+0000",
+    "durationSec": 1729.0,
+    "failed": 3,
+    "passed": 1446,
+    "newFailed": 1
   },
   "changes": [],
-  "qaDeployChanges": [
-    {
-      "service": "DKProjectRestJ16",
-      "version": "bbcd6aed3d2b",
-      "username": "160534729+szabovirag",
-      "comment": "[PAC-892] DKProjectRest - fix dubProjectId 20 char limitation in models (#5555)",
-      "files": [
-        "gateway/dk/DKProjectRest/src/main/java/com/surveysampling/rest/gateway/project/dependencies/project/v2/CreateProjectRequest.java",
-        "gateway/dk/DKProjectRest/src/main/java/com/surveysampling/rest/gateway/project/dependencies/project/v2/Project.java",
-        "gateway/dk/DKProjectRest/src/main/java/com/surveysampling/rest/gateway/project/model/CreateProjectGWRequest.java",
-        "gateway/dk/DKProjectRest/src/main/java/com/surveysampling/rest/gateway/project/model/CreateShadowProjectRequest.java",
-        "gateway/dk/DKProjectRest/src/main/java/com/surveysampling/rest/gateway/project/model/ProjectSummary.java"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "bc0c0fd880a4",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "567fa0108c1e",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "45cef1c85862",
-      "username": "lambert.lesko",
-      "comment": "Merge pull request #668 from dynata/ae-7782-migrate-rewards-apps-to-ae-dpr",
-      "files": [],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "fb670fc0c7df",
-      "username": "lambert.lesko",
-      "comment": "adding s3 bucket name to production vars",
-      "files": [
-        "ae-missing-rewards-queue/group_vars/production.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "d38e04f0570a",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "15bb6a83cca5",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "973cbb55dfb7",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "c25426d14af9",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "0a8e67a0f5d4",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml",
-        "nxs-pes1-dashboard/group_vars/dev.yml",
-        "nxs-pes1-dashboard/group_vars/production.yml",
-        "nxs-pes1-dashboard/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "92844c01dea3",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml",
-        "nxs-pes1-dashboard/group_vars/all.yml",
-        "nxs-pes1-dashboard/group_vars/dev.yml",
-        "nxs-pes1-dashboard/group_vars/production.yml",
-        "nxs-pes1-dashboard/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "675d2a80442a",
-      "username": "krisztian.kover",
-      "comment": "[ST-4362] - supplytools-export-s3 - Removed ArtifactServiceEcsTaskRole from S3 bucket policy",
-      "files": [
-        "supplytools-export-s3/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "ea22d21d3f7d",
-      "username": "134395908+dynata-hu-krisztian-kover",
-      "comment": "Merge pull request #663 from dynata/ST-4362",
-      "files": [],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "10856dd031a8",
-      "username": "bresalio.nagy",
-      "comment": "[AE-8063] ae-ecs-container-pull-error-alarm - temporarily create alarm in dev",
-      "files": [
-        "ae-ecs-container-pull-error-alarm/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "01d8d1ea4e41",
-      "username": "bresalio.nagy",
-      "comment": "[AE-8063] ae-ecs-container-pull-error-alarm",
-      "files": [
-        "ae-ecs-container-pull-error-alarm/cloud-formation.template.yml",
-        "ae-ecs-container-pull-error-alarm/group_vars/all.yml",
-        "ae-ecs-container-pull-error-alarm/group_vars/dev.yml",
-        "ae-ecs-container-pull-error-alarm/group_vars/production.yml",
-        "ae-ecs-container-pull-error-alarm/group_vars/qa.yml",
-        "ae-ecs-container-pull-error-alarm/sample-notification-container-pull-error.json"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "9150598dc9ea",
-      "username": "krisztian.kover",
-      "comment": "[ST-4362] - ST - Added HTTP request blocking for supplytools-export S3 bucket",
-      "files": [
-        "supplytools-export-s3/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "3145a2637a0b",
-      "username": "bresalio.nagy",
-      "comment": "[AE-8063] Migrate to new AE-DPR: ae-ecs-task-stopped-alarm",
-      "files": [
-        "ae-ecs-task-stopped-alarm/cloud-formation.template.yml",
-        "ae-ecs-task-stopped-alarm/group_vars/all.yml",
-        "ae-ecs-task-stopped-alarm/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "67e986c0af06",
-      "username": "grace.chen",
-      "comment": "[FAI-474-487] update alarm for ml-survey-guard-model",
-      "files": [
-        "ml-survey-guard-model/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "72873c8e500a",
-      "username": "grace.chen",
-      "comment": "[FAI-474-487] update alarm for ml-screenout-model",
-      "files": [
-        "ml-screenout-model/cloud-formation.template.yml",
-        "ml-screenout-model/group_vars/all.yml",
-        "ml-screenout-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "e907d50749f1",
-      "username": "grace.chen",
-      "comment": "[FAI-474-487] update alarm for ml-complete-optimization-model",
-      "files": [
-        "ml-complete-optimization-model/cloud-formation.template.yml",
-        "ml-complete-optimization-model/group_vars/all.yml",
-        "ml-complete-optimization-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "3cdba8f9d3c6",
-      "username": "krisztian.kover",
-      "comment": "[ST-4362] - ST - Added mandatory tags to the new S3 bucket",
-      "files": [
-        "supplytools-export-s3/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "3d433e9bbb21",
-      "username": "61739584+richardsebok",
-      "comment": "Merge pull request #627 from dynata/ST-4726",
-      "files": [],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "2e61fe1ae67b",
-      "username": "lambert.lesko",
-      "comment": "Merge pull request #666 from dynata/ae-7782-migrate-rewards-apps-to-ae-dpr",
-      "files": [],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "1cd379e5a318",
-      "username": "lambert.lesko",
-      "comment": "Enable SQS managed encryption for missing-rewards-queue",
-      "files": [
-        "ae-missing-rewards-queue/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKProjectRestJ16",
-      "version": "628f1db4a44c",
-      "username": "bresalio.nagy",
-      "comment": "[AE-8062] Migrate to new AE-DPR: S3 macro stack - fix1",
-      "files": [
-        "ae-aws-s3-objects-macro/group_vars/all.yml",
-        "ae-aws-s3-objects-macro/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKDashboardRestJ16",
-      "version": "5dd4a5617a22",
-      "username": "160534729+szabovirag",
-      "comment": "[PAC-893] DKDashboardRest - fix dubProjectId 20 char limitation in models (#5556)",
-      "files": [
-        "gateway/dk/DKDashboardRest/src/main/java/com/surveysampling/rest/gateway/dashboard/dependencies/project/model/CreateProjectRequest.java"
-      ],
-      "deployedAt": "20261022T093148+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "version": "35f1cb03f891",
-      "username": "82085952+gaborfial",
-      "comment": "[PAC-883] Cobalt - NexusApiBos - ProjectCreateRequest: externalId + onlineSamples.unitPriceOverride (#5539)",
-      "files": [
-        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/dependencies/d365bos/model/OnlineSampleForCreateProject.java",
-        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/dependencies/d365bos/model/ProjectCreateRequest.java",
-        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/dependencies/feasibilitydatastore/FeasibilityDataStoreFeignClient.java",
-        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/v1/api/D365ApiImpl.java",
-        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/v1/model/PriceRequest.java",
-        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/v1/service/OnlineSampleService.java",
-        "gateway/unifiedApi/NexusApiBos/src/test/groovy/com/dynata/rest/gateway/nexusapibos/v1/api/D365ApiTest.groovy",
-        "gateway/unifiedApi/NexusApiBos/src/test/groovy/com/dynata/rest/gateway/nexusapibos/v1/service/OnlineSampleServiceTest.groovy",
-        "gateway/unifiedApi/NexusApiBos/src/test/groovy/com/dynata/rest/gateway/nexusapibos/v1/service/ProductServiceTest.groovy"
-      ],
-      "deployedAt": "20261022T083225+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "version": "c4c33d8779a0",
-      "username": "adamlaszlo.mohacsi",
-      "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
-      "files": [
-        "sls-db/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261022T083225+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "version": "0178093fb27b",
-      "username": "adamlaszlo.mohacsi",
-      "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
-      "files": [
-        "sls-db/cloud-formation.template.yml",
-        "sls-db/group_vars/dev.yml",
-        "sls-db/group_vars/production.yml",
-        "sls-db/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261022T083225+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "83acbd127b35",
-      "username": "160534729+szabovirag",
-      "comment": "[PAC-888] NexusApi - fix dubProjectId 20 char limitation in models (#5548)",
-      "files": [
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/project/model/CreateProjectRequest.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/project/model/Project.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/v1/nexus/dependencies/project/model/dkproject/ProjectSummary.java"
-      ],
-      "deployedAt": "20261022T082931+0000"
-    }
-  ],
-  "qaDeployServices": [
-    {
-      "service": "DKProjectRestJ16",
-      "commits": 25,
-      "latestTicket": "",
-      "latestComment": "[PAC-892] DKProjectRest - fix dubProjectId 20 char limitation in models (#5555)",
-      "deployedAt": "20261022T105359+0000"
-    },
-    {
-      "service": "DKDashboardRestJ16",
-      "commits": 1,
-      "latestTicket": "",
-      "latestComment": "[PAC-893] DKDashboardRest - fix dubProjectId 20 char limitation in models (#5556",
-      "deployedAt": "20261022T093148+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "commits": 3,
-      "latestTicket": "",
-      "latestComment": "[PAC-883] Cobalt - NexusApiBos - ProjectCreateRequest: externalId + onlineSample",
-      "deployedAt": "20261022T083225+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "commits": 1,
-      "latestTicket": "",
-      "latestComment": "[PAC-888] NexusApi - fix dubProjectId 20 char limitation in models (#5548)",
-      "deployedAt": "20261022T082931+0000"
-    }
-  ],
+  "qaDeployChanges": [],
+  "qaDeployServices": [],
   "clusters": [
     {
       "label": "stale_validation",
       "display": "stale negative validation",
       "count": 2,
-      "newCount": 2,
-      "sample": "Expected exception of type 'java.lang.Exception', but no exception was thrown",
+      "newCount": 0,
+      "sample": "",
       "why": "negative test expected an exception that was not thrown"
+    },
+    {
+      "label": "other",
+      "display": "other",
+      "count": 1,
+      "newCount": 1,
+      "sample": "Feasibility Calculation unavailable!",
+      "why": "no dominant signature yet \u2014 open TeamCity details"
     }
   ],
   "failures": [
@@ -419,161 +69,40 @@
       "cluster": "stale_validation",
       "message": "Expected exception of type 'java.lang.Exception', but no exception was thrown",
       "detailsExcerpt": "Expected exception of type 'java.lang.Exception', but no exception was thrown at app//org.spockframework.lang.SpecInternals.checkExceptionThrown(SpecInternals.java:95) at app//org.spockframework.lang.SpecInternals.thrownImpl(SpecInternals.java:78) at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Communication.CommunicationRuleValidationTestSteps.Communication is rejected when the audience is \u2026"
+    },
+    {
+      "name": "Modifying totalQuota (when soldQuota is locked) prevents any updates: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaValidationTestSteps.Modifying totalQuota (when soldQuota is locked) prevents any updates",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaValidationTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "other",
+      "message": "Feasibility Calculation unavailable!",
+      "detailsExcerpt": "java.lang.RuntimeException: Failed to lock sold quota for quotaGroupId=118839187 after 30s: DetailsEditor still returning feasibility-not-ready or no sold quota > quota capped value (cross-service lag between QuotaDetails, FeasDataStore, and DetailsEditor). at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupHelper.setSoldQuotaLocked(QuotaGroupHelper.groovy:748) at \u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "2 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "1 new failure in Quota",
     "tone": "warn",
     "severity": "low",
     "bullets": [
-      "2\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown"
+      "1\u00d7 other \u2014 Feasibility Calculation unavailable!"
     ],
-    "investigation": "Failures: 2\u00d7 stale negative validation.",
+    "investigation": "New fails: 1\u00d7 other (no dominant signature yet).",
     "detail": {
-      "investigation": "No new unmuted failures; 2 continuing from prior runs. Failure types (new-first): (1) 2\u00d7 stale negative validation \u2014 negative test expected an exception that was not thrown. Hot areas among new fails: Communication (2). 4 service(s) (30 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Communication is rejected when the project has no topics [stale negative validation]; Communication: Communication is rejected when the audience is not available [stale negative validation].",
+      "investigation": "1 of 3 unmuted failures are new since the prior build (#3.0.2738, 3 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Quota (1). Example new failures: Quota: Modifying totalQuota (when soldQuota is locked) prevents any updates: com.dynata.rest.gate [other].",
       "bullets": [
-        "2\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown",
-        "[QA deploy: DKProjectRestJ16]  (25 commits) \u2014 [PAC-892] DKProjectRest - fix dubProjectId 20 char limitation in models (#5555)",
-        "[QA deploy: DKDashboardRestJ16]  (1 commit) \u2014 [PAC-893] DKDashboardRest - fix dubProjectId 20 char limitation in models (#5556",
-        "[QA deploy: NexusApiBosJ21]  (3 commits) \u2014 [PAC-883] Cobalt - NexusApiBos - ProjectCreateRequest: externalId + onlineSample",
-        "[QA deploy: NexusApiJ21]  (1 commit) \u2014 [PAC-888] NexusApi - fix dubProjectId 20 char limitation in models (#5548)"
+        "1\u00d7 other \u2014 Feasibility Calculation unavailable!"
       ],
       "newFailureAreas": [
         {
-          "area": "Communication",
-          "newCount": 2
+          "area": "Quota",
+          "newCount": 1
         }
       ],
       "likelyCauses": []
     },
     "suspectCommits": [],
-    "qaDeploySuspects": [
-      {
-        "service": "DKProjectRestJ16",
-        "version": "bbcd6aed3d2b",
-        "username": "160534729+szabovirag",
-        "comment": "[PAC-892] DKProjectRest - fix dubProjectId 20 char limitation in models (#5555)",
-        "ticket": "",
-        "deployedAt": "20261022T105359+0000",
-        "files": [
-          "CreateProjectRequest.java",
-          "Project.java",
-          "CreateProjectGWRequest.java",
-          "CreateShadowProjectRequest.java",
-          "ProjectSummary.java"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKProjectRestJ16",
-        "version": "bc0c0fd880a4",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14187 ] PES1 dashboard metric",
-        "ticket": "NXS-14187",
-        "deployedAt": "20261022T105359+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKProjectRestJ16",
-        "version": "567fa0108c1e",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14187 ] PES1 dashboard metric",
-        "ticket": "NXS-14187",
-        "deployedAt": "20261022T105359+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKProjectRestJ16",
-        "version": "45cef1c85862",
-        "username": "lambert.lesko",
-        "comment": "Merge pull request #668 from dynata/ae-7782-migrate-rewards-apps-to-ae-dpr",
-        "ticket": "",
-        "deployedAt": "20261022T105359+0000",
-        "files": [],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKProjectRestJ16",
-        "version": "fb670fc0c7df",
-        "username": "lambert.lesko",
-        "comment": "adding s3 bucket name to production vars",
-        "ticket": "",
-        "deployedAt": "20261022T105359+0000",
-        "files": [
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKProjectRestJ16",
-        "version": "d38e04f0570a",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14187 ] PES1 dashboard metric",
-        "ticket": "NXS-14187",
-        "deployedAt": "20261022T105359+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKProjectRestJ16",
-        "version": "15bb6a83cca5",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14187 ] PES1 dashboard metric",
-        "ticket": "NXS-14187",
-        "deployedAt": "20261022T105359+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKProjectRestJ16",
-        "version": "973cbb55dfb7",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14187 ] PES1 dashboard metric",
-        "ticket": "NXS-14187",
-        "deployedAt": "20261022T105359+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKProjectRestJ16",
-        "version": "c25426d14af9",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14187 ] PES1 dashboard metric",
-        "ticket": "NXS-14187",
-        "deployedAt": "20261022T105359+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DKProjectRestJ16",
-        "version": "0a8e67a0f5d4",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14187 ] PES1 dashboard metric",
-        "ticket": "NXS-14187",
-        "deployedAt": "20261022T105359+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "dev.yml",
-          "production.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      }
-    ]
+    "qaDeploySuspects": []
   },
   "contractDrift": {
     "newCount": 1,
