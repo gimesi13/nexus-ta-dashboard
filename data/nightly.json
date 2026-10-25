@@ -1675,19 +1675,22 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in Quota",
+    "headline": "1 new Quota failure from a 30s cross-service feasibility timeout in QA",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet).",
+    "cause": "infra",
+    "causeText": "The new Quota failure is a setup-time 30s timeout waiting for sold-quota lock (feasibility-not-ready, cross-service lag in QA), not an assertion, and there are no build or QA-deploy changes in the window \u2014 so this is QA environment/timing, not a code regression.",
+    "investigation": "The only new failure is a Quota setup timing out after 30s on cross-service feasibility lag; no code changes to implicate.",
     "bullets": [
-      "1\u00d7 other \u2014 Feasibility Calculation unavailable!"
+      "1\u00d7 Quota (new) \u2014 sold-quota lock timed out after 30s: feasibility-not-ready, cross-service lag (infra timing)",
+      "No build/QA-deploy changes in window \u2014 no commit to blame"
     ],
     "detail": {
-      "investigation": "1 of 3 unmuted failures are new since the prior build (#3.0.2738, 3 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Quota (1). Example new failures: Quota: Modifying totalQuota (when soldQuota is locked) prevents any updates: com.dynata.rest.gate [other].",
+      "investigation": "The single new failure, Quota 'Modifying totalQuota (when soldQuota is locked)', is a setup-time RuntimeException from QuotaGroupHelper.setSoldQuotaLocked failing to lock sold quota for quotaGroupId=118839187 after 30s because DetailsEditor kept returning feasibility-not-ready (cross-service lag between QuotaDetails, FeasDataStore, and DetailsEditor) \u2014 a QA environment/timing issue, not an assertion. With no changes or QA-deploy commits in the window there is no code to blame; the other 2 failures are pre-existing stale negative-validation tests (not new).",
       "bullets": [
-        "1\u00d7 other \u2014 Feasibility Calculation unavailable!"
+        "1\u00d7 Quota (new) \u2014 setSoldQuotaLocked failed after 30s: feasibility-not-ready / cross-service lag (infra timing)",
+        "No changes or QA-deploy commits in window \u2014 no commit to blame",
+        "Contract drift (separate lane): GET /u1/meta/countries no longer matches any OpenAPI path (1 new)"
       ],
       "newFailureAreas": [
         {
@@ -1718,8 +1721,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-10-25T03:04Z",
+    "source": "llm",
+    "generatedAt": "2026-10-25T03:05Z",
     "buildNumber": "3.0.2739",
     "buildId": "9634803",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9634803",
