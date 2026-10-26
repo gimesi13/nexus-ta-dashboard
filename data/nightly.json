@@ -1664,26 +1664,24 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "2 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "2 continuing Communication negative-validation failures \u2014 no new failures",
     "tone": "warn",
     "severity": "low",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "Failures: 2\u00d7 stale negative validation.",
+    "causeText": "No build or QA-deploy changes in the window; the two Communication negative tests expected a 'java.lang.Exception' that was never thrown, pointing to stale test expectations/data rather than a regression or infra.",
+    "investigation": "Both failures are pre-existing (newFailure=false) Communication negative-validation checks asserting an exception that the API no longer throws \u2014 a Spock assertion, not an infra timeout/502/504.",
     "bullets": [
-      "2\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown"
+      "2\u00d7 Communication negative-validation tests expected an exception that wasn't thrown (stale test/data, not infra)",
+      "Contract drift (separate lane): GET /u1/meta/countries no longer matches the OpenAPI contract"
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 2 continuing from prior runs. Failure types (new-first): (1) 2\u00d7 stale negative validation \u2014 negative test expected an exception that was not thrown. Hot areas among new fails: Communication (2). Example new failures: Communication: Communication is rejected when the project has no topics [stale negative validation]; Communication: Communication is rejected when the audience is not available [stale negative validation].",
+      "investigation": "No new unmuted failures (newFailed=0) and no code changes in the window (changes and qaDeployChanges both empty); the 2 continuing failures are Communication negative-validation tests ('rejected when the project has no topics' / 'when the audience is not available') that expected a java.lang.Exception which was never thrown \u2014 a Spock assertion, not an infra timeout/502/504, so the likely cause is stale test expectations or test data. Separately, contract drift reports 1 new endpoint drift (GET /u1/meta/countries \u2014 no API path match), a contract-lane issue distinct from these test failures.",
       "bullets": [
-        "2\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown"
+        "2\u00d7 stale negative validation \u2014 'Expected exception of type java.lang.Exception, but no exception was thrown' (Communication)",
+        "0 new failures; both continue from prior runs (prior build 3.0.2739)",
+        "Contract drift (separate lane): GET /u1/meta/countries \u2014 no API path matches request"
       ],
-      "newFailureAreas": [
-        {
-          "area": "Communication",
-          "newCount": 2
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1699,8 +1697,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-10-26T03:02Z",
+    "source": "llm",
+    "generatedAt": "2026-10-26T03:03Z",
     "buildNumber": "3.0.2740",
     "buildId": "9634904",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9634904",
