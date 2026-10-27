@@ -1,7 +1,10 @@
-**2 continuing Communication negative-validation failures — no new failures**
+**5 new failures — mainly Lookup, Quota**
 
-_Likely cause: stale test/data — Communication negative tests expected an exception that is no longer thrown; no code changes in the window._
+_Likely cause: VCS changes present but none map onto the failing packages — likely test/data, correlate manually._
 
-- 2× stale negative validation in Communication (contract drift separately flagged `GET /u1/meta/countries`)
+- 5× other — selectionMode must not be null
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9634904)
+⚠️ Contract drift: 5 new response-schema violation(s) vs baseline.
+- GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9637155)
