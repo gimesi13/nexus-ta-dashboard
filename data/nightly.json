@@ -1706,28 +1706,28 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "5 new failures \u2014 mainly Lookup, Quota",
+    "headline": "5 new failures \u2014 a backend validation regression on quotaGroups/optionAssembler (4 Lookup) plus one flaky Quota lock timeout.",
     "tone": "bad",
     "severity": "high",
-    "cause": "mixed",
-    "causeText": "VCS changes present but none map onto the failing packages \u2014 likely test/data, correlate manually. NOTE: 12 service(s) were deployed to QA in this window (SurveyRestJ21, DemandReporting, QuotaGroupDefinitionRestJ21, SandboxServiceRestJ21, DemandApi\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 5\u00d7 other (no dominant signature yet). Vs prior #3.0.2740: up 4 total fails.",
+    "cause": "code_change",
+    "causeText": "The four new Lookup failures are deterministic HTTP 400 'selectionMode must not be null' responses from POST /u1/nexus/quotaGroups/{id}/optionAssembler \u2014 a backend validation regression, not infra (no timeouts/502/504), and echoed by fresh contract drift on the quotaGroups endpoints. No commit in the captured change window maps to that endpoint and the only TA-module commit (NXS-14188, gergely.gimesi) touches Communication, so no author is named \u2014 correlate the quotaGroups/optionAssembler owner in TeamCity Changes. The fifth new failure (Quota soldQuota lock) timed out after 30s on cross-service feasibility lag and looks like timing/flakiness, not the same regression.",
+    "investigation": "4 new Lookup fails are backend HTTP 400 'selectionMode must not be null' on quotaGroups/optionAssembler (a validation regression, not infra); 1 new Quota fail is a cross-service feasibility lag that timed out (timing/flaky). No captured commit maps to the endpoint \u2014 attribute via TeamCity Changes.",
     "bullets": [
-      "5\u00d7 other \u2014 selectionMode must not be null"
+      "4\u00d7 Lookup \u2014 HTTP 400 'selectionMode must not be null' on quotaGroups/optionAssembler (backend validation regression, not infra)",
+      "1\u00d7 Quota \u2014 soldQuota lock timed out after 30s on cross-service feasibility lag (likely flaky/timing)",
+      "No deployed commit maps to optionAssembler; TA-module NXS-14188 (gergely.gimesi) is Communication-only \u2014 not the cause"
     ],
     "detail": {
-      "investigation": "5 of 6 unmuted failures are new since the prior build (#3.0.2740, 2 fails). Failure types (new-first): (1) 5\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Lookup (4), Quota (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 12 service(s) (54 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Lookup: Assemble options for quota group sources: com.dynata.rest.gateway.nexusapi.rest.tests.step [other]; Lookup: Assemble options with different source configurations: com.dynata.rest.gateway.nexusapi.re [other]; Lookup: Assemble options with different source configurations: com.dynata.rest.gateway.nexusapi.re [other]; Lookup: Complete quota group lookup and search workflow: com.dynata.rest.gateway.nexusapi.rest.tes [other].",
+      "investigation": "Most important: 4 of 5 new failures share one deterministic signature \u2014 HTTP 400 '{\"status\":\"BAD_REQUEST\",\"message\":\"selectionMode must not be null\"}' from POST /u1/nexus/quotaGroups/{id}/optionAssembler (Lookup: 'Assemble options for quota group sources', 'Assemble options with different source configurations' x2, 'Complete quota group lookup and search workflow'). A 400 validation response is deterministic and server-side, so this is NOT infra \u2014 there is no SocketTimeout/'Read timed out'/502/504 anywhere in the new set \u2014 the endpoint now rejects the request body the tests send. This is corroborated by fresh contract drift (5 new) on the same family: quotaGroups/search/ids and /search/labels (500 not defined) and quotaGroups/{}/validations (404 not defined). No commit in the captured change window maps to optionAssembler: the single TA-module commit (NXS-14188, gergely.gimesi) edits CommunicationHelper/CommunicationRuleValidationTestSteps (area Communication, and a test module cannot cause a product 400), and among QA deploys the nearest service QuotaGroupDefinitionRestJ21 (NXS-14103) is only a springStatusCacheManager dependency bump, while SurveyRest (NXS-14072 url-length validation) and DemandReporting (NXS-14187 dashboard/CloudFormation) do not touch this endpoint. So this is a backend validation regression that must be attributed by correlating the quotaGroups/optionAssembler owning service in TeamCity Changes \u2014 blame is intentionally not assigned here. Secondary: the 5th new failure (Quota 'Adding parameters (when soldQuota is locked) unlocks soldQuota and triggers feasibility') is a 30s timeout waiting on DetailsEditor/FeasDataStore feasibility (cross-service lag), which reads as timing/flakiness rather than the selectionMode regression. The remaining failure (Communication 'rejected when the project has no topics') is NOT new \u2014 a stale negative-validation test that expected an exception that was not thrown.",
       "bullets": [
-        "5\u00d7 other \u2014 selectionMode must not be null",
-        "NXS-14188: gergely.gimesi \u2014 NXS-14188 Drop the unavailable-audience create check",
-        "[QA deploy: SurveyRestJ21] NXS-14072 (6 commits) \u2014 [NXS-14072] MS | SurveyRest | add validation for quest url length - move length ",
-        "[QA deploy: DemandReporting] NXS-14187 (25 commits) \u2014 [ NXS-14187 ] PES1 dashboard metric",
-        "[QA deploy: QuotaGroupDefinitionRestJ21] NXS-14103 (1 commit) \u2014 [NXS-14103] - QuotaGroupDefinitionRest - bump springStatusCacheManager 5.1.8",
-        "[QA deploy: SandboxServiceRestJ21] NXS-14115 (2 commits) \u2014 [NXS-14115] - SandboxServiceRest - bump SettingClientCacheCaffeine 5.1.7",
-        "[QA deploy: DemandApi]  (7 commits) \u2014 [PAC-847] Test fix",
-        "[QA deploy: ProjectArchiveRestJ21] NXS-14099 (1 commit) \u2014 [NXS-14099] - ProjectArchiveRest - bump springStatusCacheManager 5.1.8",
-        "[QA deploy: NexusApiMetaJ21] NXS-14078 (3 commits) \u2014 [NXS-14078] - NexusApiMeta - bump springStatusCacheManager 5.1.8",
-        "[QA deploy: TestLinkRestJ21] NXS-14109 (1 commit) \u2014 [NXS-14109] - TestLinkRest - bump springStatusCacheManager 5.1.8"
+        "4\u00d7 Lookup \u2014 HTTP 400 'selectionMode must not be null' on POST /u1/nexus/quotaGroups/{id}/optionAssembler (deterministic, server-side)",
+        "Not infra: no SocketTimeout/'Read timed out'/502/504 in any new failure \u2014 a 400 is a validation regression, not a QA blip",
+        "Corroborated by contract drift (5 new) on quotaGroups/search/ids, /search/labels (500) and quotaGroups/{}/validations (404)",
+        "No captured commit maps to optionAssembler \u2014 no author named (never invent blame); correlate the owning service in TeamCity Changes",
+        "TA-module NXS-14188 (gergely.gimesi) touches Communication only and is a test commit \u2014 cannot cause these product 400s",
+        "Nearest QA deploy QuotaGroupDefinitionRestJ21 (NXS-14103) is only a springStatusCacheManager bump; SurveyRest/DemandReporting deploys don't touch this endpoint",
+        "1\u00d7 Quota \u2014 soldQuota lock timed out after 30s on cross-service feasibility lag (DetailsEditor/FeasDataStore), likely flaky/timing",
+        "Communication 'no topics' failure is NOT new \u2014 stale negative-validation test (expected exception not thrown)"
       ],
       "newFailureAreas": [
         {
@@ -1985,7 +1985,7 @@
         "deployedAt": "20261026T093707+0000"
       }
     ],
-    "source": "investigator",
+    "source": "llm",
     "generatedAt": "2026-10-27T03:00Z",
     "buildNumber": "3.0.2741",
     "buildId": "9637155",

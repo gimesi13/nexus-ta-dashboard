@@ -1,10 +1,8 @@
-**5 new failures — mainly Lookup, Quota**
+**5 new failures — a backend validation regression on quotaGroups/optionAssembler (4 Lookup) plus one flaky Quota lock timeout.**
 
-_Likely cause: VCS changes present but none map onto the failing packages — likely test/data, correlate manually._
+_Likely cause: backend validation regression — POST quotaGroups/optionAssembler now returns 400 'selectionMode must not be null' (4 Lookup); not infra. No commit maps to the endpoint, so attribute in TeamCity._
 
-- 5× other — selectionMode must not be null
+- 4× Lookup — HTTP 400 'selectionMode must not be null' on quotaGroups/optionAssembler (backend validation regression, not infra)
+- 1× Quota — soldQuota lock timed out after 30s on cross-service feasibility lag (likely flaky)
 
-⚠️ Contract drift: 5 new response-schema violation(s) vs baseline.
-- GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.
-
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9637155)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9637155)
