@@ -1695,38 +1695,24 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "5 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "5 continuing failures and no new fails \u2014 four Lookup optionAssembler 400s and one stale validation test, none infra.",
     "tone": "warn",
     "severity": "low",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 6 service(s) were deployed to QA in this window (DKSurveyRestJ21, NexusApiJ21, ProjectRestJ16, DemandApi, NexusApiUI\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "Failures: 4\u00d7 other (no dominant signature yet); 1\u00d7 stale negative validation.",
+    "causeText": "No new failures and no tonight code change is implicated \u2014 the four Lookup fails are HTTP 400 'selectionMode must not be null' request-validation errors (not infra) and the Communication fail is a stale negative-validation test.",
+    "investigation": "All 5 failures continue from prior runs (0 new): 4\u00d7 Lookup optionAssembler 400 'selectionMode must not be null' and 1\u00d7 stale negative-validation test \u2014 neither infra nor caused by tonight's QA deploys.",
     "bullets": [
-      "4\u00d7 other \u2014 selectionMode must not be null",
-      "1\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown"
+      "4\u00d7 Lookup \u2014 optionAssembler returns 400 'selectionMode must not be null' (request validation, not a QA timeout/502/504)",
+      "1\u00d7 Communication \u2014 stale negative-validation test: expected exception no longer thrown"
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 5 continuing from prior runs. Failure types (new-first): (1) 4\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 stale negative validation \u2014 negative test expected an exception that was not thrown. Hot areas among new fails: Lookup (4), Communication (1). 6 service(s) (35 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Communication is rejected when the project has no topics [stale negative validation]; Lookup: Assemble options for quota group sources: com.dynata.rest.gateway.nexusapi.rest.tests.step [other]; Lookup: Assemble options with different source configurations: com.dynata.rest.gateway.nexusapi.re [other]; Lookup: Assemble options with different source configurations: com.dynata.rest.gateway.nexusapi.re [other].",
+      "investigation": "No new unmuted failures; all 5 continue from prior runs \u2014 prior build 3.0.2741 (started 02:30) already carried these as new, before today's QA deploys, so no tonight change is implicated. The four Lookup failures are HTTP 400 'selectionMode must not be null' on /u1/nexus/quotaGroups/{}/optionAssembler (a request-validation/test-data problem, not infra), and the Communication failure is a stale negative-validation test expecting a java.lang.Exception that is no longer thrown.",
       "bullets": [
-        "4\u00d7 other \u2014 selectionMode must not be null",
-        "1\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown",
-        "[QA deploy: DKSurveyRestJ21]  (2 commits) \u2014 fix subnet",
-        "[QA deploy: NexusApiJ21] NXS-14261 (2 commits) \u2014 [NXS-14261] MS | NexusApi | remove followUpPhase, set communicationSupported ins",
-        "[QA deploy: ProjectRestJ16] NXS-14262 (2 commits) \u2014 [NXS-14262] MS | ProjectRest | replace followUpPhase with multiPhase in CrmField",
-        "[QA deploy: DemandApi]  (2 commits) \u2014 [PAC-852] DemandApi - fix acceptanceTests for new case, do not wait DKOrder, don",
-        "[QA deploy: NexusApiUI] NXS-14258 (3 commits) \u2014 [NXS-14258] MS - NexusApiUI - sendTemplateId as templateNames in getCommunicatio",
-        "[QA deploy: QuotaGroupSourcesRestJ21]  (24 commits) \u2014 [PAC-902] QuotaGroupSourceRest - call ClientRest checkUserGroups = false (#5593)"
+        "4\u00d7 Lookup \u2014 optionAssembler 400 'selectionMode must not be null' (BAD_REQUEST / request validation, not infra)",
+        "1\u00d7 Communication \u2014 stale negative validation: expected 'java.lang.Exception' not thrown",
+        "Contract drift (separate lane): 5 new endpoint drifts vs baseline (e.g. 500s on /quotaGroups/search/ids, 404 on /quotaGroups/{}/validations)"
       ],
-      "newFailureAreas": [
-        {
-          "area": "Lookup",
-          "newCount": 4
-        },
-        {
-          "area": "Communication",
-          "newCount": 1
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1929,8 +1915,8 @@
         "deployedAt": "20261027T085445+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-10-28T03:05Z",
+    "source": "llm",
+    "generatedAt": "2026-10-28T03:05:00Z",
     "buildNumber": "3.0.2742",
     "buildId": "9640551",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9640551",
