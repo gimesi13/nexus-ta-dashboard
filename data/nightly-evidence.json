@@ -1,147 +1,259 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-28T03:05Z",
+  "generatedAt": "2026-10-29T03:02Z",
   "build": {
-    "number": "3.0.2742",
-    "buildId": "9640551",
+    "number": "3.0.2743",
+    "buildId": "9643033",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9640551",
-    "durationSec": 1915.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9643033",
+    "durationSec": 1758.0
   },
   "summary": {
     "tests": 1517,
-    "passed": 1453,
-    "failures": 5,
+    "passed": 1445,
+    "failures": 11,
     "errors": 0,
     "skipped": 0,
-    "muted": 59,
-    "newFailed": 0,
-    "passRate": 99.7,
-    "timeSec": 1915.0
+    "muted": 61,
+    "newFailed": 9,
+    "passRate": 99.2,
+    "timeSec": 1758.0
   },
   "prior": {
-    "buildId": "9637155",
-    "number": "3.0.2741",
+    "buildId": "9640551",
+    "number": "3.0.2742",
     "status": "FAILURE",
-    "statusText": "Tests failed: 6 (5 new), passed: 1450, muted: 61",
-    "startDate": "20261027T023029+0000",
-    "durationSec": 1784.0,
-    "failed": 6,
-    "passed": 1450,
-    "newFailed": 5
+    "statusText": "Tests failed: 5, passed: 1453, muted: 59",
+    "startDate": "20261028T023217+0000",
+    "durationSec": 1915.0,
+    "failed": 5,
+    "passed": 1453,
+    "newFailed": 0
   },
-  "changes": [],
+  "changes": [
+    {
+      "version": "3d818c814b14",
+      "username": "gergely.gimesi",
+      "comment": "NXS-14256-optionassembler-and-sold-quota-lock send selectionMode and re-spread on lock",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/SegmentDetailsHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Lookup/QuotaGroupLookupE2ETestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Lookup/QuotaGroupLookupTestSteps.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Quota/SoldQuotaLockUnlockWorkflowTestSteps.groovy"
+      ],
+      "areas": [
+        "Lookup",
+        "Quota",
+        "QuotaGroup",
+        "SegmentDetails"
+      ]
+    }
+  ],
   "qaDeployChanges": [
     {
-      "service": "DKSurveyRestJ21",
+      "service": "NexusApiJ21",
+      "version": "0c78efaec312",
+      "username": "bence.csepe",
+      "comment": "[NXS-14178] acc test fix + add statusCounts to path",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/nexus/project/acceptance/UCommunicationsApiAcceptanceTest.groovy",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/communication/CommunicationRestFeignClient.java"
+      ],
+      "deployedAt": "20261028T150633+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "79d68e37de09",
+      "username": "60962201+gyarmatitamas",
+      "comment": "Merge pull request #5605 from dynata/NXS-14250-NexusApi-fix-wildcard-audience-propagation",
+      "files": [],
+      "deployedAt": "20261028T150633+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "19cad12b2e15",
+      "username": "tamas.gyarmati",
+      "comment": "[NXS-14250] - cr",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/PropagationHelper.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/QuotaGroupPropagator.java"
+      ],
+      "deployedAt": "20261028T150633+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "335c2294e509",
+      "username": "bence.csepe",
+      "comment": "[NXS-14178] MS - NexusApi - Get QG level communication counts (#5581)",
+      "files": [
+        "gateway/unifiedApi/NexusApi/README.md",
+        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/nexus/project/acceptance/UCommunicationsApiAcceptanceTest.groovy",
+        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/nexus/project/acceptance/clients/UQuotaGroupCommunicationsApiFeignClient.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/communication/CommunicationRestFeignClient.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/quotagroupid/UQuotaGroupCommunicationsApi.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/quotagroupid/UQuotaGroupCommunicationsApiImpl.java",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/quotaGroupId/UQuotaGroupCommunicationsApiImplTest.groovy"
+      ],
+      "deployedAt": "20261028T150633+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "4a79e0307c5d",
+      "username": "weiqun.wang",
+      "comment": "Scale up prod to get ready for traffics switching over",
+      "files": [
+        "ml-complete-optimization-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20261028T150633+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "22169cecc148",
+      "username": "tamas.gyarmati",
+      "comment": "[NXS-14250] - NexusApi - fix wildcard audience propagation",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/QuotaGroupPropagator.java",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/QuotaGroupPropagatorTest.groovy"
+      ],
+      "deployedAt": "20261028T150633+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "45b00cf6ce0c",
+      "username": "tamas.gyarmati",
+      "comment": "[NXS-14250] - NexusApi - fix wildcard audience propagation",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/QuotaGroupPropagator.java",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/QuotaGroupPropagatorTest.groovy"
+      ],
+      "deployedAt": "20261028T150633+0000"
+    },
+    {
+      "service": "CommunicationRestJ21",
+      "version": "c9492eeebdec",
+      "username": "bence.csepe",
+      "comment": "[NXS-14177] acc test fix + add statusCounts to path",
+      "files": [
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/UQuotaGroupCommunicationsApiAcceptanceTest.groovy",
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/UQuotaGroupCommunicationsApiFeignClient.java",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/api/quotaGroupCommunication/UQuotaGroupCommunicationsApi.java"
+      ],
+      "deployedAt": "20261028T133806+0000"
+    },
+    {
+      "service": "CommunicationRestJ21",
+      "version": "0847e677a310",
+      "username": "40339600+tamasroma",
+      "comment": "[NXS-13944] test fix",
+      "files": [
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/ProjectCommunicationsApiAcceptanceTest.groovy"
+      ],
+      "deployedAt": "20261028T133806+0000"
+    },
+    {
+      "service": "CommunicationRestJ21",
+      "version": "e849b830ff61",
+      "username": "40339600+tamasroma",
+      "comment": "[NXS-13944] test fix",
+      "files": [
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/ProjectCommunicationTopicsApiFeignClient.java",
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/ProjectCommunicationsApiFeignClient.java",
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/u1/mongo/ProjectCommunicationsMongoHandlerTest.groovy"
+      ],
+      "deployedAt": "20261028T133806+0000"
+    },
+    {
+      "service": "CommunicationRestJ21",
+      "version": "4f3b1026c749",
+      "username": "40339600+tamasroma",
+      "comment": "[NXS-13944] test fix",
+      "files": [
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/UQuotaGroupCommunicationsApiAcceptanceTest.groovy",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/mongo/ProjectCommunicationsMongoHandler.java",
+        "project/CommunicationRest/src/test/groovy/com/surveysampling/rest/communication/u1/components/CommunicationEditorTest.groovy"
+      ],
+      "deployedAt": "20261028T133806+0000"
+    },
+    {
+      "service": "CommunicationRestJ21",
+      "version": "c6ee38961901",
+      "username": "40339600+tamasroma",
+      "comment": "[NXS-13844] EOS - MS - Create scheduling stack (#5567)",
+      "files": [
+        "project/CommunicationRest/build.gradle",
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/CommunicationProjectRestAcceptanceTest.groovy",
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/CommunicationProjectRestApiFeignClient.java",
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/ProjectCommunicationTopicsApiAcceptanceTest.groovy",
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/ProjectCommunicationTopicsApiFeignClient.java",
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/ProjectCommunicationsApiAcceptanceTest.groovy",
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/ProjectCommunicationsApiFeignClient.java",
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/UProjectCommunicationsApiAcceptanceTest.groovy",
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/UProjectCommunicationsApiFeignClient.java",
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/u1/mongo/ProjectCommunicationsMongoHandlerTest.groovy",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/api/CommunicationProjectRestApi.java",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/api/CommunicationProjectRestApiImpl.java",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/api/CommunicationProjectRestController.java",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/api/ProjectCommunicationTopicsApi.java",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/api/ProjectCommunicationTopicsApiImpl.java",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/api/ProjectCommunicationsApi.java",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/api/ProjectCommunicationsApiImpl.java",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/api/projectCommunication/UProjectCommunicationsApi.java",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/api/projectCommunication/UProjectCommunicationsApiImpl.java",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/components/CommunicationEditor.java"
+      ],
+      "deployedAt": "20261028T133806+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "d81ae2a4b2fb",
+      "username": "40339600+tamasroma",
+      "comment": "[NXS-14246] EOS - MS - Update the no go market list (#5597)",
+      "files": [
+        "gateway/unifiedApi/NexusApiMeta/README.md",
+        "gateway/unifiedApi/NexusApiMeta/src/main/java/com/dynata/rest/gateway/nexusapimeta/api/u1/meta/countries/CountryIsoHelper.java",
+        "gateway/unifiedApi/NexusApiMeta/src/main/java/com/dynata/rest/gateway/nexusapimeta/api/u1/meta/countries/NoGoCountry.java",
+        "gateway/unifiedApi/NexusApiMeta/src/main/java/com/dynata/rest/gateway/nexusapimeta/api/u1/meta/countries/UMetaCountriesImpl.java",
+        "gateway/unifiedApi/NexusApiMeta/src/main/java/com/dynata/rest/gateway/nexusapimeta/api/u1/meta/countries/cache/CountryIsoHelper.java",
+        "gateway/unifiedApi/NexusApiMeta/src/main/java/com/dynata/rest/gateway/nexusapimeta/api/u1/meta/countries/cache/NoGoCountries.java",
+        "gateway/unifiedApi/NexusApiMeta/src/test/groovy/com/dynata/rest/gateway/nexusapimeta/api/u1/meta/countries/UMetaCountriesImplTest.groovy",
+        "gateway/unifiedApi/NexusApiMeta/src/test/groovy/com/dynata/rest/gateway/nexusapimeta/api/u1/meta/countries/cache/CountryIsoHelperTest.groovy",
+        "gateway/unifiedApi/NexusApiMeta/src/test/groovy/com/dynata/rest/gateway/nexusapimeta/api/u1/meta/countries/cache/NoGoCountriesTest.groovy"
+      ],
+      "deployedAt": "20261028T123305+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
       "version": "e17dc0632dde",
       "username": "norbert.farkas",
       "comment": "fix subnet",
       "files": [
         "dk-project-survey-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20261027T142824+0000"
+      "deployedAt": "20261028T123305+0000"
     },
     {
-      "service": "DKSurveyRestJ21",
+      "service": "NexusApiMetaJ21",
       "version": "a9d072d496a6",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] fix log groups",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261027T142824+0000"
+      "deployedAt": "20261028T123305+0000"
     },
     {
-      "service": "NexusApiJ21",
-      "version": "aa3b6969a59e",
-      "username": "david.nagy",
-      "comment": "[NXS-14261] MS | NexusApi | remove followUpPhase, set communicationSupported instead while accept",
-      "files": [
-        "gateway/unifiedApi/NexusApi/build.gradle",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UProjectImpl.java",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UProjectImplTest.groovy"
-      ],
-      "deployedAt": "20261027T134810+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "dcad0b292be9",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-14247] - NexusApi - allowObjectCreation for audiences only",
-      "files": [
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/StartPropagationListener.java",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/StartPropagationListenerTest.groovy"
-      ],
-      "deployedAt": "20261027T134810+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "668bbb558db8",
-      "username": "david.nagy",
-      "comment": "[NXS-14262] MS | ProjectRest | replace followUpPhase with multiPhase in CrmFields POJO",
-      "files": [
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/model/crm/CrmFields.java"
-      ],
-      "deployedAt": "20261027T134318+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "8562f5aa306b",
-      "username": "40339600+tamasroma",
-      "comment": "[NXS-13822] MS - ProjectRest - Remove D365 ProjectProperties remove SQL table and all read write (#5590)",
-      "files": [
-        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/acceptance/v2/ProjectPropertiesRestAcceptanceTest.groovy",
-        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/service/v2/sql/SqlProjectPropertiesHandlerTest.groovy",
-        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/u1/mongo/ProjectPropertiesMongoHandlerIntegTest.groovy",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mongo/ProjectPropertiesMongoHandler.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/service/ProjectPropertiesHandler.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/service/properties/PropertiesHandler.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/sql/SqlGetProjectProperties.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/sql/SqlUpdateProjectProperties.java",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/v2/service/ProjectPropertiesHandlerTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/v2/service/properties/PropertiesHandlerTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/v2/sql/SqlGetProjectPropertiesTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/v2/sql/SqlUpdateProjectPropertiesTest.groovy"
-      ],
-      "deployedAt": "20261027T134318+0000"
-    },
-    {
-      "service": "DemandApi",
-      "version": "2f6fed3b129a",
-      "username": "gabor.fial",
-      "comment": "[PAC-852] DemandApi - fix acceptanceTests for new case, do not wait DKOrder, don't clone feasibilityUIState, etc",
-      "files": [
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/clients/NexusApiTestFeignClient.java",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/DemandUtil.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ProjectCreationTest.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ProjectUpdateTest.groovy"
-      ],
-      "deployedAt": "20261027T125059+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "41dde83d7c8a",
-      "username": "andras.banszki",
-      "comment": "[NXS-14258] MS - NexusApiUI - sendTemplateId as templateNames in getCommunicationsOverview TEMPORARILY",
-      "files": [
-        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/u1/nexus/communications/CommunicationOverviewAssembler.java",
-        "gateway/unifiedApi/NexusApiUI/src/test/groovy/u1/nexus/communications/CommunicationOverviewAssemblerTest.groovy"
-      ],
-      "deployedAt": "20261027T121754+0000"
-    },
-    {
-      "service": "NexusApiUI",
+      "service": "DKProjectRestJ16",
       "version": "c4c33d8779a0",
       "username": "adamlaszlo.mohacsi",
       "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
       "files": [
         "sls-db/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261027T121754+0000"
+      "deployedAt": "20261028T094430+0000"
     },
     {
-      "service": "NexusApiUI",
+      "service": "DKProjectRestJ16",
       "version": "0178093fb27b",
       "username": "adamlaszlo.mohacsi",
       "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
@@ -151,274 +263,133 @@
         "sls-db/group_vars/production.yml",
         "sls-db/group_vars/qa.yml"
       ],
-      "deployedAt": "20261027T121754+0000"
+      "deployedAt": "20261028T094430+0000"
     },
     {
-      "service": "DemandApi",
-      "version": "beb8a443b76f",
-      "username": "gabor.fial",
-      "comment": "Demand fixo",
+      "service": "DKDashboardRestJ16",
+      "version": "7c0b1511eea4",
+      "username": "160534729+szabovirag",
+      "comment": "[PAC-885] Revert dub_project_id widening back to 20 characters (#5592)",
       "files": [
-        "gateway/unifiedApi/DemandApi/build.gradle"
+        "gateway/dk/DKDashboardRest/src/main/java/com/surveysampling/rest/gateway/dashboard/dependencies/project/model/CreateProjectRequest.java",
+        "gateway/dk/DKProjectRest/src/main/java/com/surveysampling/rest/gateway/project/dependencies/project/v2/CreateProjectRequest.java",
+        "gateway/dk/DKProjectRest/src/main/java/com/surveysampling/rest/gateway/project/dependencies/project/v2/Project.java",
+        "gateway/dk/DKProjectRest/src/main/java/com/surveysampling/rest/gateway/project/model/CreateProjectGWRequest.java",
+        "gateway/dk/DKProjectRest/src/main/java/com/surveysampling/rest/gateway/project/model/CreateShadowProjectRequest.java",
+        "gateway/dk/DKProjectRest/src/main/java/com/surveysampling/rest/gateway/project/model/ProjectSummary.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/project/model/CreateProjectRequest.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/project/model/Project.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/v1/nexus/dependencies/project/model/dkproject/ProjectSummary.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/model/ProjectSummary.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v1/model/Project.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/model/Project.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/model/request/CreateProjectRequest.java",
+        "project/ProjectRest/src/main/resources/Stored_procedures/Panel/panel_sp_clone_new_project.sql",
+        "project/ProjectRest/src/main/resources/Stored_procedures/Panel/panel_sp_clone_new_project_new_dub_project_id.sql",
+        "project/ProjectRest/src/main/resources/Stored_procedures/Panel/panel_sp_clone_project_new_dub_project_ID.sql",
+        "project/ProjectRest/src/main/resources/Stored_procedures/Panel/panel_sp_copy_project.sql",
+        "project/ProjectRest/src/main/resources/Stored_procedures/Panel/panel_sp_get_assigned_projects.sql",
+        "project/ProjectRest/src/main/resources/Update_scripts/PanelProject/create_columns.sql"
       ],
-      "deployedAt": "20261027T114619+0000"
+      "deployedAt": "20261028T094321+0000"
     },
     {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "4c3d29e9ad88",
-      "username": "82085952+gaborfial",
-      "comment": "[PAC-902] QuotaGroupSourceRest - call ClientRest checkUserGroups = false (#5593)",
+      "service": "CommunicationRestJ21",
+      "version": "ca6e5f4caeee",
+      "username": "bence.csepe",
+      "comment": "[NXS-14177] MS - CommunicationRest - Get QG level communication counts (#5572)",
       "files": [
-        "project/QuotaGroupSourcesRest/src/main/java/com/surveysampling/rest/quotagroupsources/dependencies/client/IClientRestHelper.java",
-        "project/QuotaGroupSourcesRest/src/main/java/com/surveysampling/rest/quotagroupsources/u1/cache/ClientCache.java",
-        "project/QuotaGroupSourcesRest/src/test/groovy/com/surveysampling/rest/quotagroupsources/u1/cache/ClientCacheTest.groovy"
+        "project/CommunicationRest/build.gradle",
+        "project/CommunicationRest/mongo_scripts/createMongoIndexes.txt",
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/UQuotaGroupCommunicationsApiAcceptanceTest.groovy",
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/UQuotaGroupCommunicationsApiFeignClient.java",
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/u1/mongo/ProjectCommunicationsMongoHandlerTest.groovy",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/api/quotaGroupCommunication/UQuotaGroupCommunicationsApi.java",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/api/quotaGroupCommunication/UQuotaGroupCommunicationsApiImpl.java",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/mongo/ProjectCommunicationsMongoHandler.java",
+        "project/CommunicationRest/src/test/groovy/com/surveysampling/rest/communication/u1/api/quotaGroupCommunication/UQuotaGroupCommunicationsApiImplTest.groovy"
       ],
-      "deployedAt": "20261027T085445+0000"
+      "deployedAt": "20261028T085420+0000"
     },
     {
-      "service": "QuotaGroupSourcesRestJ21",
+      "service": "CommunicationRestJ21",
       "version": "bc0c0fd880a4",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard metric",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "567fa0108c1e",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "45cef1c85862",
-      "username": "lambert.lesko",
-      "comment": "Merge pull request #668 from dynata/ae-7782-migrate-rewards-apps-to-ae-dpr",
-      "files": [],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "fb670fc0c7df",
-      "username": "lambert.lesko",
-      "comment": "adding s3 bucket name to production vars",
-      "files": [
-        "ae-missing-rewards-queue/group_vars/production.yml"
-      ],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "d38e04f0570a",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "15bb6a83cca5",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "973cbb55dfb7",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "c25426d14af9",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "0a8e67a0f5d4",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml",
-        "nxs-pes1-dashboard/group_vars/dev.yml",
-        "nxs-pes1-dashboard/group_vars/production.yml",
-        "nxs-pes1-dashboard/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "92844c01dea3",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml",
-        "nxs-pes1-dashboard/group_vars/all.yml",
-        "nxs-pes1-dashboard/group_vars/dev.yml",
-        "nxs-pes1-dashboard/group_vars/production.yml",
-        "nxs-pes1-dashboard/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "675d2a80442a",
-      "username": "krisztian.kover",
-      "comment": "[ST-4362] - supplytools-export-s3 - Removed ArtifactServiceEcsTaskRole from S3 bucket policy",
-      "files": [
-        "supplytools-export-s3/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "ea22d21d3f7d",
-      "username": "134395908+dynata-hu-krisztian-kover",
-      "comment": "Merge pull request #663 from dynata/ST-4362",
-      "files": [],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "10856dd031a8",
-      "username": "bresalio.nagy",
-      "comment": "[AE-8063] ae-ecs-container-pull-error-alarm - temporarily create alarm in dev",
-      "files": [
-        "ae-ecs-container-pull-error-alarm/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "01d8d1ea4e41",
-      "username": "bresalio.nagy",
-      "comment": "[AE-8063] ae-ecs-container-pull-error-alarm",
-      "files": [
-        "ae-ecs-container-pull-error-alarm/cloud-formation.template.yml",
-        "ae-ecs-container-pull-error-alarm/group_vars/all.yml",
-        "ae-ecs-container-pull-error-alarm/group_vars/dev.yml",
-        "ae-ecs-container-pull-error-alarm/group_vars/production.yml",
-        "ae-ecs-container-pull-error-alarm/group_vars/qa.yml",
-        "ae-ecs-container-pull-error-alarm/sample-notification-container-pull-error.json"
-      ],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "9150598dc9ea",
-      "username": "krisztian.kover",
-      "comment": "[ST-4362] - ST - Added HTTP request blocking for supplytools-export S3 bucket",
-      "files": [
-        "supplytools-export-s3/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "3145a2637a0b",
-      "username": "bresalio.nagy",
-      "comment": "[AE-8063] Migrate to new AE-DPR: ae-ecs-task-stopped-alarm",
-      "files": [
-        "ae-ecs-task-stopped-alarm/cloud-formation.template.yml",
-        "ae-ecs-task-stopped-alarm/group_vars/all.yml",
-        "ae-ecs-task-stopped-alarm/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "67e986c0af06",
-      "username": "grace.chen",
-      "comment": "[FAI-474-487] update alarm for ml-survey-guard-model",
-      "files": [
-        "ml-survey-guard-model/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261027T085445+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "72873c8e500a",
-      "username": "grace.chen",
-      "comment": "[FAI-474-487] update alarm for ml-screenout-model",
-      "files": [
-        "ml-screenout-model/cloud-formation.template.yml",
-        "ml-screenout-model/group_vars/all.yml",
-        "ml-screenout-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20261027T085445+0000"
+      "deployedAt": "20261028T085420+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "DKSurveyRestJ21",
-      "commits": 2,
-      "latestTicket": "",
-      "latestComment": "fix subnet",
-      "deployedAt": "20261027T142824+0000"
-    },
-    {
       "service": "NexusApiJ21",
-      "commits": 2,
-      "latestTicket": "NXS-14261",
-      "latestComment": "[NXS-14261] MS | NexusApi | remove followUpPhase, set communicationSupported ins",
-      "deployedAt": "20261027T134810+0000"
+      "commits": 7,
+      "latestTicket": "NXS-14178",
+      "latestComment": "[NXS-14178] acc test fix + add statusCounts to path",
+      "deployedAt": "20261028T150633+0000"
     },
     {
-      "service": "ProjectRestJ16",
-      "commits": 2,
-      "latestTicket": "NXS-14262",
-      "latestComment": "[NXS-14262] MS | ProjectRest | replace followUpPhase with multiPhase in CrmField",
-      "deployedAt": "20261027T134318+0000"
+      "service": "CommunicationRestJ21",
+      "commits": 7,
+      "latestTicket": "NXS-14177",
+      "latestComment": "[NXS-14177] acc test fix + add statusCounts to path",
+      "deployedAt": "20261028T133806+0000"
     },
     {
-      "service": "DemandApi",
-      "commits": 2,
-      "latestTicket": "",
-      "latestComment": "[PAC-852] DemandApi - fix acceptanceTests for new case, do not wait DKOrder, don",
-      "deployedAt": "20261027T125059+0000"
-    },
-    {
-      "service": "NexusApiUI",
+      "service": "NexusApiMetaJ21",
       "commits": 3,
-      "latestTicket": "NXS-14258",
-      "latestComment": "[NXS-14258] MS - NexusApiUI - sendTemplateId as templateNames in getCommunicatio",
-      "deployedAt": "20261027T121754+0000"
+      "latestTicket": "NXS-14246",
+      "latestComment": "[NXS-14246] EOS - MS - Update the no go market list (#5597)",
+      "deployedAt": "20261028T123305+0000"
     },
     {
-      "service": "QuotaGroupSourcesRestJ21",
-      "commits": 24,
+      "service": "DKProjectRestJ16",
+      "commits": 2,
       "latestTicket": "",
-      "latestComment": "[PAC-902] QuotaGroupSourceRest - call ClientRest checkUserGroups = false (#5593)",
-      "deployedAt": "20261027T085445+0000"
+      "latestComment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
+      "deployedAt": "20261028T094430+0000"
+    },
+    {
+      "service": "DKDashboardRestJ16",
+      "commits": 1,
+      "latestTicket": "",
+      "latestComment": "[PAC-885] Revert dub_project_id widening back to 20 characters (#5592)",
+      "deployedAt": "20261028T094321+0000"
     }
   ],
   "clusters": [
     {
+      "label": "infra_timeout",
+      "display": "client/Feign socket timeout",
+      "count": 6,
+      "newCount": 6,
+      "sample": "feign.RetryableException: Read timed out executing POST <url>",
+      "why": "Feign/client socket timeout talking to a QA service"
+    },
+    {
+      "label": "server_exception",
+      "display": "server NestedServletException / NPE",
+      "count": 2,
+      "newCount": 0,
+      "sample": "",
+      "why": "QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path"
+    },
+    {
+      "label": "assert_fail",
+      "display": "assertion Condition not satisfied",
+      "count": 1,
+      "newCount": 1,
+      "sample": "",
+      "why": "Spock assertion failed (fixture or response shape)"
+    },
+    {
       "label": "other",
       "display": "other",
-      "count": 4,
-      "newCount": 4,
-      "sample": "selectionMode must not be null",
+      "count": 1,
+      "newCount": 1,
+      "sample": "software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-<id>-6ae2b1c9",
       "why": "no dominant signature yet \u2014 open TeamCity details"
     },
     {
@@ -432,218 +403,309 @@
   ],
   "failures": [
     {
-      "name": "Communication is rejected when the project has no topics",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Communication.CommunicationRuleValidationTestSteps",
-      "newFailure": false,
+      "name": "Cancelling one quota group leaves the other quota group active",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Communication.CommunicationCRUDTestSteps",
+      "newFailure": true,
       "area": "Communication",
-      "cluster": "stale_validation",
-      "message": "Expected exception of type 'java.lang.Exception', but no exception was thrown",
-      "detailsExcerpt": "Expected exception of type 'java.lang.Exception', but no exception was thrown at app//org.spockframework.lang.SpecInternals.checkExceptionThrown(SpecInternals.java:95) at app//org.spockframework.lang.SpecInternals.thrownImpl(SpecInternals.java:78) at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Communication.CommunicationRuleValidationTestSteps.Communication is rejected when the project has \u2026"
+      "cluster": "assert_fail",
+      "message": "Condition not satisfied:",
+      "detailsExcerpt": "Condition not satisfied: first.status == CommunicationStatus.SCHEDULED | | | | | | | class com.dynata.nexus.api.model.communication.CommunicationStatus | | false | CANCELED <com.dynata.nexus.api.model.communication.QuotaGroupCommunication@430f0c63 quotaGroupId=118847916 canceled=true status=CANCELED contents=[com.dynata.nexus.api.model.communication.Content@15549dd7]> at com.dynata.rest.gateway.n\u2026"
     },
     {
-      "name": "Assemble options for quota group sources: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Lookup.QuotaGroupLookupTestSteps.Assemble options for quota group sources",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Lookup.QuotaGroupLookupTestSteps",
-      "newFailure": false,
-      "area": "Lookup",
+      "name": "Updating copy on a cancelled quota group keeps the cancel flag",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Communication.CommunicationCRUDTestSteps",
+      "newFailure": true,
+      "area": "Communication",
       "cluster": "other",
-      "message": "selectionMode must not be null",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118846105/optionAssembler 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"selectionMode must not be null\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) at com.dynata.rest.gateway.nexusapi.rest.tests.ContractValidatingErro\u2026"
-    },
-    {
-      "name": "Assemble options with different source configurations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Lookup.QuotaGroupLookupTestSteps.Assemble options with different source configurations",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Lookup.QuotaGroupLookupTestSteps",
-      "newFailure": false,
-      "area": "Lookup",
-      "cluster": "other",
-      "message": "selectionMode must not be null",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118846105/optionAssembler 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"selectionMode must not be null\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) at com.dynata.rest.gateway.nexusapi.rest.tests.ContractValidatingErro\u2026"
+      "message": "software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-2285273-6ae2b1c9b4f28a946f5e8805-118847916 does not exist. (Se\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/communications/6ae2b1c9b4f28a946f5e8805 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-communication-rest.nexus-ms-qa.dynata.com:8080/api/Communication/u1/projects/communications/6ae2b1c9b4f28a946f5e8805\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"software.amazon.awssdk.service\u2026"
     },
     {
       "name": "Assemble options with different source configurations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Lookup.QuotaGroupLookupTestSteps.Assemble options with different source configurations",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Lookup.QuotaGroupLookupTestSteps",
       "newFailure": false,
       "area": "Lookup",
-      "cluster": "other",
-      "message": "selectionMode must not be null",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118846105/optionAssembler 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"selectionMode must not be null\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) at com.dynata.rest.gateway.nexusapi.rest.tests.ContractValidatingErro\u2026"
+      "cluster": "server_exception",
+      "message": "java.lang.NullPointerException:Cannot assign field \\",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118847944/optionAssembler 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot assign field \\\"progress\\\" because the return value of \\\"java.util.Map.get(Object)\\\" is null\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecode\u2026"
     },
     {
       "name": "Complete quota group lookup and search workflow: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Lookup.QuotaGroupLookupE2ETestSteps.Complete quota group lookup and search workflow",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Lookup.QuotaGroupLookupE2ETestSteps",
       "newFailure": false,
       "area": "Lookup",
-      "cluster": "other",
-      "message": "selectionMode must not be null",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118846148/optionAssembler 400{ \"errors\" : [ { \"status\" : \"BAD_REQUEST\", \"message\" : \"selectionMode must not be null\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecoder.decode(TestFeignErrorDecoder.java:37) at com.dynata.rest.gateway.nexusapi.rest.tests.ContractValidatingErro\u2026"
+      "cluster": "server_exception",
+      "message": "java.lang.NullPointerException:Cannot assign field \\",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118847984/optionAssembler 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot assign field \\\"progress\\\" because the return value of \\\"java.util.Map.get(Object)\\\" is null\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecode\u2026"
+    },
+    {
+      "name": "fullProjectSetup persists quota group source toggles",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.FullProjectSetupSourceTestSteps",
+      "newFailure": true,
+      "area": "Project",
+      "cluster": "infra_timeout",
+      "message": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/fullProjectSetup",
+      "detailsExcerpt": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/fullProjectSetup at app//feign.FeignException.errorExecuting(FeignException.java:300) at app//feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:105) at app//feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:53) at app//feign.Reflectiv\u2026"
+    },
+    {
+      "name": "fullProjectSetup persists quota group brand exclusion",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.FullProjectSetupSourceTestSteps",
+      "newFailure": true,
+      "area": "Project",
+      "cluster": "infra_timeout",
+      "message": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/fullProjectSetup",
+      "detailsExcerpt": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/fullProjectSetup at app//feign.FeignException.errorExecuting(FeignException.java:300) at app//feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:105) at app//feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:53) at app//feign.Reflectiv\u2026"
+    },
+    {
+      "name": "Locking sold quota when feasible is more than requested should not lock: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaValidationTestSteps.Locking sold quota when feasible is more than requested should not lock",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaValidationTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "stale_validation",
+      "message": "Expected exception of type 'java.lang.Exception', but no exception was thrown",
+      "detailsExcerpt": "Expected exception of type 'java.lang.Exception', but no exception was thrown at app//org.spockframework.lang.SpecInternals.checkExceptionThrown(SpecInternals.java:95) at app//org.spockframework.lang.SpecInternals.thrownImpl(SpecInternals.java:78) at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaValidationTestSteps.Locking sold quota when feasible is more than requested should \u2026"
+    },
+    {
+      "name": "fullProjectSetup fills default source settings when source is omitted",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.FullProjectSetupSourceTestSteps",
+      "newFailure": true,
+      "area": "Project",
+      "cluster": "infra_timeout",
+      "message": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/fullProjectSetup",
+      "detailsExcerpt": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/fullProjectSetup at app//feign.FeignException.errorExecuting(FeignException.java:300) at app//feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:105) at app//feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:53) at app//feign.Reflectiv\u2026"
+    },
+    {
+      "name": "Adhoc feasibility and live feasibility job can both be calculated",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupCommercialWorkflowTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "infra_timeout",
+      "message": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/feasibility/quotaGroups/calculateAdhoc",
+      "detailsExcerpt": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/feasibility/quotaGroups/calculateAdhoc at app//feign.FeignException.errorExecuting(FeignException.java:300) at app//feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:105) at app//feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:53) at app//fe\u2026"
+    },
+    {
+      "name": "fullProjectSetup derives useEropMedical from the project instead of the client-sent value",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.FullProjectSetupSourceTestSteps",
+      "newFailure": true,
+      "area": "Project",
+      "cluster": "infra_timeout",
+      "message": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/fullProjectSetup",
+      "detailsExcerpt": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/fullProjectSetup at app//feign.FeignException.errorExecuting(FeignException.java:300) at app//feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:105) at app//feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:53) at app//feign.Reflectiv\u2026"
+    },
+    {
+      "name": "Adhoc feasibility calculation returns a feasibility result",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupPricingTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "infra_timeout",
+      "message": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/feasibility/quotaGroups/calculateAdhoc",
+      "detailsExcerpt": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/feasibility/quotaGroups/calculateAdhoc at app//feign.FeignException.errorExecuting(FeignException.java:300) at app//feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:105) at app//feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:53) at app//fe\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "5 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "9 new failures \u2014 mostly QA infra timeouts/502s",
     "tone": "warn",
     "severity": "low",
     "bullets": [
-      "4\u00d7 other \u2014 selectionMode must not be null",
-      "1\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown"
+      "6\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing POST <url>",
+      "1\u00d7 assertion Condition not satisfied",
+      "1\u00d7 other \u2014 software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-<id>-6ae2b1c9",
+      "Change NXS-14256: gergely.gimesi \u00b7 Quota, QuotaGroup \u00b7 3 overlapping new fails"
     ],
-    "investigation": "Failures: 4\u00d7 other (no dominant signature yet); 1\u00d7 stale negative validation.",
+    "investigation": "New fails: 6\u00d7 client/Feign socket timeout; 1\u00d7 assertion Condition not satisfied. Gateway hits: dk-project-communication-rest.",
     "detail": {
-      "investigation": "No new unmuted failures; 5 continuing from prior runs. Failure types (new-first): (1) 4\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 stale negative validation \u2014 negative test expected an exception that was not thrown. Hot areas among new fails: Lookup (4), Communication (1). 6 service(s) (35 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Communication is rejected when the project has no topics [stale negative validation]; Lookup: Assemble options for quota group sources: com.dynata.rest.gateway.nexusapi.rest.tests.step [other]; Lookup: Assemble options with different source configurations: com.dynata.rest.gateway.nexusapi.re [other]; Lookup: Assemble options with different source configurations: com.dynata.rest.gateway.nexusapi.re [other].",
+      "investigation": "9 of 11 unmuted failures are new since the prior build (#3.0.2742, 5 fails). Failure types (new-first): (1) 6\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (3) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (4) 1\u00d7 stale negative validation \u2014 negative test expected an exception that was not thrown. Hot areas among new fails: Project (4), Communication (2), QuotaGroup (2), Quota (1). Infra-dominant among new fails: VCS changes are unlikely to explain 502/504/timeouts. 5 service(s) (20 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Cancelling one quota group leaves the other quota group active [assertion Condition not satisfied]; Communication: Updating copy on a cancelled quota group keeps the cancel flag [other]; Project: fullProjectSetup persists quota group source toggles [client/Feign socket timeout]; Project: fullProjectSetup persists quota group brand exclusion [client/Feign socket timeout].",
       "bullets": [
-        "4\u00d7 other \u2014 selectionMode must not be null",
-        "1\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown",
-        "[QA deploy: DKSurveyRestJ21]  (2 commits) \u2014 fix subnet",
-        "[QA deploy: NexusApiJ21] NXS-14261 (2 commits) \u2014 [NXS-14261] MS | NexusApi | remove followUpPhase, set communicationSupported ins",
-        "[QA deploy: ProjectRestJ16] NXS-14262 (2 commits) \u2014 [NXS-14262] MS | ProjectRest | replace followUpPhase with multiPhase in CrmField",
-        "[QA deploy: DemandApi]  (2 commits) \u2014 [PAC-852] DemandApi - fix acceptanceTests for new case, do not wait DKOrder, don",
-        "[QA deploy: NexusApiUI] NXS-14258 (3 commits) \u2014 [NXS-14258] MS - NexusApiUI - sendTemplateId as templateNames in getCommunicatio",
-        "[QA deploy: QuotaGroupSourcesRestJ21]  (24 commits) \u2014 [PAC-902] QuotaGroupSourceRest - call ClientRest checkUserGroups = false (#5593)"
+        "6\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing POST <url>",
+        "1\u00d7 assertion Condition not satisfied",
+        "1\u00d7 other \u2014 software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-<id>-6ae2b1c9",
+        "Change NXS-14256: gergely.gimesi \u00b7 Quota, QuotaGroup \u00b7 3 overlapping new fails",
+        "[QA deploy: NexusApiJ21] NXS-14178 (7 commits) \u2014 [NXS-14178] acc test fix + add statusCounts to path",
+        "[QA deploy: CommunicationRestJ21] NXS-14177 (7 commits) \u2014 [NXS-14177] acc test fix + add statusCounts to path",
+        "[QA deploy: NexusApiMetaJ21] NXS-14246 (3 commits) \u2014 [NXS-14246] EOS - MS - Update the no go market list (#5597)",
+        "[QA deploy: DKProjectRestJ16]  (2 commits) \u2014 [NA-1994] - SLS - Create provisioned dynamo db tables",
+        "[QA deploy: DKDashboardRestJ16]  (1 commit) \u2014 [PAC-885] Revert dub_project_id widening back to 20 characters (#5592)"
       ],
       "newFailureAreas": [
         {
-          "area": "Lookup",
+          "area": "Project",
           "newCount": 4
         },
         {
           "area": "Communication",
+          "newCount": 2
+        },
+        {
+          "area": "QuotaGroup",
+          "newCount": 2
+        },
+        {
+          "area": "Quota",
           "newCount": 1
         }
       ],
-      "likelyCauses": []
+      "likelyCauses": [
+        {
+          "version": "3d818c814b14",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-14256",
+          "comment": "NXS-14256-optionassembler-and-sold-quota-lock send selectionMode and re-spread on lock",
+          "areas": [
+            "Quota",
+            "QuotaGroup"
+          ],
+          "hitNewFailures": 3,
+          "files": [
+            "QuotaGroupHelper.groovy",
+            "SegmentDetailsHelper.groovy",
+            "QuotaGroupLookupE2ETestSteps.groovy",
+            "QuotaGroupLookupTestSteps.groovy",
+            "SoldQuotaLockUnlockWorkflowTestSteps.groovy"
+          ]
+        }
+      ]
     },
-    "suspectCommits": [],
+    "suspectCommits": [
+      {
+        "version": "3d818c814b14",
+        "username": "gergely.gimesi",
+        "comment": "NXS-14256-optionassembler-and-sold-quota-lock send selectionMode and re-spread on lock",
+        "ticket": "NXS-14256",
+        "areas": [
+          "Quota",
+          "QuotaGroup"
+        ]
+      }
+    ],
     "qaDeploySuspects": [
       {
-        "service": "DKSurveyRestJ21",
-        "version": "e17dc0632dde",
-        "username": "norbert.farkas",
-        "comment": "fix subnet",
+        "service": "NexusApiJ21",
+        "version": "0c78efaec312",
+        "username": "bence.csepe",
+        "comment": "[NXS-14178] acc test fix + add statusCounts to path",
+        "ticket": "NXS-14178",
+        "deployedAt": "20261028T150633+0000",
+        "files": [
+          "UCommunicationsApiAcceptanceTest.groovy",
+          "CommunicationRestFeignClient.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "79d68e37de09",
+        "username": "60962201+gyarmatitamas",
+        "comment": "Merge pull request #5605 from dynata/NXS-14250-NexusApi-fix-wildcard-audience-propagation",
+        "ticket": "NXS-14250",
+        "deployedAt": "20261028T150633+0000",
+        "files": [],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "19cad12b2e15",
+        "username": "tamas.gyarmati",
+        "comment": "[NXS-14250] - cr",
+        "ticket": "NXS-14250",
+        "deployedAt": "20261028T150633+0000",
+        "files": [
+          "PropagationHelper.java",
+          "QuotaGroupPropagator.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "335c2294e509",
+        "username": "bence.csepe",
+        "comment": "[NXS-14178] MS - NexusApi - Get QG level communication counts (#5581)",
+        "ticket": "NXS-14178",
+        "deployedAt": "20261028T150633+0000",
+        "files": [
+          "README.md",
+          "UCommunicationsApiAcceptanceTest.groovy",
+          "UQuotaGroupCommunicationsApiFeignClient.java",
+          "CommunicationRestFeignClient.java",
+          "UQuotaGroupCommunicationsApi.java",
+          "UQuotaGroupCommunicationsApiImpl.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "4a79e0307c5d",
+        "username": "weiqun.wang",
+        "comment": "Scale up prod to get ready for traffics switching over",
         "ticket": "",
-        "deployedAt": "20261027T142824+0000",
+        "deployedAt": "20261028T150633+0000",
         "files": [
           "production.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "DKSurveyRestJ21",
-        "version": "a9d072d496a6",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14187 ] fix log groups",
-        "ticket": "NXS-14187",
-        "deployedAt": "20261027T142824+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
         "service": "NexusApiJ21",
-        "version": "aa3b6969a59e",
-        "username": "david.nagy",
-        "comment": "[NXS-14261] MS | NexusApi | remove followUpPhase, set communicationSupported instead while accept",
-        "ticket": "NXS-14261",
-        "deployedAt": "20261027T134810+0000",
-        "files": [
-          "build.gradle",
-          "UProjectImpl.java",
-          "UProjectImplTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiJ21",
-        "version": "dcad0b292be9",
+        "version": "22169cecc148",
         "username": "tamas.gyarmati",
-        "comment": "[NXS-14247] - NexusApi - allowObjectCreation for audiences only",
-        "ticket": "NXS-14247",
-        "deployedAt": "20261027T134810+0000",
+        "comment": "[NXS-14250] - NexusApi - fix wildcard audience propagation",
+        "ticket": "NXS-14250",
+        "deployedAt": "20261028T150633+0000",
         "files": [
-          "StartPropagationListener.java",
-          "StartPropagationListenerTest.groovy"
+          "QuotaGroupPropagator.java",
+          "QuotaGroupPropagatorTest.groovy"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
-        "version": "668bbb558db8",
-        "username": "david.nagy",
-        "comment": "[NXS-14262] MS | ProjectRest | replace followUpPhase with multiPhase in CrmFields POJO",
-        "ticket": "NXS-14262",
-        "deployedAt": "20261027T134318+0000",
+        "service": "NexusApiJ21",
+        "version": "45b00cf6ce0c",
+        "username": "tamas.gyarmati",
+        "comment": "[NXS-14250] - NexusApi - fix wildcard audience propagation",
+        "ticket": "NXS-14250",
+        "deployedAt": "20261028T150633+0000",
         "files": [
-          "CrmFields.java"
+          "QuotaGroupPropagator.java",
+          "QuotaGroupPropagatorTest.groovy"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
-        "version": "8562f5aa306b",
+        "service": "CommunicationRestJ21",
+        "version": "c9492eeebdec",
+        "username": "bence.csepe",
+        "comment": "[NXS-14177] acc test fix + add statusCounts to path",
+        "ticket": "NXS-14177",
+        "deployedAt": "20261028T133806+0000",
+        "files": [
+          "UQuotaGroupCommunicationsApiAcceptanceTest.groovy",
+          "UQuotaGroupCommunicationsApiFeignClient.java",
+          "UQuotaGroupCommunicationsApi.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "CommunicationRestJ21",
+        "version": "0847e677a310",
         "username": "40339600+tamasroma",
-        "comment": "[NXS-13822] MS - ProjectRest - Remove D365 ProjectProperties remove SQL table and all read write (#5590)",
-        "ticket": "NXS-13822",
-        "deployedAt": "20261027T134318+0000",
+        "comment": "[NXS-13944] test fix",
+        "ticket": "NXS-13944",
+        "deployedAt": "20261028T133806+0000",
         "files": [
-          "ProjectPropertiesRestAcceptanceTest.groovy",
-          "SqlProjectPropertiesHandlerTest.groovy",
-          "ProjectPropertiesMongoHandlerIntegTest.groovy",
-          "ProjectPropertiesMongoHandler.java",
-          "ProjectPropertiesHandler.java",
-          "PropertiesHandler.java"
+          "ProjectCommunicationsApiAcceptanceTest.groovy"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "DemandApi",
-        "version": "2f6fed3b129a",
-        "username": "gabor.fial",
-        "comment": "[PAC-852] DemandApi - fix acceptanceTests for new case, do not wait DKOrder, don't clone feasibilityUIState, etc",
-        "ticket": "",
-        "deployedAt": "20261027T125059+0000",
+        "service": "CommunicationRestJ21",
+        "version": "e849b830ff61",
+        "username": "40339600+tamasroma",
+        "comment": "[NXS-13944] test fix",
+        "ticket": "NXS-13944",
+        "deployedAt": "20261028T133806+0000",
         "files": [
-          "NexusApiTestFeignClient.java",
-          "DemandUtil.groovy",
-          "ProjectCreationTest.groovy",
-          "ProjectUpdateTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "41dde83d7c8a",
-        "username": "andras.banszki",
-        "comment": "[NXS-14258] MS - NexusApiUI - sendTemplateId as templateNames in getCommunicationsOverview TEMPORARILY",
-        "ticket": "NXS-14258",
-        "deployedAt": "20261027T121754+0000",
-        "files": [
-          "CommunicationOverviewAssembler.java",
-          "CommunicationOverviewAssemblerTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "c4c33d8779a0",
-        "username": "adamlaszlo.mohacsi",
-        "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
-        "ticket": "",
-        "deployedAt": "20261027T121754+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "0178093fb27b",
-        "username": "adamlaszlo.mohacsi",
-        "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
-        "ticket": "",
-        "deployedAt": "20261027T121754+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "dev.yml",
-          "production.yml",
-          "qa.yml"
+          "ProjectCommunicationTopicsApiFeignClient.java",
+          "ProjectCommunicationsApiFeignClient.java",
+          "ProjectCommunicationsMongoHandlerTest.groovy"
         ],
         "scope": "qa-deploy"
       }
@@ -655,9 +717,9 @@
     "currentCount": 98,
     "examples": [
       "GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.",
-      "GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'.",
       "POST /u1/nexus/quotaGroups/search/ids :: Response status 500 not defined for path '/u1/nexus/quotaGroups/search/ids'.",
       "POST /u1/nexus/quotaGroups/search/labels :: Response status 500 not defined for path '/u1/nexus/quotaGroups/search/labels'.",
+      "POST /u1/nexus/quotaGroups/{}/optionAssembler :: Response status 500 not defined for path '/u1/nexus/quotaGroups/{quotaGroupId}/optionAssembler'.",
       "POST /u1/nexus/quotaGroups/{}/validations :: Response status 404 not defined for path '/u1/nexus/quotaGroups/{quotaGroupId}/validations'."
     ]
   },
