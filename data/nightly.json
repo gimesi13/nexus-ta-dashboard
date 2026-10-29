@@ -1761,30 +1761,22 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "9 new failures \u2014 mostly QA infra timeouts/502s",
+    "headline": "9 new failures \u2014 mostly QA Feign read-timeouts (infra), plus a Communication backend 500 and two assertion/validation fails.",
     "tone": "warn",
     "severity": "low",
-    "cause": "infra",
-    "causeText": "QA infrastructure (502/504/read timeouts; dk-project-communication-rest) \u2014 not a code regression. NOTE: 5 service(s) were deployed to QA in this window (NexusApiJ21, CommunicationRestJ21, NexusApiMetaJ21, DKProjectRestJ16, DKDashboardRestJ16) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 6\u00d7 client/Feign socket timeout; 1\u00d7 assertion Condition not satisfied. Gateway hits: dk-project-communication-rest.",
+    "cause": "mixed",
+    "causeText": "6 of 9 new failures are QA Feign read-timeouts (infra); the rest are a Communication backend 500 (scheduler ResourceNotFoundException from dk-project-communication-rest) and two Quota/Communication assertion fails, one of which plausibly maps to test-module commit NXS-14256 (gergely.gimesi).",
+    "investigation": "Read the real messages: 6\u00d7 'Read timed out' = infra, the Communication fails are a backend 500 and a cancel-state assertion, and the Quota fail is a negative test no longer throwing.",
     "bullets": [
-      "6\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing POST <url>",
-      "1\u00d7 assertion Condition not satisfied",
-      "1\u00d7 other \u2014 software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-<id>-6ae2b1c9",
-      "Change NXS-14256: gergely.gimesi \u00b7 Quota, QuotaGroup \u00b7 3 overlapping new fails"
+      "6\u00d7 Feign 'Read timed out' (Project \u00d74, QuotaGroup \u00d72) \u2014 QA infra, not a code regression",
+      "3 non-infra new fails: Communication 500 (scheduler), Communication cancel-state assertion, Quota negative-validation (plausibly NXS-14256 / gergely.gimesi)"
     ],
     "detail": {
-      "investigation": "9 of 11 unmuted failures are new since the prior build (#3.0.2742, 5 fails). Failure types (new-first): (1) 6\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (3) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (4) 1\u00d7 stale negative validation \u2014 negative test expected an exception that was not thrown. Hot areas among new fails: Project (4), Communication (2), QuotaGroup (2), Quota (1). Infra-dominant among new fails: VCS changes are unlikely to explain 502/504/timeouts. 5 service(s) (20 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Cancelling one quota group leaves the other quota group active [assertion Condition not satisfied]; Communication: Updating copy on a cancelled quota group keeps the cancel flag [other]; Project: fullProjectSetup persists quota group source toggles [client/Feign socket timeout]; Project: fullProjectSetup persists quota group brand exclusion [client/Feign socket timeout].",
+      "investigation": "9 of 11 unmuted failures are new vs prior build #3.0.2742 (5 fails); 6 are Feign 'Read timed out' against QA (Project fullProjectSetup \u00d74, QuotaGroup calculateAdhoc \u00d72), which are infra, not VCS-driven. The 3 non-infra new fails are a Communication 500 (scheduler ResourceNotFoundException from dk-project-communication-rest \u2014 a backend/product error, not a TA-module issue), a Communication cancel-state assertion (status CANCELED vs expected SCHEDULED), and a Quota negative-validation that no longer throws, which plausibly maps to test-module commit NXS-14256 (gergely.gimesi, touches SoldQuotaLockUnlockWorkflowTestSteps); the Lookup optionAssembler NPEs are pre-existing (not new).",
       "bullets": [
-        "6\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing POST <url>",
-        "1\u00d7 assertion Condition not satisfied",
-        "1\u00d7 other \u2014 software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-<id>-6ae2b1c9",
-        "Change NXS-14256: gergely.gimesi \u00b7 Quota, QuotaGroup \u00b7 3 overlapping new fails",
-        "[QA deploy: NexusApiJ21] NXS-14178 (7 commits) \u2014 [NXS-14178] acc test fix + add statusCounts to path",
-        "[QA deploy: CommunicationRestJ21] NXS-14177 (7 commits) \u2014 [NXS-14177] acc test fix + add statusCounts to path",
-        "[QA deploy: NexusApiMetaJ21] NXS-14246 (3 commits) \u2014 [NXS-14246] EOS - MS - Update the no go market list (#5597)",
-        "[QA deploy: DKProjectRestJ16]  (2 commits) \u2014 [NA-1994] - SLS - Create provisioned dynamo db tables",
-        "[QA deploy: DKDashboardRestJ16]  (1 commit) \u2014 [PAC-885] Revert dub_project_id widening back to 20 characters (#5592)"
+        "6\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out (QA infra; Project \u00d74, QuotaGroup \u00d72)",
+        "Communication: 1\u00d7 backend 500 (scheduler ResourceNotFoundException, dk-project-communication-rest) + 1\u00d7 assertion (cancel leaves status CANCELED, expected SCHEDULED)",
+        "Quota: 1\u00d7 negative-validation no longer throws \u2014 plausibly test-module commit NXS-14256 (gergely.gimesi); Lookup optionAssembler NPEs are pre-existing, not new"
       ],
       "newFailureAreas": [
         {
@@ -1809,18 +1801,14 @@
           "version": "3d818c814b14",
           "username": "gergely.gimesi",
           "ticket": "NXS-14256",
-          "comment": "NXS-14256-optionassembler-and-sold-quota-lock send selectionMode and re-spread on lock",
+          "comment": "Test-module change to sold-quota-lock (send selectionMode and re-spread on lock) plausibly explains the single Quota negative-validation failure; it does NOT explain the 6 infra timeouts or the Communication backend 500.",
           "areas": [
-            "Quota",
-            "QuotaGroup"
+            "Quota"
           ],
-          "hitNewFailures": 3,
+          "hitNewFailures": 1,
           "files": [
-            "QuotaGroupHelper.groovy",
-            "SegmentDetailsHelper.groovy",
-            "QuotaGroupLookupE2ETestSteps.groovy",
-            "QuotaGroupLookupTestSteps.groovy",
-            "SoldQuotaLockUnlockWorkflowTestSteps.groovy"
+            "SoldQuotaLockUnlockWorkflowTestSteps.groovy",
+            "QuotaGroupHelper.groovy"
           ]
         }
       ]
@@ -2049,8 +2037,8 @@
         "deployedAt": "20261028T094321+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-10-29T03:02Z",
+    "source": "llm",
+    "generatedAt": "2026-10-29T03:02:00Z",
     "buildNumber": "3.0.2743",
     "buildId": "9643033",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9643033",
