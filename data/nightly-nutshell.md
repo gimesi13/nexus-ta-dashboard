@@ -1,10 +1,7 @@
-**4 continuing failure(s) — no new unmuted fails**
+**4 continuing failures (0 new) — product-side 500s, not infra: a quotaGroups 'progress' NPE and a communication 500, plus one assertion.**
 
-_Likely cause: VCS changes present but none map onto the failing packages — likely test/data, correlate manually._
+_Likely cause: product-side 500s (a quotaGroups 'progress' NPE and a communication 500) plus one Spock assertion — not infra, none new, and no commit maps._
 
-- 1× assertion Condition not satisfied
+- 2× Lookup: 500 NPE 'Cannot assign field progress … is null' on quotaGroups/optionAssembler (one mislabeled as a 502).
 
-⚠️ Contract drift: 5 new response-schema violation(s) vs baseline.
-- GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.
-
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9643992)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9643992)

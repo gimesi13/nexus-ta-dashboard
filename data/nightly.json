@@ -1684,39 +1684,24 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "4 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "4 continuing failures (0 new) — product-side 500s, not infra: a quotaGroups 'progress' NPE and a communication 500, plus one assertion.",
     "tone": "warn",
     "severity": "low",
     "cause": "mixed",
-    "causeText": "VCS changes present but none map onto the failing packages \u2014 likely test/data, correlate manually. NOTE: 4 service(s) were deployed to QA in this window (NexusApiJ21, ProjectLogRestJ21, NexusApiUI, ProjectRestJ16) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "Failures: 1\u00d7 assertion Condition not satisfied; 1\u00d7 other (no dominant signature yet). Gateway hits: dk-project-communication-rest.",
+    "causeText": "Reading the real messages: both Lookup fails are a product-side 500 NPE on the quotaGroups optionAssembler 'progress' field (one was mislabeled 'QA 502' but is the same 500, not infra), Communication shows a backend 500 (AWS scheduler ResourceNotFound) and one Spock assertion — none are new or infra, and no code change in this window maps (the only VCS commit touches automation/docs and the QA 'progress' deploys predate these continuing failures), so no blame is assigned.",
+    "investigation": "All 4 are continuing (0 new) and product-side, not infra — the 'QA 502' label is wrong: it is the same 500 NPE on the quotaGroups optionAssembler 'progress' field.",
     "bullets": [
-      "1\u00d7 assertion Condition not satisfied",
-      "1\u00d7 other \u2014 software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-<id>-6ae554b1",
-      "1\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot assign field \\"
+      "2× Lookup — product 500 NPE 'Cannot assign field progress … is null' on quotaGroups/{id}/optionAssembler (one mislabeled as 502).",
+      "Communication — 1× backend 500 (AWS scheduler: Schedule not found) + 1× assertion (status CANCELED vs SCHEDULED)."
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 4 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (2) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (3) 1\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. (4) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: Communication (2), Lookup (2). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 4 service(s) (13 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Cancelling one quota group leaves the other quota group active [assertion Condition not satisfied]; Communication: Updating copy on a cancelled quota group keeps the cancel flag [other]; Lookup: Assemble options with different source configurations: com.dynata.rest.gateway.nexusapi.re [server NestedServletException / NPE]; Lookup: Complete quota group lookup and search workflow: com.dynata.rest.gateway.nexusapi.rest.tes [QA 502 Bad Gateway].",
+      "investigation": "No new unmuted failures — all 4 continue from the prior run (3.0.2744), and reading the real messages none are infra: both Lookup fails are a product-side 500 NullPointerException ('Cannot assign field \"progress\" because the return value of Map.get is null') on /u1/nexus/quotaGroups/{id}/optionAssembler (one carried a misleading 'QA 502 Bad Gateway' cluster label but is the same 500), the Communication 'other' fail is a backend 500 from dk-project-communication-rest (AWS scheduler ResourceNotFoundException: Schedule does not exist) on PUT communications, and the last Communication fail is a genuine Spock assertion (quota-group status CANCELED where SCHEDULED was expected). No blame is assigned: the only VCS change (NXS-14303, gergely.gimesi) touches automation/docs and cannot cause product failures, and the QA-deployed 'propagation progress' commits (tamas.gyarmati, NXS-14282/14284) predate these already-continuing failures.",
       "bullets": [
-        "1\u00d7 assertion Condition not satisfied",
-        "1\u00d7 other \u2014 software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-<id>-6ae554b1",
-        "1\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot assign field \\",
-        "NXS-14303: gergely.gimesi \u2014 NXS-14303 publish the latest nightly when build ids go backwards",
-        "[QA deploy: NexusApiJ21] NXS-14284 (3 commits) \u2014 [NXS-14284] - NexusApi - use annotated propagation progress fields",
-        "[QA deploy: ProjectLogRestJ21] NXS-14266 (7 commits) \u2014 [NXS-14266] MS - ProjectLogRest - new ProjectModules for Communication logs (#56",
-        "[QA deploy: NexusApiUI] NXS-14285 (2 commits) \u2014 [NXS-14285] - NexusApiUI - propagationStatus endpoint",
-        "[QA deploy: ProjectRestJ16] NXS-14282 (1 commit) \u2014 [NXS-14282] - ProjectRest - annotate propagation progress fields"
+        "2× Lookup — product-side 500 NPE 'Cannot assign field progress … Map.get is null' on quotaGroups/{id}/optionAssembler; one was mislabeled 'QA 502 Bad Gateway' but is the same 500 (not infra).",
+        "1× Communication — backend 500 from dk-project-communication-rest: AWS scheduler ResourceNotFoundException (Schedule … does not exist) on PUT communications.",
+        "1× Communication — Spock assertion: quota-group status is CANCELED where SCHEDULED was expected."
       ],
-      "newFailureAreas": [
-        {
-          "area": "Communication",
-          "newCount": 2
-        },
-        {
-          "area": "Lookup",
-          "newCount": 2
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1925,8 +1910,8 @@
         "deployedAt": "20261030T130824+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-10-31T03:05Z",
+    "source": "llm",
+    "generatedAt": "2026-10-31T03:05:00Z",
     "buildNumber": "3.0.2745",
     "buildId": "9643992",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9643992",
