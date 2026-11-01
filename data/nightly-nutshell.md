@@ -1,10 +1,7 @@
-**4 continuing failure(s) — no new unmuted fails**
+**4 continuing QA backend failures — no new fails and no code changes to blame.**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: QA backend 500s (Lookup optionAssembler NPE, Communication scheduler ResourceNotFound) plus one assertion — not infra timeouts, and no commit in the window to implicate._
 
-- 2× server NestedServletException / NPE — java.lang.NullPointerException:Cannot assign field \
+- Lookup optionAssembler returns 500 (NPE on `progress`) ×2; Communication PUT returns 500 (scheduler ResourceNotFound) + 1 assertion — all continuing from prior.
 
-⚠️ Contract drift: 5 new response-schema violation(s) vs baseline.
-- GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.
-
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9650456)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9650456)

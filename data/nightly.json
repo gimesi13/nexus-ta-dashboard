@@ -1684,34 +1684,24 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "4 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "4 continuing QA backend failures \u2014 no new fails and no code changes to blame.",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "Failures: 2\u00d7 server NestedServletException / NPE (QA threw NestedServletException/NPE/IOOB); 1\u00d7 assertion Condition not satisfied. Gateway hits: dk-project-communication-rest.",
+    "cause": "mixed",
+    "causeText": "No code or QA-deploy changes landed in the window, so no commit is implicated; the 4 continuing failures are QA backend 500s (Lookup optionAssembler NPE, Communication scheduler ResourceNotFound) plus one assertion \u2014 not genuine infra timeouts.",
+    "investigation": "No new failures (all 4 continue from 3.0.2745); real messages are QA backend 500s \u2014 2\u00d7 Lookup optionAssembler NPE and 1\u00d7 Communication scheduler ResourceNotFound \u2014 plus 1 Communication assertion.",
     "bullets": [
-      "2\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot assign field \\",
-      "1\u00d7 assertion Condition not satisfied",
-      "1\u00d7 QA 502 Bad Gateway \u2014 software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-<id>-6ae6a59b"
+      "Lookup \u00d72: /quotaGroups/{}/optionAssembler returns 500 \u2014 NullPointerException on field 'progress' (server-side bug, not infra)",
+      "Communication: PUT communications returns 500 (AWS scheduler ResourceNotFound; mis-labelled '502' but a backend 500), plus 1 assertion (CANCELED vs expected SCHEDULED)"
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 4 continuing from prior runs. Failure types (new-first): (1) 2\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (3) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: Communication (2), Lookup (2). Example new failures: Communication: Cancelling one quota group leaves the other quota group active [assertion Condition not satisfied]; Communication: Updating copy on a cancelled quota group keeps the cancel flag [QA 502 Bad Gateway]; Lookup: Assemble options with different source configurations: com.dynata.rest.gateway.nexusapi.re [server NestedServletException / NPE]; Lookup: Complete quota group lookup and search workflow: com.dynata.rest.gateway.nexusapi.rest.tes [server NestedServletException / NPE].",
+      "investigation": "All 4 failures continue from prior build 3.0.2745 (newFailed=0) and no code or QA-deploy changes landed in the window, so none can be pinned to a commit or developer. Despite the coarse cluster labels, the real messages are QA backend 500s \u2014 two Lookup optionAssembler calls throw NullPointerException on the 'progress' field and the Communication 'update copy' call throws an AWS Scheduler ResourceNotFoundException (a 500, not a genuine 502/timeout) \u2014 alongside one Communication assertion (status CANCELED where SCHEDULED was expected).",
       "bullets": [
-        "2\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot assign field \\",
-        "1\u00d7 assertion Condition not satisfied",
-        "1\u00d7 QA 502 Bad Gateway \u2014 software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-<id>-6ae6a59b"
+        "Lookup \u00d72: POST /u1/nexus/quotaGroups/{}/optionAssembler \u2192 500, NullPointerException cannot assign field 'progress' (Map.get returned null) \u2014 server-side product bug, not infra",
+        "Communication \u00d71: PUT .../projects/communications/... \u2192 500, software.amazon.awssdk scheduler ResourceNotFoundException (Schedule ...-118850672 does not exist) \u2014 mis-labelled '502' but is a backend 500, not a timeout; Communication \u00d71: assertion 'Condition not satisfied' (first.status == SCHEDULED but was CANCELED)",
+        "Separate lane \u2014 contract drift: 5 endpoints drift from the OpenAPI contract (e.g. optionAssembler 500 not defined, GET /u1/meta/countries no matching path); distinct from the test failures"
       ],
-      "newFailureAreas": [
-        {
-          "area": "Communication",
-          "newCount": 2
-        },
-        {
-          "area": "Lookup",
-          "newCount": 2
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1743,7 +1733,7 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
+    "source": "llm",
     "generatedAt": "2026-11-01T03:03Z",
     "buildNumber": "3.0.2746",
     "buildId": "9650456",
