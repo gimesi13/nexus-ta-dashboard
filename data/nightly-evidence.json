@@ -1,246 +1,47 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-31T03:05Z",
+  "generatedAt": "2026-11-01T03:03Z",
   "build": {
-    "number": "3.0.2745",
-    "buildId": "9643992",
+    "number": "3.0.2746",
+    "buildId": "9650456",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9643992",
-    "durationSec": 1912.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9650456",
+    "durationSec": 1914.0
   },
   "summary": {
     "tests": 1517,
-    "passed": 1455,
+    "passed": 1456,
     "failures": 4,
     "errors": 0,
     "skipped": 0,
-    "muted": 58,
+    "muted": 57,
     "newFailed": 0,
     "passRate": 99.7,
-    "timeSec": 1912.0
+    "timeSec": 1914.0
   },
   "prior": {
-    "buildId": "9642899",
-    "number": "3.0.2744",
+    "buildId": "9643992",
+    "number": "3.0.2745",
     "status": "FAILURE",
-    "statusText": "Tests failed: 4, passed: 1453, muted: 60",
-    "startDate": "20261030T023252+0000",
-    "durationSec": 1967.0,
+    "statusText": "Tests failed: 4, passed: 1455, muted: 58",
+    "startDate": "20261031T023238+0000",
+    "durationSec": 1912.0,
     "failed": 4,
-    "passed": 1453,
+    "passed": 1455,
     "newFailed": 0
   },
-  "changes": [
-    {
-      "version": "41ca9dd2015d",
-      "username": "gergely.gimesi",
-      "comment": "NXS-14303 publish the latest nightly when build ids go backwards",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/agent-jobs/README.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/agent-jobs/dashboard-publish.sh",
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/agent-jobs/nightly-teams.sh",
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/tc_fetch_nightly.py",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/CI_PIPELINE.md"
-      ],
-      "areas": []
-    }
-  ],
-  "qaDeployChanges": [
-    {
-      "service": "NexusApiJ21",
-      "version": "fcedcff96eeb",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-14284] - NexusApi - use annotated propagation progress fields",
-      "files": [
-        "gateway/unifiedApi/NexusApi/build.gradle"
-      ],
-      "deployedAt": "20261030T135456+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "ee9f003ccd15",
-      "username": "gabor.imre",
-      "comment": "[ST-5104] Fixed application log format",
-      "files": [
-        "export-service/group_vars/dev.yml",
-        "export-service/group_vars/prod.yml",
-        "export-service/group_vars/qa.yml",
-        "st-menu-service/group_vars/dev.yml",
-        "st-menu-service/group_vars/prod.yml",
-        "st-menu-service/group_vars/qa.yml",
-        "st-participation-status-rest/group_vars/dev.yml",
-        "st-participation-status-rest/group_vars/prod.yml",
-        "st-participation-status-rest/group_vars/qa.yml",
-        "st-respondent-rest/group_vars/dev.yml",
-        "st-respondent-rest/group_vars/prod.yml",
-        "st-respondent-rest/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261030T135456+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "1f9729458331",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-14250] - add logs",
-      "files": [
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/ExclusionRulePropagator.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/UrlPoolPropagator.java"
-      ],
-      "deployedAt": "20261030T135456+0000"
-    },
-    {
-      "service": "ProjectLogRestJ21",
-      "version": "8e5ec41312f5",
-      "username": "andras.banszki",
-      "comment": "[NXS-14266] MS - ProjectLogRest - new ProjectModules for Communication logs (#5600)",
-      "files": [
-        "project/ProjectLogRest/src/main/java/com/surveysampling/rest/projectlog/u1/model/enums/ProjectModules.java",
-        "project/ProjectLogRest/src/test/groovy/com/surveysampling/rest/projectlog/u1/ModuleTests.groovy",
-        "project/ProjectLogRest/src/test/groovy/com/surveysampling/rest/projectlog/u1/helpers/ProjectLogBuilderTest.groovy"
-      ],
-      "deployedAt": "20261030T132134+0000"
-    },
-    {
-      "service": "ProjectLogRestJ21",
-      "version": "4a79e0307c5d",
-      "username": "weiqun.wang",
-      "comment": "Scale up prod to get ready for traffics switching over",
-      "files": [
-        "ml-complete-optimization-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20261030T132134+0000"
-    },
-    {
-      "service": "ProjectLogRestJ21",
-      "version": "e17dc0632dde",
-      "username": "norbert.farkas",
-      "comment": "fix subnet",
-      "files": [
-        "dk-project-survey-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261030T132134+0000"
-    },
-    {
-      "service": "ProjectLogRestJ21",
-      "version": "a9d072d496a6",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] fix log groups",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261030T132134+0000"
-    },
-    {
-      "service": "ProjectLogRestJ21",
-      "version": "bc0c0fd880a4",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261030T132134+0000"
-    },
-    {
-      "service": "ProjectLogRestJ21",
-      "version": "c4c33d8779a0",
-      "username": "adamlaszlo.mohacsi",
-      "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
-      "files": [
-        "sls-db/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261030T132134+0000"
-    },
-    {
-      "service": "ProjectLogRestJ21",
-      "version": "0178093fb27b",
-      "username": "adamlaszlo.mohacsi",
-      "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
-      "files": [
-        "sls-db/cloud-formation.template.yml",
-        "sls-db/group_vars/dev.yml",
-        "sls-db/group_vars/production.yml",
-        "sls-db/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261030T132134+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "0fe994eea655",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-14285] - NexusApiUI - propagationStatus endpoint",
-      "files": [
-        "gateway/unifiedApi/NexusApiUI/build.gradle",
-        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/dependencies/nexusApi/NexusApi.java",
-        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/swagger/ApiDescriptions.java",
-        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/u1/nexus/tracker/UTrackerApiController.java",
-        "gateway/unifiedApi/NexusApiUI/src/test/groovy/com/dynata/rest/gateway/nexusuiapi/u1/nexus/tracker/UTrackerApiControllerTest.groovy"
-      ],
-      "deployedAt": "20261030T130906+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "02ffd18405f9",
-      "username": "szabolcs.papellas",
-      "comment": "[ST-4786] retire apps",
-      "files": [
-        "ng-rubiq-demo/cloud-formation.template.yml",
-        "ng-rubiq-demo/group_vars/all.yml",
-        "ng-rubiq-demo/group_vars/dev.yml",
-        "ng-rubiq-demo/group_vars/production.yml",
-        "ng-rubiq-demo/group_vars/qa.yml",
-        "ng-rubiq-demo/inventory.ini",
-        "ng-rubiq-reference-app/cloud-formation.template.yml",
-        "ng-rubiq-reference-app/group_vars/all.yml",
-        "ng-rubiq-reference-app/group_vars/dev.yml",
-        "ng-rubiq-reference-app/group_vars/production.yml",
-        "ng-rubiq-reference-app/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261030T130906+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "21499625aab8",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-14282] - ProjectRest - annotate propagation progress fields",
-      "files": [
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/model/tracker/PropagationProgress.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/model/tracker/QuotaGroupProgress.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/model/tracker/UrlPoolProgress.java"
-      ],
-      "deployedAt": "20261030T130824+0000"
-    }
-  ],
-  "qaDeployServices": [
-    {
-      "service": "NexusApiJ21",
-      "commits": 3,
-      "latestTicket": "NXS-14284",
-      "latestComment": "[NXS-14284] - NexusApi - use annotated propagation progress fields",
-      "deployedAt": "20261030T135456+0000"
-    },
-    {
-      "service": "ProjectLogRestJ21",
-      "commits": 7,
-      "latestTicket": "NXS-14266",
-      "latestComment": "[NXS-14266] MS - ProjectLogRest - new ProjectModules for Communication logs (#56",
-      "deployedAt": "20261030T132134+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "commits": 2,
-      "latestTicket": "NXS-14285",
-      "latestComment": "[NXS-14285] - NexusApiUI - propagationStatus endpoint",
-      "deployedAt": "20261030T130906+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "commits": 1,
-      "latestTicket": "NXS-14282",
-      "latestComment": "[NXS-14282] - ProjectRest - annotate propagation progress fields",
-      "deployedAt": "20261030T130824+0000"
-    }
-  ],
+  "changes": [],
+  "qaDeployChanges": [],
+  "qaDeployServices": [],
   "clusters": [
+    {
+      "label": "server_exception",
+      "display": "server NestedServletException / NPE",
+      "count": 2,
+      "newCount": 2,
+      "sample": "java.lang.NullPointerException:Cannot assign field \\",
+      "why": "QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path"
+    },
     {
       "label": "assert_fail",
       "display": "assertion Condition not satisfied",
@@ -250,27 +51,11 @@
       "why": "Spock assertion failed (fixture or response shape)"
     },
     {
-      "label": "other",
-      "display": "other",
-      "count": 1,
-      "newCount": 1,
-      "sample": "software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-<id>-6ae554b1",
-      "why": "no dominant signature yet \u2014 open TeamCity details"
-    },
-    {
-      "label": "server_exception",
-      "display": "server NestedServletException / NPE",
-      "count": 1,
-      "newCount": 1,
-      "sample": "java.lang.NullPointerException:Cannot assign field \\",
-      "why": "QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path"
-    },
-    {
       "label": "infra_502",
       "display": "QA 502 Bad Gateway",
       "count": 1,
       "newCount": 1,
-      "sample": "java.lang.NullPointerException:Cannot assign field \\",
+      "sample": "software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-<id>-6ae6a59b",
       "why": "QA gateway returned HTML 502 \u2014 infra during the run, not a product regression"
     }
   ],
@@ -282,16 +67,16 @@
       "area": "Communication",
       "cluster": "assert_fail",
       "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: first.status == CommunicationStatus.SCHEDULED | | | | | | | class com.dynata.nexus.api.model.communication.CommunicationStatus | | false | CANCELED <com.dynata.nexus.api.model.communication.QuotaGroupCommunication@25a2c4dc quotaGroupId=118850163 canceled=true status=CANCELED contents=[com.dynata.nexus.api.model.communication.Content@18d396eb]> at com.dynata.rest.gateway.n\u2026"
+      "detailsExcerpt": "Condition not satisfied: first.status == CommunicationStatus.SCHEDULED | | | | | | | class com.dynata.nexus.api.model.communication.CommunicationStatus | | false | CANCELED <com.dynata.nexus.api.model.communication.QuotaGroupCommunication@29d81c22 quotaGroupId=118850672 canceled=true status=CANCELED contents=[com.dynata.nexus.api.model.communication.Content@2bee1c13]> at com.dynata.rest.gateway.n\u2026"
     },
     {
       "name": "Updating copy on a cancelled quota group keeps the cancel flag",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Communication.CommunicationCRUDTestSteps",
       "newFailure": false,
       "area": "Communication",
-      "cluster": "other",
-      "message": "software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-2285273-6ae554b1b4f28a946f5e8815-118850163 does not exist. (Se\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/communications/6ae554b1b4f28a946f5e8815 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-communication-rest.nexus-ms-qa.dynata.com:8080/api/Communication/u1/projects/communications/6ae554b1b4f28a946f5e8815\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"software.amazon.awssdk.service\u2026"
+      "cluster": "infra_502",
+      "message": "software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-2285273-6ae6a59bb4f28a946f5e881d-118850672 does not exist. (Se\u2026",
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/communications/6ae6a59bb4f28a946f5e881d 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-communication-rest.nexus-ms-qa.dynata.com:8080/api/Communication/u1/projects/communications/6ae6a59bb4f28a946f5e881d\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"software.amazon.awssdk.service\u2026"
     },
     {
       "name": "Assemble options with different source configurations: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Lookup.QuotaGroupLookupTestSteps.Assemble options with different source configurations",
@@ -300,16 +85,16 @@
       "area": "Lookup",
       "cluster": "server_exception",
       "message": "java.lang.NullPointerException:Cannot assign field \\",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118850187/optionAssembler 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot assign field \\\"progress\\\" because the return value of \\\"java.util.Map.get(Object)\\\" is null\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecode\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118850699/optionAssembler 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot assign field \\\"progress\\\" because the return value of \\\"java.util.Map.get(Object)\\\" is null\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecode\u2026"
     },
     {
       "name": "Complete quota group lookup and search workflow: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Lookup.QuotaGroupLookupE2ETestSteps.Complete quota group lookup and search workflow",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Lookup.QuotaGroupLookupE2ETestSteps",
       "newFailure": false,
       "area": "Lookup",
-      "cluster": "infra_502",
+      "cluster": "server_exception",
       "message": "java.lang.NullPointerException:Cannot assign field \\",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118850242/optionAssembler 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot assign field \\\"progress\\\" because the return value of \\\"java.util.Map.get(Object)\\\" is null\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecode\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118850744/optionAssembler 500{ \"errors\" : [ { \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot assign field \\\"progress\\\" because the return value of \\\"java.util.Map.get(Object)\\\" is null\" } ], \"version\" : \"1.0\" } at com.dynata.nexus.test.feignj16.TestFeignErrorDecode\u2026"
     }
   ],
   "rulesNutshell": {
@@ -317,22 +102,17 @@
     "tone": "warn",
     "severity": "low",
     "bullets": [
+      "2\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot assign field \\",
       "1\u00d7 assertion Condition not satisfied",
-      "1\u00d7 other \u2014 software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-<id>-6ae554b1",
-      "1\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot assign field \\"
+      "1\u00d7 QA 502 Bad Gateway \u2014 software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-<id>-6ae6a59b"
     ],
-    "investigation": "Failures: 1\u00d7 assertion Condition not satisfied; 1\u00d7 other (no dominant signature yet). Gateway hits: dk-project-communication-rest.",
+    "investigation": "Failures: 2\u00d7 server NestedServletException / NPE (QA threw NestedServletException/NPE/IOOB); 1\u00d7 assertion Condition not satisfied. Gateway hits: dk-project-communication-rest.",
     "detail": {
-      "investigation": "No new unmuted failures; 4 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (2) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (3) 1\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. (4) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: Communication (2), Lookup (2). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 4 service(s) (13 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Cancelling one quota group leaves the other quota group active [assertion Condition not satisfied]; Communication: Updating copy on a cancelled quota group keeps the cancel flag [other]; Lookup: Assemble options with different source configurations: com.dynata.rest.gateway.nexusapi.re [server NestedServletException / NPE]; Lookup: Complete quota group lookup and search workflow: com.dynata.rest.gateway.nexusapi.rest.tes [QA 502 Bad Gateway].",
+      "investigation": "No new unmuted failures; 4 continuing from prior runs. Failure types (new-first): (1) 2\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (3) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: Communication (2), Lookup (2). Example new failures: Communication: Cancelling one quota group leaves the other quota group active [assertion Condition not satisfied]; Communication: Updating copy on a cancelled quota group keeps the cancel flag [QA 502 Bad Gateway]; Lookup: Assemble options with different source configurations: com.dynata.rest.gateway.nexusapi.re [server NestedServletException / NPE]; Lookup: Complete quota group lookup and search workflow: com.dynata.rest.gateway.nexusapi.rest.tes [server NestedServletException / NPE].",
       "bullets": [
+        "2\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot assign field \\",
         "1\u00d7 assertion Condition not satisfied",
-        "1\u00d7 other \u2014 software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-<id>-6ae554b1",
-        "1\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot assign field \\",
-        "NXS-14303: gergely.gimesi \u2014 NXS-14303 publish the latest nightly when build ids go backwards",
-        "[QA deploy: NexusApiJ21] NXS-14284 (3 commits) \u2014 [NXS-14284] - NexusApi - use annotated propagation progress fields",
-        "[QA deploy: ProjectLogRestJ21] NXS-14266 (7 commits) \u2014 [NXS-14266] MS - ProjectLogRest - new ProjectModules for Communication logs (#56",
-        "[QA deploy: NexusApiUI] NXS-14285 (2 commits) \u2014 [NXS-14285] - NexusApiUI - propagationStatus endpoint",
-        "[QA deploy: ProjectRestJ16] NXS-14282 (1 commit) \u2014 [NXS-14282] - ProjectRest - annotate propagation progress fields"
+        "1\u00d7 QA 502 Bad Gateway \u2014 software.amazon.awssdk.services.scheduler.model.ResourceNotFoundException:Schedule communication-<id>-6ae6a59b"
       ],
       "newFailureAreas": [
         {
@@ -346,148 +126,8 @@
       ],
       "likelyCauses": []
     },
-    "suspectCommits": [
-      {
-        "version": "41ca9dd2015d",
-        "username": "gergely.gimesi",
-        "comment": "NXS-14303 publish the latest nightly when build ids go backwards",
-        "ticket": "NXS-14303",
-        "areas": []
-      }
-    ],
-    "qaDeploySuspects": [
-      {
-        "service": "NexusApiJ21",
-        "version": "fcedcff96eeb",
-        "username": "tamas.gyarmati",
-        "comment": "[NXS-14284] - NexusApi - use annotated propagation progress fields",
-        "ticket": "NXS-14284",
-        "deployedAt": "20261030T135456+0000",
-        "files": [
-          "build.gradle"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiJ21",
-        "version": "ee9f003ccd15",
-        "username": "gabor.imre",
-        "comment": "[ST-5104] Fixed application log format",
-        "ticket": "",
-        "deployedAt": "20261030T135456+0000",
-        "files": [
-          "dev.yml",
-          "prod.yml",
-          "qa.yml",
-          "dev.yml",
-          "prod.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiJ21",
-        "version": "1f9729458331",
-        "username": "tamas.gyarmati",
-        "comment": "[NXS-14250] - add logs",
-        "ticket": "NXS-14250",
-        "deployedAt": "20261030T135456+0000",
-        "files": [
-          "ExclusionRulePropagator.java",
-          "UrlPoolPropagator.java"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectLogRestJ21",
-        "version": "8e5ec41312f5",
-        "username": "andras.banszki",
-        "comment": "[NXS-14266] MS - ProjectLogRest - new ProjectModules for Communication logs (#5600)",
-        "ticket": "NXS-14266",
-        "deployedAt": "20261030T132134+0000",
-        "files": [
-          "ProjectModules.java",
-          "ModuleTests.groovy",
-          "ProjectLogBuilderTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectLogRestJ21",
-        "version": "4a79e0307c5d",
-        "username": "weiqun.wang",
-        "comment": "Scale up prod to get ready for traffics switching over",
-        "ticket": "",
-        "deployedAt": "20261030T132134+0000",
-        "files": [
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectLogRestJ21",
-        "version": "e17dc0632dde",
-        "username": "norbert.farkas",
-        "comment": "fix subnet",
-        "ticket": "",
-        "deployedAt": "20261030T132134+0000",
-        "files": [
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectLogRestJ21",
-        "version": "a9d072d496a6",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14187 ] fix log groups",
-        "ticket": "NXS-14187",
-        "deployedAt": "20261030T132134+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectLogRestJ21",
-        "version": "bc0c0fd880a4",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14187 ] PES1 dashboard metric",
-        "ticket": "NXS-14187",
-        "deployedAt": "20261030T132134+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectLogRestJ21",
-        "version": "c4c33d8779a0",
-        "username": "adamlaszlo.mohacsi",
-        "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
-        "ticket": "",
-        "deployedAt": "20261030T132134+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectLogRestJ21",
-        "version": "0178093fb27b",
-        "username": "adamlaszlo.mohacsi",
-        "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
-        "ticket": "",
-        "deployedAt": "20261030T132134+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "dev.yml",
-          "production.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      }
-    ]
+    "suspectCommits": [],
+    "qaDeploySuspects": []
   },
   "contractDrift": {
     "newCount": 5,
