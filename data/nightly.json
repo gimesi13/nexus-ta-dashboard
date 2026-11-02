@@ -1706,19 +1706,22 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "2 new failures in Quota",
+    "headline": "2 new QA-side failures (Quota, QuotaGroup) \u2014 no code changes in the window to blame.",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 2\u00d7 other (no dominant signature yet). Vs prior #3.0.2746: up 2 total fails.",
+    "cause": "infra",
+    "causeText": "Both new failures are QA-side \u2014 a FeasibilityDataStore HTTP 500 on calculateAdhoc and a 30s cross-service lag timeout locking sold quota \u2014 with no test-module or QA-deploy commits in the window, pointing to QA backend/environment instability rather than a code regression.",
+    "investigation": "Both new fails are QA backend errors (one 500, one 30s cross-service lag), with no commits in the window, so they read as environment instability rather than a code change.",
     "bullets": [
-      "2\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val"
+      "Quota: sold-quota lock timed out after 30s \u2014 cross-service lag between QuotaDetails, FeasDataStore and DetailsEditor (timing, not an assertion)",
+      "QuotaGroup: calculateAdhoc returned HTTP 500 from dk-project-feasibility-data-store"
     ],
     "detail": {
-      "investigation": "2 of 6 unmuted failures are new since the prior build (#3.0.2746, 4 fails). Failure types (new-first): (1) 2\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Quota (1), QuotaGroup (1). Example new failures: Quota: Locking and unlocking sold quota while feasibility distribution is set validates lock func [other]; QuotaGroup: Adhoc feasibility calculation returns a feasibility result [other].",
+      "investigation": "2 of 6 unmuted failures are new since #3.0.2746 (4 fails), both QA-side: Quota's sold-quota lock timed out after 30s on cross-service lag (QuotaDetails/FeasDataStore/DetailsEditor), and QuotaGroup's calculateAdhoc got an HTTP 500 from dk-project-feasibility-data-store. With no test-module commits (changes=[]) and no QA-deploy commits (qaDeployChanges=[]) in the window, there is no code change to implicate, so these point to QA backend/environment instability.",
       "bullets": [
-        "2\u00d7 other \u2014 Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val"
+        "Quota: sold-quota lock timed out after 30s \u2014 cross-service lag between QuotaDetails, FeasDataStore and DetailsEditor (timing, not an assertion)",
+        "QuotaGroup: calculateAdhoc returned HTTP 500 from dk-project-feasibility-data-store",
+        "Separate lane \u2014 contract drift: 6 endpoints drifted from the OpenAPI contract (e.g. undefined 500s on calculateAdhoc / optionAssembler)"
       ],
       "newFailureAreas": [
         {
@@ -1761,8 +1764,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-11-02T03:07Z",
+    "source": "llm",
+    "generatedAt": "2026-11-02T03:08:00Z",
     "buildNumber": "3.0.2747",
     "buildId": "9651087",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9651087",
