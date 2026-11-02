@@ -1,7 +1,10 @@
-**4 continuing QA backend failures — no new fails and no code changes to blame.**
+**2 new failures in Quota**
 
-_Likely cause: QA backend 500s (Lookup optionAssembler NPE, Communication scheduler ResourceNotFound) plus one assertion — not infra timeouts, and no commit in the window to implicate._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- Lookup optionAssembler returns 500 (NPE on `progress`) ×2; Communication PUT returns 500 (scheduler ResourceNotFound) + 1 assertion — all continuing from prior.
+- 2× other — Sell amount is lockable only when there are at least one sold quota which is greater than its quota capped val
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9650456)
+⚠️ Contract drift: 6 new response-schema violation(s) vs baseline.
+- GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9651087)
