@@ -1639,61 +1639,18 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "headline": "Nightly was green \u2014 all unmuted tests passed with no new failures.",
     "tone": "ok",
     "severity": "none",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
-    "bullets": [
-      "Change NXS-14337: gergely.gimesi \u00b7 Lookup, QuotaGroup",
-      "Change NXS-14188: gergely.gimesi \u00b7 Communication"
-    ],
+    "causeText": "No new or unmuted test failures; the regression suite was clean.",
+    "investigation": "",
+    "bullets": [],
     "detail": {
-      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 5 service(s) (38 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
-      "bullets": [
-        "Change NXS-14337: gergely.gimesi \u00b7 Lookup, QuotaGroup",
-        "Change NXS-14188: gergely.gimesi \u00b7 Communication",
-        "NXS-14337 8d7ab0876fc2 by gergely.gimesi \u2192 areas Lookup, QuotaGroup (0 new fails) \u00b7 QuotaGroupHelper.groovy, QuotaGroupLookupE2ETestSteps.groovy, QuotaGroupLookupTestSteps.groovy",
-        "NXS-14188 f83ad7c0fbb1 by gergely.gimesi \u2192 areas Communication (0 new fails) \u00b7 CommunicationCRUDTestSteps.groovy",
-        "[QA deploy: NexusApiUI] NXS-14267 (1 commit) \u2014 [NXS-14267] MS - NexusaApiUI - CommunicationLogs - serialize quotaGroupNames alo",
-        "[QA deploy: MailFilterRestJ21]  (25 commits) \u2014 secret commit so you guys should not discover my breaking changes",
-        "[QA deploy: NexusApiBosJ21]  (4 commits) \u2014 [ PAC-758 ] DemandApi - handle loi, noc etc change without change order (#5525)",
-        "[QA deploy: SurveyRestJ21]  (3 commits) \u2014 [NA-2043] - EOS - SLS - In Exported uploaded url values the RID column should ap",
-        "[QA deploy: DetailsEditorRestJ21] NXS-14286 (5 commits) \u2014 [NXS-14286] switch to SCM u1 projectId/origin resolving"
-      ],
+      "investigation": "",
+      "bullets": [],
       "newFailureAreas": [],
-      "likelyCauses": [
-        {
-          "version": "8d7ab0876fc2",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-14337",
-          "comment": "NXS-14337 assemble source options with the saved channel map",
-          "areas": [
-            "Lookup",
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "QuotaGroupHelper.groovy",
-            "QuotaGroupLookupE2ETestSteps.groovy",
-            "QuotaGroupLookupTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "f83ad7c0fbb1",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-14188",
-          "comment": "NXS-14188 expect CANCELED after cancelling one quota group",
-          "areas": [
-            "Communication"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "CommunicationCRUDTestSteps.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
     "clusters": [],
     "suspectCommits": [
@@ -1890,8 +1847,8 @@
         "deployedAt": "20261102T084753+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-11-03T03:06Z",
+    "source": "llm",
+    "generatedAt": "2026-11-03T03:08:27Z",
     "buildNumber": "3.0.2748",
     "buildId": "9655101",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9655101",
