@@ -1,662 +1,378 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-03T03:06Z",
+  "generatedAt": "2026-11-04T03:04Z",
   "build": {
-    "number": "3.0.2748",
-    "buildId": "9655101",
-    "status": "SUCCESS",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9655101",
-    "durationSec": 2032.0
+    "number": "3.0.2749",
+    "buildId": "9657233",
+    "status": "FAILURE",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9657233",
+    "durationSec": 1854.0
   },
   "summary": {
     "tests": 1517,
-    "passed": 1457,
-    "failures": 0,
+    "passed": 1456,
+    "failures": 1,
     "errors": 0,
     "skipped": 0,
     "muted": 60,
-    "newFailed": 0,
-    "passRate": 100.0,
-    "timeSec": 2032.0
+    "newFailed": 1,
+    "passRate": 99.9,
+    "timeSec": 1854.0
   },
   "prior": {
-    "buildId": "9651087",
-    "number": "3.0.2747",
-    "status": "FAILURE",
-    "statusText": "Tests failed: 6 (2 new), passed: 1451, muted: 60",
-    "startDate": "20261102T023228+0000",
-    "durationSec": 2071.0,
-    "failed": 6,
-    "passed": 1451,
-    "newFailed": 2
+    "buildId": "9655101",
+    "number": "3.0.2748",
+    "status": "SUCCESS",
+    "statusText": "Tests passed: 1457, muted: 60",
+    "startDate": "20261103T023225+0000",
+    "durationSec": 2032.0,
+    "failed": 0,
+    "passed": 1457,
+    "newFailed": 0
   },
-  "changes": [
-    {
-      "version": "746769568b7e",
-      "username": "105725861+gimesi13",
-      "comment": "Merge pull request #5635 from dynata/NXS-14337-assemble-saved-channels",
-      "files": [],
-      "areas": []
-    },
-    {
-      "version": "8d7ab0876fc2",
-      "username": "gergely.gimesi",
-      "comment": "NXS-14337 assemble source options with the saved channel map",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/QuotaGroupHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Lookup/QuotaGroupLookupE2ETestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Lookup/QuotaGroupLookupTestSteps.groovy"
-      ],
-      "areas": [
-        "Lookup",
-        "QuotaGroup"
-      ]
-    },
-    {
-      "version": "f83ad7c0fbb1",
-      "username": "gergely.gimesi",
-      "comment": "NXS-14188 expect CANCELED after cancelling one quota group",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy"
-      ],
-      "areas": [
-        "Communication"
-      ]
-    }
-  ],
+  "changes": [],
   "qaDeployChanges": [
     {
-      "service": "NexusApiUI",
-      "version": "b2c702443411",
-      "username": "andras.banszki",
-      "comment": "[NXS-14267] MS - NexusaApiUI - CommunicationLogs - serialize quotaGroupNames alongside quotaGroupIds (#5603)",
+      "service": "NexusApiMetaJ21",
+      "version": "2d4c047188f4",
+      "username": "40339600+tamasroma",
+      "comment": "[NXS-14246] Force new deploy",
       "files": [
-        "gateway/unifiedApi/NexusApiUI/README.md",
-        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/serializers/changeorderlog/ChangeOrderLogPayloadSerializer.java",
-        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/serializers/changeorderlog/ProjectLogCommunicationSerializer.java",
-        "gateway/unifiedApi/NexusApiUI/src/test/groovy/com/dynata/rest/gateway/nexusuiapi/serializers/changeorderlog/ChangeOrderLogPayloadSerializerTest.groovy"
+        "gateway/unifiedApi/NexusApiMeta/build.gradle"
       ],
-      "deployedAt": "20261102T152757+0000"
+      "deployedAt": "20261103T163718+0000"
     },
     {
-      "service": "MailFilterRestJ21",
-      "version": "732102f25838",
-      "username": "andras.banszki",
-      "comment": "secret commit so you guys should not discover my breaking changes",
+      "service": "NexusApiMetaJ21",
+      "version": "ee9f003ccd15",
+      "username": "gabor.imre",
+      "comment": "[ST-5104] Fixed application log format",
       "files": [
-        "project/MailFilterRest/build.gradle"
+        "export-service/group_vars/dev.yml",
+        "export-service/group_vars/prod.yml",
+        "export-service/group_vars/qa.yml",
+        "st-menu-service/group_vars/dev.yml",
+        "st-menu-service/group_vars/prod.yml",
+        "st-menu-service/group_vars/qa.yml",
+        "st-participation-status-rest/group_vars/dev.yml",
+        "st-participation-status-rest/group_vars/prod.yml",
+        "st-participation-status-rest/group_vars/qa.yml",
+        "st-respondent-rest/group_vars/dev.yml",
+        "st-respondent-rest/group_vars/prod.yml",
+        "st-respondent-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20261102T143737+0000"
+      "deployedAt": "20261103T163718+0000"
     },
     {
-      "service": "MailFilterRestJ21",
-      "version": "42eca073b480",
-      "username": "andras.banszki",
-      "comment": "[NXS-12230] no change new build",
+      "service": "NexusApiMetaJ21",
+      "version": "e5e997c33f4d",
+      "username": "adamlaszlo.mohacsi",
+      "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
       "files": [
-        "project/MailFilterRest/build.gradle"
+        "sls-db/cloud-formation.template.yml",
+        "sls-db/group_vars/dev.yml",
+        "sls-db/group_vars/production.yml",
+        "sls-db/group_vars/qa.yml"
       ],
-      "deployedAt": "20261102T143737+0000"
+      "deployedAt": "20261103T163718+0000"
     },
     {
-      "service": "MailFilterRestJ21",
-      "version": "cead45b867a9",
-      "username": "erik.paulsen",
-      "comment": "Revert. Error was Role arn:aws:iam::256094742173:role/DeploymentAutomation is invalid or cannot be assumed. I could not\u2026",
+      "service": "NexusApiMetaJ21",
+      "version": "02ffd18405f9",
+      "username": "szabolcs.papellas",
+      "comment": "[ST-4786] retire apps",
       "files": [
-        "feasibility-open-telemetry-vpc-endpoint/group_vars/all.yml"
+        "ng-rubiq-demo/cloud-formation.template.yml",
+        "ng-rubiq-demo/group_vars/all.yml",
+        "ng-rubiq-demo/group_vars/dev.yml",
+        "ng-rubiq-demo/group_vars/production.yml",
+        "ng-rubiq-demo/group_vars/qa.yml",
+        "ng-rubiq-demo/inventory.ini",
+        "ng-rubiq-reference-app/cloud-formation.template.yml",
+        "ng-rubiq-reference-app/group_vars/all.yml",
+        "ng-rubiq-reference-app/group_vars/dev.yml",
+        "ng-rubiq-reference-app/group_vars/production.yml",
+        "ng-rubiq-reference-app/group_vars/qa.yml"
       ],
-      "deployedAt": "20261102T143737+0000"
+      "deployedAt": "20261103T163718+0000"
     },
     {
-      "service": "MailFilterRestJ21",
-      "version": "a1f54386683e",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7780] [DKJS] New AE-DPR - dkjs-automated-sourcing-jobs - S3 config",
+      "service": "QuotaGroupRestJ21",
+      "version": "e0a449cb44da",
+      "username": "40339600+tamasroma",
+      "comment": "[NXS-14269] MS - QuotaGroupRest return all language ISO of all QG test fix",
       "files": [
-        "dkjs-automated-sourcing-jobs/cloud-formation.template.yml",
-        "dkjs-automated-sourcing-jobs/group_vars/all.yml",
-        "dkjs-automated-sourcing-jobs/group_vars/qa.yml"
+        "project/QuotaGroupRest/serviceFeign/src/main/java/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupRestFeignClient.java"
       ],
-      "deployedAt": "20261102T143737+0000"
+      "deployedAt": "20261103T092959+0000"
     },
     {
-      "service": "MailFilterRestJ21",
-      "version": "1148e2c73005",
-      "username": "erik.paulsen",
-      "comment": "Specify CF role as correct new role, instead of blank. Tibor already tried this, but I want to see the error message.",
+      "service": "QuotaGroupRestJ21",
+      "version": "81ae325699bf",
+      "username": "40339600+tamasroma",
+      "comment": "[NXS-14269] MS - QuotaGroupRest return all language ISO of all QG wit\u2026 (#5612)",
       "files": [
-        "feasibility-open-telemetry-vpc-endpoint/group_vars/all.yml"
+        "project/QuotaGroupRest/serviceFeign/src/main/java/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupRestFeignClient.java",
+        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupRestAcceptanceTest.groovy",
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/api/QuotaGroupRest.java",
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupRestImpl.java",
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/model/unified/QuotaGroupPaths.java",
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/mongo/QuotaGroupMongoHelper.java",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/QuotaGroupRestImplTest.groovy",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/api/QuotaGroupRestTest.groovy",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/mongo/QuotaGroupMongoHelperTest.groovy"
       ],
-      "deployedAt": "20261102T143737+0000"
+      "deployedAt": "20261103T092959+0000"
     },
     {
-      "service": "MailFilterRestJ21",
-      "version": "28c14e2e537f",
-      "username": "zoltan.redai",
-      "comment": "[AE-7988] Add automatic DLQ redrive",
-      "files": [
-        "ae-pes-aggregator/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "9539f70a4e88",
-      "username": "weiqun.wang",
-      "comment": "switch dev to g4dn for testing",
-      "files": [
-        "ml-reconciliation-model/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "9edf9e45fd86",
-      "username": "szabolcs.fekete",
-      "comment": "[AE] adding back accidentally removed lines",
-      "files": [
-        "ae-legacy-sfc-experimental/cloud-formation.template.yml",
-        "ae-legacy-ssi-verify/cloud-formation.template.yml",
-        "ae-legacy-survey-flow-controller/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "67dfedf5b199",
-      "username": "szabolcs.fekete",
-      "comment": "[AE] use readonly root filesystem part 9 (legacy-sfc)",
-      "files": [
-        "ae-legacy-sfc-experimental/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "4e31d1d414da",
-      "username": "gandriys",
-      "comment": "Merge pull request #658 from dynata/DN-4172-update-gateway-cloudformation-for-conditions-pipeline-fix",
-      "files": [],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "ea63f1971dfc",
-      "username": "andrii.gorbatiuk",
-      "comment": "[DN-4172] Use audienceId for the quota group conditions route",
-      "files": [
-        "project-backend-plus-api-gateway/authorizer/tests/test_route_coverage.py",
-        "project-backend-plus-api-gateway/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "1c830b77c31f",
-      "username": "gandriys",
-      "comment": "Merge pull request #657 from dynata/DN-4172-update-gateway-cloudformation-for-conditions-2",
-      "files": [],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "5e32221fd40b",
-      "username": "andrii.gorbatiuk",
-      "comment": "[DN-4172] Point quota group conditions at the NexusApiUI route",
-      "files": [
-        "project-backend-plus-api-gateway/authorizer/tests/test_route_coverage.py",
-        "project-backend-plus-api-gateway/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "3b9bb46cad6a",
-      "username": "szabolcs.fekete",
-      "comment": "[AE] use readonly root filesystem part 8 (legacy-sfc)",
-      "files": [
-        "ae-legacy-ssi-verify/cloud-formation.template.yml",
-        "ae-legacy-survey-flow-controller/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "369b2e0e967f",
-      "username": "gergo.hajnal",
-      "comment": "[ST-4986] (ClaimOptionRest) prepare for PROD deploy",
-      "files": [
-        "dk-management-claim-option-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "cc314c91a972",
-      "username": "andrii.gorbatiuk",
-      "comment": "[DN-4172] Expose GET quota group conditions on the Dynata Plus API gateway",
-      "files": [
-        "project-backend-plus-api-gateway/authorizer/tests/test_route_coverage.py",
-        "project-backend-plus-api-gateway/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "399902be173a",
-      "username": "gergely.gimesi",
-      "comment": "NXS-13832 generate pacts from the Feign clients: no pact specs (447 deleted), pactCoverage removed; PactVerifyPlugin 4.\u2026",
-      "files": [
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/CategoryPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/CountersGWPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/CrmPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DKExportPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DKProjectPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DKSurveyPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DKSystemRestPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DKTrafficPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DashboardPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DedupePact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/DkDashboardPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/EnumPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ExtendedAttributesPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/FeasibilityBatchPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/FeasibilityRestPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/FeaturePact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/ProjectPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/QuotaDetailsPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/QuotaGroupDefinitionPact.groovy",
-        "gateway/dk/DKOrder/src/integTest/groovy/com/surveysampling/rest/gateway/order/pact/QuotaGroupPact.groovy"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "564885446781",
-      "username": "gergo.hajnal",
-      "comment": "[ST-4999] (FeatureValueRest) Prepare for PROD deploy",
-      "files": [
-        "dk-respondent-feature-value-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "7cfbb1317516",
-      "username": "gergo.hajnal",
-      "comment": "[ST-4985] (ExternalProviderRest) Prepare for PROD deploy",
-      "files": [
-        "dk-management-external-provider-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "4afa912f2d9f",
-      "username": "gergo.hajnal",
-      "comment": "[ST-5019] (st-cloud-config) Prepare for PROD deploy",
-      "files": [
-        "st-cloud-config/group_vars/prod.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "bc96fa7add43",
-      "username": "gergo.hajnal",
-      "comment": "[ST-5005] (DKContentRest) Prepare for PROD deploy",
-      "files": [
-        "dk-dk-content-rest/group_vars/production.yml",
-        "dk-dk-content-rest/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "2336d2a7e41b",
-      "username": "gergo.hajnal",
-      "comment": "[ST-5002] (DKFeatureValueRest) prepare for PROD deploy",
-      "files": [
-        "dk-dk-feature-value-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "49e6559bbfea",
-      "username": "gergo.hajnal",
-      "comment": "[ST-4997] (DKNovaTranslatorRest) prepare for PROD deploy",
-      "files": [
-        "dk-dk-nova-translator-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "e63efcefc019",
-      "username": "gergo.hajnal",
-      "comment": "[ST-4982] (EncryptDecryptRest) prepare for PROD deploy",
-      "files": [
-        "dk-system-encrypt-decrypt-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "version": "428578df8b0d",
-      "username": "gergo.hajnal",
-      "comment": "[ST-4996] (MembershipStatusRest) prepare for PROD deploy",
-      "files": [
-        "dk-management-membership-status-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
-      "version": "be5c56175c8a",
-      "username": "43554565+kokusz19",
-      "comment": "[ PAC-758 ] DemandApi - handle loi, noc etc change without change order (#5525)",
-      "files": [
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/dependency/feasibilitydatastore/FeasibilityDataStoreFeignClient.java",
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/dependency/nexusapi/NexusApiFeignClient.java",
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/dependency/nexusapi/model/projectlineupsert/ProjectLineUpsertRequest.java",
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/dependency/nexusapi/model/projectlineupsert/ProjectLineUpsertResult.java",
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/dependency/nexusapi/model/projectlineupsert/ProjectLineUpsertSample.java",
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/ProjectHandler.java",
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/QuotaGroupUpdateHandler.java",
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/feas/FeasibilityHandler.java",
-        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/DifferenceComparatorTestBase.groovy",
-        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/ProjectHandlerTest.groovy",
-        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/QuotaGroupUpdateHandlerTest.groovy",
-        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/feas/FeasibilityHandlerTest.groovy",
-        "gateway/unifiedApi/NexusApiBos/README.md",
-        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/dependencies/d365bos/D365BosFeignClient.java",
-        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/dependencies/d365bos/model/projectline/ProjectLineUpsertRequest.java",
-        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/dependencies/d365bos/model/projectline/ProjectLineUpsertResult.java",
-        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/dependencies/d365bos/model/projectline/ProjectLineUpsertSample.java",
-        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/v1/api/D365Api.java",
-        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/v1/api/D365ApiImpl.java",
-        "gateway/unifiedApi/NexusApiBos/src/test/groovy/com/dynata/rest/gateway/nexusapibos/v1/api/D365ApiTest.groovy"
-      ],
-      "deployedAt": "20261102T113132+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "4a79e0307c5d",
       "username": "weiqun.wang",
       "comment": "Scale up prod to get ready for traffics switching over",
       "files": [
         "ml-complete-optimization-model/group_vars/production.yml"
       ],
-      "deployedAt": "20261102T113132+0000"
+      "deployedAt": "20261103T092959+0000"
     },
     {
-      "service": "NexusApiBosJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "e17dc0632dde",
       "username": "norbert.farkas",
       "comment": "fix subnet",
       "files": [
         "dk-project-survey-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20261102T113132+0000"
+      "deployedAt": "20261103T092959+0000"
     },
     {
-      "service": "NexusApiBosJ21",
+      "service": "QuotaGroupRestJ21",
       "version": "a9d072d496a6",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] fix log groups",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261102T113132+0000"
+      "deployedAt": "20261103T092959+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "c4c33d8779a0",
+      "username": "adamlaszlo.mohacsi",
+      "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
+      "files": [
+        "sls-db/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261103T092959+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "0178093fb27b",
+      "username": "adamlaszlo.mohacsi",
+      "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
+      "files": [
+        "sls-db/cloud-formation.template.yml",
+        "sls-db/group_vars/dev.yml",
+        "sls-db/group_vars/production.yml",
+        "sls-db/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261103T092959+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "NexusApiUI",
-      "commits": 1,
-      "latestTicket": "NXS-14267",
-      "latestComment": "[NXS-14267] MS - NexusaApiUI - CommunicationLogs - serialize quotaGroupNames alo",
-      "deployedAt": "20261102T152757+0000"
-    },
-    {
-      "service": "MailFilterRestJ21",
-      "commits": 25,
-      "latestTicket": "",
-      "latestComment": "secret commit so you guys should not discover my breaking changes",
-      "deployedAt": "20261102T143737+0000"
-    },
-    {
-      "service": "NexusApiBosJ21",
+      "service": "NexusApiMetaJ21",
       "commits": 4,
-      "latestTicket": "",
-      "latestComment": "[ PAC-758 ] DemandApi - handle loi, noc etc change without change order (#5525)",
-      "deployedAt": "20261102T113132+0000"
+      "latestTicket": "NXS-14246",
+      "latestComment": "[NXS-14246] Force new deploy",
+      "deployedAt": "20261103T163718+0000"
     },
     {
-      "service": "SurveyRestJ21",
-      "commits": 3,
-      "latestTicket": "",
-      "latestComment": "[NA-2043] - EOS - SLS - In Exported uploaded url values the RID column should ap",
-      "deployedAt": "20261102T101800+0000"
-    },
-    {
-      "service": "DetailsEditorRestJ21",
-      "commits": 5,
-      "latestTicket": "NXS-14286",
-      "latestComment": "[NXS-14286] switch to SCM u1 projectId/origin resolving",
-      "deployedAt": "20261102T084753+0000"
+      "service": "QuotaGroupRestJ21",
+      "commits": 7,
+      "latestTicket": "NXS-14269",
+      "latestComment": "[NXS-14269] MS - QuotaGroupRest return all language ISO of all QG test fix",
+      "deployedAt": "20261103T092959+0000"
     }
   ],
-  "clusters": [],
-  "failures": [],
+  "clusters": [
+    {
+      "label": "assert_fail",
+      "display": "assertion Condition not satisfied",
+      "count": 1,
+      "newCount": 1,
+      "sample": "",
+      "why": "Spock assertion failed (fixture or response shape)"
+    }
+  ],
+  "failures": [
+    {
+      "name": "Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.AudienceGroup.AudienceGroupE2ECloneRestoreReorderTestSteps",
+      "newFailure": true,
+      "area": "AudienceGroup",
+      "cluster": "assert_fail",
+      "message": "Condition not satisfied:",
+      "detailsExcerpt": "Condition not satisfied: agHelper.getAudienceGroup(agId).name == specialCharName | | | | | | | | | | | AG with Special !@# 1793760007244 | | | | false | | | | 30 differences (9% similarity) | | | | (Defaul)t(-) (T-)e(st--) (Audience Group---) | | | | (AG wi-)t(h) (Sp)e(cial) (!@# 1793760007244) | | | Default Test Audience Group | | 1668994 | <com.dynata.nexus.api.model.project.AudienceGroup@6c867\u2026"
+    }
+  ],
   "rulesNutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
-    "tone": "ok",
-    "severity": "none",
+    "headline": "1 new failure in AudienceGroup",
+    "tone": "warn",
+    "severity": "low",
     "bullets": [
-      "Change NXS-14337: gergely.gimesi \u00b7 Lookup, QuotaGroup",
-      "Change NXS-14188: gergely.gimesi \u00b7 Communication"
+      "1\u00d7 assertion Condition not satisfied"
     ],
-    "investigation": "No unmuted failures.",
+    "investigation": "New fails: 1\u00d7 assertion Condition not satisfied. Vs prior #3.0.2748: up 1 total fails.",
     "detail": {
-      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 5 service(s) (38 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
+      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2748, 0 fails). Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: AudienceGroup (1). 2 service(s) (11 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: AudienceGroup: Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder [assertion Condition not satisfied].",
       "bullets": [
-        "Change NXS-14337: gergely.gimesi \u00b7 Lookup, QuotaGroup",
-        "Change NXS-14188: gergely.gimesi \u00b7 Communication",
-        "NXS-14337 8d7ab0876fc2 by gergely.gimesi \u2192 areas Lookup, QuotaGroup (0 new fails) \u00b7 QuotaGroupHelper.groovy, QuotaGroupLookupE2ETestSteps.groovy, QuotaGroupLookupTestSteps.groovy",
-        "NXS-14188 f83ad7c0fbb1 by gergely.gimesi \u2192 areas Communication (0 new fails) \u00b7 CommunicationCRUDTestSteps.groovy",
-        "[QA deploy: NexusApiUI] NXS-14267 (1 commit) \u2014 [NXS-14267] MS - NexusaApiUI - CommunicationLogs - serialize quotaGroupNames alo",
-        "[QA deploy: MailFilterRestJ21]  (25 commits) \u2014 secret commit so you guys should not discover my breaking changes",
-        "[QA deploy: NexusApiBosJ21]  (4 commits) \u2014 [ PAC-758 ] DemandApi - handle loi, noc etc change without change order (#5525)",
-        "[QA deploy: SurveyRestJ21]  (3 commits) \u2014 [NA-2043] - EOS - SLS - In Exported uploaded url values the RID column should ap",
-        "[QA deploy: DetailsEditorRestJ21] NXS-14286 (5 commits) \u2014 [NXS-14286] switch to SCM u1 projectId/origin resolving"
+        "1\u00d7 assertion Condition not satisfied",
+        "[QA deploy: NexusApiMetaJ21] NXS-14246 (4 commits) \u2014 [NXS-14246] Force new deploy",
+        "[QA deploy: QuotaGroupRestJ21] NXS-14269 (7 commits) \u2014 [NXS-14269] MS - QuotaGroupRest return all language ISO of all QG test fix"
       ],
-      "newFailureAreas": [],
-      "likelyCauses": [
+      "newFailureAreas": [
         {
-          "version": "8d7ab0876fc2",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-14337",
-          "comment": "NXS-14337 assemble source options with the saved channel map",
-          "areas": [
-            "Lookup",
-            "QuotaGroup"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "QuotaGroupHelper.groovy",
-            "QuotaGroupLookupE2ETestSteps.groovy",
-            "QuotaGroupLookupTestSteps.groovy"
-          ]
-        },
-        {
-          "version": "f83ad7c0fbb1",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-14188",
-          "comment": "NXS-14188 expect CANCELED after cancelling one quota group",
-          "areas": [
-            "Communication"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "CommunicationCRUDTestSteps.groovy"
-          ]
+          "area": "AudienceGroup",
+          "newCount": 1
         }
-      ]
+      ],
+      "likelyCauses": []
     },
-    "suspectCommits": [
-      {
-        "version": "746769568b7e",
-        "username": "105725861+gimesi13",
-        "comment": "Merge pull request #5635 from dynata/NXS-14337-assemble-saved-channels",
-        "ticket": "NXS-14337",
-        "areas": []
-      },
-      {
-        "version": "8d7ab0876fc2",
-        "username": "gergely.gimesi",
-        "comment": "NXS-14337 assemble source options with the saved channel map",
-        "ticket": "NXS-14337",
-        "areas": [
-          "Lookup",
-          "QuotaGroup"
-        ]
-      },
-      {
-        "version": "f83ad7c0fbb1",
-        "username": "gergely.gimesi",
-        "comment": "NXS-14188 expect CANCELED after cancelling one quota group",
-        "ticket": "NXS-14188",
-        "areas": [
-          "Communication"
-        ]
-      }
-    ],
+    "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "NexusApiUI",
-        "version": "b2c702443411",
-        "username": "andras.banszki",
-        "comment": "[NXS-14267] MS - NexusaApiUI - CommunicationLogs - serialize quotaGroupNames alongside quotaGroupIds (#5603)",
-        "ticket": "NXS-14267",
-        "deployedAt": "20261102T152757+0000",
-        "files": [
-          "README.md",
-          "ChangeOrderLogPayloadSerializer.java",
-          "ProjectLogCommunicationSerializer.java",
-          "ChangeOrderLogPayloadSerializerTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "MailFilterRestJ21",
-        "version": "732102f25838",
-        "username": "andras.banszki",
-        "comment": "secret commit so you guys should not discover my breaking changes",
-        "ticket": "",
-        "deployedAt": "20261102T143737+0000",
+        "service": "NexusApiMetaJ21",
+        "version": "2d4c047188f4",
+        "username": "40339600+tamasroma",
+        "comment": "[NXS-14246] Force new deploy",
+        "ticket": "NXS-14246",
+        "deployedAt": "20261103T163718+0000",
         "files": [
           "build.gradle"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "MailFilterRestJ21",
-        "version": "42eca073b480",
-        "username": "andras.banszki",
-        "comment": "[NXS-12230] no change new build",
-        "ticket": "NXS-12230",
-        "deployedAt": "20261102T143737+0000",
-        "files": [
-          "build.gradle"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "MailFilterRestJ21",
-        "version": "cead45b867a9",
-        "username": "erik.paulsen",
-        "comment": "Revert.  Error was Role arn:aws:iam::256094742173:role/DeploymentAutomation is invalid or cannot be assumed.  I could not fix this with any obvious trust policy",
+        "service": "NexusApiMetaJ21",
+        "version": "ee9f003ccd15",
+        "username": "gabor.imre",
+        "comment": "[ST-5104] Fixed application log format",
         "ticket": "",
-        "deployedAt": "20261102T143737+0000",
+        "deployedAt": "20261103T163718+0000",
         "files": [
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "MailFilterRestJ21",
-        "version": "a1f54386683e",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7780] [DKJS] New AE-DPR - dkjs-automated-sourcing-jobs - S3 config",
-        "ticket": "",
-        "deployedAt": "20261102T143737+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
+          "dev.yml",
+          "prod.yml",
+          "qa.yml",
+          "dev.yml",
+          "prod.yml",
           "qa.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "MailFilterRestJ21",
-        "version": "1148e2c73005",
-        "username": "erik.paulsen",
-        "comment": "Specify CF role as correct new role, instead of blank.  Tibor already tried this, but I want to see the error message.",
+        "service": "NexusApiMetaJ21",
+        "version": "e5e997c33f4d",
+        "username": "adamlaszlo.mohacsi",
+        "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
         "ticket": "",
-        "deployedAt": "20261102T143737+0000",
+        "deployedAt": "20261103T163718+0000",
         "files": [
-          "all.yml"
+          "cloud-formation.template.yml",
+          "dev.yml",
+          "production.yml",
+          "qa.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "MailFilterRestJ21",
-        "version": "28c14e2e537f",
-        "username": "zoltan.redai",
-        "comment": "[AE-7988] Add automatic DLQ redrive",
+        "service": "NexusApiMetaJ21",
+        "version": "02ffd18405f9",
+        "username": "szabolcs.papellas",
+        "comment": "[ST-4786] retire apps",
         "ticket": "",
-        "deployedAt": "20261102T143737+0000",
+        "deployedAt": "20261103T163718+0000",
         "files": [
-          "cloud-formation.template.yml"
+          "cloud-formation.template.yml",
+          "all.yml",
+          "dev.yml",
+          "production.yml",
+          "qa.yml",
+          "inventory.ini"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "MailFilterRestJ21",
-        "version": "9539f70a4e88",
+        "service": "QuotaGroupRestJ21",
+        "version": "e0a449cb44da",
+        "username": "40339600+tamasroma",
+        "comment": "[NXS-14269] MS - QuotaGroupRest return all language ISO of all QG test fix",
+        "ticket": "NXS-14269",
+        "deployedAt": "20261103T092959+0000",
+        "files": [
+          "QuotaGroupRestFeignClient.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "81ae325699bf",
+        "username": "40339600+tamasroma",
+        "comment": "[NXS-14269] MS - QuotaGroupRest return all language ISO of all QG wit\u2026 (#5612)",
+        "ticket": "NXS-14269",
+        "deployedAt": "20261103T092959+0000",
+        "files": [
+          "QuotaGroupRestFeignClient.java",
+          "QuotaGroupRestAcceptanceTest.groovy",
+          "QuotaGroupRest.java",
+          "QuotaGroupRestImpl.java",
+          "QuotaGroupPaths.java",
+          "QuotaGroupMongoHelper.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "4a79e0307c5d",
         "username": "weiqun.wang",
-        "comment": "switch dev to g4dn for testing",
+        "comment": "Scale up prod to get ready for traffics switching over",
         "ticket": "",
-        "deployedAt": "20261102T143737+0000",
+        "deployedAt": "20261103T092959+0000",
         "files": [
-          "dev.yml"
+          "production.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "MailFilterRestJ21",
-        "version": "9edf9e45fd86",
-        "username": "szabolcs.fekete",
-        "comment": "[AE] adding back accidentally removed lines",
+        "service": "QuotaGroupRestJ21",
+        "version": "e17dc0632dde",
+        "username": "norbert.farkas",
+        "comment": "fix subnet",
         "ticket": "",
-        "deployedAt": "20261102T143737+0000",
+        "deployedAt": "20261103T092959+0000",
         "files": [
-          "cloud-formation.template.yml",
-          "cloud-formation.template.yml",
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "a9d072d496a6",
+        "username": "norbert.farkas",
+        "comment": "[ NXS-14187 ] fix log groups",
+        "ticket": "NXS-14187",
+        "deployedAt": "20261103T092959+0000",
+        "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "MailFilterRestJ21",
-        "version": "67dfedf5b199",
-        "username": "szabolcs.fekete",
-        "comment": "[AE] use readonly root filesystem part 9 (legacy-sfc)",
+        "service": "QuotaGroupRestJ21",
+        "version": "c4c33d8779a0",
+        "username": "adamlaszlo.mohacsi",
+        "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
         "ticket": "",
-        "deployedAt": "20261102T143737+0000",
+        "deployedAt": "20261103T092959+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
@@ -665,11 +381,12 @@
     ]
   },
   "contractDrift": {
-    "newCount": 4,
+    "newCount": 5,
     "baselineCount": 95,
-    "currentCount": 96,
+    "currentCount": 97,
     "examples": [
       "GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.",
+      "GET /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'.",
       "POST /u1/nexus/quotaGroups/search/ids :: Response status 500 not defined for path '/u1/nexus/quotaGroups/search/ids'.",
       "POST /u1/nexus/quotaGroups/search/labels :: Response status 500 not defined for path '/u1/nexus/quotaGroups/search/labels'.",
       "POST /u1/nexus/quotaGroups/{}/validations :: Response status 404 not defined for path '/u1/nexus/quotaGroups/{quotaGroupId}/validations'."
