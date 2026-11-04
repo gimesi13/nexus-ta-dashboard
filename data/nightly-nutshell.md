@@ -1,10 +1,7 @@
-**1 new failure in AudienceGroup**
+**1 new AudienceGroup assertion failure; no QA-deployed code change maps to it.**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: test/data — an AudienceGroup special-character rename assertion; no deployed change touches AudienceGroup._
 
-- 1× assertion Condition not satisfied
-
-⚠️ Contract drift: 5 new response-schema violation(s) vs baseline.
-- GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.
+- 1× assertion 'Condition not satisfied' in the AudienceGroup special-char rename
 
 [Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9657233)

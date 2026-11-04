@@ -1651,21 +1651,22 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "1 new failure in AudienceGroup",
+    "headline": "1 new AudienceGroup assertion failure; no QA-deployed code change maps to it.",
     "tone": "warn",
     "severity": "low",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 2 service(s) were deployed to QA in this window (NexusApiMetaJ21, QuotaGroupRestJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 assertion Condition not satisfied. Vs prior #3.0.2748: up 1 total fails.",
+    "causeText": "The lone new failure is a Spock assertion on an AudienceGroup special-character rename, and none of the 11 QA-deployed commits (NexusApiMeta NXS-14246, QuotaGroupRest NXS-14269, plus config/infra) touch AudienceGroup, so this looks like a test/data issue rather than a code regression.",
+    "investigation": "The single new failure is an AudienceGroup rename assertion (special-character name not applied) with an assertion signature, not an infra timeout/502/504, and no deployed change touches AudienceGroup.",
     "bullets": [
-      "1\u00d7 assertion Condition not satisfied"
+      "1\u00d7 assertion 'Condition not satisfied' \u2014 AudienceGroup special-char rename still read 'Default Test Audience Group'",
+      "No QA-deploy change maps to AudienceGroup (deploys: NXS-14246 NexusApiMeta, NXS-14269 QuotaGroupRest)"
     ],
     "detail": {
-      "investigation": "1 of 1 unmuted failures are new since the prior build (#3.0.2748, 0 fails). Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: AudienceGroup (1). 2 service(s) (11 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: AudienceGroup: Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder [assertion Condition not satisfied].",
+      "investigation": "The only new failure is in AudienceGroup: the E2E rename/clone/reorder test asserts the group name equals a special-character value but still reads 'Default Test Audience Group' (9% similarity) \u2014 a Spock assertion, not an infra SocketTimeout/502/504. The QA window deployed NexusApiMetaJ21 (NXS-14246) and QuotaGroupRestJ21 (NXS-14269) plus config/infra commits, none of which touch AudienceGroup code, so no code change is implicated.",
       "bullets": [
-        "1\u00d7 assertion Condition not satisfied",
-        "[QA deploy: NexusApiMetaJ21] NXS-14246 (4 commits) \u2014 [NXS-14246] Force new deploy",
-        "[QA deploy: QuotaGroupRestJ21] NXS-14269 (7 commits) \u2014 [NXS-14269] MS - QuotaGroupRest return all language ISO of all QG test fix"
+        "AudienceGroup E2E test: assertion agHelper.getAudienceGroup(agId).name == specialCharName failed (got 'Default Test Audience Group')",
+        "Signature is a Spock assertion, not infra (no SocketTimeout/502/504)",
+        "QA deploys NXS-14246 (NexusApiMeta) and NXS-14269 (QuotaGroupRest) don't touch AudienceGroup"
       ],
       "newFailureAreas": [
         {
@@ -1842,7 +1843,7 @@
         "deployedAt": "20261103T092959+0000"
       }
     ],
-    "source": "investigator",
+    "source": "llm",
     "generatedAt": "2026-11-04T03:04Z",
     "buildNumber": "3.0.2749",
     "buildId": "9657233",
