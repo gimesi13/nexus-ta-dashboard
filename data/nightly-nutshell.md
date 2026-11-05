@@ -1,7 +1,11 @@
-**1 new AudienceGroup assertion failure; no QA-deployed code change maps to it.**
+**13 new failures — mainly PES, Fieldwork**
 
-_Likely cause: test/data — an AudienceGroup special-character rename assertion; no deployed change touches AudienceGroup._
+_Likely cause: VCS changes present but none map onto the failing packages — likely test/data, correlate manually._
 
-- 1× assertion 'Condition not satisfied' in the AudienceGroup special-char rename
+- 7× PES soft-launch vs tally — java.lang.NullPointerException:Cannot invoke \
+- 6× server NestedServletException / NPE — java.lang.NullPointerException:Cannot invoke \
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9657233)
+⚠️ Contract drift: 6 new response-schema violation(s) vs baseline.
+- DELETE /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9660100)
