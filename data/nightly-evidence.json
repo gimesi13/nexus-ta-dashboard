@@ -1,143 +1,143 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-05T03:06Z",
+  "generatedAt": "2026-11-05T13:50Z",
   "build": {
-    "number": "3.0.2750",
-    "buildId": "9660100",
+    "number": "3.0.2751",
+    "buildId": "9661775",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9660100",
-    "durationSec": 1949.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9661775",
+    "durationSec": 1815.0
   },
   "summary": {
     "tests": 1522,
-    "passed": 1451,
+    "passed": 1448,
     "failures": 13,
     "errors": 0,
     "skipped": 0,
-    "muted": 58,
-    "newFailed": 13,
+    "muted": 61,
+    "newFailed": 0,
     "passRate": 99.1,
-    "timeSec": 1949.0
+    "timeSec": 1815.0
   },
   "prior": {
-    "buildId": "9657233",
-    "number": "3.0.2749",
+    "buildId": "9660100",
+    "number": "3.0.2750",
     "status": "FAILURE",
-    "statusText": "Tests failed: 1 (1 new), passed: 1456, muted: 60",
-    "startDate": "20261104T023249+0000",
-    "durationSec": 1854.0,
-    "failed": 1,
-    "passed": 1456,
-    "newFailed": 1
+    "statusText": "Tests failed: 13 (13 new), passed: 1451, muted: 58",
+    "startDate": "20261105T023339+0000",
+    "durationSec": 1949.0,
+    "failed": 13,
+    "passed": 1451,
+    "newFailed": 13
   },
-  "changes": [
-    {
-      "version": "c241fab0cc00",
-      "username": "gergely.gimesi",
-      "comment": "NXS-14341 Poll special-char audience-group rename before asserting GET",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/AudienceGroup/AudienceGroupE2ECloneRestoreReorderTestSteps.groovy"
-      ],
-      "areas": [
-        "AudienceGroup"
-      ]
-    }
-  ],
+  "changes": [],
   "qaDeployChanges": [
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "7b8f26afbd42",
-      "username": "david.nagy",
-      "comment": "[NXS-13903] MS - QuotaGroupRest - Replace all QG related mongo query with QuotaGroupRest feign calls",
+      "service": "NexusApiJ21",
+      "version": "66081ca3803d",
+      "username": "bence.csepe",
+      "comment": "[NA-2051] bump UNexusModel in NexusApi",
       "files": [
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/QuotaGroupRestImplTest.groovy"
+        "gateway/unifiedApi/NexusApi/build.gradle"
       ],
-      "deployedAt": "20261104T181929+0000"
+      "deployedAt": "20261105T131051+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "4d995c905884",
-      "username": "david.nagy",
-      "comment": "[NXS-13903] MS - QuotaGroupRest - Replace all QG related mongo query with QuotaGroupRest feign calls",
+      "service": "NexusApiJ21",
+      "version": "8c97a26d8004",
+      "username": "sajak.upadhyaya",
+      "comment": "[FAI-565] renaming cluster and changing tags",
       "files": [
-        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupCoreRestAcceptanceTest.groovy",
-        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupRestAcceptanceTest.groovy",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupRestImpl.java"
+        "ml-machine-translation-cluster/cloud-formation.template.yml",
+        "ml-machine-translation-cluster/group_vars/all.yml",
+        "ml-machine-translation-cluster/group_vars/production.yml"
       ],
-      "deployedAt": "20261104T181929+0000"
+      "deployedAt": "20261105T131051+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "79798ff06868",
-      "username": "david.nagy",
-      "comment": "[NXS-13903] MS - QuotaGroupRest - Replace all QG related mongo query with QuotaGroupRest feign calls - } fixes",
+      "service": "NexusApiJ21",
+      "version": "9dddb25f03b1",
+      "username": "weiqun.wang",
+      "comment": "raise sagemaker_scaling_target_invocations_per_instance for qa to 3000 to test",
       "files": [
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/api/QuotaGroupRest.java",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupRestImpl.java",
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/QuotaGroupRestImplTest.groovy",
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/api/QuotaGroupRestTest.groovy"
+        "ml-complete-optimization-model/group_vars/qa.yml"
       ],
-      "deployedAt": "20261104T181929+0000"
+      "deployedAt": "20261105T131051+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "93228d5bdd60",
-      "username": "david.nagy",
-      "comment": "[NXS-13903] MS - QuotaGroupRest - Replace all QG related mongo query \u2026 (#5624)",
+      "service": "NexusApiJ21",
+      "version": "2bebde539b93",
+      "username": "matt.spencer",
+      "comment": "[DQI-4715] Fixed Primer dns_zone_id to dnw_private_zone_id.",
       "files": [
-        "project/QuotaGroupRest/serviceApi/src/main/java/com/surveysampling/rest/quota/u1/model/QuotaGroupCoreSearchRequest.java",
-        "project/QuotaGroupRest/serviceApi/src/main/java/com/surveysampling/rest/quota/u1/model/QuotaGroupCoreSearchResult.java",
-        "project/QuotaGroupRest/serviceFeign/src/main/java/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupCoreRestFeignClient.java",
-        "project/QuotaGroupRest/serviceFeign/src/main/java/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupRestFeignClient.java",
-        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupCoreRestAcceptanceTest.groovy",
-        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupRestAcceptanceTest.groovy",
-        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/quota/u1/mongo/QuotaGroupMongoHelperMongoTest.groovy",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/api/QuotaGroupCoreRest.java",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/api/QuotaGroupRest.java",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupCoreService.java",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupRestImpl.java",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/model/unified/QuotaGroupPaths.java",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/mongo/QuotaGroupMongoHelper.java",
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/QuotaGroupCoreServiceTest.groovy",
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/QuotaGroupRestImplTest.groovy",
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/api/QuotaGroupCoreRestTest.groovy",
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/api/QuotaGroupRestTest.groovy",
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/mongo/QuotaGroupMongoHelperTest.groovy"
+        "primer/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261104T181929+0000"
+      "deployedAt": "20261105T131051+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "NexusApiJ21",
+      "version": "9502c2f2476e",
+      "username": "matt.spencer",
+      "comment": "Merge pull request #683 from dynata/DQI-4715-Update-Primer-Listener-Rule-Config",
+      "files": [],
+      "deployedAt": "20261105T131051+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "3dc4ffe342dc",
+      "username": "weiqun.wang",
+      "comment": "update instance to xlarge and enable autoscaling for qa",
+      "files": [
+        "ml-complete-optimization-model/cloud-formation.template.yml",
+        "ml-complete-optimization-model/group_vars/all.yml"
+      ],
+      "deployedAt": "20261105T131051+0000"
+    },
+    {
+      "service": "NexusApiJ21",
       "version": "42a16d884cc1",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard fix",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261104T181929+0000"
+      "deployedAt": "20261105T131051+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "NexusApiJ21",
       "version": "fae6f514b667",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard fix",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261104T181929+0000"
+      "deployedAt": "20261105T131051+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "NexusApiJ21",
+      "version": "45f92eab1182",
+      "username": "matt.spencer",
+      "comment": "[DQI-4715] Updated Primer listener rule to use host header instead of path pattern.",
+      "files": [
+        "primer/cloud-formation.template.yml",
+        "primer/group_vars/dev.yml",
+        "primer/group_vars/production.yml",
+        "primer/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261105T131051+0000"
+    },
+    {
+      "service": "NexusApiJ21",
       "version": "2088b10480d2",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard fix",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261104T181929+0000"
+      "deployedAt": "20261105T131051+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "NexusApiJ21",
       "version": "add7a93b44fc",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard fix",
@@ -147,48 +147,72 @@
         "nxs-pes1-dashboard/group_vars/production.yml",
         "nxs-pes1-dashboard/group_vars/qa.yml"
       ],
-      "deployedAt": "20261104T181929+0000"
+      "deployedAt": "20261105T131051+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "NexusApiJ21",
+      "version": "5979e7df5440",
+      "username": "adam.veres",
+      "comment": "FEAS-2663 Switch off LB deletion protection",
+      "files": [
+        "feasibility-actuals-aggregator/template.yml",
+        "feasibility-adjuster/template.yml",
+        "feasibility-cache-manager/template.yml",
+        "feasibility-calculator/template.yml",
+        "feasibility-cost-calculator-ecs/template.yml",
+        "feasibility-nonroutable-offers/template.yml",
+        "feasibility-parameter-updater/template.yml",
+        "feasibility-pipeline-test-project/template.yml",
+        "feasibility-plan-mapper/template.yml",
+        "feasibility-price-calculator/template.yml",
+        "feasibility-residuator/template.yml",
+        "feasibility-sku-score/template.yml",
+        "feasibility-trend/template.yml",
+        "parameter-scarcity/template.yml",
+        "respondent-parameter-observer/template.yml"
+      ],
+      "deployedAt": "20261105T131051+0000"
+    },
+    {
+      "service": "NexusApiJ21",
       "version": "efaf4df006c7",
       "username": "81168944+mohacsiadam",
       "comment": "Merge pull request #682 from dynata/NA-2046",
       "files": [],
-      "deployedAt": "20261104T181929+0000"
+      "deployedAt": "20261105T131051+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "NexusApiJ21",
       "version": "3877ee98e2c2",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard fix",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261104T181929+0000"
+      "deployedAt": "20261105T131051+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "NexusApiJ21",
       "version": "f9c9fa52bbb2",
       "username": "norbert.farkas",
       "comment": "fix subnet",
       "files": [
         "dk-project-quota-group-definition-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20261104T181929+0000"
+      "deployedAt": "20261105T131051+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "NexusApiJ21",
       "version": "fbd93e97b67a",
       "username": "robert.szepesi",
       "comment": "[AE-8116] [TM] add project keyed respondent id counters dynamoDB table II",
       "files": [
         "ae-transaction-manager/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261104T181929+0000"
+      "deployedAt": "20261105T131051+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "NexusApiJ21",
       "version": "c3f77a910b3a",
       "username": "robert.szepesi",
       "comment": "[AE-8116] [TM] add project keyed respondent id counters dynamoDB table",
@@ -197,77 +221,10 @@
         "ae-transaction-manager/group_vars/all.yml",
         "ae-transaction-manager/templates/dynamodb.yml"
       ],
-      "deployedAt": "20261104T181929+0000"
+      "deployedAt": "20261105T131051+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "9db8e7e1e6d1",
-      "username": "david.nagy",
-      "comment": "[NXS-13912] EOS - MS - Sending incentive offer value to PES1",
-      "files": [
-        "project/QuotaGroupDefinitionRest/build.gradle",
-        "project/QuotaGroupDefinitionRest/src/main/java/com/surveysampling/rest/quotagroupdefinition/api/v1/dependencies/quotagroup/model/QuotaGroupCore.java",
-        "project/QuotaGroupDefinitionRest/src/main/java/com/surveysampling/rest/quotagroupdefinition/api/v1/impl/assembler/quotagroup/QuotaGroupAttributeChangeWrapper.java",
-        "project/QuotaGroupDefinitionRest/src/main/java/com/surveysampling/rest/quotagroupdefinition/api/v1/impl/assembler/quotagroup/sections/AttributesHandler.java",
-        "project/QuotaGroupDefinitionRest/src/main/java/com/surveysampling/rest/quotagroupdefinition/api/v1/impl/assembler/quotagroup/sections/AttributesLoader.java",
-        "project/QuotaGroupDefinitionRest/src/main/java/com/surveysampling/rest/quotagroupdefinition/api/v1/model/quotadefinition/QuotaGroupAttributes.java",
-        "project/QuotaGroupDefinitionRest/src/test/groovy/com/surveysampling/rest/quotagroupdefinition/api/v1/impl/assembler/loaders/AttributesLoaderTest.groovy",
-        "project/QuotaGroupDefinitionRest/src/test/groovy/com/surveysampling/rest/quotagroupdefinition/api/v1/impl/qgdifftests/QGDiffHandlerAttributesTest.groovy"
-      ],
-      "deployedAt": "20261104T173318+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "238ffe90e921",
-      "username": "norbert.farkas",
-      "comment": "resend maintanance",
-      "files": [
-        "project/QuotaGroupDefinitionRest/mongo_scripts/commands/maintanence/resend_traffic_control_projects.js",
-        "project/QuotaGroupDefinitionRest/mongo_scripts/commands/maintanence/resend_traffic_control_quotagroups/resend_traffic_control_quotagroups_01.js",
-        "project/QuotaGroupDefinitionRest/mongo_scripts/commands/maintanence/resend_traffic_control_quotagroups/resend_traffic_control_quotagroups_02.js",
-        "project/QuotaGroupDefinitionRest/mongo_scripts/commands/maintanence/resend_traffic_control_quotagroups/resend_traffic_control_quotagroups_03.js",
-        "project/QuotaGroupDefinitionRest/mongo_scripts/commands/maintanence/resend_traffic_control_quotagroups/resend_traffic_control_quotagroups_04.js",
-        "project/QuotaGroupDefinitionRest/mongo_scripts/commands/maintanence/resend_traffic_control_quotagroups/resend_traffic_control_quotagroups_05.js",
-        "project/QuotaGroupDefinitionRest/mongo_scripts/commands/maintanence/resend_traffic_control_quotagroups/resend_traffic_control_quotagroups_06.js",
-        "project/QuotaGroupDefinitionRest/mongo_scripts/commands/maintanence/resend_traffic_control_quotagroups/resend_traffic_control_quotagroups_07.js",
-        "project/QuotaGroupDefinitionRest/mongo_scripts/commands/maintanence/resend_traffic_control_quotagroups/resend_traffic_control_quotagroups_08.js",
-        "project/QuotaGroupDefinitionRest/mongo_scripts/commands/maintanence/resend_traffic_control_quotagroups/resend_traffic_control_quotagroups_09.js"
-      ],
-      "deployedAt": "20261104T173318+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "ee9f003ccd15",
-      "username": "gabor.imre",
-      "comment": "[ST-5104] Fixed application log format",
-      "files": [
-        "export-service/group_vars/dev.yml",
-        "export-service/group_vars/prod.yml",
-        "export-service/group_vars/qa.yml",
-        "st-menu-service/group_vars/dev.yml",
-        "st-menu-service/group_vars/prod.yml",
-        "st-menu-service/group_vars/qa.yml",
-        "st-participation-status-rest/group_vars/dev.yml",
-        "st-participation-status-rest/group_vars/prod.yml",
-        "st-participation-status-rest/group_vars/qa.yml",
-        "st-respondent-rest/group_vars/dev.yml",
-        "st-respondent-rest/group_vars/prod.yml",
-        "st-respondent-rest/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261104T173318+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "4a79e0307c5d",
-      "username": "weiqun.wang",
-      "comment": "Scale up prod to get ready for traffics switching over",
-      "files": [
-        "ml-complete-optimization-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20261104T173318+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "NexusApiJ21",
       "version": "e5e997c33f4d",
       "username": "adamlaszlo.mohacsi",
       "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
@@ -277,78 +234,118 @@
         "sls-db/group_vars/production.yml",
         "sls-db/group_vars/qa.yml"
       ],
-      "deployedAt": "20261104T173318+0000"
+      "deployedAt": "20261105T131051+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "e17dc0632dde",
-      "username": "norbert.farkas",
-      "comment": "fix subnet",
+      "service": "NexusApiJ21",
+      "version": "5a22d4603029",
+      "username": "adam.veres",
+      "comment": "FEAS-2663 migrate remaining apps from DPR to CFD",
       "files": [
-        "dk-project-survey-rest/group_vars/production.yml"
+        "feasibility-actuals-aggregator/all.json",
+        "feasibility-actuals-aggregator/dev.json",
+        "feasibility-actuals-aggregator/production.json",
+        "feasibility-actuals-aggregator/qa.json",
+        "feasibility-actuals-aggregator/template.yml",
+        "feasibility-adjuster/all.json",
+        "feasibility-adjuster/dev.json",
+        "feasibility-adjuster/production.json",
+        "feasibility-adjuster/qa.json",
+        "feasibility-adjuster/template.yml",
+        "feasibility-cache-manager/all.json",
+        "feasibility-cache-manager/dev.json",
+        "feasibility-cache-manager/production.json",
+        "feasibility-cache-manager/qa.json",
+        "feasibility-cache-manager/template.yml",
+        "feasibility-calculator/all.json",
+        "feasibility-calculator/dev.json",
+        "feasibility-calculator/production.json",
+        "feasibility-calculator/qa.json",
+        "feasibility-calculator/template.yml"
       ],
-      "deployedAt": "20261104T173318+0000"
+      "deployedAt": "20261105T131051+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "a9d072d496a6",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] fix log groups",
+      "service": "ProjectRestJ16",
+      "version": "dc8fb47127d7",
+      "username": "tamas.gyarmati",
+      "comment": "[NXS-14290] - ProjectRest - fix test",
       "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
+        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/mongoTest/PropagationMongoHandlerMongoTest.groovy"
       ],
-      "deployedAt": "20261104T173318+0000"
+      "deployedAt": "20261105T115351+0000"
     },
     {
-      "service": "SurveyRestJ21",
-      "version": "33af1854c70a",
-      "username": "adam.szotak",
-      "comment": "[NA-2051] - SurveyRest - Extend SlsErrorCode",
+      "service": "ProjectRestJ16",
+      "version": "cb6373f11084",
+      "username": "60962201+gyarmatitamas",
+      "comment": "Merge pull request #5643 from dynata/NXS-14339-ProjectRest-propagation-assignment-statuses",
       "files": [
-        "project/SurveyRest/src/main/java/com/surveysampling/rest/survey/v2/model/enums/SlsErrorCode.java"
+        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/mongoTest/PropagationMongoHandlerMongoTest.groovy",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/service/UTrackerImpl.java",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/service/UTrackerImplTest.groovy"
       ],
-      "deployedAt": "20261104T121713+0000"
+      "deployedAt": "20261105T115351+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "ac8e9de12644",
-      "username": "bence.csepe",
-      "comment": "[NXS-13915] EOS - MS - Model changes (#5639)",
+      "service": "ProjectRestJ16",
+      "version": "dc80c756068e",
+      "username": "tamas.gyarmati",
+      "comment": "[NXS-14339] - ProjectRest - propagation assignment statuses",
       "files": [
-        "project/QuotaGroupRest/README.md",
-        "project/QuotaGroupRest/serviceApi/src/main/java/com/surveysampling/rest/quota/u1/model/unified/QuotaGroupCore.java",
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/validators/QuotaGroupCoreIncentiveValidationTest.groovy",
-        "unified_api_j16/nxs_unified_api/Pes1ClientApi/build.gradle",
-        "unified_api_j16/nxs_unified_api/Pes1ClientApi/src/main/java/com/dynata/nexus/pes/api/Pes1QGChangeTypes.java",
-        "unified_api_j16/nxs_unified_api/Pes2ClientApi/build.gradle",
-        "unified_api_j16/nxs_unified_api/Pes2ClientApi/src/main/java/com/dynata/nexus/pes/api/PesQGChangeTypes.java",
-        "unified_api_j16/nxs_unified_api/UNexusModel/build.gradle",
-        "unified_api_j16/nxs_unified_api/UNexusModel/src/main/java/com/dynata/nexus/api/model/quotagroup/QuotaGroupCore.java"
+        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/mongoTest/PropagationMongoHandlerMongoTest.groovy",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/component/PropagationHelper.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/model/tracker/PropagationItemType.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/model/tracker/PropagationProgress.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/model/tracker/request/AssignmentProgress.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/model/tracker/request/PropagationProgressRequest.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/service/UTrackerImpl.java",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/api/UTrackerRestTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/component/PropagationHelperTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/component/PropagationItemHelperTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/model/tracker/request/TrackerRequestValidationTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/service/UTrackerImplTest.groovy"
       ],
-      "deployedAt": "20261104T120242+0000"
+      "deployedAt": "20261105T115351+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "a43a4053bcbf",
+      "username": "60962201+gyarmatitamas",
+      "comment": "Merge pull request #5621 from dynata/NXS-14290-ProjectRest-always-allow-FAILED-propagation-status-",
+      "files": [],
+      "deployedAt": "20261105T115351+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "82eb082e62bd",
+      "username": "tamas.gyarmati",
+      "comment": "[NXS-14290] - ProjectRest - always allow FAILED propagation status",
+      "files": [
+        "project/ProjectRest/README.md",
+        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/mongoTest/PropagationMongoHandlerMongoTest.groovy",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/model/tracker/PropagationStatus.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mongo/PropagationMongoHandler.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/service/UTrackerImpl.java",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/service/UTrackerImplTest.groovy"
+      ],
+      "deployedAt": "20261105T115351+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "QuotaGroupRestJ21",
-      "commits": 14,
-      "latestTicket": "NXS-13903",
-      "latestComment": "[NXS-13903] MS - QuotaGroupRest - Replace all QG related mongo query with QuotaG",
-      "deployedAt": "20261104T181929+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "commits": 7,
-      "latestTicket": "NXS-13912",
-      "latestComment": "[NXS-13912] EOS - MS - Sending incentive offer value to PES1",
-      "deployedAt": "20261104T173318+0000"
-    },
-    {
-      "service": "SurveyRestJ21",
-      "commits": 1,
+      "service": "NexusApiJ21",
+      "commits": 19,
       "latestTicket": "",
-      "latestComment": "[NA-2051] - SurveyRest - Extend SlsErrorCode",
-      "deployedAt": "20261104T121713+0000"
+      "latestComment": "[NA-2051] bump UNexusModel in NexusApi",
+      "deployedAt": "20261105T131051+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "commits": 5,
+      "latestTicket": "NXS-14290",
+      "latestComment": "[NXS-14290] - ProjectRest - fix test",
+      "deployedAt": "20261105T115351+0000"
     }
   ],
   "clusters": [
@@ -373,139 +370,137 @@
     {
       "name": "executionError",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkSoftLaunchExclusionsTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Fieldwork",
       "cluster": "server_exception",
       "message": "java.lang.NullPointerException:Cannot invoke \\",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3277189 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3277189\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3278466 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3278466\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
     },
     {
       "name": "executionError",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkDeliveryTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Fieldwork",
       "cluster": "server_exception",
       "message": "java.lang.NullPointerException:Cannot invoke \\",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3277191 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3277191\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3278471 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3278471\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
     },
     {
       "name": "survey rename publishes surveyPropertyUpdated notification",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.PesNotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.NullPointerException:Cannot invoke \\",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3277192 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3277192\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3278474 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3278474\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
     },
     {
       "name": "executionError",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowPartnerTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Fieldwork",
       "cluster": "server_exception",
       "message": "java.lang.NullPointerException:Cannot invoke \\",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3277190 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3277190\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3278467 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3278467\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
     },
     {
       "name": "executionError",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkSoftLaunchTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Fieldwork",
       "cluster": "server_exception",
       "message": "java.lang.NullPointerException:Cannot invoke \\",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3277195 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3277195\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3278479 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3278479\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
     },
     {
       "name": "executionError",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkWorkflowTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Fieldwork",
       "cluster": "server_exception",
       "message": "java.lang.NullPointerException:Cannot invoke \\",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3277194 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3277194\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3278478 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3278478\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
     },
     {
       "name": "survey rename publishes SURVEY_NAME_CHANGE on the UrlPool FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.NullPointerException:Cannot invoke \\",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3277201 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3277201\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3278488 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3278488\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
     },
     {
       "name": "survey url pattern update publishes URL_PATTERN_CHANGE on the UrlPool FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.NullPointerException:Cannot invoke \\",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3277202 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3277202\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3278489 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3278489\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
     },
     {
       "name": "screener url pattern update publishes SCREENER_URL_PATTERN_CHANGE on the UrlPool FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.NullPointerException:Cannot invoke \\",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3277203 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3277203\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3278490 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3278490\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
     },
     {
       "name": "survey length update publishes SURVEY_LENGTH_CHANGE on the UrlPool FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.NullPointerException:Cannot invoke \\",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3277204 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3277204\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3278491 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3278491\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
     },
     {
       "name": "survey creation publishes INSERTED on the UrlPool FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.NullPointerException:Cannot invoke \\",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3277205 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3277205\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3278492 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3278492\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
     },
     {
       "name": "survey deletion publishes DELETED on the UrlPool FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.NullPointerException:Cannot invoke \\",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3277206 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3277206\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3278493 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 DELETE http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3278493\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the return value of \\\"c\u2026"
     },
     {
       "name": "Survey E2E - fieldwork prep: create through activation, QG link, security and clone",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyE2ETestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Survey",
       "cluster": "server_exception",
       "message": "java.lang.NullPointerException:Cannot invoke \\",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3277303/activate 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3277303/activate\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the retu\u2026"
+      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/urlPools/3278656/activate 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-survey-rest.nexus-ms-qa.dynata.com:8080/api/Survey/u1/urlPools/3278656/activate\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"java.lang.NullPointerException:Cannot invoke \\\"java.util.List.isEmpty()\\\" because the retu\u2026"
     }
   ],
   "rulesNutshell": {
-    "headline": "13 new failures \u2014 mainly PES, Fieldwork",
-    "tone": "bad",
-    "severity": "high",
+    "headline": "13 continuing failure(s) \u2014 no new unmuted fails",
+    "tone": "warn",
+    "severity": "low",
     "bullets": [
       "7\u00d7 PES soft-launch vs tally \u2014 java.lang.NullPointerException:Cannot invoke \\",
       "6\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot invoke \\"
     ],
-    "investigation": "New fails: 7\u00d7 PES soft-launch vs tally; 6\u00d7 server NestedServletException / NPE (QA threw NestedServletException/NPE/IOOB). Vs prior #3.0.2749: up 12 total fails.",
+    "investigation": "Failures: 7\u00d7 PES soft-launch vs tally; 6\u00d7 server NestedServletException / NPE (QA threw NestedServletException/NPE/IOOB).",
     "detail": {
-      "investigation": "13 of 13 unmuted failures are new since the prior build (#3.0.2749, 1 fails). Failure types (new-first): (1) 7\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. (2) 6\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. Hot areas among new fails: PES (7), Fieldwork (5), Survey (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 3 service(s) (22 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Fieldwork: executionError [server NestedServletException / NPE]; Fieldwork: executionError [server NestedServletException / NPE]; PES: survey rename publishes surveyPropertyUpdated notification [PES soft-launch vs tally]; Fieldwork: executionError [server NestedServletException / NPE].",
+      "investigation": "No new unmuted failures; 13 continuing from prior runs. Failure types (new-first): (1) 7\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. (2) 6\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. Hot areas among new fails: PES (7), Fieldwork (5), Survey (1). 2 service(s) (24 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Fieldwork: executionError [server NestedServletException / NPE]; Fieldwork: executionError [server NestedServletException / NPE]; PES: survey rename publishes surveyPropertyUpdated notification [PES soft-launch vs tally]; Fieldwork: executionError [server NestedServletException / NPE].",
       "bullets": [
         "7\u00d7 PES soft-launch vs tally \u2014 java.lang.NullPointerException:Cannot invoke \\",
         "6\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot invoke \\",
-        "NXS-14341: gergely.gimesi \u2014 NXS-14341 Poll special-char audience-group rename before asserting GET",
-        "[QA deploy: QuotaGroupRestJ21] NXS-13903 (14 commits) \u2014 [NXS-13903] MS - QuotaGroupRest - Replace all QG related mongo query with QuotaG",
-        "[QA deploy: QuotaGroupDefinitionRestJ21] NXS-13912 (7 commits) \u2014 [NXS-13912] EOS - MS - Sending incentive offer value to PES1",
-        "[QA deploy: SurveyRestJ21]  (1 commit) \u2014 [NA-2051] - SurveyRest - Extend SlsErrorCode"
+        "[QA deploy: NexusApiJ21]  (19 commits) \u2014 [NA-2051] bump UNexusModel in NexusApi",
+        "[QA deploy: ProjectRestJ16] NXS-14290 (5 commits) \u2014 [NXS-14290] - ProjectRest - fix test"
       ],
       "newFailureAreas": [
         {
@@ -523,117 +518,112 @@
       ],
       "likelyCauses": []
     },
-    "suspectCommits": [
-      {
-        "version": "c241fab0cc00",
-        "username": "gergely.gimesi",
-        "comment": "NXS-14341 Poll special-char audience-group rename before asserting GET",
-        "ticket": "NXS-14341",
-        "areas": []
-      }
-    ],
+    "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "7b8f26afbd42",
-        "username": "david.nagy",
-        "comment": "[NXS-13903] MS - QuotaGroupRest - Replace all QG related mongo query with QuotaGroupRest feign calls",
-        "ticket": "NXS-13903",
-        "deployedAt": "20261104T181929+0000",
+        "service": "NexusApiJ21",
+        "version": "66081ca3803d",
+        "username": "bence.csepe",
+        "comment": "[NA-2051] bump UNexusModel in NexusApi",
+        "ticket": "",
+        "deployedAt": "20261105T131051+0000",
         "files": [
-          "QuotaGroupRestImplTest.groovy"
+          "build.gradle"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "4d995c905884",
-        "username": "david.nagy",
-        "comment": "[NXS-13903] MS - QuotaGroupRest - Replace all QG related mongo query with QuotaGroupRest feign calls",
-        "ticket": "NXS-13903",
-        "deployedAt": "20261104T181929+0000",
+        "service": "NexusApiJ21",
+        "version": "8c97a26d8004",
+        "username": "sajak.upadhyaya",
+        "comment": "[FAI-565] renaming cluster and changing tags",
+        "ticket": "",
+        "deployedAt": "20261105T131051+0000",
         "files": [
-          "QuotaGroupCoreRestAcceptanceTest.groovy",
-          "QuotaGroupRestAcceptanceTest.groovy",
-          "QuotaGroupRestImpl.java"
+          "cloud-formation.template.yml",
+          "all.yml",
+          "production.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "79798ff06868",
-        "username": "david.nagy",
-        "comment": "[NXS-13903] MS - QuotaGroupRest - Replace all QG related mongo query with QuotaGroupRest feign calls - } fixes",
-        "ticket": "NXS-13903",
-        "deployedAt": "20261104T181929+0000",
+        "service": "NexusApiJ21",
+        "version": "9dddb25f03b1",
+        "username": "weiqun.wang",
+        "comment": "raise sagemaker_scaling_target_invocations_per_instance for qa to 3000 to test",
+        "ticket": "",
+        "deployedAt": "20261105T131051+0000",
         "files": [
-          "QuotaGroupRest.java",
-          "QuotaGroupRestImpl.java",
-          "QuotaGroupRestImplTest.groovy",
-          "QuotaGroupRestTest.groovy"
+          "qa.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "93228d5bdd60",
-        "username": "david.nagy",
-        "comment": "[NXS-13903] MS - QuotaGroupRest - Replace all QG related mongo query \u2026 (#5624)",
-        "ticket": "NXS-13903",
-        "deployedAt": "20261104T181929+0000",
+        "service": "NexusApiJ21",
+        "version": "2bebde539b93",
+        "username": "matt.spencer",
+        "comment": "[DQI-4715] Fixed Primer dns_zone_id to dnw_private_zone_id.",
+        "ticket": "",
+        "deployedAt": "20261105T131051+0000",
         "files": [
-          "QuotaGroupCoreSearchRequest.java",
-          "QuotaGroupCoreSearchResult.java",
-          "QuotaGroupCoreRestFeignClient.java",
-          "QuotaGroupRestFeignClient.java",
-          "QuotaGroupCoreRestAcceptanceTest.groovy",
-          "QuotaGroupRestAcceptanceTest.groovy"
+          "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
+        "service": "NexusApiJ21",
+        "version": "9502c2f2476e",
+        "username": "matt.spencer",
+        "comment": "Merge pull request #683 from dynata/DQI-4715-Update-Primer-Listener-Rule-Config",
+        "ticket": "",
+        "deployedAt": "20261105T131051+0000",
+        "files": [],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "3dc4ffe342dc",
+        "username": "weiqun.wang",
+        "comment": "update instance to xlarge and enable autoscaling for qa",
+        "ticket": "",
+        "deployedAt": "20261105T131051+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
         "version": "42a16d884cc1",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard fix",
         "ticket": "NXS-14187",
-        "deployedAt": "20261104T181929+0000",
+        "deployedAt": "20261105T131051+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
+        "service": "NexusApiJ21",
         "version": "fae6f514b667",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard fix",
         "ticket": "NXS-14187",
-        "deployedAt": "20261104T181929+0000",
+        "deployedAt": "20261105T131051+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "2088b10480d2",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14187 ] PES1 dashboard fix",
-        "ticket": "NXS-14187",
-        "deployedAt": "20261104T181929+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupRestJ21",
-        "version": "add7a93b44fc",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14187 ] PES1 dashboard fix",
-        "ticket": "NXS-14187",
-        "deployedAt": "20261104T181929+0000",
+        "service": "NexusApiJ21",
+        "version": "45f92eab1182",
+        "username": "matt.spencer",
+        "comment": "[DQI-4715] Updated Primer listener rule to use host header instead of path pattern.",
+        "ticket": "",
+        "deployedAt": "20261105T131051+0000",
         "files": [
           "cloud-formation.template.yml",
           "dev.yml",
@@ -643,22 +633,12 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "efaf4df006c7",
-        "username": "81168944+mohacsiadam",
-        "comment": "Merge pull request #682 from dynata/NA-2046",
-        "ticket": "",
-        "deployedAt": "20261104T181929+0000",
-        "files": [],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupRestJ21",
-        "version": "3877ee98e2c2",
+        "service": "NexusApiJ21",
+        "version": "2088b10480d2",
         "username": "norbert.farkas",
         "comment": "[ NXS-14187 ] PES1 dashboard fix",
         "ticket": "NXS-14187",
-        "deployedAt": "20261104T181929+0000",
+        "deployedAt": "20261105T131051+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
