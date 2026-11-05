@@ -1,10 +1,7 @@
-**13 continuing failure(s) — no new unmuted fails**
+**13 continuing failures (0 new) — all are server-side 500 NullPointerExceptions from Survey REST's urlPools path, not QA infra.**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: continuing server-side 500 NPEs from dk-project-survey-rest on the urlPools delete/activate path (a product bug, not QA infra); no in-window QA deploy touches that service, so no commit is pinned._
 
-- 7× PES soft-launch vs tally — java.lang.NullPointerException:Cannot invoke \
+- 13 continuing fails, 0 new — identical 500 NullPointerException (List.isEmpty() on null) from dk-project-survey-rest on /urlPools
 
-⚠️ Contract drift: 6 new response-schema violation(s) vs baseline.
-- DELETE /u1/nexus/urlPools/{} :: Response status 500 not defined for path '/u1/nexus/urlPools/{urlPoolId}'.
-
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9661775)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9661775)

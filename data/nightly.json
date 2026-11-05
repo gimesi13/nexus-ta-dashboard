@@ -1778,38 +1778,24 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "failed"
   },
   "nutshell": {
-    "headline": "13 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "13 continuing failures (0 new) — all are server-side 500 NullPointerExceptions from Survey REST's urlPools path, not QA infra.",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 2 service(s) were deployed to QA in this window (NexusApiJ21, ProjectRestJ16) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "Failures: 7\u00d7 PES soft-launch vs tally; 6\u00d7 server NestedServletException / NPE (QA threw NestedServletException/NPE/IOOB).",
+    "cause": "code_change",
+    "causeText": "All 13 are continuing server-side 500 NullPointerExceptions thrown by dk-project-survey-rest on the urlPools delete/activate path (a product/server bug, not QA timeouts/502/504 and not a test assertion), but no QA-deployed change in this window touches that service so no commit or developer can be pinned.",
+    "investigation": "Every failure is an HTTP 500 INTERNAL_SERVER_ERROR with a NullPointerException (List.isEmpty() on a null return) from dk-project-survey-rest on /urlPools delete and activate — a server code defect, not a QA timeout/502/504.",
     "bullets": [
-      "7\u00d7 PES soft-launch vs tally \u2014 java.lang.NullPointerException:Cannot invoke \\",
-      "6\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot invoke \\"
+      "13 continuing fails, 0 new: identical 500 NPE from dk-project-survey-rest on /urlPools (delete & activate)",
+      "No in-window QA deploy touches dk-project-survey-rest, so the server-code cause is unattributed; contract drift +6 (urlPools 500 undefined) is a separate lane"
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 13 continuing from prior runs. Failure types (new-first): (1) 7\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. (2) 6\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. Hot areas among new fails: PES (7), Fieldwork (5), Survey (1). 2 service(s) (24 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Fieldwork: executionError [server NestedServletException / NPE]; Fieldwork: executionError [server NestedServletException / NPE]; PES: survey rename publishes surveyPropertyUpdated notification [PES soft-launch vs tally]; Fieldwork: executionError [server NestedServletException / NPE].",
+      "investigation": "All 13 failures are continuing (0 new; carried over from prior build 3.0.2750) and share one signature: an HTTP 500 INTERNAL_SERVER_ERROR from dk-project-survey-rest on /urlPools delete and activate, caused by a server-side NullPointerException (the return value of List.isEmpty() was null) — a product/server code defect, not a QA timeout/502/504 and not a test assertion. The QA deploys in this window (NexusApiJ21 build.gradle/cloud-formation/group_vars, ProjectRestJ16 tests/source) do not touch dk-project-survey-rest, so no commit or developer can be blamed without inventing.",
       "bullets": [
-        "7\u00d7 PES soft-launch vs tally \u2014 java.lang.NullPointerException:Cannot invoke \\",
-        "6\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot invoke \\",
-        "[QA deploy: NexusApiJ21]  (19 commits) \u2014 [NA-2051] bump UNexusModel in NexusApi",
-        "[QA deploy: ProjectRestJ16] NXS-14290 (5 commits) \u2014 [NXS-14290] - ProjectRest - fix test"
+        "Spread across 7× PES, 5× Fieldwork, 1× Survey — all the same 500 NPE from dk-project-survey-rest on /urlPools",
+        "Not infra: HTTP 500 with a server-side NPE (List.isEmpty() on null), no SocketTimeout/read-timeout/502/504",
+        "No in-window QA deploy touches dk-project-survey-rest; contract drift +6 (e.g. DELETE /u1/nexus/urlPools 500 undefined) is a separate lane"
       ],
-      "newFailureAreas": [
-        {
-          "area": "PES",
-          "newCount": 7
-        },
-        {
-          "area": "Fieldwork",
-          "newCount": 5
-        },
-        {
-          "area": "Survey",
-          "newCount": 1
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1973,7 +1959,7 @@
         "deployedAt": "20261105T115351+0000"
       }
     ],
-    "source": "investigator",
+    "source": "llm",
     "generatedAt": "2026-11-05T13:50Z",
     "buildNumber": "3.0.2751",
     "buildId": "9661775",
