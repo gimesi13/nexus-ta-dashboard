@@ -1778,25 +1778,27 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "failed"
   },
   "nutshell": {
-    "headline": "13 new failures \u2014 mainly PES, Fieldwork",
+    "headline": "13 new failures, all one server-side bug: SurveyRest returns HTTP 500 (NullPointerException) on /u1/urlPools, breaking PES, Fieldwork and Survey tests",
     "tone": "bad",
     "severity": "high",
-    "cause": "mixed",
-    "causeText": "VCS changes present but none map onto the failing packages \u2014 likely test/data, correlate manually. NOTE: 3 service(s) were deployed to QA in this window (QuotaGroupRestJ21, QuotaGroupDefinitionRestJ21, SurveyRestJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 7\u00d7 PES soft-launch vs tally; 6\u00d7 server NestedServletException / NPE (QA threw NestedServletException/NPE/IOOB). Vs prior #3.0.2749: up 12 total fails.",
+    "cause": "code_change",
+    "causeText": "All 13 new failures are the same server-side defect: dk-project-survey-rest answers DELETE and activate on /api/Survey/u1/urlPools with HTTP 500 and a NullPointerException (Cannot invoke \"java.util.List.isEmpty()\" on a null return) \u2014 a product bug, not infra (no timeouts/502/504). SurveyRest was the only product service deployed to QA touching that path in this window, via NA-2051 (33af1854c70a, adam.szotak \u2014 Extend SlsErrorCode); the NPE is in urlPool handling rather than obviously the enum, so confirm that deploy diff as the regression.",
+    "investigation": "Every failing test dies in setup when SurveyRest's /u1/urlPools endpoint returns a 500 NPE, so the coarse 'soft-launch vs tally' and 'NestedServletException' labels are symptoms of one upstream server error. The test module's own commit (NXS-14341, gergely.gimesi) only touches AudienceGroup steps and is unrelated to the failing PES/Fieldwork/Survey areas.",
     "bullets": [
-      "7\u00d7 PES soft-launch vs tally \u2014 java.lang.NullPointerException:Cannot invoke \\",
-      "6\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot invoke \\"
+      "13/13 new fails = same 500 NPE from dk-project-survey-rest on /u1/urlPools (DELETE + activate)",
+      "Suspect: SurveyRest NA-2051 (33af1854c70a, adam.szotak) \u2014 only product deploy on that service/path",
+      "Not infra: server-thrown NullPointerException, not QA timeouts/502/504"
     ],
     "detail": {
-      "investigation": "13 of 13 unmuted failures are new since the prior build (#3.0.2749, 1 fails). Failure types (new-first): (1) 7\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. (2) 6\u00d7 server NestedServletException / NPE \u2014 QA threw NestedServletException/NPE/IOOB \u2014 product/server bug in that path. Hot areas among new fails: PES (7), Fieldwork (5), Survey (1). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 3 service(s) (22 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Fieldwork: executionError [server NestedServletException / NPE]; Fieldwork: executionError [server NestedServletException / NPE]; PES: survey rename publishes surveyPropertyUpdated notification [PES soft-launch vs tally]; Fieldwork: executionError [server NestedServletException / NPE].",
+      "investigation": "All 13 unmuted failures are new since prior build #3.0.2749 (1 fail), and every one shares a single root cause: dk-project-survey-rest returns HTTP 500 on /api/Survey/u1/urlPools (DELETE for most, PUT .../activate for the Survey E2E case) with a server-side java.lang.NullPointerException \u2014 'Cannot invoke \"java.util.List.isEmpty()\" because the return value ... is null'. This is a product/server regression, not infrastructure: there are no read timeouts, SocketTimeouts, 502s or 504s. The failures surface across three test areas (PES 7, Fieldwork 5, Survey 1) only because they all create/delete urlPools during setup; the cluster labels 'PES soft-launch vs tally' and 'server NestedServletException / NPE' are coarse symptoms of the same upstream 500, not distinct issues. Of the QA deploys in the window, only SurveyRestJ21 owns the failing endpoint (/api/Survey/...), deployed via NA-2051 (33af1854c70a, adam.szotak, Extend SlsErrorCode); the two QuotaGroup* deploys (NXS-13903 david.nagy, NXS-13912) do not touch the urlPools path and the TA-module commit (NXS-14341, gergely.gimesi) only edits AudienceGroup test steps, so neither is implicated. The named SurveyRest change edits SlsErrorCode.java, which is not obviously the NPE site, so verify the full SurveyRest deploy diff / server logs before closing. Contract drift is a separate lane: 6 new OpenAPI violations vs baseline, including 'DELETE /u1/nexus/urlPools/{} :: Response status 500 not defined', consistent with the same unhandled 500.",
       "bullets": [
-        "7\u00d7 PES soft-launch vs tally \u2014 java.lang.NullPointerException:Cannot invoke \\",
-        "6\u00d7 server NestedServletException / NPE \u2014 java.lang.NullPointerException:Cannot invoke \\",
-        "NXS-14341: gergely.gimesi \u2014 NXS-14341 Poll special-char audience-group rename before asserting GET",
-        "[QA deploy: QuotaGroupRestJ21] NXS-13903 (14 commits) \u2014 [NXS-13903] MS - QuotaGroupRest - Replace all QG related mongo query with QuotaG",
-        "[QA deploy: QuotaGroupDefinitionRestJ21] NXS-13912 (7 commits) \u2014 [NXS-13912] EOS - MS - Sending incentive offer value to PES1",
-        "[QA deploy: SurveyRestJ21]  (1 commit) \u2014 [NA-2051] - SurveyRest - Extend SlsErrorCode"
+        "Root cause: dk-project-survey-rest returns HTTP 500 + NullPointerException on /api/Survey/u1/urlPools (Cannot invoke java.util.List.isEmpty() on null)",
+        "All 13 new fails share this one server error; PES(7)/Fieldwork(5)/Survey(1) only hit it via urlPool setup/teardown",
+        "Not infra \u2014 no timeouts/SocketTimeout/502/504; the error is thrown server-side",
+        "Prime suspect: SurveyRestJ21 NA-2051 (33af1854c70a, adam.szotak) \u2014 only QA deploy owning /api/Survey; verify deploy diff (SlsErrorCode change not obviously the NPE site)",
+        "Cleared: QuotaGroupRest NXS-13903 (david.nagy) & QuotaGroupDefinitionRest NXS-13912 \u2014 don't touch urlPools",
+        "Cleared: TA-module commit NXS-14341 (gergely.gimesi) edits only AudienceGroup test steps, unrelated",
+        "Separate lane \u2014 contract drift: 6 new schema violations, incl. DELETE /u1/nexus/urlPools 500 not defined"
       ],
       "newFailureAreas": [
         {
@@ -1812,7 +1814,23 @@
           "newCount": 1
         }
       ],
-      "likelyCauses": []
+      "likelyCauses": [
+        {
+          "ticket": "NA-2051",
+          "version": "33af1854c70a",
+          "username": "adam.szotak",
+          "areas": [
+            "Survey",
+            "PES",
+            "Fieldwork"
+          ],
+          "hitNewFailures": 13,
+          "files": [
+            "project/SurveyRest/src/main/java/com/surveysampling/rest/survey/v2/model/enums/SlsErrorCode.java"
+          ],
+          "comment": "[NA-2051] SurveyRest - Extend SlsErrorCode; only QA deploy owning the failing /api/Survey/u1/urlPools endpoint that returns the 500 NPE. Service-level match \u2014 the edited enum is not obviously the NPE site, so confirm the full SurveyRest deploy diff/server logs before assigning blame."
+        }
+      ]
     },
     "clusters": [
       {
@@ -1997,8 +2015,8 @@
         "deployedAt": "20261104T121713+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-11-05T03:06Z",
+    "source": "llm",
+    "generatedAt": "2026-11-05T03:08:00Z",
     "buildNumber": "3.0.2750",
     "buildId": "9660100",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9660100",
