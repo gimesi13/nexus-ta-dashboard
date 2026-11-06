@@ -1643,14 +1643,13 @@
     "tone": "ok",
     "severity": "none",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
+    "causeText": "Green night \u2014 no new or unmuted test failures.",
+    "investigation": "",
     "bullets": [],
     "detail": {
-      "investigation": "2 service(s) (24 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
+      "investigation": "",
       "bullets": [
-        "[QA deploy: NexusApiUI] NXS-14351 (19 commits) \u2014 [NXS-14351] - NexusApiUI bump UNexusModel:3.12.8",
-        "[QA deploy: NexusApiJ21] NXS-14349 (5 commits) \u2014 [NXS-14349] - cr3"
+        "Contract drift (separate lane from test failures): 5 new endpoints drifted from the OpenAPI contract, e.g. GET /u1/meta/countries and 500/404 responses on /u1/nexus/urlPools and /u1/nexus/quotaGroups."
       ],
       "newFailureAreas": [],
       "likelyCauses": []
@@ -1799,8 +1798,8 @@
         "deployedAt": "20261105T150618+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-11-06T03:06Z",
+    "source": "llm",
+    "generatedAt": "2026-11-06T03:06:00Z",
     "buildNumber": "3.0.2752",
     "buildId": "9663553",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9663553",
