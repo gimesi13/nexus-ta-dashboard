@@ -1,49 +1,72 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-06T03:06Z",
+  "generatedAt": "2026-11-07T03:03Z",
   "build": {
-    "number": "3.0.2752",
-    "buildId": "9663553",
+    "number": "3.0.2753",
+    "buildId": "9668745",
     "status": "SUCCESS",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9663553",
-    "durationSec": 1999.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9668745",
+    "durationSec": 1982.0
   },
   "summary": {
     "tests": 1517,
-    "passed": 1458,
+    "passed": 1457,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "muted": 59,
+    "muted": 60,
     "newFailed": 0,
     "passRate": 100.0,
-    "timeSec": 1999.0
+    "timeSec": 1982.0
   },
   "prior": {
-    "buildId": "9661775",
-    "number": "3.0.2751",
-    "status": "FAILURE",
-    "statusText": "Tests failed: 13, passed: 1448, muted: 61",
-    "startDate": "20261105T131906+0000",
-    "durationSec": 1815.0,
-    "failed": 13,
-    "passed": 1448,
+    "buildId": "9663553",
+    "number": "3.0.2752",
+    "status": "SUCCESS",
+    "statusText": "Tests passed: 1458, muted: 59",
+    "startDate": "20261106T023243+0000",
+    "durationSec": 1999.0,
+    "failed": 0,
+    "passed": 1458,
     "newFailed": 0
   },
   "changes": [],
   "qaDeployChanges": [
     {
-      "service": "NexusApiUI",
-      "version": "9b102277c9ac",
+      "service": "QuotaGroupRestJ21",
+      "version": "9a3b66866119",
       "username": "tamas.gyarmati",
-      "comment": "[NXS-14351] - NexusApiUI bump UNexusModel:3.12.8",
+      "comment": "[NXS-14384] - QuotaGroupRest - propagation shouldn't null urlPoolId",
       "files": [
-        "gateway/unifiedApi/NexusApiUI/build.gradle"
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupCoreService.java",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/QuotaGroupCoreServiceTest.groovy"
       ],
-      "deployedAt": "20261105T160600+0000"
+      "deployedAt": "20261106T164328+0000"
     },
     {
-      "service": "NexusApiUI",
+      "service": "QuotaGroupRestJ21",
+      "version": "90a02192be60",
+      "username": "sajak.upadhyaya",
+      "comment": "[FAI-565] fine tuning alarm params",
+      "files": [
+        "ml-machine-translation-cluster/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261106T164328+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "a3bd0cf1bc0a",
+      "username": "matt.spencer",
+      "comment": "[DQI-4715] Fixed Primer LOGGING_CONFIG to use logback-spring.",
+      "files": [
+        "primer/group_vars/dev.yml",
+        "primer/group_vars/production.yml",
+        "primer/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261106T164328+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
       "version": "8c97a26d8004",
       "username": "sajak.upadhyaya",
       "comment": "[FAI-565] renaming cluster and changing tags",
@@ -52,38 +75,38 @@
         "ml-machine-translation-cluster/group_vars/all.yml",
         "ml-machine-translation-cluster/group_vars/production.yml"
       ],
-      "deployedAt": "20261105T160600+0000"
+      "deployedAt": "20261106T164328+0000"
     },
     {
-      "service": "NexusApiUI",
+      "service": "QuotaGroupRestJ21",
       "version": "9dddb25f03b1",
       "username": "weiqun.wang",
       "comment": "raise sagemaker_scaling_target_invocations_per_instance for qa to 3000 to test",
       "files": [
         "ml-complete-optimization-model/group_vars/qa.yml"
       ],
-      "deployedAt": "20261105T160600+0000"
+      "deployedAt": "20261106T164328+0000"
     },
     {
-      "service": "NexusApiUI",
+      "service": "QuotaGroupRestJ21",
       "version": "2bebde539b93",
       "username": "matt.spencer",
       "comment": "[DQI-4715] Fixed Primer dns_zone_id to dnw_private_zone_id.",
       "files": [
         "primer/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261105T160600+0000"
+      "deployedAt": "20261106T164328+0000"
     },
     {
-      "service": "NexusApiUI",
+      "service": "QuotaGroupRestJ21",
       "version": "9502c2f2476e",
       "username": "matt.spencer",
       "comment": "Merge pull request #683 from dynata/DQI-4715-Update-Primer-Listener-Rule-Config",
       "files": [],
-      "deployedAt": "20261105T160600+0000"
+      "deployedAt": "20261106T164328+0000"
     },
     {
-      "service": "NexusApiUI",
+      "service": "QuotaGroupRestJ21",
       "version": "3dc4ffe342dc",
       "username": "weiqun.wang",
       "comment": "update instance to xlarge and enable autoscaling for qa",
@@ -91,30 +114,10 @@
         "ml-complete-optimization-model/cloud-formation.template.yml",
         "ml-complete-optimization-model/group_vars/all.yml"
       ],
-      "deployedAt": "20261105T160600+0000"
+      "deployedAt": "20261106T164328+0000"
     },
     {
-      "service": "NexusApiUI",
-      "version": "42a16d884cc1",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard fix",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261105T160600+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "fae6f514b667",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard fix",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261105T160600+0000"
-    },
-    {
-      "service": "NexusApiUI",
+      "service": "QuotaGroupRestJ21",
       "version": "45f92eab1182",
       "username": "matt.spencer",
       "comment": "[DQI-4715] Updated Primer listener rule to use host header instead of path pattern.",
@@ -124,33 +127,10 @@
         "primer/group_vars/production.yml",
         "primer/group_vars/qa.yml"
       ],
-      "deployedAt": "20261105T160600+0000"
+      "deployedAt": "20261106T164328+0000"
     },
     {
-      "service": "NexusApiUI",
-      "version": "2088b10480d2",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard fix",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261105T160600+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "add7a93b44fc",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard fix",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml",
-        "nxs-pes1-dashboard/group_vars/dev.yml",
-        "nxs-pes1-dashboard/group_vars/production.yml",
-        "nxs-pes1-dashboard/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261105T160600+0000"
-    },
-    {
-      "service": "NexusApiUI",
+      "service": "QuotaGroupRestJ21",
       "version": "5979e7df5440",
       "username": "adam.veres",
       "comment": "FEAS-2663 Switch off LB deletion protection",
@@ -171,73 +151,10 @@
         "parameter-scarcity/template.yml",
         "respondent-parameter-observer/template.yml"
       ],
-      "deployedAt": "20261105T160600+0000"
+      "deployedAt": "20261106T164328+0000"
     },
     {
-      "service": "NexusApiUI",
-      "version": "efaf4df006c7",
-      "username": "81168944+mohacsiadam",
-      "comment": "Merge pull request #682 from dynata/NA-2046",
-      "files": [],
-      "deployedAt": "20261105T160600+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "3877ee98e2c2",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard fix",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261105T160600+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "f9c9fa52bbb2",
-      "username": "norbert.farkas",
-      "comment": "fix subnet",
-      "files": [
-        "dk-project-quota-group-definition-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261105T160600+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "fbd93e97b67a",
-      "username": "robert.szepesi",
-      "comment": "[AE-8116] [TM] add project keyed respondent id counters dynamoDB table II",
-      "files": [
-        "ae-transaction-manager/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261105T160600+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "c3f77a910b3a",
-      "username": "robert.szepesi",
-      "comment": "[AE-8116] [TM] add project keyed respondent id counters dynamoDB table",
-      "files": [
-        "ae-transaction-manager/cloud-formation.template.yml",
-        "ae-transaction-manager/group_vars/all.yml",
-        "ae-transaction-manager/templates/dynamodb.yml"
-      ],
-      "deployedAt": "20261105T160600+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "e5e997c33f4d",
-      "username": "adamlaszlo.mohacsi",
-      "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
-      "files": [
-        "sls-db/cloud-formation.template.yml",
-        "sls-db/group_vars/dev.yml",
-        "sls-db/group_vars/production.yml",
-        "sls-db/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261105T160600+0000"
-    },
-    {
-      "service": "NexusApiUI",
+      "service": "QuotaGroupRestJ21",
       "version": "5a22d4603029",
       "username": "adam.veres",
       "comment": "FEAS-2663 migrate remaining apps from DPR to CFD",
@@ -263,85 +180,282 @@
         "feasibility-calculator/qa.json",
         "feasibility-calculator/template.yml"
       ],
-      "deployedAt": "20261105T160600+0000"
+      "deployedAt": "20261106T164328+0000"
     },
     {
       "service": "NexusApiJ21",
-      "version": "d7557f8bba7a",
+      "version": "a11ace90059c",
       "username": "tamas.gyarmati",
-      "comment": "[NXS-14349] - cr3",
+      "comment": "[NXS-14376],[NXS-14377] - NexusApi - propagation fixes v2",
       "files": [
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/UrlPoolPropagatorTest.groovy"
-      ],
-      "deployedAt": "20261105T150618+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "bc7e9e46221c",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-14349] - cr2",
-      "files": [
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/ExclusionRulePropagator.java"
-      ],
-      "deployedAt": "20261105T150618+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "f87eb6b2b7b4",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-14349] - cr1",
-      "files": [
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/PropagationMapper.java",
         "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/UTrackerImpl.java",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/PropagationMapperTest.groovy",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/UTrackerImplTest.groovy"
-      ],
-      "deployedAt": "20261105T150618+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "4e426ee58ad8",
-      "username": "tamas.gyarmati",
-      "comment": "Merge branch 'master' into NXS-14349-NexusApi-handle-propagation-assignment-statuses",
-      "files": [],
-      "deployedAt": "20261105T150618+0000"
-    },
-    {
-      "service": "NexusApiJ21",
-      "version": "2100de6a3839",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-14349] - NexusApi - handle propagation assignment statuses",
-      "files": [
-        "gateway/unifiedApi/NexusApi/build.gradle",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/PropagationMapper.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/StartPropagationListener.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/UTrackerImpl.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/ExclusionRulePropagator.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/PropagationProgressReporter.java",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/UrlPoolPropagator.java",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/StartPropagationListenerTest.groovy",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/QuotaGroupPropagator.java",
         "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/UTrackerImplTest.groovy",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/ExclusionRulePropagatorTest.groovy",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/PropagationProgressReporterTest.groovy",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/UrlPoolPropagatorTest.groovy"
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/QuotaGroupPropagatorTest.groovy"
       ],
-      "deployedAt": "20261105T150618+0000"
+      "deployedAt": "20261106T130608+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "ee3bf0f225db",
+      "username": "gabor.fial",
+      "comment": "Update ProjectMappingMongoHandler and SampleServiceImpl to retain CRM IDs on failure and notify DemandApi accordingly",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/mongo/ProjectMappingMongoHandlerTest.groovy"
+      ],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "4f92a384a799",
+      "username": "gabor.fial",
+      "comment": "Update ProjectMappingMongoHandler and SampleServiceImpl to retain CRM IDs on failure and notify DemandApi accordingly",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/mongo/ProjectMappingMongoHandler.java",
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/mongo/ProjectMappingMongoHandlerTest.groovy",
+        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/service/SampleServiceImpl.java",
+        "gateway/unifiedApi/ProjectAutomationApi/src/test/groovy/u1/nexus/projects/service/SampleServiceImplTest.groovy"
+      ],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "42a16d884cc1",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-14187 ] PES1 dashboard fix",
+      "files": [
+        "nxs-pes1-dashboard/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "fae6f514b667",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-14187 ] PES1 dashboard fix",
+      "files": [
+        "nxs-pes1-dashboard/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "2088b10480d2",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-14187 ] PES1 dashboard fix",
+      "files": [
+        "nxs-pes1-dashboard/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "add7a93b44fc",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-14187 ] PES1 dashboard fix",
+      "files": [
+        "nxs-pes1-dashboard/cloud-formation.template.yml",
+        "nxs-pes1-dashboard/group_vars/dev.yml",
+        "nxs-pes1-dashboard/group_vars/production.yml",
+        "nxs-pes1-dashboard/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "efaf4df006c7",
+      "username": "81168944+mohacsiadam",
+      "comment": "Merge pull request #682 from dynata/NA-2046",
+      "files": [],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "3877ee98e2c2",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-14187 ] PES1 dashboard fix",
+      "files": [
+        "nxs-pes1-dashboard/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "f9c9fa52bbb2",
+      "username": "norbert.farkas",
+      "comment": "fix subnet",
+      "files": [
+        "dk-project-quota-group-definition-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "fbd93e97b67a",
+      "username": "robert.szepesi",
+      "comment": "[AE-8116] [TM] add project keyed respondent id counters dynamoDB table II",
+      "files": [
+        "ae-transaction-manager/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "c3f77a910b3a",
+      "username": "robert.szepesi",
+      "comment": "[AE-8116] [TM] add project keyed respondent id counters dynamoDB table",
+      "files": [
+        "ae-transaction-manager/cloud-formation.template.yml",
+        "ae-transaction-manager/group_vars/all.yml",
+        "ae-transaction-manager/templates/dynamodb.yml"
+      ],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "1c659dd0e0f3",
+      "username": "gabor.fial",
+      "comment": "[PAC-852] DemandApi - fix acceptanceTests for new case - fixes",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/AlertFlowTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ClientManagementTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/DemandApiFlowTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/DemandUtil.groovy",
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ErrorHandlingTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ProjectCreationTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ProjectUpdateTest.groovy"
+      ],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "c045e696bad7",
+      "username": "gabor.fial",
+      "comment": "[PAC-852] DemandApi - fix acceptanceTests for new case - wire isD365",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/AlertFlowTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ClientCountryManagementTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ClientManagementTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/DemandApiFlowTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/DemandUtil.groovy",
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ErrorHandlingTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ProjectCreationTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ProjectUpdateTest.groovy"
+      ],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "ee9f003ccd15",
+      "username": "gabor.imre",
+      "comment": "[ST-5104] Fixed application log format",
+      "files": [
+        "export-service/group_vars/dev.yml",
+        "export-service/group_vars/prod.yml",
+        "export-service/group_vars/qa.yml",
+        "st-menu-service/group_vars/dev.yml",
+        "st-menu-service/group_vars/prod.yml",
+        "st-menu-service/group_vars/qa.yml",
+        "st-participation-status-rest/group_vars/dev.yml",
+        "st-participation-status-rest/group_vars/prod.yml",
+        "st-participation-status-rest/group_vars/qa.yml",
+        "st-respondent-rest/group_vars/dev.yml",
+        "st-respondent-rest/group_vars/prod.yml",
+        "st-respondent-rest/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "be5c56175c8a",
+      "username": "43554565+kokusz19",
+      "comment": "[ PAC-758 ] DemandApi - handle loi, noc etc change without change order (#5525)",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/dependency/feasibilitydatastore/FeasibilityDataStoreFeignClient.java",
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/dependency/nexusapi/NexusApiFeignClient.java",
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/dependency/nexusapi/model/projectlineupsert/ProjectLineUpsertRequest.java",
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/dependency/nexusapi/model/projectlineupsert/ProjectLineUpsertResult.java",
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/dependency/nexusapi/model/projectlineupsert/ProjectLineUpsertSample.java",
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/ProjectHandler.java",
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/QuotaGroupUpdateHandler.java",
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/feas/FeasibilityHandler.java",
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/DifferenceComparatorTestBase.groovy",
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/ProjectHandlerTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/QuotaGroupUpdateHandlerTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/feas/FeasibilityHandlerTest.groovy",
+        "gateway/unifiedApi/NexusApiBos/README.md",
+        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/dependencies/d365bos/D365BosFeignClient.java",
+        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/dependencies/d365bos/model/projectline/ProjectLineUpsertRequest.java",
+        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/dependencies/d365bos/model/projectline/ProjectLineUpsertResult.java",
+        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/dependencies/d365bos/model/projectline/ProjectLineUpsertSample.java",
+        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/v1/api/D365Api.java",
+        "gateway/unifiedApi/NexusApiBos/src/main/java/com/dynata/rest/gateway/nexusapibos/v1/api/D365ApiImpl.java",
+        "gateway/unifiedApi/NexusApiBos/src/test/groovy/com/dynata/rest/gateway/nexusapibos/v1/api/D365ApiTest.groovy"
+      ],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "4a79e0307c5d",
+      "username": "weiqun.wang",
+      "comment": "Scale up prod to get ready for traffics switching over",
+      "files": [
+        "ml-complete-optimization-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "e5e997c33f4d",
+      "username": "adamlaszlo.mohacsi",
+      "comment": "[NA-1994] - SLS - Create provisioned dynamo db tables",
+      "files": [
+        "sls-db/cloud-formation.template.yml",
+        "sls-db/group_vars/dev.yml",
+        "sls-db/group_vars/production.yml",
+        "sls-db/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "ProjectAutomationApi",
+      "version": "e17dc0632dde",
+      "username": "norbert.farkas",
+      "comment": "fix subnet",
+      "files": [
+        "dk-project-survey-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261106T074818+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "NexusApiUI",
-      "commits": 19,
-      "latestTicket": "NXS-14351",
-      "latestComment": "[NXS-14351] - NexusApiUI bump UNexusModel:3.12.8",
-      "deployedAt": "20261105T160600+0000"
+      "service": "QuotaGroupRestJ21",
+      "commits": 11,
+      "latestTicket": "NXS-14384",
+      "latestComment": "[NXS-14384] - QuotaGroupRest - propagation shouldn't null urlPoolId",
+      "deployedAt": "20261106T164328+0000"
     },
     {
       "service": "NexusApiJ21",
-      "commits": 5,
-      "latestTicket": "NXS-14349",
-      "latestComment": "[NXS-14349] - cr3",
-      "deployedAt": "20261105T150618+0000"
+      "commits": 1,
+      "latestTicket": "NXS-14376",
+      "latestComment": "[NXS-14376],[NXS-14377] - NexusApi - propagation fixes v2",
+      "deployedAt": "20261106T130608+0000"
+    },
+    {
+      "service": "DemandApi",
+      "commits": 17,
+      "latestTicket": "",
+      "latestComment": "Update ProjectMappingMongoHandler and SampleServiceImpl to retain CRM IDs on fai",
+      "deployedAt": "20261106T075609+0000"
+    },
+    {
+      "service": "ProjectAutomationApi",
+      "commits": 4,
+      "latestTicket": "",
+      "latestComment": "fix subnet",
+      "deployedAt": "20261106T074818+0000"
     }
   ],
   "clusters": [],
@@ -353,10 +467,12 @@
     "bullets": [],
     "investigation": "No unmuted failures.",
     "detail": {
-      "investigation": "2 service(s) (24 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
+      "investigation": "4 service(s) (33 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
       "bullets": [
-        "[QA deploy: NexusApiUI] NXS-14351 (19 commits) \u2014 [NXS-14351] - NexusApiUI bump UNexusModel:3.12.8",
-        "[QA deploy: NexusApiJ21] NXS-14349 (5 commits) \u2014 [NXS-14349] - cr3"
+        "[QA deploy: QuotaGroupRestJ21] NXS-14384 (11 commits) \u2014 [NXS-14384] - QuotaGroupRest - propagation shouldn't null urlPoolId",
+        "[QA deploy: NexusApiJ21] NXS-14376 (1 commit) \u2014 [NXS-14376],[NXS-14377] - NexusApi - propagation fixes v2",
+        "[QA deploy: DemandApi]  (17 commits) \u2014 Update ProjectMappingMongoHandler and SampleServiceImpl to retain CRM IDs on fai",
+        "[QA deploy: ProjectAutomationApi]  (4 commits) \u2014 fix subnet"
       ],
       "newFailureAreas": [],
       "likelyCauses": []
@@ -364,24 +480,51 @@
     "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "NexusApiUI",
-        "version": "9b102277c9ac",
+        "service": "QuotaGroupRestJ21",
+        "version": "9a3b66866119",
         "username": "tamas.gyarmati",
-        "comment": "[NXS-14351] - NexusApiUI bump UNexusModel:3.12.8",
-        "ticket": "NXS-14351",
-        "deployedAt": "20261105T160600+0000",
+        "comment": "[NXS-14384] - QuotaGroupRest - propagation shouldn't null urlPoolId",
+        "ticket": "NXS-14384",
+        "deployedAt": "20261106T164328+0000",
         "files": [
-          "build.gradle"
+          "QuotaGroupCoreService.java",
+          "QuotaGroupCoreServiceTest.groovy"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiUI",
+        "service": "QuotaGroupRestJ21",
+        "version": "90a02192be60",
+        "username": "sajak.upadhyaya",
+        "comment": "[FAI-565] fine tuning alarm params",
+        "ticket": "",
+        "deployedAt": "20261106T164328+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "a3bd0cf1bc0a",
+        "username": "matt.spencer",
+        "comment": "[DQI-4715] Fixed Primer LOGGING_CONFIG to use logback-spring.",
+        "ticket": "",
+        "deployedAt": "20261106T164328+0000",
+        "files": [
+          "dev.yml",
+          "production.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
         "version": "8c97a26d8004",
         "username": "sajak.upadhyaya",
         "comment": "[FAI-565] renaming cluster and changing tags",
         "ticket": "",
-        "deployedAt": "20261105T160600+0000",
+        "deployedAt": "20261106T164328+0000",
         "files": [
           "cloud-formation.template.yml",
           "all.yml",
@@ -390,46 +533,46 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiUI",
+        "service": "QuotaGroupRestJ21",
         "version": "9dddb25f03b1",
         "username": "weiqun.wang",
         "comment": "raise sagemaker_scaling_target_invocations_per_instance for qa to 3000 to test",
         "ticket": "",
-        "deployedAt": "20261105T160600+0000",
+        "deployedAt": "20261106T164328+0000",
         "files": [
           "qa.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiUI",
+        "service": "QuotaGroupRestJ21",
         "version": "2bebde539b93",
         "username": "matt.spencer",
         "comment": "[DQI-4715] Fixed Primer dns_zone_id to dnw_private_zone_id.",
         "ticket": "",
-        "deployedAt": "20261105T160600+0000",
+        "deployedAt": "20261106T164328+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiUI",
+        "service": "QuotaGroupRestJ21",
         "version": "9502c2f2476e",
         "username": "matt.spencer",
         "comment": "Merge pull request #683 from dynata/DQI-4715-Update-Primer-Listener-Rule-Config",
         "ticket": "",
-        "deployedAt": "20261105T160600+0000",
+        "deployedAt": "20261106T164328+0000",
         "files": [],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiUI",
+        "service": "QuotaGroupRestJ21",
         "version": "3dc4ffe342dc",
         "username": "weiqun.wang",
         "comment": "update instance to xlarge and enable autoscaling for qa",
         "ticket": "",
-        "deployedAt": "20261105T160600+0000",
+        "deployedAt": "20261106T164328+0000",
         "files": [
           "cloud-formation.template.yml",
           "all.yml"
@@ -437,36 +580,12 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiUI",
-        "version": "42a16d884cc1",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14187 ] PES1 dashboard fix",
-        "ticket": "NXS-14187",
-        "deployedAt": "20261105T160600+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "fae6f514b667",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14187 ] PES1 dashboard fix",
-        "ticket": "NXS-14187",
-        "deployedAt": "20261105T160600+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
+        "service": "QuotaGroupRestJ21",
         "version": "45f92eab1182",
         "username": "matt.spencer",
         "comment": "[DQI-4715] Updated Primer listener rule to use host header instead of path pattern.",
         "ticket": "",
-        "deployedAt": "20261105T160600+0000",
+        "deployedAt": "20261106T164328+0000",
         "files": [
           "cloud-formation.template.yml",
           "dev.yml",
@@ -476,14 +595,19 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiUI",
-        "version": "2088b10480d2",
-        "username": "norbert.farkas",
-        "comment": "[ NXS-14187 ] PES1 dashboard fix",
-        "ticket": "NXS-14187",
-        "deployedAt": "20261105T160600+0000",
+        "service": "QuotaGroupRestJ21",
+        "version": "5979e7df5440",
+        "username": "adam.veres",
+        "comment": "FEAS-2663 Switch off LB deletion protection",
+        "ticket": "",
+        "deployedAt": "20261106T164328+0000",
         "files": [
-          "cloud-formation.template.yml"
+          "template.yml",
+          "template.yml",
+          "template.yml",
+          "template.yml",
+          "template.yml",
+          "template.yml"
         ],
         "scope": "qa-deploy"
       }
