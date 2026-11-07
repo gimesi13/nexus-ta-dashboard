@@ -1639,21 +1639,16 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "headline": "Nightly was green \u2014 no new failures across 1517 tests",
     "tone": "ok",
     "severity": "none",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
+    "causeText": "No new or unmuted failures.",
+    "investigation": "",
     "bullets": [],
     "detail": {
-      "investigation": "4 service(s) (33 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
-      "bullets": [
-        "[QA deploy: QuotaGroupRestJ21] NXS-14384 (11 commits) \u2014 [NXS-14384] - QuotaGroupRest - propagation shouldn't null urlPoolId",
-        "[QA deploy: NexusApiJ21] NXS-14376 (1 commit) \u2014 [NXS-14376],[NXS-14377] - NexusApi - propagation fixes v2",
-        "[QA deploy: DemandApi]  (17 commits) \u2014 Update ProjectMappingMongoHandler and SampleServiceImpl to retain CRM IDs on fai",
-        "[QA deploy: ProjectAutomationApi]  (4 commits) \u2014 fix subnet"
-      ],
+      "investigation": "",
+      "bullets": [],
       "newFailureAreas": [],
       "likelyCauses": []
     },
@@ -1823,8 +1818,8 @@
         "deployedAt": "20261106T074818+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-11-07T03:03Z",
+    "source": "llm",
+    "generatedAt": "2026-11-07T03:04:00Z",
     "buildNumber": "3.0.2753",
     "buildId": "9668745",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9668745",
