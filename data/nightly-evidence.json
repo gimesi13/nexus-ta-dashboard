@@ -1,38 +1,433 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-09T03:08Z",
+  "generatedAt": "2026-11-10T03:08Z",
   "build": {
-    "number": "3.0.2755",
-    "buildId": "9669426",
+    "number": "3.0.2756",
+    "buildId": "9670006",
     "status": "SUCCESS",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9669426",
-    "durationSec": 2018.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9670006",
+    "durationSec": 2079.0
   },
   "summary": {
     "tests": 1517,
-    "passed": 1457,
+    "passed": 1458,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "muted": 60,
+    "muted": 59,
     "newFailed": 0,
     "passRate": 100.0,
-    "timeSec": 2018.0
+    "timeSec": 2079.0
   },
   "prior": {
-    "buildId": "9669015",
-    "number": "3.0.2754",
+    "buildId": "9669426",
+    "number": "3.0.2755",
     "status": "SUCCESS",
     "statusText": "Tests passed: 1457, muted: 60",
-    "startDate": "20261108T023231+0000",
-    "durationSec": 1908.0,
+    "startDate": "20261109T023250+0000",
+    "durationSec": 2018.0,
     "failed": 0,
     "passed": 1457,
     "newFailed": 0
   },
   "changes": [],
-  "qaDeployChanges": [],
-  "qaDeployServices": [],
+  "qaDeployChanges": [
+    {
+      "service": "NexusApiJ21",
+      "version": "505d86f3b2e6",
+      "username": "david.nagy",
+      "comment": "[NXS-13913] EOS - MS - Modify the validation on status transition on audiences - NPE unit test fix",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/components/QGValidationsTest.groovy"
+      ],
+      "deployedAt": "20261109T232915+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "842f26d713cb",
+      "username": "david.nagy",
+      "comment": "[NXS-13913] EOS - MS - Modify the validation on status transition on audiences - NPE fix",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/components/QGValidations.java"
+      ],
+      "deployedAt": "20261109T232915+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "3778e2db926f",
+      "username": "weiqun.wang",
+      "comment": "change RetainAllVariantProperties to true",
+      "files": [
+        "ml-complete-optimization-model/cloud-formation.template.yml",
+        "ml-ibzp-redemption-guard-model/cloud-formation.template.yml",
+        "ml-redemption-guard-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261109T232915+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "bebd54c2ec58",
+      "username": "david.nagy",
+      "comment": "[NXS-13913] EOS - MS - Modify the validation on status transition on \u2026 (#5638)",
+      "files": [
+        "gateway/unifiedApi/NexusApi/build.gradle",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/quotaGroup/QuotaGroupRestFeignClient.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/quotaGroup/model/QuotaGroupSchedulingStatusUpdateRequest.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/components/QGValidations.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/components/QuotaGroupManualStatusHandler.java",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/components/QGValidationsTest.groovy",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/components/QuotaGroupManualStatusHandlerTest.groovy"
+      ],
+      "deployedAt": "20261109T232915+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "30ab7544517b",
+      "username": "david.nagy",
+      "comment": "[NXS-14342] EOS - MS - QuotaGroupRest - new endpoint to set scheduling status when starting audience is failed - refact\u2026",
+      "files": [
+        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/quota/u1/mongo/QuotaGroupSchedulingHandlerMongoTest.groovy",
+        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/quota/u1/mongo/QuotaGroupSchedulingMongoHelperMongoTest.groovy",
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandler.java",
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/mongo/QuotaGroupSchedulingMongoHelper.java",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandlerTest.groovy",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/mongo/QuotaGroupSchedulingMongoHelperTest.groovy"
+      ],
+      "deployedAt": "20261109T214736+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "4722c812b90e",
+      "username": "david.nagy",
+      "comment": "[NXS-14342] EOS - MS - QuotaGroupRest - new endpoint to set scheduling status when starting audience is failed - add PE\u2026",
+      "files": [
+        "project/QuotaGroupRest/serviceApi/src/main/java/com/surveysampling/rest/quota/u1/model/unified/QuotaGroupSchedulingStatusUpdateRequest.java",
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/mongo/QuotaGroupSchedulingMongoHelper.java",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/mongo/QuotaGroupSchedulingMongoHelperTest.groovy"
+      ],
+      "deployedAt": "20261109T214736+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "version": "d51920a28934",
+      "username": "david.nagy",
+      "comment": "[NXS-14342] EOS - MS - QuotaGroupRest - new endpoint to set scheduling status when starting audience is failed",
+      "files": [
+        "project/QuotaGroupRest/serviceApi/src/main/java/com/surveysampling/rest/quota/u1/model/unified/QuotaGroupSchedulingStatusUpdateRequest.java",
+        "project/QuotaGroupRest/serviceFeign/src/main/java/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupSchedulingRestFeignClient.java",
+        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupSchedulingRestAcceptanceTest.groovy",
+        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/quota/u1/mongo/QuotaGroupSchedulingMongoHelperMongoTest.groovy",
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/api/QuotaGroupSchedulingRest.java",
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandler.java",
+        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/mongo/QuotaGroupSchedulingMongoHelper.java",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/api/QuotaGroupSchedulingRestTest.groovy",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/components/QuotaGroupSchedulingHandlerTest.groovy",
+        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/mongo/QuotaGroupSchedulingMongoHelperTest.groovy"
+      ],
+      "deployedAt": "20261109T214736+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "87d79d4612e0",
+      "username": "tamas.gyarmati",
+      "comment": "[NXS-14387] - make uploaded values check parallel",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/StartPropagationListener.java"
+      ],
+      "deployedAt": "20261109T130602+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "a70d19c2fa47",
+      "username": "tamas.gyarmati",
+      "comment": "[NXS-14387] - NexusApi - propagation should' skip urlPool if it has uploaded values",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/StartPropagationListener.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/UrlPoolPropagator.java",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/StartPropagationListenerTest.groovy",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/UrlPoolPropagatorTest.groovy"
+      ],
+      "deployedAt": "20261109T130602+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "1b679dd20455",
+      "username": "norbert.farkas",
+      "comment": "Merge pull request #5642 from dynata/NXS-14317-nexusapimeta-country-language-catalog",
+      "files": [
+        "gateway/unifiedApi/NexusApiMeta/build.gradle"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "b4ef90836f62",
+      "username": "norbert.farkas",
+      "comment": "[NXS-14317] CR fix",
+      "files": [
+        "gateway/unifiedApi/NexusApiMeta/src/main/java/com/dynata/rest/gateway/nexusapimeta/api/dependencies/countrylanguages/model/CountryLanguageDynamicFilterRecord.java"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "b664042ba7db",
+      "username": "norbert.farkas",
+      "comment": "[NXS-14317] CR fix",
+      "files": [
+        "gateway/unifiedApi/NexusApiMeta/src/test/groovy/com/dynata/rest/gateway/nexusapimeta/api/u1/meta/catalog/CountryLanguageCatalogServiceTest.groovy"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "820b6c6e299b",
+      "username": "norbert.farkas",
+      "comment": "[NXS-14317] CR fix",
+      "files": [
+        "gateway/unifiedApi/NexusApiMeta/src/main/java/com/dynata/rest/gateway/nexusapimeta/api/u1/meta/countrylanguage/CatalogSource.java"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "dcbbcee3fa5c",
+      "username": "norbert.farkas",
+      "comment": "[NXS-14317] remove cache",
+      "files": [
+        "gateway/unifiedApi/NexusApiMeta/README.md",
+        "gateway/unifiedApi/NexusApiMeta/scripts/load_country_language_catalog.py",
+        "gateway/unifiedApi/NexusApiMeta/src/main/java/com/dynata/rest/gateway/nexusapimeta/api/u1/meta/countrylanguage/CountryLanguageSourceDb.java",
+        "gateway/unifiedApi/NexusApiMeta/src/test/groovy/com/dynata/rest/gateway/nexusapimeta/api/u1/meta/catalog/CountryLanguageSourceDbTest.groovy"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "d9803fb655b3",
+      "username": "norbert.farkas",
+      "comment": "[NXS-14317] markdown update",
+      "files": [
+        "gateway/unifiedApi/NexusApiMeta/README.md"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "90a02192be60",
+      "username": "sajak.upadhyaya",
+      "comment": "[FAI-565] fine tuning alarm params",
+      "files": [
+        "ml-machine-translation-cluster/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "a3bd0cf1bc0a",
+      "username": "matt.spencer",
+      "comment": "[DQI-4715] Fixed Primer LOGGING_CONFIG to use logback-spring.",
+      "files": [
+        "primer/group_vars/dev.yml",
+        "primer/group_vars/production.yml",
+        "primer/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "8c97a26d8004",
+      "username": "sajak.upadhyaya",
+      "comment": "[FAI-565] renaming cluster and changing tags",
+      "files": [
+        "ml-machine-translation-cluster/cloud-formation.template.yml",
+        "ml-machine-translation-cluster/group_vars/all.yml",
+        "ml-machine-translation-cluster/group_vars/production.yml"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "9dddb25f03b1",
+      "username": "weiqun.wang",
+      "comment": "raise sagemaker_scaling_target_invocations_per_instance for qa to 3000 to test",
+      "files": [
+        "ml-complete-optimization-model/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "2bebde539b93",
+      "username": "matt.spencer",
+      "comment": "[DQI-4715] Fixed Primer dns_zone_id to dnw_private_zone_id.",
+      "files": [
+        "primer/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "9502c2f2476e",
+      "username": "matt.spencer",
+      "comment": "Merge pull request #683 from dynata/DQI-4715-Update-Primer-Listener-Rule-Config",
+      "files": [],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "3dc4ffe342dc",
+      "username": "weiqun.wang",
+      "comment": "update instance to xlarge and enable autoscaling for qa",
+      "files": [
+        "ml-complete-optimization-model/cloud-formation.template.yml",
+        "ml-complete-optimization-model/group_vars/all.yml"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "42a16d884cc1",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-14187 ] PES1 dashboard fix",
+      "files": [
+        "nxs-pes1-dashboard/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "fae6f514b667",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-14187 ] PES1 dashboard fix",
+      "files": [
+        "nxs-pes1-dashboard/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "45f92eab1182",
+      "username": "matt.spencer",
+      "comment": "[DQI-4715] Updated Primer listener rule to use host header instead of path pattern.",
+      "files": [
+        "primer/cloud-formation.template.yml",
+        "primer/group_vars/dev.yml",
+        "primer/group_vars/production.yml",
+        "primer/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "2088b10480d2",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-14187 ] PES1 dashboard fix",
+      "files": [
+        "nxs-pes1-dashboard/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "add7a93b44fc",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-14187 ] PES1 dashboard fix",
+      "files": [
+        "nxs-pes1-dashboard/cloud-formation.template.yml",
+        "nxs-pes1-dashboard/group_vars/dev.yml",
+        "nxs-pes1-dashboard/group_vars/production.yml",
+        "nxs-pes1-dashboard/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "5979e7df5440",
+      "username": "adam.veres",
+      "comment": "FEAS-2663 Switch off LB deletion protection",
+      "files": [
+        "feasibility-actuals-aggregator/template.yml",
+        "feasibility-adjuster/template.yml",
+        "feasibility-cache-manager/template.yml",
+        "feasibility-calculator/template.yml",
+        "feasibility-cost-calculator-ecs/template.yml",
+        "feasibility-nonroutable-offers/template.yml",
+        "feasibility-parameter-updater/template.yml",
+        "feasibility-pipeline-test-project/template.yml",
+        "feasibility-plan-mapper/template.yml",
+        "feasibility-price-calculator/template.yml",
+        "feasibility-residuator/template.yml",
+        "feasibility-sku-score/template.yml",
+        "feasibility-trend/template.yml",
+        "parameter-scarcity/template.yml",
+        "respondent-parameter-observer/template.yml"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "efaf4df006c7",
+      "username": "81168944+mohacsiadam",
+      "comment": "Merge pull request #682 from dynata/NA-2046",
+      "files": [],
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "version": "3877ee98e2c2",
+      "username": "norbert.farkas",
+      "comment": "[ NXS-14187 ] PES1 dashboard fix",
+      "files": [
+        "nxs-pes1-dashboard/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261109T130139+0000"
+    }
+  ],
+  "qaDeployServices": [
+    {
+      "service": "NexusApiJ21",
+      "commits": 6,
+      "latestTicket": "NXS-13913",
+      "latestComment": "[NXS-13913] EOS - MS - Modify the validation on status transition on audiences -",
+      "deployedAt": "20261109T232915+0000"
+    },
+    {
+      "service": "QuotaGroupRestJ21",
+      "commits": 3,
+      "latestTicket": "NXS-14342",
+      "latestComment": "[NXS-14342] EOS - MS - QuotaGroupRest - new endpoint to set scheduling status wh",
+      "deployedAt": "20261109T214736+0000"
+    },
+    {
+      "service": "NexusApiMetaJ21",
+      "commits": 25,
+      "latestTicket": "NXS-14317",
+      "latestComment": "Merge pull request #5642 from dynata/NXS-14317-nexusapimeta-country-language-cat",
+      "deployedAt": "20261109T130139+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "commits": 2,
+      "latestTicket": "NXS-14389",
+      "latestComment": "[NXS-14389] - SurveyRest - propagation should remove target uploaded values",
+      "deployedAt": "20261109T125039+0000"
+    },
+    {
+      "service": "NexusApiBosJ21",
+      "commits": 5,
+      "latestTicket": "NXS-14388",
+      "latestComment": "[NXS-14388] MS | NexusApiBos | increase UNexusModel version from 3.12.5 to 3.12.",
+      "deployedAt": "20261109T120824+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "commits": 4,
+      "latestTicket": "",
+      "latestComment": "Pointing RewardCommunicationService baseURL to the new one",
+      "deployedAt": "20261109T092231+0000"
+    }
+  ],
   "clusters": [],
   "failures": [],
   "rulesNutshell": {
@@ -42,13 +437,163 @@
     "bullets": [],
     "investigation": "No unmuted failures.",
     "detail": {
-      "investigation": "",
-      "bullets": [],
+      "investigation": "6 service(s) (45 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
+      "bullets": [
+        "[QA deploy: NexusApiJ21] NXS-13913 (6 commits) \u2014 [NXS-13913] EOS - MS - Modify the validation on status transition on audiences -",
+        "[QA deploy: QuotaGroupRestJ21] NXS-14342 (3 commits) \u2014 [NXS-14342] EOS - MS - QuotaGroupRest - new endpoint to set scheduling status wh",
+        "[QA deploy: NexusApiMetaJ21] NXS-14317 (25 commits) \u2014 Merge pull request #5642 from dynata/NXS-14317-nexusapimeta-country-language-cat",
+        "[QA deploy: SurveyRestJ21] NXS-14389 (2 commits) \u2014 [NXS-14389] - SurveyRest - propagation should remove target uploaded values",
+        "[QA deploy: NexusApiBosJ21] NXS-14388 (5 commits) \u2014 [NXS-14388] MS | NexusApiBos | increase UNexusModel version from 3.12.5 to 3.12.",
+        "[QA deploy: ManualCreditJ21]  (4 commits) \u2014 Pointing RewardCommunicationService baseURL to the new one"
+      ],
       "newFailureAreas": [],
       "likelyCauses": []
     },
     "suspectCommits": [],
-    "qaDeploySuspects": []
+    "qaDeploySuspects": [
+      {
+        "service": "NexusApiJ21",
+        "version": "505d86f3b2e6",
+        "username": "david.nagy",
+        "comment": "[NXS-13913] EOS - MS - Modify the validation on status transition on audiences - NPE unit test fix",
+        "ticket": "NXS-13913",
+        "deployedAt": "20261109T232915+0000",
+        "files": [
+          "QGValidationsTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "842f26d713cb",
+        "username": "david.nagy",
+        "comment": "[NXS-13913] EOS - MS - Modify the validation on status transition on audiences - NPE fix",
+        "ticket": "NXS-13913",
+        "deployedAt": "20261109T232915+0000",
+        "files": [
+          "QGValidations.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "3778e2db926f",
+        "username": "weiqun.wang",
+        "comment": "change RetainAllVariantProperties to true",
+        "ticket": "",
+        "deployedAt": "20261109T232915+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "cloud-formation.template.yml",
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "bebd54c2ec58",
+        "username": "david.nagy",
+        "comment": "[NXS-13913] EOS - MS - Modify the validation on status transition on \u2026 (#5638)",
+        "ticket": "NXS-13913",
+        "deployedAt": "20261109T232915+0000",
+        "files": [
+          "build.gradle",
+          "QuotaGroupRestFeignClient.java",
+          "QuotaGroupSchedulingStatusUpdateRequest.java",
+          "QGValidations.java",
+          "QuotaGroupManualStatusHandler.java",
+          "QGValidationsTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "30ab7544517b",
+        "username": "david.nagy",
+        "comment": "[NXS-14342] EOS - MS - QuotaGroupRest - new endpoint to set scheduling status when starting audience is failed - refactor code",
+        "ticket": "NXS-14342",
+        "deployedAt": "20261109T214736+0000",
+        "files": [
+          "QuotaGroupSchedulingHandlerMongoTest.groovy",
+          "QuotaGroupSchedulingMongoHelperMongoTest.groovy",
+          "QuotaGroupSchedulingHandler.java",
+          "QuotaGroupSchedulingMongoHelper.java",
+          "QuotaGroupSchedulingHandlerTest.groovy",
+          "QuotaGroupSchedulingMongoHelperTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "4722c812b90e",
+        "username": "david.nagy",
+        "comment": "[NXS-14342] EOS - MS - QuotaGroupRest - new endpoint to set scheduling status when starting audience is failed - add PES2 message sending",
+        "ticket": "NXS-14342",
+        "deployedAt": "20261109T214736+0000",
+        "files": [
+          "QuotaGroupSchedulingStatusUpdateRequest.java",
+          "QuotaGroupSchedulingMongoHelper.java",
+          "QuotaGroupSchedulingMongoHelperTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "QuotaGroupRestJ21",
+        "version": "d51920a28934",
+        "username": "david.nagy",
+        "comment": "[NXS-14342] EOS - MS - QuotaGroupRest - new endpoint to set scheduling status when starting audience is failed",
+        "ticket": "NXS-14342",
+        "deployedAt": "20261109T214736+0000",
+        "files": [
+          "QuotaGroupSchedulingStatusUpdateRequest.java",
+          "QuotaGroupSchedulingRestFeignClient.java",
+          "QuotaGroupSchedulingRestAcceptanceTest.groovy",
+          "QuotaGroupSchedulingMongoHelperMongoTest.groovy",
+          "QuotaGroupSchedulingRest.java",
+          "QuotaGroupSchedulingHandler.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "87d79d4612e0",
+        "username": "tamas.gyarmati",
+        "comment": "[NXS-14387] - make uploaded values check parallel",
+        "ticket": "NXS-14387",
+        "deployedAt": "20261109T130602+0000",
+        "files": [
+          "StartPropagationListener.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "a70d19c2fa47",
+        "username": "tamas.gyarmati",
+        "comment": "[NXS-14387] - NexusApi - propagation should' skip urlPool if it has uploaded values",
+        "ticket": "NXS-14387",
+        "deployedAt": "20261109T130602+0000",
+        "files": [
+          "StartPropagationListener.java",
+          "UrlPoolPropagator.java",
+          "StartPropagationListenerTest.groovy",
+          "UrlPoolPropagatorTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiMetaJ21",
+        "version": "1b679dd20455",
+        "username": "norbert.farkas",
+        "comment": "Merge pull request #5642 from dynata/NXS-14317-nexusapimeta-country-language-catalog",
+        "ticket": "NXS-14317",
+        "deployedAt": "20261109T130139+0000",
+        "files": [
+          "build.gradle"
+        ],
+        "scope": "qa-deploy"
+      }
+    ]
   },
   "contractDrift": {
     "newCount": 4,
