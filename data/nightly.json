@@ -1639,23 +1639,16 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "headline": "Nightly was healthy \u2014 1517 tests, no new or unmuted failures",
     "tone": "ok",
     "severity": "none",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
+    "causeText": "No new or unmuted test failures \u2014 the nightly run was green. Separately (distinct from the test results), 4 endpoints drifted from the OpenAPI contract.",
+    "investigation": "",
     "bullets": [],
     "detail": {
-      "investigation": "6 service(s) (45 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
-      "bullets": [
-        "[QA deploy: NexusApiJ21] NXS-13913 (6 commits) \u2014 [NXS-13913] EOS - MS - Modify the validation on status transition on audiences -",
-        "[QA deploy: QuotaGroupRestJ21] NXS-14342 (3 commits) \u2014 [NXS-14342] EOS - MS - QuotaGroupRest - new endpoint to set scheduling status wh",
-        "[QA deploy: NexusApiMetaJ21] NXS-14317 (25 commits) \u2014 Merge pull request #5642 from dynata/NXS-14317-nexusapimeta-country-language-cat",
-        "[QA deploy: SurveyRestJ21] NXS-14389 (2 commits) \u2014 [NXS-14389] - SurveyRest - propagation should remove target uploaded values",
-        "[QA deploy: NexusApiBosJ21] NXS-14388 (5 commits) \u2014 [NXS-14388] MS | NexusApiBos | increase UNexusModel version from 3.12.5 to 3.12.",
-        "[QA deploy: ManualCreditJ21]  (4 commits) \u2014 Pointing RewardCommunicationService baseURL to the new one"
-      ],
+      "investigation": "",
+      "bullets": [],
       "newFailureAreas": [],
       "likelyCauses": []
     },
@@ -1849,8 +1842,8 @@
         "deployedAt": "20261109T092231+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-11-10T03:08Z",
+    "source": "llm",
+    "generatedAt": "2026-11-10T03:09:00Z",
     "buildNumber": "3.0.2756",
     "buildId": "9670006",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9670006",
