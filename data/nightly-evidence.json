@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-11T03:03Z",
+  "generatedAt": "2026-11-12T03:06Z",
   "build": {
-    "number": "3.0.2757",
-    "buildId": "9674096",
+    "number": "3.0.2758",
+    "buildId": "9676621",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9674096",
-    "durationSec": 1938.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9676621",
+    "durationSec": 1968.0
   },
   "summary": {
     "tests": 1517,
@@ -15,46 +15,123 @@
     "errors": 0,
     "skipped": 0,
     "muted": 59,
-    "newFailed": 3,
+    "newFailed": 0,
     "passRate": 99.8,
-    "timeSec": 1938.0
+    "timeSec": 1968.0
   },
   "prior": {
-    "buildId": "9670006",
-    "number": "3.0.2756",
-    "status": "SUCCESS",
-    "statusText": "Tests passed: 1458, muted: 59",
-    "startDate": "20261110T023253+0000",
-    "durationSec": 2079.0,
-    "failed": 0,
-    "passed": 1458,
-    "newFailed": 0
+    "buildId": "9674096",
+    "number": "3.0.2757",
+    "status": "FAILURE",
+    "statusText": "Tests failed: 3 (3 new), passed: 1455, muted: 59",
+    "startDate": "20261111T023027+0000",
+    "durationSec": 1938.0,
+    "failed": 3,
+    "passed": 1455,
+    "newFailed": 3
   },
   "changes": [],
   "qaDeployChanges": [
     {
-      "service": "CommunicationRestJ21",
-      "version": "5c11ce95ec53",
-      "username": "40339600+tamasroma",
-      "comment": "[NXS-14273] Test Fix",
+      "service": "NexusApiJ21",
+      "version": "46d3cd00ea20",
+      "username": "gabor.fial",
+      "comment": "[PAC-913] NexusApi - Project accept so long with lots of quota group - toggle for safe",
       "files": [
-        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/ProjectCommunicationsApiAcceptanceTest.groovy"
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UProjectImpl.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/components/Cloner.java"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T143319+0000"
     },
     {
-      "service": "CommunicationRestJ21",
-      "version": "5bdffd270aeb",
-      "username": "40339600+tamasroma",
-      "comment": "[NXS-14273] Test Fix",
+      "service": "NexusApiJ21",
+      "version": "167c581a2b31",
+      "username": "bresalio.nagy",
+      "comment": "Revert \"[AE-3656] [missing-rewards-queue] Permission for SFC-exp\"",
       "files": [
-        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/ProjectCommunicationTopicsApiAcceptanceTest.groovy",
-        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/ProjectCommunicationsApiAcceptanceTest.groovy"
+        "ae-missing-rewards-queue/cloud-formation.template.yml",
+        "ae-missing-rewards-queue/group_vars/all.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T143319+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "NexusApiJ21",
+      "version": "9fdb0cf5c0c4",
+      "username": "82085952+gaborfial",
+      "comment": "[PAC-913] NexusApi - Project accept so long with lots of quota group (#5670)",
+      "files": [
+        "gateway/unifiedApi/NexusApi/README.md",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UProjectImpl.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/components/Cloner.java",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UProjectImplTest.groovy",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/components/ClonerTest.groovy"
+      ],
+      "deployedAt": "20261111T132034+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "61e836c67d57",
+      "username": "laszlo.szalkai",
+      "comment": "delete ae-legacy-sfc-experimental",
+      "files": [
+        "ae-legacy-sfc-experimental/cloud-formation.template.yml",
+        "ae-legacy-sfc-experimental/group_vars/all.yml",
+        "ae-legacy-sfc-experimental/group_vars/dev.yml",
+        "ae-legacy-sfc-experimental/group_vars/production.yml",
+        "ae-legacy-sfc-experimental/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261111T132034+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "3ca4639d3b75",
+      "username": "laszlo.szalkai",
+      "comment": "delete ae-legacy-ssi-verify",
+      "files": [
+        "ae-legacy-ssi-verify/cloud-formation.template.yml",
+        "ae-legacy-ssi-verify/group_vars/all.yml",
+        "ae-legacy-ssi-verify/group_vars/dev.yml",
+        "ae-legacy-ssi-verify/group_vars/production.yml",
+        "ae-legacy-ssi-verify/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261111T132034+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "e27b305a6bcb",
+      "username": "andras.banszki",
+      "comment": "[NXS-14420] MS - DKQuotaRest - accept trailing slash on POST segments/probabilities after J21 (#5697)",
+      "files": [
+        "gateway/dk/DKQuotaRest/src/integTest/groovy/com/surveysampling/rest/gateway/quota/service/v1/acceptance/DKSegmentsProbabilitiesApiAcceptanceTest.groovy",
+        "gateway/dk/DKQuotaRest/src/integTest/groovy/com/surveysampling/rest/gateway/quota/service/v1/acceptance/testclients/DKSegmentsProbabilitiesApiTestClient.java",
+        "gateway/dk/DKQuotaRest/src/main/java/com/surveysampling/rest/gateway/quota/v1/DKSegmentsProbabilitiesApi.java"
+      ],
+      "deployedAt": "20261111T120836+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "c1705fd19445",
+      "username": "weiqun.wang",
+      "comment": "[FAI-561] adjust complete model prod autoscaling policy",
+      "files": [
+        "ml-complete-optimization-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20261111T120836+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "6ed8cf095bc2",
+      "username": "robert.szepesi",
+      "comment": "[AE-8116] [TM] make ECSExecutionRole has access for the new dynamoDB table, fix TODO typos",
+      "files": [
+        "ae-transaction-manager/cloud-formation.template.yml",
+        "ae-transaction-manager/group_vars/all.yml",
+        "ae-transaction-manager/templates/dynamodb.yml"
+      ],
+      "deployedAt": "20261111T120836+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
       "version": "40a0fa021787",
       "username": "gabor.imre",
       "comment": "Removed faulty subnet from ECS task definiton",
@@ -64,40 +141,10 @@
         "dk-management-sources-rest/group_vars/production.yml",
         "dk-project-country-language-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
-      "version": "65d4490bb6a5",
-      "username": "40339600+tamasroma",
-      "comment": "[NXS-14273] Test Fix",
-      "files": [
-        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/ProjectCommunicationsApiAcceptanceTest.groovy"
-      ],
-      "deployedAt": "20261110T133449+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
-      "version": "d152c134d38c",
-      "username": "40339600+tamasroma",
-      "comment": "[NXS-14273] MS - CommunicationRest - use QG languages for topics endpoints (#5617)",
-      "files": [
-        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/ProjectCommunicationTopicsApiAcceptanceTest.groovy",
-        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/ProjectCommunicationsApiAcceptanceTest.groovy",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/api/ProjectCommunicationTopicsApiImpl.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/components/CommunicationEditor.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/dependencies/quotagroup/QuotaGroupRestFeignClient.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/model/CommunicationTopic.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/model/Topic.java",
-        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/service/TopicService.java",
-        "project/CommunicationRest/src/test/groovy/com/surveysampling/rest/communication/u1/api/ProjectCommunicationTopicsApiImplTest.groovy",
-        "project/CommunicationRest/src/test/groovy/com/surveysampling/rest/communication/u1/components/CommunicationEditorTest.groovy",
-        "project/CommunicationRest/src/test/groovy/com/surveysampling/rest/communication/u1/service/TopicServiceTest.groovy"
-      ],
-      "deployedAt": "20261110T133449+0000"
-    },
-    {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "3778e2db926f",
       "username": "weiqun.wang",
       "comment": "change RetainAllVariantProperties to true",
@@ -106,20 +153,20 @@
         "ml-ibzp-redemption-guard-model/cloud-formation.template.yml",
         "ml-redemption-guard-model/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "90a02192be60",
       "username": "sajak.upadhyaya",
       "comment": "[FAI-565] fine tuning alarm params",
       "files": [
         "ml-machine-translation-cluster/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "a3bd0cf1bc0a",
       "username": "matt.spencer",
       "comment": "[DQI-4715] Fixed Primer LOGGING_CONFIG to use logback-spring.",
@@ -128,10 +175,10 @@
         "primer/group_vars/production.yml",
         "primer/group_vars/qa.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "8c97a26d8004",
       "username": "sajak.upadhyaya",
       "comment": "[FAI-565] renaming cluster and changing tags",
@@ -140,38 +187,38 @@
         "ml-machine-translation-cluster/group_vars/all.yml",
         "ml-machine-translation-cluster/group_vars/production.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "9dddb25f03b1",
       "username": "weiqun.wang",
       "comment": "raise sagemaker_scaling_target_invocations_per_instance for qa to 3000 to test",
       "files": [
         "ml-complete-optimization-model/group_vars/qa.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "2bebde539b93",
       "username": "matt.spencer",
       "comment": "[DQI-4715] Fixed Primer dns_zone_id to dnw_private_zone_id.",
       "files": [
         "primer/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "9502c2f2476e",
       "username": "matt.spencer",
       "comment": "Merge pull request #683 from dynata/DQI-4715-Update-Primer-Listener-Rule-Config",
       "files": [],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "3dc4ffe342dc",
       "username": "weiqun.wang",
       "comment": "update instance to xlarge and enable autoscaling for qa",
@@ -179,30 +226,30 @@
         "ml-complete-optimization-model/cloud-formation.template.yml",
         "ml-complete-optimization-model/group_vars/all.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "42a16d884cc1",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard fix",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "fae6f514b667",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard fix",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "45f92eab1182",
       "username": "matt.spencer",
       "comment": "[DQI-4715] Updated Primer listener rule to use host header instead of path pattern.",
@@ -212,20 +259,20 @@
         "primer/group_vars/production.yml",
         "primer/group_vars/qa.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "2088b10480d2",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard fix",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "add7a93b44fc",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard fix",
@@ -235,10 +282,10 @@
         "nxs-pes1-dashboard/group_vars/production.yml",
         "nxs-pes1-dashboard/group_vars/qa.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "5979e7df5440",
       "username": "adam.veres",
       "comment": "FEAS-2663 Switch off LB deletion protection",
@@ -259,48 +306,48 @@
         "parameter-scarcity/template.yml",
         "respondent-parameter-observer/template.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "efaf4df006c7",
       "username": "81168944+mohacsiadam",
       "comment": "Merge pull request #682 from dynata/NA-2046",
       "files": [],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "3877ee98e2c2",
       "username": "norbert.farkas",
       "comment": "[ NXS-14187 ] PES1 dashboard fix",
       "files": [
         "nxs-pes1-dashboard/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "f9c9fa52bbb2",
       "username": "norbert.farkas",
       "comment": "fix subnet",
       "files": [
         "dk-project-quota-group-definition-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "fbd93e97b67a",
       "username": "robert.szepesi",
       "comment": "[AE-8116] [TM] add project keyed respondent id counters dynamoDB table II",
       "files": [
         "ae-transaction-manager/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
+      "service": "DKQuotaRestJ21",
       "version": "c3f77a910b3a",
       "username": "robert.szepesi",
       "comment": "[AE-8116] [TM] add project keyed respondent id counters dynamoDB table",
@@ -309,85 +356,68 @@
         "ae-transaction-manager/group_vars/all.yml",
         "ae-transaction-manager/templates/dynamodb.yml"
       ],
-      "deployedAt": "20261110T133449+0000"
+      "deployedAt": "20261111T120836+0000"
     },
     {
-      "service": "CommunicationRestJ21",
-      "version": "ee9f003ccd15",
-      "username": "gabor.imre",
-      "comment": "[ST-5104] Fixed application log format",
-      "files": [
-        "export-service/group_vars/dev.yml",
-        "export-service/group_vars/prod.yml",
-        "export-service/group_vars/qa.yml",
-        "st-menu-service/group_vars/dev.yml",
-        "st-menu-service/group_vars/prod.yml",
-        "st-menu-service/group_vars/qa.yml",
-        "st-participation-status-rest/group_vars/dev.yml",
-        "st-participation-status-rest/group_vars/prod.yml",
-        "st-participation-status-rest/group_vars/qa.yml",
-        "st-respondent-rest/group_vars/dev.yml",
-        "st-respondent-rest/group_vars/prod.yml",
-        "st-respondent-rest/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261110T133449+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "08474ac15341",
+      "service": "ProjectAutomationApi",
+      "version": "1221d3d60383",
       "username": "gabor.fial",
-      "comment": "[PAC-915] ProjectRest - some case in project reevaluateStatus don't effect on PROGRAMMATIC projects",
+      "comment": "[PAC-920] IAM refresh token expire - Tracksuit - Tried to clone a project and received an error",
       "files": [
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mongo/ProjectHandlerTest.groovy"
+        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/service/SampleServiceImpl.java",
+        "gateway/unifiedApi/ProjectAutomationApi/src/test/groovy/u1/nexus/projects/service/SampleServiceImplTest.groovy"
       ],
-      "deployedAt": "20261110T112320+0000"
+      "deployedAt": "20261111T115820+0000"
     },
     {
-      "service": "ProjectRestJ16",
-      "version": "5e13907df9e7",
-      "username": "gabor.fial",
-      "comment": "[PAC-915] ProjectRest - some case in project reevaluateStatus don't effect on PROGRAMMATIC projects",
-      "files": [
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mongo/ProjectHandlerTest.groovy"
-      ],
-      "deployedAt": "20261110T112320+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "348c9c64c20b",
-      "username": "gabor.fial",
-      "comment": "[PAC-915] ProjectRest - some case in project reevaluateStatus don't effect on PROGRAMMATIC projects",
-      "files": [
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mongo/ProjectHandlerTest.groovy"
-      ],
-      "deployedAt": "20261110T112320+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "f93cef6883f0",
+      "service": "ProjectAutomationApi",
+      "version": "88a62febd631",
       "username": "82085952+gaborfial",
-      "comment": "[PAC-915] ProjectRest - some case in project reevaluateStatus don't e\u2026 (#5674)",
+      "comment": "[PAC-920] IAM refresh token expire - Tracksuit - Tried to clone a pr\u2026 (#5696)",
       "files": [
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mongo/ProjectHandler.java",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mongo/ProjectHandlerTest.groovy"
+        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/service/IAMTokenService.java",
+        "gateway/unifiedApi/ProjectAutomationApi/src/main/java/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/service/SampleServiceImpl.java",
+        "gateway/unifiedApi/ProjectAutomationApi/src/test/groovy/com/dynata/rest/gateway/projectautomationapi/u1/nexus/projects/service/IAMTokenServiceTest.groovy",
+        "gateway/unifiedApi/ProjectAutomationApi/src/test/groovy/u1/nexus/projects/service/SampleServiceImplTest.groovy"
       ],
-      "deployedAt": "20261110T112320+0000"
+      "deployedAt": "20261111T115820+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "CommunicationRestJ21",
-      "commits": 25,
-      "latestTicket": "NXS-14273",
-      "latestComment": "[NXS-14273] Test Fix",
-      "deployedAt": "20261110T133449+0000"
+      "service": "NexusApiJ21",
+      "commits": 7,
+      "latestTicket": "",
+      "latestComment": "[PAC-913] NexusApi - Project accept so long with lots of quota group - toggle fo",
+      "deployedAt": "20261111T143319+0000"
     },
     {
-      "service": "ProjectRestJ16",
-      "commits": 4,
+      "service": "DKQuotaRestJ21",
+      "commits": 23,
+      "latestTicket": "NXS-14420",
+      "latestComment": "[NXS-14420] MS - DKQuotaRest - accept trailing slash on POST segments/probabilit",
+      "deployedAt": "20261111T120836+0000"
+    },
+    {
+      "service": "ProjectAutomationApi",
+      "commits": 2,
       "latestTicket": "",
-      "latestComment": "[PAC-915] ProjectRest - some case in project reevaluateStatus don't effect on PR",
-      "deployedAt": "20261110T112320+0000"
+      "latestComment": "[PAC-920] IAM refresh token expire -  Tracksuit - Tried to clone a project and r",
+      "deployedAt": "20261111T115820+0000"
+    },
+    {
+      "service": "QuotaGroupSourcesRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14401",
+      "latestComment": "[NXS-14401] remove unused v3 endpoints",
+      "deployedAt": "20261111T103456+0000"
+    },
+    {
+      "service": "DemandApi",
+      "commits": 1,
+      "latestTicket": "",
+      "latestComment": "[PAC-849] DemandApi - fix QUOTA_CELL_STATUS in u1 (#5690)",
+      "deployedAt": "20261111T094715+0000"
     }
   ],
   "clusters": [
@@ -404,7 +434,7 @@
     {
       "name": "Project topic list is replaced with the saved languages",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Communication.CommunicationCRUDTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Communication",
       "cluster": "other",
       "message": "Topic language is not a quota group language: hu",
@@ -413,7 +443,7 @@
     {
       "name": "Replacing topics with an empty list clears the project topics",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Communication.CommunicationCRUDTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Communication",
       "cluster": "other",
       "message": "Topics must include every quota group language",
@@ -422,7 +452,7 @@
     {
       "name": "Communication is rejected when the project has no topics",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Communication.CommunicationRuleValidationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "Communication",
       "cluster": "other",
       "message": "Topics must include every quota group language",
@@ -430,19 +460,22 @@
     }
   ],
   "rulesNutshell": {
-    "headline": "3 new failures in Communication",
+    "headline": "3 continuing failure(s) \u2014 no new unmuted fails",
     "tone": "warn",
     "severity": "low",
     "bullets": [
       "3\u00d7 other \u2014 Topic language is not a quota group language: hu"
     ],
-    "investigation": "New fails: 3\u00d7 other (no dominant signature yet). Vs prior #3.0.2756: up 3 total fails.",
+    "investigation": "Failures: 3\u00d7 other (no dominant signature yet).",
     "detail": {
-      "investigation": "3 of 3 unmuted failures are new since the prior build (#3.0.2756, 0 fails). Failure types (new-first): (1) 3\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Communication (3). 2 service(s) (29 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Project topic list is replaced with the saved languages [other]; Communication: Replacing topics with an empty list clears the project topics [other]; Communication: Communication is rejected when the project has no topics [other].",
+      "investigation": "No new unmuted failures; 3 continuing from prior runs. Failure types (new-first): (1) 3\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Communication (3). 5 service(s) (34 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Project topic list is replaced with the saved languages [other]; Communication: Replacing topics with an empty list clears the project topics [other]; Communication: Communication is rejected when the project has no topics [other].",
       "bullets": [
         "3\u00d7 other \u2014 Topic language is not a quota group language: hu",
-        "[QA deploy: CommunicationRestJ21] NXS-14273 (25 commits) \u2014 [NXS-14273] Test Fix",
-        "[QA deploy: ProjectRestJ16]  (4 commits) \u2014 [PAC-915] ProjectRest - some case in project reevaluateStatus don't effect on PR"
+        "[QA deploy: NexusApiJ21]  (7 commits) \u2014 [PAC-913] NexusApi - Project accept so long with lots of quota group - toggle fo",
+        "[QA deploy: DKQuotaRestJ21] NXS-14420 (23 commits) \u2014 [NXS-14420] MS - DKQuotaRest - accept trailing slash on POST segments/probabilit",
+        "[QA deploy: ProjectAutomationApi]  (2 commits) \u2014 [PAC-920] IAM refresh token expire -  Tracksuit - Tried to clone a project and r",
+        "[QA deploy: QuotaGroupSourcesRestJ21] NXS-14401 (1 commit) \u2014 [NXS-14401] remove unused v3 endpoints",
+        "[QA deploy: DemandApi]  (1 commit) \u2014 [PAC-849] DemandApi - fix QUOTA_CELL_STATUS in u1 (#5690)"
       ],
       "newFailureAreas": [
         {
@@ -455,108 +488,57 @@
     "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "CommunicationRestJ21",
-        "version": "5c11ce95ec53",
-        "username": "40339600+tamasroma",
-        "comment": "[NXS-14273] Test Fix",
-        "ticket": "NXS-14273",
-        "deployedAt": "20261110T133449+0000",
-        "files": [
-          "ProjectCommunicationsApiAcceptanceTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "CommunicationRestJ21",
-        "version": "5bdffd270aeb",
-        "username": "40339600+tamasroma",
-        "comment": "[NXS-14273] Test Fix",
-        "ticket": "NXS-14273",
-        "deployedAt": "20261110T133449+0000",
-        "files": [
-          "ProjectCommunicationTopicsApiAcceptanceTest.groovy",
-          "ProjectCommunicationsApiAcceptanceTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "CommunicationRestJ21",
-        "version": "40a0fa021787",
-        "username": "gabor.imre",
-        "comment": "Removed faulty subnet from ECS task definiton",
+        "service": "NexusApiJ21",
+        "version": "46d3cd00ea20",
+        "username": "gabor.fial",
+        "comment": "[PAC-913] NexusApi - Project accept so long with lots of quota group - toggle for safe",
         "ticket": "",
-        "deployedAt": "20261110T133449+0000",
+        "deployedAt": "20261111T143319+0000",
         "files": [
-          "production.yml",
-          "production.yml",
-          "production.yml",
-          "production.yml"
+          "UProjectImpl.java",
+          "Cloner.java"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "CommunicationRestJ21",
-        "version": "65d4490bb6a5",
-        "username": "40339600+tamasroma",
-        "comment": "[NXS-14273] Test Fix",
-        "ticket": "NXS-14273",
-        "deployedAt": "20261110T133449+0000",
-        "files": [
-          "ProjectCommunicationsApiAcceptanceTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "CommunicationRestJ21",
-        "version": "d152c134d38c",
-        "username": "40339600+tamasroma",
-        "comment": "[NXS-14273] MS - CommunicationRest - use QG languages for topics endpoints (#5617)",
-        "ticket": "NXS-14273",
-        "deployedAt": "20261110T133449+0000",
-        "files": [
-          "ProjectCommunicationTopicsApiAcceptanceTest.groovy",
-          "ProjectCommunicationsApiAcceptanceTest.groovy",
-          "ProjectCommunicationTopicsApiImpl.java",
-          "CommunicationEditor.java",
-          "QuotaGroupRestFeignClient.java",
-          "CommunicationTopic.java"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "CommunicationRestJ21",
-        "version": "3778e2db926f",
-        "username": "weiqun.wang",
-        "comment": "change RetainAllVariantProperties to true",
+        "service": "NexusApiJ21",
+        "version": "167c581a2b31",
+        "username": "bresalio.nagy",
+        "comment": "Revert \"[AE-3656] [missing-rewards-queue] Permission for SFC-exp\"",
         "ticket": "",
-        "deployedAt": "20261110T133449+0000",
+        "deployedAt": "20261111T143319+0000",
         "files": [
           "cloud-formation.template.yml",
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "9fdb0cf5c0c4",
+        "username": "82085952+gaborfial",
+        "comment": "[PAC-913] NexusApi - Project accept so long with lots of quota group (#5670)",
+        "ticket": "",
+        "deployedAt": "20261111T132034+0000",
+        "files": [
+          "README.md",
+          "UProjectImpl.java",
+          "Cloner.java",
+          "UProjectImplTest.groovy",
+          "ClonerTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "61e836c67d57",
+        "username": "laszlo.szalkai",
+        "comment": "delete ae-legacy-sfc-experimental",
+        "ticket": "",
+        "deployedAt": "20261111T132034+0000",
+        "files": [
           "cloud-formation.template.yml",
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "CommunicationRestJ21",
-        "version": "90a02192be60",
-        "username": "sajak.upadhyaya",
-        "comment": "[FAI-565] fine tuning alarm params",
-        "ticket": "",
-        "deployedAt": "20261110T133449+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "CommunicationRestJ21",
-        "version": "a3bd0cf1bc0a",
-        "username": "matt.spencer",
-        "comment": "[DQI-4715] Fixed Primer LOGGING_CONFIG to use logback-spring.",
-        "ticket": "",
-        "deployedAt": "20261110T133449+0000",
-        "files": [
+          "all.yml",
           "dev.yml",
           "production.yml",
           "qa.yml"
@@ -564,28 +546,87 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "CommunicationRestJ21",
-        "version": "8c97a26d8004",
-        "username": "sajak.upadhyaya",
-        "comment": "[FAI-565] renaming cluster and changing tags",
+        "service": "NexusApiJ21",
+        "version": "3ca4639d3b75",
+        "username": "laszlo.szalkai",
+        "comment": "delete ae-legacy-ssi-verify",
         "ticket": "",
-        "deployedAt": "20261110T133449+0000",
+        "deployedAt": "20261111T132034+0000",
         "files": [
           "cloud-formation.template.yml",
           "all.yml",
+          "dev.yml",
+          "production.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DKQuotaRestJ21",
+        "version": "e27b305a6bcb",
+        "username": "andras.banszki",
+        "comment": "[NXS-14420] MS - DKQuotaRest - accept trailing slash on POST segments/probabilities after J21 (#5697)",
+        "ticket": "NXS-14420",
+        "deployedAt": "20261111T120836+0000",
+        "files": [
+          "DKSegmentsProbabilitiesApiAcceptanceTest.groovy",
+          "DKSegmentsProbabilitiesApiTestClient.java",
+          "DKSegmentsProbabilitiesApi.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DKQuotaRestJ21",
+        "version": "c1705fd19445",
+        "username": "weiqun.wang",
+        "comment": "[FAI-561] adjust complete model prod autoscaling policy",
+        "ticket": "",
+        "deployedAt": "20261111T120836+0000",
+        "files": [
           "production.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "CommunicationRestJ21",
-        "version": "9dddb25f03b1",
-        "username": "weiqun.wang",
-        "comment": "raise sagemaker_scaling_target_invocations_per_instance for qa to 3000 to test",
+        "service": "DKQuotaRestJ21",
+        "version": "6ed8cf095bc2",
+        "username": "robert.szepesi",
+        "comment": "[AE-8116] [TM] make ECSExecutionRole has access for the new dynamoDB table, fix TODO typos",
         "ticket": "",
-        "deployedAt": "20261110T133449+0000",
+        "deployedAt": "20261111T120836+0000",
         "files": [
-          "qa.yml"
+          "cloud-formation.template.yml",
+          "all.yml",
+          "dynamodb.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DKQuotaRestJ21",
+        "version": "40a0fa021787",
+        "username": "gabor.imre",
+        "comment": "Removed faulty subnet from ECS task definiton",
+        "ticket": "",
+        "deployedAt": "20261111T120836+0000",
+        "files": [
+          "production.yml",
+          "production.yml",
+          "production.yml",
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DKQuotaRestJ21",
+        "version": "3778e2db926f",
+        "username": "weiqun.wang",
+        "comment": "change RetainAllVariantProperties to true",
+        "ticket": "",
+        "deployedAt": "20261111T120836+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "cloud-formation.template.yml",
+          "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       }
