@@ -1639,39 +1639,18 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "headline": "Nightly was green \u2014 all 1517 tests passed with no new or unmuted failures.",
     "tone": "ok",
     "severity": "none",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
-    "bullets": [
-      "Change NXS-14435: gergely.gimesi \u00b7 Communication"
-    ],
+    "causeText": "No new or unmuted failures \u2014 clean run.",
+    "investigation": "",
+    "bullets": [],
     "detail": {
-      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 1 service(s) (25 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
-      "bullets": [
-        "Change NXS-14435: gergely.gimesi \u00b7 Communication",
-        "NXS-14435 6e76cf1b3c37 by gergely.gimesi \u2192 areas Communication (0 new fails) \u00b7 CommunicationCRUDTestSteps.groovy, CommunicationRuleValidationTestSteps.groovy",
-        "[QA deploy: QuotaGroupRestJ21] NXS-14287 (25 commits) \u2014 Merge pull request #688 from dynata/NXS-14287-pact-broker-all"
-      ],
+      "investigation": "",
+      "bullets": [],
       "newFailureAreas": [],
-      "likelyCauses": [
-        {
-          "version": "6e76cf1b3c37",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-14435",
-          "comment": "NXS-14435 Align communication topic specs with QG-language PUT rules",
-          "areas": [
-            "Communication"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "CommunicationCRUDTestSteps.groovy",
-            "CommunicationRuleValidationTestSteps.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
     "clusters": [],
     "suspectCommits": [
@@ -1817,8 +1796,8 @@
         "deployedAt": "20261112T141345+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-11-13T03:10Z",
+    "source": "llm",
+    "generatedAt": "2026-11-13T03:11:32Z",
     "buildNumber": "3.0.2759",
     "buildId": "9680614",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9680614",
