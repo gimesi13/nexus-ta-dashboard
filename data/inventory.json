@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-11-12",
+  "generatedAt": "2026-11-13",
   "source": "source",
   "features": 803,
   "cases": 1544,
   "specs": 115,
   "areas": 16,
   "featuresWithSteps": 803,
-  "steps": 3906,
+  "steps": 3905,
   "byType": {
     "CRUD": 253,
     "Validation": 223,
@@ -2493,7 +2493,7 @@
     {
       "area": "Communication",
       "spec": "CommunicationCRUDTestSteps",
-      "name": "Project topic list is replaced with the saved languages",
+      "name": "Project topic list is replaced with the quota group languages",
       "type": "Query",
       "tags": [
         "COMMUNICATION"
@@ -2506,7 +2506,7 @@
       "steps": [
         {
           "phase": "given",
-          "label": "English and Hungarian topics"
+          "label": "A topic in the quota group language"
         },
         {
           "phase": "when",
@@ -2514,14 +2514,14 @@
         },
         {
           "phase": "then",
-          "label": "Both languages and translations are stored"
+          "label": "The quota group language and translation are stored"
         }
       ]
     },
     {
       "area": "Communication",
       "spec": "CommunicationCRUDTestSteps",
-      "name": "Replacing topics with an empty list clears the project topics",
+      "name": "Replacing topics with an empty list is rejected",
       "type": "Validation",
       "tags": [
         "COMMUNICATION"
@@ -2533,16 +2533,12 @@
       "ignored": false,
       "steps": [
         {
-          "phase": "given",
-          "label": "A project that already has a topic"
-        },
-        {
           "phase": "when",
           "label": "The topic list is replaced with an empty list"
         },
         {
           "phase": "then",
-          "label": "The project has no topics"
+          "label": "The empty list is rejected"
         }
       ]
     },
@@ -2645,6 +2641,35 @@
     {
       "area": "Communication",
       "spec": "CommunicationRuleValidationTestSteps",
+      "name": "A topic language that is not a quota group language is rejected",
+      "type": "Validation",
+      "tags": [
+        "COMMUNICATION",
+        "VALIDATION"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Communications - Validation",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "A topic in a language the quota group does not use"
+        },
+        {
+          "phase": "when",
+          "label": "The project topic list is replaced"
+        },
+        {
+          "phase": "then",
+          "label": "The extra language is rejected"
+        }
+      ]
+    },
+    {
+      "area": "Communication",
+      "spec": "CommunicationRuleValidationTestSteps",
       "name": "Cancel is rejected for a quota group that is not on the communication",
       "type": "Validation",
       "tags": [
@@ -2668,35 +2693,6 @@
         {
           "phase": "then",
           "label": "The quota group is not found on the communication"
-        }
-      ]
-    },
-    {
-      "area": "Communication",
-      "spec": "CommunicationRuleValidationTestSteps",
-      "name": "Communication is rejected when the project has no topics",
-      "type": "Validation",
-      "tags": [
-        "COMMUNICATION",
-        "VALIDATION"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Communications - Validation",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "The project topic list is empty"
-        },
-        {
-          "phase": "when",
-          "label": "The communication is saved"
-        },
-        {
-          "phase": "then",
-          "label": "The empty topic list is rejected"
         }
       ]
     },

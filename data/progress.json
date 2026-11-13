@@ -1,50 +1,204 @@
 {
-  "generatedAt": "2026-11-12T03:06Z",
+  "generatedAt": "2026-11-13T03:10Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-11-06",
-      "to": "2026-11-12",
-      "featuresAdded": 0,
-      "casesAdded": 0,
-      "areasTouched": 0,
-      "ticketsTouched": 0,
-      "byType": {},
-      "byArea": [],
-      "tickets": [],
-      "additions": []
-    },
-    "14d": {
-      "from": "2026-10-30",
-      "to": "2026-11-12",
-      "featuresAdded": 0,
-      "casesAdded": 0,
-      "areasTouched": 0,
-      "ticketsTouched": 0,
-      "byType": {},
-      "byArea": [],
-      "tickets": [],
-      "additions": []
-    },
-    "30d": {
-      "from": "2026-10-14",
-      "to": "2026-11-12",
-      "featuresAdded": 22,
-      "casesAdded": 22,
+      "from": "2026-11-07",
+      "to": "2026-11-13",
+      "featuresAdded": 3,
+      "casesAdded": 3,
       "areasTouched": 1,
       "ticketsTouched": 1,
       "byType": {
-        "CRUD": 5,
-        "Validation": 13,
-        "Query": 2,
-        "Other": 2
+        "Validation": 2,
+        "Query": 1
       },
       "byArea": [
         {
           "area": "Communication",
-          "featuresAdded": 22
+          "featuresAdded": 3
+        }
+      ],
+      "tickets": [
+        {
+          "key": "NXS-14435",
+          "featuresAdded": 3,
+          "casesAdded": 3,
+          "latestDate": "2026-11-12"
+        }
+      ],
+      "additions": [
+        {
+          "name": "Replacing topics with an empty list is rejected",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-11-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14435 Align communication topic specs with QG-language PUT rules",
+          "commit": "6e76cf1b3c",
+          "tickets": [
+            "NXS-14435"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Replacing%20topics%20with%20an%20empty%20list%20is%20rejected"
+        },
+        {
+          "name": "Project topic list is replaced with the quota group languages",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-11-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14435 Align communication topic specs with QG-language PUT rules",
+          "commit": "6e76cf1b3c",
+          "tickets": [
+            "NXS-14435"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Query",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Project%20topic%20list%20is%20replaced%20with%20the%20quota%20group%20languages"
+        },
+        {
+          "name": "A topic language that is not a quota group language is rejected",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-11-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14435 Align communication topic specs with QG-language PUT rules",
+          "commit": "6e76cf1b3c",
+          "tickets": [
+            "NXS-14435"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20topic%20language%20that%20is%20not%20a%20quota%20group%20language%20is%20rejected"
+        }
+      ]
+    },
+    "14d": {
+      "from": "2026-10-31",
+      "to": "2026-11-13",
+      "featuresAdded": 3,
+      "casesAdded": 3,
+      "areasTouched": 1,
+      "ticketsTouched": 1,
+      "byType": {
+        "Validation": 2,
+        "Query": 1
+      },
+      "byArea": [
+        {
+          "area": "Communication",
+          "featuresAdded": 3
+        }
+      ],
+      "tickets": [
+        {
+          "key": "NXS-14435",
+          "featuresAdded": 3,
+          "casesAdded": 3,
+          "latestDate": "2026-11-12"
+        }
+      ],
+      "additions": [
+        {
+          "name": "Replacing topics with an empty list is rejected",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-11-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14435 Align communication topic specs with QG-language PUT rules",
+          "commit": "6e76cf1b3c",
+          "tickets": [
+            "NXS-14435"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Replacing%20topics%20with%20an%20empty%20list%20is%20rejected"
+        },
+        {
+          "name": "Project topic list is replaced with the quota group languages",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-11-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14435 Align communication topic specs with QG-language PUT rules",
+          "commit": "6e76cf1b3c",
+          "tickets": [
+            "NXS-14435"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Query",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Project%20topic%20list%20is%20replaced%20with%20the%20quota%20group%20languages"
+        },
+        {
+          "name": "A topic language that is not a quota group language is rejected",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-11-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14435 Align communication topic specs with QG-language PUT rules",
+          "commit": "6e76cf1b3c",
+          "tickets": [
+            "NXS-14435"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20topic%20language%20that%20is%20not%20a%20quota%20group%20language%20is%20rejected"
+        }
+      ]
+    },
+    "30d": {
+      "from": "2026-10-15",
+      "to": "2026-11-13",
+      "featuresAdded": 25,
+      "casesAdded": 25,
+      "areasTouched": 1,
+      "ticketsTouched": 2,
+      "byType": {
+        "CRUD": 5,
+        "Validation": 13,
+        "Query": 2,
+        "Other": 5
+      },
+      "byArea": [
+        {
+          "area": "Communication",
+          "featuresAdded": 25
         }
       ],
       "tickets": [
@@ -53,9 +207,76 @@
           "featuresAdded": 22,
           "casesAdded": 22,
           "latestDate": "2026-10-20"
+        },
+        {
+          "key": "NXS-14435",
+          "featuresAdded": 3,
+          "casesAdded": 3,
+          "latestDate": "2026-11-12"
         }
       ],
       "additions": [
+        {
+          "name": "Replacing topics with an empty list is rejected",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-11-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14435 Align communication topic specs with QG-language PUT rules",
+          "commit": "6e76cf1b3c",
+          "tickets": [
+            "NXS-14435"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Replacing%20topics%20with%20an%20empty%20list%20is%20rejected"
+        },
+        {
+          "name": "Project topic list is replaced with the quota group languages",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-11-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14435 Align communication topic specs with QG-language PUT rules",
+          "commit": "6e76cf1b3c",
+          "tickets": [
+            "NXS-14435"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Query",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Project%20topic%20list%20is%20replaced%20with%20the%20quota%20group%20languages"
+        },
+        {
+          "name": "A topic language that is not a quota group language is rejected",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-11-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14435 Align communication topic specs with QG-language PUT rules",
+          "commit": "6e76cf1b3c",
+          "tickets": [
+            "NXS-14435"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20topic%20language%20that%20is%20not%20a%20quota%20group%20language%20is%20rejected"
+        },
         {
           "name": "Updating copy on a cancelled quota group keeps the cancel flag",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
@@ -169,14 +390,12 @@
             "NXS-14188"
           ],
           "area": "Communication",
-          "spec": "CommunicationCRUDTestSteps",
-          "type": "Validation",
+          "type": "Other",
           "cases": 1,
-          "tags": [
-            "COMMUNICATION"
-          ],
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Replacing%20topics%20with%20an%20empty%20list%20clears%20the%20project%20topics"
+          "inventoryHref": "inventory.html?q=Replacing%20topics%20with%20an%20empty%20list%20clears%20the%20project%20topics",
+          "gone": true
         },
         {
           "name": "Reading topics rejects a non-positive project id",
@@ -210,14 +429,12 @@
             "NXS-14188"
           ],
           "area": "Communication",
-          "spec": "CommunicationCRUDTestSteps",
-          "type": "Query",
+          "type": "Other",
           "cases": 1,
-          "tags": [
-            "COMMUNICATION"
-          ],
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Project%20topic%20list%20is%20replaced%20with%20the%20saved%20languages"
+          "inventoryHref": "inventory.html?q=Project%20topic%20list%20is%20replaced%20with%20the%20saved%20languages",
+          "gone": true
         },
         {
           "name": "Listing communications rejects a non-positive project id",
@@ -331,15 +548,12 @@
             "NXS-14188"
           ],
           "area": "Communication",
-          "spec": "CommunicationRuleValidationTestSteps",
-          "type": "Validation",
+          "type": "Other",
           "cases": 1,
-          "tags": [
-            "COMMUNICATION",
-            "VALIDATION"
-          ],
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20project%20has%20no%20topics"
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20project%20has%20no%20topics",
+          "gone": true
         },
         {
           "name": "Communication is rejected when the project does not support communications",
@@ -507,19 +721,19 @@
       ]
     },
     "90d": {
-      "from": "2026-08-15",
-      "to": "2026-11-12",
-      "featuresAdded": 89,
-      "casesAdded": 91,
+      "from": "2026-08-16",
+      "to": "2026-11-13",
+      "featuresAdded": 92,
+      "casesAdded": 94,
       "areasTouched": 7,
-      "ticketsTouched": 6,
+      "ticketsTouched": 7,
       "byType": {
         "CRUD": 6,
         "Validation": 24,
         "Workflow": 8,
         "Query": 2,
         "E2E": 2,
-        "Other": 47
+        "Other": 50
       },
       "byArea": [
         {
@@ -528,7 +742,7 @@
         },
         {
           "area": "Communication",
-          "featuresAdded": 22
+          "featuresAdded": 25
         },
         {
           "area": "BOS",
@@ -577,6 +791,12 @@
           "latestDate": "2026-08-18"
         },
         {
+          "key": "NXS-14435",
+          "featuresAdded": 3,
+          "casesAdded": 3,
+          "latestDate": "2026-11-12"
+        },
+        {
           "key": "NXS-13972",
           "featuresAdded": 2,
           "casesAdded": 2,
@@ -590,6 +810,67 @@
         }
       ],
       "additions": [
+        {
+          "name": "Replacing topics with an empty list is rejected",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-11-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14435 Align communication topic specs with QG-language PUT rules",
+          "commit": "6e76cf1b3c",
+          "tickets": [
+            "NXS-14435"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Replacing%20topics%20with%20an%20empty%20list%20is%20rejected"
+        },
+        {
+          "name": "Project topic list is replaced with the quota group languages",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
+          "date": "2026-11-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14435 Align communication topic specs with QG-language PUT rules",
+          "commit": "6e76cf1b3c",
+          "tickets": [
+            "NXS-14435"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationCRUDTestSteps",
+          "type": "Query",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Project%20topic%20list%20is%20replaced%20with%20the%20quota%20group%20languages"
+        },
+        {
+          "name": "A topic language that is not a quota group language is rejected",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
+          "date": "2026-11-12",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-14435 Align communication topic specs with QG-language PUT rules",
+          "commit": "6e76cf1b3c",
+          "tickets": [
+            "NXS-14435"
+          ],
+          "area": "Communication",
+          "spec": "CommunicationRuleValidationTestSteps",
+          "type": "Validation",
+          "cases": 1,
+          "tags": [
+            "COMMUNICATION",
+            "VALIDATION"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20topic%20language%20that%20is%20not%20a%20quota%20group%20language%20is%20rejected"
+        },
         {
           "name": "Updating copy on a cancelled quota group keeps the cancel flag",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
@@ -703,14 +984,12 @@
             "NXS-14188"
           ],
           "area": "Communication",
-          "spec": "CommunicationCRUDTestSteps",
-          "type": "Validation",
+          "type": "Other",
           "cases": 1,
-          "tags": [
-            "COMMUNICATION"
-          ],
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Replacing%20topics%20with%20an%20empty%20list%20clears%20the%20project%20topics"
+          "inventoryHref": "inventory.html?q=Replacing%20topics%20with%20an%20empty%20list%20clears%20the%20project%20topics",
+          "gone": true
         },
         {
           "name": "Reading topics rejects a non-positive project id",
@@ -744,14 +1023,12 @@
             "NXS-14188"
           ],
           "area": "Communication",
-          "spec": "CommunicationCRUDTestSteps",
-          "type": "Query",
+          "type": "Other",
           "cases": 1,
-          "tags": [
-            "COMMUNICATION"
-          ],
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Project%20topic%20list%20is%20replaced%20with%20the%20saved%20languages"
+          "inventoryHref": "inventory.html?q=Project%20topic%20list%20is%20replaced%20with%20the%20saved%20languages",
+          "gone": true
         },
         {
           "name": "Listing communications rejects a non-positive project id",
@@ -865,15 +1142,12 @@
             "NXS-14188"
           ],
           "area": "Communication",
-          "spec": "CommunicationRuleValidationTestSteps",
-          "type": "Validation",
+          "type": "Other",
           "cases": 1,
-          "tags": [
-            "COMMUNICATION",
-            "VALIDATION"
-          ],
+          "tags": [],
           "ignored": false,
-          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20project%20has%20no%20topics"
+          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20project%20has%20no%20topics",
+          "gone": true
         },
         {
           "name": "Communication is rejected when the project does not support communications",
@@ -2478,8 +2752,8 @@
     },
     {
       "weekStart": "2026-11-09",
-      "featuresAdded": 0,
-      "casesAdded": 0
+      "featuresAdded": 3,
+      "casesAdded": 3
     }
   ],
   "snapshots": [
@@ -2506,7 +2780,7 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-11-12",
+      "date": "2026-11-13",
       "features": 803,
       "cases": 1544,
       "specs": 115,
@@ -2526,7 +2800,7 @@
       "priorPercent": 78.0,
       "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-11-12",
+      "currentDate": "2026-11-13",
       "testedDelta": 60,
       "untestedDelta": -59
     }
