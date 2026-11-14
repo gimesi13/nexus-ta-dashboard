@@ -1,516 +1,570 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-13T03:10Z",
+  "generatedAt": "2026-11-14T02:32Z",
   "build": {
-    "number": "3.0.2759",
-    "buildId": "9680614",
-    "status": "SUCCESS",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9680614",
-    "durationSec": 2198.0
+    "number": "3.0.2760",
+    "buildId": "9683837",
+    "status": "FAILURE",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9683837",
+    "durationSec": 92.0
   },
   "summary": {
-    "tests": 1517,
-    "passed": 1456,
+    "tests": 0,
+    "passed": 0,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "muted": 61,
+    "muted": 0,
     "newFailed": 0,
-    "passRate": 100.0,
-    "timeSec": 2198.0
+    "passRate": 0.0,
+    "timeSec": 92.0
   },
   "prior": {
-    "buildId": "9676621",
-    "number": "3.0.2758",
-    "status": "FAILURE",
-    "statusText": "Tests failed: 3, passed: 1455, muted: 59",
-    "startDate": "20261112T023229+0000",
-    "durationSec": 1968.0,
-    "failed": 3,
-    "passed": 1455,
+    "buildId": "9680614",
+    "number": "3.0.2759",
+    "status": "SUCCESS",
+    "statusText": "Tests passed: 1456, muted: 61",
+    "startDate": "20261113T023240+0000",
+    "durationSec": 2198.0,
+    "failed": 0,
+    "passed": 1456,
     "newFailed": 0
   },
-  "changes": [
-    {
-      "version": "6e76cf1b3c37",
-      "username": "gergely.gimesi",
-      "comment": "NXS-14435 Align communication topic specs with QG-language PUT rules",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy"
-      ],
-      "areas": [
-        "Communication"
-      ]
-    }
-  ],
+  "changes": [],
   "qaDeployChanges": [
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "ccbdde9f2707",
-      "username": "105725861+gimesi13",
-      "comment": "Merge pull request #688 from dynata/NXS-14287-pact-broker-all",
+      "service": "NexusApiJ21",
+      "version": "b6655e3dac23",
+      "username": "60962201+gyarmatitamas",
+      "comment": "[NXS-1430] - NexusApi - refactor survey cloning result (#5707)",
+      "files": [
+        "gateway/unifiedApi/NexusApi/build.gradle",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/UrlPoolPropagator.java",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UProjectImplTest.groovy",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/tracker/components/UrlPoolPropagatorTest.groovy",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/urlpools/components/UrlPoolHandlerTest.groovy"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "679f906f012c",
+      "username": "55445003+dynata-hu-krisztian-erdei",
+      "comment": "Merge pull request #674 from dynata/ST-5106-remove-app-status",
       "files": [],
-      "deployedAt": "20261112T141345+0000"
+      "deployedAt": "20261113T132132+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "356e19f38d49",
-      "username": "bence.csepe",
-      "comment": "[NXS-13911] acc test fix",
+      "service": "NexusApiJ21",
+      "version": "39518df8fb10",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] Drop stale legacy /status comments from dev/qa group_vars",
       "files": [
-        "project/QuotaGroupRest/src/integTest/groovy/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupCoreRestAcceptanceTest.groovy"
+        "dk-dk-content-rest/group_vars/dev.yml",
+        "dk-dk-feature-value-rest/group_vars/dev.yml",
+        "dk-dk-nova-translator-rest/group_vars/dev.yml",
+        "dk-dk-respondent-rest/group_vars/dev.yml",
+        "dk-management-claim-option-rest/group_vars/dev.yml",
+        "dk-management-external-provider-rest/group_vars/dev.yml",
+        "dk-management-mail-rest/group_vars/dev.yml",
+        "dk-management-manual-payments-rest/group_vars/dev.yml",
+        "dk-management-membership-status-rest/group_vars/dev.yml",
+        "dk-management-message-content-rest/group_vars/dev.yml",
+        "dk-management-rex-t-rest/group_vars/dev.yml",
+        "dk-management-sources-rest/group_vars/dev.yml",
+        "dk-project-cascades-rest/group_vars/dev.yml",
+        "dk-project-mail-template-rest/group_vars/dev.yml",
+        "dk-project-subject-library-rest/group_vars/dev.yml",
+        "dk-respondent-feature-value-rest/group_vars/dev.yml",
+        "dk-system-encrypt-decrypt-rest/group_vars/dev.yml",
+        "dk-system-user-rest/group_vars/dev.yml",
+        "dk-system-user-rest/group_vars/qa.yml"
       ],
-      "deployedAt": "20261112T141345+0000"
+      "deployedAt": "20261113T132132+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "bb60484de200",
-      "username": "81168944+mohacsiadam",
-      "comment": "Merge pull request #690 from dynata/NA-2053",
+      "service": "NexusApiJ21",
+      "version": "73d367d7a66e",
+      "username": "krisztian.erdei",
+      "comment": "ST-5106 Supply apps - drop dead APPSTATUS_WSENDPOINT from inventory",
+      "files": [
+        "dk-dk-content-rest/group_vars/all.yml",
+        "dk-dk-feature-value-rest/group_vars/all.yml",
+        "dk-dk-nova-translator-rest/group_vars/all.yml",
+        "dk-dk-respondent-rest/group_vars/all.yml",
+        "dk-dk-user-rest/group_vars/all.yml",
+        "dk-management-category-rest/group_vars/all.yml",
+        "dk-management-claim-option-rest/group_vars/all.yml",
+        "dk-management-default-pages-rest/group_vars/all.yml",
+        "dk-management-enum-rest/group_vars/all.yml",
+        "dk-management-external-provider-rest/group_vars/all.yml",
+        "dk-management-feature-rest/group_vars/all.yml",
+        "dk-management-mail-rest/group_vars/all.yml",
+        "dk-management-manual-payments-rest/group_vars/all.yml",
+        "dk-management-membership-status-rest/group_vars/all.yml",
+        "dk-management-message-content-rest/group_vars/all.yml",
+        "dk-management-nova-admin-rest/group_vars/all.yml",
+        "dk-management-reward-calculator-rest/group_vars/all.yml",
+        "dk-management-rex-t-rest/group_vars/all.yml",
+        "dk-management-sources-rest/group_vars/all.yml",
+        "dk-project-cascades-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "d2ab5f4264c6",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] DKContentRest - health check uses actuator",
+      "files": [
+        "dk-dk-content-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "e905229455fc",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] CountryLanguageRest - health check uses actuator",
+      "files": [
+        "dk-project-country-language-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "6bfd67c06717",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] DKFeatureValueRest - health check uses actuator",
+      "files": [
+        "dk-dk-feature-value-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "dc1c68973852",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] FeatureRest - health check uses actuator",
+      "files": [
+        "dk-management-feature-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "5775f39d5da4",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] DKRespondentRest - health check uses actuator",
+      "files": [
+        "dk-dk-respondent-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "6cabb9e9203f",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] FeatureValueRest - health check uses actuator",
+      "files": [
+        "dk-respondent-feature-value-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "f28e43f8d908",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] UserRest - health check uses actuator",
+      "files": [
+        "dk-system-user-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "d9274b879989",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] DKNovaTranslatorRest - health check uses actuator",
+      "files": [
+        "dk-dk-nova-translator-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "106707f325a2",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] MembershipStatusRest - health check uses actuator",
+      "files": [
+        "dk-management-membership-status-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "ce06ad7a6988",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] MailTemplateRest - health check uses actuator",
+      "files": [
+        "dk-project-mail-template-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "6a7adeb30a70",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] DKUserRest - health check uses actuator",
+      "files": [
+        "dk-dk-user-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "c109a0b2fcc1",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] CascadesRest - health check uses actuator",
+      "files": [
+        "dk-project-cascades-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "06b561870d3b",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] EncryptDecryptRest - health check uses actuator",
+      "files": [
+        "dk-system-encrypt-decrypt-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "fd6cafd7fb51",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] SourcesRest - health check uses actuator",
+      "files": [
+        "dk-management-sources-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "a209874a9c83",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] MailRest - health check uses actuator",
+      "files": [
+        "dk-management-mail-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "8259de2e735b",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] MessageContentRest - health check uses actuator",
+      "files": [
+        "dk-management-message-content-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "6614ecc293f5",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] ManualPaymentsRest - health check uses actuator",
+      "files": [
+        "dk-management-manual-payments-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "e7c67ee832b2",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] ClaimOptionRest - health check uses actuator",
+      "files": [
+        "dk-management-claim-option-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "bdcd9678ee3b",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] ExternalProviderRest - health check uses actuator",
+      "files": [
+        "dk-management-external-provider-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "88468fd9de7c",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] SubjectLibraryRest - health check uses actuator",
+      "files": [
+        "dk-project-subject-library-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "1ae0a71ac6f8",
+      "username": "krisztian.erdei",
+      "comment": "[ST-5106] RexTRest - health check uses actuator",
+      "files": [
+        "dk-management-rex-t-rest/group_vars/all.yml"
+      ],
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "a93348bbfada",
+      "username": "60962201+gyarmatitamas",
+      "comment": "[NXS-14428] - SurveyRest - refactor cloning result (#5705)",
+      "files": [
+        "project/SurveyRest/src/main/java/com/surveysampling/rest/survey/u1/components/UrlPoolCloningHelper.java",
+        "project/SurveyRest/src/main/java/com/surveysampling/rest/survey/u1/model/UrlPoolCloningResult.java",
+        "project/SurveyRest/src/main/java/com/surveysampling/rest/survey/u1/model/enums/CloningStatus.java",
+        "project/SurveyRest/src/main/java/com/surveysampling/rest/survey/u1/service/USurveyUrlApiImpl.java",
+        "project/SurveyRest/src/test/groovy/com/surveysampling/rest/survey/u1/components/UrlPoolCloningHelperTest.groovy",
+        "project/SurveyRest/src/test/groovy/com/surveysampling/rest/survey/u1/service/USurveyUrlPoolImplTest.groovy"
+      ],
+      "deployedAt": "20261113T120732+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "version": "8e55cd58ab29",
+      "username": "48213478+ssi-hu-szabolcs-papellas",
+      "comment": "Merge pull request #676 from dynata/ST-4551-redirect-remaining-nexus-rules-to-cloudia",
       "files": [],
-      "deployedAt": "20261112T141345+0000"
+      "deployedAt": "20261113T120732+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "f95b87f00a62",
-      "username": "adamlaszlo.mohacsi",
-      "comment": "[NA-2053] - SLS - Finetune resources",
+      "service": "SurveyRestJ21",
+      "version": "d9f5d1f85aff",
+      "username": "laszlo.csontos",
+      "comment": "[FAI-528] Catch only S3.NoSuchKeyException on HeadFinalizedRun",
       "files": [
-        "sls/group_vars/dev.yml"
+        "ml-model-drift-monitor/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261112T141345+0000"
+      "deployedAt": "20261113T120732+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "f8c4cb4163b6",
-      "username": "gergo.hajnal",
-      "comment": "(MailTemplateRest) temporary remove faulty subnet",
+      "service": "SurveyRestJ21",
+      "version": "b9fc4db68f23",
+      "username": "laszlo.csontos",
+      "comment": "[FAI-528] Fix reviewer remarks",
       "files": [
-        "dk-project-mail-template-rest/group_vars/production.yml"
+        "ml-model-drift-monitor/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261112T141345+0000"
+      "deployedAt": "20261113T120732+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "version": "301b9f552593",
-      "username": "gergo.hajnal",
-      "comment": "(SubjectLibraryRest) temporary remove faulty subnet",
+      "service": "SurveyRestJ21",
+      "version": "398aa64857d3",
+      "username": "laszlo.csontos",
+      "comment": "[FAI-528] Replaced $range(0, $n, 1) with the standard inclusive JSONata range operator [0..$n] and removed the s3:prefi\u2026",
       "files": [
-        "dk-project-subject-library-rest/group_vars/production.yml"
+        "ml-model-drift-monitor/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "404409773875",
-      "username": "gergo.hajnal",
-      "comment": "(EncryptDecryptRest) temporary remove faulty subnet",
-      "files": [
-        "dk-system-encrypt-decrypt-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "39e552d7ebb7",
-      "username": "gergo.hajnal",
-      "comment": "(UserRest) temporary remove faulty subnet",
-      "files": [
-        "dk-system-user-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "fbf4b1b94867",
-      "username": "bence.csepe",
-      "comment": "[NXS-13911] EOS - MS - QuotaGroupRest - Update crud endpoint (#5640)",
-      "files": [
-        "project/QuotaGroupRest/README.md",
-        "project/QuotaGroupRest/build.gradle",
-        "project/QuotaGroupRest/serviceApi/src/main/java/com/surveysampling/rest/quota/u1/api/UpdateIncentiveRequest.java",
-        "project/QuotaGroupRest/serviceFeign/src/main/java/com/surveysampling/rest/quota/u1/acceptance/QuotaGroupCoreRestFeignClient.java",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/api/QuotaGroupCoreRest.java",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/components/QuotaGroupCoreService.java",
-        "project/QuotaGroupRest/src/main/java/com/surveysampling/rest/quota/u1/model/unified/QuotaGroupPaths.java",
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/QuotaGroupCoreServiceTest.groovy",
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/api/QuotaGroupCoreRestTest.groovy",
-        "project/QuotaGroupRest/src/test/groovy/com/surveysampling/rest/quota/u1/validators/QuotaGroupCoreIncentiveValidationTest.groovy"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "99a0f2611af0",
-      "username": "gergo.hajnal",
-      "comment": "(RewardCalculatorRest) temporary remove faulty subnet",
-      "files": [
-        "dk-management-reward-calculator-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "8e3f39293320",
-      "username": "gergo.hajnal",
-      "comment": "(MembershipStatusRest) temporary remove faulty subnet",
-      "files": [
-        "dk-management-membership-status-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "0ad8e0dbb9b1",
-      "username": "gergo.hajnal",
-      "comment": "(ManualPaymentsRest) temporary remove faulty subnet",
-      "files": [
-        "dk-management-manual-payments-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "ef8aac16f1a1",
-      "username": "gergo.hajnal",
-      "comment": "(MailRest) temporary remove faulty subnet",
-      "files": [
-        "dk-management-mail-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "f14dc9234f08",
-      "username": "gergo.hajnal",
-      "comment": "(RexTRest) temporary remove faulty subnet",
-      "files": [
-        "dk-management-rex-t-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "39422fe3f91e",
-      "username": "gergo.hajnal",
-      "comment": "(FeatureValueRest) temporary remove faulty subnet",
-      "files": [
-        "dk-respondent-feature-value-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "dd0ac9749cf2",
-      "username": "gergo.hajnal",
-      "comment": "(ExternalProviderRest) temporary remove faulty subnet",
-      "files": [
-        "dk-management-external-provider-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "e9f450409829",
-      "username": "gergo.hajnal",
-      "comment": "(EnumRest) replace currently faulty subnet",
-      "files": [
-        "dk-management-enum-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "56bf2c73cb56",
-      "username": "gergo.hajnal",
-      "comment": "(DefaultPagesRest) temporary remove faulty subnet",
-      "files": [
-        "dk-management-default-pages-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "8ac2426c7601",
-      "username": "lambert.lesko",
-      "comment": "[AE-7929] Decommissioning Http listeners (#689)",
-      "files": [
-        "dkjs-automated-sourcing-jobs/cloud-formation.template.yml",
-        "dkjs-common-jobs/cloud-formation.template.yml",
-        "dkjs-contact-metrics/cloud-formation.template.yml",
-        "dkjs-sampling-jobs/cloud-formation.template.yml",
-        "gtr-batch-processor/cloud-formation.template.yml",
-        "gtr-dedup-service/cloud-formation.template.yml",
-        "gtr-executor-service/cloud-formation.template.yml",
-        "gtr-job-manager/cloud-formation.template.yml",
-        "gtr-project-data-service/cloud-formation.template.yml",
-        "gtr-resting-service/cloud-formation.template.yml",
-        "gtr-sample-member-service/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "7f17c2426a95",
-      "username": "gergo.hajnal",
-      "comment": "(SourcesRest) reintroduce the subnet which was excluded 2 years ago",
-      "files": [
-        "dk-management-sources-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "167c581a2b31",
-      "username": "bresalio.nagy",
-      "comment": "Revert \"[AE-3656] [missing-rewards-queue] Permission for SFC-exp\"",
-      "files": [
-        "ae-missing-rewards-queue/cloud-formation.template.yml",
-        "ae-missing-rewards-queue/group_vars/all.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "61e836c67d57",
-      "username": "laszlo.szalkai",
-      "comment": "delete ae-legacy-sfc-experimental",
-      "files": [
-        "ae-legacy-sfc-experimental/cloud-formation.template.yml",
-        "ae-legacy-sfc-experimental/group_vars/all.yml",
-        "ae-legacy-sfc-experimental/group_vars/dev.yml",
-        "ae-legacy-sfc-experimental/group_vars/production.yml",
-        "ae-legacy-sfc-experimental/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "3ca4639d3b75",
-      "username": "laszlo.szalkai",
-      "comment": "delete ae-legacy-ssi-verify",
-      "files": [
-        "ae-legacy-ssi-verify/cloud-formation.template.yml",
-        "ae-legacy-ssi-verify/group_vars/all.yml",
-        "ae-legacy-ssi-verify/group_vars/dev.yml",
-        "ae-legacy-ssi-verify/group_vars/production.yml",
-        "ae-legacy-ssi-verify/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "c1705fd19445",
-      "username": "weiqun.wang",
-      "comment": "[FAI-561] adjust complete model prod autoscaling policy",
-      "files": [
-        "ml-complete-optimization-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "version": "6ed8cf095bc2",
-      "username": "robert.szepesi",
-      "comment": "[AE-8116] [TM] make ECSExecutionRole has access for the new dynamoDB table, fix TODO typos",
-      "files": [
-        "ae-transaction-manager/cloud-formation.template.yml",
-        "ae-transaction-manager/group_vars/all.yml",
-        "ae-transaction-manager/templates/dynamodb.yml"
-      ],
-      "deployedAt": "20261112T141345+0000"
+      "deployedAt": "20261113T120732+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "QuotaGroupRestJ21",
+      "service": "NexusApiJ21",
+      "commits": 28,
+      "latestTicket": "NXS-1430",
+      "latestComment": "[NXS-1430] - NexusApi - refactor survey cloning result (#5707)",
+      "deployedAt": "20261113T132132+0000"
+    },
+    {
+      "service": "SurveyRestJ21",
+      "commits": 24,
+      "latestTicket": "NXS-14428",
+      "latestComment": "[NXS-14428] - SurveyRest - refactor cloning result (#5705)",
+      "deployedAt": "20261113T120732+0000"
+    },
+    {
+      "service": "DKDashboardRestJ16",
       "commits": 25,
-      "latestTicket": "NXS-14287",
-      "latestComment": "Merge pull request #688 from dynata/NXS-14287-pact-broker-all",
-      "deployedAt": "20261112T141345+0000"
+      "latestTicket": "",
+      "latestComment": "[PAC-483] - Call the new v2 endpoint (#5628)",
+      "deployedAt": "20261113T081422+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "commits": 3,
+      "latestTicket": "",
+      "latestComment": "Merge pull request #5506 from dynata/AE-7984-migrate-to-new-manualcredit-endpoin",
+      "deployedAt": "20261113T080249+0000"
     }
   ],
   "clusters": [],
   "failures": [],
   "rulesNutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
-    "tone": "ok",
+    "headline": "0 new failures",
+    "tone": "warn",
     "severity": "none",
-    "bullets": [
-      "Change NXS-14435: gergely.gimesi \u00b7 Communication"
-    ],
+    "bullets": [],
     "investigation": "No unmuted failures.",
     "detail": {
-      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 1 service(s) (25 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
+      "investigation": "4 service(s) (80 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
       "bullets": [
-        "Change NXS-14435: gergely.gimesi \u00b7 Communication",
-        "NXS-14435 6e76cf1b3c37 by gergely.gimesi \u2192 areas Communication (0 new fails) \u00b7 CommunicationCRUDTestSteps.groovy, CommunicationRuleValidationTestSteps.groovy",
-        "[QA deploy: QuotaGroupRestJ21] NXS-14287 (25 commits) \u2014 Merge pull request #688 from dynata/NXS-14287-pact-broker-all"
+        "[QA deploy: NexusApiJ21] NXS-1430 (28 commits) \u2014 [NXS-1430] - NexusApi - refactor survey cloning result (#5707)",
+        "[QA deploy: SurveyRestJ21] NXS-14428 (24 commits) \u2014 [NXS-14428] - SurveyRest - refactor cloning result (#5705)",
+        "[QA deploy: DKDashboardRestJ16]  (25 commits) \u2014 [PAC-483] - Call the new v2 endpoint (#5628)",
+        "[QA deploy: ManualCreditJ21]  (3 commits) \u2014 Merge pull request #5506 from dynata/AE-7984-migrate-to-new-manualcredit-endpoin"
       ],
       "newFailureAreas": [],
-      "likelyCauses": [
-        {
-          "version": "6e76cf1b3c37",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-14435",
-          "comment": "NXS-14435 Align communication topic specs with QG-language PUT rules",
-          "areas": [
-            "Communication"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "CommunicationCRUDTestSteps.groovy",
-            "CommunicationRuleValidationTestSteps.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
-    "suspectCommits": [
-      {
-        "version": "6e76cf1b3c37",
-        "username": "gergely.gimesi",
-        "comment": "NXS-14435 Align communication topic specs with QG-language PUT rules",
-        "ticket": "NXS-14435",
-        "areas": [
-          "Communication"
-        ]
-      }
-    ],
+    "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "ccbdde9f2707",
-        "username": "105725861+gimesi13",
-        "comment": "Merge pull request #688 from dynata/NXS-14287-pact-broker-all",
-        "ticket": "NXS-14287",
-        "deployedAt": "20261112T141345+0000",
-        "files": [],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "QuotaGroupRestJ21",
-        "version": "356e19f38d49",
-        "username": "bence.csepe",
-        "comment": "[NXS-13911] acc test fix",
-        "ticket": "NXS-13911",
-        "deployedAt": "20261112T141345+0000",
+        "service": "NexusApiJ21",
+        "version": "b6655e3dac23",
+        "username": "60962201+gyarmatitamas",
+        "comment": "[NXS-1430] - NexusApi - refactor survey cloning result (#5707)",
+        "ticket": "NXS-1430",
+        "deployedAt": "20261113T132132+0000",
         "files": [
-          "QuotaGroupCoreRestAcceptanceTest.groovy"
+          "build.gradle",
+          "UrlPoolPropagator.java",
+          "UProjectImplTest.groovy",
+          "UrlPoolPropagatorTest.groovy",
+          "UrlPoolHandlerTest.groovy"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "bb60484de200",
-        "username": "81168944+mohacsiadam",
-        "comment": "Merge pull request #690 from dynata/NA-2053",
+        "service": "NexusApiJ21",
+        "version": "679f906f012c",
+        "username": "55445003+dynata-hu-krisztian-erdei",
+        "comment": "Merge pull request #674 from dynata/ST-5106-remove-app-status",
         "ticket": "",
-        "deployedAt": "20261112T141345+0000",
+        "deployedAt": "20261113T132132+0000",
         "files": [],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "f95b87f00a62",
-        "username": "adamlaszlo.mohacsi",
-        "comment": "[NA-2053] - SLS - Finetune resources",
+        "service": "NexusApiJ21",
+        "version": "39518df8fb10",
+        "username": "krisztian.erdei",
+        "comment": "[ST-5106] Drop stale legacy /status comments from dev/qa group_vars",
         "ticket": "",
-        "deployedAt": "20261112T141345+0000",
+        "deployedAt": "20261113T132132+0000",
         "files": [
+          "dev.yml",
+          "dev.yml",
+          "dev.yml",
+          "dev.yml",
+          "dev.yml",
           "dev.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "f8c4cb4163b6",
-        "username": "gergo.hajnal",
-        "comment": "(MailTemplateRest) temporary remove faulty subnet",
+        "service": "NexusApiJ21",
+        "version": "73d367d7a66e",
+        "username": "krisztian.erdei",
+        "comment": "ST-5106 Supply apps - drop dead APPSTATUS_WSENDPOINT from inventory",
         "ticket": "",
-        "deployedAt": "20261112T141345+0000",
+        "deployedAt": "20261113T132132+0000",
         "files": [
-          "production.yml"
+          "all.yml",
+          "all.yml",
+          "all.yml",
+          "all.yml",
+          "all.yml",
+          "all.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "301b9f552593",
-        "username": "gergo.hajnal",
-        "comment": "(SubjectLibraryRest) temporary remove faulty subnet",
+        "service": "NexusApiJ21",
+        "version": "d2ab5f4264c6",
+        "username": "krisztian.erdei",
+        "comment": "[ST-5106] DKContentRest - health check uses actuator",
         "ticket": "",
-        "deployedAt": "20261112T141345+0000",
+        "deployedAt": "20261113T132132+0000",
         "files": [
-          "production.yml"
+          "all.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "404409773875",
-        "username": "gergo.hajnal",
-        "comment": "(EncryptDecryptRest) temporary remove faulty subnet",
+        "service": "NexusApiJ21",
+        "version": "e905229455fc",
+        "username": "krisztian.erdei",
+        "comment": "[ST-5106] CountryLanguageRest - health check uses actuator",
         "ticket": "",
-        "deployedAt": "20261112T141345+0000",
+        "deployedAt": "20261113T132132+0000",
         "files": [
-          "production.yml"
+          "all.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "39e552d7ebb7",
-        "username": "gergo.hajnal",
-        "comment": "(UserRest) temporary remove faulty subnet",
+        "service": "NexusApiJ21",
+        "version": "6bfd67c06717",
+        "username": "krisztian.erdei",
+        "comment": "[ST-5106] DKFeatureValueRest - health check uses actuator",
         "ticket": "",
-        "deployedAt": "20261112T141345+0000",
+        "deployedAt": "20261113T132132+0000",
         "files": [
-          "production.yml"
+          "all.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "fbf4b1b94867",
-        "username": "bence.csepe",
-        "comment": "[NXS-13911] EOS - MS - QuotaGroupRest - Update crud endpoint (#5640)",
-        "ticket": "NXS-13911",
-        "deployedAt": "20261112T141345+0000",
+        "service": "NexusApiJ21",
+        "version": "dc1c68973852",
+        "username": "krisztian.erdei",
+        "comment": "[ST-5106] FeatureRest - health check uses actuator",
+        "ticket": "",
+        "deployedAt": "20261113T132132+0000",
         "files": [
-          "README.md",
-          "build.gradle",
-          "UpdateIncentiveRequest.java",
-          "QuotaGroupCoreRestFeignClient.java",
-          "QuotaGroupCoreRest.java",
-          "QuotaGroupCoreService.java"
+          "all.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "QuotaGroupRestJ21",
-        "version": "99a0f2611af0",
-        "username": "gergo.hajnal",
-        "comment": "(RewardCalculatorRest) temporary remove faulty subnet",
+        "service": "NexusApiJ21",
+        "version": "5775f39d5da4",
+        "username": "krisztian.erdei",
+        "comment": "[ST-5106] DKRespondentRest - health check uses actuator",
         "ticket": "",
-        "deployedAt": "20261112T141345+0000",
+        "deployedAt": "20261113T132132+0000",
         "files": [
-          "production.yml"
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "6cabb9e9203f",
+        "username": "krisztian.erdei",
+        "comment": "[ST-5106] FeatureValueRest - health check uses actuator",
+        "ticket": "",
+        "deployedAt": "20261113T132132+0000",
+        "files": [
+          "all.yml"
         ],
         "scope": "qa-deploy"
       }
     ]
   },
   "contractDrift": {
-    "newCount": 4,
-    "baselineCount": 95,
-    "currentCount": 96,
-    "examples": [
-      "GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.",
-      "POST /u1/nexus/quotaGroups/search/ids :: Response status 500 not defined for path '/u1/nexus/quotaGroups/search/ids'.",
-      "POST /u1/nexus/quotaGroups/search/labels :: Response status 500 not defined for path '/u1/nexus/quotaGroups/search/labels'.",
-      "POST /u1/nexus/quotaGroups/{}/validations :: Response status 404 not defined for path '/u1/nexus/quotaGroups/{quotaGroupId}/validations'."
-    ]
+    "newCount": 0,
+    "baselineCount": 0,
+    "currentCount": 0,
+    "examples": []
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."
 }
