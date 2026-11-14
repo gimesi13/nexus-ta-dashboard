@@ -31,20 +31,22 @@
   "statusByCase": {},
   "statusBySpecName": {},
   "nutshell": {
-    "headline": "0 new failures",
+    "headline": "Nightly build failed on a Gradle exception at the Clean Test step \u2014 0 tests ran, no new test failures.",
     "tone": "warn",
-    "severity": "none",
-    "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
-    "bullets": [],
+    "severity": "low",
+    "cause": "infra",
+    "causeText": "The build died with a Gradle exception at the 'Clean Test' step before any tests executed (0 run vs 1456 prior), so this is a build/infra failure, not a product regression.",
+    "investigation": "No tests ran (92s vs ~37m prior) and the test module has no new commits, pointing to a build/environment problem rather than a code change.",
+    "bullets": [
+      "Gradle 'Clean Test' step threw an exception (exit code 1); 0 tests executed.",
+      "No commits in the test module and no tests ran, so QA-deployed product changes can't be implicated \u2014 no developer blame."
+    ],
     "detail": {
-      "investigation": "4 service(s) (80 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
+      "investigation": "Build 3.0.2760 finished FAILURE in 92s with status 'Gradle exception (new); exit code 1 (Step: Clean Test (Gradle))' and zero tests, versus prior build 3.0.2759's 1456 passing in ~37m. With no commits in the test module and no tests reaching execution, the failure is in the Gradle build/environment, not a product code change \u2014 no developer can be blamed.",
       "bullets": [
-        "[QA deploy: NexusApiJ21] NXS-1430 (28 commits) \u2014 [NXS-1430] - NexusApi - refactor survey cloning result (#5707)",
-        "[QA deploy: SurveyRestJ21] NXS-14428 (24 commits) \u2014 [NXS-14428] - SurveyRest - refactor cloning result (#5705)",
-        "[QA deploy: DKDashboardRestJ16]  (25 commits) \u2014 [PAC-483] - Call the new v2 endpoint (#5628)",
-        "[QA deploy: ManualCreditJ21]  (3 commits) \u2014 Merge pull request #5506 from dynata/AE-7984-migrate-to-new-manualcredit-endpoin"
+        "Status 'Gradle exception; exit code 1 (Step: Clean Test (Gradle))' \u2014 the test harness failed to build/run.",
+        "0 tests executed (92s) vs 1456 passed (~37m) in prior build 3.0.2759.",
+        "No test-module commits; this is infra/build, so QA-deployed product changes are not implicated."
       ],
       "newFailureAreas": [],
       "likelyCauses": []
@@ -215,7 +217,7 @@
         "deployedAt": "20261113T080249+0000"
       }
     ],
-    "source": "investigator",
+    "source": "llm",
     "generatedAt": "2026-11-14T02:32Z",
     "buildNumber": "3.0.2760",
     "buildId": "9683837",
