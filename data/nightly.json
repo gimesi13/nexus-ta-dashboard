@@ -1662,21 +1662,22 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "2 new failures in QuotaGroup",
+    "headline": "2 new QuotaGroup failures \u2014 both a 90s scheduler-execution timeout, not a code change",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness.",
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet); 1\u00d7 assertion Condition not satisfied. Vs prior #3.0.2760: up 2 total fails.",
+    "cause": "infra",
+    "causeText": "Both new QuotaGroup fails are the same 90s waitForScheduleToRun scheduler-execution timeout (the 'assertion' one is that timeout wrapped in a Spock condition), and with no commits in this test module or the QA deploy window this points to QA scheduling/environment slowness, not a code change.",
+    "investigation": "Both new fails trace to QuotaGroupSchedulingHelper.waitForScheduleToRun timing out after 90s (scheduled STOP and START never ran), so the coarse 'assert_fail' label is misleading.",
     "bullets": [
-      "1\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "1\u00d7 assertion Condition not satisfied"
+      "QuotaGroup scheduled STOP: waitForScheduleToRun timed out after 90s \u2014 Condition never returned a non-null result",
+      "QuotaGroup scheduled START: labelled 'Condition not satisfied' but root is the same 90s scheduler timeout, not a real assertion"
     ],
     "detail": {
-      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2760, 0 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: QuotaGroup (2). Example new failures: QuotaGroup: Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest. [other]; QuotaGroup: A scheduled Start of a never launched audience fills in its fieldwork dates like a manual  [assertion Condition not satisfied].",
+      "investigation": "Both of the 2 new unmuted failures (vs prior #3.0.2760, 0 fails) are in QuotaGroup scheduling and share one root: QuotaGroupSchedulingHelper.waitForScheduleToRun times out after 90s because the scheduled operation never executes in QA. No commits landed in this test module (changes=[]) or in the QA deploy window (qaDeployChanges=[]), so no code change can be blamed \u2014 consistent with QA scheduler/environment slowness rather than a regression. Separately (contract-drift lane, 4 new): several /u1/nexus/quotaGroups/* endpoints return undefined 500/404 and /u1/meta/countries is unmatched vs the OpenAPI contract \u2014 track independently of the test failures.",
       "bullets": [
-        "1\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-        "1\u00d7 assertion Condition not satisfied"
+        "QuotaGroup scheduled STOP ('...leaves a CLOSED audience unchanged'): waitForScheduleToRun timed out after 90s \u2014 Condition never returned a non-null result (WaitUtil.until:74)",
+        "QuotaGroup scheduled START ('...fills in its fieldwork dates like a manual start'): Spock 'Condition not satisfied' whose underlying exception is the same 90s waitForScheduleToRun timeout \u2014 infra, not an assertion",
+        "No suspect commits: changes=[] and qaDeployChanges=[] this window \u2014 no code change implicated; contract-drift (4 new, separate lane) on quotaGroups/meta endpoints"
       ],
       "newFailureAreas": [
         {
@@ -1707,8 +1708,8 @@
     "suspectCommits": [],
     "qaDeploySuspects": [],
     "qaDeployServices": [],
-    "source": "investigator",
-    "generatedAt": "2026-11-15T05:00Z",
+    "source": "llm",
+    "generatedAt": "2026-11-15T05:02:18Z",
     "buildNumber": "3.0.2761",
     "buildId": "9683759",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9683759",
