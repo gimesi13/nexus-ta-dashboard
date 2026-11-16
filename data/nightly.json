@@ -1662,23 +1662,22 @@
     "SurveyE2ETestSteps::Survey E2E - fieldwork prep: create through activation, QG link, security and clone": "passed"
   },
   "nutshell": {
-    "headline": "2 new failures in QuotaGroup",
+    "headline": "2 new failures: a QuotaGroup scheduling timeout and a Survey URL-upload assertion",
     "tone": "warn",
     "severity": "low",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 2 service(s) were deployed to QA in this window (NexusApiJ21, SettingRestJ21) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet); 1\u00d7 assertion Condition not satisfied.",
+    "cause": "mixed",
+    "causeText": "The QuotaGroup scheduling timeout plausibly maps to NXS-13904 (david.nagy), the QG mongo\u2192QuotaGroupRest feign refactor deployed to QA, while the Survey URL-upload assertion matches no deployed change and looks test/data-related.",
+    "investigation": "Neither new failure is a classic infra timeout (no 502/504/SocketTimeout): the QuotaGroup schedule never executed within 90s and the Survey upload returned uploaded=0 despite 3 rows inserted.",
     "bullets": [
-      "1\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "1\u00d7 assertion Condition not satisfied"
+      "QuotaGroup \u2014 waitForScheduleToRun timed out after 90s; possible NXS-13904 QG feign refactor (david.nagy)",
+      "Survey \u2014 UrlUploadResult.uploaded=0 (assertion); no matching QA deploy, likely test/data"
     ],
     "detail": {
-      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2761, 2 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: QuotaGroup (1), Survey (1). 2 service(s) (28 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest. [other]; Survey: Uploaded survey URL file can be processed and sample values read [assertion Condition not satisfied].",
+      "investigation": "Both new failures are unmuted and new since #3.0.2761, and neither is a transport-level infra error (no 502/504/SocketTimeout). The QuotaGroup 'waitForScheduleToRun' never saw its schedule execute (90s poll timeout) and overlaps QA deploy NXS-13904 (david.nagy), which swapped QG mongo queries for QuotaGroupRest feign calls across the QuotaGroup handlers, whereas the Survey upload assertion (uploaded=0, inserted=3) has no deployed change in the Survey area and reads as test/data.",
       "bullets": [
-        "1\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-        "1\u00d7 assertion Condition not satisfied",
-        "[QA deploy: NexusApiJ21] NXS-14514 (10 commits) \u2014 [NXS-14514] MS | NexusApi | increase model version to retrieve new system settin",
-        "[QA deploy: SettingRestJ21] NXS-14421 (18 commits) \u2014 [NXS-14421] EOS - MS - New system setting for manual incentive psid u\u2026 (#5698)"
+        "QuotaGroup: Scheduled Traffic test \u2014 java.lang.RuntimeException: Timeout after 90s, Condition never returned a non-null result (schedule never ran)",
+        "Survey: Uploaded URL file \u2014 Condition not satisfied: result.uploaded > 0 (uploaded=0, inserted=3)",
+        "Contract drift (separate lane): 4 new response-schema violations vs baseline, incl. 500s on POST /u1/nexus/quotaGroups/search/*"
       ],
       "newFailureAreas": [
         {
@@ -1690,7 +1689,25 @@
           "newCount": 1
         }
       ],
-      "likelyCauses": []
+      "likelyCauses": [
+        {
+          "ticket": "NXS-13904",
+          "version": "1a01785eaf60",
+          "username": "david.nagy",
+          "areas": [
+            "QuotaGroup"
+          ],
+          "hitNewFailures": 1,
+          "files": [
+            "QuotaGroupRestFeignClient.java",
+            "QuotaGroupHandlerU1.java",
+            "QuotaGroupPersistHandler.java",
+            "QuotaGroupCorePersistHandler.java",
+            "UQuotaGroupCoreImpl.java"
+          ],
+          "comment": "[NXS-13904] MS - NexusApi - Replace all QG related mongo query with QuotaGroupRest feign calls"
+        }
+      ]
     },
     "clusters": [
       {
@@ -1857,8 +1874,8 @@
         "deployedAt": "20261115T195430+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-11-16T03:03Z",
+    "source": "llm",
+    "generatedAt": "2026-11-16T03:04:00Z",
     "buildNumber": "3.0.2762",
     "buildId": "9684995",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9684995",
