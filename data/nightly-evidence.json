@@ -1,38 +1,345 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-15T05:00Z",
+  "generatedAt": "2026-11-16T03:03Z",
   "build": {
-    "number": "3.0.2761",
-    "buildId": "9683759",
+    "number": "3.0.2762",
+    "buildId": "9684995",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9683759",
-    "durationSec": 2147.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9684995",
+    "durationSec": 1845.0
   },
   "summary": {
     "tests": 1517,
-    "passed": 1455,
+    "passed": 1454,
     "failures": 2,
     "errors": 0,
     "skipped": 0,
-    "muted": 60,
+    "muted": 61,
     "newFailed": 2,
     "passRate": 99.9,
-    "timeSec": 2147.0
+    "timeSec": 1845.0
   },
   "prior": {
-    "buildId": "9683837",
-    "number": "3.0.2760",
+    "buildId": "9683759",
+    "number": "3.0.2761",
     "status": "FAILURE",
-    "statusText": "Gradle exception (new); exit code 1 (Step: Clean Test (Gradle)) (new)",
-    "startDate": "20261114T023011+0000",
-    "durationSec": 92.0,
-    "failed": 0,
-    "passed": 0,
-    "newFailed": 0
+    "statusText": "Tests failed: 2 (2 new), passed: 1455, muted: 60",
+    "startDate": "20261115T023219+0000",
+    "durationSec": 2147.0,
+    "failed": 2,
+    "passed": 1455,
+    "newFailed": 2
   },
   "changes": [],
-  "qaDeployChanges": [],
-  "qaDeployServices": [],
+  "qaDeployChanges": [
+    {
+      "service": "NexusApiJ21",
+      "version": "bc3441f2419d",
+      "username": "david.nagy",
+      "comment": "[NXS-14514] MS | NexusApi | increase model version to retrieve new system setting",
+      "files": [
+        "gateway/unifiedApi/NexusApi/build.gradle"
+      ],
+      "deployedAt": "20261115T212524+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "5bb19ab982a0",
+      "username": "david.nagy",
+      "comment": "[NXS-13904] MS - NexusApi - Replace all QG related mongo query with QuotaGroupRest feign calls - integ test fix",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/integTest/groovy/com/dynata/rest/gateway/nexusapi/rest/api/u1/mongoTest/exclusion/DedupeMongoTest.groovy"
+      ],
+      "deployedAt": "20261115T212524+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "1a01785eaf60",
+      "username": "david.nagy",
+      "comment": "[NXS-13904] MS - NexusApi - Replace all QG related mongo query with Q\u2026 (#5651)",
+      "files": [
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/quotaGroup/QuotaGroupRestFeignClient.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/components/ExclusionPersistHandler.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/components/QuotaGroupCorePersistHandler.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/components/QuotaGroupHandlerU1.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/components/QuotaGroupPersistHandler.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/quotagroupid/UQuotaGroupCoreImpl.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/quotagroupid/UQuotaGroupImpl.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/quotagroupid/inclusion/QuotaGroupInclusionPersistHandler.java",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/components/ExclusionPersistHandlerTest.groovy",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/components/QuotaGroupPersistHandlerTest.groovy",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/quotaGroupId/UQuotaGroupCoreImplTest.groovy"
+      ],
+      "deployedAt": "20261115T212524+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "d7d8c3a0f0c8",
+      "username": "ssi-hu-zoltan-beke",
+      "comment": "Merge pull request #692 from dynata/keycloak-26-upgrade",
+      "files": [],
+      "deployedAt": "20261115T212524+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "d9a3ff8489d5",
+      "username": "tibor.olah",
+      "comment": "feasibility-elb-access-logs: increase retention days",
+      "files": [
+        "feasibility-elb-access-logs/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261115T212524+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "1a2e13b6ac53",
+      "username": "laszlo.csontos",
+      "comment": "[FAI-531] increase TaskMemory to mitigate OOME",
+      "files": [
+        "ml-model-drift-monitor/group_vars/all.yml"
+      ],
+      "deployedAt": "20261115T212524+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "05315ab43cdb",
+      "username": "laszlo.csontos",
+      "comment": "[FAI-531] increase TaskMemory to mitigate OOME",
+      "files": [
+        "ml-model-drift-monitor/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261115T212524+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "6d4afc2312c4",
+      "username": "laszlo.csontos",
+      "comment": "[FAI-531] added SnowflakeUser (Default: IMPERIUM_WATSON)",
+      "files": [
+        "ml-model-drift-monitor/cloud-formation.template.yml",
+        "ml-model-drift-monitor/group_vars/all.yml"
+      ],
+      "deployedAt": "20261115T212524+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "023651abf8ff",
+      "username": "laszlo.csontos",
+      "comment": "[FAI-531] Each Output then starts with {% ( and ends with ) %}. The JSONata itself is valid and doesn't change",
+      "files": [
+        "ml-model-drift-monitor/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261115T212524+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "366413e4b1e6",
+      "username": "zoltan.beke",
+      "comment": "dk-auth: Keycloak 26.8.2 configuration",
+      "files": [
+        "dk-auth/cloud-formation.template.yml",
+        "dk-auth/group_vars/all.yml",
+        "dk-auth/group_vars/dev.yml",
+        "dk-auth/group_vars/production.yml",
+        "dk-auth/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261115T212524+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "75e7e8833250",
+      "username": "david.nagy",
+      "comment": "[NXS-14421] EOS - MS - New system setting for manual incentive psid u\u2026 (#5698)",
+      "files": [
+        "system/SettingRest/src/main/java/com/surveysampling/rest/setting/u1/model/MongoSystemSetting.java",
+        "system/SettingRest/src/main/java/com/surveysampling/rest/setting/u1/mongo/model/SystemSettings.java",
+        "system/SettingRest/src/test/groovy/com/surveysampling/rest/setting/v2/impl/SystemSettingsServiceTest.groovy"
+      ],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "679f906f012c",
+      "username": "55445003+dynata-hu-krisztian-erdei",
+      "comment": "Merge pull request #674 from dynata/ST-5106-remove-app-status",
+      "files": [],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "8e55cd58ab29",
+      "username": "48213478+ssi-hu-szabolcs-papellas",
+      "comment": "Merge pull request #676 from dynata/ST-4551-redirect-remaining-nexus-rules-to-cloudia",
+      "files": [],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "d9f5d1f85aff",
+      "username": "laszlo.csontos",
+      "comment": "[FAI-528] Catch only S3.NoSuchKeyException on HeadFinalizedRun",
+      "files": [
+        "ml-model-drift-monitor/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "b9fc4db68f23",
+      "username": "laszlo.csontos",
+      "comment": "[FAI-528] Fix reviewer remarks",
+      "files": [
+        "ml-model-drift-monitor/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "398aa64857d3",
+      "username": "laszlo.csontos",
+      "comment": "[FAI-528] Replaced $range(0, $n, 1) with the standard inclusive JSONata range operator [0..$n] and removed the s3:prefi\u2026",
+      "files": [
+        "ml-model-drift-monitor/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "7eaf1d543c65",
+      "username": "laszlo.csontos",
+      "comment": "[FAI-528] CloudFormation's template YAML parser rejects null values anywhere in a template",
+      "files": [
+        "ml-model-drift-monitor/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "eed5471c6c2b",
+      "username": "laszlo.csontos",
+      "comment": "[FAI-528] Add the compute stack",
+      "files": [
+        "ml-model-drift-monitor/cloud-formation.template.yml",
+        "ml-model-drift-monitor/group_vars/all.yml"
+      ],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "e7dec5ab2c6d",
+      "username": "laszlo.csontos",
+      "comment": "[FAI-528] Add the compute stack",
+      "files": [
+        "ml-model-drift-monitor/group_vars/all.yml",
+        "ml-model-drift-monitor/group_vars/dev.yml",
+        "ml-model-drift-monitor/group_vars/production.yml",
+        "ml-model-drift-monitor/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "ccbdde9f2707",
+      "username": "105725861+gimesi13",
+      "comment": "Merge pull request #688 from dynata/NXS-14287-pact-broker-all",
+      "files": [],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "bb60484de200",
+      "username": "81168944+mohacsiadam",
+      "comment": "Merge pull request #690 from dynata/NA-2053",
+      "files": [],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "f95b87f00a62",
+      "username": "adamlaszlo.mohacsi",
+      "comment": "[NA-2053] - SLS - Finetune resources",
+      "files": [
+        "sls/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "f8c4cb4163b6",
+      "username": "gergo.hajnal",
+      "comment": "(MailTemplateRest) temporary remove faulty subnet",
+      "files": [
+        "dk-project-mail-template-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "301b9f552593",
+      "username": "gergo.hajnal",
+      "comment": "(SubjectLibraryRest) temporary remove faulty subnet",
+      "files": [
+        "dk-project-subject-library-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "404409773875",
+      "username": "gergo.hajnal",
+      "comment": "(EncryptDecryptRest) temporary remove faulty subnet",
+      "files": [
+        "dk-system-encrypt-decrypt-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "39e552d7ebb7",
+      "username": "gergo.hajnal",
+      "comment": "(UserRest) temporary remove faulty subnet",
+      "files": [
+        "dk-system-user-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "99a0f2611af0",
+      "username": "gergo.hajnal",
+      "comment": "(RewardCalculatorRest) temporary remove faulty subnet",
+      "files": [
+        "dk-management-reward-calculator-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261115T195430+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "version": "8e3f39293320",
+      "username": "gergo.hajnal",
+      "comment": "(MembershipStatusRest) temporary remove faulty subnet",
+      "files": [
+        "dk-management-membership-status-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261115T195430+0000"
+    }
+  ],
+  "qaDeployServices": [
+    {
+      "service": "NexusApiJ21",
+      "commits": 10,
+      "latestTicket": "NXS-14514",
+      "latestComment": "[NXS-14514] MS | NexusApi | increase model version to retrieve new system settin",
+      "deployedAt": "20261115T212524+0000"
+    },
+    {
+      "service": "SettingRestJ21",
+      "commits": 18,
+      "latestTicket": "NXS-14421",
+      "latestComment": "[NXS-14421] EOS - MS - New system setting for manual incentive psid u\u2026 (#5698)",
+      "deployedAt": "20261115T195430+0000"
+    }
+  ],
   "clusters": [
     {
       "label": "other",
@@ -53,7 +360,7 @@
   ],
   "failures": [
     {
-      "name": "Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps.Scheduled STOP Traffic leaves a CLOSED audience unchanged",
+      "name": "Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps.Scheduled START Traffic leaves a FIELDWORK_COMPLETE audience unchanged",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps",
       "newFailure": true,
       "area": "QuotaGroup",
@@ -62,13 +369,13 @@
       "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.QuotaGroupSchedulingHelper.waitForScheduleToRun(QuotaGroupSchedulingHelper.groovy:142) at com.dynata.rest.gateway.nexusapi.rest.tests.h\u2026"
     },
     {
-      "name": "A scheduled Start of a never launched audience fills in its fieldwork dates like a manual start",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.QuotaGroupSchedulingExecutionTestSteps",
+      "name": "Uploaded survey URL file can be processed and sample values read",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyUrlPoolTestSteps",
       "newFailure": true,
-      "area": "QuotaGroup",
+      "area": "Survey",
       "cluster": "assert_fail",
-      "message": "Condition failed with Exception:",
-      "detailsExcerpt": "Condition failed with Exception: schedHelper.waitForScheduleToRun(newAudience, START).status == SUCCESS | | | | | 118879809 | java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result | at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) | at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.coredomainhelpers.Quota\u2026"
+      "message": "Condition not satisfied:",
+      "detailsExcerpt": "Condition not satisfied: result.uploaded > 0 | | | | 0 false <com.dynata.nexus.api.model.urlpool.UrlUploadResult@3e0575a2 uploaded=0 inserted=3 updated=0 problems=com.dynata.nexus.api.model.urlpool.ProblemCounts@7a213820 urlFeatureId=null type=HTTP errorMessages=[] enqueuedForProcessing=false> at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyUrlPoolTestSteps.Uploaded survey URL f\u2026"
     }
   ],
   "rulesNutshell": {
@@ -79,23 +386,158 @@
       "1\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
       "1\u00d7 assertion Condition not satisfied"
     ],
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet); 1\u00d7 assertion Condition not satisfied. Vs prior #3.0.2760: up 2 total fails.",
+    "investigation": "New fails: 1\u00d7 other (no dominant signature yet); 1\u00d7 assertion Condition not satisfied.",
     "detail": {
-      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2760, 0 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: QuotaGroup (2). Example new failures: QuotaGroup: Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest. [other]; QuotaGroup: A scheduled Start of a never launched audience fills in its fieldwork dates like a manual  [assertion Condition not satisfied].",
+      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2761, 2 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: QuotaGroup (1), Survey (1). 2 service(s) (28 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: Scheduled #operation Traffic leaves a #audienceStatus audience unchanged: com.dynata.rest. [other]; Survey: Uploaded survey URL file can be processed and sample values read [assertion Condition not satisfied].",
       "bullets": [
         "1\u00d7 other \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-        "1\u00d7 assertion Condition not satisfied"
+        "1\u00d7 assertion Condition not satisfied",
+        "[QA deploy: NexusApiJ21] NXS-14514 (10 commits) \u2014 [NXS-14514] MS | NexusApi | increase model version to retrieve new system settin",
+        "[QA deploy: SettingRestJ21] NXS-14421 (18 commits) \u2014 [NXS-14421] EOS - MS - New system setting for manual incentive psid u\u2026 (#5698)"
       ],
       "newFailureAreas": [
         {
           "area": "QuotaGroup",
-          "newCount": 2
+          "newCount": 1
+        },
+        {
+          "area": "Survey",
+          "newCount": 1
         }
       ],
       "likelyCauses": []
     },
     "suspectCommits": [],
-    "qaDeploySuspects": []
+    "qaDeploySuspects": [
+      {
+        "service": "NexusApiJ21",
+        "version": "bc3441f2419d",
+        "username": "david.nagy",
+        "comment": "[NXS-14514] MS | NexusApi | increase model version to retrieve new system setting",
+        "ticket": "NXS-14514",
+        "deployedAt": "20261115T212524+0000",
+        "files": [
+          "build.gradle"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "5bb19ab982a0",
+        "username": "david.nagy",
+        "comment": "[NXS-13904] MS - NexusApi - Replace all QG related mongo query with QuotaGroupRest feign calls - integ test fix",
+        "ticket": "NXS-13904",
+        "deployedAt": "20261115T212524+0000",
+        "files": [
+          "DedupeMongoTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "1a01785eaf60",
+        "username": "david.nagy",
+        "comment": "[NXS-13904] MS - NexusApi - Replace all QG related mongo query with Q\u2026 (#5651)",
+        "ticket": "NXS-13904",
+        "deployedAt": "20261115T212524+0000",
+        "files": [
+          "QuotaGroupRestFeignClient.java",
+          "ExclusionPersistHandler.java",
+          "QuotaGroupCorePersistHandler.java",
+          "QuotaGroupHandlerU1.java",
+          "QuotaGroupPersistHandler.java",
+          "UQuotaGroupCoreImpl.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "d7d8c3a0f0c8",
+        "username": "ssi-hu-zoltan-beke",
+        "comment": "Merge pull request #692 from dynata/keycloak-26-upgrade",
+        "ticket": "",
+        "deployedAt": "20261115T212524+0000",
+        "files": [],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "d9a3ff8489d5",
+        "username": "tibor.olah",
+        "comment": "feasibility-elb-access-logs: increase retention days",
+        "ticket": "",
+        "deployedAt": "20261115T212524+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "1a2e13b6ac53",
+        "username": "laszlo.csontos",
+        "comment": "[FAI-531] increase TaskMemory to mitigate OOME",
+        "ticket": "",
+        "deployedAt": "20261115T212524+0000",
+        "files": [
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "05315ab43cdb",
+        "username": "laszlo.csontos",
+        "comment": "[FAI-531] increase TaskMemory to mitigate OOME",
+        "ticket": "",
+        "deployedAt": "20261115T212524+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "6d4afc2312c4",
+        "username": "laszlo.csontos",
+        "comment": "[FAI-531] added SnowflakeUser (Default: IMPERIUM_WATSON)",
+        "ticket": "",
+        "deployedAt": "20261115T212524+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "023651abf8ff",
+        "username": "laszlo.csontos",
+        "comment": "[FAI-531] Each Output then starts with {% ( and ends with ) %}. The JSONata itself is valid and doesn't change",
+        "ticket": "",
+        "deployedAt": "20261115T212524+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "366413e4b1e6",
+        "username": "zoltan.beke",
+        "comment": "dk-auth: Keycloak 26.8.2 configuration",
+        "ticket": "",
+        "deployedAt": "20261115T212524+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml",
+          "dev.yml",
+          "production.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      }
+    ]
   },
   "contractDrift": {
     "newCount": 4,

@@ -1,7 +1,10 @@
-**2 new QuotaGroup failures — both a 90s scheduler-execution timeout, not a code change**
+**2 new failures in QuotaGroup**
 
-_Likely cause: QA scheduling/environment slowness — `waitForScheduleToRun` times out after 90s; no commits landed in this test module or the QA deploy window._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- Both new fails (scheduled STOP and START) share one root; the 'Condition not satisfied' one is that same timeout wrapped in a Spock check, not a real assertion.
+- 1× other — java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9683759)
+⚠️ Contract drift: 4 new response-schema violation(s) vs baseline.
+- GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9684995)
