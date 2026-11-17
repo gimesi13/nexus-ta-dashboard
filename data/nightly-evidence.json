@@ -1,49 +1,114 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-17T03:08Z",
+  "generatedAt": "2026-11-17T13:29Z",
   "build": {
-    "number": "3.0.2763",
-    "buildId": "9687623",
+    "number": "3.0.2764",
+    "buildId": "9689412",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9687623",
-    "durationSec": 2236.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9689412",
+    "durationSec": 2282.0
   },
   "summary": {
     "tests": 1517,
-    "passed": 1440,
-    "failures": 17,
+    "passed": 1435,
+    "failures": 22,
     "errors": 0,
     "skipped": 0,
     "muted": 60,
-    "newFailed": 16,
-    "passRate": 98.8,
-    "timeSec": 2236.0
+    "newFailed": 5,
+    "passRate": 98.5,
+    "timeSec": 2282.0
   },
   "prior": {
-    "buildId": "9684995",
-    "number": "3.0.2762",
+    "buildId": "9687623",
+    "number": "3.0.2763",
     "status": "FAILURE",
-    "statusText": "Tests failed: 2 (2 new), passed: 1454, muted: 61",
-    "startDate": "20261116T023236+0000",
-    "durationSec": 1845.0,
-    "failed": 2,
-    "passed": 1454,
-    "newFailed": 2
+    "statusText": "Tests failed: 17 (16 new), passed: 1440, muted: 60",
+    "startDate": "20261117T023020+0000",
+    "durationSec": 2236.0,
+    "failed": 17,
+    "passed": 1440,
+    "newFailed": 16
   },
   "changes": [],
   "qaDeployChanges": [
     {
-      "service": "ProjectLogRestJ21",
-      "version": "b1282b381134",
-      "username": "bence.csepe",
-      "comment": "[NXS-14225] MS - ProjectLogRest - bump dependencies (#5681)",
+      "service": "NexusApiJ21",
+      "version": "773735105a86",
+      "username": "60962201+gyarmatitamas",
+      "comment": "[NXS-14418] - NexusApi - use CommunicationRest to list templates (#5725)",
       "files": [
-        "project/ProjectLogRest/build.gradle"
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/communication/CommunicationRestFeignClient.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/components/CommunicationMockDataProvider.java",
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UCommunicationsImpl.java",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UCommunicationsImplTest.groovy"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiJ21",
+      "version": "148fab4170d7",
+      "username": "laszlo.szalkai",
+      "comment": "[AE] enable changeset creation",
+      "files": [
+        "ae-edge-internal-load-balancer/group_vars/all.yml"
+      ],
+      "deployedAt": "20261117T111532+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "4359817f5d56",
+      "username": "laszlo.szalkai",
+      "comment": "[AE] Enable production ALB access logs to S3. (#691)",
+      "files": [
+        "ae-edge-internal-load-balancer/cloud-formation.template.yml",
+        "ae-edge-internal-load-balancer/group_vars/all.yml",
+        "ae-edge-internal-load-balancer/group_vars/production.yml",
+        "ae-internal-load-balancer/cloud-formation.template.yml",
+        "ae-internal-load-balancer/group_vars/all.yml",
+        "ae-internal-load-balancer/group_vars/production.yml",
+        "ae-legacy-internal-load-balancer/cloud-formation.template.yml",
+        "ae-legacy-internal-load-balancer/group_vars/all.yml",
+        "ae-legacy-internal-load-balancer/group_vars/production.yml"
+      ],
+      "deployedAt": "20261117T111532+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "f94cf2e07143",
+      "username": "adam.veres",
+      "comment": "[FEAS] - Remove resources of old gtr-elastic-gateway",
+      "files": [
+        "gtr-elastic-gateway/cloud-formation.template.yml",
+        "gtr-elastic-gateway/group_vars/all.yml",
+        "gtr-elastic-gateway/group_vars/dev.yml",
+        "gtr-elastic-gateway/group_vars/production.yml",
+        "gtr-elastic-gateway/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261117T111532+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "41a9a812d221",
+      "username": "weiqun.wang",
+      "comment": "fix autoscaling issue in qa",
+      "files": [
+        "ml-survey-guard-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261117T111532+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "version": "1582037916cc",
+      "username": "weiqun.wang",
+      "comment": "fix qa deployment failed issue",
+      "files": [
+        "ml-survey-guard-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261117T111532+0000"
+    },
+    {
+      "service": "NexusApiJ21",
       "version": "1e4658e443a0",
       "username": "weiqun.wang",
       "comment": "[FAI-298] Migrate to FAI with honeycomb and others",
@@ -54,10 +119,10 @@
         "ml-survey-guard-model/group_vars/production.yml",
         "ml-survey-guard-model/group_vars/qa.yml"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiJ21",
       "version": "ebfd30c03d10",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] innodb_monitor_enable: all",
@@ -65,10 +130,10 @@
         "ae-drop-service-rds/group_vars/all.yml",
         "ae-traffic-control-rds/group_vars/all.yml"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiJ21",
       "version": "a621b5878068",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] innodb_monitor_enable: all",
@@ -76,20 +141,20 @@
         "ae-drop-service-rds/cloud-formation.template.yml",
         "ae-traffic-control-rds/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiJ21",
       "version": "db62db88b54b",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service-rds] fix 4",
       "files": [
         "ae-drop-service-rds/group_vars/all.yml"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiJ21",
       "version": "794d469e91ed",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] fix 3",
@@ -97,10 +162,10 @@
         "ae-drop-service-rds/cloud-formation.template.yml",
         "ae-traffic-control-rds/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiJ21",
       "version": "64146feaa87b",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] fix 2",
@@ -110,10 +175,10 @@
         "ae-traffic-control-rds/cloud-formation.template.yml",
         "ae-traffic-control-rds/group_vars/all.yml"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiJ21",
       "version": "957e6354cb5b",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] fix",
@@ -121,10 +186,10 @@
         "ae-drop-service-rds/cloud-formation.template.yml",
         "ae-traffic-control-rds/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiJ21",
       "version": "5625af4deb02",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] change stack policy",
@@ -134,10 +199,10 @@
         "ae-traffic-control-rds/stack-policy.json",
         "ae-traffic-control-rds/stack-policy.jsonc"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiJ21",
       "version": "a35b97822df4",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] change stack policy",
@@ -145,10 +210,10 @@
         "ae-drop-service-rds/stack-policy.json",
         "ae-traffic-control-rds/stack-policy.json"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiJ21",
       "version": "3d2b171fad7f",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] change param group deletion policy",
@@ -156,10 +221,10 @@
         "ae-drop-service-rds/cloud-formation.template.yml",
         "ae-traffic-control-rds/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiJ21",
       "version": "4723339c8698",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] change stack policy",
@@ -167,20 +232,20 @@
         "ae-drop-service-rds/stack-policy.json",
         "ae-traffic-control-rds/stack-policy.json"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiJ21",
       "version": "7b781b816590",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [traffic-control-rds] change deletion policy in cluster",
       "files": [
         "ae-traffic-control-rds/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiJ21",
       "version": "90401d128a19",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service-rds] change deletion policy in cluster",
@@ -188,30 +253,30 @@
         "ae-drop-service-rds/cloud-formation.template.yml",
         "ae-drop-service-rds/group_vars/dev.yml"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiJ21",
       "version": "ed289e3a013e",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service-rds] Param group deletion policy = Retain",
       "files": [
         "ae-drop-service-rds/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiJ21",
       "version": "a8544c56133d",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service-rds] Re-add cluster parameter group",
       "files": [
         "ae-drop-service-rds/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiJ21",
       "version": "deaedab8bec9",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service-rds] Temporarily delete cluster parameter group",
@@ -219,196 +284,135 @@
         "ae-drop-service-rds/cloud-formation.template.yml",
         "ae-drop-service-rds/group_vars/dev.yml"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "NexusApiUI",
+      "version": "34bc04f08a8a",
+      "username": "laszlo.szalkai",
+      "comment": "[AE] test - enable accedd log in QA",
+      "files": [
+        "ae-internal-load-balancer/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261117T111415+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "6ebe54edf32b",
+      "username": "60962201+gyarmatitamas",
+      "comment": "[NXS-14257] - NexusApiUI - resolve templateName in overview (#5726)",
+      "files": [
+        "gateway/unifiedApi/NexusApiUI/build.gradle",
+        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/dependencies/communications/CommunicationRestFeignClient.java",
+        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/u1/components/CommunicationTemplateCache.java",
+        "gateway/unifiedApi/NexusApiUI/src/main/java/com/dynata/rest/gateway/nexusuiapi/u1/nexus/communications/CommunicationOverviewAssembler.java",
+        "gateway/unifiedApi/NexusApiUI/src/test/groovy/com/dynata/rest/gateway/nexusuiapi/u1/components/CommunicationTemplateCacheTest.groovy",
+        "gateway/unifiedApi/NexusApiUI/src/test/groovy/u1/nexus/communications/CommunicationOverviewAssemblerTest.groovy"
+      ],
+      "deployedAt": "20261117T111415+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "version": "86b2597a3e8a",
+      "username": "laszlo.szalkai",
+      "comment": "[AE] enable changeset creation",
+      "files": [
+        "ae-internal-load-balancer/group_vars/all.yml",
+        "ae-legacy-internal-load-balancer/group_vars/all.yml"
+      ],
+      "deployedAt": "20261117T111415+0000"
+    },
+    {
+      "service": "CommunicationRestJ21",
+      "version": "8430e55a3037",
+      "username": "60962201+gyarmatitamas",
+      "comment": "[NXS-14454] - CommunicationRest - refactor templateId to String (#5724)",
+      "files": [
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/acceptance/ProjectCommunicationsApiAcceptanceTest.groovy",
+        "project/CommunicationRest/src/integTest/groovy/com/surveysampling/rest/communication/u1/mongo/ProjectCommunicationsMongoHandlerTest.groovy",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/model/projectCommunication/Communication.java",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/model/projectCommunication/CommunicationCreateRequest.java",
+        "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/model/projectCommunication/CommunicationUpdateRequest.java",
+        "project/CommunicationRest/src/test/groovy/com/surveysampling/rest/communication/u1/components/CommunicationEditorTest.groovy"
+      ],
+      "deployedAt": "20261117T104700+0000"
+    },
+    {
+      "service": "CommunicationRestJ21",
       "version": "d7d8c3a0f0c8",
       "username": "ssi-hu-zoltan-beke",
       "comment": "Merge pull request #692 from dynata/keycloak-26-upgrade",
       "files": [],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T104700+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "CommunicationRestJ21",
       "version": "d9a3ff8489d5",
       "username": "tibor.olah",
       "comment": "feasibility-elb-access-logs: increase retention days",
       "files": [
         "feasibility-elb-access-logs/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T104700+0000"
     },
     {
-      "service": "ProjectLogRestJ21",
+      "service": "CommunicationRestJ21",
       "version": "1a2e13b6ac53",
       "username": "laszlo.csontos",
       "comment": "[FAI-531] increase TaskMemory to mitigate OOME",
       "files": [
         "ml-model-drift-monitor/group_vars/all.yml"
       ],
-      "deployedAt": "20261116T190307+0000"
+      "deployedAt": "20261117T104700+0000"
     },
     {
       "service": "ProjectLogRestJ21",
-      "version": "05315ab43cdb",
-      "username": "laszlo.csontos",
-      "comment": "[FAI-531] increase TaskMemory to mitigate OOME",
+      "version": "ac8ea8aca1d3",
+      "username": "bence.csepe",
+      "comment": "[NXS-13914] EOS - MS - Adding the changes on incentive offer to project log (#5727)",
       "files": [
-        "ml-model-drift-monitor/cloud-formation.template.yml"
+        "project/ProjectLogRest/build.gradle",
+        "project/ProjectLogRest/src/main/java/com/surveysampling/rest/projectlog/u1/model/enums/QuotaGroupModules.java",
+        "project/ProjectLogRest/src/test/groovy/com/surveysampling/rest/projectlog/u1/ModuleTests.groovy"
       ],
-      "deployedAt": "20261116T190307+0000"
-    },
-    {
-      "service": "ProjectLogRestJ21",
-      "version": "6d4afc2312c4",
-      "username": "laszlo.csontos",
-      "comment": "[FAI-531] added SnowflakeUser (Default: IMPERIUM_WATSON)",
-      "files": [
-        "ml-model-drift-monitor/cloud-formation.template.yml",
-        "ml-model-drift-monitor/group_vars/all.yml"
-      ],
-      "deployedAt": "20261116T190307+0000"
-    },
-    {
-      "service": "ProjectLogRestJ21",
-      "version": "023651abf8ff",
-      "username": "laszlo.csontos",
-      "comment": "[FAI-531] Each Output then starts with {% ( and ends with ) %}. The JSONata itself is valid and doesn't change",
-      "files": [
-        "ml-model-drift-monitor/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261116T190307+0000"
-    },
-    {
-      "service": "ProjectLogRestJ21",
-      "version": "366413e4b1e6",
-      "username": "zoltan.beke",
-      "comment": "dk-auth: Keycloak 26.8.2 configuration",
-      "files": [
-        "dk-auth/cloud-formation.template.yml",
-        "dk-auth/group_vars/all.yml",
-        "dk-auth/group_vars/dev.yml",
-        "dk-auth/group_vars/production.yml",
-        "dk-auth/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261116T190307+0000"
-    },
-    {
-      "service": "ProjectLogRestJ21",
-      "version": "679f906f012c",
-      "username": "55445003+dynata-hu-krisztian-erdei",
-      "comment": "Merge pull request #674 from dynata/ST-5106-remove-app-status",
-      "files": [],
-      "deployedAt": "20261116T190307+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "1e13b0919b84",
-      "username": "andras.banszki",
-      "comment": "[NXS-14524] MS - ProjectRest - fix 500 on order number update for mirrored projects (#5731)",
-      "files": [
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/model/Project.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/impl/ProjectService.java",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/model/ProjectTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/v2/service/ProjectServiceTest.groovy"
-      ],
-      "deployedAt": "20261116T161504+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "50033df98781",
-      "username": "andras.banszki",
-      "comment": "[NXS-14397] MS - ProjectRest - add u1 project dates endpoints for Nex\u2026 (#5715)",
-      "files": [
-        "project/ProjectRest/README.md",
-        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/acceptance/u1/UProjectDatesAcceptanceTest.groovy",
-        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/acceptance/u1/UProjectDatesFeignClient.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/api/UProjectDatesRest.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mirroring/messaging/ProjectMirroringListener.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mongo/ProjectMongoPaths.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/service/UProjectDatesService.java",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/api/UProjectDatesRestTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/service/UProjectDatesServiceTest.groovy"
-      ],
-      "deployedAt": "20261116T161504+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "9335508d0545",
-      "username": "andras.banszki",
-      "comment": "[NXS-14396] MS - Move NexusApi project core mongo writes to ProjectRest u1 endpoints (#5709)",
-      "files": [
-        "project/ProjectRest/README.md",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/api/UProjectCoreRest.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mongo/ProjectMongoPaths.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/service/UProjectCoreService.java",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/api/UProjectCoreRestTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/service/UProjectCoreServiceTest.groovy"
-      ],
-      "deployedAt": "20261116T161504+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "8e55cd58ab29",
-      "username": "48213478+ssi-hu-szabolcs-papellas",
-      "comment": "Merge pull request #676 from dynata/ST-4551-redirect-remaining-nexus-rules-to-cloudia",
-      "files": [],
-      "deployedAt": "20261116T161504+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "d9f5d1f85aff",
-      "username": "laszlo.csontos",
-      "comment": "[FAI-528] Catch only S3.NoSuchKeyException on HeadFinalizedRun",
-      "files": [
-        "ml-model-drift-monitor/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261116T161504+0000"
+      "deployedAt": "20261117T095355+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "ProjectLogRestJ21",
-      "commits": 25,
-      "latestTicket": "NXS-14225",
-      "latestComment": "[NXS-14225] MS - ProjectLogRest - bump dependencies (#5681)",
-      "deployedAt": "20261116T190307+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "commits": 5,
-      "latestTicket": "NXS-14524",
-      "latestComment": "[NXS-14524] MS - ProjectRest - fix 500 on order number update for mirrored proje",
-      "deployedAt": "20261116T161504+0000"
-    },
-    {
-      "service": "DemandApi",
-      "commits": 8,
-      "latestTicket": "",
-      "latestComment": "[PAC-923] DemandApi - switch back from u1 to v1 endpoints for updates",
-      "deployedAt": "20261116T120000+0000"
-    },
-    {
       "service": "NexusApiJ21",
-      "commits": 2,
-      "latestTicket": "NXS-14422",
-      "latestComment": "[NXS-14422] MS - NexusApi - Recontactable Does not Auto Select for Multiphase Pr",
-      "deployedAt": "20261116T113058+0000"
+      "commits": 22,
+      "latestTicket": "NXS-14418",
+      "latestComment": "[NXS-14418] - NexusApi - use CommunicationRest to list templates (#5725)",
+      "deployedAt": "20261117T111532+0000"
     },
     {
-      "service": "QuotaGroupRestJ21",
-      "commits": 15,
-      "latestTicket": "NXS-14423",
-      "latestComment": "[NXS-14423] MS - QuotaGroupRest - Recontactable Does not Auto Select for Multiph",
-      "deployedAt": "20261116T110213+0000"
+      "service": "NexusApiUI",
+      "commits": 5,
+      "latestTicket": "",
+      "latestComment": "[AE] test - enable accedd log in QA",
+      "deployedAt": "20261117T111415+0000"
     },
     {
-      "service": "QuotaGroupSourcesRestJ21",
-      "commits": 10,
-      "latestTicket": "NXS-14424",
-      "latestComment": "[NXS-14424] MS - QuotaGroupSources - Recontactable Does not Auto Select for Mult",
-      "deployedAt": "20261116T103327+0000"
+      "service": "CommunicationRestJ21",
+      "commits": 4,
+      "latestTicket": "NXS-14454",
+      "latestComment": "[NXS-14454] - CommunicationRest - refactor templateId to String (#5724)",
+      "deployedAt": "20261117T104700+0000"
+    },
+    {
+      "service": "ProjectLogRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-13914",
+      "latestComment": "[NXS-13914] EOS - MS - Adding the changes on incentive offer to project log (#57",
+      "deployedAt": "20261117T095355+0000"
+    },
+    {
+      "service": "ProjectAutomationApi",
+      "commits": 14,
+      "latestTicket": "",
+      "latestComment": "[PAC-911] inclusion and segment translation (#5701)",
+      "deployedAt": "20261117T083329+0000"
     }
   ],
   "clusters": [
@@ -416,32 +420,49 @@
       "label": "test_setup_soft_launch",
       "display": "PES soft-launch vs tally",
       "count": 15,
-      "newCount": 15,
-      "sample": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
+      "newCount": 0,
+      "sample": "",
       "why": "PES soft-launch total vs tally on a shared fixture"
     },
     {
-      "label": "infra_502",
-      "display": "QA 502 Bad Gateway",
-      "count": 1,
-      "newCount": 1,
-      "sample": "",
-      "why": "QA gateway returned HTML 502 \u2014 infra during the run, not a product regression"
+      "label": "infra_timeout",
+      "display": "client/Feign socket timeout",
+      "count": 4,
+      "newCount": 3,
+      "sample": "feign.RetryableException: Read timed out executing POST <url>",
+      "why": "Feign/client socket timeout talking to a QA service"
     },
     {
       "label": "assert_fail",
       "display": "assertion Condition not satisfied",
-      "count": 1,
-      "newCount": 0,
-      "sample": "",
+      "count": 2,
+      "newCount": 1,
+      "sample": "Communication is not supported for this project",
       "why": "Spock assertion failed (fixture or response shape)"
+    },
+    {
+      "label": "stale_validation",
+      "display": "stale negative validation",
+      "count": 1,
+      "newCount": 1,
+      "sample": "Expected exception of type 'java.lang.Exception', but no exception was thrown",
+      "why": "negative test expected an exception that was not thrown"
     }
   ],
   "failures": [
     {
+      "name": "Communication is rejected when the template is missing",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Communication.CommunicationValidationTestSteps",
+      "newFailure": true,
+      "area": "Communication",
+      "cluster": "assert_fail",
+      "message": "Communication is not supported for this project",
+      "detailsExcerpt": "Condition not satisfied: exception.message.contains(\"greater than or equal to 1\") | | | | | false | https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/communications | | 400{ | \"errors\" : [ { | \"callChain\" : [ \"HTTP 400 POST http://dk-project-communication-rest.nexus-ms-qa.dynata.com:8080/api/Communication/u1/projects/communications\" ], | \"status\" : \"BAD_REQUEST\", | \"message\" : \"Commu\u2026"
+    },
+    {
       "name": "quota group rename publishes QG_NAME_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -450,34 +471,70 @@
     {
       "name": "fullProjectSetup persists quota group source toggles",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.FullProjectSetupSourceTestSteps",
+      "newFailure": false,
+      "area": "Project",
+      "cluster": "infra_timeout",
+      "message": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/fullProjectSetup",
+      "detailsExcerpt": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/fullProjectSetup at app//feign.FeignException.errorExecuting(FeignException.java:300) at app//feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:105) at app//feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:53) at app//feign.Reflectiv\u2026"
+    },
+    {
+      "name": "fullProjectSetup persists quota group brand exclusion",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.FullProjectSetupSourceTestSteps",
       "newFailure": true,
       "area": "Project",
-      "cluster": "infra_502",
-      "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: savedToggles.requiresRecontact | | | false <com.dynata.nexus.api.model.quotagroup.source.QuotaGroupSourcesToggles@3f7bf0f6 requiresRecontact=false requiresWebcam=true requiresEyeTracking=false requiresCookieDrops=false requiresSamplePlus=false requiresAppVpn=false requiresPiiCollection=false requiresManualRewards=false useDesktopOnly=false useCustomerBlend=false useEropMe\u2026"
+      "cluster": "infra_timeout",
+      "message": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/fullProjectSetup",
+      "detailsExcerpt": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/fullProjectSetup at app//feign.FeignException.errorExecuting(FeignException.java:300) at app//feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:105) at app//feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:53) at app//feign.Reflectiv\u2026"
     },
     {
       "name": "total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
       "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
+    },
+    {
+      "name": "fullProjectSetup fills default source settings when source is omitted",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.FullProjectSetupSourceTestSteps",
+      "newFailure": true,
+      "area": "Project",
+      "cluster": "infra_timeout",
+      "message": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/fullProjectSetup",
+      "detailsExcerpt": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/fullProjectSetup at app//feign.FeignException.errorExecuting(FeignException.java:300) at app//feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:105) at app//feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:53) at app//feign.Reflectiv\u2026"
+    },
+    {
+      "name": "Locking sold quota when feasible is more than requested should not lock: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaValidationTestSteps.Locking sold quota when feasible is more than requested should not lock",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaValidationTestSteps",
+      "newFailure": true,
+      "area": "Quota",
+      "cluster": "stale_validation",
+      "message": "Expected exception of type 'java.lang.Exception', but no exception was thrown",
+      "detailsExcerpt": "Expected exception of type 'java.lang.Exception', but no exception was thrown at app//org.spockframework.lang.SpecInternals.checkExceptionThrown(SpecInternals.java:95) at app//org.spockframework.lang.SpecInternals.thrownImpl(SpecInternals.java:78) at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Quota.SoldQuotaValidationTestSteps.Locking sold quota when feasible is more than requested should \u2026"
     },
     {
       "name": "delivery mode update publishes DELIVERY_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
       "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
     },
     {
+      "name": "fullProjectSetup derives useEropMedical from the project instead of the client-sent value",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Project.FullProjectSetupSourceTestSteps",
+      "newFailure": true,
+      "area": "Project",
+      "cluster": "infra_timeout",
+      "message": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/fullProjectSetup",
+      "detailsExcerpt": "feign.RetryableException: Read timed out executing POST https://microservices-qa.dynata.com/NexusApi/u1/nexus/projects/fullProjectSetup at app//feign.FeignException.errorExecuting(FeignException.java:300) at app//feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:105) at app//feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:53) at app//feign.Reflectiv\u2026"
+    },
+    {
       "name": "soft launch settings update publishes SOFT_LAUNCH_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -486,7 +543,7 @@
     {
       "name": "sources brand exclusion update publishes SOURCES_BRAND_EX_UPDATED on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -495,7 +552,7 @@
     {
       "name": "sources sample-criteria toggle update publishes SOURCES_TOGGLES_UPDATED on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -504,7 +561,7 @@
     {
       "name": "partner event creation publishes PARTNER_ALLOCATION_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -513,7 +570,43 @@
     {
       "name": "proposed dates update publishes TARGET_DATES_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
+      "area": "PES",
+      "cluster": "test_setup_soft_launch",
+      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
+      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
+    },
+    {
+      "name": "audience price update publishes PRICE_CHANGE on the QuotaGroup FIFO topic",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
+      "newFailure": false,
+      "area": "PES",
+      "cluster": "test_setup_soft_launch",
+      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
+      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
+    },
+    {
+      "name": "bid incidence update publishes BID_INCIDENCE_CHANGE on the QuotaGroup FIFO topic",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
+      "newFailure": false,
+      "area": "PES",
+      "cluster": "test_setup_soft_launch",
+      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
+      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
+    },
+    {
+      "name": "default survey length update publishes SURVEY_LENGTH_CHANGE on the QuotaGroup FIFO topic",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
+      "newFailure": false,
+      "area": "PES",
+      "cluster": "test_setup_soft_launch",
+      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
+      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
+    },
+    {
+      "name": "activity update publishes ACTIVITY_CHANGE on the QuotaGroup FIFO topic",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -526,48 +619,12 @@
       "area": "Survey",
       "cluster": "assert_fail",
       "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: result.uploaded > 0 | | | | 0 false <com.dynata.nexus.api.model.urlpool.UrlUploadResult@21f8693e uploaded=0 inserted=3 updated=0 problems=com.dynata.nexus.api.model.urlpool.ProblemCounts@3746766b urlFeatureId=null type=HTTP errorMessages=[] enqueuedForProcessing=false> at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyUrlPoolTestSteps.Uploaded survey URL f\u2026"
-    },
-    {
-      "name": "audience price update publishes PRICE_CHANGE on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "bid incidence update publishes BID_INCIDENCE_CHANGE on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "default survey length update publishes SURVEY_LENGTH_CHANGE on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
-    },
-    {
-      "name": "activity update publishes ACTIVITY_CHANGE on the QuotaGroup FIFO topic",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
-      "area": "PES",
-      "cluster": "test_setup_soft_launch",
-      "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "detailsExcerpt": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.specializedhelpers.PesMessagingHelper.waitForPes2Notification(PesMessagingHelper.groovy:157) at com.dynata.rest.gateway.nexusapi.rest.tests.helpers.speci\u2026"
+      "detailsExcerpt": "Condition not satisfied: result.uploaded > 0 | | | | 0 false <com.dynata.nexus.api.model.urlpool.UrlUploadResult@4b6e296a uploaded=0 inserted=3 updated=0 problems=com.dynata.nexus.api.model.urlpool.ProblemCounts@5e3934db urlFeatureId=null type=HTTP errorMessages=[] enqueuedForProcessing=false> at com.dynata.rest.gateway.nexusapi.rest.tests.steps.Survey.SurveyUrlPoolTestSteps.Uploaded survey URL f\u2026"
     },
     {
       "name": "line item id update publishes LINE_ITEM_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -576,7 +633,7 @@
     {
       "name": "quota group creation publishes INSERTED on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -585,7 +642,7 @@
     {
       "name": "quota group deletion publishes DELETED_CHANGE on the QuotaGroup FIFO topic",
       "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.PES.Pes2NotificationTestSteps",
-      "newFailure": true,
+      "newFailure": false,
       "area": "PES",
       "cluster": "test_setup_soft_launch",
       "message": "java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
@@ -593,33 +650,38 @@
     }
   ],
   "rulesNutshell": {
-    "headline": "16 new failures \u2014 mainly PES, Project",
-    "tone": "bad",
-    "severity": "high",
+    "headline": "5 new failures \u2014 mostly QA infra timeouts/502s",
+    "tone": "warn",
+    "severity": "low",
     "bullets": [
-      "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "1\u00d7 QA 502 Bad Gateway"
+      "3\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing POST <url>",
+      "1\u00d7 assertion Condition not satisfied \u2014 Communication is not supported for this project",
+      "1\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown"
     ],
-    "investigation": "New fails: 15\u00d7 PES soft-launch vs tally; 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Vs prior #3.0.2762: up 15 total fails.",
+    "investigation": "New fails: 3\u00d7 client/Feign socket timeout; 1\u00d7 assertion Condition not satisfied. Gateway hits: dk-project-communication-rest.",
     "detail": {
-      "investigation": "16 of 17 unmuted failures are new since the prior build (#3.0.2762, 2 fails). Failure types (new-first): (1) 15\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. (2) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: PES (15), Project (1). 6 service(s) (65 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: PES: quota group rename publishes QG_NAME_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; Project: fullProjectSetup persists quota group source toggles [QA 502 Bad Gateway]; PES: total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: delivery mode update publishes DELIVERY_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally].",
+      "investigation": "5 of 22 unmuted failures are new since the prior build (#3.0.2763, 17 fails). Failure types (new-first): (1) 3\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (3) 1\u00d7 stale negative validation \u2014 negative test expected an exception that was not thrown. Hot areas among new fails: Project (3), Communication (1), Quota (1). Infra-dominant among new fails: VCS changes are unlikely to explain 502/504/timeouts. 5 service(s) (46 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Communication is rejected when the template is missing [assertion Condition not satisfied]; Project: fullProjectSetup persists quota group brand exclusion [client/Feign socket timeout]; Project: fullProjectSetup fills default source settings when source is omitted [client/Feign socket timeout]; Quota: Locking sold quota when feasible is more than requested should not lock: com.dynata.rest.g [stale negative validation].",
       "bullets": [
-        "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-        "1\u00d7 QA 502 Bad Gateway",
-        "[QA deploy: ProjectLogRestJ21] NXS-14225 (25 commits) \u2014 [NXS-14225] MS - ProjectLogRest - bump dependencies (#5681)",
-        "[QA deploy: ProjectRestJ16] NXS-14524 (5 commits) \u2014 [NXS-14524] MS - ProjectRest - fix 500 on order number update for mirrored proje",
-        "[QA deploy: DemandApi]  (8 commits) \u2014 [PAC-923] DemandApi - switch back from u1 to v1 endpoints for updates",
-        "[QA deploy: NexusApiJ21] NXS-14422 (2 commits) \u2014 [NXS-14422] MS - NexusApi - Recontactable Does not Auto Select for Multiphase Pr",
-        "[QA deploy: QuotaGroupRestJ21] NXS-14423 (15 commits) \u2014 [NXS-14423] MS - QuotaGroupRest - Recontactable Does not Auto Select for Multiph",
-        "[QA deploy: QuotaGroupSourcesRestJ21] NXS-14424 (10 commits) \u2014 [NXS-14424] MS - QuotaGroupSources - Recontactable Does not Auto Select for Mult"
+        "3\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing POST <url>",
+        "1\u00d7 assertion Condition not satisfied \u2014 Communication is not supported for this project",
+        "1\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown",
+        "[QA deploy: NexusApiJ21] NXS-14418 (22 commits) \u2014 [NXS-14418] - NexusApi - use CommunicationRest to list templates (#5725)",
+        "[QA deploy: NexusApiUI]  (5 commits) \u2014 [AE] test - enable accedd log in QA",
+        "[QA deploy: CommunicationRestJ21] NXS-14454 (4 commits) \u2014 [NXS-14454] - CommunicationRest - refactor templateId to String (#5724)",
+        "[QA deploy: ProjectLogRestJ21] NXS-13914 (1 commit) \u2014 [NXS-13914] EOS - MS - Adding the changes on incentive offer to project log (#57",
+        "[QA deploy: ProjectAutomationApi]  (14 commits) \u2014 [PAC-911] inclusion and segment translation (#5701)"
       ],
       "newFailureAreas": [
         {
-          "area": "PES",
-          "newCount": 15
+          "area": "Project",
+          "newCount": 3
         },
         {
-          "area": "Project",
+          "area": "Communication",
+          "newCount": 1
+        },
+        {
+          "area": "Quota",
           "newCount": 1
         }
       ],
@@ -628,24 +690,56 @@
     "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "ProjectLogRestJ21",
-        "version": "b1282b381134",
-        "username": "bence.csepe",
-        "comment": "[NXS-14225] MS - ProjectLogRest - bump dependencies (#5681)",
-        "ticket": "NXS-14225",
-        "deployedAt": "20261116T190307+0000",
+        "service": "NexusApiJ21",
+        "version": "773735105a86",
+        "username": "60962201+gyarmatitamas",
+        "comment": "[NXS-14418] - NexusApi - use CommunicationRest to list templates (#5725)",
+        "ticket": "NXS-14418",
+        "deployedAt": "20261117T111532+0000",
         "files": [
-          "build.gradle"
+          "CommunicationRestFeignClient.java",
+          "CommunicationMockDataProvider.java",
+          "UCommunicationsImpl.java",
+          "UCommunicationsImplTest.groovy"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectLogRestJ21",
-        "version": "1e4658e443a0",
-        "username": "weiqun.wang",
-        "comment": "[FAI-298] Migrate to FAI with honeycomb and others",
+        "service": "NexusApiJ21",
+        "version": "148fab4170d7",
+        "username": "laszlo.szalkai",
+        "comment": "[AE] enable changeset creation",
         "ticket": "",
-        "deployedAt": "20261116T190307+0000",
+        "deployedAt": "20261117T111532+0000",
+        "files": [
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "4359817f5d56",
+        "username": "laszlo.szalkai",
+        "comment": "[AE] Enable production ALB access logs to S3. (#691)",
+        "ticket": "",
+        "deployedAt": "20261117T111532+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml",
+          "production.yml",
+          "cloud-formation.template.yml",
+          "all.yml",
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "f94cf2e07143",
+        "username": "adam.veres",
+        "comment": "[FEAS] - Remove resources of old gtr-elastic-gateway",
+        "ticket": "",
+        "deployedAt": "20261117T111532+0000",
         "files": [
           "cloud-formation.template.yml",
           "all.yml",
@@ -656,12 +750,52 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectLogRestJ21",
+        "service": "NexusApiJ21",
+        "version": "41a9a812d221",
+        "username": "weiqun.wang",
+        "comment": "fix autoscaling issue in qa",
+        "ticket": "",
+        "deployedAt": "20261117T111532+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "1582037916cc",
+        "username": "weiqun.wang",
+        "comment": "fix qa deployment failed issue",
+        "ticket": "",
+        "deployedAt": "20261117T111532+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
+        "version": "1e4658e443a0",
+        "username": "weiqun.wang",
+        "comment": "[FAI-298] Migrate to FAI with honeycomb and others",
+        "ticket": "",
+        "deployedAt": "20261117T111532+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml",
+          "dev.yml",
+          "production.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
         "version": "ebfd30c03d10",
         "username": "bresalio.nagy",
         "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] innodb_monitor_enable: all",
         "ticket": "",
-        "deployedAt": "20261116T190307+0000",
+        "deployedAt": "20261117T111532+0000",
         "files": [
           "all.yml",
           "all.yml"
@@ -669,12 +803,12 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectLogRestJ21",
+        "service": "NexusApiJ21",
         "version": "a621b5878068",
         "username": "bresalio.nagy",
         "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] innodb_monitor_enable: all",
         "ticket": "",
-        "deployedAt": "20261116T190307+0000",
+        "deployedAt": "20261117T111532+0000",
         "files": [
           "cloud-formation.template.yml",
           "cloud-formation.template.yml"
@@ -682,83 +816,14 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectLogRestJ21",
+        "service": "NexusApiJ21",
         "version": "db62db88b54b",
         "username": "bresalio.nagy",
         "comment": "[AE-7786] [drop-service-rds] fix 4",
         "ticket": "",
-        "deployedAt": "20261116T190307+0000",
+        "deployedAt": "20261117T111532+0000",
         "files": [
           "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectLogRestJ21",
-        "version": "794d469e91ed",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] fix 3",
-        "ticket": "",
-        "deployedAt": "20261116T190307+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectLogRestJ21",
-        "version": "64146feaa87b",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] fix 2",
-        "ticket": "",
-        "deployedAt": "20261116T190307+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "cloud-formation.template.yml",
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectLogRestJ21",
-        "version": "957e6354cb5b",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] fix",
-        "ticket": "",
-        "deployedAt": "20261116T190307+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectLogRestJ21",
-        "version": "5625af4deb02",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] change stack policy",
-        "ticket": "",
-        "deployedAt": "20261116T190307+0000",
-        "files": [
-          "stack-policy.json",
-          "stack-policy.jsonc",
-          "stack-policy.json",
-          "stack-policy.jsonc"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectLogRestJ21",
-        "version": "a35b97822df4",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] change stack policy",
-        "ticket": "",
-        "deployedAt": "20261116T190307+0000",
-        "files": [
-          "stack-policy.json",
-          "stack-policy.json"
         ],
         "scope": "qa-deploy"
       }
