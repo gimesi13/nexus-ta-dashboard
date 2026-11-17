@@ -1,7 +1,11 @@
-**2 new failures: a QuotaGroup scheduling timeout and a Survey URL-upload assertion**
+**16 new failures — mainly PES, Project**
 
-_Likely cause: QuotaGroup scheduling timeout plausibly from NXS-13904 (david.nagy) QG mongo→feign refactor; Survey assertion unmatched (test/data)._
+_Likely cause: No build changes — likely test/data or environment flakiness._
 
-- QuotaGroup: waitForScheduleToRun timed out after 90s; Survey upload returned uploaded=0
+- 15× PES soft-launch vs tally — java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result
+- 1× QA 502 Bad Gateway
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9684995)
+⚠️ Contract drift: 4 new response-schema violation(s) vs baseline.
+- GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9687623)
