@@ -1827,27 +1827,28 @@
     "SurveyValidationTestSteps::Base URL with tags rejects an empty tag list": "passed"
   },
   "nutshell": {
-    "headline": "16 new failures \u2014 mainly PES, Project",
+    "headline": "16 new failures - a cluster of 15 QuotaGroup FIFO notification timeouts pointing at the fresh QuotaGroup QA deploys",
     "tone": "bad",
     "severity": "high",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 6 service(s) were deployed to QA in this window (ProjectLogRestJ21, ProjectRestJ16, DemandApi, NexusApiJ21, QuotaGroupRestJ21\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 15\u00d7 PES soft-launch vs tally; 1\u00d7 QA 502 Bad Gateway (QA gateway returned HTML 502). Vs prior #3.0.2762: up 15 total fails.",
+    "cause": "code_change",
+    "causeText": "The 15-failure cluster is all the same real error: a PES2 notification never published on the QuotaGroup FIFO topic within 90s (Pes2NotificationTestSteps/PesMessagingHelper) - a notification-pipeline regression, not the socket-timeout/502 the coarse label implies. It lines up with the QuotaGroup 'Recontactable Does not Auto Select for Multiphase' changes deployed to QA just before the run: NXS-14423 (QuotaGroupRest), NXS-14424 (QuotaGroupSources) and NXS-14422 (NexusApi), all in the QuotaGroup topic area. The evidence carries no per-commit author or file list for those QA-deployed services, so no individual developer is named; the per-commit QA changes that do have authors (bence.csepe NXS-14225, andras.banszki NXS-14524) only touch ProjectRest/ML/RDS/Keycloak and are not blamed.",
+    "investigation": "All 15 new PES failures are the identical timeout - a PES2 notification never arrived on the QuotaGroup FIFO topic in 90s (pipeline failure, not a socket/502) - pointing at the QuotaGroup services just deployed to QA (NXS-14423/NXS-14424) and NexusApi (NXS-14422). The lone Project failure is an incidental QA 502 (infra).",
     "bullets": [
-      "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-      "1\u00d7 QA 502 Bad Gateway"
+      "15x PES2 notifications never published on the QuotaGroup FIFO topic within 90s (new) - a pipeline regression, not a socket/502",
+      "Prime suspects: QuotaGroup QA deploys NXS-14423 / NXS-14424 and NexusApi NXS-14422 (no per-commit author in evidence, so none named)",
+      "Separate lanes: 1x QA 502 (infra) and 4 new contract-drift endpoints"
     ],
     "detail": {
-      "investigation": "16 of 17 unmuted failures are new since the prior build (#3.0.2762, 2 fails). Failure types (new-first): (1) 15\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. (2) 1\u00d7 QA 502 Bad Gateway \u2014 QA gateway returned HTML 502 \u2014 infra during the run, not a product regression. Hot areas among new fails: PES (15), Project (1). 6 service(s) (65 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: PES: quota group rename publishes QG_NAME_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; Project: fullProjectSetup persists quota group source toggles [QA 502 Bad Gateway]; PES: total quota update publishes QUOTA_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally]; PES: delivery mode update publishes DELIVERY_CHANGE on the QuotaGroup FIFO topic [PES soft-launch vs tally].",
+      "investigation": "16 of 17 unmuted failures are new since the prior build (#3.0.2762, which had 2 new fails). Reading the real messages instead of the coarse cluster label: all 15 PES failures are the identical error - 'java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result' in Pes2NotificationTestSteps via PesMessagingHelper.waitForPes2Notification. These tests assert that a PES2 notification (QG_NAME_CHANGE, QUOTA_CHANGE, DELIVERY_CHANGE, SOFT_LAUNCH_CHANGE, INSERTED, DELETED_CHANGE, etc.) is published on the QuotaGroup FIFO topic; nothing is ever published, so this is a notification-pipeline/publish failure, NOT a socket-timeout or 502 (the 'soft-launch vs tally' label is misleading here). The prime suspects are the QuotaGroup-area services deployed to QA shortly before the run under the same 'Recontactable Does not Auto Select for Multiphase' work: QuotaGroupRest (NXS-14423, 15 commits), QuotaGroupSources (NXS-14424, 10 commits) and NexusApi (NXS-14422, 2 commits) - these own the QuotaGroup FIFO publishing path. However, the evidence provides no per-commit files or author for these services (only service-level summaries), so a specific developer is NOT named and the attribution stays at ticket/service level; the QA commits that DO carry authors and files (bence.csepe NXS-14225 build.gradle/infra on ProjectLogRest; andras.banszki NXS-14524/14397/14396 ProjectRest project endpoints; plus ML/RDS/Keycloak commits) touch areas unrelated to QuotaGroup notifications and are not blamed. Secondary, separate lanes: the single new Project failure ('fullProjectSetup persists quota group source toggles') returned a QA 502 Bad Gateway - incidental infra during the run; and contract drift added 4 new endpoints off the OpenAPI contract (e.g. POST /u1/nexus/quotaGroups/search/ids and /labels returning an undefined 500), which is QuotaGroup-adjacent and worth checking against the same deploys but is tracked independently of the test failures.",
       "bullets": [
-        "15\u00d7 PES soft-launch vs tally \u2014 java.lang.RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result",
-        "1\u00d7 QA 502 Bad Gateway",
-        "[QA deploy: ProjectLogRestJ21] NXS-14225 (25 commits) \u2014 [NXS-14225] MS - ProjectLogRest - bump dependencies (#5681)",
-        "[QA deploy: ProjectRestJ16] NXS-14524 (5 commits) \u2014 [NXS-14524] MS - ProjectRest - fix 500 on order number update for mirrored proje",
-        "[QA deploy: DemandApi]  (8 commits) \u2014 [PAC-923] DemandApi - switch back from u1 to v1 endpoints for updates",
-        "[QA deploy: NexusApiJ21] NXS-14422 (2 commits) \u2014 [NXS-14422] MS - NexusApi - Recontactable Does not Auto Select for Multiphase Pr",
-        "[QA deploy: QuotaGroupRestJ21] NXS-14423 (15 commits) \u2014 [NXS-14423] MS - QuotaGroupRest - Recontactable Does not Auto Select for Multiph",
-        "[QA deploy: QuotaGroupSourcesRestJ21] NXS-14424 (10 commits) \u2014 [NXS-14424] MS - QuotaGroupSources - Recontactable Does not Auto Select for Mult"
+        "15x PES2 notifications never published on the QuotaGroup FIFO topic within 90s (new) - 'RuntimeException: Timeout after waiting 90 seconds: Condition never returned a non-null result' in Pes2NotificationTestSteps/PesMessagingHelper",
+        "This is a notification-publish regression, not a socket timeout/502 - do not read the coarse 'soft-launch vs tally' label as infra",
+        "Prime suspects (area match): QuotaGroupRest NXS-14423 (15 commits) and QuotaGroupSources NXS-14424 (10 commits), both 'Recontactable Does not Auto Select for Multiphase', plus NexusApi NXS-14422 (2 commits) - all own the QuotaGroup FIFO publishing path",
+        "No per-commit author or file list for those QA-deployed services in the evidence, so no individual developer is named (not invented)",
+        "QA commits that DO have authors/files - bence.csepe NXS-14225 (ProjectLogRest build.gradle/infra), andras.banszki NXS-14524/14397/14396 (ProjectRest endpoints), plus ML/RDS/Keycloak - do not touch QuotaGroup notifications and are not blamed",
+        "1x Project 'fullProjectSetup persists quota group source toggles' = QA 502 Bad Gateway - incidental infra, separate from the cluster",
+        "Separate lane: 4 new contract-drift endpoints (e.g. /u1/nexus/quotaGroups/search/ids & /labels returning an undefined 500) - QuotaGroup-adjacent, check against the same deploys",
+        "Vs prior #3.0.2762 (2 new fails): +15 new failures tonight, all in the one PES cluster"
       ],
       "newFailureAreas": [
         {
@@ -1859,7 +1860,41 @@
           "newCount": 1
         }
       ],
-      "likelyCauses": []
+      "likelyCauses": [
+        {
+          "ticket": "NXS-14423",
+          "version": "",
+          "username": "",
+          "areas": [
+            "PES"
+          ],
+          "hitNewFailures": 15,
+          "files": [],
+          "comment": "[NXS-14423] MS - QuotaGroupRest - Recontactable Does not Auto Select for Multiphase Pr (QA deploy, 15 commits) - owns the QuotaGroup FIFO topic that the 15 failing PES2 notifications wait on; no per-commit author/files in evidence, so no developer named."
+        },
+        {
+          "ticket": "NXS-14424",
+          "version": "",
+          "username": "",
+          "areas": [
+            "PES"
+          ],
+          "hitNewFailures": 15,
+          "files": [],
+          "comment": "[NXS-14424] MS - QuotaGroupSources - Recontactable Does not Auto Select for Multiphase (QA deploy, 10 commits) - QuotaGroup-source toggles feed the same FIFO notifications; joint suspect; no per-commit author/files in evidence, so no developer named."
+        },
+        {
+          "ticket": "NXS-14422",
+          "version": "",
+          "username": "",
+          "areas": [
+            "PES"
+          ],
+          "hitNewFailures": 15,
+          "files": [],
+          "comment": "[NXS-14422] MS - NexusApi - Recontactable Does not Auto Select for Multiphase (QA deploy, 2 commits) - NexusApi gateway publishes PES2 notifications on the QuotaGroup FIFO topic; joint suspect; no per-commit author/files in evidence, so no developer named."
+        }
+      ]
     },
     "clusters": [
       {
@@ -2069,8 +2104,8 @@
         "deployedAt": "20261116T103327+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-11-17T03:08Z",
+    "source": "llm",
+    "generatedAt": "2026-11-17T03:08:00Z",
     "buildNumber": "3.0.2763",
     "buildId": "9687623",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9687623",
