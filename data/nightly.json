@@ -321,7 +321,7 @@
     "Communication::CommunicationValidationTestSteps::Unknown communication cannot be read": "passed",
     "Communication::CommunicationValidationTestSteps::Listing communications rejects a non-positive project id": "passed",
     "Communication::CommunicationValidationTestSteps::Reading topics rejects a non-positive project id": "passed",
-    "AudienceGroup::AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder": "passed",
+    "AudienceGroup::AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E — quota, template, rename, clone, deleted list, undelete, reorder": "passed",
     "AudienceGroup::AudienceTemplateE2ETestSteps::Complete audience template end-to-end workflow": "passed",
     "Fieldwork::FieldworkSoftLaunchExclusionsTestSteps::Configure soft launch with user exclusions from notifications": "passed",
     "BOS::BosSampleCreationTestSteps::sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT": "passed",
@@ -1126,7 +1126,7 @@
     "CommunicationValidationTestSteps::Unknown communication cannot be read": "passed",
     "CommunicationValidationTestSteps::Listing communications rejects a non-positive project id": "passed",
     "CommunicationValidationTestSteps::Reading topics rejects a non-positive project id": "passed",
-    "AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E \u2014 quota, template, rename, clone, deleted list, undelete, reorder": "passed",
+    "AudienceGroupE2ECloneRestoreReorderTestSteps::Audience group E2E — quota, template, rename, clone, deleted list, undelete, reorder": "passed",
     "AudienceTemplateE2ETestSteps::Complete audience template end-to-end workflow": "passed",
     "FieldworkSoftLaunchExclusionsTestSteps::Configure soft launch with user exclusions from notifications": "passed",
     "BosSampleCreationTestSteps::sample creation - CRM fields propagate across QUOTE, ORDER and PROJECT": "passed",
@@ -1882,28 +1882,22 @@
     "SurveyValidationTestSteps::Base URL with tags rejects an empty tag list": "passed"
   },
   "nutshell": {
-    "headline": "5 new failures \u2014 mostly QA infra timeouts/502s",
+    "headline": "5 new failures — 3 QA read-timeouts on Project/fullProjectSetup, plus one Communication assertion likely from the CommunicationRest refactor",
     "tone": "warn",
     "severity": "low",
-    "cause": "infra",
-    "causeText": "QA infrastructure (502/504/read timeouts; dk-project-communication-rest) \u2014 not a code regression. NOTE: 5 service(s) were deployed to QA in this window (NexusApiJ21, NexusApiUI, CommunicationRestJ21, ProjectLogRestJ21, ProjectAutomationApi) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 3\u00d7 client/Feign socket timeout; 1\u00d7 assertion Condition not satisfied. Gateway hits: dk-project-communication-rest.",
+    "cause": "mixed",
+    "causeText": "Mostly QA Feign read-timeouts on Project/fullProjectSetup, but the new Communication assertion (backend now returns 400 \"Communication is not supported for this project\") plausibly maps to Tamás Gyarmati's in-window communication refactor (NexusApi NXS-14418 / CommunicationRest NXS-14454).",
+    "investigation": "3 of 5 new fails are QA Feign read-timeouts (Project); the Communication assertion lines up with gyarmatitamas's NXS-14418/NXS-14454 communication changes, plus one stale Quota validation.",
     "bullets": [
-      "3\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing POST <url>",
-      "1\u00d7 assertion Condition not satisfied \u2014 Communication is not supported for this project",
-      "1\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown"
+      "3× Feign Read timed out on /u1/nexus/projects/fullProjectSetup (Project) — QA infra",
+      "Communication 400 \"not supported\" — CommunicationRest/NexusApi refactor NXS-14418/NXS-14454 (gyarmatitamas)"
     ],
     "detail": {
-      "investigation": "5 of 22 unmuted failures are new since the prior build (#3.0.2763, 17 fails). Failure types (new-first): (1) 3\u00d7 client/Feign socket timeout \u2014 Feign/client socket timeout talking to a QA service. (2) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). (3) 1\u00d7 stale negative validation \u2014 negative test expected an exception that was not thrown. Hot areas among new fails: Project (3), Communication (1), Quota (1). Infra-dominant among new fails: VCS changes are unlikely to explain 502/504/timeouts. 5 service(s) (46 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Communication: Communication is rejected when the template is missing [assertion Condition not satisfied]; Project: fullProjectSetup persists quota group brand exclusion [client/Feign socket timeout]; Project: fullProjectSetup fills default source settings when source is omitted [client/Feign socket timeout]; Quota: Locking sold quota when feasible is more than requested should not lock: com.dynata.rest.g [stale negative validation].",
+      "investigation": "5 of 22 unmuted failures are new: three are QA Feign read-timeouts on Project/fullProjectSetup (infra) and one is a stale Quota negative-validation (\"Expected exception … but no exception was thrown\") with no product change mapped. The one code-smelling failure is Communication \"template missing\", which now returns 400 \"Communication is not supported for this project\" from dk-project-communication-rest — matching gyarmatitamas's in-window communication refactor (NexusApi NXS-14418 'use CommunicationRest to list templates'; CommunicationRest NXS-14454 'refactor templateId to String').",
       "bullets": [
-        "3\u00d7 client/Feign socket timeout \u2014 feign.RetryableException: Read timed out executing POST <url>",
-        "1\u00d7 assertion Condition not satisfied \u2014 Communication is not supported for this project",
-        "1\u00d7 stale negative validation \u2014 Expected exception of type 'java.lang.Exception', but no exception was thrown",
-        "[QA deploy: NexusApiJ21] NXS-14418 (22 commits) \u2014 [NXS-14418] - NexusApi - use CommunicationRest to list templates (#5725)",
-        "[QA deploy: NexusApiUI]  (5 commits) \u2014 [AE] test - enable accedd log in QA",
-        "[QA deploy: CommunicationRestJ21] NXS-14454 (4 commits) \u2014 [NXS-14454] - CommunicationRest - refactor templateId to String (#5724)",
-        "[QA deploy: ProjectLogRestJ21] NXS-13914 (1 commit) \u2014 [NXS-13914] EOS - MS - Adding the changes on incentive offer to project log (#57",
-        "[QA deploy: ProjectAutomationApi]  (14 commits) \u2014 [PAC-911] inclusion and segment translation (#5701)"
+        "Project (3 new): feign.RetryableException: Read timed out executing POST /u1/nexus/projects/fullProjectSetup — QA infra timeouts, not a code regression",
+        "Communication (1 new): expected '…greater than or equal to 1' but got 400 'Communication is not supported for this project' — maps to NXS-14418/NXS-14454 (gyarmatitamas)",
+        "Contract drift (separate lane): +4 new vs baseline (e.g. GET /u1/meta/countries no matching path; quotaGroups/search 500 not in contract)"
       ],
       "newFailureAreas": [
         {
@@ -1919,7 +1913,41 @@
           "newCount": 1
         }
       ],
-      "likelyCauses": []
+      "likelyCauses": [
+        {
+          "ticket": "NXS-14418",
+          "version": "773735105a86",
+          "username": "60962201+gyarmatitamas",
+          "areas": [
+            "Communication"
+          ],
+          "hitNewFailures": [
+            "Communication is rejected when the template is missing"
+          ],
+          "files": [
+            "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/dependencies/communication/CommunicationRestFeignClient.java",
+            "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/projects/projectid/UCommunicationsImpl.java"
+          ],
+          "comment": "[NXS-14418] - NexusApi - use CommunicationRest to list templates (#5725)"
+        },
+        {
+          "ticket": "NXS-14454",
+          "version": "8430e55a3037",
+          "username": "60962201+gyarmatitamas",
+          "areas": [
+            "Communication"
+          ],
+          "hitNewFailures": [
+            "Communication is rejected when the template is missing"
+          ],
+          "files": [
+            "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/model/projectCommunication/Communication.java",
+            "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/model/projectCommunication/CommunicationCreateRequest.java",
+            "project/CommunicationRest/src/main/java/com/surveysampling/rest/communication/u1/model/projectCommunication/CommunicationUpdateRequest.java"
+          ],
+          "comment": "[NXS-14454] - CommunicationRest - refactor templateId to String (#5724)"
+        }
+      ]
     },
     "clusters": [
       {
@@ -2133,8 +2161,8 @@
         "deployedAt": "20261117T083329+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-11-17T13:29Z",
+    "source": "llm",
+    "generatedAt": "2026-11-17T13:32Z",
     "buildNumber": "3.0.2764",
     "buildId": "9689412",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9689412",

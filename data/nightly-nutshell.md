@@ -1,10 +1,7 @@
-**5 new failures — mostly QA infra timeouts/502s**
+**5 new failures — 3 QA read-timeouts on Project/fullProjectSetup, plus one Communication assertion likely from the CommunicationRest refactor**
 
-_Likely cause: QA infrastructure (502/504/read timeouts; dk-project-communication-rest) — not a code regression._
+_Likely cause: mostly QA Feign read-timeouts, but the new Communication assertion maps to gyarmatitamas's communication refactor (NXS-14418 / NXS-14454)._
 
-- 3× client/Feign socket timeout — feign.RetryableException: Read timed out executing POST <url>
+- Communication: 400 "Communication is not supported for this project" — NXS-14418 / NXS-14454 (gyarmatitamas)
 
-⚠️ Contract drift: 4 new response-schema violation(s) vs baseline.
-- GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.
-
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9689412)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9689412)
