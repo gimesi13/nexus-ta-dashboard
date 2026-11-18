@@ -1,7 +1,10 @@
-**5 new failures — 3 QA read-timeouts on Project/fullProjectSetup, plus one Communication assertion likely from the CommunicationRest refactor**
+**2 new failures in Fieldwork**
 
-_Likely cause: mostly QA Feign read-timeouts, but the new Communication assertion maps to gyarmatitamas's communication refactor (NXS-14418 / NXS-14454)._
+_Likely cause: VCS changes present but none map onto the failing packages — likely test/data, correlate manually._
 
-- Communication: 400 "Communication is not supported for this project" — NXS-14418 / NXS-14454 (gyarmatitamas)
+- 1× other — feign.RetryableException:microservices-qa.dynata.com executing GET <url> Caused by: java.net.UnknownHostExcept
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9689412)
+⚠️ Contract drift: 5 new response-schema violation(s) vs baseline.
+- GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.
+
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9690523)
