@@ -1662,28 +1662,22 @@
     "SurveyValidationTestSteps::Base URL with tags rejects an empty tag list": "passed"
   },
   "nutshell": {
-    "headline": "2 new failures in Fieldwork",
+    "headline": "2 new Fieldwork soft-launch failures, both QA backend 500s from a feign DNS error",
     "tone": "warn",
     "severity": "low",
-    "cause": "mixed",
-    "causeText": "VCS changes present but none map onto the failing packages \u2014 likely test/data, correlate manually. NOTE: 6 service(s) were deployed to QA in this window (ProjectSearchRestJ21, QuotaGroupDefinitionRestJ21, SurveyRestJ21, QuotaGroupSourcesRestJ21, QuotaGroupRestJ21\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet); 1\u00d7 PES soft-launch vs tally. Vs prior #3.0.2764: down 20 total fails.",
+    "cause": "infra",
+    "causeText": "Both new failures are backend HTTP 500s on PUT softLaunchQuota whose root cause is feign.RetryableException / java.net.UnknownHostException reaching microservices-qa.dynata.com \u2014 a QA DNS/network issue, not an assertion or code regression.",
+    "investigation": "Both Fieldwork soft-launch tests failed on ThrottlingSetting returning 500 driven by a DNS UnknownHostException to microservices-qa.dynata.com; no deployed code plausibly maps.",
     "bullets": [
-      "1\u00d7 other \u2014 feign.RetryableException:microservices-qa.dynata.com executing GET <url> Caused by: java.net.UnknownHostExcept",
-      "1\u00d7 PES soft-launch vs tally \u2014 feign.RetryableException:microservices-qa.dynata.com executing GET <url> Caused by: java.net.UnknownHostExcept"
+      "2\u00d7 Fieldwork soft-launch \u2014 HTTP 500 PUT softLaunchQuota, root cause feign.RetryableException / UnknownHostException (QA DNS)",
+      "No code blame: NXS-14454 is Communication-only; ThrottlingSettingRest QA deploy NXS-14233 was a dependency bump"
     ],
     "detail": {
-      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2764, 22 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. Hot areas among new fails: Fieldwork (2). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 6 service(s) (33 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Fieldwork: Enable and disable soft launch boosted mode: com.dynata.rest.gateway.nexusapi.rest.tests.s [other]; Fieldwork: Cannot switch tally mode from starts to completes when soft launch quota exceeds total com [PES soft-launch vs tally].",
+      "investigation": "Both new failures (Fieldwork soft-launch) are backend HTTP 500s: the NexusApi PUT /quotaGroups/{id}/softLaunch/softLaunchQuota call chains to ThrottlingSettingRest, which fails with feign.RetryableException caused by java.net.UnknownHostException resolving microservices-qa.dynata.com while calling DKProjectCountersRest \u2014 a QA DNS/network failure, not an assertion. The TA commit NXS-14454 (gergely.gimesi) touches only Communication and ThrottlingSettingRest's QA deploy (NXS-14233) was a dependency bump, so neither plausibly maps to this DNS-driven 500; contract drift separately flags this same softLaunchQuota endpoint returning an undefined 500.",
       "bullets": [
-        "1\u00d7 other \u2014 feign.RetryableException:microservices-qa.dynata.com executing GET <url> Caused by: java.net.UnknownHostExcept",
-        "1\u00d7 PES soft-launch vs tally \u2014 feign.RetryableException:microservices-qa.dynata.com executing GET <url> Caused by: java.net.UnknownHostExcept",
-        "NXS-14454: gergely.gimesi \u2014 [NXS-14454] Reject a blank communication template",
-        "[QA deploy: ProjectSearchRestJ21] NXS-14226 (25 commits) \u2014 [NXS-14226] MS - ProjectSearchRest - bump dependencies (#5682)",
-        "[QA deploy: QuotaGroupDefinitionRestJ21] NXS-14228 (1 commit) \u2014 [NXS-14228] MS - QuotaGroupDefinitionRest - bump dependencies (#5684)",
-        "[QA deploy: SurveyRestJ21] NXS-14232 (2 commits) \u2014 [NXS-14232] MS - TargetEditorRest - bump dependencies (#5688)",
-        "[QA deploy: QuotaGroupSourcesRestJ21] NXS-14230 (2 commits) \u2014 [NXS-14230] MS - QuotaGroupSourcesRest - bump dependencies (#5686)",
-        "[QA deploy: QuotaGroupRestJ21] NXS-14229 (2 commits) \u2014 [NXS-14229] MS - QuotaGroupRest - bump dependencies (#5685)",
-        "[QA deploy: ThrottlingSettingRestJ21] NXS-14233 (1 commit) \u2014 [NXS-14233] MS - ThrottlingSettingRest - bump dependencies (#5689)"
+        "2\u00d7 Fieldwork soft-launch \u2014 HTTP 500 on PUT /quotaGroups/{id}/softLaunch/softLaunchQuota, callChain into ThrottlingSettingRest",
+        "Root cause: feign.RetryableException \u2192 java.net.UnknownHostException on microservices-qa.dynata.com (DKProjectCountersRest) \u2014 QA DNS/network, infra",
+        "No code blame: NXS-14454 (gergely.gimesi) is Communication-only; ThrottlingSettingRest QA deploy NXS-14233 was a dependency bump"
       ],
       "newFailureAreas": [
         {
@@ -1892,7 +1886,7 @@
         "deployedAt": "20261117T141330+0000"
       }
     ],
-    "source": "investigator",
+    "source": "llm",
     "generatedAt": "2026-11-18T03:08Z",
     "buildNumber": "3.0.2765",
     "buildId": "9690523",
