@@ -31,18 +31,16 @@
   "statusByCase": {},
   "statusBySpecName": {},
   "nutshell": {
-    "headline": "0 new failures",
-    "tone": "warn",
+    "headline": "No new test failures \u2014 the nightly stopped on a Gradle exception at the Clean Test step before any tests ran.",
+    "tone": "ok",
     "severity": "none",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
+    "causeText": "No unmuted or new test failures; the build exited on a Gradle exception before tests executed.",
+    "investigation": "",
     "bullets": [],
     "detail": {
-      "investigation": "1 service(s) (10 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
-      "bullets": [
-        "[QA deploy: NexusApiJ21]  (10 commits) \u2014 Revert \"[PAC-922] Update quotas at full project setup (#5723)\""
-      ],
+      "investigation": "",
+      "bullets": [],
       "newFailureAreas": [],
       "likelyCauses": []
     },
@@ -183,8 +181,8 @@
         "deployedAt": "20261119T083245+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-11-19T09:06Z",
+    "source": "llm",
+    "generatedAt": "2026-11-19T09:08Z",
     "buildNumber": "3.0.2767",
     "buildId": "9695244",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9695244",
