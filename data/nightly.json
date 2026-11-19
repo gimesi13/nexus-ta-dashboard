@@ -31,23 +31,16 @@
   "statusByCase": {},
   "statusBySpecName": {},
   "nutshell": {
-    "headline": "0 new failures",
+    "headline": "Nightly build failed before any tests ran \u2014 new Gradle exception at the Clean Test (Gradle) step (exit code 1).",
     "tone": "warn",
     "severity": "none",
-    "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
+    "cause": "infra",
+    "causeText": "No tests executed \u2014 the build errored out with a new Gradle exception during the Clean Test (Gradle) step (exit code 1), a build/tooling failure rather than a product regression or a QA-deploy commit.",
+    "investigation": "",
     "bullets": [],
     "detail": {
-      "investigation": "6 service(s) (43 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
-      "bullets": [
-        "[QA deploy: ProjectRestJ16] NXS-14405 (25 commits) \u2014 [NXS-14405] MS - ProjectRest - add u1 project audience group endpoint\u2026 (#5739)",
-        "[QA deploy: NotificationHandlerRestJ21] NXS-14224 (6 commits) \u2014 [NXS-14224] MS - NotificationHandlerRest - bump dependencies (#5680)",
-        "[QA deploy: DemandApi]  (1 commit) \u2014 [PAC-928] DemandApi - dedupe/exclusion handling (#5741)",
-        "[QA deploy: ProjectAutomationApi]  (8 commits) \u2014 ProjectAutomationApi - update getAndValidateQuotaGroups method to include origin",
-        "[QA deploy: NexusApiJ21]  (2 commits) \u2014 [PAC-922] Update quotas at full project setup (#5723)",
-        "[QA deploy: DKDashboardRestJ21] NXS-12253 (1 commit) \u2014 [NXS-12253] MS - migrate DKDashboardRest to J21"
-      ],
+      "investigation": "",
+      "bullets": [],
       "newFailureAreas": [],
       "likelyCauses": []
     },
@@ -230,8 +223,8 @@
         "deployedAt": "20261118T094430+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-11-19T05:00Z",
+    "source": "llm",
+    "generatedAt": "2026-11-19T05:01Z",
     "buildNumber": "3.0.2766",
     "buildId": "9690041",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9690041",
