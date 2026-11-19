@@ -1,19 +1,19 @@
 {
   "available": true,
-  "generatedAt": "2026-11-19T05:00Z",
+  "generatedAt": "2026-11-19T09:06Z",
   "source": "teamcity-rest",
   "build": {
     "buildTypeId": "Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt",
-    "buildId": "9690041",
-    "number": "3.0.2766",
+    "buildId": "9695244",
+    "number": "3.0.2767",
     "status": "FAILURE",
     "state": "finished",
-    "statusText": "Gradle exception (new); exit code 1 (Step: Clean Test (Gradle)) (new)",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9690041",
+    "statusText": "Gradle exception; exit code 1 (Step: Clean Test (Gradle))",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9695244",
     "buildsUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_UnifiedApi_NexusApiRegressionGeriTestsJ16_CompileUnitTestAndGeneratePactsAndSt?mode=builds",
     "branchName": "master",
-    "startDate": "20261119T023308+0000",
-    "finishDate": "20261119T023507+0000"
+    "startDate": "20261119T090521+0000",
+    "finishDate": "20261119T090638+0000"
   },
   "summary": {
     "tests": 0,
@@ -23,7 +23,7 @@
     "skipped": 0,
     "muted": 0,
     "newFailed": 0,
-    "timeSec": 119.0,
+    "timeSec": 77.0,
     "passRate": 0.0
   },
   "failed": [],
@@ -31,16 +31,18 @@
   "statusByCase": {},
   "statusBySpecName": {},
   "nutshell": {
-    "headline": "Nightly build failed before any tests ran \u2014 new Gradle exception at the Clean Test (Gradle) step (exit code 1).",
+    "headline": "0 new failures",
     "tone": "warn",
     "severity": "none",
-    "cause": "infra",
-    "causeText": "No tests executed \u2014 the build errored out with a new Gradle exception during the Clean Test (Gradle) step (exit code 1), a build/tooling failure rather than a product regression or a QA-deploy commit.",
-    "investigation": "",
+    "cause": "none",
+    "causeText": "No unmuted failures.",
+    "investigation": "No unmuted failures.",
     "bullets": [],
     "detail": {
-      "investigation": "",
-      "bullets": [],
+      "investigation": "1 service(s) (10 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
+      "bullets": [
+        "[QA deploy: NexusApiJ21]  (10 commits) \u2014 Revert \"[PAC-922] Update quotas at full project setup (#5723)\""
+      ],
       "newFailureAreas": [],
       "likelyCauses": []
     },
@@ -48,58 +50,37 @@
     "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "ProjectRestJ16",
-        "version": "212b5ecb8fd8",
-        "username": "andras.banszki",
-        "comment": "[NXS-14405] MS - ProjectRest - add u1 project audience group endpoint\u2026 (#5739)",
-        "ticket": "NXS-14405",
-        "deployedAt": "20261118T163419+0000",
+        "service": "NexusApiJ21",
+        "version": "41dc3be7ffef",
+        "username": "kocskam",
+        "comment": "Revert \"[PAC-922] Update quotas at full project setup (#5723)\"",
+        "ticket": "",
+        "deployedAt": "20261119T083245+0000",
         "files": [
-          "README.md",
-          "ProjectHandlerMongoTest.groovy",
-          "SampleConfigRest.java",
-          "UProjectAudienceGroupsRest.java",
-          "AudienceGroupIdProvider.java",
-          "UProjectCreator.java"
+          "QuotaGroupPersistHandler.java",
+          "QuotaGroupPersistHandlerTest.groovy"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "NexusApiJ21",
         "version": "caab812529f2",
         "username": "weiqun.wang",
         "comment": "Re-enable QA endpoint autoscaling.",
         "ticket": "",
-        "deployedAt": "20261118T163419+0000",
+        "deployedAt": "20261119T083245+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
-        "version": "c5316a12fb6e",
-        "username": "andras.banszki",
-        "comment": "[NXS-14532] MS - ProjectRest - store actual project start/end dates in mongo from the project status updater (#5742)",
-        "ticket": "NXS-14532",
-        "deployedAt": "20261118T163419+0000",
-        "files": [
-          "README.md",
-          "UProjectCreator.java",
-          "ProjectLegacyMirroringHandler.java",
-          "ProjectMirroringListener.java",
-          "Project.java",
-          "UProjectDatesService.java"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectRestJ16",
+        "service": "NexusApiJ21",
         "version": "e8c2ce21d6ec",
         "username": "weiqun.wang",
         "comment": "change qa instance type and disable qa autoscaling",
         "ticket": "",
-        "deployedAt": "20261118T163419+0000",
+        "deployedAt": "20261119T083245+0000",
         "files": [
           "cloud-formation.template.yml",
           "qa.yml"
@@ -107,24 +88,24 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "NexusApiJ21",
         "version": "176be9364b08",
         "username": "laszlo.csontos",
         "comment": "[FAI-536] fix review comments",
         "ticket": "",
-        "deployedAt": "20261118T163419+0000",
+        "deployedAt": "20261119T083245+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "NexusApiJ21",
         "version": "91ecc2acd79d",
         "username": "laszlo.csontos",
         "comment": "[FAI-536] Glue catalog implementation",
         "ticket": "",
-        "deployedAt": "20261118T163419+0000",
+        "deployedAt": "20261119T083245+0000",
         "files": [
           "cloud-formation.template.yml",
           "all.yml",
@@ -133,46 +114,60 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "NexusApiJ21",
         "version": "8ba969a61dba",
         "username": "gandriys",
         "comment": "Merge pull request #703 from dynata/DN-4600-add-the-microservices-url-generate-upload-url-to-the-gateway",
         "ticket": "",
-        "deployedAt": "20261118T163419+0000",
+        "deployedAt": "20261119T083245+0000",
         "files": [],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "NexusApiJ21",
         "version": "929f605b419b",
         "username": "andrii.gorbatiuk",
         "comment": "[DN-4600] Expose POST valueSet generateUploadUrl on the project-backend-plus API gateway",
         "ticket": "",
-        "deployedAt": "20261118T163419+0000",
+        "deployedAt": "20261119T083245+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "NexusApiJ21",
         "version": "fba921cd5874",
         "username": "gergo.hajnal",
         "comment": "(FeatureRest) temporary remove faulty subnet",
         "ticket": "",
-        "deployedAt": "20261118T163419+0000",
+        "deployedAt": "20261119T083245+0000",
         "files": [
           "production.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "NexusApiJ21",
+        "version": "e678618069f9",
+        "username": "gergely.gimesi",
+        "comment": "NXS-14287 NexusApi, NexusApiMeta, DKProjectCountersRest declare UI contract 0.2.0; UI contract checks on deploys documented",
+        "ticket": "NXS-14287",
+        "deployedAt": "20261119T083245+0000",
+        "files": [
+          "gradle.properties",
+          "gradle.properties",
+          "gradle.properties"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
         "version": "b2082204e688",
         "username": "mate.gordos",
         "comment": "Revert commenting out of alarms",
         "ticket": "",
-        "deployedAt": "20261118T163419+0000",
+        "deployedAt": "20261119T083245+0000",
         "files": [
           "template.yml"
         ],
@@ -181,53 +176,18 @@
     ],
     "qaDeployServices": [
       {
-        "service": "ProjectRestJ16",
-        "commits": 25,
-        "latestTicket": "NXS-14405",
-        "latestComment": "[NXS-14405] MS - ProjectRest - add u1 project audience group endpoint\u2026 (#5739)",
-        "deployedAt": "20261118T163419+0000"
-      },
-      {
-        "service": "NotificationHandlerRestJ21",
-        "commits": 6,
-        "latestTicket": "NXS-14224",
-        "latestComment": "[NXS-14224] MS - NotificationHandlerRest - bump dependencies (#5680)",
-        "deployedAt": "20261118T150437+0000"
-      },
-      {
-        "service": "DemandApi",
-        "commits": 1,
-        "latestTicket": "",
-        "latestComment": "[PAC-928] DemandApi - dedupe/exclusion handling (#5741)",
-        "deployedAt": "20261118T144402+0000"
-      },
-      {
-        "service": "ProjectAutomationApi",
-        "commits": 8,
-        "latestTicket": "",
-        "latestComment": "ProjectAutomationApi - update getAndValidateQuotaGroups method to include origin",
-        "deployedAt": "20261118T141758+0000"
-      },
-      {
         "service": "NexusApiJ21",
-        "commits": 2,
+        "commits": 10,
         "latestTicket": "",
-        "latestComment": "[PAC-922] Update quotas at full project setup (#5723)",
-        "deployedAt": "20261118T105854+0000"
-      },
-      {
-        "service": "DKDashboardRestJ21",
-        "commits": 1,
-        "latestTicket": "NXS-12253",
-        "latestComment": "[NXS-12253] MS - migrate DKDashboardRest to J21",
-        "deployedAt": "20261118T094430+0000"
+        "latestComment": "Revert \"[PAC-922] Update quotas at full project setup (#5723)\"",
+        "deployedAt": "20261119T083245+0000"
       }
     ],
-    "source": "llm",
-    "generatedAt": "2026-11-19T05:01Z",
-    "buildNumber": "3.0.2766",
-    "buildId": "9690041",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9690041",
+    "source": "investigator",
+    "generatedAt": "2026-11-19T09:06Z",
+    "buildNumber": "3.0.2767",
+    "buildId": "9695244",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9695244",
     "focus": "all_failures",
     "newFailed": 0,
     "failed": 0,

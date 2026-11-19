@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-19T05:00Z",
+  "generatedAt": "2026-11-19T09:06Z",
   "build": {
-    "number": "3.0.2766",
-    "buildId": "9690041",
+    "number": "3.0.2767",
+    "buildId": "9695244",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9690041",
-    "durationSec": 119.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9695244",
+    "durationSec": 77.0
   },
   "summary": {
     "tests": 0,
@@ -17,79 +17,44 @@
     "muted": 0,
     "newFailed": 0,
     "passRate": 0.0,
-    "timeSec": 119.0
+    "timeSec": 77.0
   },
   "prior": {
-    "buildId": "9690523",
-    "number": "3.0.2765",
+    "buildId": "9690041",
+    "number": "3.0.2766",
     "status": "FAILURE",
-    "statusText": "Tests failed: 2 (2 new), passed: 1437, muted: 78",
-    "startDate": "20261118T023023+0000",
-    "durationSec": 2240.0,
-    "failed": 2,
-    "passed": 1437,
-    "newFailed": 2
+    "statusText": "Gradle exception (new); exit code 1 (Step: Clean Test (Gradle)) (new)",
+    "startDate": "20261119T023308+0000",
+    "durationSec": 119.0,
+    "failed": 0,
+    "passed": 0,
+    "newFailed": 0
   },
   "changes": [],
   "qaDeployChanges": [
     {
-      "service": "ProjectRestJ16",
-      "version": "212b5ecb8fd8",
-      "username": "andras.banszki",
-      "comment": "[NXS-14405] MS - ProjectRest - add u1 project audience group endpoint\u2026 (#5739)",
+      "service": "NexusApiJ21",
+      "version": "41dc3be7ffef",
+      "username": "kocskam",
+      "comment": "Revert \"[PAC-922] Update quotas at full project setup (#5723)\"",
       "files": [
-        "project/ProjectRest/README.md",
-        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/mongoTest/ProjectHandlerMongoTest.groovy",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/api/SampleConfigRest.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/api/UProjectAudienceGroupsRest.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/component/AudienceGroupIdProvider.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/component/UProjectCreator.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mongo/ProjectAudienceGroupsMongoHandler.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mongo/ProjectHandler.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/service/AudienceGroupHandler.java",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/api/UProjectAudienceGroupsRestTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/component/AudienceGroupIdProviderTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/component/UProjectCreatorTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mongo/ProjectAudienceGroupsMongoHandlerTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mongo/ProjectHandlerTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/v2/service/AudienceGroupHandlerTest.groovy"
+        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/components/QuotaGroupPersistHandler.java",
+        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/components/QuotaGroupPersistHandlerTest.groovy"
       ],
-      "deployedAt": "20261118T163419+0000"
+      "deployedAt": "20261119T083245+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "NexusApiJ21",
       "version": "caab812529f2",
       "username": "weiqun.wang",
       "comment": "Re-enable QA endpoint autoscaling.",
       "files": [
         "ml-survey-guard-model/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261118T163419+0000"
+      "deployedAt": "20261119T083245+0000"
     },
     {
-      "service": "ProjectRestJ16",
-      "version": "c5316a12fb6e",
-      "username": "andras.banszki",
-      "comment": "[NXS-14532] MS - ProjectRest - store actual project start/end dates in mongo from the project status updater (#5742)",
-      "files": [
-        "project/ProjectRest/README.md",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/component/UProjectCreator.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mirroring/ProjectLegacyMirroringHandler.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mirroring/messaging/ProjectMirroringListener.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/model/Project.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/service/UProjectDatesService.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/service/ProjectStatusUpdater.java",
-        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/sql/SqlUpdateProjectDates.java",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/component/UProjectCreatorTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mirroring/ProjectLegacyMirroringHandlerTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mirroring/messaging/ProjectMirroringListenerTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/service/UProjectDatesServiceTest.groovy",
-        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/v2/service/ProjectStatusUpdaterTest.groovy"
-      ],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
+      "service": "NexusApiJ21",
       "version": "e8c2ce21d6ec",
       "username": "weiqun.wang",
       "comment": "change qa instance type and disable qa autoscaling",
@@ -97,20 +62,20 @@
         "ml-survey-guard-model/cloud-formation.template.yml",
         "ml-survey-guard-model/group_vars/qa.yml"
       ],
-      "deployedAt": "20261118T163419+0000"
+      "deployedAt": "20261119T083245+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "NexusApiJ21",
       "version": "176be9364b08",
       "username": "laszlo.csontos",
       "comment": "[FAI-536] fix review comments",
       "files": [
         "ml-model-drift-monitor/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261118T163419+0000"
+      "deployedAt": "20261119T083245+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "NexusApiJ21",
       "version": "91ecc2acd79d",
       "username": "laszlo.csontos",
       "comment": "[FAI-536] Glue catalog implementation",
@@ -119,310 +84,66 @@
         "ml-model-drift-monitor/group_vars/all.yml",
         "ml-model-drift-monitor/group_vars/dev.yml"
       ],
-      "deployedAt": "20261118T163419+0000"
+      "deployedAt": "20261119T083245+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "NexusApiJ21",
       "version": "8ba969a61dba",
       "username": "gandriys",
       "comment": "Merge pull request #703 from dynata/DN-4600-add-the-microservices-url-generate-upload-url-to-the-gateway",
       "files": [],
-      "deployedAt": "20261118T163419+0000"
+      "deployedAt": "20261119T083245+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "NexusApiJ21",
       "version": "929f605b419b",
       "username": "andrii.gorbatiuk",
       "comment": "[DN-4600] Expose POST valueSet generateUploadUrl on the project-backend-plus API gateway",
       "files": [
         "project-backend-plus-api-gateway/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261118T163419+0000"
+      "deployedAt": "20261119T083245+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "NexusApiJ21",
       "version": "fba921cd5874",
       "username": "gergo.hajnal",
       "comment": "(FeatureRest) temporary remove faulty subnet",
       "files": [
         "dk-management-feature-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20261118T163419+0000"
+      "deployedAt": "20261119T083245+0000"
     },
     {
-      "service": "ProjectRestJ16",
+      "service": "NexusApiJ21",
+      "version": "e678618069f9",
+      "username": "gergely.gimesi",
+      "comment": "NXS-14287 NexusApi, NexusApiMeta, DKProjectCountersRest declare UI contract 0.2.0; UI contract checks on deploys docume\u2026",
+      "files": [
+        "gateway/dk/DKProjectCountersRest/gradle.properties",
+        "gateway/unifiedApi/NexusApi/gradle.properties",
+        "gateway/unifiedApi/NexusApiMeta/gradle.properties"
+      ],
+      "deployedAt": "20261119T083245+0000"
+    },
+    {
+      "service": "NexusApiJ21",
       "version": "b2082204e688",
       "username": "mate.gordos",
       "comment": "Revert commenting out of alarms",
       "files": [
         "respondent-compactor/template.yml"
       ],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "f9b21cafc218",
-      "username": "mate.gordos",
-      "comment": "Comment out alarms",
-      "files": [
-        "respondent-compactor/template.yml"
-      ],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "6271d9618a32",
-      "username": "48213478+ssi-hu-szabolcs-papellas",
-      "comment": "Merge pull request #696 from dynata/ST-4551-remove-orphan-nexus-target-groups-from-ecs",
-      "files": [],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "484ea5d77358",
-      "username": "laszlo.csontos",
-      "comment": "[FAI-533] network fix for cloudwatch endpoint security group id",
-      "files": [
-        "ml-model-drift-monitor/cloud-formation.template.yml",
-        "ml-model-drift-monitor/group_vars/all.yml",
-        "ml-model-drift-monitor/group_vars/production.yml"
-      ],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "388b1cedffbb",
-      "username": "laszlo.szalkai",
-      "comment": "Revert \"[AE] test - enable accedd log in QA\"",
-      "files": [
-        "ae-internal-load-balancer/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "54c9d5fa7075",
-      "username": "laszlo.csontos",
-      "comment": "[FAI-534] pass --drill-feature, --drill-value and --drill-weight to extract",
-      "files": [
-        "ml-model-drift-monitor/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "40434298704d",
-      "username": "adam.veres",
-      "comment": "fix(respondent-compactor): keep UnhealthyHostAlarm logical ID to avoid ResourceExistenceCheck collision",
-      "files": [
-        "respondent-compactor/template.yml"
-      ],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "86662890a22c",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] fix",
-      "files": [
-        "ae-drop-service-rds/group_vars/all.yml"
-      ],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "e2898eeb2bb3",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] pm group rename back",
-      "files": [
-        "ae-drop-service-rds/group_vars/all.yml",
-        "ae-traffic-control-rds/group_vars/all.yml"
-      ],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "059fab363e5b",
-      "username": "laszlo.szalkai",
-      "comment": "[AE] fix access log bucket",
-      "files": [
-        "ae-internal-load-balancer/group_vars/production.yml",
-        "ae-internal-load-balancer/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "40734829195e",
-      "username": "laszlo.szalkai",
-      "comment": "[AE] fix access log bucket",
-      "files": [
-        "ae-internal-load-balancer/group_vars/production.yml"
-      ],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "d2fabde56519",
-      "username": "laszlo.szalkai",
-      "comment": "[AE] fix access log bucket",
-      "files": [
-        "ae-edge-internal-load-balancer/group_vars/all.yml",
-        "ae-internal-load-balancer/group_vars/all.yml",
-        "ae-legacy-internal-load-balancer/group_vars/all.yml"
-      ],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "34bc04f08a8a",
-      "username": "laszlo.szalkai",
-      "comment": "[AE] test - enable accedd log in QA",
-      "files": [
-        "ae-internal-load-balancer/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "86b2597a3e8a",
-      "username": "laszlo.szalkai",
-      "comment": "[AE] enable changeset creation",
-      "files": [
-        "ae-internal-load-balancer/group_vars/all.yml",
-        "ae-legacy-internal-load-balancer/group_vars/all.yml"
-      ],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "148fab4170d7",
-      "username": "laszlo.szalkai",
-      "comment": "[AE] enable changeset creation",
-      "files": [
-        "ae-edge-internal-load-balancer/group_vars/all.yml"
-      ],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "version": "4359817f5d56",
-      "username": "laszlo.szalkai",
-      "comment": "[AE] Enable production ALB access logs to S3. (#691)",
-      "files": [
-        "ae-edge-internal-load-balancer/cloud-formation.template.yml",
-        "ae-edge-internal-load-balancer/group_vars/all.yml",
-        "ae-edge-internal-load-balancer/group_vars/production.yml",
-        "ae-internal-load-balancer/cloud-formation.template.yml",
-        "ae-internal-load-balancer/group_vars/all.yml",
-        "ae-internal-load-balancer/group_vars/production.yml",
-        "ae-legacy-internal-load-balancer/cloud-formation.template.yml",
-        "ae-legacy-internal-load-balancer/group_vars/all.yml",
-        "ae-legacy-internal-load-balancer/group_vars/production.yml"
-      ],
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "NotificationHandlerRestJ21",
-      "version": "023d0abb6e76",
-      "username": "bence.csepe",
-      "comment": "[NXS-14224] MS - NotificationHandlerRest - bump dependencies (#5680)",
-      "files": [
-        "management/NotificationHandlerRest/build.gradle"
-      ],
-      "deployedAt": "20261118T150437+0000"
-    },
-    {
-      "service": "NotificationHandlerRestJ21",
-      "version": "f94cf2e07143",
-      "username": "adam.veres",
-      "comment": "[FEAS] - Remove resources of old gtr-elastic-gateway",
-      "files": [
-        "gtr-elastic-gateway/cloud-formation.template.yml",
-        "gtr-elastic-gateway/group_vars/all.yml",
-        "gtr-elastic-gateway/group_vars/dev.yml",
-        "gtr-elastic-gateway/group_vars/production.yml",
-        "gtr-elastic-gateway/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261118T150437+0000"
-    },
-    {
-      "service": "NotificationHandlerRestJ21",
-      "version": "41a9a812d221",
-      "username": "weiqun.wang",
-      "comment": "fix autoscaling issue in qa",
-      "files": [
-        "ml-survey-guard-model/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261118T150437+0000"
-    },
-    {
-      "service": "NotificationHandlerRestJ21",
-      "version": "1582037916cc",
-      "username": "weiqun.wang",
-      "comment": "fix qa deployment failed issue",
-      "files": [
-        "ml-survey-guard-model/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261118T150437+0000"
-    },
-    {
-      "service": "NotificationHandlerRestJ21",
-      "version": "1e4658e443a0",
-      "username": "weiqun.wang",
-      "comment": "[FAI-298] Migrate to FAI with honeycomb and others",
-      "files": [
-        "ml-survey-guard-model/cloud-formation.template.yml",
-        "ml-survey-guard-model/group_vars/all.yml",
-        "ml-survey-guard-model/group_vars/dev.yml",
-        "ml-survey-guard-model/group_vars/production.yml",
-        "ml-survey-guard-model/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261118T150437+0000"
+      "deployedAt": "20261119T083245+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "ProjectRestJ16",
-      "commits": 25,
-      "latestTicket": "NXS-14405",
-      "latestComment": "[NXS-14405] MS - ProjectRest - add u1 project audience group endpoint\u2026 (#5739)",
-      "deployedAt": "20261118T163419+0000"
-    },
-    {
-      "service": "NotificationHandlerRestJ21",
-      "commits": 6,
-      "latestTicket": "NXS-14224",
-      "latestComment": "[NXS-14224] MS - NotificationHandlerRest - bump dependencies (#5680)",
-      "deployedAt": "20261118T150437+0000"
-    },
-    {
-      "service": "DemandApi",
-      "commits": 1,
-      "latestTicket": "",
-      "latestComment": "[PAC-928] DemandApi - dedupe/exclusion handling (#5741)",
-      "deployedAt": "20261118T144402+0000"
-    },
-    {
-      "service": "ProjectAutomationApi",
-      "commits": 8,
-      "latestTicket": "",
-      "latestComment": "ProjectAutomationApi - update getAndValidateQuotaGroups method to include origin",
-      "deployedAt": "20261118T141758+0000"
-    },
-    {
       "service": "NexusApiJ21",
-      "commits": 2,
+      "commits": 10,
       "latestTicket": "",
-      "latestComment": "[PAC-922] Update quotas at full project setup (#5723)",
-      "deployedAt": "20261118T105854+0000"
-    },
-    {
-      "service": "DKDashboardRestJ21",
-      "commits": 1,
-      "latestTicket": "NXS-12253",
-      "latestComment": "[NXS-12253] MS - migrate DKDashboardRest to J21",
-      "deployedAt": "20261118T094430+0000"
+      "latestComment": "Revert \"[PAC-922] Update quotas at full project setup (#5723)\"",
+      "deployedAt": "20261119T083245+0000"
     }
   ],
   "clusters": [],
@@ -434,14 +155,9 @@
     "bullets": [],
     "investigation": "No unmuted failures.",
     "detail": {
-      "investigation": "6 service(s) (43 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
+      "investigation": "1 service(s) (10 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
       "bullets": [
-        "[QA deploy: ProjectRestJ16] NXS-14405 (25 commits) \u2014 [NXS-14405] MS - ProjectRest - add u1 project audience group endpoint\u2026 (#5739)",
-        "[QA deploy: NotificationHandlerRestJ21] NXS-14224 (6 commits) \u2014 [NXS-14224] MS - NotificationHandlerRest - bump dependencies (#5680)",
-        "[QA deploy: DemandApi]  (1 commit) \u2014 [PAC-928] DemandApi - dedupe/exclusion handling (#5741)",
-        "[QA deploy: ProjectAutomationApi]  (8 commits) \u2014 ProjectAutomationApi - update getAndValidateQuotaGroups method to include origin",
-        "[QA deploy: NexusApiJ21]  (2 commits) \u2014 [PAC-922] Update quotas at full project setup (#5723)",
-        "[QA deploy: DKDashboardRestJ21] NXS-12253 (1 commit) \u2014 [NXS-12253] MS - migrate DKDashboardRest to J21"
+        "[QA deploy: NexusApiJ21]  (10 commits) \u2014 Revert \"[PAC-922] Update quotas at full project setup (#5723)\""
       ],
       "newFailureAreas": [],
       "likelyCauses": []
@@ -449,58 +165,37 @@
     "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "ProjectRestJ16",
-        "version": "212b5ecb8fd8",
-        "username": "andras.banszki",
-        "comment": "[NXS-14405] MS - ProjectRest - add u1 project audience group endpoint\u2026 (#5739)",
-        "ticket": "NXS-14405",
-        "deployedAt": "20261118T163419+0000",
+        "service": "NexusApiJ21",
+        "version": "41dc3be7ffef",
+        "username": "kocskam",
+        "comment": "Revert \"[PAC-922] Update quotas at full project setup (#5723)\"",
+        "ticket": "",
+        "deployedAt": "20261119T083245+0000",
         "files": [
-          "README.md",
-          "ProjectHandlerMongoTest.groovy",
-          "SampleConfigRest.java",
-          "UProjectAudienceGroupsRest.java",
-          "AudienceGroupIdProvider.java",
-          "UProjectCreator.java"
+          "QuotaGroupPersistHandler.java",
+          "QuotaGroupPersistHandlerTest.groovy"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "NexusApiJ21",
         "version": "caab812529f2",
         "username": "weiqun.wang",
         "comment": "Re-enable QA endpoint autoscaling.",
         "ticket": "",
-        "deployedAt": "20261118T163419+0000",
+        "deployedAt": "20261119T083245+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
-        "version": "c5316a12fb6e",
-        "username": "andras.banszki",
-        "comment": "[NXS-14532] MS - ProjectRest - store actual project start/end dates in mongo from the project status updater (#5742)",
-        "ticket": "NXS-14532",
-        "deployedAt": "20261118T163419+0000",
-        "files": [
-          "README.md",
-          "UProjectCreator.java",
-          "ProjectLegacyMirroringHandler.java",
-          "ProjectMirroringListener.java",
-          "Project.java",
-          "UProjectDatesService.java"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectRestJ16",
+        "service": "NexusApiJ21",
         "version": "e8c2ce21d6ec",
         "username": "weiqun.wang",
         "comment": "change qa instance type and disable qa autoscaling",
         "ticket": "",
-        "deployedAt": "20261118T163419+0000",
+        "deployedAt": "20261119T083245+0000",
         "files": [
           "cloud-formation.template.yml",
           "qa.yml"
@@ -508,24 +203,24 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "NexusApiJ21",
         "version": "176be9364b08",
         "username": "laszlo.csontos",
         "comment": "[FAI-536] fix review comments",
         "ticket": "",
-        "deployedAt": "20261118T163419+0000",
+        "deployedAt": "20261119T083245+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "NexusApiJ21",
         "version": "91ecc2acd79d",
         "username": "laszlo.csontos",
         "comment": "[FAI-536] Glue catalog implementation",
         "ticket": "",
-        "deployedAt": "20261118T163419+0000",
+        "deployedAt": "20261119T083245+0000",
         "files": [
           "cloud-formation.template.yml",
           "all.yml",
@@ -534,46 +229,60 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "NexusApiJ21",
         "version": "8ba969a61dba",
         "username": "gandriys",
         "comment": "Merge pull request #703 from dynata/DN-4600-add-the-microservices-url-generate-upload-url-to-the-gateway",
         "ticket": "",
-        "deployedAt": "20261118T163419+0000",
+        "deployedAt": "20261119T083245+0000",
         "files": [],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "NexusApiJ21",
         "version": "929f605b419b",
         "username": "andrii.gorbatiuk",
         "comment": "[DN-4600] Expose POST valueSet generateUploadUrl on the project-backend-plus API gateway",
         "ticket": "",
-        "deployedAt": "20261118T163419+0000",
+        "deployedAt": "20261119T083245+0000",
         "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "NexusApiJ21",
         "version": "fba921cd5874",
         "username": "gergo.hajnal",
         "comment": "(FeatureRest) temporary remove faulty subnet",
         "ticket": "",
-        "deployedAt": "20261118T163419+0000",
+        "deployedAt": "20261119T083245+0000",
         "files": [
           "production.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectRestJ16",
+        "service": "NexusApiJ21",
+        "version": "e678618069f9",
+        "username": "gergely.gimesi",
+        "comment": "NXS-14287 NexusApi, NexusApiMeta, DKProjectCountersRest declare UI contract 0.2.0; UI contract checks on deploys documented",
+        "ticket": "NXS-14287",
+        "deployedAt": "20261119T083245+0000",
+        "files": [
+          "gradle.properties",
+          "gradle.properties",
+          "gradle.properties"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "NexusApiJ21",
         "version": "b2082204e688",
         "username": "mate.gordos",
         "comment": "Revert commenting out of alarms",
         "ticket": "",
-        "deployedAt": "20261118T163419+0000",
+        "deployedAt": "20261119T083245+0000",
         "files": [
           "template.yml"
         ],
