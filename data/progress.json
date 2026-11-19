@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-19T09:06Z",
+  "generatedAt": "2026-11-19T12:34Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
@@ -7,20 +7,31 @@
     "7d": {
       "from": "2026-11-13",
       "to": "2026-11-19",
-      "featuresAdded": 1,
-      "casesAdded": 1,
-      "areasTouched": 1,
-      "ticketsTouched": 1,
+      "featuresAdded": 7,
+      "casesAdded": 7,
+      "areasTouched": 2,
+      "ticketsTouched": 2,
       "byType": {
-        "Validation": 1
+        "Validation": 1,
+        "Other": 6
       },
       "byArea": [
+        {
+          "area": "unknown",
+          "featuresAdded": 6
+        },
         {
           "area": "Communication",
           "featuresAdded": 1
         }
       ],
       "tickets": [
+        {
+          "key": "NXS-13695",
+          "featuresAdded": 6,
+          "casesAdded": 6,
+          "latestDate": "2026-11-19"
+        },
         {
           "key": "NXS-14454",
           "featuresAdded": 1,
@@ -29,6 +40,114 @@
         }
       ],
       "additions": [
+        {
+          "name": "undeclared client errors are ignored",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=undeclared%20client%20errors%20are%20ignored",
+          "gone": true
+        },
+        {
+          "name": "routes missing from the unified snapshot are ignored",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=routes%20missing%20from%20the%20unified%20snapshot%20are%20ignored",
+          "gone": true
+        },
+        {
+          "name": "calls outside the Nexus gateway are ignored",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=calls%20outside%20the%20Nexus%20gateway%20are%20ignored",
+          "gone": true
+        },
+        {
+          "name": "an empty body on a declared status is kept",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=an%20empty%20body%20on%20a%20declared%20status%20is%20kept",
+          "gone": true
+        },
+        {
+          "name": "a server error is kept and the line carries the status",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=a%20server%20error%20is%20kept%20and%20the%20line%20carries%20the%20status",
+          "gone": true
+        },
+        {
+          "name": "a patch override is not reported as a post",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=a%20patch%20override%20is%20not%20reported%20as%20a%20post",
+          "gone": true
+        },
         {
           "name": "Communication is rejected when the template is blank",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
@@ -55,21 +174,32 @@
     "14d": {
       "from": "2026-11-06",
       "to": "2026-11-19",
-      "featuresAdded": 4,
-      "casesAdded": 4,
-      "areasTouched": 1,
-      "ticketsTouched": 2,
+      "featuresAdded": 10,
+      "casesAdded": 10,
+      "areasTouched": 2,
+      "ticketsTouched": 3,
       "byType": {
         "Validation": 3,
-        "Query": 1
+        "Query": 1,
+        "Other": 6
       },
       "byArea": [
+        {
+          "area": "unknown",
+          "featuresAdded": 6
+        },
         {
           "area": "Communication",
           "featuresAdded": 4
         }
       ],
       "tickets": [
+        {
+          "key": "NXS-13695",
+          "featuresAdded": 6,
+          "casesAdded": 6,
+          "latestDate": "2026-11-19"
+        },
         {
           "key": "NXS-14435",
           "featuresAdded": 3,
@@ -84,6 +214,114 @@
         }
       ],
       "additions": [
+        {
+          "name": "undeclared client errors are ignored",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=undeclared%20client%20errors%20are%20ignored",
+          "gone": true
+        },
+        {
+          "name": "routes missing from the unified snapshot are ignored",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=routes%20missing%20from%20the%20unified%20snapshot%20are%20ignored",
+          "gone": true
+        },
+        {
+          "name": "calls outside the Nexus gateway are ignored",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=calls%20outside%20the%20Nexus%20gateway%20are%20ignored",
+          "gone": true
+        },
+        {
+          "name": "an empty body on a declared status is kept",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=an%20empty%20body%20on%20a%20declared%20status%20is%20kept",
+          "gone": true
+        },
+        {
+          "name": "a server error is kept and the line carries the status",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=a%20server%20error%20is%20kept%20and%20the%20line%20carries%20the%20status",
+          "gone": true
+        },
+        {
+          "name": "a patch override is not reported as a post",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=a%20patch%20override%20is%20not%20reported%20as%20a%20post",
+          "gone": true
+        },
         {
           "name": "Communication is rejected when the template is blank",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
@@ -171,21 +409,32 @@
     "30d": {
       "from": "2026-10-21",
       "to": "2026-11-19",
-      "featuresAdded": 4,
-      "casesAdded": 4,
-      "areasTouched": 1,
-      "ticketsTouched": 2,
+      "featuresAdded": 10,
+      "casesAdded": 10,
+      "areasTouched": 2,
+      "ticketsTouched": 3,
       "byType": {
         "Validation": 3,
-        "Query": 1
+        "Query": 1,
+        "Other": 6
       },
       "byArea": [
+        {
+          "area": "unknown",
+          "featuresAdded": 6
+        },
         {
           "area": "Communication",
           "featuresAdded": 4
         }
       ],
       "tickets": [
+        {
+          "key": "NXS-13695",
+          "featuresAdded": 6,
+          "casesAdded": 6,
+          "latestDate": "2026-11-19"
+        },
         {
           "key": "NXS-14435",
           "featuresAdded": 3,
@@ -200,6 +449,114 @@
         }
       ],
       "additions": [
+        {
+          "name": "undeclared client errors are ignored",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=undeclared%20client%20errors%20are%20ignored",
+          "gone": true
+        },
+        {
+          "name": "routes missing from the unified snapshot are ignored",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=routes%20missing%20from%20the%20unified%20snapshot%20are%20ignored",
+          "gone": true
+        },
+        {
+          "name": "calls outside the Nexus gateway are ignored",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=calls%20outside%20the%20Nexus%20gateway%20are%20ignored",
+          "gone": true
+        },
+        {
+          "name": "an empty body on a declared status is kept",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=an%20empty%20body%20on%20a%20declared%20status%20is%20kept",
+          "gone": true
+        },
+        {
+          "name": "a server error is kept and the line carries the status",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=a%20server%20error%20is%20kept%20and%20the%20line%20carries%20the%20status",
+          "gone": true
+        },
+        {
+          "name": "a patch override is not reported as a post",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=a%20patch%20override%20is%20not%20reported%20as%20a%20post",
+          "gone": true
+        },
         {
           "name": "Communication is rejected when the template is blank",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
@@ -287,16 +644,16 @@
     "90d": {
       "from": "2026-08-22",
       "to": "2026-11-19",
-      "featuresAdded": 87,
-      "casesAdded": 89,
-      "areasTouched": 2,
-      "ticketsTouched": 7,
+      "featuresAdded": 93,
+      "casesAdded": 95,
+      "areasTouched": 3,
+      "ticketsTouched": 8,
       "byType": {
         "CRUD": 5,
         "Validation": 23,
         "Workflow": 8,
         "Query": 2,
-        "Other": 49
+        "Other": 55
       },
       "byArea": [
         {
@@ -306,6 +663,10 @@
         {
           "area": "Communication",
           "featuresAdded": 26
+        },
+        {
+          "area": "unknown",
+          "featuresAdded": 6
         }
       ],
       "tickets": [
@@ -326,6 +687,12 @@
           "featuresAdded": 22,
           "casesAdded": 22,
           "latestDate": "2026-10-20"
+        },
+        {
+          "key": "NXS-13695",
+          "featuresAdded": 6,
+          "casesAdded": 6,
+          "latestDate": "2026-11-19"
         },
         {
           "key": "NXS-14435",
@@ -353,6 +720,114 @@
         }
       ],
       "additions": [
+        {
+          "name": "undeclared client errors are ignored",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=undeclared%20client%20errors%20are%20ignored",
+          "gone": true
+        },
+        {
+          "name": "routes missing from the unified snapshot are ignored",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=routes%20missing%20from%20the%20unified%20snapshot%20are%20ignored",
+          "gone": true
+        },
+        {
+          "name": "calls outside the Nexus gateway are ignored",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=calls%20outside%20the%20Nexus%20gateway%20are%20ignored",
+          "gone": true
+        },
+        {
+          "name": "an empty body on a declared status is kept",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=an%20empty%20body%20on%20a%20declared%20status%20is%20kept",
+          "gone": true
+        },
+        {
+          "name": "a server error is kept and the line carries the status",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=a%20server%20error%20is%20kept%20and%20the%20line%20carries%20the%20status",
+          "gone": true
+        },
+        {
+          "name": "a patch override is not reported as a post",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
+          "date": "2026-11-19",
+          "author": "Gergely Gimesi",
+          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
+          "commit": "2748c32975",
+          "tickets": [
+            "NXS-13695"
+          ],
+          "area": "unknown",
+          "type": "Other",
+          "cases": 1,
+          "tags": [],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=a%20patch%20override%20is%20not%20reported%20as%20a%20post",
+          "gone": true
+        },
         {
           "name": "Communication is rejected when the template is blank",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
@@ -2176,8 +2651,8 @@
     },
     {
       "weekStart": "2026-11-16",
-      "featuresAdded": 1,
-      "casesAdded": 1
+      "featuresAdded": 7,
+      "casesAdded": 7
     }
   ],
   "snapshots": [
