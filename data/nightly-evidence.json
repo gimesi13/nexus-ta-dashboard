@@ -1,62 +1,184 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-18T03:08Z",
+  "generatedAt": "2026-11-19T05:00Z",
   "build": {
-    "number": "3.0.2765",
-    "buildId": "9690523",
+    "number": "3.0.2766",
+    "buildId": "9690041",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9690523",
-    "durationSec": 2240.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9690041",
+    "durationSec": 119.0
   },
   "summary": {
-    "tests": 1517,
-    "passed": 1437,
-    "failures": 2,
+    "tests": 0,
+    "passed": 0,
+    "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "muted": 78,
-    "newFailed": 2,
-    "passRate": 99.9,
-    "timeSec": 2240.0
+    "muted": 0,
+    "newFailed": 0,
+    "passRate": 0.0,
+    "timeSec": 119.0
   },
   "prior": {
-    "buildId": "9689412",
-    "number": "3.0.2764",
+    "buildId": "9690523",
+    "number": "3.0.2765",
     "status": "FAILURE",
-    "statusText": "Tests failed: 22 (5 new), passed: 1435, muted: 60",
-    "startDate": "20261117T125057+0000",
-    "durationSec": 2282.0,
-    "failed": 22,
-    "passed": 1435,
-    "newFailed": 5
+    "statusText": "Tests failed: 2 (2 new), passed: 1437, muted: 78",
+    "startDate": "20261118T023023+0000",
+    "durationSec": 2240.0,
+    "failed": 2,
+    "passed": 1437,
+    "newFailed": 2
   },
-  "changes": [
-    {
-      "version": "5ebf9cef0dd1",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-14454] Reject a blank communication template",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/CommunicationHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy"
-      ],
-      "areas": [
-        "Communication"
-      ]
-    }
-  ],
+  "changes": [],
   "qaDeployChanges": [
     {
-      "service": "ProjectSearchRestJ21",
-      "version": "971fdedb488f",
-      "username": "bence.csepe",
-      "comment": "[NXS-14226] MS - ProjectSearchRest - bump dependencies (#5682)",
+      "service": "ProjectRestJ16",
+      "version": "212b5ecb8fd8",
+      "username": "andras.banszki",
+      "comment": "[NXS-14405] MS - ProjectRest - add u1 project audience group endpoint\u2026 (#5739)",
       "files": [
-        "project/ProjectSearchRest/build.gradle"
+        "project/ProjectRest/README.md",
+        "project/ProjectRest/src/integTest/groovy/com/surveysampling/rest/project/mongoTest/ProjectHandlerMongoTest.groovy",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/api/SampleConfigRest.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/api/UProjectAudienceGroupsRest.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/component/AudienceGroupIdProvider.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/component/UProjectCreator.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mongo/ProjectAudienceGroupsMongoHandler.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mongo/ProjectHandler.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/service/AudienceGroupHandler.java",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/api/UProjectAudienceGroupsRestTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/component/AudienceGroupIdProviderTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/component/UProjectCreatorTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mongo/ProjectAudienceGroupsMongoHandlerTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mongo/ProjectHandlerTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/v2/service/AudienceGroupHandlerTest.groovy"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T163419+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "ProjectRestJ16",
+      "version": "caab812529f2",
+      "username": "weiqun.wang",
+      "comment": "Re-enable QA endpoint autoscaling.",
+      "files": [
+        "ml-survey-guard-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261118T163419+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "c5316a12fb6e",
+      "username": "andras.banszki",
+      "comment": "[NXS-14532] MS - ProjectRest - store actual project start/end dates in mongo from the project status updater (#5742)",
+      "files": [
+        "project/ProjectRest/README.md",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/component/UProjectCreator.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mirroring/ProjectLegacyMirroringHandler.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/mirroring/messaging/ProjectMirroringListener.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/model/Project.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/u1/service/UProjectDatesService.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/service/ProjectStatusUpdater.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/sql/SqlUpdateProjectDates.java",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/component/UProjectCreatorTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mirroring/ProjectLegacyMirroringHandlerTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/mirroring/messaging/ProjectMirroringListenerTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/u1/service/UProjectDatesServiceTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/v2/service/ProjectStatusUpdaterTest.groovy"
+      ],
+      "deployedAt": "20261118T163419+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "e8c2ce21d6ec",
+      "username": "weiqun.wang",
+      "comment": "change qa instance type and disable qa autoscaling",
+      "files": [
+        "ml-survey-guard-model/cloud-formation.template.yml",
+        "ml-survey-guard-model/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261118T163419+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "176be9364b08",
+      "username": "laszlo.csontos",
+      "comment": "[FAI-536] fix review comments",
+      "files": [
+        "ml-model-drift-monitor/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261118T163419+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "91ecc2acd79d",
+      "username": "laszlo.csontos",
+      "comment": "[FAI-536] Glue catalog implementation",
+      "files": [
+        "ml-model-drift-monitor/cloud-formation.template.yml",
+        "ml-model-drift-monitor/group_vars/all.yml",
+        "ml-model-drift-monitor/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261118T163419+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "8ba969a61dba",
+      "username": "gandriys",
+      "comment": "Merge pull request #703 from dynata/DN-4600-add-the-microservices-url-generate-upload-url-to-the-gateway",
+      "files": [],
+      "deployedAt": "20261118T163419+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "929f605b419b",
+      "username": "andrii.gorbatiuk",
+      "comment": "[DN-4600] Expose POST valueSet generateUploadUrl on the project-backend-plus API gateway",
+      "files": [
+        "project-backend-plus-api-gateway/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261118T163419+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "fba921cd5874",
+      "username": "gergo.hajnal",
+      "comment": "(FeatureRest) temporary remove faulty subnet",
+      "files": [
+        "dk-management-feature-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261118T163419+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "b2082204e688",
+      "username": "mate.gordos",
+      "comment": "Revert commenting out of alarms",
+      "files": [
+        "respondent-compactor/template.yml"
+      ],
+      "deployedAt": "20261118T163419+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "f9b21cafc218",
+      "username": "mate.gordos",
+      "comment": "Comment out alarms",
+      "files": [
+        "respondent-compactor/template.yml"
+      ],
+      "deployedAt": "20261118T163419+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "6271d9618a32",
+      "username": "48213478+ssi-hu-szabolcs-papellas",
+      "comment": "Merge pull request #696 from dynata/ST-4551-remove-orphan-nexus-target-groups-from-ecs",
+      "files": [],
+      "deployedAt": "20261118T163419+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
       "version": "484ea5d77358",
       "username": "laszlo.csontos",
       "comment": "[FAI-533] network fix for cloudwatch endpoint security group id",
@@ -65,50 +187,50 @@
         "ml-model-drift-monitor/group_vars/all.yml",
         "ml-model-drift-monitor/group_vars/production.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T163419+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "ProjectRestJ16",
       "version": "388b1cedffbb",
       "username": "laszlo.szalkai",
       "comment": "Revert \"[AE] test - enable accedd log in QA\"",
       "files": [
         "ae-internal-load-balancer/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T163419+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "ProjectRestJ16",
       "version": "54c9d5fa7075",
       "username": "laszlo.csontos",
       "comment": "[FAI-534] pass --drill-feature, --drill-value and --drill-weight to extract",
       "files": [
         "ml-model-drift-monitor/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T163419+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "ProjectRestJ16",
       "version": "40434298704d",
       "username": "adam.veres",
       "comment": "fix(respondent-compactor): keep UnhealthyHostAlarm logical ID to avoid ResourceExistenceCheck collision",
       "files": [
         "respondent-compactor/template.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T163419+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "ProjectRestJ16",
       "version": "86662890a22c",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] fix",
       "files": [
         "ae-drop-service-rds/group_vars/all.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T163419+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "ProjectRestJ16",
       "version": "e2898eeb2bb3",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] pm group rename back",
@@ -116,10 +238,10 @@
         "ae-drop-service-rds/group_vars/all.yml",
         "ae-traffic-control-rds/group_vars/all.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T163419+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "ProjectRestJ16",
       "version": "059fab363e5b",
       "username": "laszlo.szalkai",
       "comment": "[AE] fix access log bucket",
@@ -127,20 +249,20 @@
         "ae-internal-load-balancer/group_vars/production.yml",
         "ae-internal-load-balancer/group_vars/qa.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T163419+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "ProjectRestJ16",
       "version": "40734829195e",
       "username": "laszlo.szalkai",
       "comment": "[AE] fix access log bucket",
       "files": [
         "ae-internal-load-balancer/group_vars/production.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T163419+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "ProjectRestJ16",
       "version": "d2fabde56519",
       "username": "laszlo.szalkai",
       "comment": "[AE] fix access log bucket",
@@ -149,20 +271,20 @@
         "ae-internal-load-balancer/group_vars/all.yml",
         "ae-legacy-internal-load-balancer/group_vars/all.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T163419+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "ProjectRestJ16",
       "version": "34bc04f08a8a",
       "username": "laszlo.szalkai",
       "comment": "[AE] test - enable accedd log in QA",
       "files": [
         "ae-internal-load-balancer/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T163419+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "ProjectRestJ16",
       "version": "86b2597a3e8a",
       "username": "laszlo.szalkai",
       "comment": "[AE] enable changeset creation",
@@ -170,20 +292,20 @@
         "ae-internal-load-balancer/group_vars/all.yml",
         "ae-legacy-internal-load-balancer/group_vars/all.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T163419+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "ProjectRestJ16",
       "version": "148fab4170d7",
       "username": "laszlo.szalkai",
       "comment": "[AE] enable changeset creation",
       "files": [
         "ae-edge-internal-load-balancer/group_vars/all.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T163419+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "ProjectRestJ16",
       "version": "4359817f5d56",
       "username": "laszlo.szalkai",
       "comment": "[AE] Enable production ALB access logs to S3. (#691)",
@@ -198,10 +320,20 @@
         "ae-legacy-internal-load-balancer/group_vars/all.yml",
         "ae-legacy-internal-load-balancer/group_vars/production.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T163419+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "NotificationHandlerRestJ21",
+      "version": "023d0abb6e76",
+      "username": "bence.csepe",
+      "comment": "[NXS-14224] MS - NotificationHandlerRest - bump dependencies (#5680)",
+      "files": [
+        "management/NotificationHandlerRest/build.gradle"
+      ],
+      "deployedAt": "20261118T150437+0000"
+    },
+    {
+      "service": "NotificationHandlerRestJ21",
       "version": "f94cf2e07143",
       "username": "adam.veres",
       "comment": "[FEAS] - Remove resources of old gtr-elastic-gateway",
@@ -212,30 +344,30 @@
         "gtr-elastic-gateway/group_vars/production.yml",
         "gtr-elastic-gateway/group_vars/qa.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T150437+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "NotificationHandlerRestJ21",
       "version": "41a9a812d221",
       "username": "weiqun.wang",
       "comment": "fix autoscaling issue in qa",
       "files": [
         "ml-survey-guard-model/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T150437+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "NotificationHandlerRestJ21",
       "version": "1582037916cc",
       "username": "weiqun.wang",
       "comment": "fix qa deployment failed issue",
       "files": [
         "ml-survey-guard-model/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
+      "deployedAt": "20261118T150437+0000"
     },
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "NotificationHandlerRestJ21",
       "version": "1e4658e443a0",
       "username": "weiqun.wang",
       "comment": "[FAI-298] Migrate to FAI with honeycomb and others",
@@ -246,403 +378,214 @@
         "ml-survey-guard-model/group_vars/production.yml",
         "ml-survey-guard-model/group_vars/qa.yml"
       ],
-      "deployedAt": "20261117T212924+0000"
-    },
-    {
-      "service": "ProjectSearchRestJ21",
-      "version": "ebfd30c03d10",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] innodb_monitor_enable: all",
-      "files": [
-        "ae-drop-service-rds/group_vars/all.yml",
-        "ae-traffic-control-rds/group_vars/all.yml"
-      ],
-      "deployedAt": "20261117T212924+0000"
-    },
-    {
-      "service": "ProjectSearchRestJ21",
-      "version": "a621b5878068",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] innodb_monitor_enable: all",
-      "files": [
-        "ae-drop-service-rds/cloud-formation.template.yml",
-        "ae-traffic-control-rds/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261117T212924+0000"
-    },
-    {
-      "service": "ProjectSearchRestJ21",
-      "version": "db62db88b54b",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7786] [drop-service-rds] fix 4",
-      "files": [
-        "ae-drop-service-rds/group_vars/all.yml"
-      ],
-      "deployedAt": "20261117T212924+0000"
-    },
-    {
-      "service": "ProjectSearchRestJ21",
-      "version": "794d469e91ed",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] fix 3",
-      "files": [
-        "ae-drop-service-rds/cloud-formation.template.yml",
-        "ae-traffic-control-rds/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261117T212924+0000"
-    },
-    {
-      "service": "ProjectSearchRestJ21",
-      "version": "64146feaa87b",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] fix 2",
-      "files": [
-        "ae-drop-service-rds/cloud-formation.template.yml",
-        "ae-drop-service-rds/group_vars/all.yml",
-        "ae-traffic-control-rds/cloud-formation.template.yml",
-        "ae-traffic-control-rds/group_vars/all.yml"
-      ],
-      "deployedAt": "20261117T212924+0000"
-    },
-    {
-      "service": "ProjectSearchRestJ21",
-      "version": "957e6354cb5b",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] fix",
-      "files": [
-        "ae-drop-service-rds/cloud-formation.template.yml",
-        "ae-traffic-control-rds/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261117T212924+0000"
-    },
-    {
-      "service": "ProjectSearchRestJ21",
-      "version": "5625af4deb02",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] change stack policy",
-      "files": [
-        "ae-drop-service-rds/stack-policy.json",
-        "ae-drop-service-rds/stack-policy.jsonc",
-        "ae-traffic-control-rds/stack-policy.json",
-        "ae-traffic-control-rds/stack-policy.jsonc"
-      ],
-      "deployedAt": "20261117T212924+0000"
-    },
-    {
-      "service": "QuotaGroupDefinitionRestJ21",
-      "version": "32eec69edece",
-      "username": "bence.csepe",
-      "comment": "[NXS-14228] MS - QuotaGroupDefinitionRest - bump dependencies (#5684)",
-      "files": [
-        "project/QuotaGroupDefinitionRest/README.md",
-        "project/QuotaGroupDefinitionRest/build.gradle"
-      ],
-      "deployedAt": "20261117T212658+0000"
-    },
-    {
-      "service": "SurveyRestJ21",
-      "version": "654bf91ce718",
-      "username": "bence.csepe",
-      "comment": "[NXS-14232] MS - TargetEditorRest - bump dependencies (#5688)",
-      "files": [
-        "project/TargetEditorRest/build.gradle"
-      ],
-      "deployedAt": "20261117T212601+0000"
-    },
-    {
-      "service": "SurveyRestJ21",
-      "version": "207259013511",
-      "username": "bence.csepe",
-      "comment": "[NXS-14231] MS - SurveyRest - bump dependencies (#5687)",
-      "files": [
-        "project/SurveyRest/build.gradle"
-      ],
-      "deployedAt": "20261117T163110+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "667685985bdc",
-      "username": "bence.csepe",
-      "comment": "[NXS-14230] MS - QuotaGroupSourcesRest - bump dependencies (#5686)",
-      "files": [
-        "project/QuotaGroupSourcesRest/README.md",
-        "project/QuotaGroupSourcesRest/build.gradle"
-      ],
-      "deployedAt": "20261117T153639+0000"
-    },
-    {
-      "service": "QuotaGroupSourcesRestJ21",
-      "version": "a35b97822df4",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] change stack policy",
-      "files": [
-        "ae-drop-service-rds/stack-policy.json",
-        "ae-traffic-control-rds/stack-policy.json"
-      ],
-      "deployedAt": "20261117T153639+0000"
+      "deployedAt": "20261118T150437+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "ProjectSearchRestJ21",
+      "service": "ProjectRestJ16",
       "commits": 25,
-      "latestTicket": "NXS-14226",
-      "latestComment": "[NXS-14226] MS - ProjectSearchRest - bump dependencies (#5682)",
-      "deployedAt": "20261117T212924+0000"
+      "latestTicket": "NXS-14405",
+      "latestComment": "[NXS-14405] MS - ProjectRest - add u1 project audience group endpoint\u2026 (#5739)",
+      "deployedAt": "20261118T163419+0000"
     },
     {
-      "service": "QuotaGroupDefinitionRestJ21",
+      "service": "NotificationHandlerRestJ21",
+      "commits": 6,
+      "latestTicket": "NXS-14224",
+      "latestComment": "[NXS-14224] MS - NotificationHandlerRest - bump dependencies (#5680)",
+      "deployedAt": "20261118T150437+0000"
+    },
+    {
+      "service": "DemandApi",
       "commits": 1,
-      "latestTicket": "NXS-14228",
-      "latestComment": "[NXS-14228] MS - QuotaGroupDefinitionRest - bump dependencies (#5684)",
-      "deployedAt": "20261117T212658+0000"
+      "latestTicket": "",
+      "latestComment": "[PAC-928] DemandApi - dedupe/exclusion handling (#5741)",
+      "deployedAt": "20261118T144402+0000"
     },
     {
-      "service": "SurveyRestJ21",
+      "service": "ProjectAutomationApi",
+      "commits": 8,
+      "latestTicket": "",
+      "latestComment": "ProjectAutomationApi - update getAndValidateQuotaGroups method to include origin",
+      "deployedAt": "20261118T141758+0000"
+    },
+    {
+      "service": "NexusApiJ21",
       "commits": 2,
-      "latestTicket": "NXS-14232",
-      "latestComment": "[NXS-14232] MS - TargetEditorRest - bump dependencies (#5688)",
-      "deployedAt": "20261117T212601+0000"
+      "latestTicket": "",
+      "latestComment": "[PAC-922] Update quotas at full project setup (#5723)",
+      "deployedAt": "20261118T105854+0000"
     },
     {
-      "service": "QuotaGroupSourcesRestJ21",
-      "commits": 2,
-      "latestTicket": "NXS-14230",
-      "latestComment": "[NXS-14230] MS - QuotaGroupSourcesRest - bump dependencies (#5686)",
-      "deployedAt": "20261117T153639+0000"
-    },
-    {
-      "service": "QuotaGroupRestJ21",
-      "commits": 2,
-      "latestTicket": "NXS-14229",
-      "latestComment": "[NXS-14229] MS - QuotaGroupRest - bump dependencies (#5685)",
-      "deployedAt": "20261117T145224+0000"
-    },
-    {
-      "service": "ThrottlingSettingRestJ21",
+      "service": "DKDashboardRestJ21",
       "commits": 1,
-      "latestTicket": "NXS-14233",
-      "latestComment": "[NXS-14233] MS - ThrottlingSettingRest - bump dependencies (#5689)",
-      "deployedAt": "20261117T141330+0000"
+      "latestTicket": "NXS-12253",
+      "latestComment": "[NXS-12253] MS - migrate DKDashboardRest to J21",
+      "deployedAt": "20261118T094430+0000"
     }
   ],
-  "clusters": [
-    {
-      "label": "other",
-      "display": "other",
-      "count": 1,
-      "newCount": 1,
-      "sample": "feign.RetryableException:microservices-qa.dynata.com executing GET <url> Caused by: java.net.UnknownHostExcept",
-      "why": "no dominant signature yet \u2014 open TeamCity details"
-    },
-    {
-      "label": "test_setup_soft_launch",
-      "display": "PES soft-launch vs tally",
-      "count": 1,
-      "newCount": 1,
-      "sample": "feign.RetryableException:microservices-qa.dynata.com executing GET <url> Caused by: java.net.UnknownHostExcept",
-      "why": "PES soft-launch total vs tally on a shared fixture"
-    }
-  ],
-  "failures": [
-    {
-      "name": "Enable and disable soft launch boosted mode: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkSoftLaunchTestSteps.Enable and disable soft launch boosted mode",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkSoftLaunchTestSteps",
-      "newFailure": true,
-      "area": "Fieldwork",
-      "cluster": "other",
-      "message": "feign.RetryableException:microservices-qa.dynata.com executing GET https://microservices-qa.dynata.com/DKProjectCountersRest/u1/nexus/counters/quotaGroups/1188\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118888585/softLaunch/softLaunchQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-throttling-setting-rest.nexus-ms-qa.dynata.com:8080/api/ThrottlingSetting/u1/quotaGroups/118888585/softLaunch/softLaunchQuota\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"feign.RetryableExcept\u2026"
-    },
-    {
-      "name": "Cannot switch tally mode from starts to completes when soft launch quota exceeds total completes: com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkValidationTestSteps.Cannot switch tally mode from starts to completes when soft launch quota exceeds total completes",
-      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Fieldwork.FieldworkValidationTestSteps",
-      "newFailure": true,
-      "area": "Fieldwork",
-      "cluster": "test_setup_soft_launch",
-      "message": "feign.RetryableException:microservices-qa.dynata.com executing GET https://microservices-qa.dynata.com/DKProjectCountersRest/u1/nexus/counters/quotaGroups/1188\u2026",
-      "detailsExcerpt": "java.lang.RuntimeException: https://microservices-qa.dynata.com/NexusApi/u1/nexus/quotaGroups/118888584/softLaunch/softLaunchQuota 500{ \"errors\" : [ { \"callChain\" : [ \"HTTP 500 PUT http://dk-project-throttling-setting-rest.nexus-ms-qa.dynata.com:8080/api/ThrottlingSetting/u1/quotaGroups/118888584/softLaunch/softLaunchQuota\" ], \"status\" : \"INTERNAL_SERVER_ERROR\", \"message\" : \"feign.RetryableExcept\u2026"
-    }
-  ],
+  "clusters": [],
+  "failures": [],
   "rulesNutshell": {
-    "headline": "2 new failures in Fieldwork",
+    "headline": "0 new failures",
     "tone": "warn",
-    "severity": "low",
-    "bullets": [
-      "1\u00d7 other \u2014 feign.RetryableException:microservices-qa.dynata.com executing GET <url> Caused by: java.net.UnknownHostExcept",
-      "1\u00d7 PES soft-launch vs tally \u2014 feign.RetryableException:microservices-qa.dynata.com executing GET <url> Caused by: java.net.UnknownHostExcept"
-    ],
-    "investigation": "New fails: 1\u00d7 other (no dominant signature yet); 1\u00d7 PES soft-launch vs tally. Vs prior #3.0.2764: down 20 total fails.",
+    "severity": "none",
+    "bullets": [],
+    "investigation": "No unmuted failures.",
     "detail": {
-      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2764, 22 fails). Failure types (new-first): (1) 1\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. (2) 1\u00d7 PES soft-launch vs tally \u2014 PES soft-launch total vs tally on a shared fixture. Hot areas among new fails: Fieldwork (2). Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 6 service(s) (33 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Fieldwork: Enable and disable soft launch boosted mode: com.dynata.rest.gateway.nexusapi.rest.tests.s [other]; Fieldwork: Cannot switch tally mode from starts to completes when soft launch quota exceeds total com [PES soft-launch vs tally].",
+      "investigation": "6 service(s) (43 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
       "bullets": [
-        "1\u00d7 other \u2014 feign.RetryableException:microservices-qa.dynata.com executing GET <url> Caused by: java.net.UnknownHostExcept",
-        "1\u00d7 PES soft-launch vs tally \u2014 feign.RetryableException:microservices-qa.dynata.com executing GET <url> Caused by: java.net.UnknownHostExcept",
-        "NXS-14454: gergely.gimesi \u2014 [NXS-14454] Reject a blank communication template",
-        "[QA deploy: ProjectSearchRestJ21] NXS-14226 (25 commits) \u2014 [NXS-14226] MS - ProjectSearchRest - bump dependencies (#5682)",
-        "[QA deploy: QuotaGroupDefinitionRestJ21] NXS-14228 (1 commit) \u2014 [NXS-14228] MS - QuotaGroupDefinitionRest - bump dependencies (#5684)",
-        "[QA deploy: SurveyRestJ21] NXS-14232 (2 commits) \u2014 [NXS-14232] MS - TargetEditorRest - bump dependencies (#5688)",
-        "[QA deploy: QuotaGroupSourcesRestJ21] NXS-14230 (2 commits) \u2014 [NXS-14230] MS - QuotaGroupSourcesRest - bump dependencies (#5686)",
-        "[QA deploy: QuotaGroupRestJ21] NXS-14229 (2 commits) \u2014 [NXS-14229] MS - QuotaGroupRest - bump dependencies (#5685)",
-        "[QA deploy: ThrottlingSettingRestJ21] NXS-14233 (1 commit) \u2014 [NXS-14233] MS - ThrottlingSettingRest - bump dependencies (#5689)"
+        "[QA deploy: ProjectRestJ16] NXS-14405 (25 commits) \u2014 [NXS-14405] MS - ProjectRest - add u1 project audience group endpoint\u2026 (#5739)",
+        "[QA deploy: NotificationHandlerRestJ21] NXS-14224 (6 commits) \u2014 [NXS-14224] MS - NotificationHandlerRest - bump dependencies (#5680)",
+        "[QA deploy: DemandApi]  (1 commit) \u2014 [PAC-928] DemandApi - dedupe/exclusion handling (#5741)",
+        "[QA deploy: ProjectAutomationApi]  (8 commits) \u2014 ProjectAutomationApi - update getAndValidateQuotaGroups method to include origin",
+        "[QA deploy: NexusApiJ21]  (2 commits) \u2014 [PAC-922] Update quotas at full project setup (#5723)",
+        "[QA deploy: DKDashboardRestJ21] NXS-12253 (1 commit) \u2014 [NXS-12253] MS - migrate DKDashboardRest to J21"
       ],
-      "newFailureAreas": [
-        {
-          "area": "Fieldwork",
-          "newCount": 2
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
-    "suspectCommits": [
-      {
-        "version": "5ebf9cef0dd1",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-14454] Reject a blank communication template",
-        "ticket": "NXS-14454",
-        "areas": []
-      }
-    ],
+    "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "ProjectSearchRestJ21",
-        "version": "971fdedb488f",
-        "username": "bence.csepe",
-        "comment": "[NXS-14226] MS - ProjectSearchRest - bump dependencies (#5682)",
-        "ticket": "NXS-14226",
-        "deployedAt": "20261117T212924+0000",
+        "service": "ProjectRestJ16",
+        "version": "212b5ecb8fd8",
+        "username": "andras.banszki",
+        "comment": "[NXS-14405] MS - ProjectRest - add u1 project audience group endpoint\u2026 (#5739)",
+        "ticket": "NXS-14405",
+        "deployedAt": "20261118T163419+0000",
         "files": [
-          "build.gradle"
+          "README.md",
+          "ProjectHandlerMongoTest.groovy",
+          "SampleConfigRest.java",
+          "UProjectAudienceGroupsRest.java",
+          "AudienceGroupIdProvider.java",
+          "UProjectCreator.java"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectSearchRestJ21",
-        "version": "484ea5d77358",
-        "username": "laszlo.csontos",
-        "comment": "[FAI-533] network fix for cloudwatch endpoint security group id",
+        "service": "ProjectRestJ16",
+        "version": "caab812529f2",
+        "username": "weiqun.wang",
+        "comment": "Re-enable QA endpoint autoscaling.",
         "ticket": "",
-        "deployedAt": "20261117T212924+0000",
+        "deployedAt": "20261118T163419+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ProjectRestJ16",
+        "version": "c5316a12fb6e",
+        "username": "andras.banszki",
+        "comment": "[NXS-14532] MS - ProjectRest - store actual project start/end dates in mongo from the project status updater (#5742)",
+        "ticket": "NXS-14532",
+        "deployedAt": "20261118T163419+0000",
+        "files": [
+          "README.md",
+          "UProjectCreator.java",
+          "ProjectLegacyMirroringHandler.java",
+          "ProjectMirroringListener.java",
+          "Project.java",
+          "UProjectDatesService.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ProjectRestJ16",
+        "version": "e8c2ce21d6ec",
+        "username": "weiqun.wang",
+        "comment": "change qa instance type and disable qa autoscaling",
+        "ticket": "",
+        "deployedAt": "20261118T163419+0000",
         "files": [
           "cloud-formation.template.yml",
-          "all.yml",
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectSearchRestJ21",
-        "version": "388b1cedffbb",
-        "username": "laszlo.szalkai",
-        "comment": "Revert \"[AE] test - enable accedd log in QA\"",
-        "ticket": "",
-        "deployedAt": "20261117T212924+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectSearchRestJ21",
-        "version": "54c9d5fa7075",
-        "username": "laszlo.csontos",
-        "comment": "[FAI-534] pass --drill-feature, --drill-value and --drill-weight to extract",
-        "ticket": "",
-        "deployedAt": "20261117T212924+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectSearchRestJ21",
-        "version": "40434298704d",
-        "username": "adam.veres",
-        "comment": "fix(respondent-compactor): keep UnhealthyHostAlarm logical ID to avoid ResourceExistenceCheck collision",
-        "ticket": "",
-        "deployedAt": "20261117T212924+0000",
-        "files": [
-          "template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectSearchRestJ21",
-        "version": "86662890a22c",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] fix",
-        "ticket": "",
-        "deployedAt": "20261117T212924+0000",
-        "files": [
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectSearchRestJ21",
-        "version": "e2898eeb2bb3",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] pm group rename back",
-        "ticket": "",
-        "deployedAt": "20261117T212924+0000",
-        "files": [
-          "all.yml",
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "ProjectSearchRestJ21",
-        "version": "059fab363e5b",
-        "username": "laszlo.szalkai",
-        "comment": "[AE] fix access log bucket",
-        "ticket": "",
-        "deployedAt": "20261117T212924+0000",
-        "files": [
-          "production.yml",
           "qa.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectSearchRestJ21",
-        "version": "40734829195e",
-        "username": "laszlo.szalkai",
-        "comment": "[AE] fix access log bucket",
+        "service": "ProjectRestJ16",
+        "version": "176be9364b08",
+        "username": "laszlo.csontos",
+        "comment": "[FAI-536] fix review comments",
         "ticket": "",
-        "deployedAt": "20261117T212924+0000",
+        "deployedAt": "20261118T163419+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ProjectRestJ16",
+        "version": "91ecc2acd79d",
+        "username": "laszlo.csontos",
+        "comment": "[FAI-536] Glue catalog implementation",
+        "ticket": "",
+        "deployedAt": "20261118T163419+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml",
+          "dev.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ProjectRestJ16",
+        "version": "8ba969a61dba",
+        "username": "gandriys",
+        "comment": "Merge pull request #703 from dynata/DN-4600-add-the-microservices-url-generate-upload-url-to-the-gateway",
+        "ticket": "",
+        "deployedAt": "20261118T163419+0000",
+        "files": [],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ProjectRestJ16",
+        "version": "929f605b419b",
+        "username": "andrii.gorbatiuk",
+        "comment": "[DN-4600] Expose POST valueSet generateUploadUrl on the project-backend-plus API gateway",
+        "ticket": "",
+        "deployedAt": "20261118T163419+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ProjectRestJ16",
+        "version": "fba921cd5874",
+        "username": "gergo.hajnal",
+        "comment": "(FeatureRest) temporary remove faulty subnet",
+        "ticket": "",
+        "deployedAt": "20261118T163419+0000",
         "files": [
           "production.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "ProjectSearchRestJ21",
-        "version": "d2fabde56519",
-        "username": "laszlo.szalkai",
-        "comment": "[AE] fix access log bucket",
+        "service": "ProjectRestJ16",
+        "version": "b2082204e688",
+        "username": "mate.gordos",
+        "comment": "Revert commenting out of alarms",
         "ticket": "",
-        "deployedAt": "20261117T212924+0000",
+        "deployedAt": "20261118T163419+0000",
         "files": [
-          "all.yml",
-          "all.yml",
-          "all.yml"
+          "template.yml"
         ],
         "scope": "qa-deploy"
       }
     ]
   },
   "contractDrift": {
-    "newCount": 5,
-    "baselineCount": 95,
-    "currentCount": 97,
-    "examples": [
-      "GET /u1/meta/countries :: No API path found that matches request '/u1/meta/countries'.",
-      "POST /u1/nexus/quotaGroups/search/ids :: Response status 500 not defined for path '/u1/nexus/quotaGroups/search/ids'.",
-      "POST /u1/nexus/quotaGroups/search/labels :: Response status 500 not defined for path '/u1/nexus/quotaGroups/search/labels'.",
-      "POST /u1/nexus/quotaGroups/{}/validations :: Response status 404 not defined for path '/u1/nexus/quotaGroups/{quotaGroupId}/validations'.",
-      "PUT /u1/nexus/quotaGroups/{}/softLaunch/softLaunchQuota :: Response status 500 not defined for path '/u1/nexus/quotaGroups/{quotaGroupId}/softLaunch/softLaunchQuota'."
-    ]
+    "newCount": 0,
+    "baselineCount": 0,
+    "currentCount": 0,
+    "examples": []
   },
   "instructions": "Rewrite short + detail nutshell for humans. Focus on NEW failures: types, areas, and which changes touch the same packages. `changes` are THIS test module's own commits (cannot cause product failures). `qaDeployChanges` are backend/product commits deployed to QA in the window \u2014 a QA 500/DB/auth error can be a backend regression from one of these, so evaluate them against the failing endpoints/services before concluding 'infra' or 'not a code regression'. Never invent authors or root causes. Short = overview/Teams (no pass%/duration/build#). Detail = Nightly page (longer). Set source=llm when you rewrite. SCALE LENGTH TO SEVERITY (rulesNutshell.severity): 'none' (green) => headline only, tone=ok, cause=none, causeText one short sentence, investigation='', bullets=[], detail.investigation='', detail.bullets=[]; do NOT manufacture narrative for a clean night. 'low' (a handful of new fails or infra-dominated) => causeText <=1 sentence, investigation <=1 sentence, bullets <=2, detail.investigation <=2 sentences, detail.bullets <=3. 'high' (a real cluster of new non-infra fails) => full write-up (detail.investigation ordered by importance, detail.bullets <=8). Never pad to hit a length. CONTRACT DRIFT (contractDrift.newCount>0) is a SEPARATE lane from test failures: mention it in ONE line even on a green night (endpoints whose response drifted from the OpenAPI contract), but keep it distinct from the test-failure cause; do not conflate the two."
 }
