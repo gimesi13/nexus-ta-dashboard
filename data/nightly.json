@@ -1645,21 +1645,16 @@
     "SurveyValidationTestSteps::Base URL with tags rejects an empty tag list": "passed"
   },
   "nutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
+    "headline": "Nightly was green \u2014 no new unmuted failures.",
     "tone": "ok",
     "severity": "none",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
+    "causeText": "No new unmuted failures; the only VCS changes touched .cursor/docs/automation files and cannot affect product tests.",
+    "investigation": "",
     "bullets": [],
     "detail": {
-      "investigation": "Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 2 service(s) (14 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
-      "bullets": [
-        "NXS-14549: 105725861+gimesi13 \u2014 Merge pull request #5757 from dynata/NXS-14549-atlassian-mcp-v2",
-        "NXS-14549: gergely.gimesi \u2014 [NXS-14549] MS - Point Atlassian MCP templates to the v2 endpoint",
-        "[QA deploy: DynataPlusApiGateway]  (2 commits) \u2014 [DN-4600] Expose GET valueSet exportValues on the project-backend-plus API gatew",
-        "[QA deploy: DemandApi]  (12 commits) \u2014 Merge pull request #704 from dynata/DN-4581-resolve-replaceable-params-in-survey"
-      ],
+      "investigation": "",
+      "bullets": [],
       "newFailureAreas": [],
       "likelyCauses": []
     },
@@ -1827,7 +1822,7 @@
         "deployedAt": "20261119T153509+0000"
       }
     ],
-    "source": "investigator",
+    "source": "llm",
     "generatedAt": "2026-11-20T03:09Z",
     "buildNumber": "3.0.2769",
     "buildId": "9699374",
