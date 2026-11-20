@@ -1,87 +1,162 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-19T12:34Z",
+  "generatedAt": "2026-11-20T03:09Z",
   "build": {
-    "number": "3.0.2768",
-    "buildId": "9696455",
+    "number": "3.0.2769",
+    "buildId": "9699374",
     "status": "SUCCESS",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9696455",
-    "durationSec": 2250.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9699374",
+    "durationSec": 2273.0
   },
   "summary": {
     "tests": 1523,
-    "passed": 1447,
+    "passed": 1446,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "muted": 76,
+    "muted": 77,
     "newFailed": 0,
     "passRate": 100.0,
-    "timeSec": 2250.0
+    "timeSec": 2273.0
   },
   "prior": {
-    "buildId": "9695244",
-    "number": "3.0.2767",
-    "status": "FAILURE",
-    "statusText": "Gradle exception; exit code 1 (Step: Clean Test (Gradle))",
-    "startDate": "20261119T090521+0000",
-    "durationSec": 77.0,
+    "buildId": "9696455",
+    "number": "3.0.2768",
+    "status": "SUCCESS",
+    "statusText": "Tests passed: 1447, muted: 76",
+    "startDate": "20261119T115620+0000",
+    "durationSec": 2250.0,
     "failed": 0,
-    "passed": 0,
+    "passed": 1447,
     "newFailed": 0
   },
   "changes": [
     {
-      "version": "b5f903ab1067",
-      "username": "gergely.gimesi",
-      "comment": "NXS-14550-exclude-internal-groups-from-maven-central skip Central for internal jars",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/build.gradle",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/DEPENDENCIES.md"
-      ],
+      "version": "903c4c357cd5",
+      "username": "105725861+gimesi13",
+      "comment": "Merge pull request #5757 from dynata/NXS-14549-atlassian-mcp-v2",
+      "files": [],
       "areas": []
     },
     {
-      "version": "2748c3297565",
+      "version": "b01c8f26dc87",
       "username": "gergely.gimesi",
-      "comment": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and \u2026",
+      "comment": "[NXS-14549] MS - Point Atlassian MCP templates to the v2 endpoint",
       "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/contract_baseline.txt",
-        "gateway/unifiedApi/NexusApiRegressionTests/automation/contract_drift_gate.py",
-        "gateway/unifiedApi/NexusApiRegressionTests/docs/CONTRACT_TESTING.md",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/ContractValidatingFeignBuilder.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidator.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy"
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/mcp.json.example",
+        "gateway/unifiedApi/NexusApiRegressionTests/.cursor/rules/nexus-regression-jira-access.mdc",
+        "gateway/unifiedApi/NexusApiRegressionTests/CURSOR.md",
+        "gateway/unifiedApi/NexusApiRegressionTests/automation/github/ta-author-on-review.yml",
+        "gateway/unifiedApi/NexusApiRegressionTests/docs/MCP_JIRA_ATLASSIAN.md"
       ],
       "areas": []
     }
   ],
   "qaDeployChanges": [
     {
-      "service": "NexusApiJ21",
-      "version": "48c598548504",
-      "username": "bence.csepe",
-      "comment": "[NXS-14537] EOS - MS - NexusApi - Incentive field should be added to fieldwork endpoint as well (#5746)",
+      "service": "DynataPlusApiGateway",
+      "version": "ea08057f9661",
+      "username": "andrii.gorbatiuk",
+      "comment": "[DN-4600] Expose GET valueSet exportValues on the project-backend-plus API gateway",
       "files": [
-        "gateway/unifiedApi/NexusApi/README.md",
-        "gateway/unifiedApi/NexusApi/build.gradle",
-        "gateway/unifiedApi/NexusApi/src/main/java/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotagroups/quotagroupid/UQuotaGroupConvertImpl.java",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/TestData.groovy",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/quotaGroupId/UQuotaGroupConverterTest.groovy",
-        "gateway/unifiedApi/NexusApi/src/test/groovy/com/dynata/rest/gateway/nexusapi/api/u1/nexus/quotaGroups/quotaGroupId/UQuotaGroupsApiImplTest.groovy"
+        "project-backend-plus-api-gateway/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261119T105745+0000"
+      "deployedAt": "20261119T175417+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "DynataPlusApiGateway",
+      "version": "47188084dd39",
+      "username": "andrii.gorbatiuk",
+      "comment": "[DN-4600] Expose POST valueSet processUpload on the project-backend-plus API gateway",
+      "files": [
+        "project-backend-plus-api-gateway/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261119T164936+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "fd62b3ad8daa",
+      "username": "gandriys",
+      "comment": "Merge pull request #704 from dynata/DN-4581-resolve-replaceable-params-in-survey-testing-url",
+      "files": [],
+      "deployedAt": "20261119T153509+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "82307cec4453",
+      "username": "gabor.fial",
+      "comment": "[PAC-934] DemandApi - Skip feasibility when throw this error.",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/feas/FeasibilityHandler.java",
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/feas/FeasibilityHandlerTest.groovy"
+      ],
+      "deployedAt": "20261119T153509+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "70e5e0f76a0b",
+      "username": "laszlo.szalkai",
+      "comment": "[AE] remove already deleted rules",
+      "files": [
+        "ae-project-evaluator-write-service/cloud-formation.template.yml",
+        "ae-route-53-resources/cloud-formation.template.yml",
+        "ae-route-53-resources/group_vars/all.yml",
+        "ae-route-53-resources/group_vars/dev.yml",
+        "ae-route-53-resources/group_vars/qa.yml",
+        "ae-route-53-resources/templates/resolver-rule.yml"
+      ],
+      "deployedAt": "20261119T153509+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "e1a79c1ccca2",
+      "username": "laszlo.szalkai",
+      "comment": "Stop managing the Route 53 ACM certificate in CloudFormation.",
+      "files": [
+        "ae-route-53-resources/cloud-formation.template.yml",
+        "ae-route-53-resources/group_vars/all.yml"
+      ],
+      "deployedAt": "20261119T153509+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "7a4e356b7daf",
+      "username": "lambert.lesko",
+      "comment": "migrating ecs resources to AE DPR (#684)",
+      "files": [
+        "ae-ecs-cluster/cloud-formation.template.yml",
+        "ae-ecs-cluster/group_vars/all.yml",
+        "ae-ecs-cluster/group_vars/production.yml",
+        "ae-ecs-cluster/group_vars/qa.yml",
+        "ae-ecs-service-restarter-function/cloud-formation.template.yml",
+        "ae-ecs-service-restarter-function/group_vars/all.yml",
+        "ae-ecs-service-restarter-function/group_vars/production.yml",
+        "ae-ecs-service-restarter-function/group_vars/qa.yml",
+        "ae-iam-resources/cloud-formation.template.yml",
+        "ae-iam-resources/group_vars/all.yml",
+        "ae-iam-resources/group_vars/production.yml",
+        "ae-iam-resources/group_vars/qa.yml",
+        "ae-lambda-deployment-s3/cloud-formation.template.yml",
+        "ae-lambda-deployment-s3/group_vars/all.yml",
+        "ae-lambda-deployment-s3/group_vars/production.yml",
+        "ae-lambda-deployment-s3/group_vars/qa.yml",
+        "ae-legacy-ecs-cluster/cloud-formation.template.yml",
+        "ae-legacy-ecs-cluster/group_vars/all.yml",
+        "ae-legacy-ecs-cluster/group_vars/production.yml",
+        "ae-legacy-ecs-cluster/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261119T153509+0000"
+    },
+    {
+      "service": "DemandApi",
       "version": "b4053030216b",
       "username": "ssi-hu-zoltan-beke",
       "comment": "Merge pull request #705 from dynata/fix/dk-auth-prod-alb-drift",
       "files": [],
-      "deployedAt": "20261119T105745+0000"
+      "deployedAt": "20261119T153509+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "DemandApi",
       "version": "15f68f0fb4a4",
       "username": "zoltan.beke",
       "comment": "dk-auth: match the prod internal ALB hardened outside the stack",
@@ -89,20 +164,41 @@
         "dk-auth/cloud-formation.template.yml",
         "dk-auth/group_vars/production.yml"
       ],
-      "deployedAt": "20261119T105745+0000"
+      "deployedAt": "20261119T153509+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "DemandApi",
       "version": "a0f9a02dc945",
       "username": "weiqun.wang",
       "comment": "update dev to small instance",
       "files": [
         "ml-complete-optimization-model/group_vars/dev.yml"
       ],
-      "deployedAt": "20261119T105745+0000"
+      "deployedAt": "20261119T153509+0000"
     },
     {
-      "service": "NexusApiJ21",
+      "service": "DemandApi",
+      "version": "71188f06f939",
+      "username": "andrii.gorbatiuk",
+      "comment": "[DN-4581] Drop the authorizer test change for the url pool PATCH",
+      "files": [
+        "project-backend-plus-api-gateway/authorizer/tests/test_route_coverage.py"
+      ],
+      "deployedAt": "20261119T153509+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "6ec273f0a46f",
+      "username": "andrii.gorbatiuk",
+      "comment": "[DN-4581] Expose PATCH for a Nexus url pool",
+      "files": [
+        "project-backend-plus-api-gateway/authorizer/tests/test_route_coverage.py",
+        "project-backend-plus-api-gateway/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261119T153509+0000"
+    },
+    {
+      "service": "DemandApi",
       "version": "89e0882be61f",
       "username": "erik.paulsen",
       "comment": "FEAS-2735 Remove pager alarm unused for this app. Recent org-level rules do not tolerate an alarm with empty action.",
@@ -110,248 +206,33 @@
         "respondent-parameter-observer/production.json",
         "respondent-parameter-observer/template.yml"
       ],
-      "deployedAt": "20261119T105745+0000"
+      "deployedAt": "20261119T153509+0000"
     },
     {
-      "service": "NexusApiUI",
-      "version": "30a15c6d4d95",
-      "username": "bence.csepe",
-      "comment": "[NXS-14534] EOS - MS - NexusApiUI - Incentive field should be added to fieldwork endpoint as well (#5747)",
-      "files": [
-        "gateway/unifiedApi/NexusApiUI/README.md",
-        "gateway/unifiedApi/NexusApiUI/build.gradle"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
+      "service": "DemandApi",
       "version": "caab812529f2",
       "username": "weiqun.wang",
       "comment": "Re-enable QA endpoint autoscaling.",
       "files": [
         "ml-survey-guard-model/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "e8c2ce21d6ec",
-      "username": "weiqun.wang",
-      "comment": "change qa instance type and disable qa autoscaling",
-      "files": [
-        "ml-survey-guard-model/cloud-formation.template.yml",
-        "ml-survey-guard-model/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "176be9364b08",
-      "username": "laszlo.csontos",
-      "comment": "[FAI-536] fix review comments",
-      "files": [
-        "ml-model-drift-monitor/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "91ecc2acd79d",
-      "username": "laszlo.csontos",
-      "comment": "[FAI-536] Glue catalog implementation",
-      "files": [
-        "ml-model-drift-monitor/cloud-formation.template.yml",
-        "ml-model-drift-monitor/group_vars/all.yml",
-        "ml-model-drift-monitor/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "8ba969a61dba",
-      "username": "gandriys",
-      "comment": "Merge pull request #703 from dynata/DN-4600-add-the-microservices-url-generate-upload-url-to-the-gateway",
-      "files": [],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "929f605b419b",
-      "username": "andrii.gorbatiuk",
-      "comment": "[DN-4600] Expose POST valueSet generateUploadUrl on the project-backend-plus API gateway",
-      "files": [
-        "project-backend-plus-api-gateway/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "fba921cd5874",
-      "username": "gergo.hajnal",
-      "comment": "(FeatureRest) temporary remove faulty subnet",
-      "files": [
-        "dk-management-feature-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "b2082204e688",
-      "username": "mate.gordos",
-      "comment": "Revert commenting out of alarms",
-      "files": [
-        "respondent-compactor/template.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "f9b21cafc218",
-      "username": "mate.gordos",
-      "comment": "Comment out alarms",
-      "files": [
-        "respondent-compactor/template.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "6271d9618a32",
-      "username": "48213478+ssi-hu-szabolcs-papellas",
-      "comment": "Merge pull request #696 from dynata/ST-4551-remove-orphan-nexus-target-groups-from-ecs",
-      "files": [],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "484ea5d77358",
-      "username": "laszlo.csontos",
-      "comment": "[FAI-533] network fix for cloudwatch endpoint security group id",
-      "files": [
-        "ml-model-drift-monitor/cloud-formation.template.yml",
-        "ml-model-drift-monitor/group_vars/all.yml",
-        "ml-model-drift-monitor/group_vars/production.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "388b1cedffbb",
-      "username": "laszlo.szalkai",
-      "comment": "Revert \"[AE] test - enable accedd log in QA\"",
-      "files": [
-        "ae-internal-load-balancer/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "54c9d5fa7075",
-      "username": "laszlo.csontos",
-      "comment": "[FAI-534] pass --drill-feature, --drill-value and --drill-weight to extract",
-      "files": [
-        "ml-model-drift-monitor/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "40434298704d",
-      "username": "adam.veres",
-      "comment": "fix(respondent-compactor): keep UnhealthyHostAlarm logical ID to avoid ResourceExistenceCheck collision",
-      "files": [
-        "respondent-compactor/template.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "86662890a22c",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] fix",
-      "files": [
-        "ae-drop-service-rds/group_vars/all.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "e2898eeb2bb3",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7786] [drop-service-rds], [traffic-control-rds] pm group rename back",
-      "files": [
-        "ae-drop-service-rds/group_vars/all.yml",
-        "ae-traffic-control-rds/group_vars/all.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "059fab363e5b",
-      "username": "laszlo.szalkai",
-      "comment": "[AE] fix access log bucket",
-      "files": [
-        "ae-internal-load-balancer/group_vars/production.yml",
-        "ae-internal-load-balancer/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "40734829195e",
-      "username": "laszlo.szalkai",
-      "comment": "[AE] fix access log bucket",
-      "files": [
-        "ae-internal-load-balancer/group_vars/production.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "d2fabde56519",
-      "username": "laszlo.szalkai",
-      "comment": "[AE] fix access log bucket",
-      "files": [
-        "ae-edge-internal-load-balancer/group_vars/all.yml",
-        "ae-internal-load-balancer/group_vars/all.yml",
-        "ae-legacy-internal-load-balancer/group_vars/all.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
-    },
-    {
-      "service": "NexusApiUI",
-      "version": "5747c41c561e",
-      "username": "szabolcs.papellas",
-      "comment": "[ST-4551] remove target groups",
-      "files": [
-        "brands/cloud-formation.template.yml",
-        "clients/cloud-formation.template.yml",
-        "cloudia/cloud-formation.template.yml",
-        "event-status-mapping/cloud-formation.template.yml",
-        "mass-overlay/cloud-formation.template.yml",
-        "member-services/cloud-formation.template.yml",
-        "profiling/cloud-formation.template.yml",
-        "programmatic-demand/cloud-formation.template.yml",
-        "promotion-engine/cloud-formation.template.yml",
-        "recruitment-and-rewards/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261119T104859+0000"
+      "deployedAt": "20261119T153509+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "NexusApiJ21",
-      "commits": 5,
-      "latestTicket": "NXS-14537",
-      "latestComment": "[NXS-14537] EOS - MS - NexusApi - Incentive field should be added to fieldwork e",
-      "deployedAt": "20261119T105745+0000"
+      "service": "DynataPlusApiGateway",
+      "commits": 2,
+      "latestTicket": "",
+      "latestComment": "[DN-4600] Expose GET valueSet exportValues on the project-backend-plus API gatew",
+      "deployedAt": "20261119T175417+0000"
     },
     {
-      "service": "NexusApiUI",
-      "commits": 21,
-      "latestTicket": "NXS-14534",
-      "latestComment": "[NXS-14534] EOS - MS - NexusApiUI - Incentive field should be added to fieldwork",
-      "deployedAt": "20261119T104859+0000"
+      "service": "DemandApi",
+      "commits": 12,
+      "latestTicket": "",
+      "latestComment": "Merge pull request #704 from dynata/DN-4581-resolve-replaceable-params-in-survey",
+      "deployedAt": "20261119T153509+0000"
     }
   ],
   "clusters": [],
@@ -363,67 +244,144 @@
     "bullets": [],
     "investigation": "No unmuted failures.",
     "detail": {
-      "investigation": "Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 2 service(s) (26 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
+      "investigation": "Build has VCS changes but none mapped cleanly onto failing step packages \u2014 correlate manually in TeamCity Changes. 2 service(s) (14 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
       "bullets": [
-        "NXS-14550: gergely.gimesi \u2014 NXS-14550-exclude-internal-groups-from-maven-central skip Central for internal jars",
-        "NXS-13695: gergely.gimesi \u2014 NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-",
-        "[QA deploy: NexusApiJ21] NXS-14537 (5 commits) \u2014 [NXS-14537] EOS - MS - NexusApi - Incentive field should be added to fieldwork e",
-        "[QA deploy: NexusApiUI] NXS-14534 (21 commits) \u2014 [NXS-14534] EOS - MS - NexusApiUI - Incentive field should be added to fieldwork"
+        "NXS-14549: 105725861+gimesi13 \u2014 Merge pull request #5757 from dynata/NXS-14549-atlassian-mcp-v2",
+        "NXS-14549: gergely.gimesi \u2014 [NXS-14549] MS - Point Atlassian MCP templates to the v2 endpoint",
+        "[QA deploy: DynataPlusApiGateway]  (2 commits) \u2014 [DN-4600] Expose GET valueSet exportValues on the project-backend-plus API gatew",
+        "[QA deploy: DemandApi]  (12 commits) \u2014 Merge pull request #704 from dynata/DN-4581-resolve-replaceable-params-in-survey"
       ],
       "newFailureAreas": [],
       "likelyCauses": []
     },
     "suspectCommits": [
       {
-        "version": "b5f903ab1067",
-        "username": "gergely.gimesi",
-        "comment": "NXS-14550-exclude-internal-groups-from-maven-central skip Central for internal jars",
-        "ticket": "NXS-14550",
+        "version": "903c4c357cd5",
+        "username": "105725861+gimesi13",
+        "comment": "Merge pull request #5757 from dynata/NXS-14549-atlassian-mcp-v2",
+        "ticket": "NXS-14549",
         "areas": []
       },
       {
-        "version": "2748c3297565",
+        "version": "b01c8f26dc87",
         "username": "gergely.gimesi",
-        "comment": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline l",
-        "ticket": "NXS-13695",
+        "comment": "[NXS-14549] MS - Point Atlassian MCP templates to the v2 endpoint",
+        "ticket": "NXS-14549",
         "areas": []
       }
     ],
     "qaDeploySuspects": [
       {
-        "service": "NexusApiJ21",
-        "version": "48c598548504",
-        "username": "bence.csepe",
-        "comment": "[NXS-14537] EOS - MS - NexusApi - Incentive field should be added to fieldwork endpoint as well (#5746)",
-        "ticket": "NXS-14537",
-        "deployedAt": "20261119T105745+0000",
+        "service": "DynataPlusApiGateway",
+        "version": "ea08057f9661",
+        "username": "andrii.gorbatiuk",
+        "comment": "[DN-4600] Expose GET valueSet exportValues on the project-backend-plus API gateway",
+        "ticket": "",
+        "deployedAt": "20261119T175417+0000",
         "files": [
-          "README.md",
-          "build.gradle",
-          "UQuotaGroupConvertImpl.java",
-          "TestData.groovy",
-          "UQuotaGroupConverterTest.groovy",
-          "UQuotaGroupsApiImplTest.groovy"
+          "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiJ21",
-        "version": "b4053030216b",
-        "username": "ssi-hu-zoltan-beke",
-        "comment": "Merge pull request #705 from dynata/fix/dk-auth-prod-alb-drift",
+        "service": "DynataPlusApiGateway",
+        "version": "47188084dd39",
+        "username": "andrii.gorbatiuk",
+        "comment": "[DN-4600] Expose POST valueSet processUpload on the project-backend-plus API gateway",
         "ticket": "",
-        "deployedAt": "20261119T105745+0000",
+        "deployedAt": "20261119T164936+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DemandApi",
+        "version": "fd62b3ad8daa",
+        "username": "gandriys",
+        "comment": "Merge pull request #704 from dynata/DN-4581-resolve-replaceable-params-in-survey-testing-url",
+        "ticket": "",
+        "deployedAt": "20261119T153509+0000",
         "files": [],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiJ21",
+        "service": "DemandApi",
+        "version": "82307cec4453",
+        "username": "gabor.fial",
+        "comment": "[PAC-934] DemandApi - Skip feasibility when throw this error.",
+        "ticket": "",
+        "deployedAt": "20261119T153509+0000",
+        "files": [
+          "FeasibilityHandler.java",
+          "FeasibilityHandlerTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DemandApi",
+        "version": "70e5e0f76a0b",
+        "username": "laszlo.szalkai",
+        "comment": "[AE] remove already deleted rules",
+        "ticket": "",
+        "deployedAt": "20261119T153509+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "cloud-formation.template.yml",
+          "all.yml",
+          "dev.yml",
+          "qa.yml",
+          "resolver-rule.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DemandApi",
+        "version": "e1a79c1ccca2",
+        "username": "laszlo.szalkai",
+        "comment": "Stop managing the Route 53 ACM certificate in CloudFormation.",
+        "ticket": "",
+        "deployedAt": "20261119T153509+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DemandApi",
+        "version": "7a4e356b7daf",
+        "username": "lambert.lesko",
+        "comment": "migrating ecs resources to AE DPR (#684)",
+        "ticket": "",
+        "deployedAt": "20261119T153509+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml",
+          "production.yml",
+          "qa.yml",
+          "cloud-formation.template.yml",
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DemandApi",
+        "version": "b4053030216b",
+        "username": "ssi-hu-zoltan-beke",
+        "comment": "Merge pull request #705 from dynata/fix/dk-auth-prod-alb-drift",
+        "ticket": "",
+        "deployedAt": "20261119T153509+0000",
+        "files": [],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DemandApi",
         "version": "15f68f0fb4a4",
         "username": "zoltan.beke",
         "comment": "dk-auth: match the prod internal ALB hardened outside the stack",
         "ticket": "",
-        "deployedAt": "20261119T105745+0000",
+        "deployedAt": "20261119T153509+0000",
         "files": [
           "cloud-formation.template.yml",
           "production.yml"
@@ -431,90 +389,13 @@
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiJ21",
+        "service": "DemandApi",
         "version": "a0f9a02dc945",
         "username": "weiqun.wang",
         "comment": "update dev to small instance",
         "ticket": "",
-        "deployedAt": "20261119T105745+0000",
+        "deployedAt": "20261119T153509+0000",
         "files": [
-          "dev.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiJ21",
-        "version": "89e0882be61f",
-        "username": "erik.paulsen",
-        "comment": "FEAS-2735 Remove pager alarm unused for this app.  Recent org-level rules do not tolerate an alarm with empty action.",
-        "ticket": "",
-        "deployedAt": "20261119T105745+0000",
-        "files": [
-          "production.json",
-          "template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "30a15c6d4d95",
-        "username": "bence.csepe",
-        "comment": "[NXS-14534] EOS - MS - NexusApiUI - Incentive field should be added to fieldwork endpoint as well (#5747)",
-        "ticket": "NXS-14534",
-        "deployedAt": "20261119T104859+0000",
-        "files": [
-          "README.md",
-          "build.gradle"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "caab812529f2",
-        "username": "weiqun.wang",
-        "comment": "Re-enable QA endpoint autoscaling.",
-        "ticket": "",
-        "deployedAt": "20261119T104859+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "e8c2ce21d6ec",
-        "username": "weiqun.wang",
-        "comment": "change qa instance type and disable qa autoscaling",
-        "ticket": "",
-        "deployedAt": "20261119T104859+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "176be9364b08",
-        "username": "laszlo.csontos",
-        "comment": "[FAI-536] fix review comments",
-        "ticket": "",
-        "deployedAt": "20261119T104859+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiUI",
-        "version": "91ecc2acd79d",
-        "username": "laszlo.csontos",
-        "comment": "[FAI-536] Glue catalog implementation",
-        "ticket": "",
-        "deployedAt": "20261119T104859+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
           "dev.yml"
         ],
         "scope": "qa-deploy"
