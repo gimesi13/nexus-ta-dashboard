@@ -1888,26 +1888,22 @@
     "SurveyValidationTestSteps::Base URL with tags rejects an empty tag list": "passed"
   },
   "nutshell": {
-    "headline": "22 new failures \u2014 mainly Parameter",
-    "tone": "bad",
-    "severity": "high",
-    "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 7 service(s) were deployed to QA in this window (DKSystemRestJ16, DemandApi, ManualCreditJ21, DKDashboardRestJ21, QuotaGroupRestJ21\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 22\u00d7 other (no dominant signature yet). Vs prior #3.0.2769: up 22 total fails.",
+    "headline": "22 new Parameter failures from one QA dependency outage \u2014 dk-management-feature-rest was unreachable (feign.RetryableException).",
+    "tone": "warn",
+    "severity": "low",
+    "cause": "infra",
+    "causeText": "All 22 new Parameter failures trace to one downstream transport error \u2014 dk-project-target-editor-rest got a feign.RetryableException calling dk-management-feature-rest, cascading 500s up through NexusApi qualificationPaths, which points to a QA dependency outage rather than any code change.",
+    "investigation": "Every new failure is the same feign.RetryableException to dk-management-feature-rest (transport-level, not an assertion), and no deployed change touches target-editor/feature-rest, so this reads as QA infra.",
     "bullets": [
-      "22\u00d7 other \u2014 feign.RetryableException:dk-management-feature-rest.nexus-ms-qa.dynata.com executing GET <url> Caused by: java"
+      "22\u00d7 identical feign.RetryableException \u2014 dk-project-target-editor-rest GET dk-management-feature-rest:8080 \u2192 cascading 500s in NexusApi qualificationPaths",
+      "Deployed PAC-935 https/http-decommission work is scoped to allocation-engine (ae-*) services, not feature-rest/target-editor \u2014 no plausible code map"
     ],
     "detail": {
-      "investigation": "22 of 22 unmuted failures are new since the prior build (#3.0.2769, 0 fails). Failure types (new-first): (1) 22\u00d7 other \u2014 no dominant signature yet \u2014 open TeamCity details. Hot areas among new fails: Parameter (22). 7 service(s) (54 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Parameter: Test qualification path operations - create and rename path: com.dynata.rest.gateway.nexus [other]; Parameter: Test qualification path operations - create and rename path: com.dynata.rest.gateway.nexus [other]; Parameter: Test qualification path operations - delete path: com.dynata.rest.gateway.nexusapi.rest.te [other]; Parameter: Test qualification path operations - delete path: com.dynata.rest.gateway.nexusapi.rest.te [other].",
+      "investigation": "All 22 new failures (area Parameter, UniverseDefinitionTestSteps) are one signature: NexusApi PUT qualificationPaths returns 500 because dk-project-target-editor-rest throws feign.RetryableException on a GET to http://dk-management-feature-rest.nexus-ms-qa.dynata.com:8080 \u2014 a transport-level failure indicating that downstream QA service was unreachable, not an assertion or data issue. No deployed change maps to the failing dependency (PAC-935 'switch to https'/'decommission http listeners' is scoped to allocation-engine ae-* services via TransactionManagerFeignClient and cloud-formation yml; NXS-14559/NXS-14560 only touch requiresRecontact), so blame stays on the QA environment.",
       "bullets": [
-        "22\u00d7 other \u2014 feign.RetryableException:dk-management-feature-rest.nexus-ms-qa.dynata.com executing GET <url> Caused by: java",
-        "[QA deploy: DKSystemRestJ16]  (25 commits) \u2014 [PAC-935] Switch to https (allocation engine)",
-        "[QA deploy: DemandApi]  (7 commits) \u2014 [ PAC-811 ] DemandApi - handle CPI changes (D365) (#5728)",
-        "[QA deploy: ManualCreditJ21]  (3 commits) \u2014 [PAC-935] EOS - SC - Manual incentive - When psid is uploaded, error is thrown -",
-        "[QA deploy: DKDashboardRestJ21]  (3 commits) \u2014 [PAC-935] EOS - SC - Manual incentive - When psid is uploaded, error is thrown (",
-        "[QA deploy: QuotaGroupRestJ21] NXS-14560 (1 commit) \u2014 [NXS-14560] MS - set requiresRecontact only when the project is multiphase (#576",
-        "[QA deploy: NexusApiJ21] NXS-14559 (4 commits) \u2014 [NXS-14559] MS - keep an explicit requiresRecontact when the project is not mult",
-        "[QA deploy: ProjectAutomationApi]  (11 commits) \u2014 ProgrammaticProjectAssembler - align proposedEndDate to whole fieldworkHours in "
+        "22\u00d7 feign.RetryableException: dk-project-target-editor-rest GET http://dk-management-feature-rest.nexus-ms-qa.dynata.com:8080 \u2192 INTERNAL_SERVER_ERROR 500 bubbling up through NexusApi qualificationPaths/qualificationConditions",
+        "No changed file maps to target-editor or management-feature-rest; PAC-935 https/decommission commits are allocation-engine-only, NXS-14559/14560 are requiresRecontact \u2014 no code cause",
+        "Contract drift (separate lane): 6 new drifts, all 500s on quotaGroups qualificationPaths/search endpoints \u2014 the same downstream outage surfacing as undefined-500 responses, not a contract change"
       ],
       "newFailureAreas": [
         {
@@ -2109,8 +2105,8 @@
         "deployedAt": "20261120T070017+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-11-21T03:09Z",
+    "source": "llm",
+    "generatedAt": "2026-11-21T03:09:00Z",
     "buildNumber": "3.0.2770",
     "buildId": "9700789",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9700789",

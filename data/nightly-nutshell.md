@@ -1,10 +1,7 @@
-**22 new failures — mainly Parameter**
+**22 new Parameter failures from one QA dependency outage — dk-management-feature-rest was unreachable (feign.RetryableException).**
 
-_Likely cause: No build changes — likely test/data or environment flakiness._
+_Likely cause: QA infra — dk-project-target-editor-rest got a feign.RetryableException calling dk-management-feature-rest, cascading 500s through NexusApi qualificationPaths; no deployed code change maps to the failing dependency._
 
-- 22× other — feign.RetryableException:dk-management-feature-rest.nexus-ms-qa.dynata.com executing GET <url> Caused by: java
+- 22× identical feign.RetryableException to dk-management-feature-rest:8080 → cascading 500s in NexusApi qualificationPaths
 
-⚠️ Contract drift: 6 new response-schema violation(s) vs baseline.
-- PATCH /u1/nexus/projects/{}/endlinkSecurity 500 :: Response status 500 not defined for path '/u1/nexus/projects/{projectId}/endlinkSecurity'.
-
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9700789)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9700789)
