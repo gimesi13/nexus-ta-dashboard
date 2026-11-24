@@ -1678,30 +1678,22 @@
     "SurveyValidationTestSteps::Base URL with tags rejects an empty tag list": "passed"
   },
   "nutshell": {
-    "headline": "2 new failures in QuotaGroup",
+    "headline": "2 new failures: a Segment assertion overlapping NXS-14576 and a QuotaGroup wait-timeout that reads as infra.",
     "tone": "warn",
     "severity": "low",
-    "cause": "code_change",
-    "causeText": "Possibly NXS-14576 by gergely.gimesi \u2014 touches Segment (1 overlapping new fails). Correlation only. NOTE: 14 service(s) were deployed to QA in this window (DKQuotaRestJ21, DetailsEditorRestJ21, DedupeRestJ21, ProjectEventForwarderJ21, ManualCreditJ21\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "New fails: 2\u00d7 assertion Condition not satisfied. Likely related to NXS-14576 gergely.gimesi `ccfc31fdc204` (Segment, 1 new fails in overlap).",
+    "cause": "mixed",
+    "causeText": "Mixed: the QuotaGroup fail is a 45s WaitUtil timeout (infra/async, no change maps to it), while the Segment assertion (quota stayed 0) overlaps gergely.gimesi's own test-module change NXS-14576 (ccfc31fdc204, SegmentDetailsHelper.groovy).",
+    "investigation": "Raw messages: QuotaGroup is a WaitUtil 45s wait-timeout (infra/async, not a real assertion), and Segment is a genuine assertion where a representation change left quota=0, overlapping gergely.gimesi's NXS-14576 Segment-helper change.",
     "bullets": [
-      "2\u00d7 assertion Condition not satisfied",
-      "Change NXS-14576: gergely.gimesi \u00b7 Segment \u00b7 1 overlapping new fails",
-      "Change NXS-14576: gergely.gimesi \u00b7 Segment \u00b7 1 overlapping new fails"
+      "QuotaGroup 'change order flow': WaitUtil timed out after 45s \u2014 infra/async, no code change maps to it.",
+      "Segment: assertion target.quota > 0 failed (quota=0) \u2014 overlaps gergely.gimesi NXS-14576 (SegmentDetailsHelper.groovy)."
     ],
     "detail": {
-      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2772, 0 fails). Failure types (new-first): (1) 2\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: QuotaGroup (1), Segment (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 14 service(s) (52 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [assertion Condition not satisfied]; Segment: Saving nested segmented conditions with a new representation clears hidden when that segme [assertion Condition not satisfied].",
+      "investigation": "Both fails are new vs the prior green build #3.0.2772: the QuotaGroup 'change order flow' is a WaitUtil 45s timeout (RuntimeException, condition never returned non-null) \u2014 infra/async, not a real assertion despite the 'Condition not satisfied' cluster label, and no test-module change touches QuotaGroup. The Segment case is a genuine Spock assertion (target.quota > 0 was 0) in SegmentHiddenFlagRegressionTestSteps, which plausibly overlaps gergely.gimesi's NXS-14576 change to the shared SegmentDetailsHelper.groovy (correlation only, not proof).",
       "bullets": [
-        "2\u00d7 assertion Condition not satisfied",
-        "Change NXS-14576: gergely.gimesi \u00b7 Segment \u00b7 1 overlapping new fails",
-        "Change NXS-14576: gergely.gimesi \u00b7 Segment \u00b7 1 overlapping new fails",
-        "NXS-14576 ccfc31fdc204 by gergely.gimesi \u2192 areas Segment (1 new fails) \u00b7 SegmentDetailsHelper.groovy, SegmentsNestingWorkflowTestSteps.groovy",
-        "NXS-14576 cfa330a74750 by gergely.gimesi \u2192 areas Segment (1 new fails) \u00b7 SegmentDetailsHelper.groovy, SegmentsNestingWorkflowTestSteps.groovy",
-        "[QA deploy: DKQuotaRestJ21] NXS-14218 (25 commits) \u2014 [NXS-14218] MS - DKQuotaRest - bump dependencies (#5671)",
-        "[QA deploy: DetailsEditorRestJ21] NXS-14217 (2 commits) \u2014 [NXS-14217] MS - DetailsEditorRest - bump dependencies (#5658)",
-        "[QA deploy: DedupeRestJ21] NXS-14216 (1 commit) \u2014 [NXS-14216] MS - DedupeRest - bump dependencies (#5657)",
-        "[QA deploy: ProjectEventForwarderJ21]  (6 commits) \u2014 adjust autoscaling policy",
-        "[QA deploy: ManualCreditJ21]  (1 commit) \u2014 [PAC-936] EOS - SC - Manual reward - ID Upload Failure Reason Unclear (#5773)"
+        "QuotaGroup 'change order flow': WaitUtil timeout after 45s (RuntimeException, condition never returned non-null) \u2192 infra/async, not mapped to any change.",
+        "Segment 'Saving nested segmented conditions\u2026': assertion target.quota > 0 failed (quota=0, 'Representation change should assign requested quota') \u2192 real assertion, Segment area.",
+        "Plausible overlap: NXS-14576 ccfc31fdc204 gergely.gimesi touched the shared SegmentDetailsHelper.groovy; correlation only, not proof of blame."
       ],
       "newFailureAreas": [
         {
@@ -2001,8 +1993,8 @@
         "deployedAt": "20261123T071438+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-11-24T03:12Z",
+    "source": "llm",
+    "generatedAt": "2026-11-24T03:13:00Z",
     "buildNumber": "3.0.2773",
     "buildId": "9703643",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9703643",
