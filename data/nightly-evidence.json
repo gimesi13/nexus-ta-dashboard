@@ -1,54 +1,744 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-23T05:05Z",
+  "generatedAt": "2026-11-24T03:12Z",
   "build": {
-    "number": "3.0.2772",
-    "buildId": "9700993",
-    "status": "SUCCESS",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9700993",
-    "durationSec": 2288.0
+    "number": "3.0.2773",
+    "buildId": "9703643",
+    "status": "FAILURE",
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9703643",
+    "durationSec": 2310.0
   },
   "summary": {
-    "tests": 1523,
-    "passed": 1446,
-    "failures": 0,
+    "tests": 1528,
+    "passed": 1450,
+    "failures": 2,
     "errors": 0,
     "skipped": 0,
-    "muted": 77,
-    "newFailed": 0,
-    "passRate": 100.0,
-    "timeSec": 2288.0
+    "muted": 76,
+    "newFailed": 2,
+    "passRate": 99.9,
+    "timeSec": 2310.0
   },
   "prior": {
-    "buildId": "9702954",
-    "number": "3.0.2771",
+    "buildId": "9700993",
+    "number": "3.0.2772",
     "status": "SUCCESS",
     "statusText": "Tests passed: 1446, muted: 77",
-    "startDate": "20261122T023252+0000",
-    "durationSec": 2267.0,
+    "startDate": "20261123T023300+0000",
+    "durationSec": 2288.0,
     "failed": 0,
     "passed": 1446,
     "newFailed": 0
   },
-  "changes": [],
-  "qaDeployChanges": [],
-  "qaDeployServices": [],
-  "clusters": [],
-  "failures": [],
-  "rulesNutshell": {
-    "headline": "Nightly was healthy \u2014 no new unmuted failures",
-    "tone": "ok",
-    "severity": "none",
-    "bullets": [],
-    "investigation": "No unmuted failures.",
-    "detail": {
-      "investigation": "",
-      "bullets": [],
-      "newFailureAreas": [],
-      "likelyCauses": []
+  "changes": [
+    {
+      "version": "cfa330a74750",
+      "username": "gergely.gimesi",
+      "comment": "[NXS-14576] MS - assert explicit nested cell and parameter percents",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/SegmentDetailsHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy"
+      ],
+      "areas": [
+        "Segment",
+        "SegmentDetails"
+      ]
     },
-    "suspectCommits": [],
-    "qaDeploySuspects": []
+    {
+      "version": "ccfc31fdc204",
+      "username": "gergely.gimesi",
+      "comment": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+      "files": [
+        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/SegmentDetailsHelper.groovy",
+        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy"
+      ],
+      "areas": [
+        "Segment",
+        "SegmentDetails"
+      ]
+    }
+  ],
+  "qaDeployChanges": [
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "1ba02bd5d4b2",
+      "username": "bence.csepe",
+      "comment": "[NXS-14218] MS - DKQuotaRest - bump dependencies (#5671)",
+      "files": [
+        "gateway/dk/DKQuotaRest/build.gradle"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "2182f218075f",
+      "username": "weiqun.wang",
+      "comment": "update dev instanct to test",
+      "files": [
+        "ml-complete-optimization-model/cloud-formation.template.yml",
+        "ml-complete-optimization-model/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "5d327271b2e6",
+      "username": "weiqun.wang",
+      "comment": "disable dev autoscaling to update instance",
+      "files": [
+        "ml-complete-optimization-model/cloud-formation.template.yml",
+        "ml-complete-optimization-model/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "07c73962a720",
+      "username": "weiqun.wang",
+      "comment": "try ml.c6i.xlarge to test",
+      "files": [
+        "ml-complete-optimization-model/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "678d9bdda5e0",
+      "username": "matt.spencer",
+      "comment": "[DQI-4766] Added update replace policy to Fraud-UI cloud formation template. Environments were already set up.",
+      "files": [
+        "fraud-ui/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "bee7c39ce3ed",
+      "username": "weiqun.wang",
+      "comment": "adjust scaling targe value for testing",
+      "files": [
+        "ml-complete-optimization-model/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "af07a40e1fb4",
+      "username": "lambert.lesko",
+      "comment": "adding production buckets to the config (#715)",
+      "files": [
+        "ae-project-event-stream-sns-bridge/group_vars/production.yml",
+        "ae-respondent-event-stream-sns-bridge/group_vars/production.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "239b43062efa",
+      "username": "adam.veres",
+      "comment": "FEAS-1676 Grant production reindexer access to respondent-os-1-production",
+      "files": [
+        "redi-es-reindexer/group_vars/production.yml",
+        "redi-es-reindexer/production.json"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "47b33b7d2fc0",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [drop-service] fix with roles",
+      "files": [
+        "ae-drop-service/cloud-formation.template.yml",
+        "ae-drop-service/group_vars/all.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "c9d27d02fd32",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [drop-service] fix",
+      "files": [
+        "ae-drop-service/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "dab12fff481e",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [drop-service-rds] prod: max_conn=3000",
+      "files": [
+        "ae-drop-service-rds/group_vars/production.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "d491fc9b9a0a",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [drop-service] DPR",
+      "files": [
+        "ae-drop-service/cloud-formation.template.yml",
+        "ae-drop-service/group_vars/all.yml",
+        "ae-drop-service/group_vars/dev.yml",
+        "ae-drop-service/group_vars/production.yml",
+        "ae-drop-service/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "90f240875b9d",
+      "username": "weiqun.wang",
+      "comment": "update secondary autoscaling policy",
+      "files": [
+        "ml-complete-optimization-model/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "fe0c5210050a",
+      "username": "weiqun.wang",
+      "comment": "re-endable autoscaling in dev",
+      "files": [
+        "ml-complete-optimization-model/cloud-formation.template.yml",
+        "ml-complete-optimization-model/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "497fbbb6cd18",
+      "username": "weiqun.wang",
+      "comment": "fix dev update autoscaling issue",
+      "files": [
+        "ml-complete-optimization-model/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "5142fceedb92",
+      "username": "weiqun.wang",
+      "comment": "disable auto scaling for secondary variant",
+      "files": [
+        "ml-complete-optimization-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "4febf200af8c",
+      "username": "tibor.olah",
+      "comment": "trend s3 access logging",
+      "files": [
+        "feasibility-elb-access-logs/cloud-formation.template.yml",
+        "feasibility-trend-s3/cloud-formation.template.yml",
+        "feasibility-trend-s3/group_vars/dev.yml",
+        "feasibility-trend-s3/group_vars/production.yml",
+        "feasibility-trend-s3/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "b50d9944b5a7",
+      "username": "weiqun.wang",
+      "comment": "rename secondary variant",
+      "files": [
+        "ml-complete-optimization-model/group_vars/all.yml",
+        "ml-complete-optimization-model/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "c723c7d27409",
+      "username": "weiqun.wang",
+      "comment": "Add a second dev endpoint variant so c6i and c7i can scale on separate policies.",
+      "files": [
+        "ml-complete-optimization-model/cloud-formation.template.yml",
+        "ml-complete-optimization-model/group_vars/all.yml",
+        "ml-complete-optimization-model/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "ee3b69bafe08",
+      "username": "weiqun.wang",
+      "comment": "fix typo",
+      "files": [
+        "ml-complete-optimization-model/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "0124a146b17b",
+      "username": "weiqun.wang",
+      "comment": "try c7i instance in dev",
+      "files": [
+        "ml-complete-optimization-model/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "198002c5ad63",
+      "username": "lambert.lesko",
+      "comment": "Decommissioning http listeners from ae services (#712)",
+      "files": [
+        "ae-allocation-engine/cloud-formation.template.yml",
+        "ae-allocation-engine/group_vars/all.yml",
+        "ae-client-services-adapter/cloud-formation.template.yml",
+        "ae-client-services-adapter/group_vars/all.yml",
+        "ae-drop-service/cloud-formation.template.yml",
+        "ae-fake-nova/cloud-formation.template.yml",
+        "ae-fake-nova/group_vars/all.yml",
+        "ae-prioritization-engine/cloud-formation.template.yml",
+        "ae-prioritization-engine/group_vars/all.yml",
+        "ae-quota-group-translator/cloud-formation.template.yml",
+        "ae-quota-group-translator/group_vars/all.yml",
+        "ae-traffic-control/cloud-formation.template.yml",
+        "ae-transaction-manager/cloud-formation.template.yml",
+        "ae-transaction-manager/group_vars/all.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "b8b30263c1b2",
+      "username": "61739584+richardsebok",
+      "comment": "Merge pull request #670 from dynata/ST-4727",
+      "files": [],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "caf252661990",
+      "username": "laszlo.csontos",
+      "comment": "[FAI-536] add athena_results_kms_key_arn",
+      "files": [
+        "ml-model-drift-monitor/group_vars/all.yml",
+        "ml-model-drift-monitor/group_vars/production.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DKQuotaRestJ21",
+      "version": "ac43b7519dcf",
+      "username": "sajak.upadhyaya",
+      "comment": "[FAI-603] access logs setup for s3 resources",
+      "files": [
+        "ml-data-capture-bucket/cloud-formation.template.yml",
+        "ml-data-capture-bucket/group_vars/all.yml",
+        "ml-fai-sagemaker-mlflow-server/cloud-formation.template.yml",
+        "ml-fai-sagemaker-mlflow-server/group_vars/all.yml",
+        "ml-fulfillment-ai-sagemaker-studio-domain/cloud-formation.template.yml",
+        "ml-fulfillment-ai-sagemaker-studio-domain/group_vars/all.yml",
+        "ml-model-drift-monitor/cloud-formation.template.yml",
+        "ml-model-drift-monitor/group_vars/all.yml",
+        "ml-reconciliation-model-service/cloud-formation.template.yml",
+        "ml-reconciliation-model-service/group_vars/all.yml"
+      ],
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DetailsEditorRestJ21",
+      "version": "fa428152a5cd",
+      "username": "bence.csepe",
+      "comment": "[NXS-14217] MS - DetailsEditorRest - bump dependencies (#5658)",
+      "files": [
+        "project/DetailsEditorRest/build.gradle"
+      ],
+      "deployedAt": "20261123T204544+0000"
+    },
+    {
+      "service": "DedupeRestJ21",
+      "version": "0e09f1058b5a",
+      "username": "bence.csepe",
+      "comment": "[NXS-14216] MS - DedupeRest - bump dependencies (#5657)",
+      "files": [
+        "project/DedupeRest/build.gradle"
+      ],
+      "deployedAt": "20261123T203124+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "b29a63662835",
+      "username": "weiqun.wang",
+      "comment": "adjust autoscaling policy",
+      "files": [
+        "ml-survey-guard-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20261123T151618+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "7977344bb327",
+      "username": "weiqun.wang",
+      "comment": "[FAI-298] re-enable prod autoscaling and change prod instance to c6i",
+      "files": [
+        "ml-survey-guard-model/cloud-formation.template.yml",
+        "ml-survey-guard-model/group_vars/production.yml"
+      ],
+      "deployedAt": "20261123T151618+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "version": "ac592957c725",
+      "username": "gandriys",
+      "comment": "Merge pull request #709 from dynata/DN-4600-route-value-set-export-values-through-the-gateway",
+      "files": [],
+      "deployedAt": "20261123T151618+0000"
+    }
+  ],
+  "qaDeployServices": [
+    {
+      "service": "DKQuotaRestJ21",
+      "commits": 25,
+      "latestTicket": "NXS-14218",
+      "latestComment": "[NXS-14218] MS - DKQuotaRest - bump dependencies (#5671)",
+      "deployedAt": "20261123T211342+0000"
+    },
+    {
+      "service": "DetailsEditorRestJ21",
+      "commits": 2,
+      "latestTicket": "NXS-14217",
+      "latestComment": "[NXS-14217] MS - DetailsEditorRest - bump dependencies (#5658)",
+      "deployedAt": "20261123T204544+0000"
+    },
+    {
+      "service": "DedupeRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14216",
+      "latestComment": "[NXS-14216] MS - DedupeRest - bump dependencies (#5657)",
+      "deployedAt": "20261123T203124+0000"
+    },
+    {
+      "service": "ProjectEventForwarderJ21",
+      "commits": 6,
+      "latestTicket": "",
+      "latestComment": "adjust autoscaling policy",
+      "deployedAt": "20261123T151618+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "commits": 1,
+      "latestTicket": "",
+      "latestComment": "[PAC-936] EOS - SC - Manual reward - ID Upload Failure Reason Unclear (#5773)",
+      "deployedAt": "20261123T150030+0000"
+    },
+    {
+      "service": "DKProjectRestJ21",
+      "commits": 2,
+      "latestTicket": "NXS-12260",
+      "latestComment": "[NXS-12260] Test fix",
+      "deployedAt": "20261123T143741+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "commits": 1,
+      "latestTicket": "",
+      "latestComment": "[PAC-915] ProjectRest - some case in project reevaluateStatus don't effect on PR",
+      "deployedAt": "20261123T131253+0000"
+    },
+    {
+      "service": "DemandApi",
+      "commits": 3,
+      "latestTicket": "",
+      "latestComment": "[PAC-921] DemandApi - ProjectAutomation - merge project translators (#5753)",
+      "deployedAt": "20261123T122835+0000"
+    },
+    {
+      "service": "ProjectAutomationApi",
+      "commits": 1,
+      "latestTicket": "",
+      "latestComment": "[FAI-536] ml-alert-topics: create MLAlertTopicNonUrgent-dev without a subscripti",
+      "deployedAt": "20261123T122537+0000"
+    },
+    {
+      "service": "NexusApiJ21",
+      "commits": 4,
+      "latestTicket": "NXS-14572",
+      "latestComment": "[NXS-14572] MS | NexusApi | add feature toggle (default off) for status transiti",
+      "deployedAt": "20261123T112219+0000"
+    },
+    {
+      "service": "QuotaGroupSourcesRestJ21",
+      "commits": 2,
+      "latestTicket": "NXS-14525",
+      "latestComment": "[NXS-14525] fix tests",
+      "deployedAt": "20261123T102805+0000"
+    },
+    {
+      "service": "ReconciliationRestJ21",
+      "commits": 2,
+      "latestTicket": "",
+      "latestComment": "[DN-4600] Expose POST valueSet processUpload on the project-backend-plus API gat",
+      "deployedAt": "20261123T085547+0000"
+    },
+    {
+      "service": "NexusApiUI",
+      "commits": 1,
+      "latestTicket": "NXS-14221",
+      "latestComment": "[NXS-14221] MS - NexusApiUI - bump dependencies (#5673)",
+      "deployedAt": "20261123T084544+0000"
+    },
+    {
+      "service": "AlertTriggerRestJ21",
+      "commits": 1,
+      "latestTicket": "NXS-14215",
+      "latestComment": "[NXS-14215] MS - AlertTriggerRest - bump dependencies (#5656)",
+      "deployedAt": "20261123T071438+0000"
+    }
+  ],
+  "clusters": [
+    {
+      "label": "assert_fail",
+      "display": "assertion Condition not satisfied",
+      "count": 2,
+      "newCount": 2,
+      "sample": "",
+      "why": "Spock assertion failed (fixture or response shape)"
+    }
+  ],
+  "failures": [
+    {
+      "name": "change order flow: request, evaluation, block traffic, approve",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.QuotaGroup.ChangeOrderFlowTestSteps",
+      "newFailure": true,
+      "area": "QuotaGroup",
+      "cluster": "assert_fail",
+      "message": "Condition failed with Exception:",
+      "detailsExcerpt": "Condition failed with Exception: WaitUtil.waitFor(45).until({ changeOrder.getAudienceChangeStatus(quotaGroupId) == null ? Boolean.TRUE : null }) | | | | | java.lang.RuntimeException: Timeout after waiting 45 seconds: Condition never returned a non-null result | | at com.dynata.rest.gateway.nexusapi.rest.tests.utils.WaitUtil.until(WaitUtil.java:74) | | at com.dynata.rest.gateway.nexusapi.rest.test\u2026"
+    },
+    {
+      "name": "Saving nested segmented conditions with a new representation clears hidden when that segment receives quota above zero",
+      "classname": "com.dynata.rest.gateway.nexusapi.rest.tests.steps.Segment.SegmentHiddenFlagRegressionTestSteps",
+      "newFailure": true,
+      "area": "Segment",
+      "cluster": "assert_fail",
+      "message": "Condition not satisfied:",
+      "detailsExcerpt": "Condition not satisfied: target.quota > 0 | | | | 0 false <com.dynata.nexus.api.model.quotagroup.quota.SegmentAttributes@7b0d42b6 segmentId=122 requestedQuota=0 soldQuota=0 quota=0 percent=0.0 autoClose=true hidden=false status=OPEN actualTCStatus=com.dynata.nexus.api.model.quotagroup.trafficcontrol.ActualTCStatus@6a73f164 tolerancePercent=null> Representation change should assign requested quota\u2026"
+    }
+  ],
+  "rulesNutshell": {
+    "headline": "2 new failures in QuotaGroup",
+    "tone": "warn",
+    "severity": "low",
+    "bullets": [
+      "2\u00d7 assertion Condition not satisfied",
+      "Change NXS-14576: gergely.gimesi \u00b7 Segment \u00b7 1 overlapping new fails",
+      "Change NXS-14576: gergely.gimesi \u00b7 Segment \u00b7 1 overlapping new fails"
+    ],
+    "investigation": "New fails: 2\u00d7 assertion Condition not satisfied. Likely related to NXS-14576 gergely.gimesi `ccfc31fdc204` (Segment, 1 new fails in overlap).",
+    "detail": {
+      "investigation": "2 of 2 unmuted failures are new since the prior build (#3.0.2772, 0 fails). Failure types (new-first): (1) 2\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: QuotaGroup (1), Segment (1). Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 14 service(s) (52 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: QuotaGroup: change order flow: request, evaluation, block traffic, approve [assertion Condition not satisfied]; Segment: Saving nested segmented conditions with a new representation clears hidden when that segme [assertion Condition not satisfied].",
+      "bullets": [
+        "2\u00d7 assertion Condition not satisfied",
+        "Change NXS-14576: gergely.gimesi \u00b7 Segment \u00b7 1 overlapping new fails",
+        "Change NXS-14576: gergely.gimesi \u00b7 Segment \u00b7 1 overlapping new fails",
+        "NXS-14576 ccfc31fdc204 by gergely.gimesi \u2192 areas Segment (1 new fails) \u00b7 SegmentDetailsHelper.groovy, SegmentsNestingWorkflowTestSteps.groovy",
+        "NXS-14576 cfa330a74750 by gergely.gimesi \u2192 areas Segment (1 new fails) \u00b7 SegmentDetailsHelper.groovy, SegmentsNestingWorkflowTestSteps.groovy",
+        "[QA deploy: DKQuotaRestJ21] NXS-14218 (25 commits) \u2014 [NXS-14218] MS - DKQuotaRest - bump dependencies (#5671)",
+        "[QA deploy: DetailsEditorRestJ21] NXS-14217 (2 commits) \u2014 [NXS-14217] MS - DetailsEditorRest - bump dependencies (#5658)",
+        "[QA deploy: DedupeRestJ21] NXS-14216 (1 commit) \u2014 [NXS-14216] MS - DedupeRest - bump dependencies (#5657)",
+        "[QA deploy: ProjectEventForwarderJ21]  (6 commits) \u2014 adjust autoscaling policy",
+        "[QA deploy: ManualCreditJ21]  (1 commit) \u2014 [PAC-936] EOS - SC - Manual reward - ID Upload Failure Reason Unclear (#5773)"
+      ],
+      "newFailureAreas": [
+        {
+          "area": "QuotaGroup",
+          "newCount": 1
+        },
+        {
+          "area": "Segment",
+          "newCount": 1
+        }
+      ],
+      "likelyCauses": [
+        {
+          "version": "ccfc31fdc204",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-14576",
+          "comment": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "areas": [
+            "Segment"
+          ],
+          "hitNewFailures": 1,
+          "files": [
+            "SegmentDetailsHelper.groovy",
+            "SegmentsNestingWorkflowTestSteps.groovy"
+          ]
+        },
+        {
+          "version": "cfa330a74750",
+          "username": "gergely.gimesi",
+          "ticket": "NXS-14576",
+          "comment": "[NXS-14576] MS - assert explicit nested cell and parameter percents",
+          "areas": [
+            "Segment"
+          ],
+          "hitNewFailures": 1,
+          "files": [
+            "SegmentDetailsHelper.groovy",
+            "SegmentsNestingWorkflowTestSteps.groovy"
+          ]
+        }
+      ]
+    },
+    "suspectCommits": [
+      {
+        "version": "cfa330a74750",
+        "username": "gergely.gimesi",
+        "comment": "[NXS-14576] MS - assert explicit nested cell and parameter percents",
+        "ticket": "NXS-14576",
+        "areas": [
+          "Segment"
+        ]
+      },
+      {
+        "version": "ccfc31fdc204",
+        "username": "gergely.gimesi",
+        "comment": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+        "ticket": "NXS-14576",
+        "areas": [
+          "Segment"
+        ]
+      }
+    ],
+    "qaDeploySuspects": [
+      {
+        "service": "DKQuotaRestJ21",
+        "version": "1ba02bd5d4b2",
+        "username": "bence.csepe",
+        "comment": "[NXS-14218] MS - DKQuotaRest - bump dependencies (#5671)",
+        "ticket": "NXS-14218",
+        "deployedAt": "20261123T211342+0000",
+        "files": [
+          "build.gradle"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DKQuotaRestJ21",
+        "version": "2182f218075f",
+        "username": "weiqun.wang",
+        "comment": "update dev instanct to test",
+        "ticket": "",
+        "deployedAt": "20261123T211342+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "dev.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DKQuotaRestJ21",
+        "version": "5d327271b2e6",
+        "username": "weiqun.wang",
+        "comment": "disable dev autoscaling to update instance",
+        "ticket": "",
+        "deployedAt": "20261123T211342+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "dev.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DKQuotaRestJ21",
+        "version": "07c73962a720",
+        "username": "weiqun.wang",
+        "comment": "try ml.c6i.xlarge to test",
+        "ticket": "",
+        "deployedAt": "20261123T211342+0000",
+        "files": [
+          "dev.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DKQuotaRestJ21",
+        "version": "678d9bdda5e0",
+        "username": "matt.spencer",
+        "comment": "[DQI-4766] Added update replace policy to Fraud-UI cloud formation template. Environments were already set up.",
+        "ticket": "",
+        "deployedAt": "20261123T211342+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DKQuotaRestJ21",
+        "version": "bee7c39ce3ed",
+        "username": "weiqun.wang",
+        "comment": "adjust scaling targe value for testing",
+        "ticket": "",
+        "deployedAt": "20261123T211342+0000",
+        "files": [
+          "dev.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DKQuotaRestJ21",
+        "version": "af07a40e1fb4",
+        "username": "lambert.lesko",
+        "comment": "adding production buckets to the config (#715)",
+        "ticket": "",
+        "deployedAt": "20261123T211342+0000",
+        "files": [
+          "production.yml",
+          "production.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DKQuotaRestJ21",
+        "version": "239b43062efa",
+        "username": "adam.veres",
+        "comment": "FEAS-1676 Grant production reindexer access to respondent-os-1-production",
+        "ticket": "",
+        "deployedAt": "20261123T211342+0000",
+        "files": [
+          "production.yml",
+          "production.json"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DKQuotaRestJ21",
+        "version": "47b33b7d2fc0",
+        "username": "bresalio.nagy",
+        "comment": "[AE-7786] [drop-service] fix with roles",
+        "ticket": "",
+        "deployedAt": "20261123T211342+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "all.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DKQuotaRestJ21",
+        "version": "c9d27d02fd32",
+        "username": "bresalio.nagy",
+        "comment": "[AE-7786] [drop-service] fix",
+        "ticket": "",
+        "deployedAt": "20261123T211342+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      }
+    ]
   },
   "contractDrift": {
     "newCount": 3,

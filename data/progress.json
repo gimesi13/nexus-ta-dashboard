@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-11-23T05:05Z",
+  "generatedAt": "2026-11-24T03:12Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-11-17",
-      "to": "2026-11-23",
-      "featuresAdded": 7,
-      "casesAdded": 7,
+      "from": "2026-11-18",
+      "to": "2026-11-24",
+      "featuresAdded": 11,
+      "casesAdded": 11,
       "areasTouched": 2,
       "ticketsTouched": 2,
       "byType": {
-        "Validation": 1,
+        "Workflow": 5,
         "Other": 6
       },
       "byArea": [
@@ -21,8 +21,8 @@
           "featuresAdded": 6
         },
         {
-          "area": "Communication",
-          "featuresAdded": 1
+          "area": "Segment",
+          "featuresAdded": 5
         }
       ],
       "tickets": [
@@ -33,13 +33,133 @@
           "latestDate": "2026-11-19"
         },
         {
-          "key": "NXS-14454",
-          "featuresAdded": 1,
-          "casesAdded": 1,
-          "latestDate": "2026-11-17"
+          "key": "NXS-14576",
+          "featuresAdded": 5,
+          "casesAdded": 5,
+          "latestDate": "2026-11-23"
         }
       ],
       "additions": [
+        {
+          "name": "Custom nested segment percents are kept when the total quota is raised",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "QUOTA",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20the%20total%20quota%20is%20raised"
+        },
+        {
+          "name": "Custom nested segment percents are kept when flat segments are updated with a new desired total",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "QUOTA",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20flat%20segments%20are%20updated%20with%20a%20new%20desired%20total"
+        },
+        {
+          "name": "Custom nested segment percents are kept when another parameter's percents are changed",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20another%20parameter%27s%20percents%20are%20changed"
+        },
+        {
+          "name": "Custom nested segment percents are kept when a segmentation parameter is deleted",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20a%20segmentation%20parameter%20is%20deleted"
+        },
+        {
+          "name": "Custom nested segment percents are kept when a segmentation parameter is added",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20a%20segmentation%20parameter%20is%20added"
+        },
         {
           "name": "undeclared client errors are ignored",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
@@ -147,39 +267,19 @@
           "ignored": false,
           "inventoryHref": "inventory.html?q=a%20patch%20override%20is%20not%20reported%20as%20a%20post",
           "gone": true
-        },
-        {
-          "name": "Communication is rejected when the template is blank",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationValidationTestSteps.groovy",
-          "date": "2026-11-17",
-          "author": "Gergely Gimesi",
-          "subject": "[NXS-14454] Reject a blank communication template",
-          "commit": "5ebf9cef0d",
-          "tickets": [
-            "NXS-14454"
-          ],
-          "area": "Communication",
-          "spec": "CommunicationValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "COMMUNICATION",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20template%20is%20blank"
         }
       ]
     },
     "14d": {
-      "from": "2026-11-10",
-      "to": "2026-11-23",
-      "featuresAdded": 10,
-      "casesAdded": 10,
-      "areasTouched": 2,
-      "ticketsTouched": 3,
+      "from": "2026-11-11",
+      "to": "2026-11-24",
+      "featuresAdded": 15,
+      "casesAdded": 15,
+      "areasTouched": 3,
+      "ticketsTouched": 4,
       "byType": {
         "Validation": 3,
+        "Workflow": 5,
         "Query": 1,
         "Other": 6
       },
@@ -187,6 +287,10 @@
         {
           "area": "unknown",
           "featuresAdded": 6
+        },
+        {
+          "area": "Segment",
+          "featuresAdded": 5
         },
         {
           "area": "Communication",
@@ -199,6 +303,12 @@
           "featuresAdded": 6,
           "casesAdded": 6,
           "latestDate": "2026-11-19"
+        },
+        {
+          "key": "NXS-14576",
+          "featuresAdded": 5,
+          "casesAdded": 5,
+          "latestDate": "2026-11-23"
         },
         {
           "key": "NXS-14435",
@@ -214,6 +324,126 @@
         }
       ],
       "additions": [
+        {
+          "name": "Custom nested segment percents are kept when the total quota is raised",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "QUOTA",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20the%20total%20quota%20is%20raised"
+        },
+        {
+          "name": "Custom nested segment percents are kept when flat segments are updated with a new desired total",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "QUOTA",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20flat%20segments%20are%20updated%20with%20a%20new%20desired%20total"
+        },
+        {
+          "name": "Custom nested segment percents are kept when another parameter's percents are changed",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20another%20parameter%27s%20percents%20are%20changed"
+        },
+        {
+          "name": "Custom nested segment percents are kept when a segmentation parameter is deleted",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20a%20segmentation%20parameter%20is%20deleted"
+        },
+        {
+          "name": "Custom nested segment percents are kept when a segmentation parameter is added",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20a%20segmentation%20parameter%20is%20added"
+        },
         {
           "name": "undeclared client errors are ignored",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
@@ -407,14 +637,15 @@
       ]
     },
     "30d": {
-      "from": "2026-10-25",
-      "to": "2026-11-23",
-      "featuresAdded": 10,
-      "casesAdded": 10,
-      "areasTouched": 2,
-      "ticketsTouched": 3,
+      "from": "2026-10-26",
+      "to": "2026-11-24",
+      "featuresAdded": 15,
+      "casesAdded": 15,
+      "areasTouched": 3,
+      "ticketsTouched": 4,
       "byType": {
         "Validation": 3,
+        "Workflow": 5,
         "Query": 1,
         "Other": 6
       },
@@ -422,6 +653,10 @@
         {
           "area": "unknown",
           "featuresAdded": 6
+        },
+        {
+          "area": "Segment",
+          "featuresAdded": 5
         },
         {
           "area": "Communication",
@@ -434,6 +669,12 @@
           "featuresAdded": 6,
           "casesAdded": 6,
           "latestDate": "2026-11-19"
+        },
+        {
+          "key": "NXS-14576",
+          "featuresAdded": 5,
+          "casesAdded": 5,
+          "latestDate": "2026-11-23"
         },
         {
           "key": "NXS-14435",
@@ -449,6 +690,126 @@
         }
       ],
       "additions": [
+        {
+          "name": "Custom nested segment percents are kept when the total quota is raised",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "QUOTA",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20the%20total%20quota%20is%20raised"
+        },
+        {
+          "name": "Custom nested segment percents are kept when flat segments are updated with a new desired total",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "QUOTA",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20flat%20segments%20are%20updated%20with%20a%20new%20desired%20total"
+        },
+        {
+          "name": "Custom nested segment percents are kept when another parameter's percents are changed",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20another%20parameter%27s%20percents%20are%20changed"
+        },
+        {
+          "name": "Custom nested segment percents are kept when a segmentation parameter is deleted",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20a%20segmentation%20parameter%20is%20deleted"
+        },
+        {
+          "name": "Custom nested segment percents are kept when a segmentation parameter is added",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20a%20segmentation%20parameter%20is%20added"
+        },
         {
           "name": "undeclared client errors are ignored",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
@@ -642,16 +1003,16 @@
       ]
     },
     "90d": {
-      "from": "2026-08-26",
-      "to": "2026-11-23",
-      "featuresAdded": 93,
-      "casesAdded": 95,
-      "areasTouched": 3,
-      "ticketsTouched": 8,
+      "from": "2026-08-27",
+      "to": "2026-11-24",
+      "featuresAdded": 98,
+      "casesAdded": 100,
+      "areasTouched": 4,
+      "ticketsTouched": 9,
       "byType": {
         "CRUD": 5,
         "Validation": 23,
-        "Workflow": 8,
+        "Workflow": 13,
         "Query": 2,
         "Other": 55
       },
@@ -667,6 +1028,10 @@
         {
           "area": "unknown",
           "featuresAdded": 6
+        },
+        {
+          "area": "Segment",
+          "featuresAdded": 5
         }
       ],
       "tickets": [
@@ -695,6 +1060,12 @@
           "latestDate": "2026-11-19"
         },
         {
+          "key": "NXS-14576",
+          "featuresAdded": 5,
+          "casesAdded": 5,
+          "latestDate": "2026-11-23"
+        },
+        {
           "key": "NXS-14435",
           "featuresAdded": 3,
           "casesAdded": 3,
@@ -720,6 +1091,126 @@
         }
       ],
       "additions": [
+        {
+          "name": "Custom nested segment percents are kept when the total quota is raised",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "QUOTA",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20the%20total%20quota%20is%20raised"
+        },
+        {
+          "name": "Custom nested segment percents are kept when flat segments are updated with a new desired total",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "QUOTA",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20flat%20segments%20are%20updated%20with%20a%20new%20desired%20total"
+        },
+        {
+          "name": "Custom nested segment percents are kept when another parameter's percents are changed",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20another%20parameter%27s%20percents%20are%20changed"
+        },
+        {
+          "name": "Custom nested segment percents are kept when a segmentation parameter is deleted",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20a%20segmentation%20parameter%20is%20deleted"
+        },
+        {
+          "name": "Custom nested segment percents are kept when a segmentation parameter is added",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-23",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - regression tests: custom nested segment percents are kept on total quota and parameter changes",
+          "commit": "ccfc31fdc2",
+          "tickets": [
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20a%20segmentation%20parameter%20is%20added"
+        },
         {
           "name": "undeclared client errors are ignored",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
@@ -2651,8 +3142,8 @@
     },
     {
       "weekStart": "2026-11-23",
-      "featuresAdded": 0,
-      "casesAdded": 0
+      "featuresAdded": 5,
+      "casesAdded": 5
     }
   ],
   "snapshots": [
@@ -2679,34 +3170,34 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-11-23",
-      "features": 803,
-      "cases": 1544,
+      "date": "2026-11-24",
+      "features": 808,
+      "cases": 1549,
       "specs": 115,
       "areas": 16,
-      "coveragePercent": 93.7,
+      "coveragePercent": 100.0,
       "tested": 269,
-      "untested": 18,
-      "nonDeprecated": 287
+      "untested": 0,
+      "nonDeprecated": 269
     }
   ],
   "coverage": {
-    "currentPercent": 93.7,
+    "currentPercent": 100.0,
     "tested": 269,
-    "untested": 18,
+    "untested": 0,
     "delta14d": {
-      "currentPercent": 93.7,
+      "currentPercent": 100.0,
       "priorPercent": 78.0,
-      "deltaPoints": 15.7,
+      "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-11-23",
+      "currentDate": "2026-11-24",
       "testedDelta": 60,
-      "untestedDelta": -41
+      "untestedDelta": -59
     }
   },
   "inventory": {
-    "features": 803,
-    "cases": 1544,
+    "features": 808,
+    "cases": 1549,
     "specs": 115,
     "areas": 16
   }
