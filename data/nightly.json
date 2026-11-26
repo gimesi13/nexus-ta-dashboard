@@ -1667,32 +1667,24 @@
     "SurveyValidationTestSteps::Base URL with tags rejects an empty tag list": "passed"
   },
   "nutshell": {
-    "headline": "1 continuing failure(s) \u2014 no new unmuted fails",
+    "headline": "1 continuing Segment assertion failure; no new failures and no infra errors.",
     "tone": "warn",
     "severity": "low",
     "cause": "test",
-    "causeText": "No build changes \u2014 likely test/data or environment flakiness. NOTE: 6 service(s) were deployed to QA in this window (ManualCreditJ21, ClientRestJ21, DemandApi, ProjectAutomationApi, QuotaDetailsRestJ21\u2026) and were not evaluated against the failing endpoints \u2014 a backend regression cannot be ruled out (a TA-module path match is not proof of a product cause).",
-    "investigation": "Failures: 1\u00d7 assertion Condition not satisfied.",
+    "causeText": "The lone failure is a continuing Spock assertion in the Segment quota test (expected target.quota > 0 but got 0) \u2014 an assertion/response-shape issue, not infra \u2014 and no new failures appeared.",
+    "investigation": "No new failures; the single continuing failure is a Segment Spock assertion (not a QA timeout/502/504) that predates tonight's QA deploys.",
     "bullets": [
-      "1\u00d7 assertion Condition not satisfied"
+      "1\u00d7 assertion 'Condition not satisfied' \u2014 Segment, continuing from prior runs (not new)",
+      "Contract drift (separate lane): 3 endpoints now return undocumented 500s"
     ],
     "detail": {
-      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: Segment (1). 6 service(s) (84 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Segment: Saving nested segmented conditions with a new representation clears hidden when that segme [assertion Condition not satisfied].",
+      "investigation": "The only failure is a continuing Spock assertion in SegmentHiddenFlagRegressionTestSteps where 'target.quota > 0' fails because the segment came back with quota=0 \u2014 an assertion/response-shape mismatch, not infra (no SocketTimeout/502/504). It is not new (prior build 3.0.2774 also ended with 1 failure), so no QA-deploy commit is implicated even though DemandApi's PAC-940 'Segment quota update' touches the same area.",
       "bullets": [
-        "1\u00d7 assertion Condition not satisfied",
-        "[QA deploy: ManualCreditJ21] NXS-14593 (25 commits) \u2014 [NXS-14593] MS | ManualCreditRest | modify RewardCommunicationService to use HTT",
-        "[QA deploy: ClientRestJ21] NXS-14223 (25 commits) \u2014 [NXS-14223] MS - ClientRest - bump dependencies (#5679)",
-        "[QA deploy: DemandApi]  (2 commits) \u2014 [PAC-940] DemandApi - Segment quota update (#5782)",
-        "[QA deploy: ProjectAutomationApi]  (8 commits) \u2014 PAC-930: Using project's origin when creating master project (#5777)",
-        "[QA deploy: QuotaDetailsRestJ21] NXS-14227 (22 commits) \u2014 [NXS-14227] MS - QuotaDetailsRest - bump dependencies (#5683)",
-        "[QA deploy: ProjectRestJ16]  (2 commits) \u2014 ProjectRest - applyProjectStatusTransitionIfApplicable don't affect on PROGRAMMA"
+        "1\u00d7 assertion 'Condition not satisfied' in Segment / SegmentHiddenFlagRegressionTestSteps \u2014 expected target.quota > 0, got 0; continuing, not new",
+        "No new failures (newFailed=0) and no infra timeouts/5xx; the failure predates the QA deploy window, so no commit or author is blamed",
+        "Contract drift (separate lane): 3 new undocumented 500s \u2014 PATCH endlinkSecurity, POST quotaGroups/search/ids, POST quotaGroups/search/labels"
       ],
-      "newFailureAreas": [
-        {
-          "area": "Segment",
-          "newCount": 1
-        }
-      ],
+      "newFailureAreas": [],
       "likelyCauses": []
     },
     "clusters": [
@@ -1874,8 +1866,8 @@
         "deployedAt": "20261125T070935+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-11-26T03:12Z",
+    "source": "llm",
+    "generatedAt": "2026-11-26T03:14:02Z",
     "buildNumber": "3.0.2775",
     "buildId": "9714413",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9714413",
