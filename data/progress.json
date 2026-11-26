@@ -1,37 +1,26 @@
 {
-  "generatedAt": "2026-11-25T03:09Z",
+  "generatedAt": "2026-11-26T03:12Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-11-19",
-      "to": "2026-11-25",
-      "featuresAdded": 11,
-      "casesAdded": 11,
-      "areasTouched": 2,
-      "ticketsTouched": 2,
+      "from": "2026-11-20",
+      "to": "2026-11-26",
+      "featuresAdded": 5,
+      "casesAdded": 5,
+      "areasTouched": 1,
+      "ticketsTouched": 1,
       "byType": {
-        "Workflow": 5,
-        "Other": 6
+        "Workflow": 5
       },
       "byArea": [
-        {
-          "area": "unknown",
-          "featuresAdded": 6
-        },
         {
           "area": "Segment",
           "featuresAdded": 5
         }
       ],
       "tickets": [
-        {
-          "key": "NXS-13695",
-          "featuresAdded": 6,
-          "casesAdded": 6,
-          "latestDate": "2026-11-19"
-        },
         {
           "key": "NXS-14576",
           "featuresAdded": 5,
@@ -159,128 +148,19 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20a%20segmentation%20parameter%20is%20added"
-        },
-        {
-          "name": "undeclared client errors are ignored",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
-          "date": "2026-11-19",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
-          "commit": "2748c32975",
-          "tickets": [
-            "NXS-13695"
-          ],
-          "area": "unknown",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=undeclared%20client%20errors%20are%20ignored",
-          "gone": true
-        },
-        {
-          "name": "routes missing from the unified snapshot are ignored",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
-          "date": "2026-11-19",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
-          "commit": "2748c32975",
-          "tickets": [
-            "NXS-13695"
-          ],
-          "area": "unknown",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=routes%20missing%20from%20the%20unified%20snapshot%20are%20ignored",
-          "gone": true
-        },
-        {
-          "name": "calls outside the Nexus gateway are ignored",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
-          "date": "2026-11-19",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
-          "commit": "2748c32975",
-          "tickets": [
-            "NXS-13695"
-          ],
-          "area": "unknown",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=calls%20outside%20the%20Nexus%20gateway%20are%20ignored",
-          "gone": true
-        },
-        {
-          "name": "an empty body on a declared status is kept",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
-          "date": "2026-11-19",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
-          "commit": "2748c32975",
-          "tickets": [
-            "NXS-13695"
-          ],
-          "area": "unknown",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=an%20empty%20body%20on%20a%20declared%20status%20is%20kept",
-          "gone": true
-        },
-        {
-          "name": "a server error is kept and the line carries the status",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
-          "date": "2026-11-19",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
-          "commit": "2748c32975",
-          "tickets": [
-            "NXS-13695"
-          ],
-          "area": "unknown",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=a%20server%20error%20is%20kept%20and%20the%20line%20carries%20the%20status",
-          "gone": true
-        },
-        {
-          "name": "a patch override is not reported as a post",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/utils/OpenApiContractValidatorSpec.groovy",
-          "date": "2026-11-19",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-13695 contract-drift gate: validate X-HTTP-Method-Override calls as their real method, skip out-of-scope paths and undeclared 4xx, status in each baseline line",
-          "commit": "2748c32975",
-          "tickets": [
-            "NXS-13695"
-          ],
-          "area": "unknown",
-          "type": "Other",
-          "cases": 1,
-          "tags": [],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=a%20patch%20override%20is%20not%20reported%20as%20a%20post",
-          "gone": true
         }
       ]
     },
     "14d": {
-      "from": "2026-11-12",
-      "to": "2026-11-25",
-      "featuresAdded": 15,
-      "casesAdded": 15,
+      "from": "2026-11-13",
+      "to": "2026-11-26",
+      "featuresAdded": 12,
+      "casesAdded": 12,
       "areasTouched": 3,
-      "ticketsTouched": 4,
+      "ticketsTouched": 3,
       "byType": {
-        "Validation": 3,
+        "Validation": 1,
         "Workflow": 5,
-        "Query": 1,
         "Other": 6
       },
       "byArea": [
@@ -294,7 +174,7 @@
         },
         {
           "area": "Communication",
-          "featuresAdded": 4
+          "featuresAdded": 1
         }
       ],
       "tickets": [
@@ -309,12 +189,6 @@
           "featuresAdded": 5,
           "casesAdded": 5,
           "latestDate": "2026-11-23"
-        },
-        {
-          "key": "NXS-14435",
-          "featuresAdded": 3,
-          "casesAdded": 3,
-          "latestDate": "2026-11-12"
         },
         {
           "key": "NXS-14454",
@@ -572,73 +446,12 @@
           ],
           "ignored": false,
           "inventoryHref": "inventory.html?q=Communication%20is%20rejected%20when%20the%20template%20is%20blank"
-        },
-        {
-          "name": "Replacing topics with an empty list is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
-          "date": "2026-11-12",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-14435 Align communication topic specs with QG-language PUT rules",
-          "commit": "6e76cf1b3c",
-          "tickets": [
-            "NXS-14435"
-          ],
-          "area": "Communication",
-          "spec": "CommunicationCRUDTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "COMMUNICATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Replacing%20topics%20with%20an%20empty%20list%20is%20rejected"
-        },
-        {
-          "name": "Project topic list is replaced with the quota group languages",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationCRUDTestSteps.groovy",
-          "date": "2026-11-12",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-14435 Align communication topic specs with QG-language PUT rules",
-          "commit": "6e76cf1b3c",
-          "tickets": [
-            "NXS-14435"
-          ],
-          "area": "Communication",
-          "spec": "CommunicationCRUDTestSteps",
-          "type": "Query",
-          "cases": 1,
-          "tags": [
-            "COMMUNICATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=Project%20topic%20list%20is%20replaced%20with%20the%20quota%20group%20languages"
-        },
-        {
-          "name": "A topic language that is not a quota group language is rejected",
-          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Communication/CommunicationRuleValidationTestSteps.groovy",
-          "date": "2026-11-12",
-          "author": "Gergely Gimesi",
-          "subject": "NXS-14435 Align communication topic specs with QG-language PUT rules",
-          "commit": "6e76cf1b3c",
-          "tickets": [
-            "NXS-14435"
-          ],
-          "area": "Communication",
-          "spec": "CommunicationRuleValidationTestSteps",
-          "type": "Validation",
-          "cases": 1,
-          "tags": [
-            "COMMUNICATION",
-            "VALIDATION"
-          ],
-          "ignored": false,
-          "inventoryHref": "inventory.html?q=A%20topic%20language%20that%20is%20not%20a%20quota%20group%20language%20is%20rejected"
         }
       ]
     },
     "30d": {
-      "from": "2026-10-27",
-      "to": "2026-11-25",
+      "from": "2026-10-28",
+      "to": "2026-11-26",
       "featuresAdded": 15,
       "casesAdded": 15,
       "areasTouched": 3,
@@ -1003,8 +816,8 @@
       ]
     },
     "90d": {
-      "from": "2026-08-28",
-      "to": "2026-11-25",
+      "from": "2026-08-29",
+      "to": "2026-11-26",
       "featuresAdded": 98,
       "casesAdded": 100,
       "areasTouched": 4,
@@ -3170,7 +2983,7 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "features": 808,
       "cases": 1549,
       "specs": 115,
@@ -3190,7 +3003,7 @@
       "priorPercent": 78.0,
       "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-11-25",
+      "currentDate": "2026-11-26",
       "testedDelta": 60,
       "untestedDelta": -59
     }

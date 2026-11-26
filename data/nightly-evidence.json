@@ -1,39 +1,236 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-25T03:09Z",
+  "generatedAt": "2026-11-26T03:12Z",
   "build": {
-    "number": "3.0.2774",
-    "buildId": "9711666",
+    "number": "3.0.2775",
+    "buildId": "9714413",
     "status": "FAILURE",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9711666",
-    "durationSec": 2320.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9714413",
+    "durationSec": 2339.0
   },
   "summary": {
     "tests": 1528,
-    "passed": 1451,
+    "passed": 1450,
     "failures": 1,
     "errors": 0,
     "skipped": 0,
-    "muted": 76,
+    "muted": 77,
     "newFailed": 0,
     "passRate": 99.9,
-    "timeSec": 2320.0
+    "timeSec": 2339.0
   },
   "prior": {
-    "buildId": "9703643",
-    "number": "3.0.2773",
+    "buildId": "9711666",
+    "number": "3.0.2774",
     "status": "FAILURE",
-    "statusText": "Tests failed: 2 (2 new), passed: 1450, muted: 76",
-    "startDate": "20261124T023304+0000",
-    "durationSec": 2310.0,
-    "failed": 2,
-    "passed": 1450,
-    "newFailed": 2
+    "statusText": "Tests failed: 1, passed: 1451, muted: 76",
+    "startDate": "20261125T023017+0000",
+    "durationSec": 2320.0,
+    "failed": 1,
+    "passed": 1451,
+    "newFailed": 0
   },
   "changes": [],
   "qaDeployChanges": [
     {
-      "service": "DynataPlusApiGateway",
+      "service": "ManualCreditJ21",
+      "version": "23009d9fe847",
+      "username": "david.nagy",
+      "comment": "[NXS-14593] MS | ManualCreditRest | modify RewardCommunicationService to use HTTPS",
+      "files": [
+        "project/ManualCreditRest/src/main/java/com/surveysampling/rest/manualcredit/dependencies/rewards/RewardCommunicationFeignClient.java"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "cebd83f0a6d1",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [traffic-control] add Dynamo access to exec role",
+      "files": [
+        "ae-traffic-control/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "67382c0b5663",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [traffic-control] add Kinesis access to exec role",
+      "files": [
+        "ae-traffic-control/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "66ecd10a36a1",
+      "username": "weiqun.wang",
+      "comment": "enabel dev autoscaling and change instance type",
+      "files": [
+        "ml-complete-optimization-model/cloud-formation.template.yml",
+        "ml-complete-optimization-model/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "17477af6ebad",
+      "username": "weiqun.wang",
+      "comment": "disable dev autoscaling",
+      "files": [
+        "ml-complete-optimization-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "c71825dec181",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [drop-service], [traffic-control] re-disable alarms in qa",
+      "files": [
+        "ae-drop-service/group_vars/qa.yml",
+        "ae-traffic-control/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "f8d7e4ffa875",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [traffic-control] enable alarms in qa",
+      "files": [
+        "ae-traffic-control/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "47161d1e8162",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [drop-service] enable alarms in qa",
+      "files": [
+        "ae-drop-service/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "d0e1408967c5",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [traffic-control] fix",
+      "files": [
+        "ae-traffic-control/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "3f39ff245d12",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [drop-service] fix",
+      "files": [
+        "ae-drop-service/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "02351d6ed724",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [drop-service] fix",
+      "files": [
+        "ae-drop-service/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "c3848492db8c",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [traffic-control] fix",
+      "files": [
+        "ae-traffic-control/group_vars/all.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "6bad10149222",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [traffic-control] DPR",
+      "files": [
+        "ae-traffic-control/cloud-formation.template.yml",
+        "ae-traffic-control/group_vars/all.yml",
+        "ae-traffic-control/group_vars/dev.yml",
+        "ae-traffic-control/group_vars/production.yml",
+        "ae-traffic-control/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "4d5022ce1e6e",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [drop-service] fix (tags)",
+      "files": [
+        "ae-drop-service/group_vars/all.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "2c934f11c40c",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [drop-service] fix env vars 2",
+      "files": [
+        "ae-drop-service/group_vars/all.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "60efcd337439",
+      "username": "bresalio.nagy",
+      "comment": "[AE-7786] [drop-service] fix env vars",
+      "files": [
+        "ae-drop-service/group_vars/all.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "046fcf8caa82",
+      "username": "gergo.hajnal",
+      "comment": "(ClaimOptionsRest) temporary remove faulty subnet",
+      "files": [
+        "dk-management-claim-option-rest/group_vars/production.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "ee54600e9cb2",
+      "username": "weiqun.wang",
+      "comment": "re-enable dev autoscaling and use ml.c7i.xlarge for PrimaryContainer",
+      "files": [
+        "ml-complete-optimization-model/cloud-formation.template.yml",
+        "ml-complete-optimization-model/group_vars/dev.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "6b5e2ba75f45",
+      "username": "weiqun.wang",
+      "comment": "disable dev autoscaling to prepare for using ml.c7i.xlarge in primary variant",
+      "files": [
+        "ml-complete-optimization-model/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
       "version": "fc12101f3e0e",
       "username": "mate.csicsek",
       "comment": "Add quotaGroups search endpoint to API and corresponding test cases",
@@ -41,382 +238,148 @@
         "project-backend-plus-api-gateway/authorizer/tests/test_route_coverage.py",
         "project-backend-plus-api-gateway/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261124T132347+0000"
+      "deployedAt": "20261125T220957+0000"
     },
     {
-      "service": "NexusApiMetaJ21",
-      "version": "e403ca0123c3",
+      "service": "ManualCreditJ21",
+      "version": "2c87319dd7bd",
+      "username": "tamas.zsoldos",
+      "comment": "DQI-4766 - Passphrase API - Potential fix to CORS failed error (#714)",
+      "files": [
+        "passphrase-api/cloud-formation.template.yml",
+        "passphrase-api/group_vars/production.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "9045cba13991",
+      "username": "ssi-hu-zoltan-beke",
+      "comment": "Merge pull request #717 from dynata/dk-auth-post-upgrade-health-timings",
+      "files": [],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "77ae03505637",
+      "username": "zoltan.beke",
+      "comment": "dk-auth: health check timings back to normal after the Keycloak 26 migration",
+      "files": [
+        "dk-auth/group_vars/all.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "24e09f64f30e",
+      "username": "ssi-hu-zoltan-beke",
+      "comment": "Merge pull request #716 from dynata/dk-auth-two-nodes",
+      "files": [],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ManualCreditJ21",
+      "version": "5a7b911af16a",
+      "username": "zoltan.beke",
+      "comment": "dk-auth: two nodes in qa and production, rolling deploys",
+      "files": [
+        "dk-auth/group_vars/all.yml",
+        "dk-auth/group_vars/production.yml",
+        "dk-auth/group_vars/qa.yml"
+      ],
+      "deployedAt": "20261125T220957+0000"
+    },
+    {
+      "service": "ClientRestJ21",
+      "version": "f8b8b37b292a",
       "username": "bence.csepe",
-      "comment": "[NXS-14222] MS - NexusApiMeta - bump dependencies (#5676)",
+      "comment": "[NXS-14223] MS - ClientRest - bump dependencies (#5679)",
       "files": [
-        "gateway/unifiedApi/NexusApiMeta/build.gradle"
+        "management/ClientRest/build.gradle"
       ],
-      "deployedAt": "20261124T132420+0000"
+      "deployedAt": "20261125T131925+0000"
     },
     {
-      "service": "NexusApiMetaJ21",
-      "version": "c9d27d02fd32",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7786] [drop-service] fix",
-      "files": [
-        "ae-drop-service/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "dab12fff481e",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7786] [drop-service-rds] prod: max_conn=3000",
-      "files": [
-        "ae-drop-service-rds/group_vars/production.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "d491fc9b9a0a",
-      "username": "bresalio.nagy",
-      "comment": "[AE-7786] [drop-service] DPR",
-      "files": [
-        "ae-drop-service/cloud-formation.template.yml",
-        "ae-drop-service/group_vars/all.yml",
-        "ae-drop-service/group_vars/dev.yml",
-        "ae-drop-service/group_vars/production.yml",
-        "ae-drop-service/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "90f240875b9d",
-      "username": "weiqun.wang",
-      "comment": "update secondary autoscaling policy",
-      "files": [
-        "ml-complete-optimization-model/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "fe0c5210050a",
-      "username": "weiqun.wang",
-      "comment": "re-endable autoscaling in dev",
-      "files": [
-        "ml-complete-optimization-model/cloud-formation.template.yml",
-        "ml-complete-optimization-model/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "497fbbb6cd18",
-      "username": "weiqun.wang",
-      "comment": "fix dev update autoscaling issue",
-      "files": [
-        "ml-complete-optimization-model/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "5142fceedb92",
-      "username": "weiqun.wang",
-      "comment": "disable auto scaling for secondary variant",
-      "files": [
-        "ml-complete-optimization-model/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "4febf200af8c",
-      "username": "tibor.olah",
-      "comment": "trend s3 access logging",
-      "files": [
-        "feasibility-elb-access-logs/cloud-formation.template.yml",
-        "feasibility-trend-s3/cloud-formation.template.yml",
-        "feasibility-trend-s3/group_vars/dev.yml",
-        "feasibility-trend-s3/group_vars/production.yml",
-        "feasibility-trend-s3/group_vars/qa.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "b50d9944b5a7",
-      "username": "weiqun.wang",
-      "comment": "rename secondary variant",
-      "files": [
-        "ml-complete-optimization-model/group_vars/all.yml",
-        "ml-complete-optimization-model/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "c723c7d27409",
-      "username": "weiqun.wang",
-      "comment": "Add a second dev endpoint variant so c6i and c7i can scale on separate policies.",
-      "files": [
-        "ml-complete-optimization-model/cloud-formation.template.yml",
-        "ml-complete-optimization-model/group_vars/all.yml",
-        "ml-complete-optimization-model/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "ee3b69bafe08",
-      "username": "weiqun.wang",
-      "comment": "fix typo",
-      "files": [
-        "ml-complete-optimization-model/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "0124a146b17b",
-      "username": "weiqun.wang",
-      "comment": "try c7i instance in dev",
-      "files": [
-        "ml-complete-optimization-model/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "198002c5ad63",
-      "username": "lambert.lesko",
-      "comment": "Decommissioning http listeners from ae services (#712)",
-      "files": [
-        "ae-allocation-engine/cloud-formation.template.yml",
-        "ae-allocation-engine/group_vars/all.yml",
-        "ae-client-services-adapter/cloud-formation.template.yml",
-        "ae-client-services-adapter/group_vars/all.yml",
-        "ae-drop-service/cloud-formation.template.yml",
-        "ae-fake-nova/cloud-formation.template.yml",
-        "ae-fake-nova/group_vars/all.yml",
-        "ae-prioritization-engine/cloud-formation.template.yml",
-        "ae-prioritization-engine/group_vars/all.yml",
-        "ae-quota-group-translator/cloud-formation.template.yml",
-        "ae-quota-group-translator/group_vars/all.yml",
-        "ae-traffic-control/cloud-formation.template.yml",
-        "ae-transaction-manager/cloud-formation.template.yml",
-        "ae-transaction-manager/group_vars/all.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "b8b30263c1b2",
-      "username": "61739584+richardsebok",
-      "comment": "Merge pull request #670 from dynata/ST-4727",
-      "files": [],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "caf252661990",
-      "username": "laszlo.csontos",
-      "comment": "[FAI-536] add athena_results_kms_key_arn",
-      "files": [
-        "ml-model-drift-monitor/group_vars/all.yml",
-        "ml-model-drift-monitor/group_vars/production.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "ac43b7519dcf",
-      "username": "sajak.upadhyaya",
-      "comment": "[FAI-603] access logs setup for s3 resources",
-      "files": [
-        "ml-data-capture-bucket/cloud-formation.template.yml",
-        "ml-data-capture-bucket/group_vars/all.yml",
-        "ml-fai-sagemaker-mlflow-server/cloud-formation.template.yml",
-        "ml-fai-sagemaker-mlflow-server/group_vars/all.yml",
-        "ml-fulfillment-ai-sagemaker-studio-domain/cloud-formation.template.yml",
-        "ml-fulfillment-ai-sagemaker-studio-domain/group_vars/all.yml",
-        "ml-model-drift-monitor/cloud-formation.template.yml",
-        "ml-model-drift-monitor/group_vars/all.yml",
-        "ml-reconciliation-model-service/cloud-formation.template.yml",
-        "ml-reconciliation-model-service/group_vars/all.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "b29a63662835",
-      "username": "weiqun.wang",
-      "comment": "adjust autoscaling policy",
-      "files": [
-        "ml-survey-guard-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "7977344bb327",
-      "username": "weiqun.wang",
-      "comment": "[FAI-298] re-enable prod autoscaling and change prod instance to c6i",
-      "files": [
-        "ml-survey-guard-model/cloud-formation.template.yml",
-        "ml-survey-guard-model/group_vars/production.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "ac592957c725",
+      "service": "ClientRestJ21",
+      "version": "8ba969a61dba",
       "username": "gandriys",
-      "comment": "Merge pull request #709 from dynata/DN-4600-route-value-set-export-values-through-the-gateway",
+      "comment": "Merge pull request #703 from dynata/DN-4600-add-the-microservices-url-generate-upload-url-to-the-gateway",
       "files": [],
-      "deployedAt": "20261124T132420+0000"
+      "deployedAt": "20261125T131925+0000"
     },
     {
-      "service": "NexusApiMetaJ21",
-      "version": "b8d9d5206c06",
-      "username": "tibor.olah",
-      "comment": "Merge pull request #710 from dynata/access-logs-redi",
-      "files": [
-        "redi-es-reindexer/cloud-formation.template.yml",
-        "redi-es-reindexer/template.yml"
-      ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "ea08057f9661",
+      "service": "ClientRestJ21",
+      "version": "929f605b419b",
       "username": "andrii.gorbatiuk",
-      "comment": "[DN-4600] Expose GET valueSet exportValues on the project-backend-plus API gateway",
+      "comment": "[DN-4600] Expose POST valueSet generateUploadUrl on the project-backend-plus API gateway",
       "files": [
         "project-backend-plus-api-gateway/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261124T132420+0000"
+      "deployedAt": "20261125T131925+0000"
     },
     {
-      "service": "NexusApiMetaJ21",
-      "version": "49a62091d858",
-      "username": "gandriys",
-      "comment": "Merge pull request #708 from dynata/DN-4600-route-value-set-process-upload-through-the-gateway",
-      "files": [],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
-      "version": "27d78f79c8b4",
-      "username": "laszlo.csontos",
-      "comment": "[FAI-536] ml-alert-topics: create MLAlertTopicNonUrgent-dev without a subscription",
+      "service": "ClientRestJ21",
+      "version": "fba921cd5874",
+      "username": "gergo.hajnal",
+      "comment": "(FeatureRest) temporary remove faulty subnet",
       "files": [
-        "ml-alert-topics/cloud-formation.template.yml",
-        "ml-model-drift-monitor/cloud-formation.template.yml",
-        "ml-model-drift-monitor/group_vars/all.yml",
-        "ml-model-drift-monitor/group_vars/production.yml"
+        "dk-management-feature-rest/group_vars/production.yml"
       ],
-      "deployedAt": "20261124T132420+0000"
+      "deployedAt": "20261125T131925+0000"
     },
     {
-      "service": "NexusApiMetaJ21",
-      "version": "47188084dd39",
-      "username": "andrii.gorbatiuk",
-      "comment": "[DN-4600] Expose POST valueSet processUpload on the project-backend-plus API gateway",
+      "service": "ClientRestJ21",
+      "version": "b2082204e688",
+      "username": "mate.gordos",
+      "comment": "Revert commenting out of alarms",
       "files": [
-        "project-backend-plus-api-gateway/cloud-formation.template.yml"
+        "respondent-compactor/template.yml"
       ],
-      "deployedAt": "20261124T132420+0000"
-    },
-    {
-      "service": "DKProjectCountersRestJ21",
-      "version": "1157bf862528",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-14075] - DKProjectCountersRest - remove unnecessary deps",
-      "files": [
-        "gateway/dk/DKProjectCountersRest/build.gradle"
-      ],
-      "deployedAt": "20261124T131752+0000"
-    },
-    {
-      "service": "DKProjectCountersRestJ21",
-      "version": "377a48ec62a9",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-14075] - DKProjectCountersRest - add springAwsMessaging 5.1.7",
-      "files": [
-        "gateway/dk/DKProjectCountersRest/build.gradle"
-      ],
-      "deployedAt": "20261124T131752+0000"
-    },
-    {
-      "service": "DKProjectCountersRestJ21",
-      "version": "0fe05f85cff5",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-14075] - DKProjectCountersRest - bump settingClient 5.1.7",
-      "files": [
-        "gateway/dk/DKProjectCountersRest/build.gradle"
-      ],
-      "deployedAt": "20261124T131752+0000"
-    },
-    {
-      "service": "DKProjectCountersRestJ21",
-      "version": "bc0c0fd880a4",
-      "username": "norbert.farkas",
-      "comment": "[ NXS-14187 ] PES1 dashboard metric",
-      "files": [
-        "nxs-pes1-dashboard/cloud-formation.template.yml"
-      ],
-      "deployedAt": "20261124T131752+0000"
+      "deployedAt": "20261125T131925+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "DynataPlusApiGateway",
-      "commits": 1,
-      "latestTicket": "",
-      "latestComment": "Add quotaGroups search endpoint to API and corresponding test cases",
-      "deployedAt": "20261124T132347+0000"
-    },
-    {
-      "service": "NexusApiMetaJ21",
+      "service": "ManualCreditJ21",
       "commits": 25,
-      "latestTicket": "NXS-14222",
-      "latestComment": "[NXS-14222] MS - NexusApiMeta - bump dependencies (#5676)",
-      "deployedAt": "20261124T132420+0000"
+      "latestTicket": "NXS-14593",
+      "latestComment": "[NXS-14593] MS | ManualCreditRest | modify RewardCommunicationService to use HTT",
+      "deployedAt": "20261125T220957+0000"
     },
     {
-      "service": "DKProjectCountersRestJ21",
+      "service": "ClientRestJ21",
       "commits": 25,
-      "latestTicket": "NXS-14075",
-      "latestComment": "[NXS-14075] - DKProjectCountersRest - remove unnecessary deps",
-      "deployedAt": "20261124T131752+0000"
-    },
-    {
-      "service": "DetailsEditorRestJ21",
-      "commits": 6,
-      "latestTicket": "NXS-14566",
-      "latestComment": "[NXS-14566] MS - DetailsEditorRest - keep hidden segment flags on structure rebu",
-      "deployedAt": "20261124T125059+0000"
-    },
-    {
-      "service": "DKExportRest",
-      "commits": 4,
-      "latestTicket": "NXS-12254",
-      "latestComment": "[NXS-12254] MS - accept trailing slash on export history (#5774)",
-      "deployedAt": "20261124T110904+0000"
-    },
-    {
-      "service": "ProjectRestJ16",
-      "commits": 5,
-      "latestTicket": "",
-      "latestComment": "[PAC-938] ProjectRest - skip project total quota recalculation for PROGRAMMATIC_",
-      "deployedAt": "20261124T104344+0000"
+      "latestTicket": "NXS-14223",
+      "latestComment": "[NXS-14223] MS - ClientRest - bump dependencies (#5679)",
+      "deployedAt": "20261125T131925+0000"
     },
     {
       "service": "DemandApi",
-      "commits": 3,
+      "commits": 2,
       "latestTicket": "",
-      "latestComment": "[PAC-937] DemandApi - SurveyUrl need contains tag",
-      "deployedAt": "20261124T091836+0000"
+      "latestComment": "[PAC-940] DemandApi - Segment quota update (#5782)",
+      "deployedAt": "20261125T121848+0000"
+    },
+    {
+      "service": "ProjectAutomationApi",
+      "commits": 8,
+      "latestTicket": "",
+      "latestComment": "PAC-930: Using project's origin when creating master project (#5777)",
+      "deployedAt": "20261125T103902+0000"
+    },
+    {
+      "service": "QuotaDetailsRestJ21",
+      "commits": 22,
+      "latestTicket": "NXS-14227",
+      "latestComment": "[NXS-14227] MS - QuotaDetailsRest - bump dependencies (#5683)",
+      "deployedAt": "20261125T080754+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "commits": 2,
+      "latestTicket": "",
+      "latestComment": "ProjectRest - applyProjectStatusTransitionIfApplicable don't affect on PROGRAMMA",
+      "deployedAt": "20261125T070935+0000"
     }
   ],
   "clusters": [
@@ -437,7 +400,7 @@
       "area": "Segment",
       "cluster": "assert_fail",
       "message": "Condition not satisfied:",
-      "detailsExcerpt": "Condition not satisfied: target.quota > 0 | | | | 0 false <com.dynata.nexus.api.model.quotagroup.quota.SegmentAttributes@2b778004 segmentId=122 requestedQuota=0 soldQuota=0 quota=0 percent=0.0 autoClose=true hidden=true status=OPEN actualTCStatus=com.dynata.nexus.api.model.quotagroup.trafficcontrol.ActualTCStatus@75fdbd71 tolerancePercent=null> Representation change should assign requested quota \u2026"
+      "detailsExcerpt": "Condition not satisfied: target.quota > 0 | | | | 0 false <com.dynata.nexus.api.model.quotagroup.quota.SegmentAttributes@79de9f90 segmentId=122 requestedQuota=0 soldQuota=0 quota=0 percent=0.0 autoClose=true hidden=true status=OPEN actualTCStatus=com.dynata.nexus.api.model.quotagroup.trafficcontrol.ActualTCStatus@2e7a6dcd tolerancePercent=null> Representation change should assign requested quota \u2026"
     }
   ],
   "rulesNutshell": {
@@ -449,16 +412,15 @@
     ],
     "investigation": "Failures: 1\u00d7 assertion Condition not satisfied.",
     "detail": {
-      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: Segment (1). 7 service(s) (69 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Segment: Saving nested segmented conditions with a new representation clears hidden when that segme [assertion Condition not satisfied].",
+      "investigation": "No new unmuted failures; 1 continuing from prior runs. Failure types (new-first): (1) 1\u00d7 assertion Condition not satisfied \u2014 Spock assertion failed (fixture or response shape). Hot areas among new fails: Segment (1). 6 service(s) (84 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra: Example new failures: Segment: Saving nested segmented conditions with a new representation clears hidden when that segme [assertion Condition not satisfied].",
       "bullets": [
         "1\u00d7 assertion Condition not satisfied",
-        "[QA deploy: DynataPlusApiGateway]  (1 commit) \u2014 Add quotaGroups search endpoint to API and corresponding test cases",
-        "[QA deploy: NexusApiMetaJ21] NXS-14222 (25 commits) \u2014 [NXS-14222] MS - NexusApiMeta - bump dependencies (#5676)",
-        "[QA deploy: DKProjectCountersRestJ21] NXS-14075 (25 commits) \u2014 [NXS-14075] - DKProjectCountersRest - remove unnecessary deps",
-        "[QA deploy: DetailsEditorRestJ21] NXS-14566 (6 commits) \u2014 [NXS-14566] MS - DetailsEditorRest - keep hidden segment flags on structure rebu",
-        "[QA deploy: DKExportRest] NXS-12254 (4 commits) \u2014 [NXS-12254] MS - accept trailing slash on export history (#5774)",
-        "[QA deploy: ProjectRestJ16]  (5 commits) \u2014 [PAC-938] ProjectRest - skip project total quota recalculation for PROGRAMMATIC_",
-        "[QA deploy: DemandApi]  (3 commits) \u2014 [PAC-937] DemandApi - SurveyUrl need contains tag"
+        "[QA deploy: ManualCreditJ21] NXS-14593 (25 commits) \u2014 [NXS-14593] MS | ManualCreditRest | modify RewardCommunicationService to use HTT",
+        "[QA deploy: ClientRestJ21] NXS-14223 (25 commits) \u2014 [NXS-14223] MS - ClientRest - bump dependencies (#5679)",
+        "[QA deploy: DemandApi]  (2 commits) \u2014 [PAC-940] DemandApi - Segment quota update (#5782)",
+        "[QA deploy: ProjectAutomationApi]  (8 commits) \u2014 PAC-930: Using project's origin when creating master project (#5777)",
+        "[QA deploy: QuotaDetailsRestJ21] NXS-14227 (22 commits) \u2014 [NXS-14227] MS - QuotaDetailsRest - bump dependencies (#5683)",
+        "[QA deploy: ProjectRestJ16]  (2 commits) \u2014 ProjectRest - applyProjectStatusTransitionIfApplicable don't affect on PROGRAMMA"
       ],
       "newFailureAreas": [
         {
@@ -471,132 +433,124 @@
     "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "DynataPlusApiGateway",
-        "version": "fc12101f3e0e",
-        "username": "mate.csicsek",
-        "comment": "Add quotaGroups search endpoint to API and corresponding test cases",
-        "ticket": "",
-        "deployedAt": "20261124T132347+0000",
+        "service": "ManualCreditJ21",
+        "version": "23009d9fe847",
+        "username": "david.nagy",
+        "comment": "[NXS-14593] MS | ManualCreditRest | modify RewardCommunicationService to use HTTPS",
+        "ticket": "NXS-14593",
+        "deployedAt": "20261125T220957+0000",
         "files": [
-          "test_route_coverage.py",
+          "RewardCommunicationFeignClient.java"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ManualCreditJ21",
+        "version": "cebd83f0a6d1",
+        "username": "bresalio.nagy",
+        "comment": "[AE-7786] [traffic-control] add Dynamo access to exec role",
+        "ticket": "",
+        "deployedAt": "20261125T220957+0000",
+        "files": [
           "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiMetaJ21",
-        "version": "e403ca0123c3",
-        "username": "bence.csepe",
-        "comment": "[NXS-14222] MS - NexusApiMeta - bump dependencies (#5676)",
-        "ticket": "NXS-14222",
-        "deployedAt": "20261124T132420+0000",
+        "service": "ManualCreditJ21",
+        "version": "67382c0b5663",
+        "username": "bresalio.nagy",
+        "comment": "[AE-7786] [traffic-control] add Kinesis access to exec role",
+        "ticket": "",
+        "deployedAt": "20261125T220957+0000",
         "files": [
-          "build.gradle"
+          "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
-        "service": "NexusApiMetaJ21",
-        "version": "c9d27d02fd32",
+        "service": "ManualCreditJ21",
+        "version": "66ecd10a36a1",
+        "username": "weiqun.wang",
+        "comment": "enabel dev autoscaling and change instance type",
+        "ticket": "",
+        "deployedAt": "20261125T220957+0000",
+        "files": [
+          "cloud-formation.template.yml",
+          "dev.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ManualCreditJ21",
+        "version": "17477af6ebad",
+        "username": "weiqun.wang",
+        "comment": "disable dev autoscaling",
+        "ticket": "",
+        "deployedAt": "20261125T220957+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ManualCreditJ21",
+        "version": "c71825dec181",
+        "username": "bresalio.nagy",
+        "comment": "[AE-7786] [drop-service], [traffic-control] re-disable alarms in qa",
+        "ticket": "",
+        "deployedAt": "20261125T220957+0000",
+        "files": [
+          "qa.yml",
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ManualCreditJ21",
+        "version": "f8d7e4ffa875",
+        "username": "bresalio.nagy",
+        "comment": "[AE-7786] [traffic-control] enable alarms in qa",
+        "ticket": "",
+        "deployedAt": "20261125T220957+0000",
+        "files": [
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ManualCreditJ21",
+        "version": "47161d1e8162",
+        "username": "bresalio.nagy",
+        "comment": "[AE-7786] [drop-service] enable alarms in qa",
+        "ticket": "",
+        "deployedAt": "20261125T220957+0000",
+        "files": [
+          "qa.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ManualCreditJ21",
+        "version": "d0e1408967c5",
+        "username": "bresalio.nagy",
+        "comment": "[AE-7786] [traffic-control] fix",
+        "ticket": "",
+        "deployedAt": "20261125T220957+0000",
+        "files": [
+          "cloud-formation.template.yml"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ManualCreditJ21",
+        "version": "3f39ff245d12",
         "username": "bresalio.nagy",
         "comment": "[AE-7786] [drop-service] fix",
         "ticket": "",
-        "deployedAt": "20261124T132420+0000",
+        "deployedAt": "20261125T220957+0000",
         "files": [
           "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiMetaJ21",
-        "version": "dab12fff481e",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7786] [drop-service-rds] prod: max_conn=3000",
-        "ticket": "",
-        "deployedAt": "20261124T132420+0000",
-        "files": [
-          "production.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiMetaJ21",
-        "version": "d491fc9b9a0a",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7786] [drop-service] DPR",
-        "ticket": "",
-        "deployedAt": "20261124T132420+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "dev.yml",
-          "production.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiMetaJ21",
-        "version": "90f240875b9d",
-        "username": "weiqun.wang",
-        "comment": "update secondary autoscaling policy",
-        "ticket": "",
-        "deployedAt": "20261124T132420+0000",
-        "files": [
-          "dev.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiMetaJ21",
-        "version": "fe0c5210050a",
-        "username": "weiqun.wang",
-        "comment": "re-endable autoscaling in dev",
-        "ticket": "",
-        "deployedAt": "20261124T132420+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "dev.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiMetaJ21",
-        "version": "497fbbb6cd18",
-        "username": "weiqun.wang",
-        "comment": "fix dev update autoscaling issue",
-        "ticket": "",
-        "deployedAt": "20261124T132420+0000",
-        "files": [
-          "dev.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiMetaJ21",
-        "version": "5142fceedb92",
-        "username": "weiqun.wang",
-        "comment": "disable auto scaling for secondary variant",
-        "ticket": "",
-        "deployedAt": "20261124T132420+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "NexusApiMetaJ21",
-        "version": "4febf200af8c",
-        "username": "tibor.olah",
-        "comment": "trend s3 access logging",
-        "ticket": "",
-        "deployedAt": "20261124T132420+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "cloud-formation.template.yml",
-          "dev.yml",
-          "production.yml",
-          "qa.yml"
         ],
         "scope": "qa-deploy"
       }
