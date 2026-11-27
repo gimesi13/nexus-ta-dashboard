@@ -1,7 +1,7 @@
-**1 continuing Segment assertion failure; no new failures and no infra errors.**
+**Nightly was healthy — no new unmuted failures**
 
-_Likely cause: continuing Spock assertion in the Segment quota test (expected quota > 0, got 0) — not infra, and nothing new._
 
-- 1× assertion 'Condition not satisfied' — Segment, continuing (not new)
+⚠️ Contract drift: 3 new response-schema violation(s) vs baseline.
+- PATCH /u1/nexus/projects/{}/endlinkSecurity 500 :: Response status 500 not defined for path '/u1/nexus/projects/{projectId}/endlinkSecurity'.
 
-[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) - [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9714413)
+[Full investigation](https://gimesi13.github.io/nexus-ta-dashboard/nightly.html) · [TeamCity](https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9714379)

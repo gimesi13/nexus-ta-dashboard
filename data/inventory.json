@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-26",
+  "generatedAt": "2026-11-27",
   "source": "source",
-  "features": 808,
-  "cases": 1549,
+  "features": 814,
+  "cases": 1555,
   "specs": 115,
   "areas": 16,
-  "featuresWithSteps": 808,
-  "steps": 3938,
+  "featuresWithSteps": 814,
+  "steps": 3973,
   "byType": {
     "CRUD": 253,
     "Validation": 223,
-    "Workflow": 149,
+    "Workflow": 155,
     "Query": 104,
     "Other": 64,
     "E2E": 15
@@ -25431,56 +25431,6 @@
     {
       "area": "Segment",
       "spec": "SegmentHiddenFlagRegressionTestSteps",
-      "name": "Saving nested segmented conditions with a new representation clears hidden when that segment receives quota above zero",
-      "type": "CRUD",
-      "tags": [
-        "SEGMENTS",
-        "QUOTA",
-        "NESTED"
-      ],
-      "owner": "Gergely Gimesi",
-      "feature": "Segments \u2014 hidden flag (NXS-12822)",
-      "cases": 1,
-      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentHiddenFlagRegressionTestSteps.groovy",
-      "ignored": false,
-      "steps": [
-        {
-          "phase": "given",
-          "label": "Prepare segment parameters and nesting"
-        },
-        {
-          "phase": "and",
-          "label": "Distribute deterministic segment quotas"
-        },
-        {
-          "phase": "and",
-          "label": "Hide one nested segment"
-        },
-        {
-          "phase": "and",
-          "label": "Pick the alternate quota distribution representation for the nested child parameter"
-        },
-        {
-          "phase": "and",
-          "label": "Clone the child parameter and apply the alternate representation"
-        },
-        {
-          "phase": "when",
-          "label": "PUT segmentedConditions for the child parameter with the alternate representation"
-        },
-        {
-          "phase": "and",
-          "label": "Load segment details after the condition save"
-        },
-        {
-          "phase": "then",
-          "label": "The previously hidden segment receives quota and is no longer hidden"
-        }
-      ]
-    },
-    {
-      "area": "Segment",
-      "spec": "SegmentHiddenFlagRegressionTestSteps",
       "name": "Saving nested segmented conditions with rebalanced answer splits clears hidden when that segment receives quota above zero",
       "type": "CRUD",
       "tags": [
@@ -25521,6 +25471,52 @@
         {
           "phase": "and",
           "label": "Load segment details after the condition save"
+        },
+        {
+          "phase": "then",
+          "label": "The previously hidden segment receives quota and is no longer hidden"
+        }
+      ]
+    },
+    {
+      "area": "Segment",
+      "spec": "SegmentHiddenFlagRegressionTestSteps",
+      "name": "Switching a nested parameter's distribution representation clears hidden when that segment receives quota above zero",
+      "type": "CRUD",
+      "tags": [
+        "SEGMENTS",
+        "QUOTA",
+        "NESTED"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Segments \u2014 hidden flag (NXS-12822)",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentHiddenFlagRegressionTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Prepare segment parameters and nesting"
+        },
+        {
+          "phase": "and",
+          "label": "Distribute deterministic segment quotas"
+        },
+        {
+          "phase": "and",
+          "label": "Hide one nested segment"
+        },
+        {
+          "phase": "and",
+          "label": "Pick the alternate quota distribution representation for the nested child parameter"
+        },
+        {
+          "phase": "when",
+          "label": "The nested child parameter is switched to the alternate distribution representation"
+        },
+        {
+          "phase": "and",
+          "label": "Load segment details after the distribution switch"
         },
         {
           "phase": "then",
@@ -26583,6 +26579,181 @@
     {
       "area": "Segment",
       "spec": "SegmentsNestingWorkflowTestSteps",
+      "name": "A hidden nested segment is shown again when a real percent change gives it quota",
+      "type": "Workflow",
+      "tags": [
+        "SEGMENTS",
+        "NESTED",
+        "PARAMETER",
+        "PR_SMOKE",
+        "E2E"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Segments - Nesting Workflows",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Set active phase"
+        },
+        {
+          "phase": "and",
+          "label": "Gender is nested with cosmetic surgery"
+        },
+        {
+          "phase": "and",
+          "label": "The user sets custom nested cells and hides the empty cell"
+        },
+        {
+          "phase": "when",
+          "label": "The cosmetic surgery percents are changed from 40 / 50 / 10 to 30 / 60 / 10"
+        },
+        {
+          "phase": "then",
+          "label": "The nested cells are recalculated, so the empty cell gets 5 percent"
+        },
+        {
+          "phase": "and",
+          "label": "No nested cell is hidden any more"
+        }
+      ]
+    },
+    {
+      "area": "Segment",
+      "spec": "SegmentsNestingWorkflowTestSteps",
+      "name": "A hidden nested segment stays hidden when a segmentation parameter is added",
+      "type": "Workflow",
+      "tags": [
+        "SEGMENTS",
+        "NESTED",
+        "PARAMETER",
+        "PR_SMOKE",
+        "E2E"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Segments - Nesting Workflows",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Set active phase"
+        },
+        {
+          "phase": "and",
+          "label": "Gender is nested with cosmetic surgery"
+        },
+        {
+          "phase": "and",
+          "label": "The user sets custom nested cells and hides the empty cell"
+        },
+        {
+          "phase": "when",
+          "label": "Age is added as a flat segmentation"
+        },
+        {
+          "phase": "then",
+          "label": "The empty cell is still the only hidden nested cell"
+        },
+        {
+          "phase": "and",
+          "label": "Every nested cell keeps the percent the user set"
+        }
+      ]
+    },
+    {
+      "area": "Segment",
+      "spec": "SegmentsNestingWorkflowTestSteps",
+      "name": "A hidden nested segment stays hidden when a segmentation parameter is deleted",
+      "type": "Workflow",
+      "tags": [
+        "SEGMENTS",
+        "NESTED",
+        "PARAMETER",
+        "PR_SMOKE",
+        "E2E"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Segments - Nesting Workflows",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Set active phase"
+        },
+        {
+          "phase": "and",
+          "label": "Gender is nested with cosmetic surgery and age is a flat segmentation"
+        },
+        {
+          "phase": "and",
+          "label": "The user sets custom nested cells and hides the empty cell"
+        },
+        {
+          "phase": "when",
+          "label": "The age segmentation is deleted"
+        },
+        {
+          "phase": "then",
+          "label": "The empty cell is still the only hidden nested cell"
+        },
+        {
+          "phase": "and",
+          "label": "Every nested cell keeps the percent the user set"
+        }
+      ]
+    },
+    {
+      "area": "Segment",
+      "spec": "SegmentsNestingWorkflowTestSteps",
+      "name": "A hidden nested segment stays hidden when the nesting order is reversed",
+      "type": "Workflow",
+      "tags": [
+        "SEGMENTS",
+        "NESTED",
+        "PR_SMOKE",
+        "E2E"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Segments - Nesting Workflows",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Set active phase"
+        },
+        {
+          "phase": "and",
+          "label": "Gender is nested with cosmetic surgery"
+        },
+        {
+          "phase": "and",
+          "label": "The user sets custom nested cells and hides the empty cell"
+        },
+        {
+          "phase": "when",
+          "label": "Cosmetic surgery is nested first, then gender"
+        },
+        {
+          "phase": "then",
+          "label": "The empty cell is still the only hidden nested cell"
+        },
+        {
+          "phase": "and",
+          "label": "Every nested cell keeps the percent the user set"
+        }
+      ]
+    },
+    {
+      "area": "Segment",
+      "spec": "SegmentsNestingWorkflowTestSteps",
       "name": "Configure project with nested segments and custom quotas",
       "type": "Workflow",
       "tags": [
@@ -26699,6 +26870,50 @@
     {
       "area": "Segment",
       "spec": "SegmentsNestingWorkflowTestSteps",
+      "name": "Custom nested segment percents are kept when a nested parameter is re-saved with unchanged percents",
+      "type": "Workflow",
+      "tags": [
+        "SEGMENTS",
+        "NESTED",
+        "PARAMETER",
+        "PR_SMOKE",
+        "E2E"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Segments - Nesting Workflows",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Set active phase"
+        },
+        {
+          "phase": "and",
+          "label": "Gender is nested with cosmetic surgery and age is a flat segmentation"
+        },
+        {
+          "phase": "and",
+          "label": "The user sets custom nested cells of 20 / 20 / 10 and 20 / 30 / 0 percent"
+        },
+        {
+          "phase": "when",
+          "label": "Cosmetic surgery is saved again with its percents unchanged at 40 / 50 / 10"
+        },
+        {
+          "phase": "then",
+          "label": "Every nested cell keeps the percent the user set"
+        },
+        {
+          "phase": "and",
+          "label": "The gender, cosmetic surgery and age percents stay the same"
+        }
+      ]
+    },
+    {
+      "area": "Segment",
+      "spec": "SegmentsNestingWorkflowTestSteps",
       "name": "Custom nested segment percents are kept when a segmentation parameter is added",
       "type": "Workflow",
       "tags": [
@@ -26720,15 +26935,15 @@
         },
         {
           "phase": "and",
-          "label": "Gender is nested with age"
+          "label": "Gender is nested with cosmetic surgery"
         },
         {
           "phase": "and",
-          "label": "The user sets custom nested cell percents while the gender and age percents stay the same"
+          "label": "The user sets custom nested cells of 20 / 20 / 10 and 20 / 30 / 0 percent"
         },
         {
           "phase": "when",
-          "label": "Cosmetic surgery is added as a flat segmentation"
+          "label": "Age is added as a flat segmentation"
         },
         {
           "phase": "then",
@@ -26736,7 +26951,7 @@
         },
         {
           "phase": "and",
-          "label": "The gender and age percents stay the same next to the new cosmetic surgery percents"
+          "label": "The gender and cosmetic surgery percents stay the same next to the new age percents"
         }
       ]
     },
@@ -26764,15 +26979,15 @@
         },
         {
           "phase": "and",
-          "label": "Gender is nested with age and cosmetic surgery is a flat segmentation"
+          "label": "Gender is nested with cosmetic surgery and age is a flat segmentation"
         },
         {
           "phase": "and",
-          "label": "The user sets custom nested cell percents while the gender and age percents stay the same"
+          "label": "The user sets custom nested cells of 20 / 20 / 10 and 20 / 30 / 0 percent"
         },
         {
           "phase": "when",
-          "label": "The cosmetic surgery segmentation is deleted"
+          "label": "The age segmentation is deleted"
         },
         {
           "phase": "then",
@@ -26780,7 +26995,7 @@
         },
         {
           "phase": "and",
-          "label": "Only the gender and age percents remain, unchanged"
+          "label": "Only the gender and cosmetic surgery percents remain, unchanged"
         }
       ]
     },
@@ -26808,15 +27023,15 @@
         },
         {
           "phase": "and",
-          "label": "Gender is nested with age and cosmetic surgery is a flat segmentation"
+          "label": "Gender is nested with cosmetic surgery and age is a flat segmentation"
         },
         {
           "phase": "and",
-          "label": "The user sets custom nested cell percents while the gender and age percents stay the same"
+          "label": "The user sets custom nested cells of 20 / 20 / 10 and 20 / 30 / 0 percent"
         },
         {
           "phase": "when",
-          "label": "The cosmetic surgery percents are changed to 50 / 25 / 25"
+          "label": "The age percents are changed to 60 / 40"
         },
         {
           "phase": "then",
@@ -26824,7 +27039,7 @@
         },
         {
           "phase": "and",
-          "label": "Only the cosmetic surgery percents change"
+          "label": "Only the age percents change"
         }
       ]
     },
@@ -26852,15 +27067,15 @@
         },
         {
           "phase": "and",
-          "label": "Gender is nested with age and cosmetic surgery is a flat segmentation"
+          "label": "Gender is nested with cosmetic surgery and age is a flat segmentation"
         },
         {
           "phase": "and",
-          "label": "The user sets custom nested cell percents while the gender and age percents stay the same"
+          "label": "The user sets custom nested cells of 20 / 20 / 10 and 20 / 30 / 0 percent"
         },
         {
           "phase": "when",
-          "label": "The cosmetic surgery segments are updated with a desired total of 2000"
+          "label": "The age segments are updated with a desired total of 2000"
         },
         {
           "phase": "then",
@@ -26872,11 +27087,11 @@
         },
         {
           "phase": "and",
-          "label": "The gender, age and cosmetic surgery percents stay the same"
+          "label": "Every nested cell quota doubles"
         },
         {
           "phase": "and",
-          "label": "The nested cell quotas follow the new total"
+          "label": "The gender, cosmetic surgery and age percents stay the same"
         }
       ]
     },
@@ -26904,11 +27119,11 @@
         },
         {
           "phase": "and",
-          "label": "Gender is nested with age and cosmetic surgery is a flat segmentation"
+          "label": "Gender is nested with cosmetic surgery and age is a flat segmentation"
         },
         {
           "phase": "and",
-          "label": "The user sets custom nested cell percents while the gender and age percents stay the same"
+          "label": "The user sets custom nested cells of 20 / 20 / 10 and 20 / 30 / 0 percent"
         },
         {
           "phase": "when",
@@ -26916,15 +27131,59 @@
         },
         {
           "phase": "then",
-          "label": "Every nested cell keeps the percent the user set"
+          "label": "Every nested cell keeps the percent the user set, the empty cell included"
         },
         {
           "phase": "and",
-          "label": "The gender, age and cosmetic surgery percents stay the same"
+          "label": "Every nested cell quota doubles"
         },
         {
           "phase": "and",
-          "label": "The nested cell quotas follow the new total"
+          "label": "The gender, cosmetic surgery and age percents stay the same"
+        }
+      ]
+    },
+    {
+      "area": "Segment",
+      "spec": "SegmentsNestingWorkflowTestSteps",
+      "name": "Custom nested segment percents are recalculated when a nested parameter's percents really change",
+      "type": "Workflow",
+      "tags": [
+        "SEGMENTS",
+        "NESTED",
+        "PARAMETER",
+        "PR_SMOKE",
+        "E2E"
+      ],
+      "owner": "Gergely Gimesi",
+      "feature": "Segments - Nesting Workflows",
+      "cases": 1,
+      "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+      "ignored": false,
+      "steps": [
+        {
+          "phase": "given",
+          "label": "Set active phase"
+        },
+        {
+          "phase": "and",
+          "label": "Gender is nested with cosmetic surgery and age is a flat segmentation"
+        },
+        {
+          "phase": "and",
+          "label": "The user sets custom nested cells of 20 / 20 / 10 and 20 / 30 / 0 percent"
+        },
+        {
+          "phase": "when",
+          "label": "The cosmetic surgery percents are changed from 40 / 50 / 10 to 30 / 60 / 10"
+        },
+        {
+          "phase": "then",
+          "label": "The nested cells are recalculated as gender percent times cosmetic surgery percent, so the empty cell is filled again"
+        },
+        {
+          "phase": "and",
+          "label": "Only the cosmetic surgery percents change"
         }
       ]
     },

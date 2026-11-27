@@ -1,34 +1,213 @@
 {
-  "generatedAt": "2026-11-26T03:12Z",
+  "generatedAt": "2026-11-27T05:03Z",
   "methodology": "Feature additions are first appearances of Spock `def \"…\"()` methods in git history under src/test (*TestSteps.groovy). Case counts and types come from the current inventory join. Coverage deltas use an append-only snapshot series written each time this generator runs.",
   "since": "2026-01-01",
   "defaultWindow": "90d",
   "windows": {
     "7d": {
-      "from": "2026-11-20",
-      "to": "2026-11-26",
-      "featuresAdded": 5,
-      "casesAdded": 5,
+      "from": "2026-11-21",
+      "to": "2026-11-27",
+      "featuresAdded": 12,
+      "casesAdded": 12,
       "areasTouched": 1,
-      "ticketsTouched": 1,
+      "ticketsTouched": 2,
       "byType": {
-        "Workflow": 5
+        "CRUD": 1,
+        "Workflow": 11
       },
       "byArea": [
         {
           "area": "Segment",
-          "featuresAdded": 5
+          "featuresAdded": 12
         }
       ],
       "tickets": [
         {
           "key": "NXS-14576",
-          "featuresAdded": 5,
-          "casesAdded": 5,
-          "latestDate": "2026-11-23"
+          "featuresAdded": 12,
+          "casesAdded": 12,
+          "latestDate": "2026-11-26"
+        },
+        {
+          "key": "NXS-14566",
+          "featuresAdded": 7,
+          "casesAdded": 7,
+          "latestDate": "2026-11-26"
         }
       ],
       "additions": [
+        {
+          "name": "Switching a nested parameter's distribution representation clears hidden when that segment receives quota above zero",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentHiddenFlagRegressionTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentHiddenFlagRegressionTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "QUOTA",
+            "NESTED"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Switching%20a%20nested%20parameter%27s%20distribution%20representation%20clears%20hidden%20when%20that%20segment%20receives%20quota%20above%20zero"
+        },
+        {
+          "name": "Custom nested segment percents are recalculated when a nested parameter's percents really change",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20recalculated%20when%20a%20nested%20parameter%27s%20percents%20really%20change"
+        },
+        {
+          "name": "Custom nested segment percents are kept when a nested parameter is re-saved with unchanged percents",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20a%20nested%20parameter%20is%20re-saved%20with%20unchanged%20percents"
+        },
+        {
+          "name": "A hidden nested segment stays hidden when the nesting order is reversed",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20hidden%20nested%20segment%20stays%20hidden%20when%20the%20nesting%20order%20is%20reversed"
+        },
+        {
+          "name": "A hidden nested segment stays hidden when a segmentation parameter is deleted",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20hidden%20nested%20segment%20stays%20hidden%20when%20a%20segmentation%20parameter%20is%20deleted"
+        },
+        {
+          "name": "A hidden nested segment stays hidden when a segmentation parameter is added",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20hidden%20nested%20segment%20stays%20hidden%20when%20a%20segmentation%20parameter%20is%20added"
+        },
+        {
+          "name": "A hidden nested segment is shown again when a real percent change gives it quota",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20hidden%20nested%20segment%20is%20shown%20again%20when%20a%20real%20percent%20change%20gives%20it%20quota"
+        },
         {
           "name": "Custom nested segment percents are kept when the total quota is raised",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
@@ -152,25 +331,26 @@
       ]
     },
     "14d": {
-      "from": "2026-11-13",
-      "to": "2026-11-26",
-      "featuresAdded": 12,
-      "casesAdded": 12,
+      "from": "2026-11-14",
+      "to": "2026-11-27",
+      "featuresAdded": 19,
+      "casesAdded": 19,
       "areasTouched": 3,
-      "ticketsTouched": 3,
+      "ticketsTouched": 4,
       "byType": {
+        "CRUD": 1,
         "Validation": 1,
-        "Workflow": 5,
+        "Workflow": 11,
         "Other": 6
       },
       "byArea": [
         {
-          "area": "unknown",
-          "featuresAdded": 6
+          "area": "Segment",
+          "featuresAdded": 12
         },
         {
-          "area": "Segment",
-          "featuresAdded": 5
+          "area": "unknown",
+          "featuresAdded": 6
         },
         {
           "area": "Communication",
@@ -179,16 +359,22 @@
       ],
       "tickets": [
         {
+          "key": "NXS-14576",
+          "featuresAdded": 12,
+          "casesAdded": 12,
+          "latestDate": "2026-11-26"
+        },
+        {
+          "key": "NXS-14566",
+          "featuresAdded": 7,
+          "casesAdded": 7,
+          "latestDate": "2026-11-26"
+        },
+        {
           "key": "NXS-13695",
           "featuresAdded": 6,
           "casesAdded": 6,
           "latestDate": "2026-11-19"
-        },
-        {
-          "key": "NXS-14576",
-          "featuresAdded": 5,
-          "casesAdded": 5,
-          "latestDate": "2026-11-23"
         },
         {
           "key": "NXS-14454",
@@ -198,6 +384,178 @@
         }
       ],
       "additions": [
+        {
+          "name": "Switching a nested parameter's distribution representation clears hidden when that segment receives quota above zero",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentHiddenFlagRegressionTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentHiddenFlagRegressionTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "QUOTA",
+            "NESTED"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Switching%20a%20nested%20parameter%27s%20distribution%20representation%20clears%20hidden%20when%20that%20segment%20receives%20quota%20above%20zero"
+        },
+        {
+          "name": "Custom nested segment percents are recalculated when a nested parameter's percents really change",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20recalculated%20when%20a%20nested%20parameter%27s%20percents%20really%20change"
+        },
+        {
+          "name": "Custom nested segment percents are kept when a nested parameter is re-saved with unchanged percents",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20a%20nested%20parameter%20is%20re-saved%20with%20unchanged%20percents"
+        },
+        {
+          "name": "A hidden nested segment stays hidden when the nesting order is reversed",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20hidden%20nested%20segment%20stays%20hidden%20when%20the%20nesting%20order%20is%20reversed"
+        },
+        {
+          "name": "A hidden nested segment stays hidden when a segmentation parameter is deleted",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20hidden%20nested%20segment%20stays%20hidden%20when%20a%20segmentation%20parameter%20is%20deleted"
+        },
+        {
+          "name": "A hidden nested segment stays hidden when a segmentation parameter is added",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20hidden%20nested%20segment%20stays%20hidden%20when%20a%20segmentation%20parameter%20is%20added"
+        },
+        {
+          "name": "A hidden nested segment is shown again when a real percent change gives it quota",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20hidden%20nested%20segment%20is%20shown%20again%20when%20a%20real%20percent%20change%20gives%20it%20quota"
+        },
         {
           "name": "Custom nested segment percents are kept when the total quota is raised",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
@@ -450,26 +808,27 @@
       ]
     },
     "30d": {
-      "from": "2026-10-28",
-      "to": "2026-11-26",
-      "featuresAdded": 15,
-      "casesAdded": 15,
+      "from": "2026-10-29",
+      "to": "2026-11-27",
+      "featuresAdded": 22,
+      "casesAdded": 22,
       "areasTouched": 3,
-      "ticketsTouched": 4,
+      "ticketsTouched": 5,
       "byType": {
+        "CRUD": 1,
         "Validation": 3,
-        "Workflow": 5,
+        "Workflow": 11,
         "Query": 1,
         "Other": 6
       },
       "byArea": [
         {
-          "area": "unknown",
-          "featuresAdded": 6
+          "area": "Segment",
+          "featuresAdded": 12
         },
         {
-          "area": "Segment",
-          "featuresAdded": 5
+          "area": "unknown",
+          "featuresAdded": 6
         },
         {
           "area": "Communication",
@@ -478,16 +837,22 @@
       ],
       "tickets": [
         {
+          "key": "NXS-14576",
+          "featuresAdded": 12,
+          "casesAdded": 12,
+          "latestDate": "2026-11-26"
+        },
+        {
+          "key": "NXS-14566",
+          "featuresAdded": 7,
+          "casesAdded": 7,
+          "latestDate": "2026-11-26"
+        },
+        {
           "key": "NXS-13695",
           "featuresAdded": 6,
           "casesAdded": 6,
           "latestDate": "2026-11-19"
-        },
-        {
-          "key": "NXS-14576",
-          "featuresAdded": 5,
-          "casesAdded": 5,
-          "latestDate": "2026-11-23"
         },
         {
           "key": "NXS-14435",
@@ -503,6 +868,178 @@
         }
       ],
       "additions": [
+        {
+          "name": "Switching a nested parameter's distribution representation clears hidden when that segment receives quota above zero",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentHiddenFlagRegressionTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentHiddenFlagRegressionTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "QUOTA",
+            "NESTED"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Switching%20a%20nested%20parameter%27s%20distribution%20representation%20clears%20hidden%20when%20that%20segment%20receives%20quota%20above%20zero"
+        },
+        {
+          "name": "Custom nested segment percents are recalculated when a nested parameter's percents really change",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20recalculated%20when%20a%20nested%20parameter%27s%20percents%20really%20change"
+        },
+        {
+          "name": "Custom nested segment percents are kept when a nested parameter is re-saved with unchanged percents",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20a%20nested%20parameter%20is%20re-saved%20with%20unchanged%20percents"
+        },
+        {
+          "name": "A hidden nested segment stays hidden when the nesting order is reversed",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20hidden%20nested%20segment%20stays%20hidden%20when%20the%20nesting%20order%20is%20reversed"
+        },
+        {
+          "name": "A hidden nested segment stays hidden when a segmentation parameter is deleted",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20hidden%20nested%20segment%20stays%20hidden%20when%20a%20segmentation%20parameter%20is%20deleted"
+        },
+        {
+          "name": "A hidden nested segment stays hidden when a segmentation parameter is added",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20hidden%20nested%20segment%20stays%20hidden%20when%20a%20segmentation%20parameter%20is%20added"
+        },
+        {
+          "name": "A hidden nested segment is shown again when a real percent change gives it quota",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20hidden%20nested%20segment%20is%20shown%20again%20when%20a%20real%20percent%20change%20gives%20it%20quota"
+        },
         {
           "name": "Custom nested segment percents are kept when the total quota is raised",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
@@ -816,16 +1353,16 @@
       ]
     },
     "90d": {
-      "from": "2026-08-29",
-      "to": "2026-11-26",
-      "featuresAdded": 98,
-      "casesAdded": 100,
+      "from": "2026-08-30",
+      "to": "2026-11-27",
+      "featuresAdded": 105,
+      "casesAdded": 107,
       "areasTouched": 4,
-      "ticketsTouched": 9,
+      "ticketsTouched": 10,
       "byType": {
-        "CRUD": 5,
+        "CRUD": 6,
         "Validation": 23,
-        "Workflow": 13,
+        "Workflow": 19,
         "Query": 2,
         "Other": 55
       },
@@ -839,12 +1376,12 @@
           "featuresAdded": 26
         },
         {
-          "area": "unknown",
-          "featuresAdded": 6
+          "area": "Segment",
+          "featuresAdded": 12
         },
         {
-          "area": "Segment",
-          "featuresAdded": 5
+          "area": "unknown",
+          "featuresAdded": 6
         }
       ],
       "tickets": [
@@ -867,16 +1404,22 @@
           "latestDate": "2026-10-20"
         },
         {
+          "key": "NXS-14576",
+          "featuresAdded": 12,
+          "casesAdded": 12,
+          "latestDate": "2026-11-26"
+        },
+        {
+          "key": "NXS-14566",
+          "featuresAdded": 7,
+          "casesAdded": 7,
+          "latestDate": "2026-11-26"
+        },
+        {
           "key": "NXS-13695",
           "featuresAdded": 6,
           "casesAdded": 6,
           "latestDate": "2026-11-19"
-        },
-        {
-          "key": "NXS-14576",
-          "featuresAdded": 5,
-          "casesAdded": 5,
-          "latestDate": "2026-11-23"
         },
         {
           "key": "NXS-14435",
@@ -904,6 +1447,178 @@
         }
       ],
       "additions": [
+        {
+          "name": "Switching a nested parameter's distribution representation clears hidden when that segment receives quota above zero",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentHiddenFlagRegressionTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentHiddenFlagRegressionTestSteps",
+          "type": "CRUD",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "QUOTA",
+            "NESTED"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Switching%20a%20nested%20parameter%27s%20distribution%20representation%20clears%20hidden%20when%20that%20segment%20receives%20quota%20above%20zero"
+        },
+        {
+          "name": "Custom nested segment percents are recalculated when a nested parameter's percents really change",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20recalculated%20when%20a%20nested%20parameter%27s%20percents%20really%20change"
+        },
+        {
+          "name": "Custom nested segment percents are kept when a nested parameter is re-saved with unchanged percents",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=Custom%20nested%20segment%20percents%20are%20kept%20when%20a%20nested%20parameter%20is%20re-saved%20with%20unchanged%20percents"
+        },
+        {
+          "name": "A hidden nested segment stays hidden when the nesting order is reversed",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20hidden%20nested%20segment%20stays%20hidden%20when%20the%20nesting%20order%20is%20reversed"
+        },
+        {
+          "name": "A hidden nested segment stays hidden when a segmentation parameter is deleted",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20hidden%20nested%20segment%20stays%20hidden%20when%20a%20segmentation%20parameter%20is%20deleted"
+        },
+        {
+          "name": "A hidden nested segment stays hidden when a segmentation parameter is added",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20hidden%20nested%20segment%20stays%20hidden%20when%20a%20segmentation%20parameter%20is%20added"
+        },
+        {
+          "name": "A hidden nested segment is shown again when a real percent change gives it quota",
+          "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
+          "date": "2026-11-26",
+          "author": "Gergely Gimesi",
+          "subject": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
+          "commit": "95ed8d91e7",
+          "tickets": [
+            "NXS-14566",
+            "NXS-14576"
+          ],
+          "area": "Segment",
+          "spec": "SegmentsNestingWorkflowTestSteps",
+          "type": "Workflow",
+          "cases": 1,
+          "tags": [
+            "SEGMENTS",
+            "NESTED",
+            "PARAMETER",
+            "PR_SMOKE",
+            "E2E"
+          ],
+          "ignored": false,
+          "inventoryHref": "inventory.html?q=A%20hidden%20nested%20segment%20is%20shown%20again%20when%20a%20real%20percent%20change%20gives%20it%20quota"
+        },
         {
           "name": "Custom nested segment percents are kept when the total quota is raised",
           "file": "src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy",
@@ -2955,8 +3670,8 @@
     },
     {
       "weekStart": "2026-11-23",
-      "featuresAdded": 5,
-      "casesAdded": 5
+      "featuresAdded": 12,
+      "casesAdded": 12
     }
   ],
   "snapshots": [
@@ -2983,9 +3698,9 @@
       "nonDeprecated": 268
     },
     {
-      "date": "2026-11-26",
-      "features": 808,
-      "cases": 1549,
+      "date": "2026-11-27",
+      "features": 814,
+      "cases": 1555,
       "specs": 115,
       "areas": 16,
       "coveragePercent": 100.0,
@@ -3003,14 +3718,14 @@
       "priorPercent": 78.0,
       "deltaPoints": 22.0,
       "priorDate": "2026-07-22",
-      "currentDate": "2026-11-26",
+      "currentDate": "2026-11-27",
       "testedDelta": 60,
       "untestedDelta": -59
     }
   },
   "inventory": {
-    "features": 808,
-    "cases": 1549,
+    "features": 814,
+    "cases": 1555,
     "specs": 115,
     "areas": 16
   }
