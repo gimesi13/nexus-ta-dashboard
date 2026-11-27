@@ -1671,38 +1671,14 @@
     "tone": "ok",
     "severity": "none",
     "cause": "none",
-    "causeText": "No unmuted failures.",
-    "investigation": "No unmuted failures.",
-    "bullets": [
-      "Change NXS-14576: gergely.gimesi \u00b7 Segment, SegmentDetails"
-    ],
+    "causeText": "Green night \u2014 no new unmuted failures.",
+    "investigation": "",
+    "bullets": [],
     "detail": {
-      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 2 service(s) (30 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
-      "bullets": [
-        "Change NXS-14576: gergely.gimesi \u00b7 Segment, SegmentDetails",
-        "NXS-14576 95ed8d91e78c by gergely.gimesi \u2192 areas Segment, SegmentDetails (0 new fails) \u00b7 SegmentDetailsHelper.groovy, SegmentHiddenFlagRegressionTestSteps.groovy, SegmentsNestingWorkflowTestSteps.groovy",
-        "[QA deploy: DemandApi]  (23 commits) \u2014 [PAC-852] DemandApi - fix acceptanceTests for new case, and search endpoint isD3",
-        "[QA deploy: SandboxServiceRestJ21] NXS-14601 (7 commits) \u2014 [NXS-14601] - SandboxServiceRest - experiment with valkey v2"
-      ],
+      "investigation": "",
+      "bullets": [],
       "newFailureAreas": [],
-      "likelyCauses": [
-        {
-          "version": "95ed8d91e78c",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-14576",
-          "comment": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
-          "areas": [
-            "Segment",
-            "SegmentDetails"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "SegmentDetailsHelper.groovy",
-            "SegmentHiddenFlagRegressionTestSteps.groovy",
-            "SegmentsNestingWorkflowTestSteps.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
     "clusters": [],
     "suspectCommits": [
@@ -1864,8 +1840,8 @@
         "deployedAt": "20261126T124226+0000"
       }
     ],
-    "source": "investigator",
-    "generatedAt": "2026-11-27T05:03Z",
+    "source": "llm",
+    "generatedAt": "2026-11-27T05:04:00Z",
     "buildNumber": "3.0.2776",
     "buildId": "9714379",
     "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9714379",
