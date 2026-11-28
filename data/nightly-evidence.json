@@ -1,75 +1,153 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-27T05:03Z",
+  "generatedAt": "2026-11-28T03:10Z",
   "build": {
-    "number": "3.0.2776",
-    "buildId": "9714379",
+    "number": "3.0.2777",
+    "buildId": "9716978",
     "status": "SUCCESS",
-    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9714379",
-    "durationSec": 2325.0
+    "webUrl": "https://teamcity.dynata.com/buildConfiguration/Dk_Microservices_Gateways_NexusApi_RegressionTestQa_Nightly/9716978",
+    "durationSec": 2340.0
   },
   "summary": {
     "tests": 1534,
-    "passed": 1458,
+    "passed": 1457,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "muted": 76,
+    "muted": 77,
     "newFailed": 0,
     "passRate": 100.0,
-    "timeSec": 2325.0
+    "timeSec": 2340.0
   },
   "prior": {
-    "buildId": "9714413",
-    "number": "3.0.2775",
-    "status": "FAILURE",
-    "statusText": "Tests failed: 1, passed: 1450, muted: 77",
-    "startDate": "20261126T023302+0000",
-    "durationSec": 2339.0,
-    "failed": 1,
-    "passed": 1450,
+    "buildId": "9714379",
+    "number": "3.0.2776",
+    "status": "SUCCESS",
+    "statusText": "Tests passed: 1458, muted: 76",
+    "startDate": "20261127T023301+0000",
+    "durationSec": 2325.0,
+    "failed": 0,
+    "passed": 1458,
     "newFailed": 0
   },
-  "changes": [
-    {
-      "version": "95ed8d91e78c",
-      "username": "gergely.gimesi",
-      "comment": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distri\u2026",
-      "files": [
-        "gateway/unifiedApi/NexusApiRegressionTests/src/main/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/helpers/coredomainhelpers/SegmentDetailsHelper.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentHiddenFlagRegressionTestSteps.groovy",
-        "gateway/unifiedApi/NexusApiRegressionTests/src/test/groovy/com/dynata/rest/gateway/nexusapi/rest/tests/steps/Segment/SegmentsNestingWorkflowTestSteps.groovy"
-      ],
-      "areas": [
-        "Segment",
-        "SegmentDetails"
-      ]
-    }
-  ],
+  "changes": [],
   "qaDeployChanges": [
     {
-      "service": "DemandApi",
-      "version": "cd54460cdb6e",
-      "username": "gabor.fial",
-      "comment": "[PAC-852] DemandApi - fix acceptanceTests for new case, and search endpoint isD365 case fix",
+      "service": "ProjectRestJ16",
+      "version": "f659c320180d",
+      "username": "tamas.szotak",
+      "comment": "fixed,close quota groups and set FINISHED for programmatic projects on auto-close",
       "files": [
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/DemandUtil.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ProjectUpdateTest.groovy",
-        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/search/ProjectSearchService.java",
-        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/search/ProjectSearchServiceTest.groovy"
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/component/DirectProjectStatusUpdateVerifier.java",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/v2/component/DirectProjectStatusUpdateVerifierTest.groovy"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T161402+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "c1de7285a68a",
+      "username": "zsolt.remenyik",
+      "comment": "Increased OpenSearch InstanceCount in st-parameter-service cloud-formation.template.yml",
+      "files": [
+        "st-parameter-service/cloud-formation.template.yml"
+      ],
+      "deployedAt": "20261127T161402+0000"
     },
     {
       "service": "DemandApi",
+      "version": "18ea1f4b5496",
+      "username": "gabor.fial",
+      "comment": "Merge remote-tracking branch 'origin/master'",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/QuotaGroupUpdateHandler.java",
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/QuotaGroupUpdateHandlerTest.groovy"
+      ],
+      "deployedAt": "20261127T151415+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "9fc67dcc4fe6",
+      "username": "gabor.fial",
+      "comment": "DemandApi - handle only deleted quota group",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/ProjectHandler.java",
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/QuotaGroupUpdateHandler.java",
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/ProjectHandlerTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/QuotaGroupUpdateHandlerTest.groovy"
+      ],
+      "deployedAt": "20261127T151415+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "1f601f9d004d",
+      "username": "61797769+kocskam",
+      "comment": "[PAC-942] Fix SEGMENT_STRUCTURE clone to persist segmentDetails in Mongo (#5789)",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/dependency/detailseditor/DetailsEditorFeignClient.java",
+        "gateway/unifiedApi/DemandApi/src/main/java/com/surveysampling/rest/demandapi/v1/service/QuotaGroupUpdateHandler.java",
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/NexusUpdateGatewayTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/test/groovy/com/surveysampling/rest/demandapi/v1/service/QuotaGroupUpdateHandlerTest.groovy"
+      ],
+      "deployedAt": "20261127T145347+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "c95fe1c13056",
+      "username": "gabor.fial",
+      "comment": "[PAC-852] DemandApi - fix acceptanceTests for new case",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ClientManagementTest.groovy"
+      ],
+      "deployedAt": "20261127T145347+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "9b47595dc08e",
+      "username": "gabor.fial",
+      "comment": "[PAC-852] DemandApi - fix acceptanceTests for new case, and search endpoint isD365 case fix",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/DemandApiFlowTest.groovy"
+      ],
+      "deployedAt": "20261127T145347+0000"
+    },
+    {
+      "service": "DemandApi",
+      "version": "7a13a93f7d16",
+      "username": "gabor.fial",
+      "comment": "[PAC-852] DemandApi - fix acceptanceTests for new case, and search endpoint isD365 case fix",
+      "files": [
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/DemandApiFlowTest.groovy",
+        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/DemandUtil.groovy"
+      ],
+      "deployedAt": "20261127T145347+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
+      "version": "70f51f21818a",
+      "username": "gabor.fial",
+      "comment": "ProjectRest - applyProjectStatusTransitionIfApplicable don't affect on PROGRAMMATIC projects - more code in master",
+      "files": [
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v1/ProjectRest.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/component/DirectProjectStatusUpdateVerifier.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/impl/ProjectRest.java",
+        "project/ProjectRest/src/main/java/com/surveysampling/rest/project/v2/service/ProjectUpdater.java",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/v1/ProjectRestTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/v2/component/DirectProjectStatusUpdateVerifierTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/v2/impl/ProjectRestTest.groovy",
+        "project/ProjectRest/src/test/groovy/com/surveysampling/rest/project/v2/service/ProjectUpdaterTest.groovy"
+      ],
+      "deployedAt": "20261127T102607+0000"
+    },
+    {
+      "service": "ProjectRestJ16",
       "version": "8d2403a89b47",
       "username": "zsolt.remenyik",
       "comment": "Merge pull request #686 from dynata/ST-4898-retire-cascades-rest",
       "files": [],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "4c9a50bd0893",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [traffic-control] delete temporary priority in dev, qa",
@@ -77,10 +155,10 @@
         "ae-traffic-control/group_vars/dev.yml",
         "ae-traffic-control/group_vars/qa.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "7a341e68b967",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [traffic-control] fix listeners (with temporary priority in dev, qa)",
@@ -90,10 +168,10 @@
         "ae-traffic-control/group_vars/dev.yml",
         "ae-traffic-control/group_vars/qa.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "cb3b872d8330",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service] change listener priority back (dev, qa)",
@@ -101,10 +179,10 @@
         "ae-drop-service/group_vars/dev.yml",
         "ae-drop-service/group_vars/qa.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "495d3385a29d",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service] change listener priority (dev, qa, temporary)",
@@ -112,10 +190,10 @@
         "ae-drop-service/group_vars/dev.yml",
         "ae-drop-service/group_vars/qa.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "c0a0b11251c9",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service] fix listeners",
@@ -123,41 +201,30 @@
         "ae-drop-service/cloud-formation.template.yml",
         "ae-drop-service/group_vars/all.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
-      "version": "eb48678954a0",
-      "username": "gabor.fial",
-      "comment": "[PAC-852] DemandApi - fix acceptanceTests for new case",
-      "files": [
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/DemandUtil.groovy",
-        "gateway/unifiedApi/DemandApi/src/integTest/groovy/com/surveysampling/rest/demandapi/v1/acceptance/workflow/ProjectCreationTest.groovy"
-      ],
-      "deployedAt": "20261126T150415+0000"
-    },
-    {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "cebd83f0a6d1",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [traffic-control] add Dynamo access to exec role",
       "files": [
         "ae-traffic-control/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "67382c0b5663",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [traffic-control] add Kinesis access to exec role",
       "files": [
         "ae-traffic-control/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "66ecd10a36a1",
       "username": "weiqun.wang",
       "comment": "enabel dev autoscaling and change instance type",
@@ -165,20 +232,20 @@
         "ml-complete-optimization-model/cloud-formation.template.yml",
         "ml-complete-optimization-model/group_vars/dev.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "17477af6ebad",
       "username": "weiqun.wang",
       "comment": "disable dev autoscaling",
       "files": [
         "ml-complete-optimization-model/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "c71825dec181",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service], [traffic-control] re-disable alarms in qa",
@@ -186,70 +253,70 @@
         "ae-drop-service/group_vars/qa.yml",
         "ae-traffic-control/group_vars/qa.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "f8d7e4ffa875",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [traffic-control] enable alarms in qa",
       "files": [
         "ae-traffic-control/group_vars/qa.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "47161d1e8162",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service] enable alarms in qa",
       "files": [
         "ae-drop-service/group_vars/qa.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "d0e1408967c5",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [traffic-control] fix",
       "files": [
         "ae-traffic-control/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "3f39ff245d12",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service] fix",
       "files": [
         "ae-drop-service/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "02351d6ed724",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service] fix",
       "files": [
         "ae-drop-service/cloud-formation.template.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "c3848492db8c",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [traffic-control] fix",
       "files": [
         "ae-traffic-control/group_vars/all.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
+      "service": "ProjectRestJ16",
       "version": "6bad10149222",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [traffic-control] DPR",
@@ -260,139 +327,53 @@
         "ae-traffic-control/group_vars/production.yml",
         "ae-traffic-control/group_vars/qa.yml"
       ],
-      "deployedAt": "20261126T150415+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "DemandApi",
-      "version": "0fa0ef53cf5f",
-      "username": "zsolt.remenyik",
-      "comment": "[ST-4898] Removed CascadesRest.",
-      "files": [
-        "dk-project-cascades-rest/group_vars/all.yml",
-        "dk-project-cascades-rest/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261126T150415+0000"
-    },
-    {
-      "service": "DemandApi",
-      "version": "0d8df897a76d",
-      "username": "zsolt.remenyik",
-      "comment": "Merge remote-tracking branch 'origin/master' into ST-4898-retire-cascades-rest",
-      "files": [
-        "dk-project-cascades-rest/group_vars/all.yml",
-        "dk-project-cascades-rest/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261126T150415+0000"
-    },
-    {
-      "service": "DemandApi",
-      "version": "41ff4a98954c",
-      "username": "zsolt.remenyik",
-      "comment": "[ST-4898] Removed CascadesRest.",
-      "files": [
-        "dk-project-cascades-rest/cloud-formation.template.yml",
-        "dk-project-cascades-rest/group_vars/all.yml",
-        "dk-project-cascades-rest/group_vars/dev.yml",
-        "dk-project-cascades-rest/group_vars/production.yml",
-        "dk-project-cascades-rest/group_vars/qa.yml",
-        "dk-project-cascades-rest/inventory.ini"
-      ],
-      "deployedAt": "20261126T150415+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "e7aea5ac9a89",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-14601] - SandboxServiceRest - experiment with valkey v2",
-      "files": [
-        "sandbox/SandboxServiceRest/src/main/java/com/dynata/rest/gateway/nexusapisandbox/api/dependencies/nexusApi/NexusApiFeignClient.java",
-        "sandbox/SandboxServiceRest/src/main/java/com/dynata/rest/gateway/nexusapisandbox/api/v1/sandbox/valkey/TestValkeyCache.java",
-        "sandbox/SandboxServiceRest/src/main/java/com/dynata/rest/gateway/nexusapisandbox/api/v1/sandbox/valkey/ValkeyController.java",
-        "sandbox/SandboxServiceRest/src/main/java/com/dynata/rest/gateway/nexusapisandbox/api/v1/sandbox/valkey/config/ValkeyCacheConfig.java"
-      ],
-      "deployedAt": "20261126T124226+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "1b2c09824e83",
-      "username": "tamas.gyarmati",
-      "comment": "[NXS-14601] - SandboxServiceRest - experiment with valkey",
-      "files": [
-        "sandbox/SandboxServiceRest/build.gradle",
-        "sandbox/SandboxServiceRest/src/main/java/com/dynata/rest/gateway/nexusapisandbox/api/v1/sandbox/dateformat/formatters/FeignDateFormatRegister.java",
-        "sandbox/SandboxServiceRest/src/main/java/com/dynata/rest/gateway/nexusapisandbox/api/v1/sandbox/dateformat/formatters/InstantRequestParamFormatter.java",
-        "sandbox/SandboxServiceRest/src/main/java/com/dynata/rest/gateway/nexusapisandbox/api/v1/sandbox/dateformat/formatters/ZonedDateTimeRequestParamFormatter.java",
-        "sandbox/SandboxServiceRest/src/main/java/com/dynata/rest/gateway/nexusapisandbox/api/v1/sandbox/sqs/config/CarListener.java",
-        "sandbox/SandboxServiceRest/src/main/java/com/dynata/rest/gateway/nexusapisandbox/api/v1/sandbox/valkey/ValkeyController.java"
-      ],
-      "deployedAt": "20261126T124226+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
+      "service": "ProjectRestJ16",
       "version": "4d5022ce1e6e",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service] fix (tags)",
       "files": [
         "ae-drop-service/group_vars/all.yml"
       ],
-      "deployedAt": "20261126T124226+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "SandboxServiceRestJ21",
+      "service": "ProjectRestJ16",
       "version": "2c934f11c40c",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service] fix env vars 2",
       "files": [
         "ae-drop-service/group_vars/all.yml"
       ],
-      "deployedAt": "20261126T124226+0000"
+      "deployedAt": "20261127T102607+0000"
     },
     {
-      "service": "SandboxServiceRestJ21",
+      "service": "ProjectRestJ16",
       "version": "60efcd337439",
       "username": "bresalio.nagy",
       "comment": "[AE-7786] [drop-service] fix env vars",
       "files": [
         "ae-drop-service/group_vars/all.yml"
       ],
-      "deployedAt": "20261126T124226+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "046fcf8caa82",
-      "username": "gergo.hajnal",
-      "comment": "(ClaimOptionsRest) temporary remove faulty subnet",
-      "files": [
-        "dk-management-claim-option-rest/group_vars/production.yml"
-      ],
-      "deployedAt": "20261126T124226+0000"
-    },
-    {
-      "service": "SandboxServiceRestJ21",
-      "version": "ee54600e9cb2",
-      "username": "weiqun.wang",
-      "comment": "re-enable dev autoscaling and use ml.c7i.xlarge for PrimaryContainer",
-      "files": [
-        "ml-complete-optimization-model/cloud-formation.template.yml",
-        "ml-complete-optimization-model/group_vars/dev.yml"
-      ],
-      "deployedAt": "20261126T124226+0000"
+      "deployedAt": "20261127T102607+0000"
     }
   ],
   "qaDeployServices": [
     {
-      "service": "DemandApi",
-      "commits": 23,
+      "service": "ProjectRestJ16",
+      "commits": 27,
       "latestTicket": "",
-      "latestComment": "[PAC-852] DemandApi - fix acceptanceTests for new case, and search endpoint isD3",
-      "deployedAt": "20261126T150415+0000"
+      "latestComment": "fixed,close quota groups and set FINISHED for programmatic projects on auto-clos",
+      "deployedAt": "20261127T161402+0000"
     },
     {
-      "service": "SandboxServiceRestJ21",
-      "commits": 7,
-      "latestTicket": "NXS-14601",
-      "latestComment": "[NXS-14601] - SandboxServiceRest - experiment with valkey v2",
-      "deployedAt": "20261126T124226+0000"
+      "service": "DemandApi",
+      "commits": 6,
+      "latestTicket": "",
+      "latestComment": "Merge remote-tracking branch 'origin/master'",
+      "deployedAt": "20261127T151415+0000"
     }
   ],
   "clusters": [],
@@ -401,178 +382,149 @@
     "headline": "Nightly was healthy \u2014 no new unmuted failures",
     "tone": "ok",
     "severity": "none",
-    "bullets": [
-      "Change NXS-14576: gergely.gimesi \u00b7 Segment, SegmentDetails"
-    ],
+    "bullets": [],
     "investigation": "No unmuted failures.",
     "detail": {
-      "investigation": "Build changes that touch the same packages as new fails (best-effort path match \u2014 not proof of blame): 2 service(s) (30 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
+      "investigation": "2 service(s) (33 commit(s)) were deployed to QA in the window under test (whole monorepo, not just this module) \u2014 the blame above only covers the test module, so match the failing endpoints to one of these services before concluding infra:",
       "bullets": [
-        "Change NXS-14576: gergely.gimesi \u00b7 Segment, SegmentDetails",
-        "NXS-14576 95ed8d91e78c by gergely.gimesi \u2192 areas Segment, SegmentDetails (0 new fails) \u00b7 SegmentDetailsHelper.groovy, SegmentHiddenFlagRegressionTestSteps.groovy, SegmentsNestingWorkflowTestSteps.groovy",
-        "[QA deploy: DemandApi]  (23 commits) \u2014 [PAC-852] DemandApi - fix acceptanceTests for new case, and search endpoint isD3",
-        "[QA deploy: SandboxServiceRestJ21] NXS-14601 (7 commits) \u2014 [NXS-14601] - SandboxServiceRest - experiment with valkey v2"
+        "[QA deploy: ProjectRestJ16]  (27 commits) \u2014 fixed,close quota groups and set FINISHED for programmatic projects on auto-clos",
+        "[QA deploy: DemandApi]  (6 commits) \u2014 Merge remote-tracking branch 'origin/master'"
       ],
       "newFailureAreas": [],
-      "likelyCauses": [
-        {
-          "version": "95ed8d91e78c",
-          "username": "gergely.gimesi",
-          "ticket": "NXS-14576",
-          "comment": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
-          "areas": [
-            "Segment",
-            "SegmentDetails"
-          ],
-          "hitNewFailures": 0,
-          "files": [
-            "SegmentDetailsHelper.groovy",
-            "SegmentHiddenFlagRegressionTestSteps.groovy",
-            "SegmentsNestingWorkflowTestSteps.groovy"
-          ]
-        }
-      ]
+      "likelyCauses": []
     },
-    "suspectCommits": [
-      {
-        "version": "95ed8d91e78c",
-        "username": "gergely.gimesi",
-        "comment": "[NXS-14576] MS - nested segment percent and hidden flag tests per NXS-14566 behaviour; switch representation via distribution mode in hidden flag test",
-        "ticket": "NXS-14576",
-        "areas": [
-          "Segment",
-          "SegmentDetails"
-        ]
-      }
-    ],
+    "suspectCommits": [],
     "qaDeploySuspects": [
       {
-        "service": "DemandApi",
-        "version": "cd54460cdb6e",
-        "username": "gabor.fial",
-        "comment": "[PAC-852] DemandApi - fix acceptanceTests for new case, and search endpoint isD365 case fix",
+        "service": "ProjectRestJ16",
+        "version": "f659c320180d",
+        "username": "tamas.szotak",
+        "comment": "fixed,close quota groups and set FINISHED for programmatic projects on auto-close",
         "ticket": "",
-        "deployedAt": "20261126T150415+0000",
+        "deployedAt": "20261127T161402+0000",
         "files": [
-          "DemandUtil.groovy",
-          "ProjectUpdateTest.groovy",
-          "ProjectSearchService.java",
-          "ProjectSearchServiceTest.groovy"
+          "DirectProjectStatusUpdateVerifier.java",
+          "DirectProjectStatusUpdateVerifierTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ProjectRestJ16",
+        "version": "c1de7285a68a",
+        "username": "zsolt.remenyik",
+        "comment": "Increased OpenSearch InstanceCount in st-parameter-service cloud-formation.template.yml",
+        "ticket": "",
+        "deployedAt": "20261127T161402+0000",
+        "files": [
+          "cloud-formation.template.yml"
         ],
         "scope": "qa-deploy"
       },
       {
         "service": "DemandApi",
+        "version": "18ea1f4b5496",
+        "username": "gabor.fial",
+        "comment": "Merge remote-tracking branch 'origin/master'",
+        "ticket": "",
+        "deployedAt": "20261127T151415+0000",
+        "files": [
+          "QuotaGroupUpdateHandler.java",
+          "QuotaGroupUpdateHandlerTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DemandApi",
+        "version": "9fc67dcc4fe6",
+        "username": "gabor.fial",
+        "comment": "DemandApi - handle only deleted quota group",
+        "ticket": "",
+        "deployedAt": "20261127T151415+0000",
+        "files": [
+          "ProjectHandler.java",
+          "QuotaGroupUpdateHandler.java",
+          "ProjectHandlerTest.groovy",
+          "QuotaGroupUpdateHandlerTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DemandApi",
+        "version": "1f601f9d004d",
+        "username": "61797769+kocskam",
+        "comment": "[PAC-942] Fix SEGMENT_STRUCTURE clone to persist segmentDetails in Mongo (#5789)",
+        "ticket": "",
+        "deployedAt": "20261127T145347+0000",
+        "files": [
+          "DetailsEditorFeignClient.java",
+          "QuotaGroupUpdateHandler.java",
+          "NexusUpdateGatewayTest.groovy",
+          "QuotaGroupUpdateHandlerTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DemandApi",
+        "version": "c95fe1c13056",
+        "username": "gabor.fial",
+        "comment": "[PAC-852] DemandApi - fix acceptanceTests for new case",
+        "ticket": "",
+        "deployedAt": "20261127T145347+0000",
+        "files": [
+          "ClientManagementTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DemandApi",
+        "version": "9b47595dc08e",
+        "username": "gabor.fial",
+        "comment": "[PAC-852] DemandApi - fix acceptanceTests for new case, and search endpoint isD365 case fix",
+        "ticket": "",
+        "deployedAt": "20261127T145347+0000",
+        "files": [
+          "DemandApiFlowTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "DemandApi",
+        "version": "7a13a93f7d16",
+        "username": "gabor.fial",
+        "comment": "[PAC-852] DemandApi - fix acceptanceTests for new case, and search endpoint isD365 case fix",
+        "ticket": "",
+        "deployedAt": "20261127T145347+0000",
+        "files": [
+          "DemandApiFlowTest.groovy",
+          "DemandUtil.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ProjectRestJ16",
+        "version": "70f51f21818a",
+        "username": "gabor.fial",
+        "comment": "ProjectRest - applyProjectStatusTransitionIfApplicable don't affect on PROGRAMMATIC projects - more code in master",
+        "ticket": "",
+        "deployedAt": "20261127T102607+0000",
+        "files": [
+          "ProjectRest.java",
+          "DirectProjectStatusUpdateVerifier.java",
+          "ProjectRest.java",
+          "ProjectUpdater.java",
+          "ProjectRestTest.groovy",
+          "DirectProjectStatusUpdateVerifierTest.groovy"
+        ],
+        "scope": "qa-deploy"
+      },
+      {
+        "service": "ProjectRestJ16",
         "version": "8d2403a89b47",
         "username": "zsolt.remenyik",
         "comment": "Merge pull request #686 from dynata/ST-4898-retire-cascades-rest",
         "ticket": "",
-        "deployedAt": "20261126T150415+0000",
+        "deployedAt": "20261127T102607+0000",
         "files": [],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DemandApi",
-        "version": "4c9a50bd0893",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7786] [traffic-control] delete temporary priority in dev, qa",
-        "ticket": "",
-        "deployedAt": "20261126T150415+0000",
-        "files": [
-          "dev.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DemandApi",
-        "version": "7a341e68b967",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7786] [traffic-control] fix listeners (with temporary priority in dev, qa)",
-        "ticket": "",
-        "deployedAt": "20261126T150415+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml",
-          "dev.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DemandApi",
-        "version": "cb3b872d8330",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7786] [drop-service] change listener priority back (dev, qa)",
-        "ticket": "",
-        "deployedAt": "20261126T150415+0000",
-        "files": [
-          "dev.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DemandApi",
-        "version": "495d3385a29d",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7786] [drop-service] change listener priority (dev, qa, temporary)",
-        "ticket": "",
-        "deployedAt": "20261126T150415+0000",
-        "files": [
-          "dev.yml",
-          "qa.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DemandApi",
-        "version": "c0a0b11251c9",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7786] [drop-service] fix listeners",
-        "ticket": "",
-        "deployedAt": "20261126T150415+0000",
-        "files": [
-          "cloud-formation.template.yml",
-          "all.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DemandApi",
-        "version": "eb48678954a0",
-        "username": "gabor.fial",
-        "comment": "[PAC-852] DemandApi - fix acceptanceTests for new case",
-        "ticket": "",
-        "deployedAt": "20261126T150415+0000",
-        "files": [
-          "DemandUtil.groovy",
-          "ProjectCreationTest.groovy"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DemandApi",
-        "version": "cebd83f0a6d1",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7786] [traffic-control] add Dynamo access to exec role",
-        "ticket": "",
-        "deployedAt": "20261126T150415+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
-        "scope": "qa-deploy"
-      },
-      {
-        "service": "DemandApi",
-        "version": "67382c0b5663",
-        "username": "bresalio.nagy",
-        "comment": "[AE-7786] [traffic-control] add Kinesis access to exec role",
-        "ticket": "",
-        "deployedAt": "20261126T150415+0000",
-        "files": [
-          "cloud-formation.template.yml"
-        ],
         "scope": "qa-deploy"
       }
     ]
